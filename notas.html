@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notas — Àlex Reyes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="investigacion.html">Investigación</a>
+      <a href="docencia.html">Docencia</a>
+      <a href="notas.html" class="nav-active">Notas</a>
+      <a href="cv.html">CV</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="container" style="padding-top:4rem;padding-bottom:6rem">
+    <div class="page-header">
+      <span class="section-label">Notas</span>
+      <h1 style="margin:0.5rem 0 1rem">Ideas sueltas</h1>
+      <p style="font-size:1.05rem;color:var(--text-soft);line-height:1.65;max-width:560px">Reflexiones sobre docencia, avances de investigación y algunas digresiones matemáticas que no caben en el paper pero merecen existir.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;max-width:760px">
+      <article class="note-item">
+        <div class="note-date">Próximamente</div>
+        <div class="note-content">
+          <h2 class="note-title">Frodo, el Anillo y la conjetura de Collatz</h2>
+          <p class="note-desc">Una analogía simbólica entre el viaje de Frodo y la estructura de las trayectorias de Collatz. La Comarca como nivel m, el Anillo como el ciclo inevitable.</p>
+          <div style="display:flex;gap:0.5rem;margin-top:0.8rem">
+            <span class="tag tag-purple">investigación</span>
+            <span class="tag tag-gray">divulgación</span>
+          </div>
+        </div>
+      </article>
+      <article class="note-item">
+        <div class="note-date">Próximamente</div>
+        <div class="note-content">
+          <h2 class="note-title">Gamificar el repaso en 2n ESO: Copa Cangur en el aula</h2>
+          <p class="note-desc">Cómo adaptar el formato de la Copa Cangur para hacer repasos competitivos que hacen que los alumnos quieran quedarse después del timbre.</p>
+          <div style="display:flex;gap:0.5rem;margin-top:0.8rem">
+            <span class="tag tag-green">docencia</span>
+            <span class="tag tag-gray">ESO</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia e investigación</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleTheme(){const h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+const s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);
+</script>
+</body>
+</html>

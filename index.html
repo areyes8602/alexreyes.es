@@ -3,114 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Àlex Reyes — Profesor de matemáticas en Maristes Sants-Les Corts e investigador sobre la conjetura de Collatz. Barcelona.">
 <title>Àlex Reyes — Matemáticas, docencia e investigación</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
-<style>
-:root {
-  --bg: #ffffff; --bg-subtle: #f9f9f9; --bg-hover: #f4f4f4;
-  --border: #e8e8e8; --border-strong: #d0d0d0;
-  --text: #0a0a0a; --text-soft: #525252; --text-faint: #888888;
-  --font: 'Inter', -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
-  --radius: 10px; --radius-sm: 6px;
-}
-[data-theme="dark"] {
-  --bg: #0a0a0a; --bg-subtle: #111; --bg-hover: #1a1a1a;
-  --border: #222; --border-strong: #333;
-  --text: #f0f0f0; --text-soft: #a0a0a0; --text-faint: #555;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-a { color: var(--text); text-decoration: none; }
-a:hover { opacity: 0.7; }
-
-/* NAV */
-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
-[data-theme="dark"] nav { background: rgba(10,10,10,0.92); }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 56px; display: flex; align-items: center; gap: 2rem; }
-.nav-brand { font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
-.nav-brand::before { content: ""; width: 8px; height: 8px; background: var(--text); border-radius: 50%; display: inline-block; }
-.nav-links { display: flex; gap: 0.2rem; flex: 1; }
-.nav-links a { font-size: 0.85rem; color: var(--text-faint); padding: 0.35rem 0.65rem; border-radius: var(--radius-sm); }
-.nav-links a:hover { color: var(--text); background: var(--bg-hover); opacity: 1; }
-.nav-right { display: flex; align-items: center; gap: 1rem; margin-left: auto; }
-.lang-sw { display: flex; gap: 0.2rem; font-size: 0.75rem; font-weight: 500; }
-.lang-sw a { color: var(--text-faint); padding: 0.2rem 0.3rem; }
-.lang-sw a:hover { color: var(--text); opacity: 1; }
-.theme-btn { background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.4rem; cursor: pointer; color: var(--text-soft); display: flex; align-items: center; }
-.theme-btn:hover { border-color: var(--border-strong); background: var(--bg-hover); }
-[data-theme="light"] .icon-moon { display: none; }
-[data-theme="dark"] .icon-sun { display: none; }
-
-/* LAYOUT */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-
-/* HERO */
-.hero { padding: 5rem 0 3rem; }
-.hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: center; }
-.hero-text { display: flex; flex-direction: column; gap: 1.5rem; }
-.pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--bg-subtle); border-radius: 100px; font-size: 0.75rem; font-weight: 500; color: var(--text-soft); width: fit-content; }
-.pill::before { content: ""; width: 7px; height: 7px; background: #10b981; border-radius: 50%; }
-h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); letter-spacing: -0.03em; line-height: 1.08; font-weight: 600; }
-.hero-desc { font-size: 1.08rem; line-height: 1.65; color: var(--text-soft); max-width: 38rem; }
-.cta { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-.btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.2rem; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 500; cursor: pointer; border: none; font-family: var(--font); }
-.btn-primary { background: var(--text); color: var(--bg); }
-.btn-secondary { background: var(--bg-subtle); color: var(--text); border: 1px solid var(--border); }
-.btn:hover { opacity: 0.85; }
-.hero-meta { display: flex; gap: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
-.meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
-.meta-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--text-faint); }
-.meta-value { font-size: 0.9rem; font-weight: 500; }
-.hero-photo { display: flex; justify-content: center; }
-.photo-frame { width: 100%; max-width: 300px; aspect-ratio: 4/5; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.5rem; color: var(--text-faint); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
-
-/* CARDS */
-.sections { padding: 4rem 0; }
-.cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem; transition: border-color 0.2s, box-shadow 0.2s; }
-.card:hover { border-color: var(--border-strong); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-.card-kicker { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
-.dot { width: 7px; height: 7px; border-radius: 50%; background: #10b981; display: inline-block; }
-.dot-purple { background: #6366f1; }
-.section-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-faint); }
-.card h2 { font-size: 1.4rem; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
-.card p { font-size: 0.95rem; color: var(--text-soft); line-height: 1.6; }
-.item-list { list-style: none; margin-top: 1.2rem; border-top: 1px solid var(--border); }
-.item-list li { display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 0; border-bottom: 1px solid var(--border); gap: 1rem; }
-.item-list a { font-size: 0.92rem; color: var(--text-soft); flex: 1; }
-.item-list a:hover { color: var(--text); opacity: 1; }
-.tag { font-size: 0.7rem; font-weight: 500; padding: 0.2rem 0.5rem; border-radius: 4px; white-space: nowrap; font-family: var(--mono); }
-.tag-green { color: #059669; background: rgba(5,150,105,0.1); }
-.tag-purple { color: #6366f1; background: rgba(99,102,241,0.1); }
-.tag-orange { color: #d97706; background: rgba(217,119,6,0.1); }
-.tag-red { color: #dc2626; background: rgba(220,38,38,0.1); }
-.tag-gray { color: var(--text-faint); background: var(--bg-hover); }
-
-/* FORMULA */
-.formula-section { padding: 3rem 0 5rem; }
-.formula-block { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; text-align: center; max-width: 720px; margin: 0 auto; }
-.formula-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-faint); font-weight: 600; margin-bottom: 1.5rem; font-family: var(--mono); }
-.formula-math { font-size: 1.2rem; margin: 1.5rem 0; padding: 1rem; overflow-x: auto; }
-.formula-desc { font-size: 0.95rem; color: var(--text-soft); max-width: 38rem; margin: 0 auto; line-height: 1.7; text-align: left; }
-
-/* FOOTER */
-footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0; }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: var(--text-faint); }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-photo { display: none; }
-  .cards-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  .hero { padding: 3rem 0 2rem; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body data-theme="light">
 
@@ -118,22 +18,14 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="index.html">Inicio</a>
-      <a href="docencia.html">Docencia</a>
       <a href="investigacion.html">Investigación</a>
+      <a href="docencia.html">Docencia</a>
       <a href="notas.html">Notas</a>
       <a href="cv.html">CV</a>
       <a href="contacto.html">Contacto</a>
     </div>
     <div class="nav-right">
-      <div class="lang-sw">
-        <a href="index.html">ES</a>
-        <span style="color:var(--border-strong)">·</span>
-        <a href="ca/index.html">CA</a>
-        <span style="color:var(--border-strong)">·</span>
-        <a href="en/index.html">EN</a>
-      </div>
-      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle tema">
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Cambiar tema">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
@@ -142,13 +34,16 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
 </nav>
 
 <main>
+
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-text">
-          <span class="pill">Profesor &middot; Investigador</span>
-          <h1>Matemáticas que enseño, aprendo e investigo.</h1>
-          <p class="hero-desc">Profesor de matemáticas en Barcelona e investigador independiente sobre la conjetura de Collatz. Este es mi espacio de trabajo: materiales docentes, notas de investigación y visualizaciones interactivas.</p>
+          <span class="pill">Profesor &middot; Investigador &middot; Barcelona</span>
+          <h1>Àlex Reyes</h1>
+          <p class="hero-name-full">Manuel Alejandro Reyes Jiménez</p>
+          <p class="hero-desc">Profesor de matemáticas en el Col&middot;legi Maristes Sants&mdash;Les Corts e investigador sobre la conjetura de Collatz. Este es mi espacio de trabajo: materiales docentes, notas de investigación y las preguntas que me mantienen despierto.</p>
           <div class="cta">
             <a href="investigacion.html" class="btn btn-primary">Investigación &rarr;</a>
             <a href="docencia.html" class="btn btn-secondary">Docencia</a>
@@ -156,15 +51,15 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
           <div class="hero-meta">
             <div class="meta-item">
               <span class="meta-label">Centro</span>
-              <span class="meta-value">Maristes Sants &mdash; Les Corts</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Área</span>
-              <span class="meta-value">Matemáticas</span>
+              <span class="meta-value">Maristes Sants&mdash;Les Corts</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Docente desde</span>
               <span class="meta-value">2010</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Investigación</span>
+              <span class="meta-value">Conjetura de Collatz</span>
             </div>
           </div>
         </div>
@@ -178,56 +73,72 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
     </div>
   </section>
 
-  <section class="sections">
+  <!-- SOBRE MÍ -->
+  <section class="about-section">
     <div class="container">
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-kicker"><span class="dot"></span><span class="section-label">Docencia</span></div>
-          <h2>Asignaturas y materiales</h2>
-          <p>Materiales, exámenes y recursos para las asignaturas de este curso.</p>
-          <ul class="item-list">
-            <li><a href="docencia.html">IB Mathematics AI HL</a><span class="tag tag-orange">aula</span></li>
-            <li><a href="docencia.html">IB Mathematics AA HL</a><span class="tag tag-orange">aula</span></li>
-            <li><a href="docencia.html">1r d'ESO &mdash; Matemàtiques</a><span class="tag tag-orange">aula</span></li>
-            <li><a href="docencia.html">Recursos abiertos</a><span class="tag tag-green">público</span></li>
-          </ul>
-          <a href="docencia.html" class="btn btn-secondary" style="margin-top:1.5rem;font-size:0.85rem;">Ver toda la docencia &rarr;</a>
+      <div class="about-grid">
+        <div class="about-label">
+          <span class="section-label">Sobre mí</span>
         </div>
-        <div class="card">
-          <div class="card-kicker"><span class="dot dot-purple"></span><span class="section-label">Investigación</span></div>
-          <h2>Collatz y más allá</h2>
-          <p>Dinámica modular fractal y la conjetura de Collatz. Paper en preparación para arXiv.</p>
-          <ul class="item-list">
-            <li><a href="investigacion.html">Dinámica modular fractal y Collatz</a><span class="tag tag-purple">preprint</span></li>
-            <li><a href="investigacion.html">Visualizador mod 6</a><span class="tag tag-gray">interactivo</span></li>
-            <li><a href="investigacion.html">Explorador s/m &asymp; log&#8323;2</a><span class="tag tag-gray">interactivo</span></li>
-            <li><a href="investigacion.html">Números perfectos impares</a><span class="tag tag-red">pronto</span></li>
-          </ul>
-          <a href="investigacion.html" class="btn btn-secondary" style="margin-top:1.5rem;font-size:0.85rem;">Ver toda la investigación &rarr;</a>
+        <div class="about-text">
+          <p>Desde pequeño siempre he tenido fascinación por resolver problemas. Nunca me ha importado si la resolución tenía algún tipo de aplicabilidad o no &mdash; disfrutaba pensando, analizando, llegando al fondo de las cosas. Me licencié en la FME de la UPC en Matemáticas, e hice también el Máster en Matemática Aplicada y el de Formación del Profesorado.</p>
+          <p style="margin-top:1rem">Estuve 7 cursos en l'Escola Meritxell de Mataró como profesor de matemáticas de ESO y Bachillerato, los dos últimos como jefe de estudios de bachillerato. Desde hace 8 cursos soy profesor en el Col&middot;legi Maristes Sants&mdash;Les Corts &mdash; el mismo centro donde estudié toda mi educación primaria y secundaria.</p>
+          <p style="margin-top:1rem">Quince años en el aula me llevaron a retomar algo que tenía muy olvidado: la inquietud de resolver problemas de verdad. Lo más cercano que hacía era ayudar a preparar alumnos para la Copa o la Prova Cangur. Un día descubrí la conjetura de Collatz &mdash; un problema que reúne todo lo que me fascina de las matemáticas. Y gracias a eso, actualmente estudio doctorado con el Dr. Jaume Franch Bullich.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="formula-section">
+  <!-- DOS CAMINOS -->
+  <section class="sections">
     <div class="container">
-      <div class="formula-block">
-        <div class="formula-label">fórmula central &middot; conjetura de Collatz</div>
-        <div class="formula-math">
-          \[T^m(n) = \frac{3^s \cdot n + R(C^m_k)}{2^m}\]
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-kicker">
+            <span class="dot dot-purple"></span>
+            <span class="section-label">Investigación</span>
+          </div>
+          <h2>Conjetura de Collatz</h2>
+          <p>Dinámica modular fractal, codificaciones binarias y fibras congruentes. Paper en preparación para arXiv (math.NT).</p>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;text-align:center;margin:1.2rem 0;overflow-x:auto;font-size:0.95rem">
+            \[T^m(n) = \frac{3^s \cdot n + R(C^m_k)}{2^m}\]
+          </div>
+          <ul class="item-list">
+            <li><a href="investigacion.html">Paper &mdash; abstract y estado</a><span class="tag tag-purple">preprint</span></li>
+            <li><a href="investigacion.html">Visualizaciones interactivas</a><span class="tag tag-gray">interactivo</span></li>
+            <li><a href="investigacion.html">Números perfectos impares</a><span class="tag tag-red">pronto</span></li>
+          </ul>
+          <a href="investigacion.html" class="btn btn-secondary" style="margin-top:1.5rem;font-size:0.85rem">Ver investigación &rarr;</a>
         </div>
-        <p class="formula-desc">Dado un entero positivo <em>n</em> de nivel <em>m</em> y una codificación binaria <em>C<sup>m</sup><sub>k</sub></em> que registra la paridad de cada paso intermedio, <em>s</em> cuenta los pasos impares y <em>R</em> viene dado por una fórmula sumatoria explícita.</p>
-        <a href="investigacion.html" class="btn btn-secondary" style="margin-top:1.5rem;font-size:0.85rem;">Leer más sobre la investigación &rarr;</a>
+
+        <div class="card">
+          <div class="card-kicker">
+            <span class="dot"></span>
+            <span class="section-label">Docencia</span>
+          </div>
+          <h2>Asignaturas y materiales</h2>
+          <p>Recursos para las asignaturas que imparto y he impartido. Materiales permanentes y contenido actualizado cada curso.</p>
+          <ul class="item-list">
+            <li><a href="docencia.html#ib">IB Mathematics AI HL &amp; SL</a><span class="tag tag-orange">2025-26</span></li>
+            <li><a href="docencia.html#ccss">Mat. Aplicadas CCSS 1º BTL</a><span class="tag tag-orange">2025-26</span></li>
+            <li><a href="docencia.html#eso">Matemàtiques 2n ESO</a><span class="tag tag-orange">2025-26</span></li>
+            <li><a href="docencia.html#cangur">Copa &amp; Prova Cangur</a><span class="tag tag-green">público</span></li>
+          </ul>
+          <a href="docencia.html" class="btn btn-secondary" style="margin-top:1.5rem;font-size:0.85rem">Ver docencia &rarr;</a>
+        </div>
+
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia e investigación</span>
-      <span>Barcelona &middot; 2026</span>
+      <span><strong>Àlex Reyes</strong> &middot; Manuel Alejandro Reyes Jiménez &middot; Barcelona</span>
+      <span><a href="contacto.html" style="color:var(--text-faint)">areyes8602@gmail.com</a></span>
     </div>
   </div>
 </footer>
@@ -235,8 +146,7 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
 <script>
 function toggleTheme() {
   const html = document.documentElement;
-  const current = html.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
 }
