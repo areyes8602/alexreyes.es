@@ -1,0 +1,82 @@
+---
+export interface Props {
+  lang?: string;
+}
+const { lang = 'es' } = Astro.props;
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__inner container">
+    <div class="footer__left">
+      <span class="footer__name">Àlex Reyes</span>
+      <span class="footer__sep">·</span>
+      <span class="footer__desc">
+        {lang === 'ca' ? 'Matemàtiques, docència i recerca' :
+         lang === 'en' ? 'Mathematics, teaching and research' :
+         'Matemáticas, docencia e investigación'}
+      </span>
+    </div>
+    <div class="footer__right">
+      <span class="footer__location">Barcelona · {year}</span>
+      <div class="footer__langs">
+        <a href="/">ES</a>
+        <span>·</span>
+        <a href="/ca">CA</a>
+        <span>·</span>
+        <a href="/en">EN</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 6rem;
+  padding: 2rem 0;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer__left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+.footer__name {
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.footer__sep { color: var(--border-strong); }
+
+.footer__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+
+.footer__langs {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+.footer__langs a {
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.footer__langs a:hover { color: var(--text); opacity: 1; }
+.footer__langs span { color: var(--border-strong); }
+</style>

@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Inicio" lang="es">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__text">
+          <span class="pill">
+            <span class="dot"></span>
+            Profesor · Investigador
+          </span>
+
+          <h1 class="hero__title">
+            Matemáticas que enseño, aprendo e investigo.
+          </h1>
+
+          <p class="hero__desc">
+            Profesor de matemáticas en Barcelona e investigador independiente sobre la conjetura de Collatz. Este es mi espacio de trabajo: materiales docentes, notas de investigación y visualizaciones interactivas.
+          </p>
+
+          <div class="hero__cta">
+            <a href="/investigacion" class="btn btn--primary">Investigación →</a>
+            <a href="/docencia" class="btn btn--secondary">Docencia</a>
+          </div>
+
+          <div class="hero__meta">
+            <div class="meta-item">
+              <span class="meta-item__label">Centro</span>
+              <span class="meta-item__value">Maristes Sants — Les Corts</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-item__label">Área</span>
+              <span class="meta-item__value">Matemáticas</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-item__label">Docente desde</span>
+              <span class="meta-item__value">2010</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__photo">
+          <div class="hero__photo-frame">
+            <div class="hero__photo-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span>foto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIONES DOCENCIA + INVESTIGACIÓN -->
+  <section class="sections">
+    <div class="container">
+      <div class="sections__grid">
+
+        <!-- DOCENCIA -->
+        <div class="card">
+          <div class="card__header">
+            <div class="card__kicker">
+              <span class="dot"></span>
+              <span class="section-title">Docencia</span>
+            </div>
+          </div>
+          <h2 class="card__title">Asignaturas y materiales</h2>
+          <p class="card__desc">Materiales, exámenes y recursos para las asignaturas de este curso. Algunos son públicos; otros requieren acceso de alumno.</p>
+
+          <ul class="item-list">
+            <li>
+              <a href="/docencia/ib-ai-hl">IB Mathematics AI HL</a>
+              <span class="tag tag--orange">aula</span>
+            </li>
+            <li>
+              <a href="/docencia/ib-aa-hl">IB Mathematics AA HL</a>
+              <span class="tag tag--orange">aula</span>
+            </li>
+            <li>
+              <a href="/docencia/1eso">1r d'ESO — Matemàtiques</a>
+              <span class="tag tag--orange">aula</span>
+            </li>
+            <li>
+              <a href="/docencia/recursos">Recursos abiertos</a>
+              <span class="tag tag--green">público</span>
+            </li>
+          </ul>
+
+          <div class="card__footer">
+            <a href="/docencia" class="btn btn--secondary" style="margin-top: 1.5rem; font-size: 0.85rem;">
+              Ver toda la docencia →
+            </a>
+          </div>
+        </div>
+
+        <!-- INVESTIGACIÓN -->
+        <div class="card">
+          <div class="card__header">
+            <div class="card__kicker">
+              <span class="dot dot--purple"></span>
+              <span class="section-title">Investigación</span>
+            </div>
+          </div>
+          <h2 class="card__title">Collatz y más allá</h2>
+          <p class="card__desc">Dinámica modular fractal y la conjetura de Collatz. Paper en preparación. Visualizaciones interactivas disponibles.</p>
+
+          <ul class="item-list">
+            <li>
+              <a href="/investigacion/collatz">Dinámica modular fractal y Collatz</a>
+              <span class="tag tag--purple">preprint</span>
+            </li>
+            <li>
+              <a href="/investigacion/visualizador-mod6">Visualizador mod 6</a>
+              <span class="tag">interactivo</span>
+            </li>
+            <li>
+              <a href="/investigacion/explorador-sm">Explorador s/m ≈ log₃2</a>
+              <span class="tag">interactivo</span>
+            </li>
+            <li>
+              <a href="/investigacion/perfecto-impar">Números perfectos impares</a>
+              <span class="tag tag--red">próximamente</span>
+            </li>
+          </ul>
+
+          <div class="card__footer">
+            <a href="/investigacion" class="btn btn--secondary" style="margin-top: 1.5rem; font-size: 0.85rem;">
+              Ver toda la investigación →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FÓRMULA DESTACADA -->
+  <section class="formula-section">
+    <div class="container--narrow">
+      <div class="formula-block">
+        <div class="formula-block__label">fórmula central · conjetura de Collatz</div>
+        <div class="formula-block__math">
+          $$T^m(n) = \frac{3^s \cdot n + R(C^m_k)}{2^m}$$
+        </div>
+        <p class="formula-block__desc">
+          Dado un entero positivo $n$ de nivel $m$ (con $2^m \leq n < 2^{m+1}$) y una codificación binaria $C^m_k$ que registra la paridad de cada paso intermedio, $s$ es el número de pasos impares y $R(C^m_k)$ viene dado por una fórmula sumatoria explícita.
+        </p>
+        <a href="/investigacion/collatz" class="btn btn--secondary" style="margin-top: 1.5rem; font-size: 0.85rem;">
+          Leer más sobre la investigación →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* HERO */
+.hero {
+  padding: 5rem 0 3rem;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.hero__desc {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--text-soft);
+  max-width: 38rem;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.hero__meta {
+  display: flex;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.meta-item__label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--text-faint);
+}
+.meta-item__value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.hero__photo {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__photo-frame {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 4/5;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.hero__photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* SECTIONS */
+.sections {
+  padding: 4rem 0;
+}
+
+.sections__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.card__header {
+  margin-bottom: 1rem;
+}
+.card__kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card__title {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.5rem;
+}
+.card__desc {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* FORMULA SECTION */
+.formula-section {
+  padding: 3rem 0 5rem;
+}
+
+.formula-block {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.formula-block__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-mono);
+}
+
+.formula-block__math {
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.formula-block__desc {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  max-width: 38rem;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero { padding: 3rem 0 2rem; }
+  .hero__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero__photo { display: none; }
+  .sections__grid { grid-template-columns: 1fr; }
+  .hero__meta { gap: 1.5rem; }
+}
+</style>

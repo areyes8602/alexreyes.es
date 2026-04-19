@@ -1,0 +1,287 @@
+/* ====================================================
+   ALEX REYES · alexreyes.es
+   Global styles — light/dark theme, typography, base
+   ==================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---- TOKENS ---- */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Light theme */
+  --bg:           #ffffff;
+  --bg-subtle:    #f9f9f9;
+  --bg-hover:     #f4f4f4;
+  --border:       #e8e8e8;
+  --border-strong:#d0d0d0;
+  --text:         #0a0a0a;
+  --text-soft:    #525252;
+  --text-faint:   #888888;
+  --accent:       #0a0a0a;
+  --accent-soft:  #333333;
+  --tag-bg:       #f0f0f0;
+  --tag-text:     #525252;
+  --pill-bg:      #f0f0f0;
+  --pill-text:    #525252;
+  --dot-active:   #10b981;
+  --dot-research: #6366f1;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md:    0 4px 12px rgba(0,0,0,0.08);
+  --radius:       10px;
+  --radius-sm:    6px;
+}
+
+[data-theme="dark"] {
+  --bg:           #0a0a0a;
+  --bg-subtle:    #111111;
+  --bg-hover:     #1a1a1a;
+  --border:       #222222;
+  --border-strong:#333333;
+  --text:         #f0f0f0;
+  --text-soft:    #a0a0a0;
+  --text-faint:   #555555;
+  --accent:       #f0f0f0;
+  --accent-soft:  #cccccc;
+  --tag-bg:       #1a1a1a;
+  --tag-text:     #888888;
+  --pill-bg:      #1a1a1a;
+  --pill-text:    #888888;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md:    0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* ---- RESET & BASE ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.2s ease, color 0.2s ease;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- TYPOGRAPHY ---- */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.2rem; font-weight: 600; }
+
+p { color: var(--text-soft); line-height: 1.7; }
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+a:hover { opacity: 0.7; }
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+pre {
+  font-family: var(--font-mono);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.5rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+/* ---- LAYOUT ---- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container--narrow {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ---- COMPONENTS ---- */
+
+/* Pill badge */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--pill-bg);
+  color: var(--pill-text);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Tag */
+.tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--tag-text);
+  background: var(--tag-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+}
+.tag--green { color: #059669; background: rgba(5,150,105,0.1); }
+.tag--purple { color: #6366f1; background: rgba(99,102,241,0.1); }
+.tag--orange { color: #d97706; background: rgba(217,119,6,0.1); }
+.tag--red { color: #dc2626; background: rgba(220,38,38,0.1); }
+
+/* Status dot */
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--dot-active);
+  display: inline-block;
+  flex-shrink: 0;
+}
+.dot--purple { background: var(--dot-research); }
+
+/* Card */
+.card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* Item list (inside cards) */
+.item-list {
+  list-style: none;
+  margin-top: 1.2rem;
+  border-top: 1px solid var(--border);
+}
+.item-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+}
+.item-list a {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  flex: 1;
+}
+.item-list a:hover { color: var(--text); opacity: 1; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+.btn--primary {
+  background: var(--text);
+  color: var(--bg);
+}
+.btn--primary:hover { opacity: 0.85; }
+.btn--secondary {
+  background: var(--bg-subtle);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn--secondary:hover { border-color: var(--border-strong); background: var(--bg-hover); opacity: 1; }
+
+/* Math blocks */
+.math-display {
+  overflow-x: auto;
+  padding: 1.2rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* Section titles */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+}
+
+/* Divider */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3rem 0;
+}
+
+/* KaTeX override */
+.katex { font-size: 1.05em; }
+.katex-display { overflow-x: auto; overflow-y: hidden; }
+
+/* Utilities */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-6 { margin-top: 3rem; }
+.mt-8 { margin-top: 4rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 2rem; }
+.text-faint { color: var(--text-faint); }
+.text-soft { color: var(--text-soft); }
+.mono { font-family: var(--font-mono); font-size: 0.88em; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .container, .container--narrow { padding: 0 1.2rem; }
+}

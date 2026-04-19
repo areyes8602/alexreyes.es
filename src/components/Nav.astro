@@ -1,0 +1,221 @@
+---
+export interface Props {
+  lang?: string;
+}
+const { lang = 'es' } = Astro.props;
+
+const navLinks = {
+  es: [
+    { href: '/', label: 'Inicio' },
+    { href: '/docencia', label: 'Docencia' },
+    { href: '/investigacion', label: 'Investigación' },
+    { href: '/notas', label: 'Notas' },
+    { href: '/cv', label: 'CV' },
+    { href: '/contacto', label: 'Contacto' },
+  ],
+  ca: [
+    { href: '/ca', label: 'Inici' },
+    { href: '/ca/docencia', label: 'Docència' },
+    { href: '/ca/investigacio', label: 'Recerca' },
+    { href: '/ca/notes', label: 'Notes' },
+    { href: '/ca/cv', label: 'CV' },
+    { href: '/ca/contacte', label: 'Contacte' },
+  ],
+  en: [
+    { href: '/en', label: 'Home' },
+    { href: '/en/teaching', label: 'Teaching' },
+    { href: '/en/research', label: 'Research' },
+    { href: '/en/notes', label: 'Notes' },
+    { href: '/en/cv', label: 'CV' },
+    { href: '/en/contact', label: 'Contact' },
+  ],
+};
+
+const links = navLinks[lang as keyof typeof navLinks] || navLinks.es;
+const currentPath = Astro.url.pathname;
+---
+
+<header class="nav">
+  <div class="nav__inner container">
+    <a href={lang === 'es' ? '/' : `/${lang}`} class="nav__brand">
+      <span class="nav__brand-dot"></span>
+      alexreyes.es
+    </a>
+
+    <nav class="nav__links" aria-label="Navegación principal">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class={`nav__link ${currentPath === link.href ? 'nav__link--active' : ''}`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="nav__controls">
+      <div class="nav__langs">
+        <a href="/" class={lang === 'es' ? 'active' : ''}>ES</a>
+        <span class="sep">·</span>
+        <a href="/ca" class={lang === 'ca' ? 'active' : ''}>CA</a>
+        <span class="sep">·</span>
+        <a href="/en" class={lang === 'en' ? 'active' : ''}>EN</a>
+      </div>
+
+      <button id="theme-toggle" class="nav__theme-btn" aria-label="Toggle tema">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  background: rgba(var(--bg-rgb, 255,255,255), 0.92);
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(10,10,10,0.92);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 56px;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav__brand:hover { opacity: 1; }
+
+.nav__brand-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--text);
+  border-radius: 50%;
+}
+
+.nav__links {
+  display: flex;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.nav__link {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+  font-weight: 400;
+}
+.nav__link:hover {
+  color: var(--text);
+  background: var(--bg-hover);
+  opacity: 1;
+}
+.nav__link--active {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nav__controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.nav__langs {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.nav__langs a {
+  color: var(--text-faint);
+  padding: 0.2rem 0.3rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.nav__langs a:hover, .nav__langs a.active {
+  color: var(--text);
+  opacity: 1;
+}
+.nav__langs a.active { font-weight: 600; }
+.nav__langs .sep { color: var(--border-strong); }
+
+.nav__theme-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem;
+  cursor: pointer;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+.nav__theme-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+  background: var(--bg-hover);
+}
+
+/* Show/hide sun/moon based on theme */
+[data-theme="light"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: none; }
+
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+.nav__hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav__langs { display: none; }
+}
+</style>
