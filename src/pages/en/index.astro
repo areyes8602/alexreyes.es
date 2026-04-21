@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home" lang="en">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__text">
+          <span class="pill">
+            <span class="dot"></span>
+            Teacher · Researcher
+          </span>
+
+          <h1 class="hero__title">
+            Mathematics I teach, learn and research.
+          </h1>
+
+          <p class="hero__desc">
+            Mathematics teacher in Barcelona and independent researcher on the Collatz conjecture. This is my workspace: teaching materials, research notes and interactive visualisations.
+          </p>
+
+          <div class="hero__cta">
+            <a href="/en/research" class="btn btn--primary">Research &rarr;</a>
+            <a href="/en/teaching" class="btn btn--secondary">Teaching</a>
+          </div>
+
+          <div class="hero__meta">
+            <div class="meta-item">
+              <span class="meta-item__label">School</span>
+              <span class="meta-item__value">Maristes Sants — Les Corts</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-item__label">Field</span>
+              <span class="meta-item__value">Mathematics</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-item__label">Teaching since</span>
+              <span class="meta-item__value">2010</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__photo">
+          <div class="hero__photo-frame">
+            <div class="hero__photo-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span>photo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING + RESEARCH SECTIONS -->
+  <section class="sections">
+    <div class="container">
+      <div class="sections__grid">
+
+        <!-- TEACHING -->
+        <div class="card">
+          <div class="card__header">
+            <div class="card__kicker">
+              <span class="dot"></span>
+              <span class="section-title">Teaching</span>
+            </div>
+          </div>
+          <h2 class="card__title">Courses and materials</h2>
+          <p class="card__desc">Materials, exams and resources for this year's courses. Some are public; others require student access.</p>
+
+          <ul class="item-list">
+            <li>
+              <a href="/docencia/ib-ai-hl">IB Mathematics AI HL</a>
+              <span class="tag tag--orange">classroom</span>
+            </li>
+            <li>
+              <a href="/docencia/ib-aa-hl">IB Mathematics AA HL</a>
+              <span class="tag tag--orange">classroom</span>
+            </li>
+            <li>
+              <a href="/docencia/1eso">1r d'ESO — Matemàtiques</a>
+              <span class="tag tag--orange">classroom</span>
+            </li>
+            <li>
+              <a href="/docencia/recursos">Open resources</a>
+              <span class="tag tag--green">public</span>
+            </li>
+          </ul>
+
+          <div class="card__footer">
+            <a href="/en/teaching" class="btn btn--secondary" style="margin-top: 1.5rem; font-size: 0.85rem;">
+              View all teaching &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- RESEARCH -->
+        <div class="card">
+          <div class="card__header">
+            <div class="card__kicker">
+              <span class="dot dot--purple"></span>
+              <span class="section-title">Research</span>
+            </div>
+          </div>
+          <h2 class="card__title">Collatz and beyond</h2>
+          <p class="card__desc">Modular fractal dynamics and the Collatz conjecture. Paper in preparation. Interactive visualisations available.</p>
+
+          <ul class="item-list">
+            <li>
+              <a href="/investigacion/collatz">Modular fractal dynamics and Collatz</a>
+              <span class="tag tag--purple">preprint</span>
+            </li>
+            <li>
+              <a href="/investigacion/visualizador-mod6">Mod 6 visualiser</a>
+              <span class="tag">interactive</span>
+            </li>
+            <li>
+              <a href="/investigacion/explorador-sm">Explorer s/m ≈ log₃2</a>
+              <span class="tag">interactive</span>
+            </li>
+            <li>
+              <a href="/investigacion/perfecto-impar">Odd perfect numbers</a>
+              <span class="tag tag--red">soon</span>
+            </li>
+          </ul>
+
+          <div class="card__footer">
+            <a href="/en/research" class="btn btn--secondary" style="margin-top: 1.5rem; font-size: 0.85rem;">
+              View all research &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED FORMULA -->
+  <section class="formula-section">
+    <div class="container--narrow">
+      <div class="formula-block">
+        <div class="formula-block__label">central formula · Collatz conjecture</div>
+        <div class="formula-block__math">
+          $$T^m(n) = \frac{3^s \cdot n + R(C^m_k)}{2^m}$$
+        </div>
+        <p class="formula-block__desc">
+          Given a positive integer $n$ of level $m$ and a binary encoding $C^m_k$ recording the parity of each intermediate step. The exponent $s$ counts odd steps and $R(C^m_k)$ is given by an explicit summation formula in powers of 3 and 2.
+        </p>
+        <a href="/en/research" class="btn btn--secondary" style="margin-top: 1.5rem; font-size: 0.85rem;">
+          Read more about the research &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* HERO */
+.hero {
+  padding: 5rem 0 3rem;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.hero__desc {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--text-soft);
+  max-width: 38rem;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.hero__meta {
+  display: flex;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.meta-item__label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--text-faint);
+}
+.meta-item__value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.hero__photo {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__photo-frame {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 4/5;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.hero__photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* SECTIONS */
+.sections {
+  padding: 4rem 0;
+}
+
+.sections__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.card__header {
+  margin-bottom: 1rem;
+}
+.card__kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card__title {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.5rem;
+}
+.card__desc {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* FORMULA SECTION */
+.formula-section {
+  padding: 3rem 0 5rem;
+}
+
+.formula-block {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.formula-block__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-mono);
+}
+
+.formula-block__math {
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.formula-block__desc {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  max-width: 38rem;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero { padding: 3rem 0 2rem; }
+  .hero__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero__photo { display: none; }
+  .sections__grid { grid-template-columns: 1fr; }
+  .hero__meta { gap: 1.5rem; }
+}
+</style>
