@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="docencia/">Docencia</a>
+      <a href="doctorado.html">Doctorado</a>
+      <a href="notas.html">Notas</a>
+      <a href="cv.html">CV</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/index.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/index.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/index.html">EN</a></div>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<!-- 
+<title>Àlex Reyes — Matemáticas, docencia y doctorado</title>
+<meta name="description" content="Àlex Reyes — Profesor de matemáticas en Maristes Sants-Les Corts y estudiante de doctorado en la UPC. Conjetura de Collatz y Dinámica simbólica.">
+ -->
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="pill">Profesor &middot; Estudiante de doctorado &middot; Barcelona</span>
+          <h1>Àlex Reyes</h1>
+          <p class="hero-name-full">Manuel Alejandro Reyes Jiménez</p>
+          <p class="hero-desc">Profesor de matemáticas en el Col&middot;legi Maristes Sants&mdash;Les Corts y estudiante de doctorado en la UPC, especializado en la Conjetura de Collatz y Dinámica simbólica. Este es mi espacio de trabajo: un lugar donde convergen el aula y la investigación.</p>
+          <div class="cta">
+            <a href="docencia/" class="btn btn-primary">Docencia &rarr;</a>
+            <a href="doctorado.html" class="btn btn-secondary">Doctorado</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-item"><span class="meta-label">Centro</span><span class="meta-value">Maristes Sants&mdash;Les Corts</span></div>
+            <div class="meta-item"><span class="meta-label">Docente desde</span><span class="meta-value">2011</span></div>
+            <div class="meta-item"><span class="meta-label">Doctorado</span><span class="meta-value">UPC &mdash; Collatz</span></div>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="photo-frame-img"><img src="alex.jpg" alt="Àlex Reyes" class="hero-img"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-label"><span class="section-label">Sobre mí</span></div>
+        <div class="about-text">
+          <p>Desde pequeño siempre he tenido fascinación por resolver problemas. Nunca me ha importado si la resolución tenía algún tipo de aplicabilidad o no &mdash; disfrutaba pensando, analizando, llegando al fondo de las cosas. Me licencié en la FME de la UPC en Matemáticas, e hice también el Máster en Matemática Aplicada y el de Formación del Profesorado.</p>
+          <p style="margin-top:1rem">Estuve 7 cursos en l'Escola Meritxell de Mataró como profesor de matemáticas de ESO y Bachillerato, los dos últimos como jefe de estudios de bachillerato. Desde hace 8 cursos soy profesor en el Col&middot;legi Maristes Sants&mdash;Les Corts &mdash; el mismo centro donde estudié toda mi educación primaria y secundaria.</p>
+          <p style="margin-top:1rem">Quince años en el aula me llevaron a retomar algo que tenía muy olvidado: la inquietud de resolver problemas de verdad. Un día descubrí la conjetura de Collatz &mdash; un problema que reúne todo lo que me fascina de las matemáticas. Y gracias a eso, actualmente estudio doctorado con el Dr. Jaume Franch Bullich en la UPC.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="now-section">
+    <div class="container">
+      <div class="now-header"><span class="section-label">Ahora mismo</span></div>
+      <div class="now-grid">
+        <div class="now-item"><span class="now-dot"></span><span>Redactando el paper sobre dinámica modular fractal y la conjetura de Collatz</span></div>
+        <div class="now-item"><span class="now-dot now-dot-blue"></span><span>Preparando los exámenes del tercer trimestre &mdash; IB AI HL y 2n ESO</span></div>
+        <div class="now-item"><span class="now-dot now-dot-orange"></span><span>Preparación de alumnos para la Prova Cangur 2026</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="sections">
+    <div class="container">
+      <div class="two-paths">
+        <div class="path path-teaching">
+          <div class="path-header">
+            <div class="card-kicker"><span class="dot"></span><span class="section-label">Docencia</span></div>
+            <h2>Para mis alumnos</h2>
+            <p>Si eres alumno del Col&middot;legi Maristes Sants&mdash;Les Corts, aquí encontrarás todo el material de tu asignatura: apuntes, listado de ejercicios, exámenes de años anteriores e información del curso. Próximamente también el generador de exámenes.</p>
+          </div>
+          <ul class="item-list">
+            <li><a href="docencia/">IB Mathematics AI HL &amp; SL</a><span class="tag tag-orange">2025-26</span></li>
+            <li><a href="docencia/">Mat. Aplicadas CCSS 1&ordm; BTL</a><span class="tag tag-orange">2025-26</span></li>
+            <li><a href="docencia/">Matemàtiques 2n ESO</a><span class="tag tag-orange">2025-26</span></li>
+            <li><a href="docencia/">Copa &amp; Prova Cangur</a><span class="tag tag-green">públic</span></li>
+          </ul>
+          <a href="docencia/" class="btn btn-secondary" style="margin-top:1.5rem;font-size:0.85rem">Ver todas las asignaturas &rarr;</a>
+        </div>
+        <div class="path path-research">
+          <div class="path-header">
+            <div class="card-kicker"><span class="dot dot-purple"></span><span class="section-label">Doctorado</span></div>
+            <h2>Para investigadores</h2>
+            <p>Si eres investigador o colega, aquí encontrarás mis líneas de investigación, papers, participaciones en congresos y avances del trabajo sobre la conjetura de Collatz y dinámica simbólica.</p>
+          </div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;text-align:center;margin:1.2rem 0;overflow-x:auto;font-size:0.9rem">
+            \[T^m(n) = \frac{3^s \cdot n + R(C^m_k)}{2^m}\]
+          </div>
+          <ul class="item-list">
+            <li><a href="doctorado.html">Dinámica modular fractal y la conjetura de Collatz</a><span class="tag tag-purple">preprint</span></li>
+            <li><a href="doctorado.html">Visualizaciones interactivas</a><span class="tag tag-gray">interactiu</span></li>
+          </ul>
+          <a href="doctorado.html" class="btn btn-secondary" style="margin-top:1.5rem;font-size:0.85rem">Ver investigación &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="contacto.html" style="color:var(--text-faint)">areyes8602@gmail.com</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleTheme(){const h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+const s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);
+</script>
+</body>
+</html>

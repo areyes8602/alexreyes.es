@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docencia — Àlex Reyes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body data-theme="light">
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="../docencia/" class="nav-active">Docencia</a>
+      <a href="../doctorado.html">Doctorado</a>
+      <a href="../notas.html">Notas</a>
+      <a href="../cv.html">CV</a>
+      <a href="../contacto.html">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:6rem">
+
+    <div class="breadcrumb">
+      <a href="../index.html">Inicio</a>
+      <span class="sep">/</span>
+      <span class="current">Docencia</span>
+    </div>
+
+    <div class="page-header">
+      <span class="section-label">Docencia</span>
+      <h1 style="margin:0.5rem 0 1rem">Asignaturas y materiales</h1>
+      <p style="font-size:1.05rem;color:var(--text-soft);line-height:1.65;max-width:600px">
+        Material organizado por asignatura. Cada página incluye una capa permanente (temario, apuntes, ejercicios) y una capa anual actualizada cada curso. El acceso al aula requiere autorización.
+      </p>
+    </div>
+
+    <!-- ACTIVAS ESTE CURSO -->
+    <div style="margin-bottom:3rem">
+      <div class="section-divider">
+        <span class="section-label">Curso 2025&ndash;26 &mdash; activo</span>
+      </div>
+      <div class="subject-grid">
+
+        <a href="ib-ai/" class="subject-card">
+          <div class="subject-card-level">IB Programme</div>
+          <h3>Mathematics: Applications &amp; Interpretation</h3>
+          <p>HL y SL. Dos promociones activas: 2024&ndash;2026 y 2025&ndash;2027. Oxford AI HL/SL, 16 capítulos.</p>
+          <div class="subject-card-footer">
+            <div style="display:flex;gap:0.4rem">
+              <span class="level-badge level-hl">HL</span>
+              <span class="level-badge level-sl">SL</span>
+            </div>
+            <span class="tag tag-orange">aula</span>
+          </div>
+        </a>
+
+        <a href="ccss-1btl/" class="subject-card">
+          <div class="subject-card-level">1º Bachillerato</div>
+          <h3>Matemáticas Aplicadas a las CCSS I</h3>
+          <p>Álgebra, funciones, estadística y probabilidad orientadas a las ciencias sociales. Preparación PAU.</p>
+          <div class="subject-card-footer">
+            <span class="tag tag-gray">BTL</span>
+            <span class="tag tag-orange">aula</span>
+          </div>
+        </a>
+
+        <a href="2eso/" class="subject-card">
+          <div class="subject-card-level">2n d'ESO &middot; Grupos A y E</div>
+          <h3>Matemàtiques 2n d'ESO</h3>
+          <p>Números, álgebra, geometría y estadística. Dos grupos con materiales compartidos y seguimiento individual.</p>
+          <div class="subject-card-footer">
+            <span class="tag tag-gray">ESO</span>
+            <span class="tag tag-orange">aula</span>
+          </div>
+        </a>
+
+        <a href="cangur/" class="subject-card">
+          <div class="subject-card-level">Competicions matemàtiques</div>
+          <h3>Copa Cangur &amp; Prova Cangur</h3>
+          <p>Recursos de preparación para competiciones matemáticas. Problemas por niveles y estrategias de resolución.</p>
+          <div class="subject-card-footer">
+            <span class="tag tag-gray">Competició</span>
+            <span class="tag tag-green">públic</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ARCHIVO HISTÓRICO -->
+    <div>
+      <div class="section-divider">
+        <span class="section-label">Archivo &mdash; asignaturas anteriores</span>
+      </div>
+      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1.5rem;max-width:600px">Materiales permanentes de asignaturas impartidas en cursos anteriores. El contenido está disponible aunque no se actualice anualmente.</p>
+      <div class="archive-grid">
+        <div class="archive-card">
+          <div class="archive-card-header"><span class="course-level">ESO</span></div>
+          <div class="archive-list">
+            <a href="#">Matemàtiques 1r ESO</a>
+            <a href="#">Matemàtiques 2n ESO</a>
+            <a href="#">Matemàtiques 3r ESO</a>
+            <a href="#">Matemàtiques 4t ESO</a>
+          </div>
+        </div>
+        <div class="archive-card">
+          <div class="archive-card-header"><span class="course-level">Bachillerato &mdash; CCSS</span></div>
+          <div class="archive-list">
+            <a href="#">Mat. Aplicadas CCSS 1º BTL</a>
+            <a href="#">Mat. Aplicadas CCSS 2º BTL</a>
+          </div>
+        </div>
+        <div class="archive-card">
+          <div class="archive-card-header"><span class="course-level">Bachillerato &mdash; Científico</span></div>
+          <div class="archive-list">
+            <a href="#">Matemáticas Científico 1º BTL</a>
+            <a href="#">Matemáticas Científico 2º BTL</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleTheme(){const h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+const s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);
+</script>
+</body>
+</html>

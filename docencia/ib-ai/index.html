@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IB Mathematics AI — Àlex Reyes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body data-theme="light">
+<nav>
+  <div class="nav-inner">
+    <a href="../../index.html" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="../../docencia/" class="nav-active">Docencia</a>
+      <a href="../../doctorado.html">Doctorado</a>
+      <a href="../../notas.html">Notas</a>
+      <a href="../../cv.html">CV</a>
+      <a href="../../contacto.html">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:6rem">
+
+    <div class="breadcrumb">
+      <a href="../../index.html">Inicio</a>
+      <span class="sep">/</span>
+      <a href="../../docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <span class="current">IB Mathematics AI</span>
+    </div>
+
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.5rem">
+        <span class="section-label">IB Programme</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="level-badge level-sl">SL</span>
+      </div>
+      <h1 style="margin:0.3rem 0 1rem">Mathematics: Applications &amp; Interpretation</h1>
+      <p style="font-size:1.05rem;color:var(--text-soft);line-height:1.65;max-width:640px">
+        Programa IB de dos años. El material se organiza por <strong>promoción</strong> (dos cursos académicos), no por año. Libro de referencia: <em>Mathematics: Applications and Interpretation HL</em>, Oxford University Press (2019).
+      </p>
+    </div>
+
+    <!-- SELECTOR DE PROMOCIÓN -->
+    <div class="promo-tabs">
+      <button class="promo-tab active" onclick="showPromo('2024-2026', this)">Promoción 2024&ndash;2026</button>
+      <button class="promo-tab" onclick="showPromo('2025-2027', this)">Promoción 2025&ndash;2027</button>
+    </div>
+
+    <!-- PROMOCIÓN 2024-2026 -->
+    <div id="promo-2024-2026" class="promo-panel active">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Promoción</div><div class="info-card-value">2024 &ndash; 2026</div></div>
+        <div class="info-card"><div class="info-card-label">Año actual</div><div class="info-card-value">2º año (HL) &middot; 2º año (SL)</div></div>
+        <div class="info-card"><div class="info-card-label">Estado</div><div class="info-card-value">Activa &mdash; exámenes mayo 2026</div></div>
+        <div class="info-card"><div class="info-card-label">Acceso</div><div class="info-card-value">Alumnos de la promoción</div></div>
+      </div>
+
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem">
+        <a href="2024-2026/?nivel=hl" class="btn btn-primary" style="font-size:0.9rem">Ver materiales HL &rarr;</a>
+        <a href="2024-2026/?nivel=sl" class="btn btn-secondary" style="font-size:0.9rem">Ver materiales SL &rarr;</a>
+      </div>
+
+      <div class="card" style="max-width:700px">
+        <h3 style="margin-bottom:1rem;font-size:1rem">16 capítulos &mdash; Oxford AI HL</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 2rem">
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">01</span>Measuring space: accuracy and geometry</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">09</span>Modelling with matrices</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">02</span>Representing and describing data</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">10</span>Analyzing rates of change: differential calculus</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">03</span>Coordinate geometry, Voronoi, vectors</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">11</span>Integration and differential equations</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">04</span>Linear functions and regressions</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">12</span>Motion and change in 2D and 3D</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">05</span>Quantifying uncertainty: probability</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">13</span>Random variables and probability distributions</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">06</span>Power and polynomial functions</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">14</span>Spearman's, hypothesis testing and χ² test</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">07</span>Exponential and logarithmic functions</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">15</span>Graph theory</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">08</span>Trigonometric functions and complex numbers</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);padding:0.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-faint);font-family:var(--mono);font-size:0.75rem;margin-right:0.5rem">16</span>Exploration (IA)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMOCIÓN 2025-2027 -->
+    <div id="promo-2025-2027" class="promo-panel">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Promoción</div><div class="info-card-value">2025 &ndash; 2027</div></div>
+        <div class="info-card"><div class="info-card-label">Año actual</div><div class="info-card-value">1º año (HL) &middot; 1º año (SL)</div></div>
+        <div class="info-card"><div class="info-card-label">Estado</div><div class="info-card-value">Activa &mdash; exámenes mayo 2027</div></div>
+        <div class="info-card"><div class="info-card-label">Acceso</div><div class="info-card-value">Alumnos de la promoción</div></div>
+      </div>
+
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem">
+        <a href="2025-2027/?nivel=hl" class="btn btn-primary" style="font-size:0.9rem">Ver materiales HL &rarr;</a>
+        <a href="2025-2027/?nivel=sl" class="btn btn-secondary" style="font-size:0.9rem">Ver materiales SL &rarr;</a>
+      </div>
+
+      <div class="card" style="max-width:700px;border-style:dashed">
+        <p style="font-size:0.92rem;color:var(--text-soft)">Los materiales del primer año se están preparando. Se irán añadiendo progresivamente a lo largo del curso.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleTheme(){const h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+const s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);
+
+function showPromo(id, btn) {
+  document.querySelectorAll('.promo-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.promo-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('promo-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

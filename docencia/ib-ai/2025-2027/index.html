@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IB AI 2025-2027 — Àlex Reyes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+</head>
+<body data-theme="light">
+<nav>
+  <div class="nav-inner">
+    <a href="../../../index.html" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="../../../docencia/" class="nav-active">Docencia</a>
+      <a href="../../../doctorado.html">Doctorado</a>
+      <a href="../../../notas.html">Notas</a>
+      <a href="../../../cv.html">CV</a>
+      <a href="../../../contacto.html">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:6rem">
+
+    <div class="breadcrumb">
+      <a href="../../../index.html">Inicio</a>
+      <span class="sep">/</span>
+      <a href="../../../docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="../">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <span class="current">Promoción 2025&ndash;2027</span>
+    </div>
+
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.5rem;flex-wrap:wrap">
+        <span class="section-label">IB Mathematics AI</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="level-badge level-sl">SL</span>
+        <span class="tag tag-orange">2025&ndash;2027</span>
+      </div>
+      <h1 style="margin:0.3rem 0 0.5rem">Promoción 2025&ndash;2027</h1>
+      <p style="font-size:0.95rem;color:var(--text-soft)">1º año &middot; Exámenes mayo 2027 &middot; Maristes Sants&mdash;Les Corts</p>
+    </div>
+
+    <div class="info-grid" style="margin-bottom:2rem">
+      <div class="info-card"><div class="info-card-label">Libro HL</div><div class="info-card-value" style="font-size:0.85rem">Mathematics: AI HL &mdash; Oxford (2019)</div></div>
+      <div class="info-card"><div class="info-card-label">Evaluación</div><div class="info-card-value" style="font-size:0.85rem">Paper 1, 2, 3 (HL) &middot; Paper 1, 2 (SL) &middot; IA</div></div>
+      <div class="info-card"><div class="info-card-label">Calculadora</div><div class="info-card-value" style="font-size:0.85rem">Casio CG-50 (obligatoria)</div></div>
+      <div class="info-card"><div class="info-card-label">Acceso</div><div class="info-card-value" style="font-size:0.85rem">Alumnos de la promoción</div></div>
+    </div>
+
+    <!-- SELECTOR HL / SL -->
+    <div class="promo-tabs">
+      <button class="promo-tab active" onclick="showNivel('hl', this)">HL &mdash; Higher Level</button>
+      <button class="promo-tab" onclick="showNivel('sl', this)">SL &mdash; Standard Level</button>
+    </div>
+
+    <!-- HL -->
+    <div id="nivel-hl" class="promo-panel active">
+      <div class="chapter-list" id="chapters-hl">
+        <!-- Los capítulos se generan con JS -->
+      </div>
+    </div>
+
+    <!-- SL -->
+    <div id="nivel-sl" class="promo-panel">
+      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1.5rem">El SL comparte la mayoría de capítulos con el HL, con menor profundidad en algunos temas y sin los subcapítulos de extensión HL.</p>
+      <div class="chapter-list" id="chapters-sl">
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Datos de capítulos
+const CHAPTERS = [
+  { num: '01', title: 'Measuring space: accuracy and geometry', hl: true, sl: true },
+  { num: '02', title: 'Representing and describing data: descriptive statistics', hl: true, sl: true },
+  { num: '03', title: 'Dividing up space: coordinate geometry, Voronoi diagrams, vectors, lines', hl: true, sl: true },
+  { num: '04', title: 'Modelling constant rates of change: linear functions and regressions', hl: true, sl: true },
+  { num: '05', title: 'Quantifying uncertainty: probability', hl: true, sl: true },
+  { num: '06', title: 'Modelling relationships with functions: power and polynomial functions', hl: true, sl: true },
+  { num: '07', title: 'Modelling rates of change: exponential and logarithmic functions', hl: true, sl: true },
+  { num: '08', title: 'Modelling periodic phenomena: trigonometric functions and complex numbers', hl: true, sl: false, hlNote: 'Números complejos: solo HL' },
+  { num: '09', title: 'Modelling with matrices: storing and analysing data', hl: true, sl: false, hlNote: 'Solo HL' },
+  { num: '10', title: 'Analyzing rates of change: differential calculus', hl: true, sl: true },
+  { num: '11', title: 'Approximating irregular spaces: integration and differential equations', hl: true, sl: true },
+  { num: '12', title: 'Modelling motion and change in two and three dimensions', hl: true, sl: false, hlNote: 'Solo HL' },
+  { num: '13', title: 'Representing multiple outcomes: random variables and probability distributions', hl: true, sl: true },
+  { num: '14', title: 'Testing for validity: Spearman\'s, hypothesis testing and χ² test', hl: true, sl: true },
+  { num: '15', title: 'Optimizing complex networks: graph theory', hl: true, sl: false, hlNote: 'Solo HL' },
+  { num: '16', title: 'Exploration (IA)', hl: true, sl: true },
+];
+
+const SECTIONS = [
+  { icon: '📄', label: 'Apuntes', key: 'apuntes' },
+  { icon: '📝', label: 'Lista de ejercicios', key: 'ejercicios' },
+  { icon: '✅', label: 'Soluciones', key: 'soluciones' },
+  { icon: '📋', label: 'Exámenes anteriores', key: 'examenes' },
+  { icon: '🔗', label: 'Recursos extra', key: 'recursos' },
+];
+
+function buildChapter(ch, nivel) {
+  const hlOnly = nivel === 'sl' && !ch.sl;
+  const note = ch.hlNote ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${ch.hlNote}</span>` : '';
+
+  const sections = SECTIONS.map(s => `
+    <div class="chapter-section empty">
+      <span>${s.icon}</span>
+      <span>${s.label}</span>
+    </div>
+  `).join('');
+
+  return `
+    <div class="chapter-item ${hlOnly ? 'hl-only' : ''}">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">${ch.num}</span>
+        <span class="chapter-title">${ch.title}</span>
+        ${note}
+        <span class="chapter-arrow">&#9660;</span>
+      </div>
+      <div class="chapter-body">
+        ${hlOnly ? '<p style="font-size:0.88rem;color:var(--text-faint);padding:0.5rem 0">Este capítulo es exclusivo del nivel HL.</p>' : `
+        <p style="font-size:0.82rem;color:var(--text-faint);margin-bottom:0.8rem">Materiales disponibles &mdash; haz clic para acceder o descargar.</p>
+        <div class="chapter-sections">${sections}</div>
+        `}
+      </div>
+    </div>
+  `;
+}
+
+function renderChapters(nivel) {
+  const container = document.getElementById(`chapters-${nivel}`);
+  container.innerHTML = CHAPTERS.map(ch => buildChapter(ch, nivel)).join('');
+}
+
+function toggleChapter(header) {
+  const item = header.parentElement;
+  item.classList.toggle('open');
+}
+
+function showNivel(id, btn) {
+  document.querySelectorAll('.promo-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.promo-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('nivel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleTheme(){const h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+const s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);
+
+// Render on load
+renderChapters('hl');
+renderChapters('sl');
+
+// Detect URL param
+const params = new URLSearchParams(window.location.search);
+if (params.get('nivel') === 'sl') {
+  document.querySelectorAll('.promo-tab')[1].click();
+}
+</script>
+</body>
+</html>
