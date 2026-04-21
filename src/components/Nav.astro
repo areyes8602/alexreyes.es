@@ -33,6 +33,24 @@ const navLinks = {
 
 const links = navLinks[lang as keyof typeof navLinks] || navLinks.es;
 const currentPath = Astro.url.pathname;
+
+const sectionMap = [
+  { es: '/docencia',    ca: '/ca/docencia',    en: '/en/teaching'  },
+  { es: '/investigacion', ca: '/ca/investigacio', en: '/en/research' },
+  { es: '/notas',       ca: '/ca/notes',       en: '/en/notes'     },
+  { es: '/cv',          ca: '/ca/cv',          en: '/en/cv'        },
+  { es: '/contacto',    ca: '/ca/contacte',    en: '/en/contact'   },
+];
+
+function getLangUrl(targetLang: string): string {
+  const match = sectionMap.find(s =>
+    currentPath.startsWith(s.es) ||
+    currentPath.startsWith(s.ca) ||
+    currentPath.startsWith(s.en)
+  );
+  if (match) return match[targetLang as keyof typeof match];
+  return targetLang === 'es' ? '/' : `/${targetLang}`;
+}
 ---
 
 <header class="nav">
@@ -55,11 +73,11 @@ const currentPath = Astro.url.pathname;
 
     <div class="nav__controls">
       <div class="nav__langs">
-        <a href="/" class={lang === 'es' ? 'active' : ''}>ES</a>
+        <a href={getLangUrl('es')} class={lang === 'es' ? 'active' : ''}>ES</a>
         <span class="sep">·</span>
-        <a href="/ca" class={lang === 'ca' ? 'active' : ''}>CA</a>
+        <a href={getLangUrl('ca')} class={lang === 'ca' ? 'active' : ''}>CA</a>
         <span class="sep">·</span>
-        <a href="/en" class={lang === 'en' ? 'active' : ''}>EN</a>
+        <a href={getLangUrl('en')} class={lang === 'en' ? 'active' : ''}>EN</a>
       </div>
 
       <button id="theme-toggle" class="nav__theme-btn" aria-label="Toggle tema">
