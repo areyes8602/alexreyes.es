@@ -9,79 +9,125 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <span class="section-title">Docencia</span>
       <h1>Asignaturas y materiales</h1>
       <p class="page-desc">
-        Recursos organizados por curso. Los materiales de aula (exámenes, ejercicios del trimestre, correcciones) son de acceso restringido para los alumnos del grupo. Los recursos abiertos están disponibles para cualquier visitante.
+        Material organizado por asignatura. Cada página incluye una capa permanente (temario, apuntes, ejercicios) y una capa anual actualizada cada curso. El acceso al aula requiere autorización.
       </p>
+    </div>
+
+    <div class="season-label">
+      <span class="section-title">Curso 2025&ndash;26 &mdash; activo</span>
     </div>
 
     <div class="courses-grid">
 
-      <div class="course-card">
+      <a href="/docencia/ib-ai/" class="course-card">
         <div class="course-card__header">
-          <div class="course-card__level">IB · 2º Bachillerato</div>
-          <span class="tag tag--orange">acceso aula</span>
+          <div class="course-card__level">IB Programme</div>
+          <div style="display:flex;gap:0.4rem">
+            <span class="tag tag--blue">HL</span>
+            <span class="tag tag--blue">SL</span>
+          </div>
         </div>
-        <h2 class="course-card__title">IB Mathematics<br>Analysis & Approaches HL</h2>
-        <p class="course-card__desc">Cálculo, álgebra, geometría, estadística y probabilidad al nivel más alto del programa IB. Enfoque en demostración y rigor matemático.</p>
-        <ul class="course-card__topics">
-          <li>Álgebra y funciones</li>
-          <li>Cálculo diferencial e integral</li>
-          <li>Geometría y trigonometría</li>
-          <li>Estadística y probabilidad</li>
-          <li>Números complejos</li>
-        </ul>
-        <a href="/docencia/ib-aa-hl" class="btn btn--secondary course-card__btn">Ver materiales &rarr;</a>
-      </div>
-
-      <div class="course-card">
-        <div class="course-card__header">
-          <div class="course-card__level">IB · 2º Bachillerato</div>
-          <span class="tag tag--orange">acceso aula</span>
-        </div>
-        <h2 class="course-card__title">IB Mathematics<br>Applications & Interpretation HL</h2>
-        <p class="course-card__desc">Matemáticas aplicadas con énfasis en modelización y uso de tecnología (Casio CG-50). Incluye EDOs, métodos numéricos y estadística avanzada.</p>
+        <h2 class="course-card__title">Mathematics: Applications &amp; Interpretation</h2>
+        <p class="course-card__desc">HL y SL. Dos promociones activas: 2024&ndash;2026 y 2025&ndash;2027. Oxford AI HL/SL, 16 capítulos.</p>
         <ul class="course-card__topics">
           <li>Álgebra y modelización</li>
-          <li>Ecuaciones diferenciales (Euler)</li>
-          <li>Estadística inferencial</li>
-          <li>Movimiento de proyectiles</li>
+          <li>Estadística e inferencia</li>
+          <li>Cálculo numérico (Euler)</li>
           <li>Casio CG-50 — técnicas avanzadas</li>
         </ul>
-        <a href="/docencia/ib-ai-hl" class="btn btn--secondary course-card__btn">Ver materiales &rarr;</a>
-      </div>
-
-      <div class="course-card">
-        <div class="course-card__header">
-          <div class="course-card__level">ESO · 1r curso</div>
+        <div class="course-card__footer">
           <span class="tag tag--orange">acceso aula</span>
+          <span class="course-card__link">Ver materiales &rarr;</span>
         </div>
-        <h2 class="course-card__title">Matemàtiques<br>1r d'ESO</h2>
-        <p class="course-card__desc">Números, geometría, álgebra introductoria y estadística básica. Actividades gamificadas y recursos para repasar en casa.</p>
-        <ul class="course-card__topics">
-          <li>Números naturales y enteros</li>
-          <li>Fracciones y decimales</li>
-          <li>Proporcionalidad</li>
-          <li>Geometría plana</li>
-          <li>Estadística descriptiva básica</li>
-        </ul>
-        <a href="/docencia/1eso" class="btn btn--secondary course-card__btn">Ver materiales &rarr;</a>
-      </div>
+      </a>
 
-      <div class="course-card course-card--open">
+      <a href="/docencia/ccss-1btl/" class="course-card">
         <div class="course-card__header">
-          <div class="course-card__level">Todos los niveles</div>
-          <span class="tag tag--green">público</span>
+          <div class="course-card__level">1º Bachillerato</div>
+          <span class="tag tag--gray">BTL</span>
         </div>
-        <h2 class="course-card__title">Recursos abiertos</h2>
-        <p class="course-card__desc">Materiales que comparto libremente: actividades de repaso, visualizaciones, notas de didáctica y recursos para cualquier estudiante de matemáticas.</p>
+        <h2 class="course-card__title">Matemáticas Aplicadas a las CCSS I</h2>
+        <p class="course-card__desc">Álgebra, funciones, estadística y probabilidad orientadas a las ciencias sociales. Preparación PAU.</p>
         <ul class="course-card__topics">
-          <li>Actividades de gamificación</li>
-          <li>Visualizaciones interactivas</li>
-          <li>Notas de didáctica matemática</li>
-          <li>Preparación PAU / selectividad</li>
+          <li>Álgebra matricial</li>
+          <li>Funciones y gráficas</li>
+          <li>Estadística y probabilidad</li>
+          <li>Preparación selectividad</li>
         </ul>
-        <a href="/docencia/recursos" class="btn btn--secondary course-card__btn">Ver recursos &rarr;</a>
-      </div>
+        <div class="course-card__footer">
+          <span class="tag tag--orange">acceso aula</span>
+          <span class="course-card__link">Ver materiales &rarr;</span>
+        </div>
+      </a>
 
+      <a href="/docencia/2eso/" class="course-card">
+        <div class="course-card__header">
+          <div class="course-card__level">2n d'ESO &middot; Grupos A y E</div>
+          <span class="tag tag--gray">ESO</span>
+        </div>
+        <h2 class="course-card__title">Matemàtiques 2n d'ESO</h2>
+        <p class="course-card__desc">Números, álgebra, geometría y estadística. Dos grupos con materiales compartidos y seguimiento individual.</p>
+        <ul class="course-card__topics">
+          <li>Números y operaciones</li>
+          <li>Álgebra y ecuaciones</li>
+          <li>Geometría plana y espacial</li>
+          <li>Estadística descriptiva</li>
+        </ul>
+        <div class="course-card__footer">
+          <span class="tag tag--orange">acceso aula</span>
+          <span class="course-card__link">Ver materiales &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/docencia/cangur/" class="course-card course-card--open">
+        <div class="course-card__header">
+          <div class="course-card__level">Competicions matemàtiques</div>
+          <span class="tag tag--gray">Competició</span>
+        </div>
+        <h2 class="course-card__title">Copa Cangur &amp; Prova Cangur</h2>
+        <p class="course-card__desc">Recursos de preparación para competiciones matemáticas. Problemas por niveles y estrategias de resolución.</p>
+        <ul class="course-card__topics">
+          <li>Problemas por niveles</li>
+          <li>Estrategias de resolución</li>
+          <li>Competición internacional</li>
+          <li>Todos los niveles ESO y BTL</li>
+        </ul>
+        <div class="course-card__footer">
+          <span class="tag tag--green">público</span>
+          <span class="course-card__link">Ver recursos &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="archive-section">
+      <div class="section-header">
+        <span class="section-title">Archivo &mdash; asignaturas anteriores</span>
+      </div>
+      <p class="archive-desc">Materiales permanentes de asignaturas impartidas en cursos anteriores. El contenido está disponible aunque no se actualice anualmente.</p>
+      <div class="archive-grid">
+        <div class="archive-card">
+          <div class="archive-card__level">ESO</div>
+          <div class="archive-list">
+            <a href="#">Matemàtiques 1r ESO</a>
+            <a href="#">Matemàtiques 3r ESO</a>
+            <a href="#">Matemàtiques 4t ESO</a>
+          </div>
+        </div>
+        <div class="archive-card">
+          <div class="archive-card__level">Bachillerato &mdash; CCSS</div>
+          <div class="archive-list">
+            <a href="#">Mat. Aplicadas CCSS 2º BTL</a>
+          </div>
+        </div>
+        <div class="archive-card">
+          <div class="archive-card__level">Bachillerato &mdash; Científico</div>
+          <div class="archive-list">
+            <a href="#">Matemáticas Científico 1º BTL</a>
+            <a href="#">Matemáticas Científico 2º BTL</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="teaching-note">
@@ -98,7 +144,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <style>
 .page-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--border);
   max-width: 600px;
@@ -110,11 +156,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   line-height: 1.65;
 }
 
+.season-label {
+  margin-bottom: 1.25rem;
+}
+
 .courses-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .course-card {
@@ -126,10 +176,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   flex-direction: column;
   gap: 0.8rem;
   transition: border-color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
 }
 .course-card:hover {
   border-color: var(--border-strong);
   box-shadow: var(--shadow-md);
+  opacity: 1;
 }
 .course-card--open {
   border-style: dashed;
@@ -148,9 +201,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   color: var(--text-faint);
 }
 .course-card__title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1.25;
   margin-top: 0.3rem;
+  color: var(--text);
 }
 .course-card__desc {
   font-size: 0.92rem;
@@ -176,11 +230,66 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   left: 0;
   color: var(--border-strong);
 }
-.course-card__btn {
-  font-size: 0.85rem;
+.course-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 0.5rem;
-  align-self: flex-start;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
 }
+.course-card__link {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+.course-card:hover .course-card__link {
+  color: var(--text);
+}
+
+.tag--blue { color: #2563eb; background: rgba(37,99,235,0.1); }
+.tag--gray { color: var(--text-faint); background: var(--tag-bg); }
+
+/* ARCHIVE */
+.archive-section {
+  margin-bottom: 3rem;
+}
+.archive-desc {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.archive-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+}
+.archive-card__level {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin-bottom: 0.75rem;
+}
+.archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.archive-list a {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+.archive-list a:hover { color: var(--text); opacity: 1; }
 
 .teaching-note {
   background: var(--bg-subtle);
@@ -204,5 +313,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 @media (max-width: 768px) {
   .courses-grid { grid-template-columns: 1fr; }
+  .archive-grid { grid-template-columns: 1fr; }
 }
 </style>
