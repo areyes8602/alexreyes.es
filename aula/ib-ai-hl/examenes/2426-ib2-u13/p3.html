@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 · EDO de 2.º orden y autovalores — IB2 U13</title>
+<meta name="description" content="Pregunta 3 del examen IB2 U13: modelo térmico, reducción de EDO de 2º orden a sistema, autovalores.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Examen U13</a>
+      <span class="sep">/</span>
+      <span class="current">P3</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">IB2 · U13</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">17&nbsp;abr&nbsp;2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Índice del examen</a>
+      <a class="next" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 3 &middot; EDO de 2.&ordm; orden y autovalores</h1>
+      <p class="question-descriptor">Modelo térmico: reducción de una ecuación de segundo orden a un sistema de primer orden; matriz asociada; autovalores; comportamiento asintótico.</p>
+      <span class="score-pill">Puntuación máxima · 20 puntos</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Un ingeniero modela la diferencia de temperatura $x(t)$ (en °C) entre dos zonas contiguas de un edificio, una interior climatizada y una exterior, tras un cambio brusco en el sistema de calefacción. Bajo ciertas hipótesis de conducción térmica y capacidad calorífica, la evolución de $x(t)$ satisface la ecuación diferencial:</p>
+          <p style="text-align:center">
+            $\dfrac{d^2 x}{dt^2} - 5\, \dfrac{dx}{dt} + 6\, x = 0$
+          </p>
+          <p>donde $t$ se mide en horas. En el momento inicial la diferencia de temperatura es de $10$ °C y está aumentando a razón de $2$ °C/hora, es decir, $x(0) = 10$ y $x'(0) = 2$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Introduce una nueva variable y transforma la ecuación diferencial de segundo grado en un sistema de ecuaciones diferenciales de primer orden. <span class="apartado-puntos">4 p</span></li>
+          <li>Escribe el sistema en forma matricial $X' = AX$. <span class="apartado-puntos">4 p</span></li>
+          <li>Calcula los autovalores de la matriz $A$. <span class="apartado-puntos">4 p</span></li>
+          <li>Indica si los autovalores son reales y distintos, y explica qué implica sobre la forma general de la solución. <span class="apartado-puntos">4 p</span></li>
+          <li>Describe el comportamiento cualitativo de las soluciones cuando $t \to +\infty$. <span class="apartado-puntos">4 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+        <span class="ib-chip" data-descriptor="EDO de 2º orden reescrita como sistema de 1er orden acoplado">TANS&nbsp;5.18</span>
+        <span class="ib-chip" data-descriptor="Valores y vectores propios; polinomio característico 2×2">TANS&nbsp;1.15</span>
+        <span class="ib-chip" data-descriptor="Retratos de fase; análisis según los autovalores">TANS&nbsp;5.17</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p3" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Reducción a un sistema de primer orden</h4>
+          <p>Definimos una nueva variable que represente la velocidad de cambio de $x$:</p>
+          <div class="math-block">
+            $$y(t) = \dfrac{dx}{dt}$$
+          </div>
+          <p>Derivando, $\dfrac{dy}{dt} = \dfrac{d^2 x}{dt^2}$. Despejando de la ecuación original:</p>
+          <div class="math-block">
+            $$\dfrac{d^2 x}{dt^2} = 5\, \dfrac{dx}{dt} - 6\, x = 5\, y - 6\, x$$
+          </div>
+          <p>Obtenemos así el sistema de primer orden equivalente:</p>
+          <div class="math-block">
+            $$\begin{cases} \dfrac{dx}{dt} = y \\[4pt] \dfrac{dy}{dt} = -6\, x + 5\, y \end{cases}$$
+          </div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Forma matricial $X' = AX$</h4>
+          <p>Llamando $X = \begin{pmatrix} x \\ y \end{pmatrix}$, las dos ecuaciones anteriores se reescriben como:</p>
+          <div class="math-block">
+            $$\dfrac{dX}{dt} = \begin{pmatrix} 0 & 1 \\ -6 & 5 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}$$
+          </div>
+          <p>Por tanto:</p>
+          <div class="math-block">
+            $$\boxed{\; X' = A\, X \quad \text{con} \quad A = \begin{pmatrix} 0 & 1 \\ -6 & 5 \end{pmatrix} \;}$$
+          </div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Autovalores de $A$</h4>
+          <p>Los autovalores son las raíces del polinomio característico $\det(A - \lambda I) = 0$:</p>
+          <div class="math-block">
+            $$\det\begin{pmatrix} -\lambda & 1 \\ -6 & 5-\lambda \end{pmatrix} = -\lambda(5 - \lambda) - (1)(-6) = \lambda^2 - 5\lambda + 6 = 0$$
+          </div>
+          <p>Factorizamos:</p>
+          <div class="math-block">
+            $$\lambda^2 - 5\lambda + 6 = (\lambda - 2)(\lambda - 3) = 0$$
+          </div>
+          <div class="final">Autovalores: $\lambda_1 = 2$, $\lambda_2 = 3$.</div>
+          <p class="note">Nótese que el polinomio característico coincide con el de la EDO original ($\lambda^2 - 5\lambda + 6 = 0$), como era de esperar: al pasar la EDO de segundo orden al sistema, las raíces características no cambian.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Naturaleza de los autovalores y forma general</h4>
+          <p>Los autovalores $\lambda_1 = 2$ y $\lambda_2 = 3$ son <strong>reales y distintos</strong>. Esto implica que la solución general del sistema (y, por tanto, de la EDO original) es combinación lineal de dos exponenciales:</p>
+          <div class="math-block">
+            $$x(t) = C_1\, e^{2t} + C_2\, e^{3t}$$
+          </div>
+          <p>Aplicando las condiciones iniciales $x(0) = 10$, $x'(0) = 2$:</p>
+          <div class="math-block">
+            $$\begin{cases} C_1 + C_2 = 10 \\ 2\, C_1 + 3\, C_2 = 2 \end{cases} \;\Longrightarrow\; C_2 = -18,\ C_1 = 28$$
+          </div>
+          <p>Solución particular:</p>
+          <div class="math-block">
+            $$x(t) = 28\, e^{2t} - 18\, e^{3t}$$
+          </div>
+          <p>El retrato de fases en el plano $(x, y)$ corresponde a un <strong>nodo inestable</strong>: ambos autovalores son positivos, así que toda trayectoria (salvo el origen) se aleja de $(0,0)$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Comportamiento cuando $t \to +\infty$</h4>
+          <p>A medida que $t$ crece, el término con el autovalor mayor domina. En nuestro caso, $e^{3t}$ crece mucho más rápido que $e^{2t}$, y viene multiplicado por $C_2 = -18$, por lo que:</p>
+          <div class="math-block">
+            $$x(t) \approx -18\, e^{3t} \quad \text{para $t$ grande}$$
+          </div>
+          <p>Por tanto:</p>
+          <div class="final">$\displaystyle \lim_{t \to +\infty} x(t) = -\infty$, con crecimiento exponencial del módulo.</div>
+          <p><strong>Interpretación física:</strong> la diferencia de temperatura crece de forma no acotada (en valor absoluto) y, además, cambia de signo en algún instante. Esto significa que el modelo lineal homogéneo <em>no captura el comportamiento real</em> del sistema térmico (en la realidad habría disipación por conducción y el sistema alcanzaría un estado estacionario acotado). La ausencia de un término amortiguador &mdash;o, equivalentemente, el signo negativo del coeficiente $-5$&mdash; hace que el equilibrio en $x = 0$ sea inestable y las perturbaciones se amplifiquen. En un modelo más realista se añadiría fricción o un forzamiento que regulara el crecimiento.</p>
+          <p class="note">Si se quisiera un modelo físicamente razonable (temperatura que se estabiliza), esperaríamos autovalores con parte real negativa. Aquí ambos son positivos, así que la solución diverge.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Índice del examen</a>
+      <a class="next" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Método de Euler y sistemas acoplados — IB2 U13</title>
+<meta name="description" content="Pregunta 2 del examen IB2 U13: Euler en sistemas acoplados, depredador-presa linealizado.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Examen U13</a>
+      <span class="sep">/</span>
+      <span class="current">P2</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">IB2 · U13</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">17&nbsp;abr&nbsp;2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Índice del examen</a>
+      <a class="next" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Método de Euler</h1>
+      <p class="question-descriptor">Sistema de ecuaciones acopladas (modelo depredador&ndash;presa linealizado): dos pasos con paso grande, refinado con calculadora, comparación y punto de equilibrio.</p>
+      <span class="score-pill">Puntuación máxima · 15 puntos</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>En un ecosistema simplificado, $x$ representa la población de conejos (en cientos) e $y$ la población de zorros (en decenas). El tiempo $t$ se mide en meses. Se propone el modelo:</p>
+          <p style="text-align:center">
+            $\dfrac{dx}{dt} = 0{,}4\, x - 0{,}2\, y, \qquad \dfrac{dy}{dt} = 0{,}1\, x - 0{,}3\, y$
+          </p>
+          <p>con condiciones iniciales $x(0) = 5$, $y(0) = 2$. Usando el método de Euler con paso $h = 0{,}5$:</p>
+        </div>
+        <ol class="apartados">
+          <li>Aplica dos pasos de Euler con $h = 0{,}5$ para obtener $x(1)$ e $y(1)$. Escribe explícitamente las fórmulas iterativas que usas. <span class="apartado-puntos">5 p</span></li>
+          <li>Usa la calculadora para aplicar Euler con $h = 0{,}1$ hasta $t = 1$ y obtén $x(1)$ e $y(1)$. <span class="apartado-puntos">4 p</span></li>
+          <li>Compara los resultados obtenidos en a) y b). ¿Qué conclusión sacas sobre la precisión del método de Euler? <span class="apartado-puntos">3 p</span></li>
+          <li>Calcula el punto de equilibrio del sistema e interpreta su significado en el contexto del ecosistema. <span class="apartado-puntos">3 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+        <span class="ib-chip" data-descriptor="Método de Euler; resolución numérica de sistemas acoplados; modelos depredador-presa">TANS&nbsp;5.16</span>
+        <span class="ib-chip" data-descriptor="Retratos de fase, puntos de equilibrio">TANS&nbsp;5.17</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Dos pasos de Euler con $h = 0{,}5$</h4>
+          <p>El método de Euler para un sistema $\dfrac{dx}{dt} = f_1(x,y)$, $\dfrac{dy}{dt} = f_2(x,y)$ usa las fórmulas iterativas:</p>
+          <div class="math-block">
+            $$x_{n+1} = x_n + h\, f_1(x_n, y_n), \qquad y_{n+1} = y_n + h\, f_2(x_n, y_n)$$
+          </div>
+          <p>con $f_1(x,y) = 0{,}4\,x - 0{,}2\,y$ y $f_2(x,y) = 0{,}1\,x - 0{,}3\,y$.</p>
+
+          <p><strong>Paso 1</strong> ($t = 0 \to 0{,}5$), partiendo de $(x_0, y_0) = (5, 2)$:</p>
+          <div class="math-block">
+            $$f_1(5, 2) = 0{,}4(5) - 0{,}2(2) = 2 - 0{,}4 = 1{,}6$$
+            $$f_2(5, 2) = 0{,}1(5) - 0{,}3(2) = 0{,}5 - 0{,}6 = -0{,}1$$
+            $$x_1 = 5 + 0{,}5 \cdot 1{,}6 = 5{,}8$$
+            $$y_1 = 2 + 0{,}5 \cdot (-0{,}1) = 1{,}95$$
+          </div>
+
+          <p><strong>Paso 2</strong> ($t = 0{,}5 \to 1$), partiendo de $(x_1, y_1) = (5{,}8\; ;\; 1{,}95)$:</p>
+          <div class="math-block">
+            $$f_1(5{,}8\; ;\; 1{,}95) = 0{,}4(5{,}8) - 0{,}2(1{,}95) = 2{,}32 - 0{,}39 = 1{,}93$$
+            $$f_2(5{,}8\; ;\; 1{,}95) = 0{,}1(5{,}8) - 0{,}3(1{,}95) = 0{,}58 - 0{,}585 = -0{,}005$$
+            $$x_2 = 5{,}8 + 0{,}5 \cdot 1{,}93 = 6{,}765$$
+            $$y_2 = 1{,}95 + 0{,}5 \cdot (-0{,}005) = 1{,}9475$$
+          </div>
+          <div class="final">$x(1) \approx 6{,}77$; $\ y(1) \approx 1{,}95$ (con $h = 0{,}5$).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Euler con $h = 0{,}1$ en la calculadora</h4>
+          <p>Aplicamos las mismas fórmulas iterativas ahora con $h = 0{,}1$ durante $10$ pasos (de $t=0$ a $t=1$). Con la Casio CG-50 se puede hacer mediante una tabla o un bucle <code>For</code>. Valores redondeados a 4 cifras:</p>
+          <table>
+            <thead>
+              <tr><th>n</th><th>t</th><th>x</th><th>y</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>0{,}0</td><td>5{,}0000</td><td>2{,}0000</td></tr>
+              <tr><td>1</td><td>0{,}1</td><td>5{,}1600</td><td>1{,}9900</td></tr>
+              <tr><td>2</td><td>0{,}2</td><td>5{,}3266</td><td>1{,}9819</td></tr>
+              <tr><td>3</td><td>0{,}3</td><td>5{,}5000</td><td>1{,}9757</td></tr>
+              <tr><td>4</td><td>0{,}4</td><td>5{,}6805</td><td>1{,}9714</td></tr>
+              <tr><td>5</td><td>0{,}5</td><td>5{,}8683</td><td>1{,}9691</td></tr>
+              <tr><td>6</td><td>0{,}6</td><td>6{,}0637</td><td>1{,}9687</td></tr>
+              <tr><td>7</td><td>0{,}7</td><td>6{,}2668</td><td>1{,}9703</td></tr>
+              <tr><td>8</td><td>0{,}8</td><td>6{,}4781</td><td>1{,}9738</td></tr>
+              <tr><td>9</td><td>0{,}9</td><td>6{,}6977</td><td>1{,}9794</td></tr>
+              <tr><td>10</td><td>1{,}0</td><td>6{,}9261</td><td>1{,}9870</td></tr>
+            </tbody>
+          </table>
+          <div class="final">$x(1) \approx 6{,}93$; $\ y(1) \approx 1{,}99$ (con $h = 0{,}1$).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Comparación y precisión</h4>
+          <p>Comparamos los dos resultados:</p>
+          <div class="math-block">
+            $$\begin{array}{lcc}
+              & x(1) & y(1) \\
+              h = 0{,}5 & 6{,}765 & 1{,}9475 \\
+              h = 0{,}1 & 6{,}926 & 1{,}987
+            \end{array}$$
+          </div>
+          <p>La diferencia es apreciable: $|\Delta x| \approx 0{,}16$ ($\sim 2{,}3\%$) y $|\Delta y| \approx 0{,}04$ ($\sim 2\%$).</p>
+          <p><strong>Conclusión:</strong> el método de Euler es <em>de primer orden</em> &mdash; el error global es proporcional a $h$. Al reducir $h$ de $0{,}5$ a $0{,}1$ (cinco veces menor) el resultado se aproxima mucho más al valor real. Con $h$ grande la aproximación puede ser bastante imprecisa porque Euler usa únicamente la derivada al inicio de cada intervalo y no tiene en cuenta la curvatura de la solución.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Punto de equilibrio</h4>
+          <p>El punto de equilibrio se obtiene imponiendo $\dfrac{dx}{dt} = 0$ y $\dfrac{dy}{dt} = 0$ simultáneamente:</p>
+          <div class="math-block">
+            $$\begin{cases} 0{,}4\, x - 0{,}2\, y = 0 \\ 0{,}1\, x - 0{,}3\, y = 0 \end{cases}$$
+          </div>
+          <p>De la primera ecuación: $y = 2x$. Sustituyendo en la segunda:</p>
+          <div class="math-block">
+            $$0{,}1\, x - 0{,}3(2x) = 0 \;\Longrightarrow\; -0{,}5\, x = 0 \;\Longrightarrow\; x = 0,\ y = 0.$$
+          </div>
+          <div class="final">El único punto de equilibrio es $(x^*, y^*) = (0, 0)$.</div>
+          <p><strong>Interpretación:</strong> el único estado estacionario del modelo corresponde a la extinción simultánea de ambas poblaciones. No hay un equilibrio no trivial de coexistencia, por lo que este modelo lineal no predice una convivencia estable entre conejos y zorros.</p>
+          <p class="note">Análisis complementario (fuera del enunciado): la matriz del sistema es $A = \begin{pmatrix} 0{,}4 & -0{,}2 \\ 0{,}1 & -0{,}3 \end{pmatrix}$, con $\operatorname{tr}(A) = 0{,}1$ y $\det(A) = -0{,}10$. Los autovalores son $\lambda = \dfrac{0{,}1 \pm \sqrt{0{,}41}}{2} \approx 0{,}37$ y $-0{,}27$, reales y de signos opuestos. Esto significa que $(0,0)$ es un <em>punto silla</em>: inestable en una dirección y estable en otra. Las soluciones que no entran por la variedad estable se alejan del origen, lo que explica el crecimiento en $x$ e $y$ que observamos en los pasos anteriores.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Índice del examen</a>
+      <a class="next" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

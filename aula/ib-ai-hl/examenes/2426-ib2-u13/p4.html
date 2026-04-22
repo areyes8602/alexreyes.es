@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Retrato de fases con autovalores complejos — IB2 U13</title>
+<meta name="description" content="Pregunta 4 del examen IB2 U13: sistema lineal 2×2 con autovalores complejos, espiral inestable.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Examen U13</a>
+      <span class="sep">/</span>
+      <span class="current">P4</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">IB2 · U13</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">17&nbsp;abr&nbsp;2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 4 &middot; Retrato de fases</h1>
+      <p class="question-descriptor">Sistema lineal 2×2 con autovalores complejos de parte real no nula: distinción entre imaginarios puros y complejos, tipo de equilibrio y geometría de las trayectorias.</p>
+      <span class="score-pill">Puntuación máxima · 15 puntos</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Se considera el sistema:</p>
+          <p style="text-align:center">
+            $\begin{cases} \dfrac{dx}{dt} = 2\, x - 5\, y \\[4pt] \dfrac{dy}{dt} = x + 2\, y \end{cases}$
+          </p>
+        </div>
+        <ol class="apartados">
+          <li>Escribe el sistema en forma matricial. <span class="apartado-puntos">3 p</span></li>
+          <li>Calcula los autovalores de la matriz asociada. <span class="apartado-puntos">4 p</span></li>
+          <li>Los autovalores de este sistema tienen parte real no nula. Explica qué diferencia hay entre tener autovalores imaginarios puros y autovalores complejos con parte real no nula. <span class="apartado-puntos">2 p</span></li>
+          <li>Sin resolver completamente el sistema, describe el comportamiento del retrato de fases. <span class="apartado-puntos">3 p</span></li>
+          <li>Indica si las trayectorias se acercan al origen, se alejan o permanecen a distancia constante. Justifica tu respuesta. <span class="apartado-puntos">3 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+        <span class="ib-chip" data-descriptor="Álgebra matricial: forma matricial del sistema">TANS&nbsp;1.14</span>
+        <span class="ib-chip" data-descriptor="Valores y vectores propios; polinomio característico">TANS&nbsp;1.15</span>
+        <span class="ib-chip" data-descriptor="Retratos de fase: análisis cualitativo según autovalores reales/complejos/imaginarios; espirales, centros, nodos">TANS&nbsp;5.17</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Forma matricial del sistema</h4>
+          <p>Colocando los coeficientes de $x$ e $y$ en una matriz:</p>
+          <div class="math-block">
+            $$\begin{pmatrix} x' \\ y' \end{pmatrix} = \begin{pmatrix} 2 & -5 \\ 1 & 2 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}$$
+          </div>
+          <div class="final">$X' = A\, X$ con $A = \begin{pmatrix} 2 & -5 \\ 1 & 2 \end{pmatrix}$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Autovalores de $A$</h4>
+          <p>Planteamos el polinomio característico $\det(A - \lambda I) = 0$:</p>
+          <div class="math-block">
+            $$\det\begin{pmatrix} 2 - \lambda & -5 \\ 1 & 2 - \lambda \end{pmatrix} = (2-\lambda)^2 - (-5)(1) = (2-\lambda)^2 + 5 = 0$$
+          </div>
+          <p>Despejamos:</p>
+          <div class="math-block">
+            $$(2-\lambda)^2 = -5 \;\Longrightarrow\; 2 - \lambda = \pm i\sqrt{5} \;\Longrightarrow\; \lambda = 2 \mp i\sqrt{5}$$
+          </div>
+          <div class="final">Autovalores complejos conjugados: $\lambda = 2 \pm i\sqrt{5}$.</div>
+          <p class="note">Alternativamente: $\operatorname{tr}(A) = 4$, $\det(A) = 4 - (-5) = 9$, y $\lambda^2 - 4\lambda + 9 = 0$ da las mismas raíces.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Imaginarios puros vs. complejos con parte real no nula</h4>
+          <p>Para un sistema lineal 2×2 con autovalores complejos $\lambda = a \pm b\, i$ (con $b \ne 0$), la forma de las trayectorias depende crucialmente de $a = \operatorname{Re}(\lambda)$:</p>
+          <ul style="margin:0.5rem 0 0.5rem 1.2rem;line-height:1.75">
+            <li><strong>Imaginarios puros</strong> ($a = 0$, es decir $\lambda = \pm b\, i$): las soluciones tienen módulo constante y las trayectorias en el plano de fases son <em>curvas cerradas</em> (elipses o círculos) alrededor del origen. El origen es un <em>centro</em>: ni atractor ni repulsor, las soluciones oscilan periódicamente sin crecer ni decrecer.</li>
+            <li><strong>Complejos con parte real no nula</strong> ($a \ne 0$): las soluciones tienen módulo $\propto e^{a t}$, así que las trayectorias son <em>espirales</em>. Si $a > 0$ la espiral se abre (inestable, repulsor), si $a < 0$ se cierra hacia el origen (estable, atractor).</li>
+          </ul>
+          <p class="note">Dicho en una frase: la parte imaginaria fija la rotación; la parte real fija si el módulo crece, decrece o se mantiene.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Comportamiento del retrato de fases</h4>
+          <p>En nuestro sistema $\lambda = 2 \pm i\sqrt{5}$: parte real $a = 2 > 0$ y parte imaginaria $b = \sqrt{5} \ne 0$. Por tanto:</p>
+          <ul style="margin:0.5rem 0 0.5rem 1.2rem;line-height:1.75">
+            <li>Como $b \ne 0$, hay rotación: las trayectorias dan vueltas alrededor del origen con frecuencia angular $\omega = b = \sqrt{5}$ rad/unidad de tiempo.</li>
+            <li>Como $a > 0$, el módulo $\|X(t)\|$ crece exponencialmente como $e^{2t}$.</li>
+          </ul>
+          <p>El retrato de fases es por tanto una <strong>espiral inestable</strong> (foco inestable o <em>spiral source</em>): el origen es el único punto de equilibrio y todas las trayectorias no triviales se alejan de él dibujando espirales que se abren.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> ¿Se acercan, se alejan o permanecen?</h4>
+          <p>Para un sistema lineal $X' = A\, X$ con autovalores complejos $\lambda = a \pm b\, i$, las componentes de $X(t)$ son combinaciones de la forma $e^{a t}\cos(b t)$ y $e^{a t}\sin(b t)$. En consecuencia:</p>
+          <div class="math-block">
+            $$\|X(t)\| \propto e^{a t} = e^{2 t}$$
+          </div>
+          <p>Como $a = 2 > 0$, la norma crece sin acotación cuando $t \to +\infty$.</p>
+          <div class="final">Las trayectorias <strong>se alejan</strong> del origen (excepto la trayectoria trivial $X \equiv 0$). Justificación: la parte real de los autovalores es positiva, luego el módulo crece exponencialmente como $e^{2t}$.</div>
+          <p class="note">Si fuera $a = 0$ permanecerían a distancia constante (centro) y si fuera $a < 0$ se acercarían (espiral estable). La parte real del autovalor es el criterio decisivo.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u13/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
