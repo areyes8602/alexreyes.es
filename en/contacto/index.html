@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Àlex Reyes</title>
+<meta name="description" content="Contact — Àlex Reyes. areyes8602@gmail.com.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/" class="nav-active">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/contacto/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/contacto/">CA</a><span class="lang-sep">&middot;</span><a href="/en/contacto/" class="lang-active">EN</a>
+      </div>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Contact</span>
+    </div>
+
+    <div class="page-header">
+      <span class="section-label">Contact</span>
+      <h1 style="margin:0.3rem 0 0.6rem">Get in touch</h1>
+      <p style="font-size:0.98rem;color:var(--text-soft);max-width:42rem">For questions from students, fellow teachers, researchers or anything about the site &mdash; drop me an email or visit my GitHub.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <a href="mailto:areyes8602@gmail.com" class="contact-card">
+        <span class="contact-card-label">Email</span>
+        <span class="contact-card-value">areyes8602@gmail.com</span>
+      </a>
+
+      <a href="https://github.com/areyes8602" target="_blank" rel="noopener" class="contact-card">
+        <span class="contact-card-label">GitHub</span>
+        <span class="contact-card-value">github.com/areyes8602</span>
+      </a>
+
+      <div class="contact-card">
+        <span class="contact-card-label">School</span>
+        <span class="contact-card-value" style="font-family:var(--font);font-weight:500">Col&middot;legi Maristes Sants&mdash;Les Corts</span>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-card-label">University</span>
+        <span class="contact-card-value" style="font-family:var(--font);font-weight:500">UPC &mdash; Barcelona</span>
+      </div>
+
+    </div>
+
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)">
+      <p style="font-size:0.88rem;color:var(--text-faint)">If you're a student, the fastest way is asking me in class or via the usual school channel. I check email several times a day.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and research</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

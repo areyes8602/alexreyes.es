@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctorat — Àlex Reyes</title>
+<meta name="description" content="Recerca doctoral — Conjectura de Collatz i dinàmica simbòlica. UPC.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/">Docència</a>
+      <a href="/ca/doctorado/" class="nav-active">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/doctorado/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/doctorado/" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/doctorado/">EN</a>
+      </div>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a>
+      <span class="sep">/</span>
+      <span class="current">Doctorat</span>
+    </div>
+
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+        <span class="section-label">Recerca doctoral</span>
+        <span class="tag tag-purple">UPC</span>
+      </div>
+      <h1 style="margin:0.3rem 0 0.8rem">Conjectura de Collatz i Dinàmica simbòlica</h1>
+      <p style="font-size:1rem;color:var(--text-soft);max-width:42rem">Investigo l'estructura fractal de les òrbites del problema 3<em>n</em>+1 des del punt de vista de la dinàmica simbòlica i l'aritmètica modular. La idea: descriure el comportament global de Collatz com un sistema dinàmic sobre classes de residus.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-label">Programa</div><div class="info-card-value" style="font-size:0.88rem">Doctorat en Matemàtica Aplicada &mdash; UPC</div></div>
+      <div class="info-card"><div class="info-card-label">Director</div><div class="info-card-value" style="font-size:0.88rem">Dr. Jaume Franch Bullich</div></div>
+      <div class="info-card"><div class="info-card-label">Inici</div><div class="info-card-value">2024</div></div>
+      <div class="info-card"><div class="info-card-label">Estat</div><div class="info-card-value" style="font-size:0.88rem">Preprint en preparació</div></div>
+    </div>
+
+    <h2 style="font-size:1.2rem;margin-bottom:1rem">Paper principal</h2>
+    <div class="card" style="margin-bottom:3rem">
+      <div class="card-kicker">
+        <span class="dot dot-purple"></span>
+        <span class="section-label">Paper</span>
+        <span class="tag tag-purple" style="margin-left:auto">preprint</span>
+      </div>
+      <h2 style="font-size:1.25rem;margin-bottom:0.6rem">Dinàmica modular fractal i la conjectura de Collatz</h2>
+      <p style="margin-bottom:1rem">Per a tot <em>n</em> enter positiu i <em>m</em> aplicacions de la funció de Collatz, la iterada <em>T</em><sup><em>m</em></sup>(<em>n</em>) es pot expressar com</p>
+      <div class="math-block">\[T^m(n) = \frac{3^s \cdot n + R(C^m_k)}{2^m}\]</div>
+      <p style="color:var(--text-soft);font-size:0.95rem">on <em>s</em> és el nombre de passos imparells, <em>C</em><sup><em>m</em></sup><sub><em>k</em></sub> és el <em>camí simbòlic</em> de <em>n</em> (la successió de paritats al llarg de <em>m</em> iteracions), i <em>R</em>(·) és un residu que codifica la contribució aritmètica del camí. Aquesta formulació permet tractar Collatz com una dinàmica sobre classes de residus mòdul 2<sup><em>m</em></sup> i revela una estructura autosemblant en l'arbre d'òrbites.</p>
+      <div style="margin-top:1.2rem;display:flex;gap:0.8rem;flex-wrap:wrap">
+        <span class="tag tag-gray">Objectiu: arXiv math.NT</span>
+        <span class="tag tag-gray">2026</span>
+      </div>
+    </div>
+
+    <h2 style="font-size:1.2rem;margin-bottom:1rem">Línies de treball</h2>
+    <div class="subject-grid" style="margin-bottom:3rem">
+      <div class="subject-card">
+        <span class="subject-card-level">Línia 1</span>
+        <h3>Codificació simbòlica d'òrbites</h3>
+        <p>Caracterització dels camins <em>C</em><sup><em>m</em></sup><sub><em>k</em></sub> i la seva relació amb els cicles de Collatz a <strong>Z</strong>/2<sup><em>m</em></sup><strong>Z</strong>.</p>
+      </div>
+      <div class="subject-card">
+        <span class="subject-card-level">Línia 2</span>
+        <h3>Autosemblança modular</h3>
+        <p>Estudi del patró fractal que apareix en la funció residu <em>R</em>(·) en augmentar la profunditat d'iteració <em>m</em>.</p>
+      </div>
+      <div class="subject-card">
+        <span class="subject-card-level">Línia 3</span>
+        <h3>Cotes sobre la longitud de vol</h3>
+        <p>Estimacions sobre el nombre de passos necessaris per arribar a 1 en termes del camí simbòlic.</p>
+      </div>
+    </div>
+
+    <h2 style="font-size:1.2rem;margin-bottom:1rem">Visualitzacions</h2>
+    <div class="card" style="margin-bottom:2rem">
+      <div class="card-kicker">
+        <span class="dot"></span>
+        <span class="section-label">Aviat</span>
+      </div>
+      <p style="color:var(--text-soft)">Visualitzacions interactives de l'arbre d'òrbites de Collatz i de l'estructura modular del residu <em>R</em>(·). En preparació.</p>
+    </div>
+
+    <h2 style="font-size:1.2rem;margin-bottom:1rem">Congressos</h2>
+    <div class="card" style="margin-bottom:2rem">
+      <div class="card-kicker">
+        <span class="dot"></span>
+        <span class="section-label">Aviat</span>
+      </div>
+      <p style="color:var(--text-soft)">Les participacions en congressos i seminaris es publicaran aquí a mesura que vagin succeint.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
