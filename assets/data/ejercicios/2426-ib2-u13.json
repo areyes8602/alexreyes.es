@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "id": "2426-ib2-u13",
+  "tipo_coleccion": "examen",
+  "titulo": "Unidad 13 — Dinámica, autovalores y retratos de fase",
+  "fecha": "2026-04-17",
+  "grupo": "IB2",
+  "promocion": "2024-2026",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_original": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf",
+  "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u13/",
+  "puntuacion_total": 70,
+  "baremo": [
+    { "min": 58, "max": 70, "nota": 7 },
+    { "min": 46, "max": 57, "nota": 6 },
+    { "min": 35, "max": 45, "nota": 5 },
+    { "min": 25, "max": 34, "nota": 4 },
+    { "min": 16, "max": 24, "nota": 3 },
+    { "min":  8, "max": 15, "nota": 2 },
+    { "min":  1, "max":  7, "nota": 1 }
+  ],
+  "tags_coleccion": {
+    "asignatura": "ib-ai-hl",
+    "nivel": "ib2",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia"
+  },
+  "ejercicios": [
+    {
+      "id": "2426-ib2-u13-p1",
+      "numero": 1,
+      "titulo": "Movimiento de proyectil en 2D",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html",
+      "puntuacion": 20,
+      "apartados": [
+        { "letra": "a", "puntos": 3, "tarea": "Velocidad inicial como vector columna" },
+        { "letra": "b", "puntos": 4, "tarea": "Ecuación vectorial de la velocidad v(t)" },
+        { "letra": "c", "puntos": 4, "tarea": "Ecuación vectorial de la posición r(t)" },
+        { "letra": "d", "puntos": 3, "tarea": "Tiempo de vuelo" },
+        { "letra": "e", "puntos": 3, "tarea": "Alcance horizontal" },
+        { "letra": "f", "puntos": 3, "tarea": "Altura máxima" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 3.10", "TANS 3.12"],
+        "tema": ["vectores", "cinematica", "proyectil"],
+        "habilidad": ["modelizacion", "calculo_simbolico"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u13-p2",
+      "numero": 2,
+      "titulo": "Método de Euler y sistemas acoplados",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 5, "tarea": "Dos pasos de Euler con h=0,5; escribir las fórmulas iterativas" },
+        { "letra": "b", "puntos": 4, "tarea": "Euler con h=0,1 en la calculadora hasta t=1" },
+        { "letra": "c", "puntos": 3, "tarea": "Comparación de resultados y conclusión sobre precisión" },
+        { "letra": "d", "puntos": 3, "tarea": "Punto de equilibrio del sistema e interpretación" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 5.16", "TANS 5.17"],
+        "tema": ["edos", "metodo_euler", "depredador_presa", "equilibrio"],
+        "habilidad": ["calculo_numerico", "uso_calculadora", "interpretacion"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2426-ib2-u13-p3",
+      "numero": 3,
+      "titulo": "EDO de 2º orden y autovalores",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html",
+      "puntuacion": 20,
+      "apartados": [
+        { "letra": "a", "puntos": 4, "tarea": "Transformar en sistema de primer orden introduciendo nueva variable" },
+        { "letra": "b", "puntos": 4, "tarea": "Escribir en forma matricial X' = AX" },
+        { "letra": "c", "puntos": 4, "tarea": "Calcular los autovalores de A" },
+        { "letra": "d", "puntos": 4, "tarea": "Caracterizar autovalores y forma general de la solución" },
+        { "letra": "e", "puntos": 4, "tarea": "Comportamiento cualitativo cuando t → +∞" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 5.18", "TANS 1.15", "TANS 5.17"],
+        "tema": ["edos", "autovalores", "matrices"],
+        "habilidad": ["calculo_simbolico", "razonamiento", "modelizacion"],
+        "dificultad": "dificil",
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2426-ib2-u13-p4",
+      "numero": 4,
+      "titulo": "Retrato de fases con autovalores complejos",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 3, "tarea": "Escribir el sistema en forma matricial" },
+        { "letra": "b", "puntos": 4, "tarea": "Calcular los autovalores de la matriz asociada" },
+        { "letra": "c", "puntos": 2, "tarea": "Diferenciar autovalores imaginarios puros vs complejos con parte real no nula" },
+        { "letra": "d", "puntos": 3, "tarea": "Describir el comportamiento del retrato de fases" },
+        { "letra": "e", "puntos": 3, "tarea": "¿Se acercan, se alejan o permanecen? Justificar" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 1.14", "TANS 1.15", "TANS 5.17"],
+        "tema": ["autovalores", "retratos_fase", "matrices"],
+        "habilidad": ["razonamiento", "visualizacion", "interpretacion"],
+        "dificultad": "dificil",
+        "formato": ["pregunta_larga"]
+      }
+    }
+  ]
+}

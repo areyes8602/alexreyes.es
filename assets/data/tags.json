@@ -1,0 +1,130 @@
+{
+  "schema_version": 2,
+  "_doc": "Taxonomía canónica de etiquetas para la base de datos de ejercicios. Cada namespace es un eje independiente; un ejercicio puede tener valores en varios namespaces a la vez. Para añadir un nuevo namespace: editar este fichero. Para añadir un nuevo valor dentro de un namespace: añadirlo bajo 'valores'. Luego ejecutar scripts/build_ejercicios.py para regenerar el índice.",
+  "namespaces": {
+    "descriptor_ib": {
+      "label": { "es": "Descriptor IB", "ca": "Descriptor IB", "en": "IB descriptor" },
+      "descripcion": { "es": "Descriptor oficial del syllabus IB (ej. TANS 3.10).", "ca": "Descriptor oficial del syllabus IB.", "en": "Official IB syllabus descriptor." },
+      "multi": true,
+      "valores": {
+        "TANS 1.14": { "label": { "es": "Álgebra matricial: suma, producto, inversas; forma matricial de sistemas", "ca": "Àlgebra matricial: suma, producte, inverses; forma matricial de sistemes", "en": "Matrix algebra: addition, product, inverses; matrix form of systems" } },
+        "TANS 1.15": { "label": { "es": "Valores propios y vectores propios; polinomio característico de matrices 2×2", "ca": "Valors propis i vectors propis; polinomi característic de matrius 2×2", "en": "Eigenvalues and eigenvectors; characteristic polynomial of 2×2 matrices" } },
+        "TANS 3.10": { "label": { "es": "Vectores: componentes, representación por columnas, módulo, operaciones", "ca": "Vectors: components, representació per columnes, mòdul, operacions", "en": "Vectors: components, column representation, magnitude, operations" } },
+        "TANS 3.12": { "label": { "es": "Aplicación de vectores a cinemática; proyectil como caso especial; r = r₀ + vt", "ca": "Aplicació de vectors a cinemàtica; projectil; r = r₀ + vt", "en": "Vector applications to kinematics; projectile motion; r = r₀ + vt" } },
+        "TANS 5.16": { "label": { "es": "Método de Euler; resolución numérica de sistemas acoplados; modelos depredador-presa", "ca": "Mètode d'Euler; resolució numèrica de sistemes acoblats; models depredador-presa", "en": "Euler's method; numerical solution of coupled systems; predator-prey models" } },
+        "TANS 5.17": { "label": { "es": "Retratos de fase, puntos de equilibrio, análisis cualitativo por autovalores", "ca": "Retrats de fase, punts d'equilibri, anàlisi qualitativa per autovalors", "en": "Phase portraits, equilibria, qualitative analysis via eigenvalues" } },
+        "TANS 5.18": { "label": { "es": "EDO de 2º orden reescrita como sistema de 1º orden acoplado", "ca": "EDO de 2n ordre reescrita com a sistema de 1r ordre acoblat", "en": "2nd-order ODE rewritten as coupled 1st-order system" } }
+      }
+    },
+    "asignatura": {
+      "label": { "es": "Asignatura", "ca": "Assignatura", "en": "Subject" },
+      "multi": false,
+      "valores": {
+        "ib-ai-hl": { "label": { "es": "IB Mathematics AI HL", "ca": "IB Mathematics AI HL", "en": "IB Mathematics AI HL" } },
+        "ib-ai-sl": { "label": { "es": "IB Mathematics AI SL", "ca": "IB Mathematics AI SL", "en": "IB Mathematics AI SL" } },
+        "ccss-1btl": { "label": { "es": "Mat. Aplicadas CCSS 1º BTL", "ca": "Mat. Aplicades CCSS 1r BTL", "en": "Applied Maths Social Sciences (Year 1)" } },
+        "2eso": { "label": { "es": "Matemáticas 2º ESO", "ca": "Matemàtiques 2n ESO", "en": "Mathematics (Year 8 / 2n ESO)" } },
+        "cangur": { "label": { "es": "Cangur (olimpiada)", "ca": "Cangur (olimpíada)", "en": "Cangur (olympiad)" } }
+      }
+    },
+    "nivel": {
+      "label": { "es": "Nivel", "ca": "Nivell", "en": "Level" },
+      "multi": false,
+      "valores": {
+        "eso": { "label": { "es": "ESO", "ca": "ESO", "en": "Lower-secondary (ESO)" } },
+        "bachillerato": { "label": { "es": "Bachillerato", "ca": "Batxillerat", "en": "Upper-secondary (Bachillerato)" } },
+        "ib1": { "label": { "es": "IB1 (1º Bachillerato)", "ca": "IB1 (1r Batxillerat)", "en": "IB1 (Year 12)" } },
+        "ib2": { "label": { "es": "IB2 (2º Bachillerato)", "ca": "IB2 (2n Batxillerat)", "en": "IB2 (Year 13)" } },
+        "olimpiada": { "label": { "es": "Olimpiada", "ca": "Olimpíada", "en": "Olympiad" } }
+      }
+    },
+    "tema": {
+      "label": { "es": "Tema", "ca": "Tema", "en": "Topic" },
+      "multi": true,
+      "valores": {
+        "algebra": { "label": { "es": "Álgebra", "ca": "Àlgebra", "en": "Algebra" } },
+        "matrices": { "label": { "es": "Matrices", "ca": "Matrius", "en": "Matrices" } },
+        "autovalores": { "label": { "es": "Autovalores / autovectores", "ca": "Autovalors / autovectors", "en": "Eigenvalues / eigenvectors" } },
+        "vectores": { "label": { "es": "Vectores", "ca": "Vectors", "en": "Vectors" } },
+        "cinematica": { "label": { "es": "Cinemática", "ca": "Cinemàtica", "en": "Kinematics" } },
+        "proyectil": { "label": { "es": "Movimiento de proyectil", "ca": "Moviment de projectil", "en": "Projectile motion" } },
+        "edos": { "label": { "es": "EDOs (ecuaciones diferenciales)", "ca": "EDOs (equacions diferencials)", "en": "ODEs (differential equations)" } },
+        "metodo_euler": { "label": { "es": "Método de Euler", "ca": "Mètode d'Euler", "en": "Euler's method" } },
+        "depredador_presa": { "label": { "es": "Modelos depredador-presa", "ca": "Models depredador-presa", "en": "Predator-prey models" } },
+        "retratos_fase": { "label": { "es": "Retratos de fase", "ca": "Retrats de fase", "en": "Phase portraits" } },
+        "equilibrio": { "label": { "es": "Puntos de equilibrio", "ca": "Punts d'equilibri", "en": "Equilibrium points" } },
+        "funciones": { "label": { "es": "Funciones", "ca": "Funcions", "en": "Functions" } },
+        "derivadas": { "label": { "es": "Derivadas", "ca": "Derivades", "en": "Derivatives" } },
+        "integrales": { "label": { "es": "Integrales", "ca": "Integrals", "en": "Integrals" } },
+        "probabilidad": { "label": { "es": "Probabilidad", "ca": "Probabilitat", "en": "Probability" } },
+        "estadistica": { "label": { "es": "Estadística", "ca": "Estadística", "en": "Statistics" } },
+        "geometria": { "label": { "es": "Geometría", "ca": "Geometria", "en": "Geometry" } },
+        "trigonometria": { "label": { "es": "Trigonometría", "ca": "Trigonometria", "en": "Trigonometry" } }
+      }
+    },
+    "habilidad": {
+      "label": { "es": "Habilidad", "ca": "Habilitat", "en": "Skill" },
+      "descripcion": { "es": "Competencia matemática principal que demanda el ejercicio.", "ca": "Competència matemàtica principal.", "en": "Main mathematical skill required." },
+      "multi": true,
+      "valores": {
+        "modelizacion": { "label": { "es": "Modelización", "ca": "Modelització", "en": "Modelling" } },
+        "calculo_simbolico": { "label": { "es": "Cálculo simbólico", "ca": "Càlcul simbòlic", "en": "Symbolic computation" } },
+        "calculo_numerico": { "label": { "es": "Cálculo numérico", "ca": "Càlcul numèric", "en": "Numerical computation" } },
+        "demostracion": { "label": { "es": "Demostración", "ca": "Demostració", "en": "Proof" } },
+        "interpretacion": { "label": { "es": "Interpretación", "ca": "Interpretació", "en": "Interpretation" } },
+        "razonamiento": { "label": { "es": "Razonamiento", "ca": "Raonament", "en": "Reasoning" } },
+        "visualizacion": { "label": { "es": "Visualización / gráficos", "ca": "Visualització / gràfics", "en": "Visualisation / graphs" } },
+        "uso_calculadora": { "label": { "es": "Uso de calculadora gráfica", "ca": "Ús de calculadora gràfica", "en": "Graphical calculator use" } }
+      }
+    },
+    "dificultad": {
+      "label": { "es": "Dificultad", "ca": "Dificultat", "en": "Difficulty" },
+      "multi": false,
+      "valores": {
+        "facil": { "label": { "es": "Fácil", "ca": "Fàcil", "en": "Easy" }, "orden": 1 },
+        "media": { "label": { "es": "Media", "ca": "Mitjana", "en": "Medium" }, "orden": 2 },
+        "dificil": { "label": { "es": "Difícil", "ca": "Difícil", "en": "Hard" }, "orden": 3 }
+      }
+    },
+    "formato": {
+      "label": { "es": "Formato", "ca": "Format", "en": "Format" },
+      "multi": true,
+      "valores": {
+        "pregunta_corta": { "label": { "es": "Pregunta corta", "ca": "Pregunta curta", "en": "Short question" } },
+        "pregunta_larga": { "label": { "es": "Pregunta larga", "ca": "Pregunta llarga", "en": "Long question" } },
+        "opcion_multiple": { "label": { "es": "Opción múltiple", "ca": "Opció múltiple", "en": "Multiple choice" } },
+        "demostracion_formal": { "label": { "es": "Demostración formal", "ca": "Demostració formal", "en": "Formal proof" } },
+        "problema_aplicado": { "label": { "es": "Problema aplicado", "ca": "Problema aplicat", "en": "Applied problem" } }
+      }
+    },
+    "idioma": {
+      "label": { "es": "Idioma", "ca": "Idioma", "en": "Language" },
+      "multi": false,
+      "valores": {
+        "es": { "label": { "es": "Español", "ca": "Castellà", "en": "Spanish" } },
+        "ca": { "label": { "es": "Catalán", "ca": "Català", "en": "Catalan" } },
+        "en": { "label": { "es": "Inglés", "ca": "Anglès", "en": "English" } }
+      }
+    },
+    "curso_academico": {
+      "label": { "es": "Curso académico", "ca": "Curs acadèmic", "en": "Academic year" },
+      "multi": false,
+      "valores": {
+        "2025-2026": { "label": { "es": "2025-2026", "ca": "2025-2026", "en": "2025-2026" } },
+        "2024-2025": { "label": { "es": "2024-2025", "ca": "2024-2025", "en": "2024-2025" } },
+        "2023-2024": { "label": { "es": "2023-2024", "ca": "2023-2024", "en": "2023-2024" } }
+      }
+    },
+    "fuente": {
+      "label": { "es": "Fuente", "ca": "Font", "en": "Source" },
+      "multi": false,
+      "valores": {
+        "propia": { "label": { "es": "Propia", "ca": "Pròpia", "en": "Own" } },
+        "ib_past_paper": { "label": { "es": "IB past paper", "ca": "IB past paper", "en": "IB past paper" } },
+        "cangur_oficial": { "label": { "es": "Cangur oficial", "ca": "Cangur oficial", "en": "Official Cangur" } },
+        "libro_texto": { "label": { "es": "Libro de texto", "ca": "Llibre de text", "en": "Textbook" } },
+        "adaptado": { "label": { "es": "Adaptado", "ca": "Adaptat", "en": "Adapted" } }
+      }
+    }
+  }
+}
