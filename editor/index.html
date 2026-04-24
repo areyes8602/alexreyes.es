@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Editor de ejercicios — alexreyes.es</title>
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/editor/editor.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script defer src="/editor/editor.js"></script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/ejercicios/">Banco de ejercicios</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:2rem">
+
+    <div style="margin-bottom:1rem">
+      <span class="section-label">Herramienta interna</span>
+      <h1 style="margin:0.3rem 0 0.5rem">Editor de colecciones</h1>
+      <p style="color:var(--text-soft);max-width:45rem">Rellena el formulario, descarga el JSON, guárdalo en <code>assets/data/ejercicios/&lt;id&gt;.json</code> y ejecuta <code>python3 scripts/build_ejercicios.py</code>.</p>
+    </div>
+
+    <div class="ed-warning">
+      Esta página es una utilidad privada — genera ficheros que luego tú commiteas al repo. No guarda nada en el servidor.
+    </div>
+
+    <details class="ed-import-box" id="import-details">
+      <summary>📥 Importar JSON existente (para editar una colección ya creada)</summary>
+      <textarea id="import-area" placeholder='Pega aquí el JSON de una colección existente y pulsa "Cargar"…'></textarea>
+      <div style="margin-top:0.5rem"><button class="ed-btn" id="btn-import">Cargar JSON</button></div>
+    </details>
+
+    <div class="ed-layout">
+
+      <div class="ed-form">
+
+        <div class="ed-section">
+          <h2>Datos de la colección <span class="kicker">examen / boletín / deberes…</span></h2>
+
+          <div class="ed-field-row">
+            <div class="ed-field">
+              <label>ID de la colección</label>
+              <input type="text" id="c-id" placeholder="p.ej. 2426-2eso-u4">
+              <span class="hint">Convención: &lt;año&gt;-&lt;curso&gt;-&lt;unidad&gt;. Solo letras, números y guiones.</span>
+            </div>
+            <div class="ed-field">
+              <label>Tipo</label>
+              <select id="c-tipo">
+                <option value="examen">Examen</option>
+                <option value="examen_practica">Examen de práctica</option>
+                <option value="boletin">Boletín de ejercicios</option>
+                <option value="deberes">Deberes</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ed-field">
+            <label>Título</label>
+            <input type="text" id="c-titulo" placeholder="p.ej. Unidad 4 — Ecuaciones de primer grado">
+          </div>
+
+          <div class="ed-field-row-3">
+            <div class="ed-field"><label>Fecha</label><input type="date" id="c-fecha"></div>
+            <div class="ed-field"><label>Grupo</label><input type="text" id="c-grupo" placeholder="p.ej. 2n ESO A"></div>
+            <div class="ed-field"><label>Promoción</label><input type="text" id="c-promocion" placeholder="p.ej. 2024-2026"></div>
+          </div>
+
+          <div class="ed-field-row">
+            <div class="ed-field"><label>Centro</label><input type="text" id="c-centro"></div>
+            <div class="ed-field">
+              <label>Puntuación total</label>
+              <div style="display:flex;gap:0.4rem">
+                <input type="number" id="c-ptotal" style="flex:1" step="0.5" min="0">
+                <button class="ed-btn ed-btn-mini" id="btn-auto-total" title="Calcular como suma de ejercicios">= auto</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ed-field-row">
+            <div class="ed-field"><label>URL página índice</label><input type="text" id="c-url-index" placeholder="/aula/…/examenes/2426-2eso-u4/"></div>
+            <div class="ed-field"><label>PDF original</label><input type="text" id="c-pdf" placeholder="/aula/…/original.pdf"></div>
+          </div>
+
+          <fieldset class="ed-tags-block">
+            <legend>Tags de la colección (se aplican a todos los ejercicios)</legend>
+            <div id="c-tags"></div>
+          </fieldset>
+
+          <div style="margin-top:1rem">
+            <label class="ed-field-inline-label" style="display:block;margin-bottom:0.4rem">BAREMO (opcional — nota / min / max pts)</label>
+            <div id="c-baremo"></div>
+            <div style="margin-top:0.5rem"><button class="ed-btn ed-btn-mini" id="btn-add-baremo">+ Añadir tramo</button></div>
+          </div>
+        </div>
+
+        <div class="ed-section">
+          <h2>Ejercicios <span class="kicker" id="ejer-count">0</span></h2>
+          <div id="ejercicios-list"></div>
+          <button class="ed-btn ed-btn-primary" id="btn-add-ej">+ Añadir ejercicio</button>
+        </div>
+
+      </div>
+
+      <aside class="ed-output-panel">
+        <h2 style="font-size:1rem;margin-bottom:0.7rem">JSON resultante</h2>
+        <div class="ed-json-box" id="output-json">{}</div>
+        <div class="ed-actions">
+          <button class="ed-btn ed-btn-primary" id="btn-download">⤓ Descargar .json</button>
+          <button class="ed-btn" id="btn-copy">Copiar</button>
+          <button class="ed-btn ed-btn-mini ed-btn-danger" id="btn-reset">Reset</button>
+        </div>
+        <div class="ed-validation" id="validation">
+          <h3>Validación</h3>
+          <ul><li>Esperando datos…</li></ul>
+        </div>
+        <div style="margin-top:1rem;font-size:0.78rem;color:var(--text-faint);line-height:1.5">
+          <strong>Siguiente paso:</strong><br>
+          1. Descarga el JSON.<br>
+          2. Guárdalo en <code>assets/data/ejercicios/&lt;id&gt;.json</code>.<br>
+          3. Ejecuta <code>python3 scripts/build_ejercicios.py</code>.<br>
+          4. Commit + push. Listo.
+        </div>
+      </aside>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Editor de ejercicios</span>
+      <span><a href="/docencia/ejercicios/" style="color:var(--text-faint)">Ver banco público &rarr;</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

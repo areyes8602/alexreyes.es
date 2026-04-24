@@ -100,6 +100,7 @@ def main():
     robots = (
         'User-agent: *\n'
         'Allow: /\n'
+        'Disallow: /editor/\n'
         '\n'
         f'Sitemap: {BASE}/sitemap.xml\n'
     )
