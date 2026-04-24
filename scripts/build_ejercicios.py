@@ -124,11 +124,38 @@ def build_index_entry(ejercicio, coleccion, taxonomy):
         else:
             url_enunciado = legacy
 
+    # Extract page numbers within the exam PDFs.
+    # Priority: explicit pages_enunciado/pages_solucion → #page= anchor in url → None
+    def extract_page_from_url(u):
+        if not u: return None
+        import re as _re
+        m = _re.search(r'#page=(\d+)', u)
+        return int(m.group(1)) if m else None
+
+    pages_enunciado = ejercicio.get("pages_enunciado")
+    if pages_enunciado is None:
+        p = extract_page_from_url(url_pdf)
+        pages_enunciado = [p] if p else []
+    elif isinstance(pages_enunciado, int):
+        pages_enunciado = [pages_enunciado]
+
+    pages_solucion = ejercicio.get("pages_solucion")
+    if isinstance(pages_solucion, int):
+        pages_solucion = [pages_solucion]
+
+    # Solution URLs (optional)
+    url_solucion_pdf = ejercicio.get("url_solucion_pdf")
+    url_solucion_html = ejercicio.get("url_solucion_html")
+
     return {
         "id": ejercicio["id"],
         "titulo": ejercicio.get("titulo") or ejercicio.get("descriptor") or ejercicio["id"],
         "url_enunciado": url_enunciado,
         "url_pdf": url_pdf,
+        "url_solucion_pdf": url_solucion_pdf,
+        "url_solucion_html": url_solucion_html,
+        "pages_enunciado": pages_enunciado or [],
+        "pages_solucion": pages_solucion or [],
         "url": url_enunciado or url_pdf,
         "numero": ejercicio.get("numero"),
         "puntuacion": ejercicio.get("puntuacion"),
@@ -142,6 +169,8 @@ def build_index_entry(ejercicio, coleccion, taxonomy):
             "url_index": coleccion.get("url_index"),
             "grupo": coleccion.get("grupo"),
             "promocion": coleccion.get("promocion"),
+            "pdf_enunciados": coleccion.get("pdf_enunciados") or coleccion.get("pdf_original"),
+            "pdf_soluciones": coleccion.get("pdf_soluciones"),
         },
         "tags": merged_tags,
         "search_text": {

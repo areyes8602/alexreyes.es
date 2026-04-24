@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/assets/css/mi-examen.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -21,6 +21,7 @@
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/mi-examen/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/mi-examen/">
 <meta name="robots" content="noindex, follow">
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script defer src="/assets/js/mi-examen.js"></script>
 </head>
 <body>
@@ -70,9 +71,11 @@
         <span><strong id="mx-count">0 exercises</strong></span>
         <span><strong id="mx-total">0 total points</strong></span>
       </div>
-      <button class="mx-btn mx-btn-primary" id="mx-print">🖨 Print exam</button>
-      <button class="mx-btn" id="mx-export">⤓ Export JSON</button>
-      <button class="mx-btn mx-btn-danger" id="mx-clear">Clear selection</button>
+      <button class="mx-btn mx-btn-primary" id="mx-dl-enun">⤓ PDF (questions)</button>
+      <button class="mx-btn" id="mx-dl-sol" disabled title="No solutions available">⤓ PDF (solutions)</button>
+      <button class="mx-btn" id="mx-print">🖨 View / Print</button>
+      <button class="mx-btn" id="mx-export">⤓ JSON</button>
+      <button class="mx-btn mx-btn-danger" id="mx-clear">Clear</button>
     </div>
 
     <div class="mx-cover" id="mx-cover">

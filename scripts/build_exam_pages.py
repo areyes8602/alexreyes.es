@@ -156,7 +156,8 @@ def render_page(col, tags):
     fecha = format_fecha(col.get("fecha"))
     grupo = col.get("grupo") or ""
     promocion = col.get("promocion") or ""
-    pdf_url = col.get("pdf_original") or ""
+    pdf_url = col.get("pdf_enunciados") or col.get("pdf_original") or ""
+    pdf_sol_url = col.get("pdf_soluciones") or ""
     tipo_col = tc.get("curso_academico") or ""  # yeah not ideal; prefer tipo_coleccion
     # Extract a short id to use as badge (Uxx or Gx)
     col_id = col["id"]
@@ -179,12 +180,13 @@ def render_page(col, tags):
     meta_chunks.append(f"<span>Total <strong>{total_disp} puntos</strong></span>")
     meta_html = "\n        ".join(meta_chunks)
 
-    pdf_button = ""
+    pdf_icon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>'
+    pdf_buttons = []
     if pdf_url:
-        pdf_button = f"""<a href="{esc(pdf_url)}" class="pdf-download">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>
-        Descargar PDF original
-      </a>"""
+        pdf_buttons.append(f'<a href="{esc(pdf_url)}" class="pdf-download" target="_blank" rel="noopener">{pdf_icon} Descargar enunciados (PDF)</a>')
+    if pdf_sol_url:
+        pdf_buttons.append(f'<a href="{esc(pdf_sol_url)}" class="pdf-download" style="background:var(--bg-subtle);color:var(--text);border:1px solid var(--border)" target="_blank" rel="noopener">{pdf_icon} Descargar soluciones (PDF)</a>')
+    pdf_button = '<div style="display:flex;gap:0.6rem;flex-wrap:wrap">' + ''.join(pdf_buttons) + '</div>' if pdf_buttons else ""
 
     cohort_tag = f'<span class="tag tag-orange">{esc(promocion)}</span>' if promocion else ""
     badge = f'<span class="tag tag-gray">{esc(short_badge)}</span>' if short_badge else ""
@@ -216,7 +218,7 @@ def render_page(col, tags):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{{delimiters:[{{left:'$$',right:'$$',display:true}},{{left:'\\\\[',right:'\\\\]',display:true}},{{left:'$',right:'$',display:false}},{{left:'\\\\(',right:'\\\\)',display:false}}],throwOnError:false}})"></script>
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
