@@ -24,6 +24,7 @@ single_paths = [
     '/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html',
     '/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html',
     '/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html',
+    '/aula/ib-ai-hl/examenes/2426-ib2-u12/',
 ]
 
 

@@ -75,15 +75,16 @@ def validate_tags(tags_dict, taxonomy, context):
 
 
 def validate_url_exists(url, context):
-    """Check a site-relative URL points to an existing file. Non-fatal (warning)."""
+    """Check a site-relative URL points to an existing file. Non-fatal (warning).
+    Strips ?query and #fragment (e.g. #page=2 for PDF anchors)."""
     if not url.startswith("/"):
         return []  # external URL, skip
-    # Try to find the file: /path/ -> /path/index.html, /path.html -> /path.html
+    clean = url.split("#", 1)[0].split("?", 1)[0]
     candidates = []
-    if url.endswith("/"):
-        candidates.append(REPO_ROOT / (url.lstrip("/") + "index.html"))
+    if clean.endswith("/"):
+        candidates.append(REPO_ROOT / (clean.lstrip("/") + "index.html"))
     else:
-        candidates.append(REPO_ROOT / url.lstrip("/"))
+        candidates.append(REPO_ROOT / clean.lstrip("/"))
     for c in candidates:
         if c.exists():
             return []
