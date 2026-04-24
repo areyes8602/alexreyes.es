@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Cilindro de volumen máximo inscrito en un cono — IB2 · U10</title>
+<meta name="description" content="Pregunta 4 del examen IB2 · U10 — U10 · Cálculo diferencial. Cilindro de volumen máximo inscrito en un cono. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u10/p4.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u10/p4.html">
+<meta property="og:title" content="P4 · Cilindro de volumen máximo inscrito en un cono — IB2 · U10">
+<meta property="og:description" content="Pregunta 4 del examen IB2 · U10 — U10 · Cálculo diferencial.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P4 · Cilindro de volumen máximo inscrito en un cono — IB2 · U10">
+<meta name="twitter:description" content="Pregunta 4 del examen IB2 · U10.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u10/">IB2 · U10 · U10 · Cálculo diferencial</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 4</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U10</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">13 feb 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u10/">Índice del examen</a>
+      <a class="next" href="p5.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 4 &middot; Cilindro de volumen máximo inscrito en un cono</h1>
+      <p class="question-descriptor">Optimización geométrica con restricción por semejanza</p>
+      <span class="score-pill">Puntuación máxima · 15 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Un cono tiene radio $R = 5$ cm y altura $H = 20$ cm. Se quiere inscribir un cilindro (eje del cono = eje del cilindro) de <strong>volumen máximo</strong>.</p>
+        </div>
+        <ol class="apartados">
+          <li>Bosquejo con las dimensiones del cono y del cilindro. <span class="apartado-puntos">3 p</span></li>
+          <li>Demostrar que $h = 20 - 4r$. <span class="apartado-puntos">4 p</span></li>
+          <li>Demostrar que $V(r) = 20\pi r^2 - 4\pi r^3$. <span class="apartado-puntos">3 p</span></li>
+          <li>Dimensiones del cilindro óptimo. <span class="apartado-puntos">3 p</span></li>
+          <li>Volumen máximo. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Optimización en problemas aplicados">TANS&nbsp;5.5</span>
+        <span class="ib-chip" data-descriptor="Monotonía y extremos relativos">TANS&nbsp;5.6</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Bosquejo</h4>
+          <p>Cono isósceles (sección): vértice arriba, base de radio $R = 5$ cm abajo, altura $H = 20$ cm. Cilindro vertical inscrito con base en la base del cono, radio $r$ y altura $h$, ambos $\leq $ los del cono.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Relación $h = 20 - 4r$</h4>
+          <p>Por <strong>triángulos semejantes</strong> entre el cono completo y el cono truncado por encima del cilindro:</p>
+          <div class="math-block">$$\frac{H - h}{r} = \frac{H}{R} = \frac{20}{5} = 4 \;\Longrightarrow\; H - h = 4r \;\Longrightarrow\; h = 20 - 4r$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Función a optimizar</h4>
+          <div class="math-block">$$V(r) = \pi r^2 h = \pi r^2 (20 - 4r) = 20 \pi r^2 - 4\pi r^3$$</div>
+          <p>con $r \in (0, 5)$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Dimensiones óptimas</h4>
+          <div class="math-block">$$V'(r) = 40 \pi r - 12 \pi r^2 = 4 \pi r (10 - 3r) = 0$$</div>
+          <p>Soluciones: $r = 0$ (mínimo trivial) o $r = \tfrac{10}{3}$ cm (máximo, pues $V'$ cambia de $+$ a $-$).</p>
+          <div class="math-block">$$r^* = \tfrac{10}{3}\ \text{cm} \approx 3{,}33\ \text{cm},\qquad h^* = 20 - 4 \cdot \tfrac{10}{3} = \tfrac{20}{3}\ \text{cm} \approx 6{,}67\ \text{cm}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Volumen máximo</h4>
+          <div class="math-block">$$V_{\max} = \pi \left(\tfrac{10}{3}\right)^2 \cdot \tfrac{20}{3} = \tfrac{2000\pi}{27} \approx 232{,}7\ \text{cm}^3$$</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u10/">Índice del examen</a>
+      <a class="next" href="p5.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

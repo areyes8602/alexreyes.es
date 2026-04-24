@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Integral de 1 + eˣ, regla del trapecio y volumen de revolución — IB2 U12</title>
+<meta name="description" content="Pregunta 2 del examen IB2 U12 — Cálculo integral. Integral de 1 + eˣ, regla del trapecio y volumen de revolución. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u12/p2.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u12/p2.html">
+<meta property="og:title" content="P2 · Integral de 1 + eˣ, regla del trapecio y volumen de revolución — IB2 U12">
+<meta property="og:description" content="Pregunta 2 del examen IB2 U12 — Cálculo integral.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P2 · Integral de 1 + eˣ, regla del trapecio y volumen de revolución — IB2 U12">
+<meta name="twitter:description" content="Pregunta 2 del examen IB2 U12 — Cálculo integral.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u12/">U12 · Cálculo integral</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 2</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U12</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">7 abr 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u12/">Índice del examen</a>
+      <a class="next" href="p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Integral de 1 + eˣ, regla del trapecio y volumen de revolución</h1>
+      <p class="question-descriptor">Integral definida, método del trapecio, sólidos de revolución respecto al eje y</p>
+      <span class="score-pill">Puntuación máxima · 16 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Se considera la región delimitada por la función $f(x) = 1 + e^x$, el eje $x$ y las rectas verticales $x = 0$ y $x = 2$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Dibuje la función $f(x)$ y sombree la región delimitada. <span class="apartado-puntos">2 p</span></li>
+          <li>Escriba la integral definida que representa el área de la región y calcúlela dando el resultado con 4 cifras significativas. <span class="apartado-puntos">4 p</span></li>
+          <li>Utilice el método de los trapecios con 5 trapecios para dar una estimación del área, con 4 cifras significativas. <span class="apartado-puntos">4 p</span></li>
+          <li>Encuentre el porcentaje de error cometido en la estimación del apartado (c). <span class="apartado-puntos">2 p</span></li>
+          <li>Si se hace revolución de la función $f(x)$ entre $x = 0$ y $x = 2$ respecto al eje $y$ se obtiene un sólido. Halle su volumen. <span class="apartado-puntos">4 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Integral definida; regla de Barrow">TANS&nbsp;5.13</span>
+        <span class="ib-chip" data-descriptor="Regla del trapecio">TANS&nbsp;5.15</span>
+        <span class="ib-chip" data-descriptor="Volúmenes de revolución">TANS&nbsp;5.19</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Representación gráfica</h4>
+          <p>$f(x) = 1 + e^x$ es estrictamente creciente y positiva en $[0, 2]$. Sus valores extremos son $f(0) = 2$ y $f(2) = 1 + e^2 \approx 8{,}389$. La región a sombrear está entre la curva y el eje $x$ desde $x=0$ hasta $x=2$.</p>
+          <p class="note">Describo el dibujo: curva exponencial creciente desde $(0, 2)$ hasta $(2, 8{,}389)$, cortando el eje $y$ en $2$, con la región entre la curva y $y=0$ sombreada.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Integral definida y su valor exacto</h4>
+          <div class="math-block">$$A = \int_{0}^{2} (1 + e^x)\, dx = \left[ x + e^x \right]_{0}^{2} = (2 + e^2) - (0 + 1) = 1 + e^2$$</div>
+          <p>Con 4 cifras significativas:</p>
+          <div class="final">$A = 1 + e^2 \approx 8{,}389$ unidades de área.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Aproximación por la regla del trapecio con 5 trapecios</h4>
+          <p>Con $n = 5$ trapecios y el intervalo $[0, 2]$, la anchura es $h = 2/5 = 0{,}4$. Los nodos son $x_i = 0{,}\ 0{,}4{,}\ 0{,}8{,}\ 1{,}2{,}\ 1{,}6{,}\ 2$.</p>
+          <table class="scale-table" style="margin:1rem 0">
+            <thead><tr><th>$x_i$</th><th>$f(x_i) = 1 + e^{x_i}$</th></tr></thead>
+            <tbody>
+              <tr><td>0</td><td>2,0000</td></tr>
+              <tr><td>0,4</td><td>2,4918</td></tr>
+              <tr><td>0,8</td><td>3,2255</td></tr>
+              <tr><td>1,2</td><td>4,3201</td></tr>
+              <tr><td>1,6</td><td>5,9530</td></tr>
+              <tr><td>2,0</td><td>8,3891</td></tr>
+            </tbody>
+          </table>
+          <div class="math-block">$$T_5 = \tfrac{h}{2}\left[ f(x_0) + 2\sum_{i=1}^{4} f(x_i) + f(x_5) \right]$$</div>
+          <div class="math-block">$$T_5 = \tfrac{0{,}4}{2}\left[ 2 + 2(2{,}4918 + 3{,}2255 + 4{,}3201 + 5{,}9530) + 8{,}3891 \right]$$</div>
+          <div class="math-block">$$T_5 = 0{,}2 \cdot \left[ 2 + 2 \cdot 15{,}9904 + 8{,}3891 \right] = 0{,}2 \cdot 42{,}3699 \approx 8{,}474$$</div>
+          <div class="final">$T_5 \approx 8{,}474$ unidades de área.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Porcentaje de error</h4>
+          <div class="math-block">$$\varepsilon = \left| \frac{T_5 - A}{A} \right| \cdot 100\% = \left| \frac{8{,}474 - 8{,}389}{8{,}389} \right| \cdot 100\% \approx 1{,}01\%$$</div>
+          <p class="note">El trapecio sobreestima porque $f$ es convexa (los trapecios quedan por encima de la curva).</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Volumen del sólido de revolución respecto al eje $y$</h4>
+          <p>Usamos el método de capas cilíndricas (shells), apropiado cuando se gira una región definida por $y = f(x)$ alrededor del eje $y$:</p>
+          <div class="math-block">$$V = 2\pi \int_{0}^{2} x \cdot f(x)\, dx = 2\pi \int_{0}^{2} x(1 + e^x)\, dx$$</div>
+          <p>Separamos la integral:</p>
+          <div class="math-block">$$V = 2\pi \left( \int_{0}^{2} x\, dx + \int_{0}^{2} x e^x\, dx \right)$$</div>
+          <p>La primera es inmediata: $\int_0^2 x\, dx = 2$. Para la segunda, integración por partes con $u = x$, $dv = e^x\, dx$:</p>
+          <div class="math-block">$$\int x e^x\, dx = x e^x - e^x + C \;\Longrightarrow\; \int_{0}^{2} x e^x\, dx = (2e^2 - e^2) - (0 - 1) = e^2 + 1$$</div>
+          <p>Combinando:</p>
+          <div class="math-block">$$V = 2\pi \left( 2 + e^2 + 1 \right) = 2\pi (3 + e^2) \approx 2\pi \cdot 10{,}389 \approx 65{,}27$$</div>
+          <div class="final">$V \approx 65{,}27$ unidades de volumen.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u12/">Índice del examen</a>
+      <a class="next" href="p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

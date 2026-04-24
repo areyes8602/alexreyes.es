@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P8 · Efecto de la IA: $t$-test de dos muestras y $\chi^2$ de independencia — IB2 · G2 P1+P2</title>
+<meta name="description" content="Pregunta 8 del examen IB2 · G2 P1+P2 — Global 2 HL · Papers 1 y 2. Efecto de la IA: $t$-test de dos muestras y $\chi^2$ de independencia. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p8.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p8.html">
+<meta property="og:title" content="P8 · Efecto de la IA: $t$-test de dos muestras y $\chi^2$ de independencia — IB2 · G2 P1+P2">
+<meta property="og:description" content="Pregunta 8 del examen IB2 · G2 P1+P2 — Global 2 HL · Papers 1 y 2.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P8 · Efecto de la IA: $t$-test de dos muestras y $\chi^2$ de independencia — IB2 · G2 P1+P2">
+<meta name="twitter:description" content="Pregunta 8 del examen IB2 · G2 P1+P2.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/">IB2 · G2 P1+P2 · Global 2 HL · Papers 1 y 2</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 8</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · G2 P1+P2</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">23 feb 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p7.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 8 &middot; Efecto de la IA: $t$-test de dos muestras y $\chi^2$ de independencia</h1>
+      <p class="question-descriptor">Inferencia comparativa entre dos grupos: medias y proporciones</p>
+      <span class="score-pill">Puntuación máxima · 20 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>$n_1 = n_2 = 20$. Grupo A (usa IA): $\bar{x}_1 = 74{,}2$, $s_1 = 8{,}5$. Grupo B (no usa IA): $\bar{x}_2 = 68{,}1$, $s_2 = 7{,}9$.</p>
+          <p>Adicionalmente:</p>
+          <table class="scale-table" style="margin:0.5rem 0">
+            <thead><tr><th></th><th>Aprueba</th><th>Suspende</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>Usa IA</td><td>17</td><td>3</td><td>20</td></tr>
+              <tr><td>No usa</td><td>12</td><td>8</td><td>20</td></tr>
+              <tr><td><strong>Total</strong></td><td>29</td><td>11</td><td>40</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ol class="apartados">
+          <li>IC 95% para la media del Grupo A. <span class="apartado-puntos">4 p</span></li>
+          <li>$H_0$ y $H_1$. <span class="apartado-puntos">1 p</span></li>
+          <li>$p$-valor del $t$-test. <span class="apartado-puntos">1 p</span></li>
+          <li>Decisión al 5%. <span class="apartado-puntos">2 p</span></li>
+          <li>Interpretación. <span class="apartado-puntos">2 p</span></li>
+          <li>Frecuencias esperadas. <span class="apartado-puntos">4 p</span></li>
+          <li>$\chi^2$ y $p$-valor. <span class="apartado-puntos">2 p</span></li>
+          <li>Grados de libertad. <span class="apartado-puntos">1 p</span></li>
+          <li>Decisión al 5%. <span class="apartado-puntos">1 p</span></li>
+          <li>Interpretación. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="IC para la media">TANS&nbsp;4.15</span>
+        <span class="ib-chip" data-descriptor="t-test de dos muestras">TANS&nbsp;4.12</span>
+        <span class="ib-chip" data-descriptor="Chi-cuadrado de independencia">TANS&nbsp;4.14</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p8" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p8')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p8" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> IC 95% Grupo A</h4>
+          <p>$n = 20$, gl $= 19$, $t^* \approx 2{,}093$. $\mathrm{SE} = \tfrac{8{,}5}{\sqrt{20}} \approx 1{,}900$. Margen $\approx 2{,}093 \cdot 1{,}900 \approx 3{,}977$.</p>
+          <div class="final">$\mathrm{IC}_{95\%}(\mu_A) = 74{,}2 \pm 3{,}98 \approx (70{,}22,\ 78{,}18)$.</div>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Hipótesis</h4>
+          <p>$H_0:\ \mu_1 = \mu_2$ frente a $H_1:\ \mu_1 > \mu_2$ (test unilateral derecho — esperamos que IA mejore).</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> $p$-valor</h4>
+          <p>$t$-test de Welch: $t = \tfrac{74{,}2 - 68{,}1}{\sqrt{8{,}5^2/20 + 7{,}9^2/20}} = \tfrac{6{,}1}{\sqrt{6{,}733}} \approx 2{,}351$. Con gl $\approx 38$, $p \approx 0{,}012$.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Decisión al 5%</h4>
+          <p>$0{,}012 < 0{,}05 \Rightarrow$ <strong>rechazamos $H_0$</strong>.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Interpretación</h4>
+          <p>Hay evidencia estadística al $5\%$ de que los estudiantes que usan IA obtienen, en promedio, mejor puntuación que los que no la usan.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">f)</span> Frecuencias esperadas</h4>
+          <p>$E_{ij} = \tfrac{r_i \cdot c_j}{40}$:</p>
+          <table class="scale-table" style="margin:0.5rem 0">
+            <thead><tr><th></th><th>Aprueba</th><th>Suspende</th></tr></thead>
+            <tbody>
+              <tr><td>Usa IA</td><td>14,5</td><td>5,5</td></tr>
+              <tr><td>No usa</td><td>14,5</td><td>5,5</td></tr>
+            </tbody>
+          </table>
+          <p>Todas $E_{ij} \geq 5$ ✓.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">g)</span> $\chi^2$ y $p$-valor</h4>
+          <div class="math-block">$$\chi^2 = \tfrac{(17-14{,}5)^2}{14{,}5} + \tfrac{(3-5{,}5)^2}{5{,}5} + \tfrac{(12-14{,}5)^2}{14{,}5} + \tfrac{(8-5{,}5)^2}{5{,}5} \approx 0{,}431 + 1{,}136 + 0{,}431 + 1{,}136 \approx 3{,}13$$</div>
+          <p>Con gl $= 1$: $p \approx 0{,}077$.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">h)</span> Grados de libertad</h4>
+          <p>$\text{gl} = (2-1)(2-1) = 1$.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">i)</span> Decisión al 5%</h4>
+          <p>$0{,}077 > 0{,}05 \Rightarrow$ <strong>no rechazamos $H_0$</strong>.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">j)</span> Interpretación</h4>
+          <p>No hay evidencia al $5\%$ de asociación entre "usar IA" y "aprobar" — aunque el $t$-test sí detectó diferencia de medias, la simple distinción aprueba/suspende no presenta una asociación significativa, posiblemente por la pequeña muestra y porque la mayoría aprobó en ambos grupos.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p7.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

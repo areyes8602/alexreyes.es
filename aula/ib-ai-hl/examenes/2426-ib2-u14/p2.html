@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Test $t$ pareado: prueba de nivel pre/post — IB2 · U14</title>
+<meta name="description" content="Pregunta 2 del examen IB2 · U14 — U14 · Estadística inferencial. Test $t$ pareado: prueba de nivel pre/post. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u14/p2.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u14/p2.html">
+<meta property="og:title" content="P2 · Test $t$ pareado: prueba de nivel pre/post — IB2 · U14">
+<meta property="og:description" content="Pregunta 2 del examen IB2 · U14 — U14 · Estadística inferencial.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P2 · Test $t$ pareado: prueba de nivel pre/post — IB2 · U14">
+<meta name="twitter:description" content="Pregunta 2 del examen IB2 · U14.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">IB2 · U14 · U14 · Estadística inferencial</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 2</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U14</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">16 ene 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">Índice del examen</a>
+      <a class="next" href="p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Test $t$ pareado: prueba de nivel pre/post</h1>
+      <p class="question-descriptor">Comparación de medias en muestras dependientes (antes/después)</p>
+      <span class="score-pill">Puntuación máxima · 15 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>5 alumnos de IB de Matemáticas AI hacen una prueba de nivel el primer día y vuelven a hacer la misma al final de curso. Se quiere saber si el curso ha producido una mejora.</p>
+          <table class="scale-table" style="margin:0.8rem 0">
+            <thead><tr><th>Alumno</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+            <tbody>
+              <tr><td>Nota inicial</td><td>25</td><td>41</td><td>8</td><td>14</td><td>34</td></tr>
+              <tr><td>Nota final</td><td>36</td><td>45</td><td>24</td><td>41</td><td>35</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ol class="apartados">
+          <li>Argumenta qué test es más adecuado, establece las hipótesis, calcula el $p$-valor y da tu conclusión. <span class="apartado-puntos">15 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Test t para muestras pareadas">TANS&nbsp;4.13</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4>Elección del test</h4>
+          <p>Las muestras no son independientes: cada alumno aparece en ambas mediciones (antes/después). Por tanto, <strong>test $t$ pareado</strong>, trabajando con las diferencias $d_i = \text{final}_i - \text{inicial}_i$.</p>
+          <table class="scale-table" style="margin:0.6rem 0">
+            <thead><tr><th>Alumno</th><th>Inicial</th><th>Final</th><th>$d = F - I$</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>25</td><td>36</td><td>11</td></tr>
+              <tr><td>2</td><td>41</td><td>45</td><td>4</td></tr>
+              <tr><td>3</td><td>8</td><td>24</td><td>16</td></tr>
+              <tr><td>4</td><td>14</td><td>41</td><td>27</td></tr>
+              <tr><td>5</td><td>34</td><td>35</td><td>1</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="apartado-sol">
+          <h4>Hipótesis</h4>
+          <div class="math-block">$$H_0:\ \mu_d = 0 \qquad H_1:\ \mu_d > 0$$</div>
+          <p>(test unilateral derecho — esperamos mejora, es decir, final $>$ inicial).</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4>Estadísticos de las diferencias</h4>
+          <div class="math-block">$$\bar{d} = \tfrac{11 + 4 + 16 + 27 + 1}{5} = \tfrac{59}{5} = 11{,}8$$</div>
+          <p>Desviaciones respecto a la media: $-0{,}8,\ -7{,}8,\ 4{,}2,\ 15{,}2,\ -10{,}8$. Suma de cuadrados $= 426{,}8$. Varianza muestral:</p>
+          <div class="math-block">$$s_d^2 = \tfrac{426{,}8}{n-1} = \tfrac{426{,}8}{4} = 106{,}7 \;\Longrightarrow\; s_d \approx 10{,}33$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4>Estadístico $t$ y $p$-valor</h4>
+          <div class="math-block">$$t = \frac{\bar{d}}{s_d / \sqrt{n}} = \frac{11{,}8}{10{,}33/\sqrt{5}} \approx \frac{11{,}8}{4{,}621} \approx 2{,}553$$</div>
+          <p>Con $\text{gl} = n - 1 = 4$:</p>
+          <div class="math-block">$$p\text{-valor} = P(T_4 > 2{,}553) \approx 0{,}031$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4>Conclusión</h4>
+          <p>A nivel $\alpha = 0{,}05$, como $0{,}031 < 0{,}05$, <strong>rechazamos $H_0$</strong>. Hay evidencia estadística de que el curso ha producido una mejora en las notas.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">Índice del examen</a>
+      <a class="next" href="p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

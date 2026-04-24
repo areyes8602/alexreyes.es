@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Intervalo de confianza para la media (sacos de harina) — IB2 · U14</title>
+<meta name="description" content="Pregunta 4 del examen IB2 · U14 — U14 · Estadística inferencial. Intervalo de confianza para la media (sacos de harina). Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u14/p4.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u14/p4.html">
+<meta property="og:title" content="P4 · Intervalo de confianza para la media (sacos de harina) — IB2 · U14">
+<meta property="og:description" content="Pregunta 4 del examen IB2 · U14 — U14 · Estadística inferencial.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P4 · Intervalo de confianza para la media (sacos de harina) — IB2 · U14">
+<meta name="twitter:description" content="Pregunta 4 del examen IB2 · U14.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">IB2 · U14 · U14 · Estadística inferencial</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 4</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U14</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">16 ene 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 4 &middot; Intervalo de confianza para la media (sacos de harina)</h1>
+      <p class="question-descriptor">IC 95% con $t$ de Student y comparación con un valor nominal</p>
+      <span class="score-pill">Puntuación máxima · 15 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Un jefe toma una muestra aleatoria de $n = 10$ sacos de harina y halla que la media de pesos es $\bar{x} = 1{,}478$ kg y la desviación típica de la muestra ($S_n$) es $0{,}0196$ kg.</p>
+        </div>
+        <ol class="apartados">
+          <li>Halla $S_{n-1}$ (cuasi-desviación). <span class="apartado-puntos">5 p</span></li>
+          <li>Intervalo de confianza al 95% para la media poblacional (4 cifras significativas). <span class="apartado-puntos">5 p</span></li>
+          <li>Comenta la afirmación de que los sacos contienen 1,5 kg. <span class="apartado-puntos">5 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Intervalos de confianza para la media">TANS&nbsp;4.15</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> $S_{n-1}$</h4>
+          <p>Relación entre $S_n$ (muestral) y $S_{n-1}$ (cuasi, insesgada):</p>
+          <div class="math-block">$$S_{n-1} = S_n \cdot \sqrt{\tfrac{n}{n-1}} = 0{,}0196 \cdot \sqrt{\tfrac{10}{9}} \approx 0{,}0207\ \text{kg}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> IC 95% para $\mu$</h4>
+          <p>Con $n = 10$, gl $= 9$ y $\alpha = 0{,}05$: valor crítico $t^* = t_{0{,}025;\,9} \approx 2{,}262$.</p>
+          <p>Error estándar: $\mathrm{SE} = \tfrac{S_{n-1}}{\sqrt{n}} = \tfrac{0{,}0207}{\sqrt{10}} \approx 0{,}00653$ kg.</p>
+          <p>Margen de error: $t^* \cdot \mathrm{SE} \approx 2{,}262 \cdot 0{,}00653 \approx 0{,}01478$ kg.</p>
+          <div class="math-block">$$\mathrm{IC}_{95\%} = \bar{x} \pm t^* \cdot \mathrm{SE} = 1{,}478 \pm 0{,}01478$$</div>
+          <div class="final">$\mathrm{IC}_{95\%} \approx (1{,}463,\ 1{,}493)$ kg.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Comentario sobre "1,5 kg"</h4>
+          <p>El valor $\mu_0 = 1{,}5$ kg <strong>queda fuera</strong> del intervalo $(1{,}463;\ 1{,}493)$ por encima. Al 95% de confianza, los datos no son compatibles con una media poblacional de $1{,}5$ kg: los sacos probablemente <strong>pesan menos</strong> de lo que indica el envase. La empresa debería revisar el proceso de envasado.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

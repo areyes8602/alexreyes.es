@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P5 · Población de suricatas: EDO, campo de pendientes y método de Euler — IB2 U12</title>
+<meta name="description" content="Pregunta 5 del examen IB2 U12 — Cálculo integral. Población de suricatas: EDO, campo de pendientes y método de Euler. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u12/p5.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u12/p5.html">
+<meta property="og:title" content="P5 · Población de suricatas: EDO, campo de pendientes y método de Euler — IB2 U12">
+<meta property="og:description" content="Pregunta 5 del examen IB2 U12 — Cálculo integral.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P5 · Población de suricatas: EDO, campo de pendientes y método de Euler — IB2 U12">
+<meta name="twitter:description" content="Pregunta 5 del examen IB2 U12 — Cálculo integral.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u12/">U12 · Cálculo integral</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 5</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U12</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">7 abr 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u12/">Índice del examen</a>
+      <a class="next" href="p6.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 5 &middot; Población de suricatas: EDO, campo de pendientes y método de Euler</h1>
+      <p class="question-descriptor">EDO lineal de 1er orden, campo de pendientes y Euler</p>
+      <span class="score-pill">Puntuación máxima · 18 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Sea $N$ la población de un tipo de suricatas (en decenas) y $t$ el tiempo (en años). El ritmo de variación se modela por</p>
+          <div class="math-block">$$\frac{dN}{dt} = 0{,}5 N - t$$</div>
+        </div>
+        <ol class="apartados">
+          <li>Suponiendo que $N = a + bt$, con $a, b \in \mathbb{R}$, es una solución de la EDO para una determinada población inicial, encuentra los valores de $a$ y $b$. <span class="apartado-puntos">4 p</span></li>
+          <li>Representa la solución lineal $N = a + bt$ sobre el campo de pendientes. <span class="apartado-puntos">2 p</span></li>
+          <li>Representa la trayectoria de la población para el caso $t = 0,\ N = 2$, de forma aproximada sobre el campo de pendientes. <span class="apartado-puntos">2 p</span></li>
+          <li>Un ambientalista determina que la población alcanzará un máximo tres años después y luego comenzará a disminuir. Da la población máxima de suricatas. <span class="apartado-puntos">3 p</span></li>
+          <li>Para $t = 3$, se decide introducir más suricatas. Encuentra el mínimo número de suricatas que hay que introducir para que la colonia siga creciendo continuamente. <span class="apartado-puntos">3 p</span></li>
+          <li>Después de introducir suricatas, la población llega a $120$ ejemplares. Usa el método de Euler con paso $h = 0{,}1$ para estimar la población después de $1$ año. <span class="apartado-puntos">4 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Método de Euler">TANS&nbsp;5.16</span>
+        <span class="ib-chip" data-descriptor="EDO 1er orden; separación de variables">TANS&nbsp;5.20</span>
+        <span class="ib-chip" data-descriptor="Campo de pendientes">TANS&nbsp;5.21</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p5')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p5" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Solución lineal $N = a + bt$</h4>
+          <p>Si $N = a + bt$, entonces $dN/dt = b$. Sustituyendo en la EDO:</p>
+          <div class="math-block">$$b = 0{,}5(a + bt) - t = 0{,}5 a + (0{,}5 b - 1) t$$</div>
+          <p>Igualando coeficientes: el término constante da $b = 0{,}5\, a$; el coeficiente de $t$ da $0 = 0{,}5\, b - 1$, de donde $b = 2$. Entonces $a = 4$.</p>
+          <div class="final">$N(t) = 4 + 2 t$ (con $a = 4,\ b = 2$).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Recta $N = 4 + 2t$ sobre el campo</h4>
+          <p>Es una recta que pasa por $(0, 4)$ con pendiente $2$. Sobre el campo de pendientes, sigue las flechas que indican pendiente $2$ en cada punto $(t, 4+2t)$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Trayectoria para $t = 0,\ N = 2$</h4>
+          <p>Como la condición inicial $N(0) = 2$ está por <strong>debajo</strong> de la recta-solución $N = 4 + 2t$, la trayectoria comienza con pendiente $0{,}5(2) - 0 = 1 > 0$: crece. Pero crece más lento que la recta y eventualmente $dN/dt$ cambia de signo (cuando $N = 2t$). La trayectoria sube, alcanza un máximo y luego decrece hacia $-\infty$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Población máxima</h4>
+          <p>En el máximo, $dN/dt = 0$, por lo que $0{,}5 N = t$, es decir, $N = 2t$. En el instante $t = 3$:</p>
+          <div class="math-block">$$N_{\max} = 2 \cdot 3 = 6\ \text{decenas} = 60\ \text{suricatas}$$</div>
+          <div class="final">Población máxima: $60$ individuos (a los $3$ años).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Mínimo número de suricatas a introducir</h4>
+          <p>Para que la colonia crezca indefinidamente, la trayectoria debe estar en o por encima de la recta-solución $N = 4 + 2t$, que es la <strong>separatriz</strong> entre comportamientos crecientes y decrecientes. En $t = 3$, la recta vale $N = 4 + 2(3) = 10$ (decenas $= 100$ individuos).</p>
+          <p>La colonia antes de la intervención estaba en $N = 6$ (decenas). Hay que llevarla a $N \geq 10$:</p>
+          <div class="math-block">$$\Delta N = 10 - 6 = 4\ \text{decenas} = 40\ \text{suricatas}$$</div>
+          <div class="final">Mínimo $40$ suricatas a introducir.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)</span> Euler con $h = 0{,}1$ desde $N = 12$ (tras la introducción)</h4>
+          <p>La población llega a $120$ ejemplares $= 12$ decenas. Tomamos $t_0 = 3,\ N_0 = 12$ y aplicamos Euler hasta $t = 4$ (10 pasos):</p>
+          <div class="math-block">$$N_{n+1} = N_n + h \cdot \big( 0{,}5\, N_n - t_n \big)$$</div>
+          <table class="scale-table" style="margin:0.8rem 0">
+            <thead><tr><th>$n$</th><th>$t_n$</th><th>$N_n$</th><th>$dN/dt$</th></tr></thead>
+            <tbody>
+              <tr><td>0</td><td>3,0</td><td>12,000</td><td>3,000</td></tr>
+              <tr><td>1</td><td>3,1</td><td>12,300</td><td>3,050</td></tr>
+              <tr><td>2</td><td>3,2</td><td>12,605</td><td>3,102</td></tr>
+              <tr><td>3</td><td>3,3</td><td>12,916</td><td>3,158</td></tr>
+              <tr><td>4</td><td>3,4</td><td>13,231</td><td>3,216</td></tr>
+              <tr><td>5</td><td>3,5</td><td>13,553</td><td>3,276</td></tr>
+              <tr><td>6</td><td>3,6</td><td>13,880</td><td>3,340</td></tr>
+              <tr><td>7</td><td>3,7</td><td>14,214</td><td>3,407</td></tr>
+              <tr><td>8</td><td>3,8</td><td>14,555</td><td>3,478</td></tr>
+              <tr><td>9</td><td>3,9</td><td>14,903</td><td>3,551</td></tr>
+              <tr><td>10</td><td>4,0</td><td>15,258</td><td>—</td></tr>
+            </tbody>
+          </table>
+          <div class="final">$N(4) \approx 15{,}26$ decenas $\approx 153$ suricatas.</div>
+          <p class="note">La solución exacta es $N(t) = C e^{0{,}5 t} + 2t + 4$. Con $N(3) = 12$: $C = 2/e^{1{,}5} \approx 0{,}4463$. Entonces $N(4) = 0{,}4463 \cdot e^{2} + 12 \approx 15{,}30$. Euler con $h = 0{,}1$ da $15{,}26$: error $< 0{,}3\%$.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u12/">Índice del examen</a>
+      <a class="next" href="p6.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

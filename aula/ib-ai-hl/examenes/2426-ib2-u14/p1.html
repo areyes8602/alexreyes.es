@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P1 · Test Z: tiempo entre autobuses ($\sigma$ conocida) — IB2 · U14</title>
+<meta name="description" content="Pregunta 1 del examen IB2 · U14 — U14 · Estadística inferencial. Test Z: tiempo entre autobuses ($\sigma$ conocida). Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u14/p1.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u14/p1.html">
+<meta property="og:title" content="P1 · Test Z: tiempo entre autobuses ($\sigma$ conocida) — IB2 · U14">
+<meta property="og:description" content="Pregunta 1 del examen IB2 · U14 — U14 · Estadística inferencial.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P1 · Test Z: tiempo entre autobuses ($\sigma$ conocida) — IB2 · U14">
+<meta name="twitter:description" content="Pregunta 1 del examen IB2 · U14.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">IB2 · U14 · U14 · Estadística inferencial</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 1</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U14</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">16 ene 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <span class="disabled prev">&larr; Pregunta anterior</span>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">Índice del examen</a>
+      <a class="next" href="p2.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 1 &middot; Test Z: tiempo entre autobuses ($\sigma$ conocida)</h1>
+      <p class="question-descriptor">Prueba de hipótesis para la media con varianza poblacional conocida</p>
+      <span class="score-pill">Puntuación máxima · 20 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>El tiempo entre la llegada de dos autobuses sigue una distribución normal con desviación típica $\sigma = 2{,}1$ minutos. La compañía afirma que la media es $\mu = 8{,}3$ min. Albert sospecha que es mayor y observa $n = 5$ tiempos entre autobuses:</p>
+          <div class="math-block">$$8{,}0\ \ 8{,}7\ \ 9{,}2\ \ 8{,}4\ \ 8{,}5$$</div>
+        </div>
+        <ol class="apartados">
+          <li>Hipótesis nula y alternativa del test de Albert. <span class="apartado-puntos">4 p</span></li>
+          <li>Media muestral $\bar{x}$. <span class="apartado-puntos">2 p</span></li>
+          <li>Distribución de $\bar{X}$ bajo $H_0$. <span class="apartado-puntos">2 p</span></li>
+          <li>$P(\bar{X} > \bar{x})$ asumiendo $H_0$ cierta. <span class="apartado-puntos">4 p</span></li>
+          <li>Conclusión con tolerancia del 10%. <span class="apartado-puntos">4 p</span></li>
+          <li>Región crítica del test. <span class="apartado-puntos">4 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Test Z para la media">TANS&nbsp;4.11</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p1')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p1" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Hipótesis</h4>
+          <div class="math-block">$$H_0:\ \mu = 8{,}3\quad\text{frente a}\quad H_1:\ \mu > 8{,}3$$</div>
+          <p>Test unilateral derecho. Nivel de significación $\alpha = 0{,}10$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Media muestral</h4>
+          <div class="math-block">$$\bar{x} = \tfrac{8{,}0 + 8{,}7 + 9{,}2 + 8{,}4 + 8{,}5}{5} = \tfrac{42{,}8}{5} = 8{,}56$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Distribución de $\bar{X}$ bajo $H_0$</h4>
+          <p>Si $X \sim N(\mu, \sigma^2)$ con $\sigma = 2{,}1$, entonces:</p>
+          <div class="math-block">$$\bar{X} \sim N\!\left( 8{,}3,\ \tfrac{2{,}1^2}{5} \right) = N(8{,}3,\ 0{,}882)$$</div>
+          <p>con error estándar $\sigma_{\bar{X}} = 2{,}1/\sqrt{5} \approx 0{,}939$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> $p$-valor</h4>
+          <p>Tipificamos:</p>
+          <div class="math-block">$$Z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{8{,}56 - 8{,}3}{0{,}939} \approx 0{,}277$$</div>
+          <div class="math-block">$$P(\bar{X} > 8{,}56) = P(Z > 0{,}277) \approx 0{,}391$$</div>
+          <div class="final">$p$-valor $\approx 0{,}391$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Conclusión al 10%</h4>
+          <p>Como $0{,}391 > 0{,}10$, <strong>no rechazamos</strong> $H_0$. No hay evidencia suficiente para afirmar que la media del tiempo entre autobuses es mayor que $8{,}3$ min.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)</span> Región crítica</h4>
+          <p>Al 10%, el valor crítico es $z_{0{,}10} = 1{,}2816$. Rechazamos $H_0$ si:</p>
+          <div class="math-block">$$\bar{x} > \mu_0 + z_{\alpha} \cdot \tfrac{\sigma}{\sqrt{n}} = 8{,}3 + 1{,}2816 \cdot 0{,}939 \approx 9{,}50$$</div>
+          <div class="final">Región crítica: $\{ \bar{x} > 9{,}50 \}$ (en la muestra $\bar{x} = 8{,}56$ queda fuera).</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <span class="disabled prev">&larr; Pregunta anterior</span>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u14/">Índice del examen</a>
+      <a class="next" href="p2.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

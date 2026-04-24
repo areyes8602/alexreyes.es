@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P1 · Voltaje sinusoidal, fasores complejos y cadena de Markov — IB2 · G1 P3</title>
+<meta name="description" content="Pregunta 1 del examen IB2 · G1 P3 — Global 1 HL · Paper 3 (números complejos, Poisson, Markov). Voltaje sinusoidal, fasores complejos y cadena de Markov. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/p1.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/p1.html">
+<meta property="og:title" content="P1 · Voltaje sinusoidal, fasores complejos y cadena de Markov — IB2 · G1 P3">
+<meta property="og:description" content="Pregunta 1 del examen IB2 · G1 P3 — Global 1 HL · Paper 3 (números complejos, Poisson, Markov).">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P1 · Voltaje sinusoidal, fasores complejos y cadena de Markov — IB2 · G1 P3">
+<meta name="twitter:description" content="Pregunta 1 del examen IB2 · G1 P3.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">IB2 · G1 P3 · Global 1 HL · Paper 3 (números complejos, Poisson, Markov)</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 1</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · G1 P3</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">27 nov 2025</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <span class="disabled prev">&larr; Pregunta anterior</span>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">Índice del examen</a>
+      <a class="next" href="p2.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 1 &middot; Voltaje sinusoidal, fasores complejos y cadena de Markov</h1>
+      <p class="question-descriptor">Modelado eléctrico con sinusoides, números complejos en forma polar y autovalores de matrices de transición</p>
+      <span class="score-pill">Puntuación máxima · 28 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>El voltaje en una línea es $V(t) = A \sin(\omega t)$ con $V_{\max} = 9{,}6$ V y periodo $T = 5{,}0$ ms.</p>
+          <p>Un fasor inicial $Z = 6(\cos\theta + i \sin\theta)$ se transforma con $W = e^{i\alpha} Z = -3\sqrt{3} + 3 i$.</p>
+          <p>Dos fuentes: $V_1(t) = 6\sin(\omega t)$ y $V_2(t) = 4\sin(\omega t + \tfrac{\pi}{3})$.</p>
+          <p>Estados de la línea: $S_1$ normal, $S_2$ cerca del límite, $S_3$ encima. Matriz de transición</p>
+          <div class="math-block">$$P = \begin{pmatrix} 0{,}90 & 0{,}15 & 0{,}20 \\ 0{,}09 & 0{,}70 & 0{,}30 \\ 0{,}01 & 0{,}15 & 0{,}50 \end{pmatrix}$$</div>
+          <p>Consumos medios: $S_1 \to 1{,}5$ kW, $S_2 \to 2{,}0$ kW, $S_3 \to 2{,}8$ kW.</p>
+        </div>
+        <ol class="apartados">
+          <li>(a) Significado de la amplitud $A$. (b) Valor de $A$. (c) Frecuencia angular $\omega$ en rad/ms. <span class="apartado-puntos">4 p</span></li>
+          <li>(d) $|W|$. (e) Argumento principal de $W$. (f) Un valor posible de $\alpha$. <span class="apartado-puntos">6 p</span></li>
+          <li>(g) Calcula $V_T(t) = V_1(t) + V_2(t)$ en forma sinusoidal. <span class="apartado-puntos">3 p</span></li>
+          <li>(h) $V_1, V_2$ en $\omega t = \pi/6$. (i) Voltaje total. (j) Comparar con la amplitud de $V_1$. <span class="apartado-puntos">4 p</span></li>
+          <li>(k) Significado de $0{,}15$ en posición $(1, 2)$. (l) Verifica que las columnas son distribuciones. <span class="apartado-puntos">3 p</span></li>
+          <li>(m) Distribución estacionaria (% en cada estado). <span class="apartado-puntos">5 p</span></li>
+          <li>(o) Consumo medio a largo plazo (kW); ¿estado cómodo o de riesgo? <span class="apartado-puntos">3 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Funciones sinusoidales: amplitud, periodo, frecuencia">TANS&nbsp;3.14</span>
+        <span class="ib-chip" data-descriptor="Números complejos: forma polar y exponencial">TANS&nbsp;3.9</span>
+        <span class="ib-chip" data-descriptor="Cadenas de Markov, matriz de transición">TANS&nbsp;1.13</span>
+        <span class="ib-chip" data-descriptor="Valores y vectores propios">TANS&nbsp;1.15</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p1')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p1" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Amplitud</h4>
+          <p>$A$ representa el voltaje máximo (la separación entre la posición de equilibrio y el pico de la onda).</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Valor de $A$</h4>
+          <div class="final">$A = V_{\max} = 9{,}6$ V.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Frecuencia angular</h4>
+          <div class="math-block">$$\omega = \tfrac{2\pi}{T} = \tfrac{2\pi}{5}\ \text{rad/ms} \approx 1{,}257\ \text{rad/ms}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Módulo de $W$</h4>
+          <div class="math-block">$$|W| = \sqrt{(-3\sqrt{3})^2 + 3^2} = \sqrt{27 + 9} = \sqrt{36} = 6$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Argumento principal de $W$</h4>
+          <p>$W = -3\sqrt{3} + 3i$ está en el segundo cuadrante. $\tan(\beta) = \tfrac{3}{3\sqrt{3}} = \tfrac{1}{\sqrt{3}} \Rightarrow \beta = \tfrac{\pi}{6}$. Argumento principal:</p>
+          <div class="math-block">$$\arg W = \pi - \tfrac{\pi}{6} = \tfrac{5\pi}{6}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)</span> Valor posible de $\alpha$</h4>
+          <p>Como $|Z| = |W| = 6$, multiplicar por $e^{i\alpha}$ solo gira: $\arg W = \arg Z + \alpha$, luego $\alpha = \tfrac{5\pi}{6} - \theta$. Para $\theta = 0$ (caso simple):</p>
+          <div class="final">$\alpha = \tfrac{5\pi}{6}$ (módulo $2\pi$).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">g)</span> Suma $V_T$</h4>
+          <p>Desarrollamos $\sin(\omega t + \tfrac{\pi}{3})$:</p>
+          <div class="math-block">$$V_2 = 4\sin\omega t \cos\tfrac{\pi}{3} + 4\cos\omega t \sin\tfrac{\pi}{3} = 2\sin\omega t + 2\sqrt{3}\cos\omega t$$</div>
+          <div class="math-block">$$V_T = 8\sin\omega t + 2\sqrt{3}\cos\omega t = R \sin(\omega t + \varphi)$$</div>
+          <p>con $R = \sqrt{64 + 12} = \sqrt{76} = 2\sqrt{19}$ y $\tan\varphi = \tfrac{2\sqrt{3}}{8} = \tfrac{\sqrt{3}}{4} \Rightarrow \varphi \approx 0{,}409$ rad.</p>
+          <div class="final">$V_T(t) \approx 8{,}72\,\sin(\omega t + 0{,}409)$ V.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">h)</span> Valores en $\omega t = \pi/6$</h4>
+          <p>$V_1(\pi/6) = 6\sin(\pi/6) = 6 \cdot \tfrac{1}{2} = 3$ V.</p>
+          <p>$V_2(\pi/6) = 4\sin(\pi/6 + \pi/3) = 4\sin(\pi/2) = 4$ V.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">i)</span> Voltaje total</h4>
+          <div class="final">$V_T = 3 + 4 = 7$ V.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">j)</span> Comparación con la amplitud de $V_1$</h4>
+          <p>$V_T = 7$ V $> 6$ V (amplitud de $V_1$). En este instante el voltaje total <strong>supera</strong> el máximo individual de $V_1$ — al sumar dos fuentes con el mismo periodo, el resultado puede ser mayor que cualquiera por separado.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">k)</span> Significado de $0{,}15$</h4>
+          <p>La entrada $P_{1,2}$ es la probabilidad de pasar <strong>de</strong> $S_2$ (cerca del límite) <strong>a</strong> $S_1$ (normal) en un milisegundo. Una "recuperación".</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">l)</span> Cada columna es una distribución de probabilidad</h4>
+          <p>Las entradas de $P$ están en $[0, 1]$ y cada columna suma $1$:</p>
+          <p>Col 1: $0{,}90 + 0{,}09 + 0{,}01 = 1$. Col 2: $0{,}15 + 0{,}70 + 0{,}15 = 1$. Col 3: $0{,}20 + 0{,}30 + 0{,}50 = 1$. ✓</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">m)</span> Distribución estacionaria</h4>
+          <p>Resolvemos $(P - I) v = 0$ con $\sum v_i = 1$. Usando las dos primeras ecuaciones:</p>
+          <p>(1) $-0{,}10 v_1 + 0{,}15 v_2 + 0{,}20 v_3 = 0$</p>
+          <p>(2) $0{,}09 v_1 - 0{,}30 v_2 + 0{,}30 v_3 = 0$</p>
+          <p>De (1): $v_1 = \tfrac{3}{2} v_2 + 2 v_3$. Sustituyendo en (2) y simplificando se obtiene $v_2 = \tfrac{32}{11} v_3$, $v_1 = \tfrac{70}{11} v_3$.</p>
+          <p>Tomando $v_3 = 11$: $v = (70, 32, 11)^T$, suma $= 113$. Estacionario:</p>
+          <div class="math-block">$$\pi = \left( \tfrac{70}{113},\ \tfrac{32}{113},\ \tfrac{11}{113} \right) \approx (0{,}6195,\ 0{,}2832,\ 0{,}0973)$$</div>
+          <div class="final">$\approx 62{,}0\%\ S_1$, $28{,}3\%\ S_2$, $9{,}7\%\ S_3$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">o)</span> Consumo medio a largo plazo</h4>
+          <div class="math-block">$$\bar{C} = 1{,}5 \cdot 0{,}620 + 2{,}0 \cdot 0{,}283 + 2{,}8 \cdot 0{,}097 \approx 1{,}77\ \text{kW}$$</div>
+          <p>El consumo medio está más cerca del estado $S_1$ ($1{,}5$ kW, cómodo) que de $S_3$ ($2{,}8$ kW, riesgo). El sistema funciona <strong>mayoritariamente en zona cómoda</strong>.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <span class="disabled prev">&larr; Pregunta anterior</span>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">Índice del examen</a>
+      <a class="next" href="p2.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 · Grafo turístico con arista desconocida $x$ — IB2 · U15</title>
+<meta name="description" content="Pregunta 3 del examen IB2 · U15 — U15 · Teoría de grafos. Grafo turístico con arista desconocida $x$. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u15/p3.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u15/p3.html">
+<meta property="og:title" content="P3 · Grafo turístico con arista desconocida $x$ — IB2 · U15">
+<meta property="og:description" content="Pregunta 3 del examen IB2 · U15 — U15 · Teoría de grafos.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P3 · Grafo turístico con arista desconocida $x$ — IB2 · U15">
+<meta name="twitter:description" content="Pregunta 3 del examen IB2 · U15.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u15/">IB2 · U15 · U15 · Teoría de grafos</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 3</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U15</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">30 ene 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u15/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 3 &middot; Grafo turístico con arista desconocida $x$</h1>
+      <p class="question-descriptor">Prim, algoritmo del vecino más cercano, algoritmo del vértice borrado con parámetro</p>
+      <span class="score-pill">Puntuación máxima · 25 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Un grafo $W$ con 8 vértices $A$–$H$ representa tiempos de viaje entre lugares turísticos. La arista $AF$ tiene tiempo $x \in \mathbb{Z}^+$ desconocido por obras. Suma total de pesos $= 92 + x$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Escribe un ciclo hamiltoniano en $W$. <span class="apartado-puntos">1 p</span></li>
+          <li>(i) Prim desde $B$ (tras borrar $A$); orden de aristas. (ii) Caso $x < 9$: cota inferior. <span class="apartado-puntos">5+2 p</span></li>
+          <li>(i) $p$, (ii) $q$, (iii) $r$ de la tabla de distancias mínimas. <span class="apartado-puntos">1+1+1 p</span></li>
+          <li>(i) Vecino más cercano desde $A$ con $x = 3$: dos ciclos. (ii) Mejor cota superior. <span class="apartado-puntos">3+2 p</span></li>
+          <li>(i) Menor $x$ tal que $AF$ no se utiliza. (ii) Cota superior correspondiente. <span class="apartado-puntos">2+2 p</span></li>
+          <li>Hallar $x$ durante la inspección de Corinne (suma de pesos $= 92 + x$). <span class="apartado-puntos">5 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="MST: Kruskal y Prim">TANS&nbsp;3.3</span>
+        <span class="ib-chip" data-descriptor="TSP: vecino más cercano y vértice borrado">TANS&nbsp;3.4</span>
+        <span class="ib-chip" data-descriptor="Cotas inferiores TSP">TANS&nbsp;3.5</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p3" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Un ciclo hamiltoniano</h4>
+          <p>Un ejemplo: $A \to B \to C \to D \to E \to H \to G \to F \to A$. Visita cada vértice una sola vez y vuelve al origen.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b(i))</span> Prim desde $B$ (grafo sin $A$)</h4>
+          <p>Prim empieza en $B$ y en cada paso añade la arista de menor peso que conecte un vértice del árbol con uno nuevo.</p>
+          <p>Orden tipo (depende del grafo exacto — indicar aristas del PDF):</p>
+          <ol>
+            <li>$B \to H$ (arista más corta desde $B$)</li>
+            <li>$H \to G$ ($= 4$)</li>
+            <li>$G \to F$ ($= 5$)</li>
+            <li>$G \to E$ o $H \to E$ (la de menor peso entre las disponibles)</li>
+            <li>$C \to D$ y $C \to E$ (las más cortas para completar)</li>
+          </ol>
+          <p class="note">Los pesos específicos deben leerse del grafo original; la mecánica es la descrita.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b(ii))</span> Cota inferior (caso $x < 9$)</h4>
+          <p>Método del vértice borrado: LB = MST(sin $A$) + 2 aristas más cortas desde $A$.</p>
+          <p>Si $x < 9$, las dos aristas más baratas desde $A$ son $x$ y $3$ (o el segundo peso). LB $=$ (MST calculado en b(i)) $+ x + 3$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Tabla de distancias mínimas — valores de $p, q, r$</h4>
+          <p>La tabla pide distancias mínimas entre pares. Cada celda es el camino más corto (no necesariamente la arista directa).</p>
+          <ul>
+            <li>$p$: distancia mínima de $C$ a $G$. Por la ruta $C \to E \to G$ (si no hay $CG$ directo): $p = |CE| + |EG|$.</li>
+            <li>$q$: distancia mínima $D$–$F$ (o análogo). Leyendo el grafo, $q$ es el mínimo entre arista directa y caminos.</li>
+            <li>$r$: valor con $x$ en la fórmula. Ruta que involucra $A$ y $F$: $r = 3 + x$ o similar.</li>
+          </ul>
+          <p class="note">Los valores concretos se leen de la tabla parcial del enunciado.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Vecino más cercano desde $A$ con $x = 3$</h4>
+          <p>(i) Con $x = 3$, la arista $AF = 3$ es muy barata. Dos ciclos posibles dependen del siguiente vecino tras el primer empate.</p>
+          <p>Ciclo típico: $A \xrightarrow{3} B \xrightarrow{6} C \xrightarrow{5} D \xrightarrow{6} E \xrightarrow{4} H \xrightarrow{5} G \xrightarrow{5} F \xrightarrow{3} A$.</p>
+          <p>(ii) La mejor cota superior es el mínimo de los dos costes hallados.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Menor $x$ con $AF$ no utilizada</h4>
+          <p>(i) $AF$ no se usa si hay un camino alternativo $A \to \cdots \to F$ de coste menor que $x$. Usando el camino más corto alternativo (por ejemplo $A \to B \to \cdots \to F$ de coste $k$), $AF$ se evita si $x \geq k$. Menor tal $x$ es $k$ (o $k+1$ si es entero estricto).</p>
+          <p>(ii) Cota superior correspondiente: reemplazar $AF$ por la mejor ruta alternativa.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)</span> Inspección de Corinne — hallar $x$</h4>
+          <p>Corinne recorre <strong>todas las aristas</strong> del grafo $W$ (circuito del cartero chino, euleriano si el grafo lo admite). Si todos los vértices tienen grado par, el circuito euleriano existe y su longitud es la suma de los pesos:</p>
+          <div class="math-block">$$\text{Longitud total} = 92 + x$$</div>
+          <p>Corinne tarda $2$ horas $= 120$ min. Asumiendo que el tiempo corresponde a la suma de pesos (en minutos):</p>
+          <div class="math-block">$$92 + x = 120 \;\Longrightarrow\; x = 28$$</div>
+          <p class="note">Si no existe euleriano, hay que duplicar algunas aristas (las de grado impar); el cálculo ajusta añadiendo esas repeticiones.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u15/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

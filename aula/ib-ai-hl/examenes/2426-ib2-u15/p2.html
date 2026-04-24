@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Red de fibra óptica: Kruskal, Hamiltoniano y fiabilidad — IB2 · U15</title>
+<meta name="description" content="Pregunta 2 del examen IB2 · U15 — U15 · Teoría de grafos. Red de fibra óptica: Kruskal, Hamiltoniano y fiabilidad. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u15/p2.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u15/p2.html">
+<meta property="og:title" content="P2 · Red de fibra óptica: Kruskal, Hamiltoniano y fiabilidad — IB2 · U15">
+<meta property="og:description" content="Pregunta 2 del examen IB2 · U15 — U15 · Teoría de grafos.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P2 · Red de fibra óptica: Kruskal, Hamiltoniano y fiabilidad — IB2 · U15">
+<meta name="twitter:description" content="Pregunta 2 del examen IB2 · U15.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u15/">IB2 · U15 · U15 · Teoría de grafos</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 2</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U15</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">30 ene 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u15/">Índice del examen</a>
+      <a class="next" href="p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Red de fibra óptica: Kruskal, Hamiltoniano y fiabilidad</h1>
+      <p class="question-descriptor">Ley del coseno, MST por Kruskal, TSP (vecino más cercano + vértice borrado), fiabilidad</p>
+      <span class="score-pill">Puntuación máxima · 28 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Un colegio quiere conectar 8 edificios $A$–$H$ con cable de fibra óptica. Se conoce $AD = 89{,}2$ m, $DF = 104{,}9$ m, $\angle ADF = 83^\circ$. Un cable directo $A$–$F$ cuesta $21\,310\,\$$. Los otros cables cuestan $110\,\$$/m.</p>
+        </div>
+        <ol class="apartados">
+          <li>Halla $AF$ (ley del coseno). <span class="apartado-puntos">3 p</span></li>
+          <li>Coste por metro del cable $A$–$F$. <span class="apartado-puntos">2 p</span></li>
+          <li>Por qué $A$–$F$ es más caro. <span class="apartado-puntos">1 p</span></li>
+          <li>(i) MST del grafo $S$ con Kruskal; (ii) coste mínimo. <span class="apartado-puntos">3+2 p</span></li>
+          <li>Diferencia entre ciclo hamiltoniano y circuito euleriano. <span class="apartado-puntos">1 p</span></li>
+          <li>Vecino más cercano desde $D$: límite superior del ciclo. <span class="apartado-puntos">5 p</span></li>
+          <li>Vértice borrado (borrando $D$): límite inferior. <span class="apartado-puntos">6 p</span></li>
+          <li>Probar que la red falla con probabilidad $< 2\%$ (fallo por conexión $= 1{,}4\%$). <span class="apartado-puntos">5 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Grafos y matriz de adyacencia">TANS&nbsp;3.1</span>
+        <span class="ib-chip" data-descriptor="MST: Kruskal y Prim">TANS&nbsp;3.3</span>
+        <span class="ib-chip" data-descriptor="TSP: vecino más cercano (UB)">TANS&nbsp;3.4</span>
+        <span class="ib-chip" data-descriptor="TSP: vértice borrado (LB)">TANS&nbsp;3.5</span>
+        <span class="ib-chip" data-descriptor="Ciclos Hamiltonianos y Eulerianos">TANS&nbsp;3.6</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Ley del coseno</h4>
+          <div class="math-block">$$AF^2 = 89{,}2^2 + 104{,}9^2 - 2 \cdot 89{,}2 \cdot 104{,}9 \cdot \cos 83^\circ$$</div>
+          <div class="math-block">$$AF^2 \approx 7956{,}64 + 11004{,}01 - 18713{,}4 \cdot 0{,}12187 \approx 16679{,}8$$</div>
+          <div class="final">$AF \approx 129{,}15$ m.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Coste por metro</h4>
+          <div class="math-block">$$\text{coste/m} = \tfrac{21\,310}{129{,}15} \approx 165\ \$/\text{m}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Por qué es más caro</h4>
+          <p>$165\ \$/$m frente a $110\ \$/$m: el cable $A$–$F$ cruza el lago, lo que encarece la instalación (obras subacuáticas, protección adicional).</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d(i))</span> Kruskal — orden de las aristas</h4>
+          <p>Ordenamos las aristas por peso creciente y añadimos las que no formen ciclo, hasta tener 7 aristas (para 8 vértices):</p>
+          <ol>
+            <li>$C$–$E$ = 8239</li>
+            <li>$D$–$G$ = 8668</li>
+            <li>$B$–$D$ = 8778</li>
+            <li>$A$–$B$ = 8811</li>
+            <li>$D$–$E$ = 8833</li>
+            <li>$E$–$H$ = 9251</li>
+            <li>$D$–$F$ = 11539 <span class="note">(después de saltar aristas que formarían ciclo: $G$–$H = 9603$, $E$–$G = 9724$, $A$–$D = 9812$, $B$–$E = 10153$)</span></li>
+          </ol>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d(ii))</span> Coste mínimo de la red</h4>
+          <div class="math-block">$$8239 + 8668 + 8778 + 8811 + 8833 + 9251 + 11539 = 64\,119\ \$$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Hamiltoniano vs Euleriano</h4>
+          <p>Un <strong>ciclo hamiltoniano</strong> visita cada <em>vértice</em> exactamente una vez y vuelve al punto de partida. Un <strong>circuito euleriano</strong> recorre cada <em>arista</em> exactamente una vez. Son conceptos distintos: un grafo puede tener uno sin el otro (por ejemplo, un grafo con vértices de grado impar puede tener hamiltoniano pero nunca euleriano).</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)</span> Vecino más cercano desde $D$</h4>
+          <p>Desde cada vértice, vamos siempre al vecino no visitado de menor peso:</p>
+          <div class="math-block">$$D \xrightarrow{8668} G \xrightarrow{9603} H \xrightarrow{9251} E \xrightarrow{8239} C \xrightarrow{13156} B \xrightarrow{8811} A \xrightarrow{21310} F \xrightarrow{11539} D$$</div>
+          <div class="math-block">$$\text{UB} = 8668 + 9603 + 9251 + 8239 + 13156 + 8811 + 21310 + 11539 = 90\,577\ \$$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">g)</span> Vértice borrado (sin $D$)</h4>
+          <p>MST del grafo sin $D$ (aristas por Kruskal): $C$–$E = 8239$, $A$–$B = 8811$, $E$–$H = 9251$, $G$–$H = 9603$, $B$–$E = 10153$, $F$–$G = 12606$. Suma $= 58663\ \$$.</p>
+          <p>Las dos aristas más baratas incidentes en $D$: $D$–$G = 8668$ y $B$–$D = 8778$. Suma $= 17446\ \$$.</p>
+          <div class="math-block">$$\text{LB} = 58\,663 + 17\,446 = 76\,109\ \$$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">h)</span> Fiabilidad $< 2\%$</h4>
+          <p>La configuración de Jonas (ciclo hamiltoniano) tiene $8$ aristas; la red falla si <strong>dos o más</strong> fallan simultáneamente (si solo falla $1$, el ciclo se convierte en camino y la red sigue conexa). Cada arista falla con $p = 0{,}014$, de forma independiente.</p>
+          <div class="math-block">$$P(\text{ninguna falla}) = 0{,}986^8 \approx 0{,}8934$$</div>
+          <div class="math-block">$$P(\text{exactamente una}) = 8 \cdot 0{,}014 \cdot 0{,}986^7 \approx 0{,}1015$$</div>
+          <div class="math-block">$$P(\text{red falla}) = 1 - 0{,}8934 - 0{,}1015 \approx 0{,}0051 = 0{,}51\%$$</div>
+          <div class="final">$0{,}51\% < 2\%$ ✓ — la red de Jonas cumple el requisito.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u15/">Índice del examen</a>
+      <a class="next" href="p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

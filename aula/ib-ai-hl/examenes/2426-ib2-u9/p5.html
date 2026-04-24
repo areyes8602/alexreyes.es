@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P5 · Cadena de Markov de mutación de un gen — IB2 · U9</title>
+<meta name="description" content="Pregunta 5 del examen IB2 · U9 — U9 · Matrices y transformaciones. Cadena de Markov de mutación de un gen. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u9/p5.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u9/p5.html">
+<meta property="og:title" content="P5 · Cadena de Markov de mutación de un gen — IB2 · U9">
+<meta property="og:description" content="Pregunta 5 del examen IB2 · U9 — U9 · Matrices y transformaciones.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P5 · Cadena de Markov de mutación de un gen — IB2 · U9">
+<meta name="twitter:description" content="Pregunta 5 del examen IB2 · U9.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u9/">IB2 · U9 · U9 · Matrices y transformaciones</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 5</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U9</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">24 oct 2025</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u9/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 5 &middot; Cadena de Markov de mutación de un gen</h1>
+      <p class="question-descriptor">Matriz de transición 2×2, autovalores y distribución a largo plazo</p>
+      <span class="score-pill">Puntuación máxima · 12 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Se modelan los cambios de un gen como cadena de Markov:</p>
+          <div class="math-block">$$\begin{pmatrix} X_{n+1} \\ Z_{n+1} \end{pmatrix} = M \begin{pmatrix} X_n \\ Z_n \end{pmatrix},\qquad M = \begin{pmatrix} 0{,}94 & b \\ 0{,}06 & 0{,}98 \end{pmatrix}$$</div>
+          <p>donde $X_n$ es la probabilidad de estar en el estado <em>normal</em> tras $n$ divisiones, y $Z_n$ la de estar en <em>otro</em> estado.</p>
+        </div>
+        <ol class="apartados">
+          <li>(i) Valor de $b$. (ii) ¿Qué representa $b$ en contexto? <span class="apartado-puntos">2 p</span></li>
+          <li>Valores propios de $M$. <span class="apartado-puntos">3 p</span></li>
+          <li>Vectores propios de $M$. <span class="apartado-puntos">3 p</span></li>
+          <li>Si el gen está en estado normal cuando $n = 0$, calcula la probabilidad de que esté en estado normal (i) para $n = 5$ y (ii) a largo plazo. <span class="apartado-puntos">4 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Cadenas de Markov, matriz de transición">TANS&nbsp;1.13</span>
+        <span class="ib-chip" data-descriptor="Valores y vectores propios">TANS&nbsp;1.15</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p5')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p5" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Valor y significado de $b$</h4>
+          <p>Como $M$ es matriz de transición, cada columna suma $1$. La 2ª columna: $b + 0{,}98 = 1 \Rightarrow b = 0{,}02$.</p>
+          <p><strong>Significado:</strong> probabilidad de que, estando en un estado "otro" en la división $n$, el gen vuelva al estado <em>normal</em> en la división $n+1$ (probabilidad de mutación inversa por paso).</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Autovalores</h4>
+          <div class="math-block">$$\det(M - \lambda I) = (0{,}94 - \lambda)(0{,}98 - \lambda) - 0{,}02 \cdot 0{,}06 = \lambda^2 - 1{,}92\lambda + 0{,}92 = 0$$</div>
+          <div class="math-block">$$\lambda = \tfrac{1{,}92 \pm \sqrt{1{,}92^2 - 3{,}68}}{2} = \tfrac{1{,}92 \pm \sqrt{0{,}0064}}{2} = \tfrac{1{,}92 \pm 0{,}08}{2}$$</div>
+          <div class="final">$\lambda_1 = 1,\ \lambda_2 = 0{,}92$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Autovectores</h4>
+          <p>Para $\lambda_1 = 1$: $(M - I) v = 0$ da $-0{,}06 v_1 + 0{,}02 v_2 = 0 \Rightarrow v_2 = 3 v_1$, luego $v_1 = (1, 3)^T$.</p>
+          <p>Para $\lambda_2 = 0{,}92$: $(M - 0{,}92 I) v = 0$ da $0{,}02 v_1 + 0{,}02 v_2 = 0 \Rightarrow v_2 = -v_1$, luego $v_2 = (1, -1)^T$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Probabilidades para $n=5$ y a largo plazo</h4>
+          <p>Escribimos el estado inicial $(1, 0)^T$ en la base de autovectores:</p>
+          <div class="math-block">$$\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \alpha (1, 3)^T + \beta (1, -1)^T \;\Longrightarrow\; \alpha = \tfrac{1}{4},\ \beta = \tfrac{3}{4}$$</div>
+          <p>La evolución queda:</p>
+          <div class="math-block">$$\begin{pmatrix} X_n \\ Z_n \end{pmatrix} = \tfrac{1}{4}\, 1^n \begin{pmatrix} 1 \\ 3 \end{pmatrix} + \tfrac{3}{4}\, 0{,}92^n \begin{pmatrix} 1 \\ -1 \end{pmatrix}$$</div>
+          <p>La componente normal es $X_n = \tfrac{1}{4} + \tfrac{3}{4}\cdot 0{,}92^n$.</p>
+          <p><strong>(i)</strong> $X_5 = 0{,}25 + 0{,}75 \cdot 0{,}92^5 \approx 0{,}25 + 0{,}75 \cdot 0{,}6591 \approx 0{,}744$.</p>
+          <p><strong>(ii)</strong> A largo plazo, $0{,}92^n \to 0$, por lo que $X_\infty = \tfrac{1}{4} = 0{,}25$.</p>
+          <div class="final">$P(\text{normal en } n=5) \approx 0{,}744$; $P(\text{normal a largo plazo}) = 0{,}25$.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u9/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P1 · Optimización: beneficios de una cafetería — IB2 · U10</title>
+<meta name="description" content="Pregunta 1 del examen IB2 · U10 — U10 · Cálculo diferencial. Optimización: beneficios de una cafetería. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u10/p1.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u10/p1.html">
+<meta property="og:title" content="P1 · Optimización: beneficios de una cafetería — IB2 · U10">
+<meta property="og:description" content="Pregunta 1 del examen IB2 · U10 — U10 · Cálculo diferencial.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P1 · Optimización: beneficios de una cafetería — IB2 · U10">
+<meta name="twitter:description" content="Pregunta 1 del examen IB2 · U10.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u10/">IB2 · U10 · U10 · Cálculo diferencial</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 1</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U10</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">13 feb 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <span class="disabled prev">&larr; Pregunta anterior</span>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u10/">Índice del examen</a>
+      <a class="next" href="p2.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 1 &middot; Optimización: beneficios de una cafetería</h1>
+      <p class="question-descriptor">Beneficio en función del café preparado; máximo, raíces, intervalo de rentabilidad</p>
+      <span class="score-pill">Puntuación máxima · 15 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Una cafetería prepara cada mañana $x$ litros de café. Su beneficio ($C$, en $\$$) se modela:</p>
+          <div class="math-block">$$C = \frac{x}{10}\left( k^2 - \tfrac{3}{100} x^2 \right),\qquad k > 0$$</div>
+          <p>Se sabe que con $x = 20$ litros el beneficio es $426\ \$$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Expresión para $\tfrac{dC}{dx}$ en función de $k$ y $x$. <span class="apartado-puntos">3 p</span></li>
+          <li>Valor máximo de $C$ en función de $k$, en la forma $p k^3$. <span class="apartado-puntos">4 p</span></li>
+          <li>Hallar $k$. ¿Cuántos litros maximizan el beneficio? <span class="apartado-puntos">3 p</span></li>
+          <li>Gráfica aproximada de $C(x)$ con máximo y cortes con el eje $x$. <span class="apartado-puntos">3 p</span></li>
+          <li>Cantidad máxima de café sin incurrir en pérdidas. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Derivadas y optimización">TANS&nbsp;5.5</span>
+        <span class="ib-chip" data-descriptor="Monotonía y extremos">TANS&nbsp;5.6</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p1')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p1" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Derivada</h4>
+          <p>Por regla del producto:</p>
+          <div class="math-block">$$\frac{dC}{dx} = \tfrac{1}{10}\!\left(k^2 - \tfrac{3}{100}x^2\right) + \tfrac{x}{10}\!\left(-\tfrac{6}{100}x\right) = \tfrac{1}{10}\!\left(k^2 - \tfrac{9}{100}x^2\right) = \tfrac{k^2}{10} - \tfrac{9 x^2}{1000}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Máximo de $C$</h4>
+          <p>$dC/dx = 0 \Rightarrow k^2 = \tfrac{9}{100} x^2 \Rightarrow x^* = \tfrac{10\,k}{3}$ (positivo).</p>
+          <div class="math-block">$$C_{\max} = \tfrac{x^*}{10}\!\left(k^2 - \tfrac{3}{100}(x^*)^2\right) = \tfrac{k}{3}\!\left(k^2 - \tfrac{k^2}{3}\right) = \tfrac{k}{3}\cdot\tfrac{2k^2}{3} = \tfrac{2}{9} k^3$$</div>
+          <div class="final">$C_{\max} = \tfrac{2}{9} k^3$, es decir, $p = \tfrac{2}{9}$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Valor de $k$ y óptimo</h4>
+          <p>Con $x = 20,\ C = 426$:</p>
+          <div class="math-block">$$426 = \tfrac{20}{10}\!\left(k^2 - \tfrac{3 \cdot 400}{100}\right) = 2(k^2 - 12) \Rightarrow k^2 = 225 \Rightarrow k = 15$$</div>
+          <p>Café óptimo: $x^* = \tfrac{10 \cdot 15}{3} = 50$ litros.</p>
+          <div class="final">$k = 15$; óptimo $= 50$ litros (con $C_{\max} = \tfrac{2}{9}(15)^3 = 750$ $\$$).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Gráfica</h4>
+          <p>Con $k = 15$: $C(x) = \tfrac{x}{10}(225 - 0{,}03 x^2)$.</p>
+          <p>Cortes con el eje $x$: $C = 0 \Rightarrow x = 0$ o $225 - 0{,}03 x^2 = 0 \Rightarrow x = \sqrt{7500} = 50\sqrt{3} \approx 86{,}6$ litros.</p>
+          <p>Máximo en $(50,\ 750)$. La curva es una cúbica negativa: pasa por el origen, sube hasta $(50, 750)$ y baja hasta cortar el eje en $x \approx 86{,}6$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Máximo sin pérdidas</h4>
+          <p>Para no tener pérdidas, $C \geq 0$. Esto sucede hasta la raíz positiva:</p>
+          <div class="final">$x_{\max\,\sin\,\text{pérdida}} = 50\sqrt{3} \approx 86{,}6$ litros.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <span class="disabled prev">&larr; Pregunta anterior</span>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u10/">Índice del examen</a>
+      <a class="next" href="p2.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

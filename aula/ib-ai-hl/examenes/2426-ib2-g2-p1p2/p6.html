@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P6 · Optimización: área máxima de un jardín rectangular — IB2 · G2 P1+P2</title>
+<meta name="description" content="Pregunta 6 del examen IB2 · G2 P1+P2 — Global 2 HL · Papers 1 y 2. Optimización: área máxima de un jardín rectangular. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p6.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p6.html">
+<meta property="og:title" content="P6 · Optimización: área máxima de un jardín rectangular — IB2 · G2 P1+P2">
+<meta property="og:description" content="Pregunta 6 del examen IB2 · G2 P1+P2 — Global 2 HL · Papers 1 y 2.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P6 · Optimización: área máxima de un jardín rectangular — IB2 · G2 P1+P2">
+<meta name="twitter:description" content="Pregunta 6 del examen IB2 · G2 P1+P2.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/">IB2 · G2 P1+P2 · Global 2 HL · Papers 1 y 2</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 6</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · G2 P1+P2</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">23 feb 2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p5.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/">Índice del examen</a>
+      <a class="next" href="p7.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 6 &middot; Optimización: área máxima de un jardín rectangular</h1>
+      <p class="question-descriptor">Demostración de la función de área y maximización</p>
+      <span class="score-pill">Puntuación máxima · 16 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Parque rectangular de $1200$ m² con jardín interior y camino periférico (norte/sur $2$ m de ancho, este/oeste $1{,}5$ m). Longitud N/S del parque $= x$ m, $3 < x < 300$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Demuestra que $A = 1212 - 4x - \tfrac{3600}{x}$. <span class="apartado-puntos">5 p</span></li>
+          <li>Posibles dimensiones si $A = 800$ m². <span class="apartado-puntos">4 p</span></li>
+          <li>Expresión $\tfrac{dA}{dx}$. <span class="apartado-puntos">3 p</span></li>
+          <li>$x$ que maximiza $A$. <span class="apartado-puntos">2 p</span></li>
+          <li>$A_{\max}$. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Optimización aplicada">TANS&nbsp;5.5</span>
+        <span class="ib-chip" data-descriptor="Monotonía y extremos">TANS&nbsp;5.6</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p6" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p6')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p6" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Demostración de $A$</h4>
+          <p>Si $x$ es la dimensión N/S del parque, la dimensión E/O es $\tfrac{1200}{x}$. El jardín interior tiene dimensiones $(x - 3) \times \left(\tfrac{1200}{x} - 4\right)$ (restamos $2 \times 1{,}5$ y $2 \times 2$ por el camino).</p>
+          <div class="math-block">$$A = (x - 3)\!\left(\tfrac{1200}{x} - 4\right) = 1200 - 4x - \tfrac{3600}{x} + 12 = 1212 - 4x - \tfrac{3600}{x}$$</div>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> $A = 800$</h4>
+          <div class="math-block">$$1212 - 4x - \tfrac{3600}{x} = 800 \Rightarrow 4x^2 - 412 x + 3600 = 0 \Rightarrow x^2 - 103 x + 900 = 0$$</div>
+          <div class="math-block">$$x = \tfrac{103 \pm \sqrt{10609 - 3600}}{2} = \tfrac{103 \pm \sqrt{7009}}{2}$$</div>
+          <p>$\sqrt{7009} \approx 83{,}72$. Soluciones $x \approx 9{,}64$ o $x \approx 93{,}36$ (ambas en $(3, 300)$).</p>
+          <div class="final">Dos posibles dimensiones del parque: $9{,}64 \times 124{,}5$ m, o $93{,}36 \times 12{,}9$ m.</div>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> $dA/dx$</h4>
+          <div class="math-block">$$\tfrac{dA}{dx} = -4 + \tfrac{3600}{x^2}$$</div>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> $x$ óptimo</h4>
+          <p>$\tfrac{dA}{dx} = 0 \Rightarrow x^2 = 900 \Rightarrow x = 30$ (positivo). Es máximo (cambia de $+$ a $-$).</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> $A_{\max}$</h4>
+          <div class="math-block">$$A_{\max} = 1212 - 4 \cdot 30 - \tfrac{3600}{30} = 1212 - 120 - 120 = 972\ \text{m}^2$$</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p5.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/">Índice del examen</a>
+      <a class="next" href="p7.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

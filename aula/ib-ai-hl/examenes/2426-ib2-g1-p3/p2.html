@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2 — IB2 · G1 P3</title>
+<meta name="description" content="Pregunta 2 del examen IB2 · G1 P3 — Global 1 HL · Paper 3 (números complejos, Poisson, Markov). Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/p2.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/p2.html">
+<meta property="og:title" content="P2 · Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2 — IB2 · G1 P3">
+<meta property="og:description" content="Pregunta 2 del examen IB2 · G1 P3 — Global 1 HL · Paper 3 (números complejos, Poisson, Markov).">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P2 · Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2 — IB2 · G1 P3">
+<meta name="twitter:description" content="Pregunta 2 del examen IB2 · G1 P3.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">IB2 · G1 P3 · Global 1 HL · Paper 3 (números complejos, Poisson, Markov)</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 2</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · G1 P3</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">27 nov 2025</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2</h1>
+      <p class="question-descriptor">Distribuciones discretas, suma de Poissons, teorema central del límite, autovalores</p>
+      <span class="score-pill">Puntuación máxima · 27 puntos</span>
+
+      <div class="statement">
+
+        <div class="context">
+          <p>Llamadas a un servicio de emergencias en hora punta: $X \sim \text{Poisson}(9)$.</p>
+          <p>Cada llamada es "grave" con probabilidad $0{,}30$, independientes. $Y$ = número de graves entre 12 llamadas.</p>
+          <p>$D$ = suma de llamadas en 8 horas independientes; $\bar{D}$ = media de $D$ a lo largo de 40 días.</p>
+          <p>Días tranquilos $T$ y cargados $C$ siguen Markov $P = \begin{pmatrix} 0{,}80 & 0{,}30 \\ 0{,}20 & 0{,}70 \end{pmatrix}$ (col 1 = $T$).</p>
+        </div>
+        <ol class="apartados">
+          <li>(a) $P(X = 7)$. (b) $P(X \geq 10)$. <span class="apartado-puntos">4 p</span></li>
+          <li>(c) Por qué $Y$ es binomial. (d) Distribución de $Y$. (e) $P(Y \leq 2)$. <span class="apartado-puntos">4 p</span></li>
+          <li>(f) Distribución de $D$. (g) Media y varianza de $D$. <span class="apartado-puntos">5 p</span></li>
+          <li>(h) Justifica el TCL. (i) Media y desviación estándar de $\bar{D}$. (j) $P(\bar{D} > 75)$. <span class="apartado-puntos">5 p</span></li>
+          <li>(k) Significado de $P_{1,2} = 0{,}30$. (l) Cada columna es distribución. <span class="apartado-puntos">4 p</span></li>
+          <li>(m) Autovalores de $P$. (n) Vectores propios. (o) Interpreta $\lambda = 1$. <span class="apartado-puntos">5 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Distribución de Poisson y suma">TANS&nbsp;4.16</span>
+        <span class="ib-chip" data-descriptor="Teorema central del límite">TANS&nbsp;4.17</span>
+        <span class="ib-chip" data-descriptor="Cadenas de Markov">TANS&nbsp;1.13</span>
+        <span class="ib-chip" data-descriptor="Valores y vectores propios">TANS&nbsp;1.15</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> $P(X = 7)$</h4>
+          <div class="math-block">$$P(X = 7) = \tfrac{e^{-9} \cdot 9^7}{7!} \approx 0{,}1171$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> $P(X \geq 10)$</h4>
+          <div class="math-block">$$P(X \geq 10) = 1 - P(X \leq 9) \approx 1 - 0{,}5874 \approx 0{,}413$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Por qué $Y$ es binomial</h4>
+          <p>Hay $n = 12$ ensayos fijos, dos resultados ("grave" / "no grave") con probabilidad de éxito constante $p = 0{,}30$, e independencia entre llamadas. Esos cuatro requisitos definen una variable binomial.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Distribución y parámetros</h4>
+          <div class="final">$Y \sim B(12,\ 0{,}30)$. Media $E(Y) = 12 \cdot 0{,}3 = 3{,}6$; varianza $\operatorname{Var}(Y) = 12 \cdot 0{,}3 \cdot 0{,}7 = 2{,}52$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> $P(Y \leq 2)$</h4>
+          <div class="math-block">$$P(Y\leq 2) = \sum_{k=0}^{2} \binom{12}{k} 0{,}3^k 0{,}7^{12-k} \approx 0{,}0138 + 0{,}0712 + 0{,}1678 \approx 0{,}253$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)</span> Distribución de $D$</h4>
+          <p>La suma de Poissons independientes es Poisson con la suma de los parámetros: $D \sim \text{Poisson}(8 \cdot 9) = \text{Poisson}(72)$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">g)</span> Media y varianza de $D$</h4>
+          <p>Para una Poisson, media = varianza = parámetro:</p>
+          <div class="final">$E(D) = 72$, $\operatorname{Var}(D) = 72$, $\sigma_D = \sqrt{72} \approx 8{,}485$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">h)</span> Justificación del TCL</h4>
+          <p>Las $D_i$ son i.i.d. con media y varianza finitas. Como el número de días $n = 40$ es grande, el TCL garantiza:</p>
+          <div class="math-block">$$\bar{D} = \tfrac{D_1 + \cdots + D_{40}}{40} \approx N\!\left( \mu_D,\ \tfrac{\sigma_D^2}{40} \right)$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">i)</span> Media y DE de $\bar{D}$</h4>
+          <p>$\mu_{\bar{D}} = 72$; $\sigma_{\bar{D}} = \sqrt{72/40} = \sqrt{1{,}8} \approx 1{,}342$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">j)</span> $P(\bar{D} > 75)$</h4>
+          <div class="math-block">$$Z = \tfrac{75 - 72}{1{,}342} \approx 2{,}236 \;\Longrightarrow\; P(\bar{D} > 75) = P(Z > 2{,}236) \approx 0{,}0127$$</div>
+          <div class="final">$P(\bar{D} > 75) \approx 1{,}3\%$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">k)</span> Significado de $0{,}30$</h4>
+          <p>Probabilidad de pasar de un día <em>cargado</em> ($C$, columna 2) a un día <em>tranquilo</em> ($T$, fila 1) al día siguiente.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">l)</span> Cada columna es distribución de probabilidad</h4>
+          <p>Col 1: $0{,}80 + 0{,}20 = 1$ ✓. Col 2: $0{,}30 + 0{,}70 = 1$ ✓. Todas las entradas en $[0, 1]$. ✓</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">m)</span> Autovalores</h4>
+          <div class="math-block">$$\det(P - \lambda I) = (0{,}80 - \lambda)(0{,}70 - \lambda) - 0{,}06 = \lambda^2 - 1{,}5\lambda + 0{,}5 = 0$$</div>
+          <div class="math-block">$$\lambda = \tfrac{1{,}5 \pm 0{,}5}{2} \;\Longrightarrow\; \lambda_1 = 1,\ \lambda_2 = 0{,}5$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">n)</span> Vectores propios</h4>
+          <p>$\lambda_1 = 1$: $(P - I) v = 0 \Rightarrow -0{,}2 v_1 + 0{,}3 v_2 = 0 \Rightarrow v_2 = \tfrac{2}{3} v_1$. Por ejemplo $v = (3, 2)^T$.</p>
+          <p>$\lambda_2 = 0{,}5$: $0{,}3 v_1 + 0{,}3 v_2 = 0 \Rightarrow v_2 = -v_1$. Por ejemplo $v = (1, -1)^T$.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">o)</span> Interpretación de $\lambda = 1$</h4>
+          <p>El autovalor $\lambda = 1$ corresponde a la <strong>distribución estacionaria</strong>: si normalizamos el autovector $(3, 2)^T$ para que sume $1$, obtenemos $(\tfrac{3}{5}, \tfrac{2}{5})$, es decir, a largo plazo el $60\%$ de los días son tranquilos y el $40\%$ cargados.</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

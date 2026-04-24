@@ -11,13 +11,41 @@
   "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u12/",
   "puntuacion_total": 73,
   "baremo": [
-    { "min": 57, "max": 73, "nota": 7 },
-    { "min": 45, "max": 56, "nota": 6 },
-    { "min": 35, "max": 44, "nota": 5 },
-    { "min": 25, "max": 34, "nota": 4 },
-    { "min": 16, "max": 24, "nota": 3 },
-    { "min":  8, "max": 15, "nota": 2 },
-    { "min":  1, "max":  7, "nota": 1 }
+    {
+      "min": 57,
+      "max": 73,
+      "nota": 7
+    },
+    {
+      "min": 45,
+      "max": 56,
+      "nota": 6
+    },
+    {
+      "min": 35,
+      "max": 44,
+      "nota": 5
+    },
+    {
+      "min": 25,
+      "max": 34,
+      "nota": 4
+    },
+    {
+      "min": 16,
+      "max": 24,
+      "nota": 3
+    },
+    {
+      "min": 8,
+      "max": 15,
+      "nota": 2
+    },
+    {
+      "min": 1,
+      "max": 7,
+      "nota": 1
+    }
   ],
   "tags_coleccion": {
     "asignatura": "ib-ai-hl",
@@ -31,139 +59,360 @@
       "id": "2426-ib2-u12-p1",
       "numero": 1,
       "titulo": "Áreas delimitadas por una recta y una parábola",
-      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=1",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p1.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=1",
       "puntuacion": 7,
       "apartados": [
-        { "letra": "a", "puntos": 2, "tarea": "Área bajo la recta y = 6 − x entre x = −1 y x = 2" },
-        { "letra": "b", "puntos": 1, "tarea": "Escribir la integral del área bajo la parábola y = 1,5x² − 2,5x + 3" },
-        { "letra": "c", "puntos": 2, "tarea": "Calcular el área bajo la parábola" },
-        { "letra": "d", "puntos": 2, "tarea": "Área encerrada entre la recta y la parábola" }
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Área bajo la recta y = 6 − x entre x = −1 y x = 2"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Escribir la integral del área bajo la parábola y = 1,5x² − 2,5x + 3"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Calcular el área bajo la parábola"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Área encerrada entre la recta y la parábola"
+        }
       ],
       "tags": {
-        "descriptor_ib": ["TANS 5.13", "TANS 5.14"],
-        "tema": ["integrales", "integral_definida", "area_bajo_curva", "area_entre_curvas", "funciones"],
-        "habilidad": ["calculo_simbolico", "visualizacion"],
+        "descriptor_ib": [
+          "TANS 5.13",
+          "TANS 5.14"
+        ],
+        "tema": [
+          "integrales",
+          "integral_definida",
+          "area_bajo_curva",
+          "area_entre_curvas",
+          "funciones"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "visualizacion"
+        ],
         "dificultad": "facil",
-        "formato": ["pregunta_larga"]
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
       "id": "2426-ib2-u12-p2",
       "numero": 2,
       "titulo": "Integral de 1 + eˣ, regla del trapecio y volumen de revolución",
-      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=2",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p2.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=2",
       "puntuacion": 16,
       "apartados": [
-        { "letra": "a", "puntos": 2, "tarea": "Dibujar f(x) = 1 + eˣ y sombrear la región delimitada por x=0, x=2 y el eje x" },
-        { "letra": "b", "puntos": 4, "tarea": "Integral definida del área (4 cifras significativas)" },
-        { "letra": "c", "puntos": 4, "tarea": "Estimación por la regla del trapecio con 5 trapecios (4 cifras significativas)" },
-        { "letra": "d", "puntos": 2, "tarea": "Porcentaje de error respecto al valor exacto" },
-        { "letra": "e", "puntos": 4, "tarea": "Volumen del sólido de revolución respecto al eje y" }
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Dibujar f(x) = 1 + eˣ y sombrear la región delimitada por x=0, x=2 y el eje x"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Integral definida del área (4 cifras significativas)"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Estimación por la regla del trapecio con 5 trapecios (4 cifras significativas)"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Porcentaje de error respecto al valor exacto"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Volumen del sólido de revolución respecto al eje y"
+        }
       ],
       "tags": {
-        "descriptor_ib": ["TANS 5.13", "TANS 5.14", "TANS 5.15", "TANS 5.19"],
-        "tema": ["integrales", "integral_definida", "area_bajo_curva", "regla_trapecio", "solidos_revolucion"],
-        "habilidad": ["calculo_simbolico", "calculo_numerico", "visualizacion", "uso_calculadora"],
+        "descriptor_ib": [
+          "TANS 5.13",
+          "TANS 5.14",
+          "TANS 5.15",
+          "TANS 5.19"
+        ],
+        "tema": [
+          "integrales",
+          "integral_definida",
+          "area_bajo_curva",
+          "regla_trapecio",
+          "solidos_revolucion"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "calculo_numerico",
+          "visualizacion",
+          "uso_calculadora"
+        ],
         "dificultad": "media",
-        "formato": ["pregunta_larga"]
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
       "id": "2426-ib2-u12-p3",
       "numero": 3,
       "titulo": "Volumen de un jarrón por regla del trapecio",
-      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=2",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p3.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=2",
       "puntuacion": 4,
       "apartados": [
-        { "letra": "a", "puntos": 4, "tarea": "Estimar el volumen interior del jarrón aplicando regla del trapecio sobre π·r² a lo largo de la altura" }
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Estimar el volumen interior del jarrón aplicando regla del trapecio sobre π·r² a lo largo de la altura"
+        }
       ],
       "tags": {
-        "descriptor_ib": ["TANS 5.15", "TANS 5.19"],
-        "tema": ["regla_trapecio", "solidos_revolucion"],
-        "habilidad": ["calculo_numerico", "modelizacion", "uso_calculadora"],
+        "descriptor_ib": [
+          "TANS 5.15",
+          "TANS 5.19"
+        ],
+        "tema": [
+          "regla_trapecio",
+          "solidos_revolucion"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "modelizacion",
+          "uso_calculadora"
+        ],
         "dificultad": "media",
-        "formato": ["problema_aplicado", "pregunta_corta"]
+        "formato": [
+          "problema_aplicado",
+          "pregunta_corta"
+        ]
       }
     },
     {
       "id": "2426-ib2-u12-p4",
       "numero": 4,
       "titulo": "Beneficios de una empresa: integración y análisis de monotonía",
-      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=3",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p4.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=3",
       "puntuacion": 7,
       "apartados": [
-        { "letra": "a", "puntos": 4, "tarea": "Hallar P(x) integrando dP/dx = −1,6x + 48 con P(15) = 260" },
-        { "letra": "b", "puntos": 3, "tarea": "Describir cómo cambian los beneficios entre 30 y 50 coches/mes y justificar" }
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Hallar P(x) integrando dP/dx = −1,6x + 48 con P(15) = 260"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Describir cómo cambian los beneficios entre 30 y 50 coches/mes y justificar"
+        }
       ],
       "tags": {
-        "descriptor_ib": ["TANS 5.11", "TANS 5.13"],
-        "tema": ["integrales", "integral_indefinida", "funciones"],
-        "habilidad": ["calculo_simbolico", "modelizacion", "interpretacion", "razonamiento"],
+        "descriptor_ib": [
+          "TANS 5.11",
+          "TANS 5.13"
+        ],
+        "tema": [
+          "integrales",
+          "integral_indefinida",
+          "funciones"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion",
+          "razonamiento"
+        ],
         "dificultad": "media",
-        "formato": ["problema_aplicado"]
+        "formato": [
+          "problema_aplicado"
+        ]
       }
     },
     {
       "id": "2426-ib2-u12-p5",
       "numero": 5,
       "titulo": "Población de suricatas: EDO, campo de pendientes y método de Euler",
-      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=3",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p5.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=3",
       "puntuacion": 18,
       "apartados": [
-        { "letra": "a", "puntos": 4, "tarea": "Encontrar a, b ∈ ℝ tales que N = a + bt sea solución de dN/dt = 0,5N − t" },
-        { "letra": "b", "puntos": 2, "tarea": "Representar la solución lineal N = a + bt sobre el campo de pendientes dado" },
-        { "letra": "c", "puntos": 2, "tarea": "Representar la trayectoria de la población con condición inicial t=0, N=2" },
-        { "letra": "d", "puntos": 3, "tarea": "Determinar la población máxima (máximo a los 3 años)" },
-        { "letra": "e", "puntos": 3, "tarea": "Mínimo nº de suricatas que deben introducirse en t=3 para crecimiento continuo" },
-        { "letra": "f", "puntos": 4, "tarea": "Método de Euler con paso h=0,1 para estimar N(1) a partir de N(0)=120" }
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Encontrar a, b ∈ ℝ tales que N = a + bt sea solución de dN/dt = 0,5N − t"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Representar la solución lineal N = a + bt sobre el campo de pendientes dado"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Representar la trayectoria de la población con condición inicial t=0, N=2"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Determinar la población máxima (máximo a los 3 años)"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Mínimo nº de suricatas que deben introducirse en t=3 para crecimiento continuo"
+        },
+        {
+          "letra": "f",
+          "puntos": 4,
+          "tarea": "Método de Euler con paso h=0,1 para estimar N(1) a partir de N(0)=120"
+        }
       ],
       "tags": {
-        "descriptor_ib": ["TANS 5.16", "TANS 5.20", "TANS 5.21"],
-        "tema": ["edos", "metodo_euler", "campo_pendientes", "modelizacion_crecimiento"],
-        "habilidad": ["modelizacion", "calculo_simbolico", "calculo_numerico", "visualizacion", "razonamiento", "uso_calculadora"],
+        "descriptor_ib": [
+          "TANS 5.16",
+          "TANS 5.20",
+          "TANS 5.21"
+        ],
+        "tema": [
+          "edos",
+          "metodo_euler",
+          "campo_pendientes",
+          "modelizacion_crecimiento"
+        ],
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "calculo_numerico",
+          "visualizacion",
+          "razonamiento",
+          "uso_calculadora"
+        ],
         "dificultad": "dificil",
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
       }
     },
     {
       "id": "2426-ib2-u12-p6",
       "numero": 6,
       "titulo": "Cuatro integrales (sustitución y regla de Barrow)",
-      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=4",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p6.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=4",
       "puntuacion": 8,
       "apartados": [
-        { "letra": "a", "puntos": 2, "tarea": "∫ (4x − 1)² dx (sustitución o desarrollo directo)" },
-        { "letra": "b", "puntos": 2, "tarea": "∫₁⁴ x/(x²+2) dx (sustitución)" },
-        { "letra": "c", "puntos": 2, "tarea": "∫₀⁵ x · cos(x²) dx (sustitución)" },
-        { "letra": "d", "puntos": 2, "tarea": "∫ (2x − 1)/(x² − x + 2) dx (logaritmo)" }
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "∫ (4x − 1)² dx (sustitución o desarrollo directo)"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "∫₁⁴ x/(x²+2) dx (sustitución)"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "∫₀⁵ x · cos(x²) dx (sustitución)"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "∫ (2x − 1)/(x² − x + 2) dx (logaritmo)"
+        }
       ],
       "tags": {
-        "descriptor_ib": ["TANS 5.11", "TANS 5.12", "TANS 5.13"],
-        "tema": ["integrales", "integral_definida", "integral_indefinida"],
-        "habilidad": ["calculo_simbolico"],
+        "descriptor_ib": [
+          "TANS 5.11",
+          "TANS 5.12",
+          "TANS 5.13"
+        ],
+        "tema": [
+          "integrales",
+          "integral_definida",
+          "integral_indefinida"
+        ],
+        "habilidad": [
+          "calculo_simbolico"
+        ],
         "dificultad": "media",
-        "formato": ["pregunta_corta"]
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
       "id": "2426-ib2-u12-p7",
       "numero": 7,
       "titulo": "Cultivo bacteriano: EDO por separación de variables y Euler",
-      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=4",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p7.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=4",
       "puntuacion": 13,
       "apartados": [
-        { "letra": "a", "puntos": 4, "tarea": "Resolver dN/dt = tN por separación de variables con N(0)=2" },
-        { "letra": "b", "puntos": 2, "tarea": "Valor exacto de N(1)" },
-        { "letra": "c", "puntos": 4, "tarea": "Euler con h=0,25 para aproximar N(1); presentar tabla" },
-        { "letra": "d", "puntos": 2, "tarea": "Porcentaje de error del Euler respecto al valor exacto" },
-        { "letra": "e", "puntos": 1, "tarea": "¿Sobreestima o subestima Euler? Justificar por el comportamiento de la función" }
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Resolver dN/dt = tN por separación de variables con N(0)=2"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Valor exacto de N(1)"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Euler con h=0,25 para aproximar N(1); presentar tabla"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Porcentaje de error del Euler respecto al valor exacto"
+        },
+        {
+          "letra": "e",
+          "puntos": 1,
+          "tarea": "¿Sobreestima o subestima Euler? Justificar por el comportamiento de la función"
+        }
       ],
       "tags": {
-        "descriptor_ib": ["TANS 5.16", "TANS 5.20"],
-        "tema": ["edos", "separacion_variables", "metodo_euler", "modelizacion_crecimiento"],
-        "habilidad": ["calculo_simbolico", "calculo_numerico", "razonamiento", "interpretacion"],
+        "descriptor_ib": [
+          "TANS 5.16",
+          "TANS 5.20"
+        ],
+        "tema": [
+          "edos",
+          "separacion_variables",
+          "metodo_euler",
+          "modelizacion_crecimiento"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "calculo_numerico",
+          "razonamiento",
+          "interpretacion"
+        ],
         "dificultad": "dificil",
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
       }
     }
   ]

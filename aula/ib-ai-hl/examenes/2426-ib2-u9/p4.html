@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Sistema lineal y análisis espectral de una matriz 2×2 — IB2 · U9</title>
+<meta name="description" content="Pregunta 4 del examen IB2 · U9 — U9 · Matrices y transformaciones. Sistema lineal y análisis espectral de una matriz 2×2. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u9/p4.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-u9/p4.html">
+<meta property="og:title" content="P4 · Sistema lineal y análisis espectral de una matriz 2×2 — IB2 · U9">
+<meta property="og:description" content="Pregunta 4 del examen IB2 · U9 — U9 · Matrices y transformaciones.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P4 · Sistema lineal y análisis espectral de una matriz 2×2 — IB2 · U9">
+<meta name="twitter:description" content="Pregunta 4 del examen IB2 · U9.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2426-ib2-u9/">IB2 · U9 · U9 · Matrices y transformaciones</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 4</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U9</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">24 oct 2025</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u9/">Índice del examen</a>
+      <a class="next" href="p5.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 4 &middot; Sistema lineal y análisis espectral de una matriz 2×2</h1>
+      <p class="question-descriptor">Resolución matricial de un sistema 3×3; inversa y autovalores de una matriz 2×2</p>
+      <span class="score-pill">Puntuación máxima · 10 puntos</span>
+
+      <div class="statement">
+
+        <ol class="apartados">
+          <li>Reescribe como ecuación matricial y resuelve el sistema:
+            $$\begin{cases} 3x + 2y - z = 4 \\ 4x - z = y + 2 \\ x - 3y + 1 = 2z \end{cases}$$
+            <span class="apartado-puntos">5 p</span>
+          </li>
+          <li>Halla la inversa, los valores propios y los vectores propios de $\ M = \begin{pmatrix} 4 & -2 \\ 1 & 2 \end{pmatrix}$. <span class="apartado-puntos">5 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+
+        <span class="ib-chip" data-descriptor="Álgebra matricial, sistemas en forma matricial">TANS&nbsp;1.14</span>
+        <span class="ib-chip" data-descriptor="Valores y vectores propios">TANS&nbsp;1.15</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Sistema lineal</h4>
+          <p>Reorganizando términos:</p>
+          <div class="math-block">$$\begin{cases} 3x + 2y - z = 4 \\ 4x - y - z = 2 \\ x - 3y - 2z = -1 \end{cases}$$</div>
+          <p>En forma matricial $A X = B$ con</p>
+          <div class="math-block">$$A = \begin{pmatrix} 3 & 2 & -1 \\ 4 & -1 & -1 \\ 1 & -3 & -2 \end{pmatrix},\ \ X = \begin{pmatrix} x \\ y \\ z \end{pmatrix},\ \ B = \begin{pmatrix} 4 \\ 2 \\ -1 \end{pmatrix}$$</div>
+          <p>Resolvemos con calculadora gráfica (o por eliminación):</p>
+          <div class="math-block">$$X = A^{-1} B = \begin{pmatrix} \tfrac{13}{22} \\ \tfrac{19}{22} \\ -\tfrac{1}{2} \end{pmatrix}$$</div>
+          <div class="final">$x = \tfrac{13}{22} \approx 0{,}591,\ y = \tfrac{19}{22} \approx 0{,}864,\ z = -\tfrac{1}{2}$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Inversa, autovalores y autovectores de $M$</h4>
+          <p><strong>Inversa.</strong> $\det M = 4 \cdot 2 - (-2) \cdot 1 = 10$.</p>
+          <div class="math-block">$$M^{-1} = \tfrac{1}{10} \begin{pmatrix} 2 & 2 \\ -1 & 4 \end{pmatrix} = \begin{pmatrix} 0{,}2 & 0{,}2 \\ -0{,}1 & 0{,}4 \end{pmatrix}$$</div>
+          <p><strong>Autovalores.</strong> $\det(M - \lambda I) = (4-\lambda)(2-\lambda) + 2 = \lambda^2 - 6\lambda + 10 = 0$.</p>
+          <div class="math-block">$$\lambda = \frac{6 \pm \sqrt{36 - 40}}{2} = \frac{6 \pm 2i}{2} = 3 \pm i$$</div>
+          <p><strong>Autovectores.</strong> Para $\lambda = 3+i$: $(M - (3+i)I) v = 0$ da $(1-i) v_1 = 2 v_2$, por tanto $v_{\lambda=3+i} = (2,\ 1-i)^T$.</p>
+          <p>Para $\lambda = 3-i$ (conjugado): $v_{\lambda=3-i} = (2,\ 1+i)^T$.</p>
+          <div class="final">$M^{-1} = \begin{pmatrix} 0{,}2 & 0{,}2 \\ -0{,}1 & 0{,}4 \end{pmatrix}$; $\lambda = 3 \pm i$; $v = (2, 1 \mp i)^T$.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2426-ib2-u9/">Índice del examen</a>
+      <a class="next" href="p5.html">Pregunta siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
