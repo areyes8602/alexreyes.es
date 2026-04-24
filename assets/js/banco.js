@@ -10,12 +10,56 @@
 
   const LANG = (document.documentElement.lang || 'es').slice(0, 2);
   const I18N = {
-    es: { ejercicio: 'ejercicio', ejercicios: 'ejercicios', pts: 'pts', error_carga: 'Error al cargar los datos' },
-    ca: { ejercicio: 'exercici', ejercicios: 'exercicis', pts: 'pts', error_carga: 'Error en carregar les dades' },
-    en: { ejercicio: 'exercise', ejercicios: 'exercises', pts: 'pts', error_carga: 'Error loading data' },
+    es: {
+      ejercicio: 'ejercicio', ejercicios: 'ejercicios', pts: 'pts',
+      error_carga: 'Error al cargar los datos',
+      btn_enunciado: 'Enunciado', btn_pdf: 'PDF', btn_add: '+ Examen',
+      btn_added: '✓ Añadido', examen_link: 'Mi examen',
+    },
+    ca: {
+      ejercicio: 'exercici', ejercicios: 'exercicis', pts: 'pts',
+      error_carga: 'Error en carregar les dades',
+      btn_enunciado: 'Enunciat', btn_pdf: 'PDF', btn_add: '+ Examen',
+      btn_added: '✓ Afegit', examen_link: 'El meu examen',
+    },
+    en: {
+      ejercicio: 'exercise', ejercicios: 'exercises', pts: 'pts',
+      error_carga: 'Error loading data',
+      btn_enunciado: 'View', btn_pdf: 'PDF', btn_add: '+ Exam',
+      btn_added: '✓ Added', examen_link: 'My exam',
+    },
   };
   const STRINGS = I18N[LANG] || I18N.es;
   const t = (k) => STRINGS[k] || k;
+
+  // ---- Cart (localStorage) ----
+  const CART_KEY = 'mi-examen';
+  function loadCart() {
+    try {
+      const raw = localStorage.getItem(CART_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) { return []; }
+  }
+  function saveCart(ids) {
+    try { localStorage.setItem(CART_KEY, JSON.stringify(ids)); } catch (e) {}
+    updateCartBadge();
+  }
+  function inCart(id) { return loadCart().includes(id); }
+  function toggleCart(id) {
+    const c = loadCart();
+    const idx = c.indexOf(id);
+    if (idx >= 0) c.splice(idx, 1); else c.push(id);
+    saveCart(c);
+  }
+  function updateCartBadge() {
+    const c = loadCart();
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+      badge.textContent = c.length;
+      badge.style.display = c.length ? 'inline-flex' : 'none';
+    }
+  }
 
   const els = {
     search: document.getElementById('banco-search'),

@@ -1,9 +1,753 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-24T21:26:06.750439+00:00",
+  "generated_at": "2026-04-24T21:42:18.668748+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 11,
+  "count": 38,
   "ejercicios": [
+    {
+      "id": "2426-ib2-g1-p3-p1",
+      "titulo": "Red eléctrica: voltaje sinusoidal, fasores complejos y cadena de Markov",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf#page=1",
+      "numero": 1,
+      "puntuacion": 28,
+      "apartados_count": 7,
+      "coleccion": {
+        "id": "2426-ib2-g1-p3",
+        "titulo": "Global 1 HL — Paper 3 (números complejos, Poisson, Markov)",
+        "tipo": "examen_practica",
+        "fecha": "2025-11-27",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 3.9",
+          "TANS 3.14",
+          "TANS 1.13",
+          "TANS 1.14"
+        ],
+        "tema": [
+          "numeros_complejos",
+          "fasores",
+          "funciones_trigonometricas",
+          "cadena_markov",
+          "matriz_transicion",
+          "estado_estacionario",
+          "matrices"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion",
+          "razonamiento",
+          "uso_calculadora"
+        ],
+        "dificultad": "dificil",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "red eléctrica: voltaje sinusoidal, fasores complejos y cadena de markov ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia números complejos: forma cartesiana, polar y exponencial; fasores funciones sinusoidales: amplitud, periodo, frecuencia angular y desfase cadenas de markov; matriz de transición y estado estacionario álgebra matricial: suma, producto, inversas; forma matricial de sistemas números complejos fasores / forma polar funciones trigonométricas y sinusoidales cadenas de markov matriz de transición estado estacionario / largo plazo matrices cálculo simbólico modelización interpretación razonamiento uso de calculadora gráfica difícil pregunta larga problema aplicado",
+        "ca": "red eléctrica: voltaje sinusoidal, fasores complejos y cadena de markov ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia nombres complexos: forma cartesiana, polar i exponencial; fasors funcions sinusoïdals: amplitud, període, freqüència angular i desfase cadenes de markov; matriu de transició i estat estacionari àlgebra matricial: suma, producte, inverses; forma matricial de sistemes nombres complexos fasors / forma polar funcions trigonomètriques i sinusoïdals cadenes de markov matriu de transició estat estacionari / llarg termini matrius càlcul simbòlic modelització interpretació raonament ús de calculadora gràfica difícil pregunta llarga problema aplicat",
+        "en": "red eléctrica: voltaje sinusoidal, fasores complejos y cadena de markov ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own complex numbers: cartesian, polar and exponential form; phasors sinusoidal functions: amplitude, period, angular frequency and phase markov chains; transition matrix and stationary state matrix algebra: addition, product, inverses; matrix form of systems complex numbers phasors / polar form trigonometric and sinusoidal functions markov chains transition matrix stationary state / long-run behaviour matrices symbolic computation modelling interpretation reasoning graphical calculator use hard long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-g1-p3-p2",
+      "titulo": "Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf#page=3",
+      "numero": 2,
+      "puntuacion": 27,
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2426-ib2-g1-p3",
+        "titulo": "Global 1 HL — Paper 3 (números complejos, Poisson, Markov)",
+        "tipo": "examen_practica",
+        "fecha": "2025-11-27",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 4.16",
+          "TANS 4.17",
+          "TANS 1.13",
+          "TANS 1.15"
+        ],
+        "tema": [
+          "estadistica",
+          "probabilidad",
+          "distribucion_poisson",
+          "distribucion_binomial",
+          "teorema_central_limite",
+          "cadena_markov",
+          "matriz_transicion",
+          "autovalores"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "calculo_numerico",
+          "razonamiento",
+          "interpretacion",
+          "uso_calculadora"
+        ],
+        "dificultad": "dificil",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "servicio de emergencias: poisson, binomial, tcl y markov 2×2 ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia distribución de poisson; suma de poissons independientes teorema central del límite; aproximación normal de la media muestral cadenas de markov; matriz de transición y estado estacionario valores propios y vectores propios; polinomio característico de matrices 2×2 estadística probabilidad distribución de poisson distribución binomial teorema central del límite cadenas de markov matriz de transición autovalores / autovectores cálculo simbólico cálculo numérico razonamiento interpretación uso de calculadora gráfica difícil pregunta larga problema aplicado",
+        "ca": "servicio de emergencias: poisson, binomial, tcl y markov 2×2 ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia distribució de poisson; suma de poissons independents teorema central del límit; aproximació normal de la mitjana mostral cadenes de markov; matriu de transició i estat estacionari valors propis i vectors propis; polinomi característic de matrius 2×2 estadística probabilitat distribució de poisson distribució binomial teorema central del límit cadenes de markov matriu de transició autovalors / autovectors càlcul simbòlic càlcul numèric raonament interpretació ús de calculadora gràfica difícil pregunta llarga problema aplicat",
+        "en": "servicio de emergencias: poisson, binomial, tcl y markov 2×2 ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own poisson distribution; sum of independent poissons central limit theorem; normal approximation of sample mean markov chains; transition matrix and stationary state eigenvalues and eigenvectors; characteristic polynomial of 2×2 matrices statistics probability poisson distribution binomial distribution central limit theorem markov chains transition matrix eigenvalues / eigenvectors symbolic computation numerical computation reasoning interpretation graphical calculator use hard long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p1",
+      "titulo": "Baloncesto: modelo cuadrático de la altura del balón",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=1",
+      "numero": 1,
+      "puntuacion": 7,
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 5.5"
+        ],
+        "tema": [
+          "funciones",
+          "cuadratica",
+          "modelizacion_crecimiento"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion"
+        ],
+        "dificultad": "facil",
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "baloncesto: modelo cuadrático de la altura del balón ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia optimización: máximos y mínimos en problemas aplicados funciones función cuadrática modelos de crecimiento / poblacional cálculo simbólico modelización interpretación fácil pregunta corta problema aplicado",
+        "ca": "baloncesto: modelo cuadrático de la altura del balón ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia optimització: màxims i mínims en problemes aplicats funcions funció quadràtica models de creixement / poblacional càlcul simbòlic modelització interpretació fàcil pregunta curta problema aplicat",
+        "en": "baloncesto: modelo cuadrático de la altura del balón ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own optimisation: maxima and minima in applied problems functions quadratic function growth / population modelling symbolic computation modelling interpretation easy short question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p2",
+      "titulo": "Grafo de carreteras: matriz de adyacencia y recorridos",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=2",
+      "numero": 2,
+      "puntuacion": 7,
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 3.1",
+          "TANS 3.2"
+        ],
+        "tema": [
+          "grafos",
+          "matriz_adyacencia"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento"
+        ],
+        "dificultad": "facil",
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "grafo de carreteras: matriz de adyacencia y recorridos ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia grafos: terminología, matriz de adyacencia y matriz de pesos recorridos y ciclos; potencias de la matriz de adyacencia grafos matriz de adyacencia cálculo numérico razonamiento fácil pregunta corta",
+        "ca": "grafo de carreteras: matriz de adyacencia y recorridos ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia grafs: terminologia, matriu d'adjacència i matriu de pesos recorreguts i cicles; potències de la matriu d'adjacència grafs matriu d'adjacència càlcul numèric raonament fàcil pregunta curta",
+        "en": "grafo de carreteras: matriz de adyacencia y recorridos ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own graphs: terminology, adjacency matrix and weight matrix walks and cycles; powers of the adjacency matrix graphs adjacency matrix numerical computation reasoning easy short question"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p3",
+      "titulo": "Correlación de Spearman entre edad y tiempo de 100 m",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=2",
+      "numero": 3,
+      "puntuacion": 9,
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 4.18"
+        ],
+        "tema": [
+          "estadistica",
+          "correlacion_spearman"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "interpretacion",
+          "razonamiento",
+          "uso_calculadora"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "correlación de spearman entre edad y tiempo de 100 m ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia coeficiente de correlación de spearman; coeficiente de determinación estadística correlación de spearman cálculo numérico interpretación razonamiento uso de calculadora gráfica media pregunta larga",
+        "ca": "correlación de spearman entre edad y tiempo de 100 m ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia coeficient de correlació de spearman; coeficient de determinació estadística correlació de spearman càlcul numèric interpretació raonament ús de calculadora gràfica mitjana pregunta llarga",
+        "en": "correlación de spearman entre edad y tiempo de 100 m ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own spearman's rank correlation; coefficient of determination statistics spearman correlation numerical computation interpretation reasoning graphical calculator use medium long question"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p4",
+      "titulo": "Chi-cuadrado de bondad de ajuste: preferencia de sabores",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=3",
+      "numero": 4,
+      "puntuacion": 6,
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 4.14"
+        ],
+        "tema": [
+          "estadistica",
+          "chi_cuadrado",
+          "chi_bondad_ajuste",
+          "prueba_hipotesis"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "uso_calculadora",
+          "interpretacion"
+        ],
+        "dificultad": "facil",
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "chi-cuadrado de bondad de ajuste: preferencia de sabores ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia test chi-cuadrado: independencia y bondad de ajuste estadística chi-cuadrado chi-cuadrado de bondad de ajuste prueba de hipótesis cálculo numérico uso de calculadora gráfica interpretación fácil pregunta corta",
+        "ca": "chi-cuadrado de bondad de ajuste: preferencia de sabores ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia test khi-quadrat: independència i bondat d'ajust estadística khi-quadrat khi-quadrat de bondat d'ajust prova d'hipòtesi càlcul numèric ús de calculadora gràfica interpretació fàcil pregunta curta",
+        "en": "chi-cuadrado de bondad de ajuste: preferencia de sabores ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own chi-squared test: independence and goodness of fit statistics chi-squared chi-squared goodness-of-fit hypothesis testing numerical computation graphical calculator use interpretation easy short question"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p5",
+      "titulo": "Related rates: llenado de un cono invertido",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=3",
+      "numero": 5,
+      "puntuacion": 7,
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 5.4"
+        ],
+        "tema": [
+          "derivadas",
+          "related_rates",
+          "geometria"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "razonamiento"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "related rates: llenado de un cono invertido ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia ratios de cambio relacionadas (related rates) derivadas ratios de cambio relacionadas geometría cálculo simbólico modelización razonamiento media pregunta larga problema aplicado",
+        "ca": "related rates: llenado de un cono invertido ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia taxes de canvi relacionades (related rates) derivades taxes de canvi relacionades geometria càlcul simbòlic modelització raonament mitjana pregunta llarga problema aplicat",
+        "en": "related rates: llenado de un cono invertido ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own related rates of change derivatives related rates geometry symbolic computation modelling reasoning medium long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p6",
+      "titulo": "Optimización: área máxima de un jardín rectangular dentro de un parque",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=4",
+      "numero": 6,
+      "puntuacion": 16,
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 5.5",
+          "TANS 5.6"
+        ],
+        "tema": [
+          "derivadas",
+          "optimizacion",
+          "funciones",
+          "geometria"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "razonamiento"
+        ],
+        "dificultad": "dificil",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "optimización: área máxima de un jardín rectangular dentro de un parque ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia optimización: máximos y mínimos en problemas aplicados análisis de monotonía y extremos relativos derivadas optimización funciones geometría cálculo simbólico modelización razonamiento difícil pregunta larga problema aplicado",
+        "ca": "optimización: área máxima de un jardín rectangular dentro de un parque ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia optimització: màxims i mínims en problemes aplicats anàlisi de monotonia i extrems relatius derivades optimització funcions geometria càlcul simbòlic modelització raonament difícil pregunta llarga problema aplicat",
+        "en": "optimización: área máxima de un jardín rectangular dentro de un parque ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own optimisation: maxima and minima in applied problems monotonicity analysis and relative extrema derivatives optimisation functions geometry symbolic computation modelling reasoning hard long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p7",
+      "titulo": "Grafo ponderado de vuelos: MST (Kruskal), TSP, vecino y vértice borrado",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=5",
+      "numero": 7,
+      "puntuacion": 19,
+      "apartados_count": 7,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 3.3",
+          "TANS 3.4",
+          "TANS 3.5",
+          "TANS 3.6"
+        ],
+        "tema": [
+          "grafos",
+          "arbol_generador_minimo",
+          "kruskal",
+          "tsp",
+          "vecino_mas_cercano",
+          "vertice_borrado",
+          "ciclo_hamiltoniano"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "visualizacion"
+        ],
+        "dificultad": "dificil",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "grafo ponderado de vuelos: mst (kruskal), tsp, vecino y vértice borrado ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia árboles generadores mínimos: algoritmos de kruskal y de prim problema del viajante (tsp): cotas superiores con vecino más cercano tsp: cotas inferiores con algoritmo del vértice borrado caminos y circuitos eulerianos y hamiltonianos grafos árbol generador mínimo (mst) algoritmo de kruskal problema del viajante (tsp) algoritmo del vecino más cercano algoritmo del vértice borrado ciclo hamiltoniano cálculo numérico razonamiento visualización / gráficos difícil pregunta larga problema aplicado",
+        "ca": "grafo ponderado de vuelos: mst (kruskal), tsp, vecino y vértice borrado ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia arbres generadors mínims: algoritmes de kruskal i de prim problema del viatjant (tsp): cotes superiors amb veí més proper tsp: cotes inferiors amb algoritme del vèrtex esborrat camins i circuits eulerians i hamiltonians grafs arbre generador mínim (mst) algoritme de kruskal problema del viatjant (tsp) algoritme del veí més proper algoritme del vèrtex esborrat cicle hamiltonià càlcul numèric raonament visualització / gràfics difícil pregunta llarga problema aplicat",
+        "en": "grafo ponderado de vuelos: mst (kruskal), tsp, vecino y vértice borrado ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own minimum spanning trees: kruskal's and prim's algorithms travelling salesman problem: upper bounds via nearest-neighbour tsp: lower bounds via deleted-vertex algorithm eulerian and hamiltonian paths and circuits graphs minimum spanning tree (mst) kruskal's algorithm travelling salesman problem (tsp) nearest-neighbour algorithm deleted-vertex algorithm hamiltonian cycle numerical computation reasoning visualisation / graphs hard long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p8",
+      "titulo": "Efecto del uso de IA en los resultados: t-test dos muestras + chi² independencia",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=6",
+      "numero": 8,
+      "puntuacion": 20,
+      "apartados_count": 10,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 4.12",
+          "TANS 4.14",
+          "TANS 4.15"
+        ],
+        "tema": [
+          "estadistica",
+          "prueba_hipotesis",
+          "test_t",
+          "test_t_dos_muestras",
+          "chi_cuadrado",
+          "chi_independencia",
+          "intervalo_confianza"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "interpretacion",
+          "uso_calculadora"
+        ],
+        "dificultad": "dificil",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "efecto del uso de ia en los resultados: t-test dos muestras + chi² independencia ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia test t para la media; muestras independientes test chi-cuadrado: independencia y bondad de ajuste intervalo de confianza para la media estadística prueba de hipótesis test t test t de dos muestras independientes chi-cuadrado chi-cuadrado de independencia intervalo de confianza cálculo numérico razonamiento interpretación uso de calculadora gráfica difícil pregunta larga problema aplicado",
+        "ca": "efecto del uso de ia en los resultados: t-test dos muestras + chi² independencia ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia test t per a la mitjana; mostres independents test khi-quadrat: independència i bondat d'ajust interval de confiança per a la mitjana estadística prova d'hipòtesi test t test t de dues mostres independents khi-quadrat khi-quadrat d'independència interval de confiança càlcul numèric raonament interpretació ús de calculadora gràfica difícil pregunta llarga problema aplicat",
+        "en": "efecto del uso de ia en los resultados: t-test dos muestras + chi² independencia ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own t-test for the mean; independent samples chi-squared test: independence and goodness of fit confidence interval for the mean statistics hypothesis testing t-test two-sample t-test chi-squared chi-squared independence confidence interval numerical computation reasoning interpretation graphical calculator use hard long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p1",
+      "titulo": "Optimización: beneficios de una cafetería en función del café preparado",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=1",
+      "numero": 1,
+      "puntuacion": 15,
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 5.1",
+          "TANS 5.2",
+          "TANS 5.5",
+          "TANS 5.6"
+        ],
+        "tema": [
+          "derivadas",
+          "optimizacion",
+          "funciones"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion",
+          "visualizacion"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "optimización: beneficios de una cafetería en función del café preparado ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia derivada: definición, reglas y aplicaciones básicas derivadas de funciones estándar; derivación de productos, cocientes y composiciones optimización: máximos y mínimos en problemas aplicados análisis de monotonía y extremos relativos derivadas optimización funciones cálculo simbólico modelización interpretación visualización / gráficos media pregunta larga problema aplicado",
+        "ca": "optimización: beneficios de una cafetería en función del café preparado ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia derivada: definició, regles i aplicacions bàsiques derivades de funcions estàndard; producte, quocient i cadena optimització: màxims i mínims en problemes aplicats anàlisi de monotonia i extrems relatius derivades optimització funcions càlcul simbòlic modelització interpretació visualització / gràfics mitjana pregunta llarga problema aplicat",
+        "en": "optimización: beneficios de una cafetería en función del café preparado ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own derivative: definition, rules and basic applications derivatives of standard functions; product, quotient, chain rule optimisation: maxima and minima in applied problems monotonicity analysis and relative extrema derivatives optimisation functions symbolic computation modelling interpretation visualisation / graphs medium long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p2",
+      "titulo": "Cinemática de una partícula en 2D",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
+      "numero": 2,
+      "puntuacion": 15,
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 5.1",
+          "TANS 5.2"
+        ],
+        "tema": [
+          "derivadas",
+          "cinematica"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "cinemática de una partícula en 2d ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia derivada: definición, reglas y aplicaciones básicas derivadas de funciones estándar; derivación de productos, cocientes y composiciones derivadas cinemática cálculo simbólico modelización media pregunta larga",
+        "ca": "cinemática de una partícula en 2d ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia derivada: definició, regles i aplicacions bàsiques derivades de funcions estàndard; producte, quocient i cadena derivades cinemàtica càlcul simbòlic modelització mitjana pregunta llarga",
+        "en": "cinemática de una partícula en 2d ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own derivative: definition, rules and basic applications derivatives of standard functions; product, quotient, chain rule derivatives kinematics symbolic computation modelling medium long question"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p3",
+      "titulo": "Análisis de la función f(x) = e^(2x)(1 − 2x − x²)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
+      "numero": 3,
+      "puntuacion": 15,
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 5.1",
+          "TANS 5.2",
+          "TANS 5.3",
+          "TANS 5.6"
+        ],
+        "tema": [
+          "derivadas",
+          "funciones",
+          "tangente_normal",
+          "monotonia_extremos"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "análisis de la función f(x) = e^(2x)(1 − 2x − x²) ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia derivada: definición, reglas y aplicaciones básicas derivadas de funciones estándar; derivación de productos, cocientes y composiciones rectas tangente y normal a una curva análisis de monotonía y extremos relativos derivadas funciones recta tangente y normal monotonía y extremos relativos cálculo simbólico razonamiento media pregunta larga",
+        "ca": "análisis de la función f(x) = e^(2x)(1 − 2x − x²) ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia derivada: definició, regles i aplicacions bàsiques derivades de funcions estàndard; producte, quocient i cadena rectes tangent i normal a una corba anàlisi de monotonia i extrems relatius derivades funcions recta tangent i normal monotonia i extrems relatius càlcul simbòlic raonament mitjana pregunta llarga",
+        "en": "análisis de la función f(x) = e^(2x)(1 − 2x − x²) ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own derivative: definition, rules and basic applications derivatives of standard functions; product, quotient, chain rule tangent and normal lines to a curve monotonicity analysis and relative extrema derivatives functions tangent and normal lines monotonicity and relative extrema symbolic computation reasoning medium long question"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p4",
+      "titulo": "Optimización: cilindro de volumen máximo inscrito en un cono",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
+      "numero": 4,
+      "puntuacion": 15,
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 5.5",
+          "TANS 5.6"
+        ],
+        "tema": [
+          "derivadas",
+          "optimizacion",
+          "geometria"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "visualizacion",
+          "razonamiento"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "optimización: cilindro de volumen máximo inscrito en un cono ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia optimización: máximos y mínimos en problemas aplicados análisis de monotonía y extremos relativos derivadas optimización geometría cálculo simbólico modelización visualización / gráficos razonamiento media pregunta larga problema aplicado",
+        "ca": "optimización: cilindro de volumen máximo inscrito en un cono ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia optimització: màxims i mínims en problemes aplicats anàlisi de monotonia i extrems relatius derivades optimització geometria càlcul simbòlic modelització visualització / gràfics raonament mitjana pregunta llarga problema aplicat",
+        "en": "optimización: cilindro de volumen máximo inscrito en un cono ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own optimisation: maxima and minima in applied problems monotonicity analysis and relative extrema derivatives optimisation geometry symbolic computation modelling visualisation / graphs reasoning medium long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p5",
+      "titulo": "Related rates: área del segmento circular con ángulo variable",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
+      "numero": 5,
+      "puntuacion": 15,
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 5.4"
+        ],
+        "tema": [
+          "derivadas",
+          "related_rates",
+          "geometria",
+          "trigonometria"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "razonamiento"
+        ],
+        "dificultad": "dificil",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "related rates: área del segmento circular con ángulo variable ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia ratios de cambio relacionadas (related rates) derivadas ratios de cambio relacionadas geometría trigonometría cálculo simbólico modelización razonamiento difícil pregunta larga problema aplicado",
+        "ca": "related rates: área del segmento circular con ángulo variable ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia taxes de canvi relacionades (related rates) derivades taxes de canvi relacionades geometria trigonometria càlcul simbòlic modelització raonament difícil pregunta llarga problema aplicat",
+        "en": "related rates: área del segmento circular con ángulo variable ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own related rates of change derivatives related rates geometry trigonometry symbolic computation modelling reasoning hard long question applied problem"
+      }
+    },
     {
       "id": "2426-ib2-u12-p1",
       "titulo": "Áreas delimitadas por una recta y una parábola",
@@ -537,6 +1281,599 @@
         "es": "retrato de fases con autovalores complejos ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia álgebra matricial: suma, producto, inversas; forma matricial de sistemas valores propios y vectores propios; polinomio característico de matrices 2×2 retratos de fase, puntos de equilibrio, análisis cualitativo por autovalores autovalores / autovectores retratos de fase matrices razonamiento visualización / gráficos interpretación difícil pregunta larga",
         "ca": "retrato de fases con autovalores complejos ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia àlgebra matricial: suma, producte, inverses; forma matricial de sistemes valors propis i vectors propis; polinomi característic de matrius 2×2 retrats de fase, punts d'equilibri, anàlisi qualitativa per autovalors autovalors / autovectors retrats de fase matrius raonament visualització / gràfics interpretació difícil pregunta llarga",
         "en": "retrato de fases con autovalores complejos ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own matrix algebra: addition, product, inverses; matrix form of systems eigenvalues and eigenvectors; characteristic polynomial of 2×2 matrices phase portraits, equilibria, qualitative analysis via eigenvalues eigenvalues / eigenvectors phase portraits matrices reasoning visualisation / graphs interpretation hard long question"
+      }
+    },
+    {
+      "id": "2426-ib2-u14-p1",
+      "titulo": "Test Z: tiempo entre autobuses (σ conocida)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=1",
+      "numero": 1,
+      "puntuacion": 20,
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2426-ib2-u14",
+        "titulo": "Unidad 14 — Estadística inferencial",
+        "tipo": "examen",
+        "fecha": "2026-01-16",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u14/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 4.11"
+        ],
+        "tema": [
+          "estadistica",
+          "prueba_hipotesis",
+          "test_z",
+          "distribucion_normal"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "uso_calculadora",
+          "interpretacion"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "test z: tiempo entre autobuses (σ conocida) ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia prueba de hipótesis para la media; test z cuando sigma es conocida estadística prueba de hipótesis test z (sigma conocida) distribución normal cálculo numérico razonamiento uso de calculadora gráfica interpretación media pregunta larga problema aplicado",
+        "ca": "test z: tiempo entre autobuses (σ conocida) ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia prova d'hipòtesi per a la mitjana; test z amb sigma coneguda estadística prova d'hipòtesi test z (sigma coneguda) distribució normal càlcul numèric raonament ús de calculadora gràfica interpretació mitjana pregunta llarga problema aplicat",
+        "en": "test z: tiempo entre autobuses (σ conocida) ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own hypothesis test for the mean; z-test with known sigma statistics hypothesis testing z-test (sigma known) normal distribution numerical computation reasoning graphical calculator use interpretation medium long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u14-p2",
+      "titulo": "Test t pareado: prueba de nivel inicial vs final",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=1",
+      "numero": 2,
+      "puntuacion": 15,
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2426-ib2-u14",
+        "titulo": "Unidad 14 — Estadística inferencial",
+        "tipo": "examen",
+        "fecha": "2026-01-16",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u14/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 4.12",
+          "TANS 4.13"
+        ],
+        "tema": [
+          "estadistica",
+          "prueba_hipotesis",
+          "test_t",
+          "test_t_pareado"
+        ],
+        "habilidad": [
+          "razonamiento",
+          "calculo_numerico",
+          "uso_calculadora",
+          "interpretacion"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "test t pareado: prueba de nivel inicial vs final ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia test t para la media; muestras independientes test t para muestras pareadas (antes/después) estadística prueba de hipótesis test t test t pareado razonamiento cálculo numérico uso de calculadora gráfica interpretación media problema aplicado",
+        "ca": "test t pareado: prueba de nivel inicial vs final ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia test t per a la mitjana; mostres independents test t per a mostres aparellades (abans/després) estadística prova d'hipòtesi test t test t aparellat raonament càlcul numèric ús de calculadora gràfica interpretació mitjana problema aplicat",
+        "en": "test t pareado: prueba de nivel inicial vs final ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own t-test for the mean; independent samples paired-samples t-test (before/after) statistics hypothesis testing t-test paired t-test reasoning numerical computation graphical calculator use interpretation medium applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u14-p3",
+      "titulo": "Chi-cuadrado de independencia: estudios vs salario",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=2",
+      "numero": 3,
+      "puntuacion": 20,
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u14",
+        "titulo": "Unidad 14 — Estadística inferencial",
+        "tipo": "examen",
+        "fecha": "2026-01-16",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u14/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 4.14"
+        ],
+        "tema": [
+          "estadistica",
+          "prueba_hipotesis",
+          "chi_cuadrado",
+          "chi_independencia"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "uso_calculadora",
+          "interpretacion"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "chi-cuadrado de independencia: estudios vs salario ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia test chi-cuadrado: independencia y bondad de ajuste estadística prueba de hipótesis chi-cuadrado chi-cuadrado de independencia cálculo numérico razonamiento uso de calculadora gráfica interpretación media pregunta larga problema aplicado",
+        "ca": "chi-cuadrado de independencia: estudios vs salario ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia test khi-quadrat: independència i bondat d'ajust estadística prova d'hipòtesi khi-quadrat khi-quadrat d'independència càlcul numèric raonament ús de calculadora gràfica interpretació mitjana pregunta llarga problema aplicat",
+        "en": "chi-cuadrado de independencia: estudios vs salario ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own chi-squared test: independence and goodness of fit statistics hypothesis testing chi-squared chi-squared independence numerical computation reasoning graphical calculator use interpretation medium long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u14-p4",
+      "titulo": "Intervalo de confianza para la media (sacos de harina)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=2",
+      "numero": 4,
+      "puntuacion": 15,
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2426-ib2-u14",
+        "titulo": "Unidad 14 — Estadística inferencial",
+        "tipo": "examen",
+        "fecha": "2026-01-16",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u14/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 4.15"
+        ],
+        "tema": [
+          "estadistica",
+          "intervalo_confianza",
+          "distribucion_normal"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "uso_calculadora",
+          "interpretacion",
+          "razonamiento"
+        ],
+        "dificultad": "facil",
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "intervalo de confianza para la media (sacos de harina) ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia intervalo de confianza para la media estadística intervalo de confianza distribución normal cálculo numérico uso de calculadora gráfica interpretación razonamiento fácil pregunta larga",
+        "ca": "intervalo de confianza para la media (sacos de harina) ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia interval de confiança per a la mitjana estadística interval de confiança distribució normal càlcul numèric ús de calculadora gràfica interpretació raonament fàcil pregunta llarga",
+        "en": "intervalo de confianza para la media (sacos de harina) ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own confidence interval for the mean statistics confidence interval normal distribution numerical computation graphical calculator use interpretation reasoning easy long question"
+      }
+    },
+    {
+      "id": "2426-ib2-u15-p1",
+      "titulo": "Grafo del laberinto: matriz de adyacencia y recorridos",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=1",
+      "numero": 1,
+      "puntuacion": 7,
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2426-ib2-u15",
+        "titulo": "Unidad 15 — Teoría de grafos",
+        "tipo": "examen",
+        "fecha": "2026-01-30",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u15/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 3.1",
+          "TANS 3.2"
+        ],
+        "tema": [
+          "grafos",
+          "matriz_adyacencia"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento"
+        ],
+        "dificultad": "facil",
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "grafo del laberinto: matriz de adyacencia y recorridos ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia grafos: terminología, matriz de adyacencia y matriz de pesos recorridos y ciclos; potencias de la matriz de adyacencia grafos matriz de adyacencia cálculo numérico razonamiento fácil pregunta corta",
+        "ca": "grafo del laberinto: matriz de adyacencia y recorridos ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia grafs: terminologia, matriu d'adjacència i matriu de pesos recorreguts i cicles; potències de la matriu d'adjacència grafs matriu d'adjacència càlcul numèric raonament fàcil pregunta curta",
+        "en": "grafo del laberinto: matriz de adyacencia y recorridos ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own graphs: terminology, adjacency matrix and weight matrix walks and cycles; powers of the adjacency matrix graphs adjacency matrix numerical computation reasoning easy short question"
+      }
+    },
+    {
+      "id": "2426-ib2-u15-p2",
+      "titulo": "Red informática de un colegio: Kruskal, ciclo hamiltoniano y fiabilidad",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=2",
+      "numero": 2,
+      "puntuacion": 28,
+      "apartados_count": 9,
+      "coleccion": {
+        "id": "2426-ib2-u15",
+        "titulo": "Unidad 15 — Teoría de grafos",
+        "tipo": "examen",
+        "fecha": "2026-01-30",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u15/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 3.1",
+          "TANS 3.3",
+          "TANS 3.4",
+          "TANS 3.5",
+          "TANS 3.6"
+        ],
+        "tema": [
+          "grafos",
+          "arbol_generador_minimo",
+          "kruskal",
+          "tsp",
+          "vecino_mas_cercano",
+          "vertice_borrado",
+          "ciclo_hamiltoniano",
+          "ciclo_euleriano",
+          "trigonometria",
+          "probabilidad"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "modelizacion",
+          "visualizacion",
+          "uso_calculadora"
+        ],
+        "dificultad": "dificil",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "red informática de un colegio: kruskal, ciclo hamiltoniano y fiabilidad ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia grafos: terminología, matriz de adyacencia y matriz de pesos árboles generadores mínimos: algoritmos de kruskal y de prim problema del viajante (tsp): cotas superiores con vecino más cercano tsp: cotas inferiores con algoritmo del vértice borrado caminos y circuitos eulerianos y hamiltonianos grafos árbol generador mínimo (mst) algoritmo de kruskal problema del viajante (tsp) algoritmo del vecino más cercano algoritmo del vértice borrado ciclo hamiltoniano camino/ciclo euleriano trigonometría probabilidad cálculo numérico razonamiento modelización visualización / gráficos uso de calculadora gráfica difícil pregunta larga problema aplicado",
+        "ca": "red informática de un colegio: kruskal, ciclo hamiltoniano y fiabilidad ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia grafs: terminologia, matriu d'adjacència i matriu de pesos arbres generadors mínims: algoritmes de kruskal i de prim problema del viatjant (tsp): cotes superiors amb veí més proper tsp: cotes inferiors amb algoritme del vèrtex esborrat camins i circuits eulerians i hamiltonians grafs arbre generador mínim (mst) algoritme de kruskal problema del viatjant (tsp) algoritme del veí més proper algoritme del vèrtex esborrat cicle hamiltonià camí/cicle eulerià trigonometria probabilitat càlcul numèric raonament modelització visualització / gràfics ús de calculadora gràfica difícil pregunta llarga problema aplicat",
+        "en": "red informática de un colegio: kruskal, ciclo hamiltoniano y fiabilidad ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own graphs: terminology, adjacency matrix and weight matrix minimum spanning trees: kruskal's and prim's algorithms travelling salesman problem: upper bounds via nearest-neighbour tsp: lower bounds via deleted-vertex algorithm eulerian and hamiltonian paths and circuits graphs minimum spanning tree (mst) kruskal's algorithm travelling salesman problem (tsp) nearest-neighbour algorithm deleted-vertex algorithm hamiltonian cycle eulerian path/cycle trigonometry probability numerical computation reasoning modelling visualisation / graphs graphical calculator use hard long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u15-p3",
+      "titulo": "Grafo turístico con arista desconocida x: Prim, límites y cierre total",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=4",
+      "numero": 3,
+      "puntuacion": 25,
+      "apartados_count": 11,
+      "coleccion": {
+        "id": "2426-ib2-u15",
+        "titulo": "Unidad 15 — Teoría de grafos",
+        "tipo": "examen",
+        "fecha": "2026-01-30",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u15/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 3.3",
+          "TANS 3.4",
+          "TANS 3.5",
+          "TANS 3.6"
+        ],
+        "tema": [
+          "grafos",
+          "arbol_generador_minimo",
+          "prim",
+          "tsp",
+          "vecino_mas_cercano",
+          "vertice_borrado",
+          "ciclo_hamiltoniano"
+        ],
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "modelizacion"
+        ],
+        "dificultad": "dificil",
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "grafo turístico con arista desconocida x: prim, límites y cierre total ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia árboles generadores mínimos: algoritmos de kruskal y de prim problema del viajante (tsp): cotas superiores con vecino más cercano tsp: cotas inferiores con algoritmo del vértice borrado caminos y circuitos eulerianos y hamiltonianos grafos árbol generador mínimo (mst) algoritmo de prim problema del viajante (tsp) algoritmo del vecino más cercano algoritmo del vértice borrado ciclo hamiltoniano cálculo numérico razonamiento modelización difícil pregunta larga",
+        "ca": "grafo turístico con arista desconocida x: prim, límites y cierre total ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia arbres generadors mínims: algoritmes de kruskal i de prim problema del viatjant (tsp): cotes superiors amb veí més proper tsp: cotes inferiors amb algoritme del vèrtex esborrat camins i circuits eulerians i hamiltonians grafs arbre generador mínim (mst) algoritme de prim problema del viatjant (tsp) algoritme del veí més proper algoritme del vèrtex esborrat cicle hamiltonià càlcul numèric raonament modelització difícil pregunta llarga",
+        "en": "grafo turístico con arista desconocida x: prim, límites y cierre total ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own minimum spanning trees: kruskal's and prim's algorithms travelling salesman problem: upper bounds via nearest-neighbour tsp: lower bounds via deleted-vertex algorithm eulerian and hamiltonian paths and circuits graphs minimum spanning tree (mst) prim's algorithm travelling salesman problem (tsp) nearest-neighbour algorithm deleted-vertex algorithm hamiltonian cycle numerical computation reasoning modelling hard long question"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p1",
+      "titulo": "Transformaciones geométricas de una imagen (simetría, homotecia, rotación)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=1",
+      "numero": 1,
+      "puntuacion": 16,
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 1.12",
+          "TANS 1.14"
+        ],
+        "tema": [
+          "matrices",
+          "transformaciones_lineales",
+          "rotacion",
+          "simetria",
+          "homotecia",
+          "geometria"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "visualizacion"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "transformaciones geométricas de una imagen (simetría, homotecia, rotación) ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia matriz de transformación: rotación, simetría, homotecia; composición álgebra matricial: suma, producto, inversas; forma matricial de sistemas matrices transformaciones lineales rotación simetría / reflexión homotecia / escalado geometría cálculo simbólico visualización / gráficos media pregunta larga",
+        "ca": "transformaciones geométricas de una imagen (simetría, homotecia, rotación) ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia matriu de transformació: rotació, simetria, homotècia; composició àlgebra matricial: suma, producte, inverses; forma matricial de sistemes matrius transformacions lineals rotació simetria / reflexió homotècia / escalat geometria càlcul simbòlic visualització / gràfics mitjana pregunta llarga",
+        "en": "transformaciones geométricas de una imagen (simetría, homotecia, rotación) ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own transformation matrices: rotation, reflection, scaling; composition matrix algebra: addition, product, inverses; matrix form of systems matrices linear transformations rotation symmetry / reflection scaling / dilation geometry symbolic computation visualisation / graphs medium long question"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p2",
+      "titulo": "Cifrado matricial del mensaje 'Hoy es día 24'",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=1",
+      "numero": 2,
+      "puntuacion": 16,
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 1.14"
+        ],
+        "tema": [
+          "matrices",
+          "cifrado_matricial"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "uso_calculadora"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "cifrado matricial del mensaje 'hoy es día 24' ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia álgebra matricial: suma, producto, inversas; forma matricial de sistemas matrices cifrado matricial cálculo simbólico razonamiento uso de calculadora gráfica media pregunta larga problema aplicado",
+        "ca": "cifrado matricial del mensaje 'hoy es día 24' ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia àlgebra matricial: suma, producte, inverses; forma matricial de sistemes matrius xifratge matricial càlcul simbòlic raonament ús de calculadora gràfica mitjana pregunta llarga problema aplicat",
+        "en": "cifrado matricial del mensaje 'hoy es día 24' ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own matrix algebra: addition, product, inverses; matrix form of systems matrices matrix cipher symbolic computation reasoning graphical calculator use medium long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p3",
+      "titulo": "Cadena de Markov: clientes de tres peluquerías",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
+      "numero": 3,
+      "puntuacion": 14,
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 1.13",
+          "TANS 1.14"
+        ],
+        "tema": [
+          "matrices",
+          "cadena_markov",
+          "matriz_transicion",
+          "estado_estacionario"
+        ],
+        "habilidad": [
+          "modelizacion",
+          "calculo_numerico",
+          "interpretacion",
+          "uso_calculadora"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "cadena de markov: clientes de tres peluquerías ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia cadenas de markov; matriz de transición y estado estacionario álgebra matricial: suma, producto, inversas; forma matricial de sistemas matrices cadenas de markov matriz de transición estado estacionario / largo plazo modelización cálculo numérico interpretación uso de calculadora gráfica media pregunta larga problema aplicado",
+        "ca": "cadena de markov: clientes de tres peluquerías ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia cadenes de markov; matriu de transició i estat estacionari àlgebra matricial: suma, producte, inverses; forma matricial de sistemes matrius cadenes de markov matriu de transició estat estacionari / llarg termini modelització càlcul numèric interpretació ús de calculadora gràfica mitjana pregunta llarga problema aplicat",
+        "en": "cadena de markov: clientes de tres peluquerías ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own markov chains; transition matrix and stationary state matrix algebra: addition, product, inverses; matrix form of systems matrices markov chains transition matrix stationary state / long-run behaviour modelling numerical computation interpretation graphical calculator use medium long question applied problem"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p4",
+      "titulo": "Sistema lineal y cálculo de inversa / autovalores",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
+      "numero": 4,
+      "puntuacion": 10,
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 1.14",
+          "TANS 1.15"
+        ],
+        "tema": [
+          "matrices",
+          "sistema_lineal",
+          "autovalores"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "uso_calculadora"
+        ],
+        "dificultad": "facil",
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "sistema lineal y cálculo de inversa / autovalores ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia álgebra matricial: suma, producto, inversas; forma matricial de sistemas valores propios y vectores propios; polinomio característico de matrices 2×2 matrices sistemas de ecuaciones lineales autovalores / autovectores cálculo simbólico uso de calculadora gráfica fácil pregunta corta",
+        "ca": "sistema lineal y cálculo de inversa / autovalores ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia àlgebra matricial: suma, producte, inverses; forma matricial de sistemes valors propis i vectors propis; polinomi característic de matrius 2×2 matrius sistemes d'equacions lineals autovalors / autovectors càlcul simbòlic ús de calculadora gràfica fàcil pregunta curta",
+        "en": "sistema lineal y cálculo de inversa / autovalores ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own matrix algebra: addition, product, inverses; matrix form of systems eigenvalues and eigenvectors; characteristic polynomial of 2×2 matrices matrices linear systems of equations eigenvalues / eigenvectors symbolic computation graphical calculator use easy short question"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p5",
+      "titulo": "Cadena de Markov de mutación de un gen (autovalores a largo plazo)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
+      "numero": 5,
+      "puntuacion": 12,
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026"
+      },
+      "tags": {
+        "asignatura": "ib-ai-hl",
+        "nivel": "ib2",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "descriptor_ib": [
+          "TANS 1.13",
+          "TANS 1.15"
+        ],
+        "tema": [
+          "matrices",
+          "cadena_markov",
+          "autovalores",
+          "estado_estacionario",
+          "probabilidad"
+        ],
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion",
+          "modelizacion"
+        ],
+        "dificultad": "media",
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "cadena de markov de mutación de un gen (autovalores a largo plazo) ib mathematics ai hl ib2 (2º bachillerato) 2025-2026 español propia cadenas de markov; matriz de transición y estado estacionario valores propios y vectores propios; polinomio característico de matrices 2×2 matrices cadenas de markov autovalores / autovectores estado estacionario / largo plazo probabilidad cálculo simbólico interpretación modelización media pregunta larga problema aplicado",
+        "ca": "cadena de markov de mutación de un gen (autovalores a largo plazo) ib mathematics ai hl ib2 (2n batxillerat) 2025-2026 castellà pròpia cadenes de markov; matriu de transició i estat estacionari valors propis i vectors propis; polinomi característic de matrius 2×2 matrius cadenes de markov autovalors / autovectors estat estacionari / llarg termini probabilitat càlcul simbòlic interpretació modelització mitjana pregunta llarga problema aplicat",
+        "en": "cadena de markov de mutación de un gen (autovalores a largo plazo) ib mathematics ai hl ib2 (year 13) 2025-2026 spanish own markov chains; transition matrix and stationary state eigenvalues and eigenvectors; characteristic polynomial of 2×2 matrices matrices markov chains eigenvalues / eigenvectors stationary state / long-run behaviour probability symbolic computation interpretation modelling medium long question applied problem"
       }
     }
   ]

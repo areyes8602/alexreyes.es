@@ -113,12 +113,26 @@ def build_index_entry(ejercicio, coleccion, taxonomy):
                     if lang in v_def["label"]:
                         label_snippets[lang].append(v_def["label"][lang])
 
+    # New fields: url_enunciado (HTML with solution) and url_pdf (PDF page anchor).
+    # Backwards-compat: if only "url" is set, infer — .html → url_enunciado, .pdf → url_pdf.
+    url_enunciado = ejercicio.get("url_enunciado")
+    url_pdf = ejercicio.get("url_pdf")
+    legacy = ejercicio.get("url")
+    if not url_enunciado and not url_pdf and legacy:
+        if ".pdf" in legacy.lower():
+            url_pdf = legacy
+        else:
+            url_enunciado = legacy
+
     return {
         "id": ejercicio["id"],
         "titulo": ejercicio.get("titulo") or ejercicio.get("descriptor") or ejercicio["id"],
-        "url": ejercicio.get("url"),
+        "url_enunciado": url_enunciado,
+        "url_pdf": url_pdf,
+        "url": url_enunciado or url_pdf,
         "numero": ejercicio.get("numero"),
         "puntuacion": ejercicio.get("puntuacion"),
+        "apartados": ejercicio.get("apartados", []),
         "apartados_count": len(ejercicio.get("apartados", [])),
         "coleccion": {
             "id": coleccion["id"],
@@ -183,9 +197,11 @@ def main():
             # Validate ejercicio-level tags
             errors += validate_tags(ej.get("tags", {}), taxonomy, ctx_ej)
 
-            # Validate URL exists (warning, not error)
-            if ej.get("url"):
-                warnings += validate_url_exists(ej["url"], ctx_ej)
+            # Validate URLs exist (warning, not error)
+            for url_field in ("url", "url_enunciado", "url_pdf"):
+                u = ej.get(url_field)
+                if u:
+                    warnings += validate_url_exists(u, f"{ctx_ej} [{url_field}]")
 
             # Build index entry
             index_entries.append(build_index_entry(ej, col, taxonomy))

@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "id": "2426-ib2-g1-p3",
+  "tipo_coleccion": "examen_practica",
+  "titulo": "Global 1 HL — Paper 3 (números complejos, Poisson, Markov)",
+  "fecha": "2025-11-27",
+  "grupo": "IB2",
+  "promocion": "2024-2026",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_original": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf",
+  "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/",
+  "puntuacion_total": 55,
+  "baremo": [
+    { "min": 48, "max": 55, "nota": 7 },
+    { "min": 39, "max": 47, "nota": 6 },
+    { "min": 29, "max": 38, "nota": 5 },
+    { "min": 20, "max": 28, "nota": 4 },
+    { "min": 13, "max": 19, "nota": 3 },
+    { "min":  7, "max": 12, "nota": 2 },
+    { "min":  1, "max":  6, "nota": 1 }
+  ],
+  "tags_coleccion": {
+    "asignatura": "ib-ai-hl",
+    "nivel": "ib2",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia"
+  },
+  "ejercicios": [
+    {
+      "id": "2426-ib2-g1-p3-p1",
+      "numero": 1,
+      "titulo": "Red eléctrica: voltaje sinusoidal, fasores complejos y cadena de Markov",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf#page=1",
+      "puntuacion": 28,
+      "apartados": [
+        { "letra": "a-c", "puntos": 4, "tarea": "(a) Significado de la amplitud A (b) Valor de A (c) Frecuencia angular ω en rad/ms" },
+        { "letra": "d-f", "puntos": 6, "tarea": "(d) Módulo de W (e) Ángulo principal de W (-π, π] (f) Valor de α que transforma Z en W" },
+        { "letra": "g", "puntos": 3, "tarea": "V_T(t) = V₁(t) + V₂(t) con V₁=6sin(ωt), V₂=4sin(ωt+π/3)" },
+        { "letra": "h-j", "puntos": 4, "tarea": "(h) V₁, V₂ en ωt=π/6 (i) Voltaje total (j) Comparar con la amplitud máxima de V₁ (6 V)" },
+        { "letra": "k-l", "puntos": 3, "tarea": "(k) Interpretar la entrada 0,15 de la matriz de transición P (l) Comprobar que cada fila suma 1" },
+        { "letra": "m", "puntos": 5, "tarea": "Porcentaje de tiempo en cada estado a largo plazo (distribución estacionaria)" },
+        { "letra": "o", "puntos": 3, "tarea": "Consumo medio esperado (kW) a largo plazo; comentar si estado cómodo o de riesgo" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 3.9", "TANS 3.14", "TANS 1.13", "TANS 1.14"],
+        "tema": ["numeros_complejos", "fasores", "funciones_trigonometricas", "cadena_markov", "matriz_transicion", "estado_estacionario", "matrices"],
+        "habilidad": ["calculo_simbolico", "modelizacion", "interpretacion", "razonamiento", "uso_calculadora"],
+        "dificultad": "dificil",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-g1-p3-p2",
+      "numero": 2,
+      "titulo": "Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf#page=3",
+      "puntuacion": 27,
+      "apartados": [
+        { "letra": "a-b", "puntos": 4, "tarea": "(a) P(X=7) con X∼Poisson(9) (b) P(X≥10); 3 c.s." },
+        { "letra": "c-e", "puntos": 4, "tarea": "(c) Por qué Y∼Binomial (d) Distribución y parámetros (e) P(Y ≤ 2) en 12 llamadas con p=0,3" },
+        { "letra": "f-g", "puntos": 5, "tarea": "(f) Distribución de D (Poisson con λ=72) (g) Media y varianza de D" },
+        { "letra": "h-j", "puntos": 5, "tarea": "(h) Justificar TCL (i) Media y DE de D̄ (j) P(D̄ > 75) aproximada" },
+        { "letra": "k-l", "puntos": 4, "tarea": "(k) Interpretar entrada 0,30 de la matriz P de días T/C (l) Comprobar columnas como probabilidades" },
+        { "letra": "m-o", "puntos": 5, "tarea": "(m) Valores propios de P (n) Vectores propios (o) Interpretar λ=1" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 4.16", "TANS 4.17", "TANS 1.13", "TANS 1.15"],
+        "tema": ["estadistica", "probabilidad", "distribucion_poisson", "distribucion_binomial", "teorema_central_limite", "cadena_markov", "matriz_transicion", "autovalores"],
+        "habilidad": ["calculo_simbolico", "calculo_numerico", "razonamiento", "interpretacion", "uso_calculadora"],
+        "dificultad": "dificil",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "id": "2426-ib2-u10",
+  "tipo_coleccion": "examen",
+  "titulo": "Unidad 10 — Cálculo diferencial",
+  "fecha": "2026-02-13",
+  "grupo": "IB2",
+  "promocion": "2024-2026",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_original": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf",
+  "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+  "puntuacion_total": 75,
+  "baremo": [
+    { "min": 57, "max": 75, "nota": 7 },
+    { "min": 45, "max": 56, "nota": 6 },
+    { "min": 34, "max": 44, "nota": 5 },
+    { "min": 24, "max": 33, "nota": 4 },
+    { "min": 15, "max": 23, "nota": 3 },
+    { "min":  8, "max": 14, "nota": 2 },
+    { "min":  1, "max":  7, "nota": 1 }
+  ],
+  "tags_coleccion": {
+    "asignatura": "ib-ai-hl",
+    "nivel": "ib2",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia"
+  },
+  "ejercicios": [
+    {
+      "id": "2426-ib2-u10-p1",
+      "numero": 1,
+      "titulo": "Optimización: beneficios de una cafetería en función del café preparado",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=1",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 3, "tarea": "Expresión de dC/dx en función de k y x" },
+        { "letra": "b", "puntos": 4, "tarea": "Valor máximo de C en forma p·k³" },
+        { "letra": "c", "puntos": 3, "tarea": "Hallar k a partir de C=426$ con x=20; café óptimo" },
+        { "letra": "d", "puntos": 3, "tarea": "Gráfica aproximada con máximo y cortes con el eje x" },
+        { "letra": "e", "puntos": 2, "tarea": "Máxima cantidad de café sin pérdidas" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 5.1", "TANS 5.2", "TANS 5.5", "TANS 5.6"],
+        "tema": ["derivadas", "optimizacion", "funciones"],
+        "habilidad": ["calculo_simbolico", "modelizacion", "interpretacion", "visualizacion"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p2",
+      "numero": 2,
+      "titulo": "Cinemática de una partícula en 2D",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 2, "tarea": "Velocidad en cada eje (vₓ(t), v_y(t))" },
+        { "letra": "b", "puntos": 3, "tarea": "Módulo de la velocidad para t=1 s" },
+        { "letra": "c", "puntos": 2, "tarea": "Velocidad en cada eje (continuación / posición)" },
+        { "letra": "d", "puntos": 4, "tarea": "Aceleración en x cuando la velocidad en x es mínima" },
+        { "letra": "e", "puntos": 4, "tarea": "Ratio dy/dx en x=1 (tasa de desplazamiento vertical vs horizontal)" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 5.1", "TANS 5.2"],
+        "tema": ["derivadas", "cinematica"],
+        "habilidad": ["calculo_simbolico", "modelizacion"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p3",
+      "numero": 3,
+      "titulo": "Análisis de la función f(x) = e^(2x)(1 − 2x − x²)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 3, "tarea": "Hallar f'(x)" },
+        { "letra": "b", "puntos": 4, "tarea": "Intervalos de crecimiento y decrecimiento" },
+        { "letra": "c", "puntos": 3, "tarea": "Extremos relativos (máximos y mínimos) de forma exacta" },
+        { "letra": "d", "puntos": 3, "tarea": "Recta tangente en x=0" },
+        { "letra": "e", "puntos": 2, "tarea": "Recta normal en x=0" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 5.1", "TANS 5.2", "TANS 5.3", "TANS 5.6"],
+        "tema": ["derivadas", "funciones", "tangente_normal", "monotonia_extremos"],
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p4",
+      "numero": 4,
+      "titulo": "Optimización: cilindro de volumen máximo inscrito en un cono",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 3, "tarea": "Bosquejo del cono con el cilindro inscrito" },
+        { "letra": "b", "puntos": 4, "tarea": "Demostrar que h = 20 − 4r" },
+        { "letra": "c", "puntos": 3, "tarea": "V(r) = 20πr² − 4πr³" },
+        { "letra": "d", "puntos": 3, "tarea": "Dimensiones del cilindro óptimo" },
+        { "letra": "e", "puntos": 2, "tarea": "Volumen máximo del cilindro inscrito" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 5.5", "TANS 5.6"],
+        "tema": ["derivadas", "optimizacion", "geometria"],
+        "habilidad": ["calculo_simbolico", "modelizacion", "visualizacion", "razonamiento"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p5",
+      "numero": 5,
+      "titulo": "Related rates: área del segmento circular con ángulo variable",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 15, "tarea": "Ratio de crecimiento del área sombreada (sector menos triángulo) cuando θ=1 rad, con dθ/dt=0,2 rad/s y r=5 cm" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 5.4"],
+        "tema": ["derivadas", "related_rates", "geometria", "trigonometria"],
+        "habilidad": ["calculo_simbolico", "modelizacion", "razonamiento"],
+        "dificultad": "dificil",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}

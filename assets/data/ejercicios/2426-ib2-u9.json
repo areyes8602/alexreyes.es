@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "id": "2426-ib2-u9",
+  "tipo_coleccion": "examen",
+  "titulo": "Unidad 9 — Matrices y transformaciones",
+  "fecha": "2025-10-24",
+  "grupo": "IB2",
+  "promocion": "2024-2026",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_original": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf",
+  "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+  "puntuacion_total": 68,
+  "baremo": [
+    { "min": 56, "max": 68, "nota": 7 },
+    { "min": 44, "max": 55, "nota": 6 },
+    { "min": 33, "max": 43, "nota": 5 },
+    { "min": 23, "max": 32, "nota": 4 },
+    { "min": 14, "max": 22, "nota": 3 },
+    { "min":  7, "max": 13, "nota": 2 },
+    { "min":  1, "max":  6, "nota": 1 }
+  ],
+  "tags_coleccion": {
+    "asignatura": "ib-ai-hl",
+    "nivel": "ib2",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia"
+  },
+  "ejercicios": [
+    {
+      "id": "2426-ib2-u9-p1",
+      "numero": 1,
+      "titulo": "Transformaciones geométricas de una imagen (simetría, homotecia, rotación)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=1",
+      "puntuacion": 16,
+      "apartados": [
+        { "letra": "a", "puntos": 1, "tarea": "Matriz con las coordenadas de los 4 vértices del rectángulo" },
+        { "letra": "b", "puntos": 3, "tarea": "Matriz de la simetría respecto al eje y" },
+        { "letra": "c", "puntos": 3, "tarea": "Matriz de la homotecia de razón 2" },
+        { "letra": "d", "puntos": 3, "tarea": "Matriz de la rotación de 60° antihoraria" },
+        { "letra": "e", "puntos": 3, "tarea": "Matriz de la composición de las 3 transformaciones (en orden)" },
+        { "letra": "f", "puntos": 3, "tarea": "Área del rectángulo imagen final" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 1.12", "TANS 1.14"],
+        "tema": ["matrices", "transformaciones_lineales", "rotacion", "simetria", "homotecia", "geometria"],
+        "habilidad": ["calculo_simbolico", "visualizacion"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p2",
+      "numero": 2,
+      "titulo": "Cifrado matricial del mensaje 'Hoy es día 24'",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=1",
+      "puntuacion": 16,
+      "apartados": [
+        { "letra": "a", "puntos": 1, "tarea": "Matriz 3×5 con el código numérico del mensaje" },
+        { "letra": "b", "puntos": 6, "tarea": "Argumentar cuál de T₁, T₂, T₃ puede cifrar el mensaje y por qué las otras no" },
+        { "letra": "c", "puntos": 4, "tarea": "Cifrar el mensaje con la matriz elegida" },
+        { "letra": "d", "puntos": 5, "tarea": "Descifrar usando la inversa de la matriz de cifrado" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 1.14"],
+        "tema": ["matrices", "cifrado_matricial"],
+        "habilidad": ["calculo_simbolico", "razonamiento", "uso_calculadora"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p3",
+      "numero": 3,
+      "titulo": "Cadena de Markov: clientes de tres peluquerías",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
+      "puntuacion": 14,
+      "apartados": [
+        { "letra": "a", "puntos": 1, "tarea": "Total de clientes en el pueblo" },
+        { "letra": "b", "puntos": 6, "tarea": "Construir la matriz de transición T (completar fila de C)" },
+        { "letra": "c", "puntos": 1, "tarea": "Matriz de clientes iniciales P₀" },
+        { "letra": "d", "puntos": 2, "tarea": "Clientes pasados 2 años (T²·P₀)" },
+        { "letra": "e", "puntos": 4, "tarea": "Clientes a largo plazo (estado estacionario)" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 1.13", "TANS 1.14"],
+        "tema": ["matrices", "cadena_markov", "matriz_transicion", "estado_estacionario"],
+        "habilidad": ["modelizacion", "calculo_numerico", "interpretacion", "uso_calculadora"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p4",
+      "numero": 4,
+      "titulo": "Sistema lineal y cálculo de inversa / autovalores",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
+      "puntuacion": 10,
+      "apartados": [
+        { "letra": "a", "puntos": 5, "tarea": "Reescribir el sistema 3×3 como ecuación matricial y resolver con calculadora" },
+        { "letra": "b", "puntos": 5, "tarea": "Inversa, valores y vectores propios de la matriz 2×2" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 1.14", "TANS 1.15"],
+        "tema": ["matrices", "sistema_lineal", "autovalores"],
+        "habilidad": ["calculo_simbolico", "uso_calculadora"],
+        "dificultad": "facil",
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p5",
+      "numero": 5,
+      "titulo": "Cadena de Markov de mutación de un gen (autovalores a largo plazo)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
+      "puntuacion": 12,
+      "apartados": [
+        { "letra": "a", "puntos": 2, "tarea": "Valor de b y su significado contextual" },
+        { "letra": "b", "puntos": 3, "tarea": "Valores propios de M" },
+        { "letra": "c", "puntos": 3, "tarea": "Vectores propios de M" },
+        { "letra": "d", "puntos": 4, "tarea": "Probabilidad de estado normal en n=5 y a largo plazo" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 1.13", "TANS 1.15"],
+        "tema": ["matrices", "cadena_markov", "autovalores", "estado_estacionario", "probabilidad"],
+        "habilidad": ["calculo_simbolico", "interpretacion", "modelizacion"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}

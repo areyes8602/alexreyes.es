@@ -17,15 +17,18 @@ trilingual_paths = [
     '/docencia/ccss-1btl/', '/docencia/cangur/', '/docencia/2eso/',
 ]
 
-# Pages that exist only in ES (aula materials for a specific cohort)
+# Pages that exist only in ES (aula materials for a specific cohort).
+# Exam index pages are auto-detected by scanning aula/.
+import os as _os
+_REPO = Path(__file__).resolve().parent.parent
+_exam_dirs = sorted(_REPO.glob("aula/ib-ai-hl/examenes/*/index.html"))
 single_paths = [
-    '/aula/ib-ai-hl/examenes/2426-ib2-u13/',
-    '/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html',
-    '/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html',
-    '/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html',
-    '/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html',
-    '/aula/ib-ai-hl/examenes/2426-ib2-u12/',
+    '/' + str(p.parent.relative_to(_REPO)) + '/'
+    for p in _exam_dirs
 ]
+# plus the per-pregunta static HTMLs that exist (u13 only)
+for p in sorted(_REPO.glob("aula/ib-ai-hl/examenes/*/p*.html")):
+    single_paths.append('/' + str(p.relative_to(_REPO)))
 
 
 def url_tag(base_path, lang):

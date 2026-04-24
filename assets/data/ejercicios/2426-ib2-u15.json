@@ -1,0 +1,102 @@
+{
+  "schema_version": 2,
+  "id": "2426-ib2-u15",
+  "tipo_coleccion": "examen",
+  "titulo": "Unidad 15 — Teoría de grafos",
+  "fecha": "2026-01-30",
+  "grupo": "IB2",
+  "promocion": "2024-2026",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_original": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf",
+  "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u15/",
+  "puntuacion_total": 60,
+  "baremo": [
+    { "min": 51, "max": 60, "nota": 7 },
+    { "min": 41, "max": 50, "nota": 6 },
+    { "min": 31, "max": 40, "nota": 5 },
+    { "min": 22, "max": 30, "nota": 4 },
+    { "min": 14, "max": 21, "nota": 3 },
+    { "min":  7, "max": 13, "nota": 2 },
+    { "min":  1, "max":  6, "nota": 1 }
+  ],
+  "tags_coleccion": {
+    "asignatura": "ib-ai-hl",
+    "nivel": "ib2",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia"
+  },
+  "ejercicios": [
+    {
+      "id": "2426-ib2-u15-p1",
+      "numero": 1,
+      "titulo": "Grafo del laberinto: matriz de adyacencia y recorridos",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=1",
+      "puntuacion": 7,
+      "apartados": [
+        { "letra": "a", "puntos": 2, "tarea": "Completar la matriz de adyacencia M del grafo S-A-B-C-D-T" },
+        { "letra": "b", "puntos": 4, "tarea": "Número de recorridos de ≤ 4 aristas entre S y T (potencias de M)" },
+        { "letra": "c", "puntos": 1, "tarea": "Justificar por qué el número real de 'maneras' es menor que (b)" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 3.1", "TANS 3.2"],
+        "tema": ["grafos", "matriz_adyacencia"],
+        "habilidad": ["calculo_numerico", "razonamiento"],
+        "dificultad": "facil",
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2426-ib2-u15-p2",
+      "numero": 2,
+      "titulo": "Red informática de un colegio: Kruskal, ciclo hamiltoniano y fiabilidad",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=2",
+      "puntuacion": 28,
+      "apartados": [
+        { "letra": "a", "puntos": 3, "tarea": "Hallar AF por ley del coseno (AD=89,2, DF=104,9, ∠ADF=83°)" },
+        { "letra": "b", "puntos": 2, "tarea": "Coste por metro del cable A-F (21 310$)" },
+        { "letra": "c", "puntos": 1, "tarea": "Por qué el cable A-F es más caro que los demás" },
+        { "letra": "d(i)", "puntos": 3, "tarea": "Árbol generador mínimo de S (algoritmo de Kruskal, mostrando orden)" },
+        { "letra": "d(ii)", "puntos": 2, "tarea": "Coste mínimo de la red conectada" },
+        { "letra": "e", "puntos": 1, "tarea": "Diferenciar ciclo hamiltoniano vs circuito euleriano" },
+        { "letra": "f", "puntos": 5, "tarea": "Vecino más cercano empezando en D — límite superior del ciclo" },
+        { "letra": "g", "puntos": 6, "tarea": "Algoritmo del vértice borrado (borrando D) — límite inferior" },
+        { "letra": "h", "puntos": 5, "tarea": "Probar que la probabilidad de fallo de la red es < 2% (1,4% por conexión)" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 3.1", "TANS 3.3", "TANS 3.4", "TANS 3.5", "TANS 3.6"],
+        "tema": ["grafos", "arbol_generador_minimo", "kruskal", "tsp", "vecino_mas_cercano", "vertice_borrado", "ciclo_hamiltoniano", "ciclo_euleriano", "trigonometria", "probabilidad"],
+        "habilidad": ["calculo_numerico", "razonamiento", "modelizacion", "visualizacion", "uso_calculadora"],
+        "dificultad": "dificil",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u15-p3",
+      "numero": 3,
+      "titulo": "Grafo turístico con arista desconocida x: Prim, límites y cierre total",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=4",
+      "puntuacion": 25,
+      "apartados": [
+        { "letra": "a", "puntos": 1, "tarea": "Escribir un ciclo hamiltoniano en W" },
+        { "letra": "b(i)", "puntos": 5, "tarea": "Algoritmo de Prim desde B (tras borrar A); orden de aristas" },
+        { "letra": "b(ii)", "puntos": 2, "tarea": "Caso x < 9: límite inferior del tiempo de viaje (en función de x)" },
+        { "letra": "c(i)", "puntos": 1, "tarea": "Valor de p" },
+        { "letra": "c(ii)", "puntos": 1, "tarea": "Valor de q" },
+        { "letra": "c(iii)", "puntos": 1, "tarea": "Valor de r" },
+        { "letra": "d(i)", "puntos": 3, "tarea": "Vecino más cercano desde A con x=3 — dos ciclos posibles" },
+        { "letra": "d(ii)", "puntos": 2, "tarea": "Mejor límite superior" },
+        { "letra": "e(i)", "puntos": 2, "tarea": "Menor x tal que AF no se utiliza" },
+        { "letra": "e(ii)", "puntos": 2, "tarea": "Límite superior correspondiente" },
+        { "letra": "f", "puntos": 5, "tarea": "Hallar x durante la inspección de Corinne (suma de pesos = 92+x)" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 3.3", "TANS 3.4", "TANS 3.5", "TANS 3.6"],
+        "tema": ["grafos", "arbol_generador_minimo", "prim", "tsp", "vecino_mas_cercano", "vertice_borrado", "ciclo_hamiltoniano"],
+        "habilidad": ["calculo_numerico", "razonamiento", "modelizacion"],
+        "dificultad": "dificil",
+        "formato": ["pregunta_larga"]
+      }
+    }
+  ]
+}

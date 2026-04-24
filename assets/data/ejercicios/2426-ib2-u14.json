@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "id": "2426-ib2-u14",
+  "tipo_coleccion": "examen",
+  "titulo": "Unidad 14 — Estadística inferencial",
+  "fecha": "2026-01-16",
+  "grupo": "IB2",
+  "promocion": "2024-2026",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_original": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf",
+  "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u14/",
+  "puntuacion_total": 70,
+  "baremo": [
+    { "min": 58, "max": 70, "nota": 7 },
+    { "min": 46, "max": 57, "nota": 6 },
+    { "min": 35, "max": 45, "nota": 5 },
+    { "min": 25, "max": 34, "nota": 4 },
+    { "min": 16, "max": 24, "nota": 3 },
+    { "min":  8, "max": 15, "nota": 2 },
+    { "min":  1, "max":  7, "nota": 1 }
+  ],
+  "tags_coleccion": {
+    "asignatura": "ib-ai-hl",
+    "nivel": "ib2",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia"
+  },
+  "ejercicios": [
+    {
+      "id": "2426-ib2-u14-p1",
+      "numero": 1,
+      "titulo": "Test Z: tiempo entre autobuses (σ conocida)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=1",
+      "puntuacion": 20,
+      "apartados": [
+        { "letra": "a", "puntos": 4, "tarea": "Formular H₀ y H₁ del test de Albert" },
+        { "letra": "b", "puntos": 2, "tarea": "Media muestral x̄" },
+        { "letra": "c", "puntos": 2, "tarea": "Distribución de X̄ bajo H₀" },
+        { "letra": "d", "puntos": 4, "tarea": "P(X̄ > x̄) asumiendo H₀ cierta" },
+        { "letra": "e", "puntos": 4, "tarea": "Conclusión del test al 10% de nivel de tolerancia" },
+        { "letra": "f", "puntos": 4, "tarea": "Región crítica del test" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 4.11"],
+        "tema": ["estadistica", "prueba_hipotesis", "test_z", "distribucion_normal"],
+        "habilidad": ["calculo_numerico", "razonamiento", "uso_calculadora", "interpretacion"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u14-p2",
+      "numero": 2,
+      "titulo": "Test t pareado: prueba de nivel inicial vs final",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=1",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 15, "tarea": "Elegir el test adecuado, plantear hipótesis, p-valor y conclusión para la mejora pre/post curso" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 4.12", "TANS 4.13"],
+        "tema": ["estadistica", "prueba_hipotesis", "test_t", "test_t_pareado"],
+        "habilidad": ["razonamiento", "calculo_numerico", "uso_calculadora", "interpretacion"],
+        "dificultad": "media",
+        "formato": ["problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u14-p3",
+      "numero": 3,
+      "titulo": "Chi-cuadrado de independencia: estudios vs salario",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=2",
+      "puntuacion": 20,
+      "apartados": [
+        { "letra": "a", "puntos": 2, "tarea": "Plantear H₀ y H₁" },
+        { "letra": "b", "puntos": 6, "tarea": "Frecuencias esperadas; detectar si alguna es < 5" },
+        { "letra": "c", "puntos": 4, "tarea": "Combinar 2 filas para que todas las frecuencias esperadas sean ≥ 5" },
+        { "letra": "d", "puntos": 4, "tarea": "p-valor" },
+        { "letra": "e", "puntos": 4, "tarea": "Conclusión del test al 1% de tolerancia" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 4.14"],
+        "tema": ["estadistica", "prueba_hipotesis", "chi_cuadrado", "chi_independencia"],
+        "habilidad": ["calculo_numerico", "razonamiento", "uso_calculadora", "interpretacion"],
+        "dificultad": "media",
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2426-ib2-u14-p4",
+      "numero": 4,
+      "titulo": "Intervalo de confianza para la media (sacos de harina)",
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=2",
+      "puntuacion": 15,
+      "apartados": [
+        { "letra": "a", "puntos": 5, "tarea": "Calcular S_{n−1} para la muestra" },
+        { "letra": "b", "puntos": 5, "tarea": "Intervalo de confianza al 95% para la media poblacional (4 c.s.)" },
+        { "letra": "c", "puntos": 5, "tarea": "Comentar la afirmación 'los sacos pesan 1,5 kg'" }
+      ],
+      "tags": {
+        "descriptor_ib": ["TANS 4.15"],
+        "tema": ["estadistica", "intervalo_confianza", "distribucion_normal"],
+        "habilidad": ["calculo_numerico", "uso_calculadora", "interpretacion", "razonamiento"],
+        "dificultad": "facil",
+        "formato": ["pregunta_larga"]
+      }
+    }
+  ]
+}
