@@ -261,23 +261,50 @@
     }
     els.empty.hidden = true;
     for (const ej of list) {
-      const a = document.createElement('a');
-      a.className = 'ej-card';
-      a.href = ej.url || '#';
+      const div = document.createElement('div');
+      div.className = 'ej-card';
+      if (inCart(ej.id)) div.classList.add('in-cart');
       const tagsHtml = renderEjTags(ej);
       const colMeta = [ej.coleccion?.titulo, ej.coleccion?.fecha, ej.coleccion?.grupo]
         .filter(Boolean)
         .map(escapeHtml)
         .join('<span class="sep"></span>');
-      a.innerHTML = `
+
+      // Action buttons
+      const actions = [];
+      if (ej.url_enunciado) {
+        actions.push(`<a class="ej-btn ej-btn-primary" href="${escapeAttr(ej.url_enunciado)}">${t('btn_enunciado')}</a>`);
+      }
+      if (ej.url_pdf) {
+        actions.push(`<a class="ej-btn" href="${escapeAttr(ej.url_pdf)}" target="_blank" rel="noopener">${t('btn_pdf')}</a>`);
+      }
+      const added = inCart(ej.id);
+      actions.push(`<button class="ej-btn ej-btn-cart ${added ? 'is-added' : ''}" data-cart-id="${escapeAttr(ej.id)}">${added ? t('btn_added') : t('btn_add')}</button>`);
+
+      div.innerHTML = `
         <div class="ej-card-top">
           <div class="ej-card-title">${escapeHtml(ej.titulo)}</div>
           <div class="ej-card-puntos">${ej.puntuacion || 0} ${t('pts')}</div>
         </div>
         <div class="ej-card-meta">${colMeta}</div>
         <div class="ej-card-tags">${tagsHtml}</div>
+        <div class="ej-card-actions">${actions.join('')}</div>
       `;
-      els.results.appendChild(a);
+
+      // Wire cart button
+      const cartBtn = div.querySelector('[data-cart-id]');
+      if (cartBtn) {
+        cartBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          toggleCart(ej.id);
+          const nowAdded = inCart(ej.id);
+          cartBtn.textContent = nowAdded ? t('btn_added') : t('btn_add');
+          cartBtn.classList.toggle('is-added', nowAdded);
+          div.classList.toggle('in-cart', nowAdded);
+        });
+      }
+
+      els.results.appendChild(div);
     }
     // KaTeX in titles if present
     if (window.renderMathInElement) {
@@ -413,6 +440,7 @@
     renderFacets();
     renderResults();
     renderActiveFilters();
+    updateCartBadge();
   }
 
   document.addEventListener('DOMContentLoaded', init);

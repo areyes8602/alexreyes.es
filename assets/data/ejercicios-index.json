@@ -1,15 +1,54 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-24T21:42:18.668748+00:00",
+  "generated_at": "2026-04-24T21:51:42.306372+00:00",
   "taxonomy_path": "/assets/data/tags.json",
   "count": 38,
   "ejercicios": [
     {
       "id": "2426-ib2-g1-p3-p1",
       "titulo": "Red eléctrica: voltaje sinusoidal, fasores complejos y cadena de Markov",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf#page=1",
       "numero": 1,
       "puntuacion": 28,
+      "apartados": [
+        {
+          "letra": "a-c",
+          "puntos": 4,
+          "tarea": "(a) Significado de la amplitud A (b) Valor de A (c) Frecuencia angular ω en rad/ms"
+        },
+        {
+          "letra": "d-f",
+          "puntos": 6,
+          "tarea": "(d) Módulo de W (e) Ángulo principal de W (-π, π] (f) Valor de α que transforma Z en W"
+        },
+        {
+          "letra": "g",
+          "puntos": 3,
+          "tarea": "V_T(t) = V₁(t) + V₂(t) con V₁=6sin(ωt), V₂=4sin(ωt+π/3)"
+        },
+        {
+          "letra": "h-j",
+          "puntos": 4,
+          "tarea": "(h) V₁, V₂ en ωt=π/6 (i) Voltaje total (j) Comparar con la amplitud máxima de V₁ (6 V)"
+        },
+        {
+          "letra": "k-l",
+          "puntos": 3,
+          "tarea": "(k) Interpretar la entrada 0,15 de la matriz de transición P (l) Comprobar que cada fila suma 1"
+        },
+        {
+          "letra": "m",
+          "puntos": 5,
+          "tarea": "Porcentaje de tiempo en cada estado a largo plazo (distribución estacionaria)"
+        },
+        {
+          "letra": "o",
+          "puntos": 3,
+          "tarea": "Consumo medio esperado (kW) a largo plazo; comentar si estado cómodo o de riesgo"
+        }
+      ],
       "apartados_count": 7,
       "coleccion": {
         "id": "2426-ib2-g1-p3",
@@ -63,9 +102,43 @@
     {
       "id": "2426-ib2-g1-p3-p2",
       "titulo": "Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf#page=3",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original.pdf#page=3",
       "numero": 2,
       "puntuacion": 27,
+      "apartados": [
+        {
+          "letra": "a-b",
+          "puntos": 4,
+          "tarea": "(a) P(X=7) con X∼Poisson(9) (b) P(X≥10); 3 c.s."
+        },
+        {
+          "letra": "c-e",
+          "puntos": 4,
+          "tarea": "(c) Por qué Y∼Binomial (d) Distribución y parámetros (e) P(Y ≤ 2) en 12 llamadas con p=0,3"
+        },
+        {
+          "letra": "f-g",
+          "puntos": 5,
+          "tarea": "(f) Distribución de D (Poisson con λ=72) (g) Media y varianza de D"
+        },
+        {
+          "letra": "h-j",
+          "puntos": 5,
+          "tarea": "(h) Justificar TCL (i) Media y DE de D̄ (j) P(D̄ > 75) aproximada"
+        },
+        {
+          "letra": "k-l",
+          "puntos": 4,
+          "tarea": "(k) Interpretar entrada 0,30 de la matriz P de días T/C (l) Comprobar columnas como probabilidades"
+        },
+        {
+          "letra": "m-o",
+          "puntos": 5,
+          "tarea": "(m) Valores propios de P (n) Vectores propios (o) Interpretar λ=1"
+        }
+      ],
       "apartados_count": 6,
       "coleccion": {
         "id": "2426-ib2-g1-p3",
@@ -120,9 +193,33 @@
     {
       "id": "2426-ib2-g2-p1p2-p1",
       "titulo": "Baloncesto: modelo cuadrático de la altura del balón",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=1",
       "numero": 1,
       "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Tiempo para alcanzar la altura máxima"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Tiempo en tocar el suelo"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Tiempo cuando h=1,2 m"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "Limitación del modelo h(t)"
+        }
+      ],
       "apartados_count": 4,
       "coleccion": {
         "id": "2426-ib2-g2-p1p2",
@@ -167,9 +264,23 @@
     {
       "id": "2426-ib2-g2-p1p2-p2",
       "titulo": "Grafo de carreteras: matriz de adyacencia y recorridos",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=2",
       "numero": 2,
       "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Matriz de adyacencia M del grafo orientado A-E"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Número de rutas E→A de 7 pueblos y describir una"
+        }
+      ],
       "apartados_count": 2,
       "coleccion": {
         "id": "2426-ib2-g2-p1p2",
@@ -212,9 +323,38 @@
     {
       "id": "2426-ib2-g2-p1p2-p3",
       "titulo": "Correlación de Spearman entre edad y tiempo de 100 m",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=2",
       "numero": 3,
       "puntuacion": 9,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Completar tabla de rangos de edades y tiempos"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Coeficiente r_s de Spearman"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Interpretar r_s en contexto"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "Razón matemática para no usar Pearson"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Coeficiente de determinación y su interpretación"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-g2-p1p2",
@@ -258,9 +398,23 @@
     {
       "id": "2426-ib2-g2-p1p2-p4",
       "titulo": "Chi-cuadrado de bondad de ajuste: preferencia de sabores",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=3",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=3",
       "numero": 4,
       "puntuacion": 6,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Plantear H₀ y H₁"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Realizar la prueba y conclusión contextual (valor crítico 7,82)"
+        }
+      ],
       "apartados_count": 2,
       "coleccion": {
         "id": "2426-ib2-g2-p1p2",
@@ -305,9 +459,23 @@
     {
       "id": "2426-ib2-g2-p1p2-p5",
       "titulo": "Related rates: llenado de un cono invertido",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=3",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=3",
       "numero": 5,
       "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Relación V(h) entre volumen y altura del líquido"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "dh/dt cuando h=10 cm con dV/dt=10 cm³/min"
+        }
+      ],
       "apartados_count": 2,
       "coleccion": {
         "id": "2426-ib2-g2-p1p2",
@@ -352,9 +520,38 @@
     {
       "id": "2426-ib2-g2-p1p2-p6",
       "titulo": "Optimización: área máxima de un jardín rectangular dentro de un parque",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=4",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=4",
       "numero": 6,
       "puntuacion": 16,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Demostrar A = 1212 − 4x − 3600/x"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Dimensiones posibles si el área del jardín fuera 800 m²"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Expresión de dA/dx"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Valor de x que maximiza A"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Área máxima posible del jardín"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-g2-p1p2",
@@ -401,9 +598,48 @@
     {
       "id": "2426-ib2-g2-p1p2-p7",
       "titulo": "Grafo ponderado de vuelos: MST (Kruskal), TSP, vecino y vértice borrado",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=5",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=5",
       "numero": 7,
       "puntuacion": 19,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Justificar 'conexo' pero no 'completo'"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Árbol generador mínimo con Kruskal (orden de aristas + dibujo)"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Límite superior del TSP a partir del MST"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Vecino más cercano desde Los Ángeles con el vuelo LA-Dallas 26$"
+        },
+        {
+          "letra": "e",
+          "puntos": 5,
+          "tarea": "Dos límites inferiores del TSP borrando Chicago y borrando Seattle"
+        },
+        {
+          "letra": "f",
+          "puntos": 2,
+          "tarea": "Mejor desigualdad para el coste C del tour"
+        },
+        {
+          "letra": "g",
+          "puntos": 2,
+          "tarea": "Tour cuyo coste esté estrictamente entre los límites"
+        }
+      ],
       "apartados_count": 7,
       "coleccion": {
         "id": "2426-ib2-g2-p1p2",
@@ -455,9 +691,63 @@
     {
       "id": "2426-ib2-g2-p1p2-p8",
       "titulo": "Efecto del uso de IA en los resultados: t-test dos muestras + chi² independencia",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=6",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original.pdf#page=6",
       "numero": 8,
       "puntuacion": 20,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "IC 95% para la media del Grupo A (usa IA)"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "H₀ y H₁ del test unilateral"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "p-valor del t-test"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Decisión al 5%"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Interpretación contextual"
+        },
+        {
+          "letra": "f",
+          "puntos": 4,
+          "tarea": "Frecuencias esperadas de la tabla 2×2 aprueba/suspende × usa IA/no"
+        },
+        {
+          "letra": "g",
+          "puntos": 2,
+          "tarea": "Estadístico χ² y p-valor"
+        },
+        {
+          "letra": "h",
+          "puntos": 1,
+          "tarea": "Grados de libertad"
+        },
+        {
+          "letra": "i",
+          "puntos": 1,
+          "tarea": "Decisión al 5%"
+        },
+        {
+          "letra": "j",
+          "puntos": 2,
+          "tarea": "Interpretación contextual"
+        }
+      ],
       "apartados_count": 10,
       "coleccion": {
         "id": "2426-ib2-g2-p1p2",
@@ -509,9 +799,38 @@
     {
       "id": "2426-ib2-u10-p1",
       "titulo": "Optimización: beneficios de una cafetería en función del café preparado",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=1",
       "numero": 1,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Expresión de dC/dx en función de k y x"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Valor máximo de C en forma p·k³"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Hallar k a partir de C=426$ con x=20; café óptimo"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Gráfica aproximada con máximo y cortes con el eje x"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Máxima cantidad de café sin pérdidas"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u10",
@@ -560,9 +879,38 @@
     {
       "id": "2426-ib2-u10-p2",
       "titulo": "Cinemática de una partícula en 2D",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
       "numero": 2,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Velocidad en cada eje (vₓ(t), v_y(t))"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Módulo de la velocidad para t=1 s"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Velocidad en cada eje (continuación / posición)"
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "Aceleración en x cuando la velocidad en x es mínima"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Ratio dy/dx en x=1 (tasa de desplazamiento vertical vs horizontal)"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u10",
@@ -605,9 +953,38 @@
     {
       "id": "2426-ib2-u10-p3",
       "titulo": "Análisis de la función f(x) = e^(2x)(1 − 2x − x²)",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
       "numero": 3,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Hallar f'(x)"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Intervalos de crecimiento y decrecimiento"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Extremos relativos (máximos y mínimos) de forma exacta"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Recta tangente en x=0"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Recta normal en x=0"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u10",
@@ -654,9 +1031,38 @@
     {
       "id": "2426-ib2-u10-p4",
       "titulo": "Optimización: cilindro de volumen máximo inscrito en un cono",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
       "numero": 4,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Bosquejo del cono con el cilindro inscrito"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Demostrar que h = 20 − 4r"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "V(r) = 20πr² − 4πr³"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Dimensiones del cilindro óptimo"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Volumen máximo del cilindro inscrito"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u10",
@@ -703,9 +1109,18 @@
     {
       "id": "2426-ib2-u10-p5",
       "titulo": "Related rates: área del segmento circular con ángulo variable",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original.pdf#page=2",
       "numero": 5,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 15,
+          "tarea": "Ratio de crecimiento del área sombreada (sector menos triángulo) cuando θ=1 rad, con dθ/dt=0,2 rad/s y r=5 cm"
+        }
+      ],
       "apartados_count": 1,
       "coleccion": {
         "id": "2426-ib2-u10",
@@ -751,9 +1166,33 @@
     {
       "id": "2426-ib2-u12-p1",
       "titulo": "Áreas delimitadas por una recta y una parábola",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=1",
       "numero": 1,
       "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Área bajo la recta y = 6 − x entre x = −1 y x = 2"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Escribir la integral del área bajo la parábola y = 1,5x² − 2,5x + 3"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Calcular el área bajo la parábola"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Área encerrada entre la recta y la parábola"
+        }
+      ],
       "apartados_count": 4,
       "coleccion": {
         "id": "2426-ib2-u12",
@@ -799,9 +1238,38 @@
     {
       "id": "2426-ib2-u12-p2",
       "titulo": "Integral de 1 + eˣ, regla del trapecio y volumen de revolución",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=2",
       "numero": 2,
       "puntuacion": 16,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Dibujar f(x) = 1 + eˣ y sombrear la región delimitada por x=0, x=2 y el eje x"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Integral definida del área (4 cifras significativas)"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Estimación por la regla del trapecio con 5 trapecios (4 cifras significativas)"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Porcentaje de error respecto al valor exacto"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Volumen del sólido de revolución respecto al eje y"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u12",
@@ -851,9 +1319,18 @@
     {
       "id": "2426-ib2-u12-p3",
       "titulo": "Volumen de un jarrón por regla del trapecio",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=2",
       "numero": 3,
       "puntuacion": 4,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Estimar el volumen interior del jarrón aplicando regla del trapecio sobre π·r² a lo largo de la altura"
+        }
+      ],
       "apartados_count": 1,
       "coleccion": {
         "id": "2426-ib2-u12",
@@ -898,9 +1375,23 @@
     {
       "id": "2426-ib2-u12-p4",
       "titulo": "Beneficios de una empresa: integración y análisis de monotonía",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=3",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=3",
       "numero": 4,
       "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Hallar P(x) integrando dP/dx = −1,6x + 48 con P(15) = 260"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Describir cómo cambian los beneficios entre 30 y 50 coches/mes y justificar"
+        }
+      ],
       "apartados_count": 2,
       "coleccion": {
         "id": "2426-ib2-u12",
@@ -946,9 +1437,43 @@
     {
       "id": "2426-ib2-u12-p5",
       "titulo": "Población de suricatas: EDO, campo de pendientes y método de Euler",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=3",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=3",
       "numero": 5,
       "puntuacion": 18,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Encontrar a, b ∈ ℝ tales que N = a + bt sea solución de dN/dt = 0,5N − t"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Representar la solución lineal N = a + bt sobre el campo de pendientes dado"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Representar la trayectoria de la población con condición inicial t=0, N=2"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Determinar la población máxima (máximo a los 3 años)"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Mínimo nº de suricatas que deben introducirse en t=3 para crecimiento continuo"
+        },
+        {
+          "letra": "f",
+          "puntos": 4,
+          "tarea": "Método de Euler con paso h=0,1 para estimar N(1) a partir de N(0)=120"
+        }
+      ],
       "apartados_count": 6,
       "coleccion": {
         "id": "2426-ib2-u12",
@@ -999,9 +1524,33 @@
     {
       "id": "2426-ib2-u12-p6",
       "titulo": "Cuatro integrales (sustitución y regla de Barrow)",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=4",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=4",
       "numero": 6,
       "puntuacion": 8,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "∫ (4x − 1)² dx (sustitución o desarrollo directo)"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "∫₁⁴ x/(x²+2) dx (sustitución)"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "∫₀⁵ x · cos(x²) dx (sustitución)"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "∫ (2x − 1)/(x² − x + 2) dx (logaritmo)"
+        }
+      ],
       "apartados_count": 4,
       "coleccion": {
         "id": "2426-ib2-u12",
@@ -1045,9 +1594,38 @@
     {
       "id": "2426-ib2-u12-p7",
       "titulo": "Cultivo bacteriano: EDO por separación de variables y Euler",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=4",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original.pdf#page=4",
       "numero": 7,
       "puntuacion": 13,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Resolver dN/dt = tN por separación de variables con N(0)=2"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Valor exacto de N(1)"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Euler con h=0,25 para aproximar N(1); presentar tabla"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Porcentaje de error del Euler respecto al valor exacto"
+        },
+        {
+          "letra": "e",
+          "puntos": 1,
+          "tarea": "¿Sobreestima o subestima Euler? Justificar por el comportamiento de la función"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u12",
@@ -1095,9 +1673,43 @@
     {
       "id": "2426-ib2-u13-p1",
       "titulo": "Movimiento de proyectil en 2D",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html",
       "numero": 1,
       "puntuacion": 20,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Velocidad inicial como vector columna"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Ecuación vectorial de la velocidad v(t)"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Ecuación vectorial de la posición r(t)"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Tiempo de vuelo"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Alcance horizontal"
+        },
+        {
+          "letra": "f",
+          "puntos": 3,
+          "tarea": "Altura máxima"
+        }
+      ],
       "apartados_count": 6,
       "coleccion": {
         "id": "2426-ib2-u13",
@@ -1142,9 +1754,33 @@
     {
       "id": "2426-ib2-u13-p2",
       "titulo": "Método de Euler y sistemas acoplados",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html",
       "numero": 2,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Dos pasos de Euler con h=0,5; escribir las fórmulas iterativas"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Euler con h=0,1 en la calculadora hasta t=1"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Comparación de resultados y conclusión sobre precisión"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Punto de equilibrio del sistema e interpretación"
+        }
+      ],
       "apartados_count": 4,
       "coleccion": {
         "id": "2426-ib2-u13",
@@ -1190,9 +1826,38 @@
     {
       "id": "2426-ib2-u13-p3",
       "titulo": "EDO de 2º orden y autovalores",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=3",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html",
       "numero": 3,
       "puntuacion": 20,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Transformar en sistema de primer orden introduciendo nueva variable"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Escribir en forma matricial X' = AX"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Calcular los autovalores de A"
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "Caracterizar autovalores y forma general de la solución"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Comportamiento cualitativo cuando t → +∞"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u13",
@@ -1238,9 +1903,38 @@
     {
       "id": "2426-ib2-u13-p4",
       "titulo": "Retrato de fases con autovalores complejos",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=4",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html",
       "numero": 4,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Escribir el sistema en forma matricial"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Calcular los autovalores de la matriz asociada"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Diferenciar autovalores imaginarios puros vs complejos con parte real no nula"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Describir el comportamiento del retrato de fases"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "¿Se acercan, se alejan o permanecen? Justificar"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u13",
@@ -1286,9 +1980,43 @@
     {
       "id": "2426-ib2-u14-p1",
       "titulo": "Test Z: tiempo entre autobuses (σ conocida)",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=1",
       "numero": 1,
       "puntuacion": 20,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Formular H₀ y H₁ del test de Albert"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Media muestral x̄"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Distribución de X̄ bajo H₀"
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "P(X̄ > x̄) asumiendo H₀ cierta"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Conclusión del test al 10% de nivel de tolerancia"
+        },
+        {
+          "letra": "f",
+          "puntos": 4,
+          "tarea": "Región crítica del test"
+        }
+      ],
       "apartados_count": 6,
       "coleccion": {
         "id": "2426-ib2-u14",
@@ -1335,9 +2063,18 @@
     {
       "id": "2426-ib2-u14-p2",
       "titulo": "Test t pareado: prueba de nivel inicial vs final",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=1",
       "numero": 2,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 15,
+          "tarea": "Elegir el test adecuado, plantear hipótesis, p-valor y conclusión para la mejora pre/post curso"
+        }
+      ],
       "apartados_count": 1,
       "coleccion": {
         "id": "2426-ib2-u14",
@@ -1384,9 +2121,38 @@
     {
       "id": "2426-ib2-u14-p3",
       "titulo": "Chi-cuadrado de independencia: estudios vs salario",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=2",
       "numero": 3,
       "puntuacion": 20,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Plantear H₀ y H₁"
+        },
+        {
+          "letra": "b",
+          "puntos": 6,
+          "tarea": "Frecuencias esperadas; detectar si alguna es < 5"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Combinar 2 filas para que todas las frecuencias esperadas sean ≥ 5"
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "p-valor"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Conclusión del test al 1% de tolerancia"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u14",
@@ -1433,9 +2199,28 @@
     {
       "id": "2426-ib2-u14-p4",
       "titulo": "Intervalo de confianza para la media (sacos de harina)",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u14/original.pdf#page=2",
       "numero": 4,
       "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Calcular S_{n−1} para la muestra"
+        },
+        {
+          "letra": "b",
+          "puntos": 5,
+          "tarea": "Intervalo de confianza al 95% para la media poblacional (4 c.s.)"
+        },
+        {
+          "letra": "c",
+          "puntos": 5,
+          "tarea": "Comentar la afirmación 'los sacos pesan 1,5 kg'"
+        }
+      ],
       "apartados_count": 3,
       "coleccion": {
         "id": "2426-ib2-u14",
@@ -1480,9 +2265,28 @@
     {
       "id": "2426-ib2-u15-p1",
       "titulo": "Grafo del laberinto: matriz de adyacencia y recorridos",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=1",
       "numero": 1,
       "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Completar la matriz de adyacencia M del grafo S-A-B-C-D-T"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Número de recorridos de ≤ 4 aristas entre S y T (potencias de M)"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Justificar por qué el número real de 'maneras' es menor que (b)"
+        }
+      ],
       "apartados_count": 3,
       "coleccion": {
         "id": "2426-ib2-u15",
@@ -1525,9 +2329,58 @@
     {
       "id": "2426-ib2-u15-p2",
       "titulo": "Red informática de un colegio: Kruskal, ciclo hamiltoniano y fiabilidad",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=2",
       "numero": 2,
       "puntuacion": 28,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Hallar AF por ley del coseno (AD=89,2, DF=104,9, ∠ADF=83°)"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Coste por metro del cable A-F (21 310$)"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Por qué el cable A-F es más caro que los demás"
+        },
+        {
+          "letra": "d(i)",
+          "puntos": 3,
+          "tarea": "Árbol generador mínimo de S (algoritmo de Kruskal, mostrando orden)"
+        },
+        {
+          "letra": "d(ii)",
+          "puntos": 2,
+          "tarea": "Coste mínimo de la red conectada"
+        },
+        {
+          "letra": "e",
+          "puntos": 1,
+          "tarea": "Diferenciar ciclo hamiltoniano vs circuito euleriano"
+        },
+        {
+          "letra": "f",
+          "puntos": 5,
+          "tarea": "Vecino más cercano empezando en D — límite superior del ciclo"
+        },
+        {
+          "letra": "g",
+          "puntos": 6,
+          "tarea": "Algoritmo del vértice borrado (borrando D) — límite inferior"
+        },
+        {
+          "letra": "h",
+          "puntos": 5,
+          "tarea": "Probar que la probabilidad de fallo de la red es < 2% (1,4% por conexión)"
+        }
+      ],
       "apartados_count": 9,
       "coleccion": {
         "id": "2426-ib2-u15",
@@ -1585,9 +2438,68 @@
     {
       "id": "2426-ib2-u15-p3",
       "titulo": "Grafo turístico con arista desconocida x: Prim, límites y cierre total",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=4",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u15/original.pdf#page=4",
       "numero": 3,
       "puntuacion": 25,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Escribir un ciclo hamiltoniano en W"
+        },
+        {
+          "letra": "b(i)",
+          "puntos": 5,
+          "tarea": "Algoritmo de Prim desde B (tras borrar A); orden de aristas"
+        },
+        {
+          "letra": "b(ii)",
+          "puntos": 2,
+          "tarea": "Caso x < 9: límite inferior del tiempo de viaje (en función de x)"
+        },
+        {
+          "letra": "c(i)",
+          "puntos": 1,
+          "tarea": "Valor de p"
+        },
+        {
+          "letra": "c(ii)",
+          "puntos": 1,
+          "tarea": "Valor de q"
+        },
+        {
+          "letra": "c(iii)",
+          "puntos": 1,
+          "tarea": "Valor de r"
+        },
+        {
+          "letra": "d(i)",
+          "puntos": 3,
+          "tarea": "Vecino más cercano desde A con x=3 — dos ciclos posibles"
+        },
+        {
+          "letra": "d(ii)",
+          "puntos": 2,
+          "tarea": "Mejor límite superior"
+        },
+        {
+          "letra": "e(i)",
+          "puntos": 2,
+          "tarea": "Menor x tal que AF no se utiliza"
+        },
+        {
+          "letra": "e(ii)",
+          "puntos": 2,
+          "tarea": "Límite superior correspondiente"
+        },
+        {
+          "letra": "f",
+          "puntos": 5,
+          "tarea": "Hallar x durante la inspección de Corinne (suma de pesos = 92+x)"
+        }
+      ],
       "apartados_count": 11,
       "coleccion": {
         "id": "2426-ib2-u15",
@@ -1638,9 +2550,43 @@
     {
       "id": "2426-ib2-u9-p1",
       "titulo": "Transformaciones geométricas de una imagen (simetría, homotecia, rotación)",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=1",
       "numero": 1,
       "puntuacion": 16,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Matriz con las coordenadas de los 4 vértices del rectángulo"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Matriz de la simetría respecto al eje y"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Matriz de la homotecia de razón 2"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Matriz de la rotación de 60° antihoraria"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Matriz de la composición de las 3 transformaciones (en orden)"
+        },
+        {
+          "letra": "f",
+          "puntos": 3,
+          "tarea": "Área del rectángulo imagen final"
+        }
+      ],
       "apartados_count": 6,
       "coleccion": {
         "id": "2426-ib2-u9",
@@ -1687,9 +2633,33 @@
     {
       "id": "2426-ib2-u9-p2",
       "titulo": "Cifrado matricial del mensaje 'Hoy es día 24'",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=1",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=1",
       "numero": 2,
       "puntuacion": 16,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Matriz 3×5 con el código numérico del mensaje"
+        },
+        {
+          "letra": "b",
+          "puntos": 6,
+          "tarea": "Argumentar cuál de T₁, T₂, T₃ puede cifrar el mensaje y por qué las otras no"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Cifrar el mensaje con la matriz elegida"
+        },
+        {
+          "letra": "d",
+          "puntos": 5,
+          "tarea": "Descifrar usando la inversa de la matriz de cifrado"
+        }
+      ],
       "apartados_count": 4,
       "coleccion": {
         "id": "2426-ib2-u9",
@@ -1733,9 +2703,38 @@
     {
       "id": "2426-ib2-u9-p3",
       "titulo": "Cadena de Markov: clientes de tres peluquerías",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
       "numero": 3,
       "puntuacion": 14,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Total de clientes en el pueblo"
+        },
+        {
+          "letra": "b",
+          "puntos": 6,
+          "tarea": "Construir la matriz de transición T (completar fila de C)"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Matriz de clientes iniciales P₀"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Clientes pasados 2 años (T²·P₀)"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Clientes a largo plazo (estado estacionario)"
+        }
+      ],
       "apartados_count": 5,
       "coleccion": {
         "id": "2426-ib2-u9",
@@ -1783,9 +2782,23 @@
     {
       "id": "2426-ib2-u9-p4",
       "titulo": "Sistema lineal y cálculo de inversa / autovalores",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
       "numero": 4,
       "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Reescribir el sistema 3×3 como ecuación matricial y resolver con calculadora"
+        },
+        {
+          "letra": "b",
+          "puntos": 5,
+          "tarea": "Inversa, valores y vectores propios de la matriz 2×2"
+        }
+      ],
       "apartados_count": 2,
       "coleccion": {
         "id": "2426-ib2-u9",
@@ -1829,9 +2842,33 @@
     {
       "id": "2426-ib2-u9-p5",
       "titulo": "Cadena de Markov de mutación de un gen (autovalores a largo plazo)",
+      "url_enunciado": null,
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
       "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original.pdf#page=2",
       "numero": 5,
       "puntuacion": 12,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Valor de b y su significado contextual"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Valores propios de M"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Vectores propios de M"
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "Probabilidad de estado normal en n=5 y a largo plazo"
+        }
+      ],
       "apartados_count": 4,
       "coleccion": {
         "id": "2426-ib2-u9",

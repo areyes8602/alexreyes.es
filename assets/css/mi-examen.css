@@ -1,0 +1,217 @@
+/* ============================================================
+   /docencia/mi-examen/ — compositor de examen
+   Pensado para verse bien en pantalla y también al imprimir.
+   ============================================================ */
+.mx-head {
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+.mx-head h1 { font-size: 1.75rem; margin: 0.3rem 0 0.4rem; }
+.mx-head p { color: var(--text-soft); max-width: 45rem; }
+
+.mx-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.2rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+.mx-toolbar-info {
+  flex: 1;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  min-width: 200px;
+  flex-wrap: wrap;
+}
+.mx-toolbar-info span { font-size: 0.9rem; color: var(--text-soft); }
+.mx-toolbar-info strong { color: var(--text); }
+
+.mx-btn {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.mx-btn:hover { border-color: var(--border-strong); background: var(--bg-hover); }
+.mx-btn-primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.mx-btn-primary:hover { opacity: 0.85; background: var(--text); }
+.mx-btn-danger { color: #c23a3a; border-color: #c23a3a44; }
+.mx-btn-danger:hover { background: #c23a3a11; border-color: #c23a3a; }
+
+/* Printable exam cover */
+.mx-cover {
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  background: var(--bg);
+}
+.mx-cover-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+.mx-cover-row:last-child { margin-bottom: 0; }
+.mx-cover label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.mx-cover input {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.95rem;
+}
+.mx-cover input[readonly] { background: var(--bg-subtle); color: var(--text-soft); }
+
+.mx-empty {
+  padding: 4rem 2rem;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+.mx-empty h2 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-soft); }
+.mx-empty p { color: var(--text-faint); margin-bottom: 1.3rem; }
+
+.mx-container { display: flex; flex-direction: column; gap: 1rem; }
+
+.mx-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  background: var(--bg);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.mx-item-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+.mx-item-num {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  line-height: 1;
+  padding-top: 0.3rem;
+}
+.mx-item-main { min-width: 0; }
+.mx-item-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.mx-item-meta {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+.mx-item-pts {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+.mx-item-pts small { font-size: 0.7rem; color: var(--text-faint); font-weight: 400; }
+.mx-item-tools {
+  display: flex;
+  gap: 0.2rem;
+}
+.mx-tool {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text-soft);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.mx-tool:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  background: var(--bg-hover);
+  color: var(--text);
+}
+.mx-tool:disabled { opacity: 0.3; cursor: not-allowed; }
+.mx-tool-danger { color: #c23a3a; border-color: #c23a3a44; font-size: 1rem; }
+.mx-tool-danger:hover { background: #c23a3a11; border-color: #c23a3a; color: #c23a3a; }
+
+.mx-apartados {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mx-apartados li {
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+}
+.mx-apartados li:last-child { border-bottom: none; }
+.mx-apartados strong { font-family: var(--mono); color: var(--text-soft); font-weight: 600; flex-shrink: 0; }
+.mx-ap-pts {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  white-space: nowrap;
+  padding-left: 0.5rem;
+}
+.mx-no-apartados {
+  font-size: 0.86rem;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* --- PRINT --- */
+@media print {
+  nav, footer, .breadcrumb, .no-print, .mx-toolbar { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .mx-item, .mx-cover {
+    border-color: #999 !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+  .mx-item { margin-bottom: 1.2rem; }
+  .mx-head { border: none; padding: 0 0 0.5rem; }
+  .mx-head p { display: none; }
+  a { color: inherit !important; text-decoration: none !important; }
+  @page { margin: 1.6cm 1.5cm; }
+}

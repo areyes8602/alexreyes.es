@@ -12,7 +12,7 @@ TODAY = date.today().isoformat()
 # Add new pages here and re-run.
 trilingual_paths = [
     '/', '/cv/', '/contacto/', '/doctorado/', '/notas/',
-    '/docencia/', '/docencia/ejercicios/',
+    '/docencia/', '/docencia/ejercicios/', '/docencia/mi-examen/',
     '/docencia/ib-ai/', '/docencia/ib-ai/2024-2026/', '/docencia/ib-ai/2025-2027/',
     '/docencia/ccss-1btl/', '/docencia/cangur/', '/docencia/2eso/',
 ]

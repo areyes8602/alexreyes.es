@@ -224,14 +224,77 @@
   border-radius: var(--radius);
   background: var(--bg);
   transition: all 0.15s;
-  text-decoration: none;
   color: inherit;
 }
-.ej-card:hover {
+.ej-card.in-cart {
+  border-color: var(--text);
+  box-shadow: inset 3px 0 0 var(--text);
+}
+.ej-card-actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.ej-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text-soft);
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.1s;
+}
+.ej-btn:hover {
   border-color: var(--border-strong);
-  background: var(--bg-subtle);
+  background: var(--bg-hover);
+  color: var(--text);
   opacity: 1;
-  transform: translateY(-1px);
+}
+.ej-btn-primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.ej-btn-primary:hover {
+  background: var(--text);
+  color: var(--bg);
+  opacity: 0.85;
+}
+.ej-btn-cart { margin-left: auto; }
+.ej-btn-cart.is-added {
+  background: var(--bg-subtle);
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.cart-badge {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 0.35rem;
+  border-radius: 100px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
 }
 .ej-card-top {
   display: flex;
