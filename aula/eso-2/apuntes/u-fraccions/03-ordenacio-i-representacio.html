@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Ordenació i representació · Fraccions · 2n ESO</title>
+<meta name="description" content="Apunts de 2n d'ESO sobre com ordenar fraccions amb denominadors diferents (via MCM) i representar-les a la recta real.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/eso-2/apuntes/u-fraccions/03-ordenacio-i-representacio.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.method-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 0.8rem 0; }
+.method-card h3 { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 600; color: var(--text); }
+.method-card p { margin: 0.3rem 0; }
+.steps-list { counter-reset: step; padding: 0; margin: 0.8rem 0; list-style: none; }
+.steps-list li { counter-increment: step; padding: 0.5rem 0 0.5rem 2.4rem; position: relative; }
+.steps-list li::before { content: counter(step); position: absolute; left: 0; top: 0.5rem; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: #6366f1; color: white; font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+.tip-box { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.8rem 1rem; border-radius: 4px; margin: 0.8rem 0; font-size: 0.94rem; }
+.tip-box::before { content: "💡 Truc"; display: block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.3rem; }
+.numberline-wrap { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1rem; margin: 1rem 0; overflow-x: auto; }
+.numberline-svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .tip-box { background: rgba(16,185,129,0.14); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/2eso/">2n ESO</a>
+      <span class="sep">/</span>
+      <a href="/aula/eso-2/apuntes/u-fraccions/">Fraccions</a>
+      <span class="sep">/</span>
+      <span class="current">03 · Ordenació i representació</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">2n ESO · Fraccions</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">12 set 2025</span>
+      </div>
+      <h1 style="margin:0">3. Ordenació i representació</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Com ordenar fraccions amb denominadors diferents i com situar-les a la recta real.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Ordenar fraccions</h2>
+        <div class="def-box">
+          <h3>Idea clau</h3>
+          <p>Per ordenar fraccions, totes han de tenir el <strong>mateix denominador</strong>. Una vegada el tenen, n'hi ha prou amb mirar els numeradors.</p>
+        </div>
+
+        <div class="method-card">
+          <h3>Procediment</h3>
+          <ol class="steps-list">
+            <li>Buscar el <strong>MCM</strong> de tots els denominadors.</li>
+            <li><strong>Amplificar</strong> totes les fraccions perquè tinguin aquest denominador comú.</li>
+            <li>Ordenar mirant els <strong>numeradors</strong> (de més petit a més gran, o al revés).</li>
+          </ol>
+        </div>
+
+        <div class="tip-box">
+          Si dues fraccions ja tenen el <strong>mateix numerador</strong>, és més gran la que té <strong>menor denominador</strong> (perquè cada tros és més gran). Per exemple: $\dfrac{3}{4} > \dfrac{3}{7}$.
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Exemple</h2>
+
+        <p style="font-size:0.95rem;margin-bottom:0.6rem">Ordenem de més petita a més gran:</p>
+        <div class="math-block">
+          $$\dfrac{2}{3},\;\; \dfrac{7}{15},\;\; \dfrac{3}{4},\;\; \dfrac{2}{5},\;\; \dfrac{7}{10}$$
+        </div>
+
+        <div class="method-card">
+          <h3>Pas 1 — Calculem el MCM dels denominadors</h3>
+          <p>Descomponem en factors primers:</p>
+          <div class="math-block" style="font-size:1rem">
+            $$3 = 3,\quad 15 = 3 \cdot 5,\quad 4 = 2^2,\quad 5 = 5,\quad 10 = 2 \cdot 5$$
+          </div>
+          <p>El MCM agafa cada factor amb el <strong>major exponent</strong>:</p>
+          <div class="math-block">
+            $$\text{MCM}(3, 15, 4, 5, 10) = 2^2 \cdot 3 \cdot 5 = 60$$
+          </div>
+        </div>
+
+        <div class="method-card">
+          <h3>Pas 2 — Amplifiquem totes les fraccions a denominador 60</h3>
+          <div class="math-block" style="font-size:1rem">
+            $$\dfrac{2}{3} = \dfrac{40}{60},\quad \dfrac{7}{15} = \dfrac{28}{60},\quad \dfrac{3}{4} = \dfrac{45}{60},\quad \dfrac{2}{5} = \dfrac{24}{60},\quad \dfrac{7}{10} = \dfrac{42}{60}$$
+          </div>
+        </div>
+
+        <div class="method-card">
+          <h3>Pas 3 — Ordenem pels numeradors</h3>
+          <p>$24 < 28 < 40 < 42 < 45$, per tant:</p>
+          <div class="math-block">
+            $$\dfrac{2}{5} \;<\; \dfrac{7}{15} \;<\; \dfrac{2}{3} \;<\; \dfrac{7}{10} \;<\; \dfrac{3}{4}$$
+          </div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Fraccions negatives</h2>
+        <div class="def-box">
+          <h3>Compte!</h3>
+          <p>Amb fraccions <strong>negatives</strong>, l'ordre s'inverteix: com més gran és el numerador en valor absolut, <strong>més petita</strong> és la fracció.</p>
+        </div>
+
+        <p style="font-size:0.95rem;margin-bottom:0.4rem"><strong>Exemple.</strong> Ordenem de més petita a més gran:</p>
+        <div class="math-block">
+          $$-\dfrac{11}{10},\;\; -\dfrac{3}{5},\;\; -\dfrac{13}{25},\;\; -\dfrac{9}{5}$$
+        </div>
+
+        <p style="font-size:0.95rem;margin:0.6rem 0 0.4rem">$\text{MCM}(10, 5, 25, 5) = 50$. Amplifiquem:</p>
+        <div class="math-block" style="font-size:1rem">
+          $$-\dfrac{55}{50},\;\; -\dfrac{30}{50},\;\; -\dfrac{26}{50},\;\; -\dfrac{90}{50}$$
+        </div>
+
+        <p style="font-size:0.95rem;margin:0.6rem 0 0.4rem">Com que $-90 < -55 < -30 < -26$:</p>
+        <div class="math-block">
+          $$-\dfrac{9}{5} \;<\; -\dfrac{11}{10} \;<\; -\dfrac{3}{5} \;<\; -\dfrac{13}{25}$$
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Representació a la recta real</h2>
+        <div class="def-box">
+          <h3>Procediment</h3>
+          <p>Per situar $\dfrac{a}{b}$ a la recta:</p>
+          <ol class="steps-list">
+            <li>Mirem entre quins <strong>enters consecutius</strong> es troba (fent la divisió entera).</li>
+            <li>Dividim aquest interval en <strong>$b$ parts iguals</strong> (el denominador indica en quantes parts).</li>
+            <li>Comptem el numerador i marquem el punt.</li>
+          </ol>
+        </div>
+
+        <p style="font-size:0.95rem;margin:0.8rem 0 0.4rem"><strong>Exemple.</strong> Representem $\dfrac{7}{3}$:</p>
+
+        <p style="font-size:0.95rem;margin:0.4rem 0">$7 \div 3 = 2$ amb residu $1$, és a dir, $\dfrac{7}{3} = 2 + \dfrac{1}{3}$. Per tant, està entre $2$ i $3$, a $\dfrac{1}{3}$ de $2$.</p>
+
+        <div class="numberline-wrap">
+          <svg class="numberline-svg" viewBox="0 0 560 80" xmlns="http://www.w3.org/2000/svg">
+            <!-- linia base -->
+            <line x1="40" y1="50" x2="540" y2="50" stroke="#1d4ed8" stroke-width="2"/>
+            <!-- fletxa final -->
+            <polygon points="540,50 530,45 530,55" fill="#1d4ed8"/>
+            <!-- enters: 0, 1, 2, 3, 4 amb 5 espais grans, però només 4 trams entre ells; usem 5 marques -->
+            <!-- 0 a x=60, 1 a x=180, 2 a x=300, 3 a x=420, 4 a x=540 (separació 120) -->
+            <g font-family="Inter, sans-serif" font-size="14" fill="var(--text)">
+              <line x1="60" y1="44" x2="60" y2="56" stroke="#1d4ed8" stroke-width="2"/>
+              <text x="60" y="74" text-anchor="middle">0</text>
+              <line x1="180" y1="44" x2="180" y2="56" stroke="#1d4ed8" stroke-width="2"/>
+              <text x="180" y="74" text-anchor="middle">1</text>
+              <line x1="300" y1="44" x2="300" y2="56" stroke="#1d4ed8" stroke-width="2"/>
+              <text x="300" y="74" text-anchor="middle">2</text>
+              <line x1="420" y1="44" x2="420" y2="56" stroke="#1d4ed8" stroke-width="2"/>
+              <text x="420" y="74" text-anchor="middle">3</text>
+              <line x1="540" y1="44" x2="540" y2="56" stroke="#1d4ed8" stroke-width="2"/>
+              <text x="540" y="74" text-anchor="middle">4</text>
+            </g>
+            <!-- divisions en terços (cada tram /3): pas = 120/3 = 40 -->
+            <g stroke="#dc2626" stroke-width="1.5">
+              <!-- 0 a 1: x=100, 140 -->
+              <line x1="100" y1="46" x2="100" y2="54"/>
+              <line x1="140" y1="46" x2="140" y2="54"/>
+              <!-- 1 a 2: x=220, 260 -->
+              <line x1="220" y1="46" x2="220" y2="54"/>
+              <line x1="260" y1="46" x2="260" y2="54"/>
+              <!-- 2 a 3: x=340, 380 -->
+              <line x1="340" y1="46" x2="340" y2="54"/>
+              <line x1="380" y1="46" x2="380" y2="54"/>
+              <!-- 3 a 4: x=460, 500 -->
+              <line x1="460" y1="46" x2="460" y2="54"/>
+              <line x1="500" y1="46" x2="500" y2="54"/>
+            </g>
+            <!-- punt 7/3 a x = 60 + 7*40 = 340 -->
+            <circle cx="340" cy="50" r="5" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/>
+            <text x="340" y="28" text-anchor="middle" fill="#b45309" font-family="Inter, sans-serif" font-size="14" font-weight="600">$\tfrac{7}{3}$</text>
+          </svg>
+        </div>
+
+        <p class="note" style="margin-top:0.6rem">Cada interval entre dos enters s'ha dividit en <strong>3 parts</strong> (el denominador). Començant a $0$, el setè terç cau just a $\dfrac{7}{3} = 2 + \dfrac{1}{3}$.</p>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/eso-2/apuntes/u-fraccions/02-fraccions-equivalents.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/eso-2/apuntes/u-fraccions/">Índex de la unitat</a>
+        <a class="next" href="/aula/eso-2/apuntes/u-fraccions/04-operacions.html">Apartat següent &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
