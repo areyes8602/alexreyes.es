@@ -21,13 +21,25 @@ trilingual_paths = [
 # Exam index pages are auto-detected by scanning aula/.
 import os as _os
 _REPO = Path(__file__).resolve().parent.parent
+
+def _is_retired(html_path: Path) -> bool:
+    """Skip pages marked retired (noindex) so they don't enter the sitemap."""
+    try:
+        head = html_path.read_text(encoding='utf-8')[:2000]
+    except Exception:
+        return False
+    return 'name="robots" content="noindex' in head
+
 _exam_dirs = sorted(_REPO.glob("aula/ib-ai-hl/examenes/*/index.html"))
 single_paths = [
     '/' + str(p.parent.relative_to(_REPO)) + '/'
     for p in _exam_dirs
+    if not _is_retired(p)
 ]
 # plus the per-pregunta static HTMLs that exist (u13 only)
 for p in sorted(_REPO.glob("aula/ib-ai-hl/examenes/*/p*.html")):
+    if _is_retired(p):
+        continue
     single_paths.append('/' + str(p.relative_to(_REPO)))
 
 
