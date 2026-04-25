@@ -85,6 +85,19 @@
       <div class="info-card"><div class="info-card-label">Acceso</div><div class="info-card-value" style="font-size:0.85rem">Alumnos de la promoción</div></div>
     </div>
 
+    <!-- ───────── INFORMACIÓN Y EVALUACIÓN ───────── -->
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Información y evaluación</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Programa de estudios IB, calendario de exámenes y material necesario para la promoción.</p>
+    <div class="chapter-sections" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-bottom:1.5rem">
+      <div class="chapter-section empty"><span>📘</span><span>Programa IB AI (Subject Guide)</span></div>
+      <div class="chapter-section empty"><span>📊</span><span>Criterios de evaluación</span></div>
+      <div class="chapter-section empty"><span>🗓️</span><span>Calendario de exámenes</span></div>
+      <div class="chapter-section empty"><span>🧮</span><span>Casio CG-50 · guía rápida</span></div>
+    </div>
+
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Capítulos del libro</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada capítulo agrupa los apuntes, listas de ejercicios con sus soluciones, recursos extra y los exámenes parciales realizados sobre ese capítulo.</p>
+
     <div class="promo-tabs">
       <button class="promo-tab active" onclick="showNivel('hl', this)">HL &mdash; Higher Level</button>
       <button class="promo-tab" onclick="showNivel('sl', this)">SL &mdash; Standard Level</button>
@@ -99,13 +112,14 @@
       <div class="chapter-list" id="chapters-sl"></div>
     </div>
 
-    <section id="examenes-promo" style="margin-top:3rem">
+    <!-- ───────── EXÁMENES GLOBALES ───────── -->
+    <section id="globals-section" style="margin-top:3rem">
       <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <h2 style="font-size:1.2rem;margin:0">Exámenes anteriores</h2>
-        <span class="tag tag-gray" id="examenes-count" style="font-size:0.7rem">cargando…</span>
+        <h2 style="font-size:1.2rem;margin:0">Exámenes globales</h2>
+        <span class="tag tag-gray" id="globals-count" style="font-size:0.7rem">cargando…</span>
       </div>
-      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Listado de los exámenes ya realizados de esta promoción. Cada examen incluye el PDF original y la versión HTML con la corrección detallada por apartados.</p>
-      <div id="examenes-promo-list" class="exam-list"></div>
+      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Globales acumulativos, mock exams y exámenes finales de mayo 2026 — pruebas que cubren varios capítulos a la vez.</p>
+      <div id="globals-list" class="exam-list"></div>
     </section>
 
   </div>
@@ -140,59 +154,14 @@ const CHAPTERS = [
   { num: '16', title: 'Exploration (IA)', hl: true, sl: true },
 ];
 
-const SECTIONS = [
-  { icon: '📄', label: 'Apuntes' },
-  { icon: '📝', label: 'Lista de ejercicios' },
-  { icon: '✅', label: 'Soluciones' },
-  { icon: '📋', label: 'Exámenes anteriores' },
-  { icon: '🔗', label: 'Recursos extra' },
+const SECTION_LABELS = [
+  { key: 'apuntes',    icon: '📄', label: 'Apuntes' },
+  { key: 'fichas',     icon: '📝', label: 'Lista de ejercicios' },
+  { key: 'soluciones', icon: '✅', label: 'Soluciones' },
+  { key: 'extra',      icon: '🔗', label: 'Recursos extra' },
 ];
 
-function buildChapter(ch, nivel) {
-  const hlOnly = nivel === 'sl' && !ch.sl;
-  const note = ch.note ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${ch.note}</span>` : '';
-  const sections = SECTIONS.map(s => `
-    <div class="chapter-section empty">
-      <span>${s.icon}</span>
-      <span>${s.label}</span>
-    </div>
-  `).join('');
-  return `
-    <div class="chapter-item ${hlOnly ? 'hl-only' : ''}">
-      <div class="chapter-header" onclick="toggleChapter(this)">
-        <span class="chapter-num">${ch.num}</span>
-        <span class="chapter-title">${ch.title}</span>
-        ${note}
-        <span class="chapter-arrow">&#9660;</span>
-      </div>
-      <div class="chapter-body">
-        ${hlOnly ? '<p style="font-size:0.88rem;color:var(--text-faint);padding:0.5rem 0">Este capítulo es exclusivo del nivel HL.</p>' : `
-        <p style="font-size:0.82rem;color:var(--text-faint);margin-bottom:0.8rem">Materiales &mdash; próximamente disponibles para descarga.</p>
-        <div class="chapter-sections">${sections}</div>
-        `}
-      </div>
-    </div>
-  `;
-}
-function renderChapters(nivel) {
-  document.getElementById(`chapters-${nivel}`).innerHTML = CHAPTERS.map(ch => buildChapter(ch, nivel)).join('');
-}
-function toggleChapter(header) { header.parentElement.classList.toggle('open'); }
-function showNivel(id, btn) {
-  document.querySelectorAll('.promo-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.promo-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('nivel-' + id).classList.add('active');
-  btn.classList.add('active');
-}
-function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
-renderChapters('hl');
-renderChapters('sl');
-const params = new URLSearchParams(window.location.search);
-if (params.get('nivel') === 'sl') document.querySelectorAll('.promo-tab')[1].click();
-
-// ── Exámenes anteriores (datos desde /assets/data/ejercicios-index.json) ──
 const PROMO = '2024-2026';
-const MATERIA = 'ib-ai-hl';
 const MESES_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 function fmtFecha(iso) {
   if (!iso) return '';
@@ -202,7 +171,16 @@ function fmtFecha(iso) {
 function escHtml(s) {
   return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-function renderExam(col, ejs) {
+function unitNumOf(colId) {
+  const m = (colId || '').match(/-u(\d{1,2})\b/);
+  return m ? m[1].padStart(2, '0') : null;
+}
+function isGlobal(colId) {
+  if (!colId) return false;
+  if (unitNumOf(colId)) return false;
+  return /-g\d+|final|rec|mock|simulacre|p1p2|p3\b|ia\b/i.test(colId);
+}
+function renderExamCard(col, ejs) {
   const ptos = ejs.reduce((s,e) => s + (e.puntuacion||0), 0);
   const npreg = ejs.length;
   const pdfBtn = col.pdf_enunciados
@@ -223,34 +201,93 @@ function renderExam(col, ejs) {
     </article>
   `;
 }
+function buildSectionCard(href, icon, label) {
+  if (href) return `<a href="${href}" class="chapter-section available" style="text-decoration:none"><span>${icon}</span><span>${label}</span></a>`;
+  return `<div class="chapter-section empty"><span>${icon}</span><span>${label}</span></div>`;
+}
+
+function buildChapter(ch, nivel, examsByUnit) {
+  const hlOnly = nivel === 'sl' && !ch.sl;
+  const note = ch.note ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${ch.note}</span>` : '';
+  const exs = (examsByUnit[ch.num] || []).sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+  const examCount = exs.length;
+  const sections = SECTION_LABELS.map(s => buildSectionCard(ch[s.key], s.icon, s.label)).join('');
+  const examsBox = examCount > 0
+    ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">Exámenes parciales (${examCount})</h4><div class="exam-list">${exs.map(({col,ejs}) => renderExamCard(col, ejs)).join('')}</div></div>`
+    : `<p style="font-size:0.82rem;color:var(--text-faint);margin:1rem 0 0">No hay exámenes parciales publicados de este capítulo todavía.</p>`;
+  const examBadge = examCount > 0
+    ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${examCount} ${examCount===1?'examen':'exámenes'}</span>`
+    : (note || '');
+  return `
+    <div class="chapter-item ${hlOnly ? 'hl-only' : ''}">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">${ch.num}</span>
+        <span class="chapter-title">${ch.title}</span>
+        ${examBadge}
+        <span class="chapter-arrow">&#9660;</span>
+      </div>
+      <div class="chapter-body">
+        ${hlOnly ? '<p style="font-size:0.88rem;color:var(--text-faint);padding:0.5rem 0">Este capítulo es exclusivo del nivel HL.</p>' : `
+        <div class="chapter-sections">${sections}</div>
+        ${examsBox}
+        `}
+      </div>
+    </div>
+  `;
+}
+function renderChapters(nivel, examsByUnit) {
+  document.getElementById(`chapters-${nivel}`).innerHTML = CHAPTERS.map(ch => buildChapter(ch, nivel, examsByUnit)).join('');
+}
+function toggleChapter(header) { header.parentElement.classList.toggle('open'); }
+function showNivel(id, btn) {
+  document.querySelectorAll('.promo-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.promo-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('nivel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+
 fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(idx => {
-    // Group ejercicios by colección (each colección is one exam)
     const cols = new Map();
     for (const e of (idx.ejercicios || [])) {
       const c = e.coleccion || {};
-      if (e.tags && e.tags.materia !== MATERIA) continue;
+      const m = e.tags && e.tags.materia;
+      if (m !== 'ib-ai-hl' && m !== 'ib-ai-sl') continue;
       if (c.promocion !== PROMO) continue;
       if (!cols.has(c.id)) cols.set(c.id, { col: c, ejs: [] });
       cols.get(c.id).ejs.push(e);
     }
-    // Sort: by fecha desc
-    const exams = [...cols.values()].sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
-    const cont = document.getElementById('examenes-promo-list');
-    const count = document.getElementById('examenes-count');
-    if (exams.length === 0) {
-      count.textContent = '0';
-      cont.innerHTML = '<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">No hay exámenes publicados todavía para esta promoción.</p>';
-      return;
+    const byUnit = {};
+    const globals = [];
+    for (const entry of cols.values()) {
+      const u = unitNumOf(entry.col.id);
+      if (u) { (byUnit[u] = byUnit[u] || []).push(entry); }
+      else   { globals.push(entry); }
     }
-    count.textContent = exams.length + (exams.length===1?' examen':' exámenes');
-    cont.innerHTML = exams.map(({col, ejs}) => renderExam(col, ejs)).join('');
+    renderChapters('hl', byUnit);
+    renderChapters('sl', byUnit);
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('nivel') === 'sl') document.querySelectorAll('.promo-tab')[1].click();
+
+    globals.sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+    const cont = document.getElementById('globals-list');
+    const count = document.getElementById('globals-count');
+    if (globals.length === 0) {
+      count.textContent = '0';
+      cont.innerHTML = '<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">No hay exámenes globales publicados todavía para esta promoción.</p>';
+    } else {
+      count.textContent = globals.length + (globals.length===1 ? ' examen' : ' exámenes');
+      cont.innerHTML = globals.map(({col, ejs}) => renderExamCard(col, ejs)).join('');
+    }
   })
   .catch(err => {
-    document.getElementById('examenes-count').textContent = 'error';
-    document.getElementById('examenes-promo-list').innerHTML =
-      '<p style="color:var(--text-faint);font-size:0.9rem">No se ha podido cargar el listado de exámenes.</p>';
+    renderChapters('hl', {});
+    renderChapters('sl', {});
+    document.getElementById('globals-count').textContent = 'error';
+    document.getElementById('globals-list').innerHTML = '<p style="color:var(--text-faint);font-size:0.9rem">No se ha podido cargar el listado de exámenes.</p>';
     console.error('exámenes:', err);
   });
 </script>
