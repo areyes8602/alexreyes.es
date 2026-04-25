@@ -30,14 +30,14 @@ def _is_retired(html_path: Path) -> bool:
         return False
     return 'name="robots" content="noindex' in head
 
-_exam_dirs = sorted(_REPO.glob("aula/ib-ai-hl/examenes/*/index.html"))
+_exam_dirs = sorted(_REPO.glob("aula/*/examenes/*/index.html"))
 single_paths = [
     '/' + str(p.parent.relative_to(_REPO)) + '/'
     for p in _exam_dirs
     if not _is_retired(p)
 ]
-# plus the per-pregunta static HTMLs that exist (u13 only)
-for p in sorted(_REPO.glob("aula/ib-ai-hl/examenes/*/p*.html")):
+# plus the per-pregunta static HTMLs that exist
+for p in sorted(_REPO.glob("aula/*/examenes/*/p*.html")):
     if _is_retired(p):
         continue
     single_paths.append('/' + str(p.relative_to(_REPO)))

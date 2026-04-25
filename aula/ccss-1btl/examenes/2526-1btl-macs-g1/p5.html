@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P5 · Valor absolut, exponencial, logaritme i composició — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 5 de l'examen Global 1a Avaluació de Mat. Aplicades a CCSS de 1r BTL: funció a trossos amb valor absolut i composició de funcions. Enunciat i correcció.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-g1/p5.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-g1/">Global 1a avaluació · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P5</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">25/11/2025</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-g1/p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-g1/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 5 &middot; Valor absolut i composició</h1>
+      <p class="question-descriptor">Funció definida a trossos a partir d'un valor absolut. Composició d'exponencials i logaritmes en base 3.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Donades les funcions $f(x) = |2x - 4| + 2$, $g(x) = 3^x$ i $h(x) = \log_3(4x - 3)$:</p>
+        </div>
+        <ol class="apartados">
+          <li>Expressa la funció $f(x)$ com una funció definida a trossos i fes una representació. <span class="apartado-puntos">1 p</span></li>
+          <li>Calcula $(g \circ h)(x)$ i $(h \circ g)(1)$. <span class="apartado-puntos">1 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc D</span>
+        <span class="ib-chip" data-descriptor="Funcions elementals: valor absolut, exponencial, logarítmica, composició">Funcions elementals</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p5')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p5" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Funció a trossos i representació</h4>
+          <p>Per definició del valor absolut, $|u| = u$ si $u \ge 0$ i $|u| = -u$ si $u < 0$. Aplicat a $u = 2x-4$:</p>
+          <div class="math-block">
+            $$2x - 4 \ge 0 \iff x \ge 2 \quad\quad 2x - 4 < 0 \iff x < 2$$
+          </div>
+          <p>Per tant:</p>
+          <div class="math-block">
+            $$f(x) = \begin{cases} -(2x-4) + 2 = -2x + 6, & \text{si } x < 2 \\ (2x-4) + 2 = 2x - 2, & \text{si } x \ge 2 \end{cases}$$
+          </div>
+          <p class="note"><strong>Punts clau per al gràfic:</strong> el vèrtex és a $(2,\,2)$. A l'esquerra del vèrtex, la recta $y = -2x + 6$ té pendent $-2$ (passa per $(0,6)$ i $(2,2)$). A la dreta, la recta $y = 2x-2$ té pendent $+2$ (passa per $(2,2)$ i $(3,4)$). La gràfica és una <strong>V</strong> amb el vèrtex elevat a $y=2$ i obertura simètrica.</p>
+          <div class="math-block">
+            <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" style="max-width:320px;height:auto">
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g style="color:var(--text-faint)">
+                <line x1="20" y1="180" x2="300" y2="180" stroke="currentColor" stroke-width="1" marker-end="url(#arr)"/>
+                <line x1="40" y1="200" x2="40" y2="20" stroke="currentColor" stroke-width="1" marker-end="url(#arr)"/>
+                <text x="295" y="195" font-size="11">x</text>
+                <text x="22" y="25" font-size="11">y</text>
+              </g>
+              <g style="color:var(--text-faint)" font-size="10">
+                <line x1="80" y1="178" x2="80" y2="182" stroke="currentColor"/><text x="74" y="195">1</text>
+                <line x1="120" y1="178" x2="120" y2="182" stroke="currentColor"/><text x="114" y="195">2</text>
+                <line x1="160" y1="178" x2="160" y2="182" stroke="currentColor"/><text x="154" y="195">3</text>
+                <line x1="200" y1="178" x2="200" y2="182" stroke="currentColor"/><text x="194" y="195">4</text>
+                <line x1="38" y1="140" x2="42" y2="140" stroke="currentColor"/><text x="22" y="143">2</text>
+                <line x1="38" y1="100" x2="42" y2="100" stroke="currentColor"/><text x="22" y="103">4</text>
+                <line x1="38" y1="60" x2="42" y2="60" stroke="currentColor"/><text x="22" y="63">6</text>
+              </g>
+              <polyline points="40,60 120,140 200,100 240,60" fill="none" stroke="#6366f1" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+              <circle cx="120" cy="140" r="3.5" fill="#6366f1"/>
+              <text x="128" y="135" font-size="10" fill="#6366f1">(2, 2)</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Composicions $(g \circ h)(x)$ i $(h \circ g)(1)$</h4>
+          <p><strong>$(g \circ h)(x) = g(h(x))$:</strong></p>
+          <div class="math-block">
+            $$g(h(x)) = 3^{\,h(x)} = 3^{\log_3(4x-3)} = 4x - 3$$
+          </div>
+          <p class="note">Hem usat la propietat $a^{\log_a u} = u$. La condició $4x - 3 > 0$, és a dir $x > \tfrac{3}{4}$, queda imposada pel domini de $h$.</p>
+          <p><strong>$(h \circ g)(1) = h(g(1))$:</strong></p>
+          <div class="math-block">
+            $$g(1) = 3^1 = 3 \;\;\Longrightarrow\;\; h(g(1)) = h(3) = \log_3(4 \cdot 3 - 3) = \log_3 9 = 2$$
+          </div>
+          <div class="final">$(g \circ h)(x) = 4x - 3$ (per a $x > \tfrac{3}{4}$) &nbsp;·&nbsp; $(h \circ g)(1) = 2$.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-g1/p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-g1/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

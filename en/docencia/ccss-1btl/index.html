@@ -91,6 +91,15 @@
       <div class="chapter-item"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num">06</span><span class="chapter-title">Probability and distributions</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body"><p style="font-size:0.82rem;color:var(--text-faint);margin-bottom:0.8rem">Materials coming soon.</p></div></div>
     </div>
 
+    <section id="examenes-promo" style="margin-top:3rem">
+      <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <h2 style="font-size:1.2rem;margin:0">Past exams</h2>
+        <span class="tag tag-gray" id="examenes-count" style="font-size:0.7rem">loading…</span>
+      </div>
+      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Exams from this subject. Each one includes the original PDF and an HTML version with detailed worked solutions per question.</p>
+      <div id="examenes-promo-list" class="exam-list"></div>
+    </section>
+
   </div>
 </main>
 
@@ -106,6 +115,66 @@
 <script>
 function toggleChapter(h){h.parentElement.classList.toggle('open');}
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+
+// ── Past exams ──
+const MATERIA = 'bach-ccss-1';
+const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtFecha(iso) {
+  if (!iso) return '';
+  const [y,m,d] = iso.split('-');
+  return `${MONTHS_EN[parseInt(m,10)-1]} ${parseInt(d,10)}, ${y}`;
+}
+function escHtml(s) {
+  return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function renderExam(col, ejs) {
+  const ptos = ejs.reduce((s,e) => s + (e.puntuacion||0), 0);
+  const npreg = ejs.length;
+  const pdfBtn = col.pdf_enunciados
+    ? `<a class="exam-card-btn pdf" href="${escHtml(col.pdf_enunciados)}" target="_blank" rel="noopener" title="Original PDF">📄 PDF</a>`
+    : '';
+  const idxBtn = col.url_index
+    ? `<a class="exam-card-btn html" href="${escHtml(col.url_index)}">📋 Statements &amp; solutions</a>`
+    : '';
+  return `
+    <article class="exam-card">
+      <div class="exam-card-head">
+        <span class="exam-card-date">${escHtml(fmtFecha(col.fecha))}</span>
+        ${col.grupo ? `<span class="tag tag-orange" style="font-size:0.7rem">${escHtml(col.grupo)}</span>` : ''}
+      </div>
+      <h3 class="exam-card-title">${escHtml(col.titulo || col.id)}</h3>
+      <p class="exam-card-meta">${npreg} ${npreg===1?'question':'questions'} &middot; ${ptos} points</p>
+      <div class="exam-card-actions">${idxBtn}${pdfBtn}</div>
+    </article>
+  `;
+}
+fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(idx => {
+    const cols = new Map();
+    for (const e of (idx.ejercicios || [])) {
+      const c = e.coleccion || {};
+      if (e.tags && e.tags.materia !== MATERIA) continue;
+      if (!cols.has(c.id)) cols.set(c.id, { col: c, ejs: [] });
+      cols.get(c.id).ejs.push(e);
+    }
+    const exams = [...cols.values()].sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+    const cont = document.getElementById('examenes-promo-list');
+    const count = document.getElementById('examenes-count');
+    if (exams.length === 0) {
+      count.textContent = '0';
+      cont.innerHTML = '<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">No exams have been published yet.</p>';
+      return;
+    }
+    count.textContent = exams.length + (exams.length===1?' exam':' exams');
+    cont.innerHTML = exams.map(({col, ejs}) => renderExam(col, ejs)).join('');
+  })
+  .catch(err => {
+    document.getElementById('examenes-count').textContent = 'error';
+    document.getElementById('examenes-promo-list').innerHTML =
+      '<p style="color:var(--text-faint);font-size:0.9rem">Failed to load the exam list.</p>';
+    console.error('exams:', err);
+  });
 </script>
 </body>
 </html>
