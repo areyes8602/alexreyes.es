@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Concentración de un fármaco con dosis repetidas — IB MAI HL P3 (Nov 2022)</title>
+<meta name="description" content="Pregunta 2 oficial del examen IB Mathematics AI HL Paper 3 — Noviembre 2022. Ecuación diferencial, suma de progresión geométrica, modelización farmacológica.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<script defer src="/assets/js/examenes.js"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2022-n-mai-hp3/p2.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2022-n-mai-hp3/">IB MAI HL Paper 3 · Nov 2022</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 2</span>
+    </div>
+
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB MAI · HL · Paper 3</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-orange">Examen oficial IB</span>
+        <span class="tag tag-gray">8&nbsp;nov&nbsp;2022</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2022-n-mai-hp3/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Concentración de un fármaco con dosis repetidas</h1>
+      <p class="question-descriptor">Ecuación diferencial separable, sucesión geométrica acumulada, dosificación segura.</p>
+      <span class="score-pill">Puntuación máxima · 26 puntos</span>
+
+      <div class="statement">
+        <div class="context">
+          <p><em>Algunas enfermedades requieren que los pacientes tomen medicación de manera regular y durante períodos prolongados. En esta pregunta explorará la concentración de un fármaco en el organismo cuando dicho fármaco se administra repetidamente.</em></p>
+          <p>Una vez que un fármaco entra en el organismo, es absorbido y llega a la sangre. A medida que el organismo va descomponiendo el fármaco a lo largo del tiempo, la concentración del fármaco va disminuyendo. Sea $C(t)$ (medido en miligramos por mililitro, mg·ml⁻¹) la concentración del fármaco $t$ horas después de que se lo hayan administrado al paciente. Se puede suponer que la velocidad a la que se descompone el fármaco es directamente proporcional a su concentración:</p>
+          <div class="math-block">$$\frac{dC}{dt} = -k C, \qquad k \in \mathbb{R}^+$$</div>
+          <p>La concentración inicial es igual a $d$ mg·ml⁻¹, $d > 0$.</p>
+        </div>
+
+        <ol class="apartados" style="list-style:none;padding-left:0">
+          <li><strong>(a)</strong> Resolviendo la ecuación diferencial, muestre que $C = d e^{-kt}$. <span class="apartado-puntos">3 p</span></li>
+        </ol>
+        <p style="margin-top:0.8rem">En los apartados restantes, estudiará un fármaco concreto para el que se sabe que $k = 0{,}2$. La primera dosis se administra en $t = 0$ y se supone que antes de ese momento no había fármaco en la sangre.</p>
+        <ol class="apartados" style="list-style:none;padding-left:0">
+          <li><strong>(b)</strong> Halle el tiempo (en horas) hasta que la concentración llega al $5\%$ de su concentración inicial. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+        <p style="margin-top:0.8rem">El fármaco se debe administrar cada $T$ horas y a dosis constantes, de modo que la concentración del fármaco aumente en una cantidad igual a $d$ mg·ml⁻¹. Para simplificar, se supone que cada vez que se administra el fármaco, la concentración aumenta de forma instantánea.</p>
+        <ol class="apartados" style="list-style:none;padding-left:0">
+          <li><strong>(c)</strong> Muestre que la concentración inmediatamente después de la tercera dosis es igual a $d\!\left(1 + e^{-0{,}2T} + e^{-0{,}4T}\right)$. <span class="apartado-puntos">4 p</span></li>
+        </ol>
+        <p style="margin-top:0.8rem">Inmediatamente después de la $n$-ésima dosis, la concentración es:</p>
+        <div class="math-block">$$d\!\left(1 + e^{-0{,}2T} + e^{-0{,}4T} + \cdots + e^{-0{,}2(n-1)T}\right)$$</div>
+        <ol class="apartados" style="list-style:none;padding-left:0">
+          <li><strong>(d)</strong> Muestre que esta concentración se puede expresar como $d\,\dfrac{1 - e^{-0{,}2nT}}{1 - e^{-0{,}2T}}$. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+        <p style="margin-top:0.8rem">Cuando un paciente lleva ya mucho tiempo tomando este fármaco, es necesario mantener la concentración dentro de un rango determinado. Sea $H_n$ la concentración más alta y $L_n$ la más baja en el intervalo $(n-1)T \leq t < nT$. Definimos $H_\infty = \lim_{n\to\infty} H_n$ y $L_\infty = \lim_{n\to\infty} L_n$.</p>
+        <ol class="apartados" style="list-style:none;padding-left:0">
+          <li><strong>(e)</strong> Halle, en función de $d$ y $T$, una expresión para:</li>
+          <li style="margin-left:1.5rem"><strong>(i)</strong> $H_\infty$. <span class="apartado-puntos">2 p</span></li>
+          <li style="margin-left:1.5rem"><strong>(ii)</strong> $L_\infty$. <span class="apartado-puntos">3 p</span></li>
+          <li><strong>(f)</strong> Muestre que:</li>
+          <li style="margin-left:1.5rem"><strong>(i)</strong> $H_\infty - L_\infty = d$. <span class="apartado-puntos">2 p</span></li>
+          <li style="margin-left:1.5rem"><strong>(ii)</strong> $5 \ln\!\left(\dfrac{H_\infty}{L_\infty}\right) = T$. <span class="apartado-puntos">3 p</span></li>
+        </ol>
+        <p style="margin-top:0.8rem">Se sabe que el fármaco deja de ser eficaz si la concentración a largo plazo es menor que $0{,}06$ mg·ml⁻¹ y que es seguro si nunca supera los $0{,}28$ mg·ml⁻¹.</p>
+        <ol class="apartados" style="list-style:none;padding-left:0">
+          <li><strong>(g)</strong> A partir de lo anterior, halle un valor adecuado de:</li>
+          <li style="margin-left:1.5rem"><strong>(i)</strong> $d$. <span class="apartado-puntos">1 p</span></li>
+          <li style="margin-left:1.5rem"><strong>(ii)</strong> $T$. <span class="apartado-puntos">1 p</span></li>
+          <li><strong>(h)</strong> Para los valores de $d$ y $T$ del apartado (g), halle el porcentaje de tiempo durante el que la concentración del fármaco es de al menos $0{,}06$ mg·ml⁻¹ entre la primera y la segunda dosis. <span class="apartado-puntos">2 p</span></li>
+          <li><strong>(i)</strong> Sugiera un motivo por el cual las instrucciones del prospecto del fármaco podrían indicar un valor de $T$ distinto del que ha hallado en (g)(ii). <span class="apartado-puntos">1 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL · subtemas</span>
+        <span class="ib-chip" data-descriptor="Progresiones geométricas y series">NM&nbsp;1.3</span>
+        <span class="ib-chip" data-descriptor="Suma infinita de progresión geométrica convergente">TANS&nbsp;1.11</span>
+        <span class="ib-chip" data-descriptor="EDOs de 1er orden: separación de variables">TANS&nbsp;5.16</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Corrección paso a paso</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Resolución de la EDO <span class="apartado-puntos">3 p</span></h4>
+          <p>Es una EDO separable. Reordenamos los términos:</p>
+          <div class="math-block">$$\frac{dC}{C} = -k\, dt$$</div>
+          <p>Integramos ambos lados:</p>
+          <div class="math-block">$$\int \frac{dC}{C} = \int -k\, dt \;\Longrightarrow\; \ln|C| = -kt + c_0$$</div>
+          <p>Despejamos $C$:</p>
+          <div class="math-block">$$C = e^{-kt + c_0} = A\, e^{-kt} \quad (A = e^{c_0} > 0)$$</div>
+          <p>Aplicamos la condición inicial: $C(0) = d$ implica $A = d$. Por tanto:</p>
+          <div class="math-block">$$\boxed{\,C(t) = d\, e^{-kt}\,} \;\;\square$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Tiempo hasta el 5% <span class="apartado-puntos">2 p</span></h4>
+          <p>Buscamos $t$ tal que $C(t) = 0{,}05\, d$. Con $k = 0{,}2$:</p>
+          <div class="math-block">$$0{,}05\, d = d\, e^{-0{,}2 t} \;\Longrightarrow\; e^{-0{,}2 t} = 0{,}05 \;\Longrightarrow\; -0{,}2 t = \ln 0{,}05$$</div>
+          <div class="math-block">$$t = \frac{-\ln 0{,}05}{0{,}2} = \frac{\ln 20}{0{,}2} \approx 14{,}98\ \text{h}$$</div>
+          <div class="final">$t \approx 15{,}0$ horas.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Concentración tras la 3ª dosis <span class="apartado-puntos">4 p</span></h4>
+          <p><strong>Idea:</strong> tras cada dosis, lo que ya había decae durante $T$ horas (factor $e^{-0{,}2T}$), y se suma una nueva cantidad $d$.</p>
+          <p>Sigamos las dosis paso a paso. Justo después de cada dosis $i$, llamemos $C_i$ a la concentración:</p>
+          <ul>
+            <li><strong>1ª dosis</strong> ($t = 0$): $C_1 = d$.</li>
+            <li>Después, durante $T$ horas decae a $C_1 \cdot e^{-0{,}2T} = d\, e^{-0{,}2T}$. Llega la <strong>2ª dosis</strong> y se suma $d$:
+              <div class="math-block">$$C_2 = d\, e^{-0{,}2T} + d = d\!\left(1 + e^{-0{,}2T}\right)$$</div>
+            </li>
+            <li>Decae otras $T$ horas: $C_2 \cdot e^{-0{,}2T} = d\!\left(e^{-0{,}2T} + e^{-0{,}4T}\right)$. Llega la <strong>3ª dosis</strong>:
+              <div class="math-block">$$C_3 = d + d\!\left(e^{-0{,}2T} + e^{-0{,}4T}\right) = d\!\left(1 + e^{-0{,}2T} + e^{-0{,}4T}\right) \;\;\square$$</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Suma geométrica <span class="apartado-puntos">2 p</span></h4>
+          <p>Reconocemos una progresión geométrica con primer término $u_1 = 1$, razón $r = e^{-0{,}2T}$ y $n$ términos. La suma vale:</p>
+          <div class="math-block">$$S_n = u_1 \cdot \frac{1 - r^n}{1 - r} = \frac{1 - e^{-0{,}2 n T}}{1 - e^{-0{,}2T}}$$</div>
+          <p>Multiplicando por $d$ se obtiene la concentración pedida:</p>
+          <div class="math-block">$$C_n = d\,\frac{1 - e^{-0{,}2 n T}}{1 - e^{-0{,}2T}} \;\;\square$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)(i)</span> $H_\infty$ <span class="apartado-puntos">2 p</span></h4>
+          <p>$H_n$ es la concentración <strong>justo después</strong> de la $n$-ésima dosis (es el pico del intervalo $[(n-1)T,\ nT)$). Es decir, $H_n = C_n$. Tomando $n \to \infty$, como $0 < e^{-0{,}2T} < 1$, $\,e^{-0{,}2 n T} \to 0$:</p>
+          <div class="math-block">$$\boxed{\,H_\infty = \frac{d}{1 - e^{-0{,}2T}}\,}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)(ii)</span> $L_\infty$ <span class="apartado-puntos">3 p</span></h4>
+          <p>$L_n$ es la concentración <strong>justo antes</strong> de la siguiente dosis: la concentración tras la $n$-ésima dosis ($H_n$) decae durante $T$ horas:</p>
+          <div class="math-block">$$L_n = H_n \cdot e^{-0{,}2T}$$</div>
+          <p>En el límite:</p>
+          <div class="math-block">$$L_\infty = H_\infty \cdot e^{-0{,}2T} = \frac{d\, e^{-0{,}2T}}{1 - e^{-0{,}2T}}$$</div>
+          <p>Equivalentemente, multiplicando arriba y abajo por $e^{0{,}2T}$:</p>
+          <div class="math-block">$$\boxed{\,L_\infty = \frac{d}{e^{0{,}2T} - 1}\,}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)(i)</span> $H_\infty - L_\infty = d$ <span class="apartado-puntos">2 p</span></h4>
+          <div class="math-block">$$H_\infty - L_\infty = \frac{d}{1 - e^{-0{,}2T}} - \frac{d\, e^{-0{,}2T}}{1 - e^{-0{,}2T}} = \frac{d(1 - e^{-0{,}2T})}{1 - e^{-0{,}2T}} = d \;\;\square$$</div>
+          <p class="note"><strong>Interpretación:</strong> en régimen estacionario, cada dosis añade exactamente $d$ a la concentración mínima para llegar al pico. Lo que entra equilibra lo que se ha eliminado durante el periodo entre dosis.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)(ii)</span> $5 \ln(H_\infty / L_\infty) = T$ <span class="apartado-puntos">3 p</span></h4>
+          <p>Por la propia definición $L_\infty = H_\infty \cdot e^{-0{,}2T}$, dividimos:</p>
+          <div class="math-block">$$\frac{H_\infty}{L_\infty} = \frac{1}{e^{-0{,}2T}} = e^{0{,}2T}$$</div>
+          <p>Tomamos logaritmos:</p>
+          <div class="math-block">$$\ln\!\left(\frac{H_\infty}{L_\infty}\right) = 0{,}2 T \;\Longrightarrow\; T = 5\ln\!\left(\frac{H_\infty}{L_\infty}\right) \;\;\square$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">g)(i)</span> Valor de $d$ <span class="apartado-puntos">1 p</span></h4>
+          <p>Por (f)(i), $d = H_\infty - L_\infty$. Para mantener la concentración entre $0{,}06$ y $0{,}28$ mg·ml⁻¹, tomamos $H_\infty = 0{,}28$ y $L_\infty = 0{,}06$:</p>
+          <div class="math-block">$$d = 0{,}28 - 0{,}06 = 0{,}22\ \text{mg·ml}^{-1}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">g)(ii)</span> Valor de $T$ <span class="apartado-puntos">1 p</span></h4>
+          <p>Por (f)(ii):</p>
+          <div class="math-block">$$T = 5\ln\!\left(\frac{0{,}28}{0{,}06}\right) = 5\ln\!\left(\tfrac{14}{3}\right) \approx 5 \cdot 1{,}540 \approx 7{,}70\ \text{h}$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">h)</span> Porcentaje de tiempo con $C \geq 0{,}06$ <span class="apartado-puntos">2 p</span></h4>
+          <p>Entre la primera dosis ($t = 0$ con $C_1 = d = 0{,}22$) y la segunda ($t = T$), la concentración decae como $C(t) = 0{,}22\, e^{-0{,}2 t}$. Buscamos $t^*$ tal que $C(t^*) = 0{,}06$:</p>
+          <div class="math-block">$$0{,}06 = 0{,}22\, e^{-0{,}2 t^*} \;\Longrightarrow\; t^* = \frac{\ln(0{,}22/0{,}06)}{0{,}2} \approx \frac{1{,}300}{0{,}2} \approx 6{,}496\ \text{h}$$</div>
+          <p>Como $T \approx 7{,}702$ h, el porcentaje de tiempo en el que $C \geq 0{,}06$ es:</p>
+          <div class="math-block">$$\frac{t^*}{T} \cdot 100\% = \frac{6{,}496}{7{,}702} \cdot 100\% \approx 84{,}3\%$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">i)</span> Por qué un $T$ distinto en el prospecto <span class="apartado-puntos">1 p</span></h4>
+          <p>Cualquier razón <em>práctica</em> que conecte el modelo con el uso real del fármaco vale. Tres ideas habituales:</p>
+          <ul>
+            <li><strong>Redondeo a un horario manejable:</strong> $7{,}7$ horas no se puede memorizar fácilmente; redondear a $8$ h da exactamente $3$ tomas al día (cada 8 horas).</li>
+            <li><strong>Margen de seguridad:</strong> usar $T$ ligeramente menor para no acercarse al límite inferior de eficacia ($0{,}06$); o ligeramente mayor para no acercarse al límite superior de toxicidad ($0{,}28$).</li>
+            <li><strong>Variabilidad biológica:</strong> $k$ depende del paciente; un $T$ algo más conservador absorbe esa incertidumbre individual.</li>
+          </ul>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2022-n-mai-hp3/">Índice del examen</a>
+      <span class="disabled next">Pregunta siguiente &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

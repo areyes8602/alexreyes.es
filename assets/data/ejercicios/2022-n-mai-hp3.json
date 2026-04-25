@@ -1,29 +1,35 @@
 {
-  "schema_version": 2,
-  "generated_at": "2026-04-25T06:58:44.485827+00:00",
-  "taxonomy_path": "/assets/data/tags.json",
-  "count": 2,
+  "schema_version": 3,
+  "id": "2022-n-mai-hp3",
+  "tipo_coleccion": "examen_oficial_ib",
+  "titulo": "IB MAI HL — Prueba 3 — Noviembre 2022",
+  "subtitulo": "Examen oficial IB · Mathematics: Applications and Interpretation · Higher Level · Paper 3",
+  "fecha": "2022-11-08",
+  "centro": "International Baccalaureate Organization",
+  "codigo_oficial": "8822-7223 / N22/5/MATHY/HP3/SPA/TZ0/XX",
+  "duracion_min": 60,
+  "pdf_enunciados": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/original.pdf",
+  "pdf_soluciones": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/soluciones.pdf",
+  "url_index": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/",
+  "puntuacion_total": 55,
+  "tags_coleccion": {
+    "materia": "ib-ai-hl",
+    "curso_academico": "2022-2023",
+    "idioma": "es",
+    "fuente": "ib_past_paper"
+  },
   "ejercicios": [
     {
       "id": "2022-n-mai-hp3-p1",
+      "numero": 1,
       "titulo": "Predicciones sobre partidos de Argentina: binomial vs cadena de Markov",
       "url_enunciado": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/p1.html",
       "url_pdf": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/original.pdf#page=4",
       "url_solucion_pdf": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/soluciones.pdf#page=8",
-      "url_solucion_html": null,
-      "pages_enunciado": [
-        4,
-        5,
-        6
-      ],
-      "pages_solucion": [
-        8,
-        9,
-        10
-      ],
-      "url": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/p1.html",
-      "numero": 1,
+      "pages_enunciado": [4, 5, 6],
+      "pages_solucion": [8, 9, 10],
       "puntuacion": 29,
+      "contexto": "En esta pregunta explorará posibles maneras de utilizar resultados deportivos pasados para hacer predicciones sobre futuros encuentros deportivos. Peter y Helen son dos amigos que están discutiendo distintas formas de predecir el resultado de los partidos de fútbol internacionales que juega Argentina.",
       "apartados": [
         {
           "letra": "a",
@@ -101,71 +107,25 @@
           "tarea": "Cuando se jubile, dentro de muchos años, Helen tiene pensado viajar a tres partidos de fútbol internacionales consecutivos en los que juegue Argentina. Utilice el modelo de Helen para hallar la probabilidad de que Argentina gane los tres partidos."
         }
       ],
-      "apartados_count": 15,
-      "coleccion": {
-        "id": "2022-n-mai-hp3",
-        "titulo": "IB MAI HL — Prueba 3 — Noviembre 2022",
-        "tipo": "examen_oficial_ib",
-        "fecha": "2022-11-08",
-        "url_index": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/",
-        "grupo": null,
-        "promocion": null,
-        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/original.pdf",
-        "pdf_soluciones": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/soluciones.pdf"
-      },
       "tags": {
-        "materia": "ib-ai-hl",
-        "curso_academico": "2022-2023",
-        "idioma": "es",
-        "fuente": "ib_past_paper",
         "ambito_iba": "T4",
-        "concepto_iba": [
-          "NM 4.8",
-          "NM 4.11",
-          "TANS 1.14",
-          "TANS 1.15"
-        ],
+        "concepto_iba": ["NM 4.8", "NM 4.11", "TANS 1.14", "TANS 1.15"],
         "dificultad": "dificil",
-        "habilidad": [
-          "calculo_simbolico",
-          "calculo_numerico",
-          "modelizacion",
-          "razonamiento",
-          "interpretacion",
-          "uso_calculadora"
-        ],
-        "formato": [
-          "pregunta_larga",
-          "problema_aplicado"
-        ]
-      },
-      "search_text": {
-        "es": "predicciones sobre partidos de argentina: binomial vs cadena de markov ib math ai hl 2022-2023 español ib past paper tema 4 — estadística y probabilidad nm 4.8 — distribución binomial nm 4.11 — test χ² de bondad de ajuste y de independencia; test t tans 1.14 — matrices; suma, producto, inversa; sistemas en forma matricial tans 1.15 — valores y vectores propios; potencias de matrices; cadenas de markov difícil cálculo simbólico cálculo numérico modelización razonamiento interpretación contextual uso de calculadora gráfica pregunta larga (estructurada en apartados) problema aplicado / contexto real",
-        "ca": "predicciones sobre partidos de argentina: binomial vs cadena de markov ib math ai hl castellà tema 4 — estadística i probabilitat difícil",
-        "en": "predicciones sobre partidos de argentina: binomial vs cadena de markov ib math ai hl spanish topic 4 — statistics and probability hard"
+        "habilidad": ["calculo_simbolico", "calculo_numerico", "modelizacion", "razonamiento", "interpretacion", "uso_calculadora"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
       }
     },
     {
       "id": "2022-n-mai-hp3-p2",
+      "numero": 2,
       "titulo": "Concentración de un fármaco con dosis repetidas: EDO y suma geométrica",
       "url_enunciado": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/p2.html",
       "url_pdf": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/original.pdf#page=7",
       "url_solucion_pdf": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/soluciones.pdf#page=11",
-      "url_solucion_html": null,
-      "pages_enunciado": [
-        7,
-        8,
-        9
-      ],
-      "pages_solucion": [
-        11,
-        12,
-        13,
-        14
-      ],
-      "url": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/p2.html",
-      "numero": 2,
+      "pages_enunciado": [7, 8, 9],
+      "pages_solucion": [11, 12, 13, 14],
       "puntuacion": 26,
+      "contexto": "Algunas enfermedades requieren que los pacientes tomen medicación de manera regular y durante períodos prolongados. En esta pregunta explorará la concentración de un fármaco en el organismo cuando dicho fármaco se administra repetidamente.",
       "apartados": [
         {
           "letra": "a",
@@ -228,45 +188,12 @@
           "tarea": "Sugiera un motivo por el cual las instrucciones del prospecto del fármaco podrían indicar un valor de $T$ distinto del que ha hallado en el subapartado (g)(ii)."
         }
       ],
-      "apartados_count": 12,
-      "coleccion": {
-        "id": "2022-n-mai-hp3",
-        "titulo": "IB MAI HL — Prueba 3 — Noviembre 2022",
-        "tipo": "examen_oficial_ib",
-        "fecha": "2022-11-08",
-        "url_index": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/",
-        "grupo": null,
-        "promocion": null,
-        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/original.pdf",
-        "pdf_soluciones": "/aula/ib-ai-hl/examenes/2022-n-mai-hp3/soluciones.pdf"
-      },
       "tags": {
-        "materia": "ib-ai-hl",
-        "curso_academico": "2022-2023",
-        "idioma": "es",
-        "fuente": "ib_past_paper",
         "ambito_iba": "T5",
-        "concepto_iba": [
-          "NM 1.3",
-          "TANS 1.11",
-          "TANS 5.16"
-        ],
+        "concepto_iba": ["NM 1.3", "TANS 1.11", "TANS 5.16"],
         "dificultad": "dificil",
-        "habilidad": [
-          "calculo_simbolico",
-          "modelizacion",
-          "razonamiento",
-          "demostracion"
-        ],
-        "formato": [
-          "pregunta_larga",
-          "problema_aplicado"
-        ]
-      },
-      "search_text": {
-        "es": "concentración de un fármaco con dosis repetidas: edo y suma geométrica ib math ai hl 2022-2023 español ib past paper tema 5 — análisis (cálculo) nm 1.3 — progresiones y series geométricas tans 1.11 — suma infinita de progresión geométrica convergente tans 5.16 — edos de 1er orden: separación de variables, método de euler difícil cálculo simbólico modelización razonamiento demostración / razonamiento formal pregunta larga (estructurada en apartados) problema aplicado / contexto real",
-        "ca": "concentración de un fármaco con dosis repetidas: edo y suma geométrica ib math ai hl castellà tema 5 — anàlisi (càlcul) difícil",
-        "en": "concentración de un fármaco con dosis repetidas: edo y suma geométrica ib math ai hl spanish topic 5 — calculus hard"
+        "habilidad": ["calculo_simbolico", "modelizacion", "razonamiento", "demostracion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
       }
     }
   ]

@@ -1,0 +1,60 @@
+{
+  "schema_version": 3,
+  "id": "AAAA-MM-XX-NN",
+  "tipo_coleccion": "examen",
+  "titulo": "Título del examen",
+  "fecha": "AAAA-MM-DD",
+  "grupo": "ej. 2n ESO A, IB2, 1r BTL",
+  "promocion": "ej. 2024-2026 (solo si aplica)",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_enunciados": "/aula/<carpeta>/original.pdf",
+  "pdf_soluciones": null,
+  "url_index": "/aula/<carpeta>/",
+  "puntuacion_total": 70,
+  "baremo": [
+    { "min": 58, "max": 70, "nota": 7 },
+    { "min": 46, "max": 57, "nota": 6 },
+    { "min": 35, "max": 45, "nota": 5 },
+    { "min": 25, "max": 34, "nota": 4 },
+    { "min": 16, "max": 24, "nota": 3 },
+    { "min":  8, "max": 15, "nota": 2 },
+    { "min":  1, "max":  7, "nota": 1 }
+  ],
+  "tags_coleccion": {
+    "materia": "ib-ai-hl",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia"
+  },
+  "ejercicios": [
+    {
+      "id": "AAAA-MM-XX-NN-p1",
+      "numero": 1,
+      "titulo": "Título corto del ejercicio",
+      "url_enunciado": "/aula/<carpeta>/p1.html",
+      "url_pdf": "/aula/<carpeta>/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Texto del enunciado del apartado a). Aquí va el ENUNCIADO REAL, no un resumen. Puede contener LaTeX como $f(x) = 2x+1$ o bloques con \\[...\\]."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Texto del enunciado del apartado b)."
+        }
+      ],
+      "tags": {
+        "ambito_iba": "T2",
+        "concepto_iba": ["NM 2.4", "NM 5.3"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}

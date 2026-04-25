@@ -45,8 +45,9 @@ def format_fecha(iso):
 
 def breadcrumb_for(col, tags):
     """Breadcrumb built from the url_index + known subjects."""
-    asig = col.get("tags_coleccion", {}).get("asignatura") or ""
-    asig_label = tags["namespaces"]["asignatura"]["valores"].get(asig, {}).get("label", {}).get("es", asig)
+    asig = col.get("tags_coleccion", {}).get("materia") or col.get("tags_coleccion", {}).get("asignatura") or ""
+    materia_ns = tags["namespaces"].get("materia") or tags["namespaces"].get("asignatura") or {}
+    asig_label = materia_ns.get("valores", {}).get(asig, {}).get("label", {}).get("es", asig)
     parts = [
         '<a href="/">Inicio</a>',
         '<span class="sep">/</span>',
@@ -71,18 +72,22 @@ def breadcrumb_for(col, tags):
 
 
 def chips_for(ejercicio, tags):
-    """Descriptor IB chips for the card."""
-    dib = (ejercicio.get("tags") or {}).get("descriptor_ib") or []
-    if not dib:
-        return ""
-    out = []
-    for code in dib[:4]:  # cap at 4 to avoid overflow
-        desc_obj = tags["namespaces"]["descriptor_ib"]["valores"].get(code, {})
-        label_full = desc_obj.get("label", {}).get("es", code)
-        # short label: code only, with hover = description
-        safe_desc = label_full.replace('"', "'")
-        out.append(f'<span class="ib-chip" title="{esc(safe_desc)}">{esc(code)}</span>')
-    return '<div class="question-card-chips">' + "".join(out) + "</div>"
+    """Concept chips for the card. Reads concepto_iba (NM/TANS), concepto_bach, or concepto_eso."""
+    ej_tags = ejercicio.get("tags") or {}
+    # Pick whichever concept namespace this exercise uses (in order of likelihood)
+    for ns in ("concepto_iba", "concepto_bach", "concepto_eso"):
+        codes = ej_tags.get(ns) or []
+        if codes:
+            ns_def = tags["namespaces"].get(ns, {})
+            valores = ns_def.get("valores", {})
+            out = []
+            for code in codes[:4]:
+                v = valores.get(code, {})
+                label_full = v.get("label", {}).get("es", code)
+                safe_desc = label_full.replace('"', "'")
+                out.append(f'<span class="ib-chip" title="{esc(safe_desc)}">{esc(code)}</span>')
+            return '<div class="question-card-chips">' + "".join(out) + "</div>"
+    return ""
 
 
 def summary_for(ejercicio):
@@ -190,8 +195,9 @@ def render_page(col, tags):
 
     cohort_tag = f'<span class="tag tag-orange">{esc(promocion)}</span>' if promocion else ""
     badge = f'<span class="tag tag-gray">{esc(short_badge)}</span>' if short_badge else ""
-    hl_badge = '<span class="level-badge level-hl">HL</span>' if tc.get("asignatura") == "ib-ai-hl" else ""
-    sl_badge = '<span class="level-badge level-sl">SL</span>' if tc.get("asignatura") == "ib-ai-sl" else ""
+    materia_chk = tc.get("materia") or tc.get("asignatura")
+    hl_badge = '<span class="level-badge level-hl">HL</span>' if materia_chk == "ib-ai-hl" else ""
+    sl_badge = '<span class="level-badge level-sl">SL</span>' if materia_chk == "ib-ai-sl" else ""
 
     # Short description derived from ejercicios titles
     topics = set()
@@ -203,7 +209,10 @@ def render_page(col, tags):
 
     url = col.get("url_index") or f"/aula/ib-ai-hl/examenes/{col_id}/"
     full_url = f"https://alexreyes.es{url}"
-    asig_label = tags["namespaces"]["asignatura"]["valores"].get(tc.get("asignatura") or "", {}).get("label", {}).get("es", "")
+    # v3 uses "materia"; older v2 used "asignatura". Try both.
+    materia_key = tc.get("materia") or tc.get("asignatura") or ""
+    materia_ns = tags["namespaces"].get("materia") or tags["namespaces"].get("asignatura") or {}
+    asig_label = materia_ns.get("valores", {}).get(materia_key, {}).get("label", {}).get("es", "")
 
     html = f"""<!DOCTYPE html>
 <html lang="es">
@@ -315,6 +324,10 @@ def main():
         return
     for cf in colecciones:
         col = load(cf)
+        sv = col.get("schema_version", 1)
+        if sv < 3:
+            print(f"  ⏭  {cf.name:30s}  (schema_version={sv}, se omite)")
+            continue
         url_index = col.get("url_index")
         if not url_index:
             print(f"  - {cf.name}: sin url_index (se omite)")

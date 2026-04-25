@@ -198,8 +198,15 @@ def main():
     all_ids = {}
     index_entries = []
 
+    skipped_old = []
     for cf in coleccion_files:
         col = load_json(cf)
+        # Schema version filter: only process v3+. Older formats are kept on disk
+        # but ignored (they used the old "TANS X.Y inventado" tagging).
+        sv = col.get("schema_version", 1)
+        if sv < 3:
+            skipped_old.append(f"{cf.name} (schema_version={sv})")
+            continue
         ctx_col = f"[{cf.name}] coleccion '{col.get('id')}'"
 
         # Validate colección-level tags
@@ -249,6 +256,11 @@ def main():
         "count": len(index_entries),
         "ejercicios": index_entries,
     }
+
+    if skipped_old:
+        print(f"\n⏭  Colecciones ignoradas (formato antiguo, schema_version<3):")
+        for s in skipped_old:
+            print(f"     {s}")
 
     # Print report
     print(f"\n─── Ejercicios indexados: {len(index_entries)} ───")
