@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7. Problemes · Fraccions · 2n ESO</title>
+<meta name="description" content="Problemes de fraccions resolts per a 2n d'ESO: aplicar una fracció a un nombre, concepte de 'la resta' i casos clàssics.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/eso-2/apuntes/u-fraccions/07-problemes.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.problem-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.problem-card .pb-label { display: inline-block; background: #ec4899; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+.problem-card .pb-statement { margin: 0.4rem 0 0.8rem; font-size: 0.95rem; }
+.problem-card .pb-statement p { margin: 0.3rem 0; }
+.problem-card .pb-statement ol { margin: 0.4rem 0; padding-left: 1.4rem; }
+.problem-card .pb-statement ol li { margin: 0.2rem 0; }
+.problem-card .pb-steps { margin: 0.6rem 0; }
+.problem-card .pb-steps p { margin: 0.4rem 0; font-size: 0.93rem; color: var(--text-soft); }
+.problem-card .pb-steps .math-block { margin: 0.4rem 0; padding: 0.5rem 0.6rem; }
+.problem-card .pb-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+.problem-card .pb-final::before { content: "Resposta"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.problem-card .pb-final p { margin: 0.2rem 0; font-size: 0.94rem; }
+.fix-note { background: rgba(234,88,12,0.07); border-left: 3px solid #ea580c; padding: 0.6rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.88rem; }
+.fix-note::before { content: "⚠ Compte amb l'enunciat"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #ea580c; margin-bottom: 0.2rem; }
+.tip-box { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.6rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.92rem; }
+.tip-box::before { content: "💡 Idea clau"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .problem-card .pb-final { background: rgba(16,185,129,0.16); }
+[data-theme="dark"] .fix-note { background: rgba(234,88,12,0.16); }
+[data-theme="dark"] .tip-box { background: rgba(16,185,129,0.14); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/2eso/">2n ESO</a>
+      <span class="sep">/</span>
+      <a href="/aula/eso-2/apuntes/u-fraccions/">Fraccions</a>
+      <span class="sep">/</span>
+      <span class="current">07 · Problemes</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">2n ESO · Fraccions</span>
+        <span class="tag tag-orange">Problemes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">6 oct 2025</span>
+      </div>
+      <h1 style="margin:0">7. Problemes amb fraccions</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Idees prèvies, concepte de "la resta" i problemes resolts pas a pas.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ Idees prèvies ============ -->
+      <div class="apunt-section">
+        <h2>Idees prèvies</h2>
+
+        <div class="def-box">
+          <h3>Aplicar una fracció a un nombre</h3>
+          <p>Trobar "$\dfrac{a}{b}$ de $c$" és multiplicar la fracció pel nombre:</p>
+          <div class="math-block">$$\dfrac{a}{b} \text{ de } c = \dfrac{a \cdot c}{b}$$</div>
+          <p><strong>Exemple.</strong> $\dfrac{3}{8}$ de $24 = \dfrac{3 \cdot 24}{8} = \dfrac{72}{8} = 9$.</p>
+        </div>
+
+        <div class="def-box">
+          <h3>Trobar la fracció</h3>
+          <p>Per trobar quina fracció representa una situació, es divideix el nombre que <em>compleix la condició</em> entre el <em>nombre total</em>:</p>
+          <div class="math-block">$$\text{fracció} = \dfrac{\text{nombre que compleix la condició}}{\text{nombre total}}$$</div>
+          <p><strong>Exemple.</strong> En una classe de 22 alumnes, 8 juguen a bàsquet. La fracció dels que juguen és $\dfrac{8}{22} = \dfrac{4}{11}$.</p>
+        </div>
+
+        <div class="def-box">
+          <h3>Concepte de "la resta"</h3>
+          <p>Si una part es queda fora ($\dfrac{a}{b}$ del total), <strong>"la resta"</strong> és el complementari, és a dir, $1 - \dfrac{a}{b}$. Per aplicar una fracció <em>sobre la resta</em>, primer calculem la resta i després multipliquem.</p>
+          <p><strong>Exemple.</strong> En una classe de 30 alumnes, $\dfrac{1}{3}$ juga a bàsquet i la meitat de la resta no fa cap esport. Quants no fan esport?</p>
+          <ul style="font-size:0.94rem;padding-left:1.2rem;margin:0.4rem 0">
+            <li>Juguen a bàsquet: $\dfrac{1}{3}$ de $30 = 10$.</li>
+            <li>"La resta" (no juguen a bàsquet): $\dfrac{2}{3}$.</li>
+            <li>No fan esport: $\dfrac{1}{2}$ de $\dfrac{2}{3}$ de $30 = \dfrac{1}{2} \cdot \dfrac{2}{3} \cdot 30 = \dfrac{60}{6} = 10$.</li>
+          </ul>
+        </div>
+
+        <div class="tip-box">
+          La paraula <strong>"la resta"</strong> en aquests problemes vol dir <em>"el que queda després de treure el primer tros"</em>. És fàcil confondre-ho amb la "resta" com a operació (subtracció). Quan llegim un problema, conviene preguntar-se: <strong>la resta de què?</strong>
+        </div>
+      </div>
+
+      <!-- ============ Problema 10 ============ -->
+      <div class="apunt-section">
+        <h2>Problemes resolts</h2>
+
+        <div class="problem-card">
+          <span class="pb-label">10</span>
+          <div class="pb-statement">
+            <p>En una conferència sobre la pau i el desarmament, $\dfrac{2}{5}$ dels participants són catalans, $\dfrac{1}{4}$ francesos i $\dfrac{6}{7}$ <em>de la resta</em> són alemanys.</p>
+            <ol>
+              <li>Quina fracció del total constitueix el grup d'alemanys?</li>
+              <li>Si el grup d'alemanys està format per 90 persones, quants participants hi ha a la conferència?</li>
+            </ol>
+          </div>
+          <div class="pb-steps">
+            <p><strong>a)</strong> Catalans i francesos junts: $\dfrac{2}{5} + \dfrac{1}{4} = \dfrac{8}{20} + \dfrac{5}{20} = \dfrac{13}{20}$.</p>
+            <p>"La resta" (ni catalans ni francesos): $1 - \dfrac{13}{20} = \dfrac{7}{20}$.</p>
+            <p>Alemanys = $\dfrac{6}{7}$ de la resta:</p>
+            <div class="math-block">$$\dfrac{6}{7} \cdot \dfrac{7}{20} = \dfrac{6}{20} = \dfrac{3}{10}$$</div>
+            <p><strong>b)</strong> Si $\dfrac{3}{10}$ del total són $90$ persones:</p>
+            <div class="math-block">$$\dfrac{3}{10} \cdot T = 90 \quad\Longrightarrow\quad T = 90 \cdot \dfrac{10}{3} = 300 \text{ persones}$$</div>
+          </div>
+          <div class="pb-final">
+            <p>a) $\dfrac{3}{10}$ del total són alemanys.</p>
+            <p>b) Hi ha $300$ participants.</p>
+          </div>
+        </div>
+
+        <!-- ============ Problema 11 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">11</span>
+          <div class="pb-statement">
+            <p>Les $\dfrac{3}{5}$ parts dels 300 alumnes d'una escola tenen 1 o 2 germans. Els $\dfrac{2}{5}$ <em>de la resta</em> en tenen 3.</p>
+            <ol>
+              <li>Quina fracció d'alumnes tenen més de 3 germans?</li>
+              <li>Quants alumnes tenen més de 3 germans?</li>
+            </ol>
+          </div>
+          <div class="pb-steps">
+            <p><strong>a)</strong> Resta (no tenen 1 ni 2 germans): $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
+            <p>Tenen exactament 3 germans: $\dfrac{2}{5}$ de $\dfrac{2}{5} = \dfrac{4}{25}$.</p>
+            <p>Tenen <strong>més</strong> de 3 germans: $\dfrac{2}{5} - \dfrac{4}{25} = \dfrac{10}{25} - \dfrac{4}{25} = \dfrac{6}{25}$.</p>
+            <p><strong>b)</strong> $\dfrac{6}{25}$ de $300$:</p>
+            <div class="math-block">$$\dfrac{6}{25} \cdot 300 = \dfrac{1800}{25} = 72 \text{ alumnes}$$</div>
+          </div>
+          <div class="pb-final">
+            <p>a) $\dfrac{6}{25}$ tenen més de 3 germans.</p>
+            <p>b) Són $72$ alumnes.</p>
+          </div>
+        </div>
+
+        <!-- ============ Problema 12 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">12</span>
+          <div class="pb-statement">
+            <p>Un comerciant va vendre ahir $\dfrac{1}{3}$ d'una peça de roba. Avui ha venut <em>la meitat del que li quedava</em>.</p>
+            <ol>
+              <li>Quina fracció ha venut avui?</li>
+              <li>Quina fracció ha venut en total?</li>
+              <li>Quina fracció li queda per vendre?</li>
+            </ol>
+          </div>
+          <div class="pb-steps">
+            <p>Després d'ahir, li quedava: $1 - \dfrac{1}{3} = \dfrac{2}{3}$.</p>
+            <p><strong>a)</strong> Avui ven la meitat del que quedava: $\dfrac{1}{2} \cdot \dfrac{2}{3} = \dfrac{1}{3}$.</p>
+            <p><strong>b)</strong> Total venut: $\dfrac{1}{3} + \dfrac{1}{3} = \dfrac{2}{3}$.</p>
+            <p><strong>c)</strong> Queda: $1 - \dfrac{2}{3} = \dfrac{1}{3}$.</p>
+          </div>
+          <div class="pb-final">
+            <p>a) $\dfrac{1}{3}$ &nbsp;·&nbsp; b) $\dfrac{2}{3}$ &nbsp;·&nbsp; c) $\dfrac{1}{3}$</p>
+          </div>
+        </div>
+
+        <!-- ============ Problema 13 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">13</span>
+          <div class="pb-statement">
+            <p>El Roger estalvia cada mes 150 € del sou. Del sou, gasta $\dfrac{1}{5}$ en habitatge i menjar, $\dfrac{1}{6}$ en llibres i material i $\dfrac{1}{10}$ en el seu temps lliure. Quin és el sou de Roger?</p>
+          </div>
+          <div class="pb-steps">
+            <p>Suma de despeses (denominador comú $30$):</p>
+            <div class="math-block">$$\dfrac{1}{5} + \dfrac{1}{6} + \dfrac{1}{10} = \dfrac{6}{30} + \dfrac{5}{30} + \dfrac{3}{30} = \dfrac{14}{30} = \dfrac{7}{15}$$</div>
+            <p>L'estalvi és el complementari: $1 - \dfrac{7}{15} = \dfrac{8}{15}$. I aquest val 150 €:</p>
+            <div class="math-block">$$\dfrac{8}{15} \cdot S = 150 \quad\Longrightarrow\quad S = 150 \cdot \dfrac{15}{8} = \dfrac{2250}{8} = \dfrac{1125}{4}$$</div>
+          </div>
+          <div class="pb-final">
+            <p>$S = \dfrac{1125}{4} = 281{,}25\,€$</p>
+          </div>
+          <div class="fix-note">
+            La solució no és un nombre rodó, cosa estranya per un problema de classe. És possible que alguna fracció original sigui diferent (per exemple, amb $\dfrac{1}{3}$, $\dfrac{1}{6}$ i $\dfrac{1}{10}$ surt $S = 375\,€$). Comprova l'enunciat.
+          </div>
+        </div>
+
+        <!-- ============ Problema 14 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">14</span>
+          <div class="pb-statement">
+            <p>D'un solar es dediquen $\dfrac{2}{5}$ a habitatges, $\dfrac{3}{4}$ <em>de la resta</em> a instal·lacions esportives, i els $3200\,\text{m}^2$ que resten a un parc públic. Quina és la superfície total del solar?</p>
+          </div>
+          <div class="pb-steps">
+            <p>Després dels habitatges queda $\dfrac{3}{5}$. Els esports són $\dfrac{3}{4} \cdot \dfrac{3}{5} = \dfrac{9}{20}$ del total.</p>
+            <p>El parc és el que queda després dels esports:</p>
+            <div class="math-block">$$1 - \dfrac{2}{5} - \dfrac{9}{20} = \dfrac{20}{20} - \dfrac{8}{20} - \dfrac{9}{20} = \dfrac{3}{20}$$</div>
+            <p>Aquesta fracció correspon a $3200\,\text{m}^2$:</p>
+            <div class="math-block">$$\dfrac{3}{20} \cdot S = 3200 \quad\Longrightarrow\quad S = 3200 \cdot \dfrac{20}{3} = \dfrac{64000}{3}\,\text{m}^2$$</div>
+          </div>
+          <div class="pb-final">
+            <p>$S = \dfrac{64000}{3} \approx 21\,333{,}33\,\text{m}^2$</p>
+          </div>
+          <div class="fix-note">
+            Tampoc surt un nombre rodó. Si el parc fossin $1\,200\,\text{m}^2$, la superfície seria $8\,000\,\text{m}^2$ (clàssic). Sospito un typo a l'enunciat ($3200 \to 1200$ o algun fracció diferent).
+          </div>
+        </div>
+
+        <!-- ============ Problema 15 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">15</span>
+          <div class="pb-statement">
+            <p>Una excursionista ha recorregut $\dfrac{3}{5}$ d'un camí; <em>de la part feta</em>, $\dfrac{1}{4}$ caminant i la resta en bicicleta.</p>
+            <ol>
+              <li>Quina part del camí ha recorregut caminant?</li>
+              <li>Quina part del camí ha recorregut en bicicleta?</li>
+              <li>Quina part li queda per fer?</li>
+            </ol>
+          </div>
+          <div class="pb-steps">
+            <p><strong>a)</strong> Caminant = $\dfrac{1}{4}$ de $\dfrac{3}{5} = \dfrac{3}{20}$.</p>
+            <p><strong>b)</strong> Bicicleta = $\dfrac{3}{4}$ de $\dfrac{3}{5} = \dfrac{9}{20}$.</p>
+            <p><strong>c)</strong> Queda = $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
+            <p>Comprovació: $\dfrac{3}{20} + \dfrac{9}{20} + \dfrac{2}{5} = \dfrac{3}{20} + \dfrac{9}{20} + \dfrac{8}{20} = \dfrac{20}{20} = 1$ ✓.</p>
+          </div>
+          <div class="pb-final">
+            <p>a) $\dfrac{3}{20}$ &nbsp;·&nbsp; b) $\dfrac{9}{20}$ &nbsp;·&nbsp; c) $\dfrac{2}{5}$</p>
+          </div>
+          <div class="fix-note">
+            A l'enunciat imprès posa que ha recorregut $\dfrac{1}{4}$ del camí, però la solució utilitza $\dfrac{3}{5}$. Hi ha contradicció entre l'enunciat i la solució. Com que la solució utilitza $\dfrac{3}{5}$ de manera consistent, he reescrit l'enunciat amb $\dfrac{3}{5}$.
+          </div>
+        </div>
+
+        <!-- ============ Problema 16 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">16</span>
+          <div class="pb-statement">
+            <p>Contesta justificant la resposta:</p>
+            <ol type="a">
+              <li>$\dfrac{4}{7}$ de $\dfrac{2}{5}$ dels 105 alumnes de 2n d'ESO juguen a bàsquet. Quina fracció juga a bàsquet? Quants no juguen?</li>
+              <li>La meitat dels $\dfrac{3}{4}$ d'un nombre és 18. Quin és aquest nombre?</li>
+              <li>Quants minuts són $\dfrac{5}{6}$ de $\dfrac{3}{5}$ d'hora?</li>
+              <li>Si dono $\dfrac{3}{7}$ de la meitat d'un pastís, quin tros em queda?</li>
+            </ol>
+          </div>
+          <div class="pb-steps">
+            <p><strong>a)</strong> Fracció: $\dfrac{4}{7} \cdot \dfrac{2}{5} = \dfrac{8}{35}$. Juguen: $\dfrac{8}{35} \cdot 105 = 24$ alumnes. No juguen: $105 - 24 = 81$ alumnes.</p>
+            <p><strong>b)</strong> $\dfrac{1}{2} \cdot \dfrac{3}{4} \cdot x = 18 \Longrightarrow \dfrac{3}{8} x = 18 \Longrightarrow x = 18 \cdot \dfrac{8}{3} = 48$.</p>
+            <p><strong>c)</strong> $\dfrac{5}{6} \cdot \dfrac{3}{5} \cdot 60 = \dfrac{15}{30} \cdot 60 = \dfrac{1}{2} \cdot 60 = 30$ minuts.</p>
+            <p><strong>d)</strong> Donat: $\dfrac{3}{7} \cdot \dfrac{1}{2} = \dfrac{3}{14}$. Queda: $1 - \dfrac{3}{14} = \dfrac{11}{14}$.</p>
+          </div>
+          <div class="pb-final">
+            <p>a) $\dfrac{8}{35}$, $81$ no juguen &nbsp;·&nbsp; b) $48$ &nbsp;·&nbsp; c) $30$ minuts &nbsp;·&nbsp; d) $\dfrac{11}{14}$</p>
+          </div>
+        </div>
+
+        <!-- ============ Problema 17 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">17</span>
+          <div class="pb-statement">
+            <p>El Toni i els seus amics es van menjar $\dfrac{3}{5}$ d'una coca de brioix. Després, el Toni va repartir la part que va sobrar entre els seus 3 veïns. Quina fracció va rebre cada veí?</p>
+          </div>
+          <div class="pb-steps">
+            <p>El que va sobrar: $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
+            <p>Repartit entre 3 veïns:</p>
+            <div class="math-block">$$\dfrac{2}{5} : 3 = \dfrac{2}{5} \cdot \dfrac{1}{3} = \dfrac{2}{15}$$</div>
+          </div>
+          <div class="pb-final">
+            <p>Cada veí rep $\dfrac{2}{15}$ de la coca.</p>
+          </div>
+        </div>
+
+        <!-- ============ Problema 18 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">18</span>
+          <div class="pb-statement">
+            <p>L'Eduard compra una col·lecció de llibres per 1200 € i tria pagament fraccionat. D'entrada paga $\dfrac{1}{6}$ del preu, i el mes següent ha de pagar $\dfrac{3}{5}$ <em>del que queda</em>.</p>
+            <ol>
+              <li>Quant paga d'entrada?</li>
+              <li>Quina fracció del preu paga al cap d'un mes?</li>
+              <li>Quant haurà pagat fins aleshores?</li>
+              <li>Quina fracció del total queda per pagar?</li>
+            </ol>
+          </div>
+          <div class="pb-steps">
+            <p><strong>a)</strong> Entrada: $\dfrac{1}{6}$ de $1200 = 200\,€$.</p>
+            <p><strong>b)</strong> Després de l'entrada queda $\dfrac{5}{6}$. Al mes paga $\dfrac{3}{5}$ d'aquesta resta:</p>
+            <div class="math-block">$$\dfrac{3}{5} \cdot \dfrac{5}{6} = \dfrac{3}{6} = \dfrac{1}{2} \text{ del preu total}$$</div>
+            <p><strong>c)</strong> Pagament al mes: $\dfrac{1}{2} \cdot 1200 = 600\,€$. Total: $200 + 600 = 800\,€$.</p>
+            <p><strong>d)</strong> Fracció pagada: $\dfrac{1}{6} + \dfrac{1}{2} = \dfrac{1}{6} + \dfrac{3}{6} = \dfrac{4}{6} = \dfrac{2}{3}$. Per tant queda $1 - \dfrac{2}{3} = \dfrac{1}{3}$.</p>
+          </div>
+          <div class="pb-final">
+            <p>a) $200\,€$ &nbsp;·&nbsp; b) $\dfrac{1}{2}$ &nbsp;·&nbsp; c) $800\,€$ &nbsp;·&nbsp; d) $\dfrac{1}{3}$ (= $400\,€$)</p>
+          </div>
+        </div>
+
+        <!-- ============ Problema 19 ============ -->
+        <div class="problem-card">
+          <span class="pb-label">19</span>
+          <div class="pb-statement">
+            <p>Un pagès rega $\dfrac{2}{5}$ d'un camp al matí. A la tarda rega <em>la resta</em>, que són $6\,000\,\text{m}^2$. Quina és la superfície del camp?</p>
+          </div>
+          <div class="pb-steps">
+            <p>La resta = $1 - \dfrac{2}{5} = \dfrac{3}{5}$, i aquesta val $6\,000\,\text{m}^2$:</p>
+            <div class="math-block">$$\dfrac{3}{5} \cdot S = 6\,000 \quad\Longrightarrow\quad S = 6\,000 \cdot \dfrac{5}{3} = 10\,000\,\text{m}^2$$</div>
+          </div>
+          <div class="pb-final">
+            <p>$S = 10\,000\,\text{m}^2$.</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/eso-2/apuntes/u-fraccions/06-mes-exercicis-26-set.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/eso-2/apuntes/u-fraccions/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

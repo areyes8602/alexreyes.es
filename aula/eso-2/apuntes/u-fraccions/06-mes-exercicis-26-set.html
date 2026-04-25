@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6. Més exercicis (26 set) · Fraccions · 2n ESO</title>
+<meta name="description" content="Més exercicis resolts d'operacions combinades amb fraccions i potències — 2n d'ESO, sessió del 26 de setembre.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/eso-2/apuntes/u-fraccions/06-mes-exercicis-26-set.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
+.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+.exercise-card .ex-steps { margin: 0.6rem 0; }
+.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+.exercise-card .ex-final::before { content: "Resultat"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+.tip-box { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.6rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.92rem; }
+.tip-box::before { content: "💡 Truc"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+[data-theme="dark"] .tip-box { background: rgba(16,185,129,0.14); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/2eso/">2n ESO</a>
+      <span class="sep">/</span>
+      <a href="/aula/eso-2/apuntes/u-fraccions/">Fraccions</a>
+      <span class="sep">/</span>
+      <span class="current">06 · Més exercicis (26 set)</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">2n ESO · Fraccions</span>
+        <span class="tag tag-orange">Exercicis</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">26 set 2025</span>
+      </div>
+      <h1 style="margin:0">6. Més exercicis resolts</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Operacions combinades amb fraccions, arrels quadrades i potències amb exponents negatius.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ Exercici 32 ============ -->
+      <div class="apunt-section">
+        <h2>32. Fracció irreductible respectant la prioritat</h2>
+        <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Calcula i dona el resultat com a fracció irreductible, tenint en compte la jerarquia de les operacions.</p>
+
+        <div class="exercise-card">
+          <span class="ex-label">32 · a</span>
+          <div class="ex-statement">
+            <div class="math-block">
+              $$-\dfrac{5}{9} - \left(\dfrac{2}{5}\right)^{\!2} + 3$$
+            </div>
+          </div>
+          <div class="ex-steps">
+            <p>Primer la potència, després les sumes/restes amb $\text{MCM}(9, 25, 1) = 225$:</p>
+            <div class="math-block">
+              $$= -\dfrac{5}{9} - \dfrac{4}{25} + \dfrac{3}{1} = -\dfrac{125}{225} - \dfrac{36}{225} + \dfrac{675}{225}$$
+            </div>
+            <div class="math-block">
+              $$= \dfrac{-125 - 36 + 675}{225} = \dfrac{514}{225}$$
+            </div>
+            <p>$514 = 2 \cdot 257$ i $225 = 3^2 \cdot 5^2$, no tenen divisors comuns: irreductible.</p>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$\dfrac{514}{225}$$</div>
+          </div>
+        </div>
+
+        <div class="exercise-card">
+          <span class="ex-label">32 · b</span>
+          <div class="ex-statement">
+            <div class="math-block">
+              $$\dfrac{6}{45} : \left(\dfrac{5}{25} + \dfrac{7}{75}\right)$$
+            </div>
+          </div>
+          <div class="ex-steps">
+            <p>Simplifiquem $\dfrac{6}{45} = \dfrac{2}{15}$ i $\dfrac{5}{25} = \dfrac{1}{5}$, i resolem el parèntesi (denominador comú $75$):</p>
+            <div class="math-block">
+              $$= \dfrac{2}{15} : \left(\dfrac{15}{75} + \dfrac{7}{75}\right) = \dfrac{2}{15} : \dfrac{22}{75}$$
+            </div>
+            <p>Convertim la divisió en multiplicació pel invers:</p>
+            <div class="math-block">
+              $$= \dfrac{2}{15} \cdot \dfrac{75}{22} = \dfrac{150}{330} = \dfrac{5}{11}$$
+            </div>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$\dfrac{5}{11}$$</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ Exercici 34 ============ -->
+      <div class="apunt-section">
+        <h2>34. Operacions combinades amb arrels i potències</h2>
+        <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Efectua les operacions i simplifica el resultat sempre que es pugui.</p>
+
+        <div class="exercise-card">
+          <span class="ex-label">34 · d</span>
+          <div class="ex-statement">
+            <div class="math-block" style="font-size:1rem">
+              $$\sqrt{\dfrac{9}{121}} + \dfrac{5}{12} \cdot \dfrac{24}{25} - \dfrac{1}{2} : \left(-\dfrac{2}{3} + \dfrac{1}{4}\right)$$
+            </div>
+          </div>
+          <div class="ex-steps">
+            <p>Calculem l'arrel, la multiplicació i el parèntesi:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$\sqrt{\dfrac{9}{121}} = \dfrac{3}{11}, \quad \dfrac{5}{12} \cdot \dfrac{24}{25} = \dfrac{120}{300} = \dfrac{2}{5}, \quad -\dfrac{2}{3} + \dfrac{1}{4} = -\dfrac{8}{12} + \dfrac{3}{12} = -\dfrac{5}{12}$$
+            </div>
+            <p>Substituïm i resolem la divisió (els dos signes negatius es cancel·len):</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= \dfrac{3}{11} + \dfrac{2}{5} - \dfrac{1}{2} : \left(-\dfrac{5}{12}\right) = \dfrac{3}{11} + \dfrac{2}{5} + \dfrac{12}{10} = \dfrac{3}{11} + \dfrac{2}{5} + \dfrac{6}{5}$$
+            </div>
+            <p>Denominador comú $\text{MCM}(11, 5) = 55$:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= \dfrac{15}{55} + \dfrac{22}{55} + \dfrac{66}{55} = \dfrac{103}{55}$$
+            </div>
+            <p>$103$ és primer i no divideix $55 = 5 \cdot 11$: irreductible.</p>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$\dfrac{103}{55}$$</div>
+          </div>
+        </div>
+
+        <div class="exercise-card">
+          <span class="ex-label">34 · e</span>
+          <div class="ex-statement">
+            <div class="math-block" style="font-size:1rem">
+              $$\dfrac{28}{60} - \dfrac{5}{36} \cdot \left(-\dfrac{27}{75}\right) + \sqrt{\dfrac{256}{625}} + 20 : (-8)$$
+            </div>
+          </div>
+          <div class="ex-steps">
+            <p>Simplifiquem cada bloc abans de combinar:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$\dfrac{28}{60} = \dfrac{7}{15}, \quad \dfrac{5}{36} \cdot \dfrac{27}{75} = \dfrac{135}{2700} = \dfrac{1}{20}, \quad \sqrt{\dfrac{256}{625}} = \dfrac{16}{25}, \quad 20 : (-8) = -\dfrac{5}{2}$$
+            </div>
+            <p>(El producte $\dfrac{5}{36} \cdot \left(-\dfrac{27}{75}\right)$ porta un signe negatiu, però hi ha un altre menys davant: queden positius.) Substituïm:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= \dfrac{7}{15} + \dfrac{1}{20} + \dfrac{16}{25} - \dfrac{5}{2}$$
+            </div>
+            <p>Denominador comú $\text{MCM}(15, 20, 25, 2) = 300$:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= \dfrac{140}{300} + \dfrac{15}{300} + \dfrac{192}{300} - \dfrac{750}{300} = \dfrac{-403}{300}$$
+            </div>
+            <p>$403 = 13 \cdot 31$ i $300 = 2^2 \cdot 3 \cdot 5^2$, no tenen divisors comuns.</p>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$-\dfrac{403}{300}$$</div>
+          </div>
+        </div>
+
+        <div class="exercise-card">
+          <span class="ex-label">34 · f</span>
+          <div class="ex-statement">
+            <div class="math-block" style="font-size:1rem">
+              $$\left(\dfrac{6}{7}\right)^{\!3} : \left(\dfrac{6}{7}\right)^{\!2} - \dfrac{65}{18} \cdot \dfrac{12}{39} + \left(-\dfrac{9}{5}\right)^{\!3} \cdot \left(-\dfrac{9}{5}\right)^{\!-5}$$
+            </div>
+          </div>
+          <div class="ex-steps">
+            <p>Apliquem propietats de potències i simplifiquem la multiplicació:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$\left(\dfrac{6}{7}\right)^{\!3-2} = \dfrac{6}{7}, \quad \dfrac{65}{18} \cdot \dfrac{12}{39} = \dfrac{5 \cdot 13 \cdot 2^2 \cdot 3}{2 \cdot 3^2 \cdot 3 \cdot 13} = \dfrac{10}{9}, \quad \left(-\dfrac{9}{5}\right)^{\!3-5} = \left(-\dfrac{9}{5}\right)^{\!-2} = \dfrac{25}{81}$$
+            </div>
+            <p>(L'exponent $-2$ és parell, per això el resultat de la potència és positiu.)</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= \dfrac{6}{7} - \dfrac{10}{9} + \dfrac{25}{81}$$
+            </div>
+            <p>Denominador comú $\text{MCM}(7, 9, 81) = 567$:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= \dfrac{486}{567} - \dfrac{630}{567} + \dfrac{175}{567} = \dfrac{31}{567}$$
+            </div>
+            <p>$31$ és primer i no divideix $567 = 7 \cdot 3^4$: irreductible.</p>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$\dfrac{31}{567}$$</div>
+          </div>
+        </div>
+
+        <div class="exercise-card">
+          <span class="ex-label">34 · g</span>
+          <div class="ex-statement">
+            <div class="math-block" style="font-size:1rem">
+              $$\left[\left(-\dfrac{12}{9}\right)^{\!-6} \cdot \left(-\dfrac{12}{9}\right)^{\!5}\right] : \left[\left(\dfrac{10}{7}\right)^{\!4} \cdot \left(\dfrac{10}{7}\right)^{\!-5}\right]$$
+            </div>
+          </div>
+          <div class="ex-steps">
+            <p>Mateixa base dins de cada claudàtor → sumem exponents:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= \left(-\dfrac{12}{9}\right)^{\!-1} : \left(\dfrac{10}{7}\right)^{\!-1}$$
+            </div>
+            <p>Mateix exponent en les dues bases → els podem agrupar:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= \left(-\dfrac{12}{9} : \dfrac{10}{7}\right)^{\!-1} = \left(-\dfrac{12}{9} \cdot \dfrac{7}{10}\right)^{\!-1} = \left(-\dfrac{84}{90}\right)^{\!-1}$$
+            </div>
+            <p>Una potència $-1$ és invertir la fracció:</p>
+            <div class="math-block" style="font-size:0.95rem">
+              $$= -\dfrac{90}{84} = -\dfrac{15}{14}$$
+            </div>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$-\dfrac{15}{14}$$</div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          A <strong>34g</strong>, com que $-\dfrac{12}{9} = -\dfrac{4}{3}$, es podia simplificar la base abans de tot. Hauria sortit $\left(-\dfrac{4}{3}\right)^{\!-1} : \left(\dfrac{10}{7}\right)^{\!-1} = \left(-\dfrac{4}{3} \cdot \dfrac{7}{10}\right)^{\!-1} = \left(-\dfrac{28}{30}\right)^{\!-1} = -\dfrac{30}{28} = -\dfrac{15}{14}$. Mateix resultat amb números més petits.
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/eso-2/apuntes/u-fraccions/05-exercicis-19-set.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/eso-2/apuntes/u-fraccions/">Índex de la unitat</a>
+        <a class="next" href="/aula/eso-2/apuntes/u-fraccions/07-problemes.html">Apartat següent &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

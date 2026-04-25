@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4. Operacions amb fraccions · Fraccions · 2n ESO</title>
+<meta name="description" content="Apunts de 2n d'ESO sobre operacions amb fraccions: suma, resta, multiplicació, divisió, operacions combinades i potències.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/eso-2/apuntes/u-fraccions/04-operacions.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.apunt-section > h3.subhead { font-size: 1rem; font-weight: 600; margin: 1.4rem 0 0.6rem; color: var(--text); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.method-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 0.8rem 0; }
+.method-card h3 { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 600; color: var(--text); }
+.method-card p { margin: 0.3rem 0; }
+.steps-list { counter-reset: step; padding: 0; margin: 0.8rem 0; list-style: none; }
+.steps-list li { counter-increment: step; padding: 0.5rem 0 0.5rem 2.4rem; position: relative; }
+.steps-list li::before { content: counter(step); position: absolute; left: 0; top: 0.5rem; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: #6366f1; color: white; font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+.tip-box { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.8rem 1rem; border-radius: 4px; margin: 0.8rem 0; font-size: 0.94rem; }
+.tip-box::before { content: "💡 Truc"; display: block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.3rem; }
+.warn-box { background: rgba(234,88,12,0.07); border-left: 3px solid #ea580c; padding: 0.8rem 1rem; border-radius: 4px; margin: 0.8rem 0; font-size: 0.94rem; }
+.warn-box::before { content: "⚠ Compte"; display: block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #ea580c; margin-bottom: 0.3rem; }
+.rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0.8rem 0; }
+.rules-grid .rule-cell { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 6px; padding: 0.7rem 0.9rem; }
+.rules-grid .rule-cell .rule-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-soft); margin-bottom: 0.3rem; }
+@media (max-width: 600px) { .rules-grid { grid-template-columns: 1fr; } }
+.hierarchy-list { list-style: none; padding: 0; margin: 0.8rem 0; counter-reset: hier; }
+.hierarchy-list li { padding: 0.45rem 0 0.45rem 2.6rem; position: relative; counter-increment: hier; border-bottom: 1px dashed var(--border); }
+.hierarchy-list li:last-child { border-bottom: none; }
+.hierarchy-list li::before { content: counter(hier); position: absolute; left: 0; top: 0.45rem; width: 1.9rem; height: 1.9rem; border-radius: 6px; background: #ec4899; color: white; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; font-family: var(--mono); }
+.hierarchy-list li.zero-step::before { content: "0"; background: var(--text-soft); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .tip-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(234,88,12,0.16); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/2eso/">2n ESO</a>
+      <span class="sep">/</span>
+      <a href="/aula/eso-2/apuntes/u-fraccions/">Fraccions</a>
+      <span class="sep">/</span>
+      <span class="current">04 · Operacions</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">2n ESO · Fraccions</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">15 set 2025</span>
+      </div>
+      <h1 style="margin:0">4. Operacions amb fraccions</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Suma, resta, multiplicació, divisió, operacions combinades i potències de fraccions.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ SUMA I RESTA ============ -->
+      <div class="apunt-section">
+        <h2>Suma i resta</h2>
+        <div class="def-box">
+          <h3>Regla</h3>
+          <p>Només es poden sumar i/o restar fraccions que tenen el <strong>mateix denominador</strong>. Si no en tenen, s'ha d'aconseguir.</p>
+        </div>
+
+        <div class="method-card">
+          <h3>Procediment quan els denominadors són diferents</h3>
+          <ol class="steps-list">
+            <li>Calcular el <strong>MCM</strong> de tots els denominadors.</li>
+            <li><strong>Amplificar</strong> totes les fraccions perquè tinguin aquest denominador comú.</li>
+            <li><strong>Sumar i/o restar els numeradors</strong>. El denominador no varia.</li>
+            <li>Si es pot, <strong>simplificar</strong> el resultat.</li>
+          </ol>
+        </div>
+
+        <p style="font-size:0.95rem;margin-bottom:0.4rem"><strong>Exemple.</strong></p>
+        <div class="math-block">
+          $$\dfrac{15}{4} - \dfrac{3}{5} + \dfrac{1}{10} \;=\; \dfrac{75}{20} - \dfrac{12}{20} + \dfrac{2}{20} \;=\; \dfrac{65}{20} \;=\; \dfrac{13}{4}$$
+        </div>
+        <p class="note" style="margin-top:0.4rem">$\text{MCM}(4, 5, 10) = 20$. Amplifiquem cadascuna a denominador $20$, sumem/restem numeradors i simplifiquem dividint per $5$.</p>
+      </div>
+
+      <!-- ============ MULTIPLICACIÓ ============ -->
+      <div class="apunt-section">
+        <h2>Multiplicació</h2>
+        <div class="def-box">
+          <h3>Regla</h3>
+          <p>La multiplicació es fa <strong>en línia</strong>: numerador per numerador, denominador per denominador. <em>No</em> cal denominador comú.</p>
+          <div class="math-block" style="margin:0.8rem 0 0;padding:0.6rem">
+            $$\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a \cdot c}{b \cdot d}$$
+          </div>
+        </div>
+
+        <p style="font-size:0.95rem;margin-bottom:0.4rem"><strong>Exemple senzill.</strong></p>
+        <div class="math-block">
+          $$\dfrac{3}{2} \cdot \dfrac{5}{7} = \dfrac{15}{14}$$
+        </div>
+
+        <div class="tip-box">
+          Abans de multiplicar, és útil <strong>simplificar en creu</strong>: si un numerador i un denominador (de qualsevol fracció) tenen un divisor comú, es pot dividir directament. Això evita treballar amb números gegants.
+        </div>
+
+        <p style="font-size:0.95rem;margin:0.8rem 0 0.4rem"><strong>Exemple amb simplificació prèvia.</strong></p>
+        <div class="math-block" style="font-size:1rem">
+          $$\dfrac{50}{16} \cdot \dfrac{28}{98} \cdot \dfrac{8}{125} \cdot \dfrac{10}{14} = \dfrac{2}{49}$$
+        </div>
+        <p class="note" style="margin-top:0.4rem">Descomponent en factors primers (els $5$, $2$ i $7$ es cancel·len entre numeradors i denominadors), arribem directament a $\dfrac{2}{49}$ sense multiplicar els quatre numeradors.</p>
+      </div>
+
+      <!-- ============ DIVISIÓ ============ -->
+      <div class="apunt-section">
+        <h2>Divisió</h2>
+        <div class="def-box">
+          <h3>Regla</h3>
+          <p>Per dividir fraccions, es <strong>multiplica en creu</strong>. Equivalentment, es multiplica per la <strong>fracció inversa</strong> de la segona.</p>
+          <div class="math-block" style="margin:0.8rem 0 0;padding:0.6rem">
+            $$\dfrac{a}{b} : \dfrac{c}{d} \;=\; \dfrac{a}{b} \cdot \dfrac{d}{c} \;=\; \dfrac{a \cdot d}{b \cdot c}$$
+          </div>
+        </div>
+
+        <p style="font-size:0.95rem;margin:0.6rem 0 0.4rem">Una fracció dins d'una altra (<em>fracció composta</em>) és el mateix que una divisió:</p>
+        <div class="math-block">
+          $$\dfrac{\;\dfrac{a}{b}\;}{\;\dfrac{c}{d}\;} \;=\; \dfrac{a}{b} : \dfrac{c}{d} \;=\; \dfrac{a \cdot d}{b \cdot c}$$
+        </div>
+
+        <p style="font-size:0.95rem;margin:0.8rem 0 0.4rem"><strong>Exemple.</strong></p>
+        <div class="math-block">
+          $$\dfrac{3}{4} : \dfrac{2}{5} \;=\; \dfrac{3 \cdot 5}{4 \cdot 2} \;=\; \dfrac{15}{8}$$
+        </div>
+      </div>
+
+      <!-- ============ OPERACIONS COMBINADES ============ -->
+      <div class="apunt-section">
+        <h2>Operacions combinades</h2>
+
+        <div class="def-box">
+          <h3>Jerarquia de les operacions</h3>
+          <ol class="hierarchy-list">
+            <li class="zero-step"><strong>Preparar</strong>: simplificar el que es pugui i, si un nombre no té denominador, posar-li $1$ (per exemple $12 = \dfrac{12}{1}$).</li>
+            <li><strong>Parèntesis i claudàtors</strong>, de dins cap a fora.</li>
+            <li><strong>Potències</strong> i arrels.</li>
+            <li><strong>Multiplicacions i divisions</strong>, d'esquerra a dreta.</li>
+            <li><strong>Sumes i restes</strong>, d'esquerra a dreta.</li>
+          </ol>
+        </div>
+
+        <p style="font-size:0.95rem;margin:0.8rem 0 0.4rem"><strong>Exemple.</strong> Calculem:</p>
+        <div class="math-block">
+          $$\dfrac{5}{6} \cdot \left(\dfrac{11}{20} - \dfrac{12}{30}\right) \;-\; \dfrac{7}{8} : \left(\dfrac{4}{3} + 12\right) \;-\; \dfrac{1}{5}$$
+        </div>
+
+        <div class="method-card">
+          <h3>Pas 1 — Simplifiquem dins dels parèntesis</h3>
+          <p>$\dfrac{12}{30} = \dfrac{2}{5}$ i $12 = \dfrac{12}{1} = \dfrac{36}{3}$:</p>
+          <div class="math-block" style="font-size:1rem">
+            $$= \dfrac{5}{6}\left(\dfrac{11}{20} - \dfrac{8}{20}\right) - \dfrac{7}{8} : \left(\dfrac{4}{3} + \dfrac{36}{3}\right) - \dfrac{1}{5}$$
+          </div>
+        </div>
+
+        <div class="method-card">
+          <h3>Pas 2 — Resolem els parèntesis</h3>
+          <div class="math-block" style="font-size:1rem">
+            $$= \dfrac{5}{6} \cdot \dfrac{3}{20} \;-\; \dfrac{7}{8} : \dfrac{40}{3} \;-\; \dfrac{1}{5}$$
+          </div>
+        </div>
+
+        <div class="method-card">
+          <h3>Pas 3 — Multiplicacions i divisions</h3>
+          <div class="math-block" style="font-size:1rem">
+            $$= \dfrac{15}{120} \;-\; \dfrac{21}{320} \;-\; \dfrac{1}{5} \;=\; \dfrac{1}{8} \;-\; \dfrac{21}{320} \;-\; \dfrac{1}{5}$$
+          </div>
+        </div>
+
+        <div class="method-card">
+          <h3>Pas 4 — Sumes i restes amb denominador comú $320$</h3>
+          <div class="math-block" style="font-size:1rem">
+            $$= \dfrac{40}{320} - \dfrac{21}{320} - \dfrac{64}{320} \;=\; \dfrac{40 - 21 - 64}{320} \;=\; \dfrac{-45}{320} \;=\; -\dfrac{9}{64}$$
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ POTÈNCIES ============ -->
+      <div class="apunt-section">
+        <h2>Potències</h2>
+
+        <p style="font-size:0.95rem;margin:0.6rem 0">Les propietats de les potències també valen per a fraccions. Resumim-les en parelles (regla per nombres / regla per fraccions):</p>
+
+        <h3 class="subhead">Mateixa base</h3>
+        <div class="rules-grid">
+          <div class="rule-cell">
+            <div class="rule-label">Producte</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$a^m \cdot a^n = a^{m+n}$$</div>
+          </div>
+          <div class="rule-cell">
+            <div class="rule-label">Producte (fraccions)</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$\left(\dfrac{a}{b}\right)^{\!m} \cdot \left(\dfrac{a}{b}\right)^{\!n} = \left(\dfrac{a}{b}\right)^{\!m+n}$$</div>
+          </div>
+          <div class="rule-cell">
+            <div class="rule-label">Quocient</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$a^m : a^n = a^{m-n}$$</div>
+          </div>
+          <div class="rule-cell">
+            <div class="rule-label">Quocient (fraccions)</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$\left(\dfrac{a}{b}\right)^{\!m} : \left(\dfrac{a}{b}\right)^{\!n} = \left(\dfrac{a}{b}\right)^{\!m-n}$$</div>
+          </div>
+        </div>
+
+        <h3 class="subhead">Mateix exponent</h3>
+        <div class="rules-grid">
+          <div class="rule-cell">
+            <div class="rule-label">Producte</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$a^m \cdot b^m = (a \cdot b)^m$$</div>
+          </div>
+          <div class="rule-cell">
+            <div class="rule-label">Producte (fraccions)</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$\left(\dfrac{a}{b}\right)^{\!m} \cdot \left(\dfrac{c}{d}\right)^{\!m} = \left(\dfrac{a}{b} \cdot \dfrac{c}{d}\right)^{\!m}$$</div>
+          </div>
+          <div class="rule-cell">
+            <div class="rule-label">Quocient</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$a^m : b^m = (a : b)^m$$</div>
+          </div>
+          <div class="rule-cell">
+            <div class="rule-label">Quocient (fraccions)</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$\left(\dfrac{a}{b}\right)^{\!m} : \left(\dfrac{c}{d}\right)^{\!m} = \left(\dfrac{a}{b} : \dfrac{c}{d}\right)^{\!m}$$</div>
+          </div>
+        </div>
+
+        <h3 class="subhead">Potència de potència</h3>
+        <div class="math-block">
+          $$(a^m)^n = a^{m \cdot n} \qquad\qquad \left[\left(\dfrac{a}{b}\right)^{\!m}\right]^{\!n} = \left(\dfrac{a}{b}\right)^{\!m \cdot n}$$
+        </div>
+
+        <h3 class="subhead">Casos especials</h3>
+        <div class="rules-grid">
+          <div class="rule-cell">
+            <div class="rule-label">Exponent 0</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$a^0 = 1 \qquad \left(\dfrac{a}{b}\right)^{\!0} = 1$$</div>
+          </div>
+          <div class="rule-cell">
+            <div class="rule-label">Exponent 1</div>
+            <div class="math-block" style="margin:0;padding:0;background:none;border:none">$$a^1 = a \qquad \left(\dfrac{a}{b}\right)^{\!1} = \dfrac{a}{b}$$</div>
+          </div>
+        </div>
+
+        <h3 class="subhead">Signe d'una potència</h3>
+        <div class="def-box">
+          <p>Quan la base és negativa, el signe del resultat depèn de la <strong>paritat</strong> de l'exponent:</p>
+          <div class="math-block" style="margin:0.6rem 0 0;padding:0.4rem">
+            $$(-a)^n = \begin{cases} \;\;\;a^n & \text{si } n \text{ és parell} \\ -a^n & \text{si } n \text{ és imparell} \end{cases}$$
+          </div>
+        </div>
+
+        <div class="warn-box">
+          <strong>No és el mateix</strong> $(-a)^n$ que $-a^n$. En el primer, el signe està dins de la potència; en el segon, només es fa $a^n$ i després es canvia el signe. Per exemple, $(-2)^2 = 4$, però $-2^2 = -4$.
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/eso-2/apuntes/u-fraccions/03-ordenacio-i-representacio.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/eso-2/apuntes/u-fraccions/">Índex de la unitat</a>
+        <a class="next" href="/aula/eso-2/apuntes/u-fraccions/05-exercicis-19-set.html">Apartat següent &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
