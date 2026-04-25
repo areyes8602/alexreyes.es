@@ -519,3 +519,49 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
     border-radius: var(--radius-sm);
   }
 }
+
+/* ---- EXAM LIST (sección "Exámenes anteriores" en página de promoción) ---- */
+.exam-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.exam-card {
+  background: var(--bg-subtle); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.2rem 1.3rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.exam-card:hover { border-color: var(--border-strong); }
+.exam-card-head {
+  display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+}
+.exam-card-date {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--text-faint); text-transform: lowercase;
+}
+.exam-card-title {
+  font-size: 1rem; font-weight: 600; line-height: 1.35;
+  margin: 0; color: var(--text);
+}
+.exam-card-meta {
+  font-size: 0.82rem; color: var(--text-soft); margin: 0;
+}
+.exam-card-actions {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;
+}
+.exam-card-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.45rem 0.8rem; border-radius: var(--radius-sm);
+  font-size: 0.82rem; font-weight: 500; text-decoration: none;
+  border: 1px solid var(--border); color: var(--text);
+  background: var(--bg); transition: all 0.15s;
+}
+.exam-card-btn:hover { border-color: var(--border-strong); background: var(--bg-subtle); }
+.exam-card-btn.html { background: rgba(99,102,241,0.08); border-color: rgba(99,102,241,0.25); color: #6366f1; }
+.exam-card-btn.html:hover { background: rgba(99,102,241,0.14); }
+.exam-card-btn.pdf { background: rgba(220,38,38,0.06); border-color: rgba(220,38,38,0.2); color: #b91c1c; }
+.exam-card-btn.pdf:hover { background: rgba(220,38,38,0.12); }
+[data-theme="dark"] .exam-card-btn.html { color: #a5b4fc; }
+[data-theme="dark"] .exam-card-btn.pdf { color: #fca5a5; }
