@@ -42,6 +42,16 @@ for p in sorted(_REPO.glob("aula/*/examenes/*/p*.html")):
         continue
     single_paths.append('/' + str(p.relative_to(_REPO)))
 
+# Apuntes: índices de unidad y apartados HTML individuales
+for p in sorted(_REPO.glob("aula/*/apuntes/*/index.html")):
+    if _is_retired(p):
+        continue
+    single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
+for p in sorted(_REPO.glob("aula/*/apuntes/*/*.html")):
+    if p.name == "index.html" or _is_retired(p):
+        continue
+    single_paths.append('/' + str(p.relative_to(_REPO)))
+
 
 def url_tag(base_path, lang):
     loc = BASE + (base_path if lang == 'es' else f'/{lang}' + (base_path if base_path != '/' else '/'))
