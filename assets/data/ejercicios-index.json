@@ -1,7 +1,330 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-25T07:14:07.672892+00:00",
+  "generated_at": "2026-04-25T07:23:19.342625+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 0,
-  "ejercicios": []
+  "count": 4,
+  "ejercicios": [
+    {
+      "id": "2426-ib2-u13-p1",
+      "titulo": "Movimiento de proyectil en 2D",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html",
+      "numero": 1,
+      "puntuacion": 20,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Escribe la velocidad inicial en forma de vector columna."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Escribe la ecuación vectorial de la velocidad del balón en el instante $t$."
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Halla la ecuación vectorial de la posición del balón en el instante $t$, tomando como origen el punto de chut."
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Calcula el tiempo que tarda el balón en volver al suelo."
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Calcula el alcance horizontal del balón."
+        },
+        {
+          "letra": "f",
+          "puntos": 3,
+          "tarea": "Calcula la altura máxima alcanzada."
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2426-ib2-u13",
+        "titulo": "Unidad 13 — Dinámica, autovalores y retratos de fase",
+        "tipo": "examen",
+        "fecha": "2026-04-17",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u13/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf",
+        "pdf_soluciones": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "TANS 3.10",
+          "TANS 3.12"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "movimiento de proyectil en 2d ib math ai hl 2025-2026 español propia tema 3 — geometría y trigonometría tans 3.10 — vectores: componentes y representación por columnas; módulo tans 3.12 — aplicación de vectores a cinemática (velocidad, aceleración) media modelización cálculo simbólico interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "movimiento de proyectil en 2d ib math ai hl castellà tema 3 — geometria i trigonometria mitjana",
+        "en": "movimiento de proyectil en 2d ib math ai hl spanish topic 3 — geometry and trigonometry medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u13-p2",
+      "titulo": "Método de Euler y modelo presa-depredador",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html",
+      "numero": 2,
+      "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Aplica dos pasos de Euler con $h = 0{,}5$ para obtener $x(1)$ e $y(1)$. Escribe explícitamente las fórmulas iterativas que usas."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Usa la calculadora para aplicar Euler con $h = 0{,}1$ hasta $t = 1$ y obtén $x(1)$ e $y(1)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Compara los resultados obtenidos en a) y b). ¿Qué conclusión sacas sobre la precisión del método de Euler?"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Calcula el punto de equilibrio del sistema e interpreta su significado en el contexto del ecosistema."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-u13",
+        "titulo": "Unidad 13 — Dinámica, autovalores y retratos de fase",
+        "tipo": "examen",
+        "fecha": "2026-04-17",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u13/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf",
+        "pdf_soluciones": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.16",
+          "TANS 5.17"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "uso_calculadora",
+          "interpretacion",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "método de euler y modelo presa-depredador ib math ai hl 2025-2026 español propia tema 5 — análisis (cálculo) tans 5.16 — edos de 1er orden: separación de variables, método de euler tans 5.17 — sistemas de edos acopladas y edo de 2º orden lineal media cálculo numérico uso de calculadora gráfica interpretación contextual modelización pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "método de euler y modelo presa-depredador ib math ai hl castellà tema 5 — anàlisi (càlcul) mitjana",
+        "en": "método de euler y modelo presa-depredador ib math ai hl spanish topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u13-p3",
+      "titulo": "EDO de 2.º orden, sistema y autovalores",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html",
+      "numero": 3,
+      "puntuacion": 20,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Introduce una nueva variable y transforma la ecuación diferencial de segundo grado en un sistema de ecuaciones diferenciales de primer orden."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Escribe el sistema en forma matricial $X' = AX$."
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Calcula los autovalores de la matriz $A$."
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "Indica si los autovalores son reales y distintos, y explica qué implica sobre la forma general de la solución."
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Describe el comportamiento cualitativo de las soluciones cuando $t \\to \\infty$."
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u13",
+        "titulo": "Unidad 13 — Dinámica, autovalores y retratos de fase",
+        "tipo": "examen",
+        "fecha": "2026-04-17",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u13/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf",
+        "pdf_soluciones": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.17",
+          "TANS 1.14",
+          "TANS 1.15"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "edo de 2.º orden, sistema y autovalores ib math ai hl 2025-2026 español propia tema 5 — análisis (cálculo) tans 5.17 — sistemas de edos acopladas y edo de 2º orden lineal tans 1.14 — matrices; suma, producto, inversa; sistemas en forma matricial tans 1.15 — valores y vectores propios; potencias de matrices; cadenas de markov difícil cálculo simbólico razonamiento modelización pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "edo de 2.º orden, sistema y autovalores ib math ai hl castellà tema 5 — anàlisi (càlcul) difícil",
+        "en": "edo de 2.º orden, sistema y autovalores ib math ai hl spanish topic 5 — calculus hard"
+      }
+    },
+    {
+      "id": "2426-ib2-u13-p4",
+      "titulo": "Retrato de fases con autovalores complejos",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html",
+      "numero": 4,
+      "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Escribe el sistema en forma matricial."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Calcula los autovalores de la matriz asociada."
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Los autovalores de este sistema tienen parte real no nula. Explica qué diferencia hay entre tener autovalores imaginarios puros y autovalores complejos con parte real no nula."
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Sin resolver completamente el sistema, describe el comportamiento del retrato de fases."
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Indica si las trayectorias se acercan al origen, se alejan o permanecen a distancia constante. Justifica tu respuesta."
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u13",
+        "titulo": "Unidad 13 — Dinámica, autovalores y retratos de fase",
+        "tipo": "examen",
+        "fecha": "2026-04-17",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u13/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf",
+        "pdf_soluciones": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 1.14",
+          "TANS 1.15",
+          "TANS 5.17"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "razonamiento",
+          "visualizacion",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "retrato de fases con autovalores complejos ib math ai hl 2025-2026 español propia tema 5 — análisis (cálculo) tans 1.14 — matrices; suma, producto, inversa; sistemas en forma matricial tans 1.15 — valores y vectores propios; potencias de matrices; cadenas de markov tans 5.17 — sistemas de edos acopladas y edo de 2º orden lineal difícil razonamiento visualización / gráficos interpretación contextual pregunta larga (estructurada en apartados)",
+        "ca": "retrato de fases con autovalores complejos ib math ai hl castellà tema 5 — anàlisi (càlcul) difícil",
+        "en": "retrato de fases con autovalores complejos ib math ai hl spanish topic 5 — calculus hard"
+      }
+    }
+  ]
 }
