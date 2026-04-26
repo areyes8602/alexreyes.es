@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P6 · Cúbica: derivada, monotonia i extrems — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 6 del Parcial 1 — 2a avaluació de 1r BTL MACS: estudi complet d'una cúbica.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p6.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/">Parcial 1 · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P6</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">23/01/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p5.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p7.html">Pregunta següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 6 &middot; Cúbica: derivada, monotonia i extrems</h1>
+      <p class="question-descriptor">Aplicació de la primera derivada per estudiar el creixement i la classificació d'extrems d'una cúbica.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+
+        <ol class="apartados">
+          <li>Deriva la funció $f(x) = x^{3} + 2x^{2} - 4x + 1$. Troba els punts crítics, estudia la monotonia i classifica els extrems. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc D</span>
+        <span class="ib-chip" data-descriptor="Punts crítics, signe de $f'$ i criteri de la segona derivada">Derivades + monotonia</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p6" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p6')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p6" hidden>
+
+        <h3>Correcció pas a pas</h3>
+        <p class="note"><strong>Idea clau:</strong> els punts crítics surten de $f'(x) = 0$. Per classificar-los, podem mirar el signe de $f'$ a cada banda o aplicar el criteri de la segona derivada: si $f''(x_{0}) > 0$ → mínim, si $f''(x_{0}) < 0$ → màxim.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Derivada i punts crítics</h4>
+          <div class="math-block">
+            $$f'(x) = 3x^{2} + 4x - 4.$$
+          </div>
+          <p>Resolem $3x^{2} + 4x - 4 = 0$:</p>
+          <div class="math-block">
+            $$x = \dfrac{-4 \pm \sqrt{16 + 48}}{6} = \dfrac{-4 \pm 8}{6} \;\Longrightarrow\; x = -2 \text{ o } x = \tfrac{2}{3}.$$
+          </div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Signe de $f'$ i monotonia</h4>
+          <p>$f'(x) = 3(x+2)(x-\tfrac{2}{3})$ és una paràbola que obre cap amunt. Per tant:</p>
+          <ul>
+            <li>$f'(x) > 0$ a $(-\infty, -2)$: <strong>creixent</strong>.</li>
+            <li>$f'(x) < 0$ a $(-2, \tfrac{2}{3})$: <strong>decreixent</strong>.</li>
+            <li>$f'(x) > 0$ a $(\tfrac{2}{3}, +\infty)$: <strong>creixent</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Classificació amb la segona derivada</h4>
+          <p>$f''(x) = 6x + 4$. Avaluem als punts crítics:</p>
+          <ul>
+            <li>$f''(-2) = -12 + 4 = -8 < 0$ → <strong>màxim</strong> a $x = -2$.</li>
+            <li>$f''(\tfrac{2}{3}) = 4 + 4 = 8 > 0$ → <strong>mínim</strong> a $x = \tfrac{2}{3}$.</li>
+          </ul>
+          <p>Coordenades dels extrems:</p>
+          <div class="math-block">
+            $$f(-2) = -8 + 8 + 8 + 1 = 9, \quad f(\tfrac{2}{3}) = \tfrac{8}{27} + \tfrac{8}{9} - \tfrac{8}{3} + 1 = -\tfrac{13}{27}.$$
+          </div>
+          <div class="final">Màxim relatiu a $(-2,\,9)$. Mínim relatiu a $\left(\tfrac{2}{3},\,-\tfrac{13}{27}\right) \approx (0{,}67,\,-0{,}48)$.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p5.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p7.html">Pregunta següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

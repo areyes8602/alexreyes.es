@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-26T14:45:11.560698+00:00",
+  "generated_at": "2026-04-26T14:52:48.966302+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 36,
+  "count": 44,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -668,6 +668,580 @@
         "es": "valor absolut, exponencial, logaritme i composició bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico visualización / gráficos pregunta larga (estructurada en apartados)",
         "ca": "valor absolut, exponencial, logaritme i composició batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "valor absolut, exponencial, logaritme i composició bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p1-p1",
+      "titulo": "Domini de quatre funcions",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p1.html",
+      "numero": 1,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.25,
+          "tarea": "Troba el domini de $f(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.25,
+          "tarea": "Troba el domini de $g(x)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.25,
+          "tarea": "Troba el domini de $h(x)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.25,
+          "tarea": "Troba el domini de $t(x)$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t2p1",
+        "titulo": "Parcial 1 — 2a avaluació · Funcions, composició, inversa i derivades",
+        "tipo": "examen",
+        "fecha": "2026-01-23",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05",
+          "06",
+          "07"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "domini de quatre funcions bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) fácil cálculo simbólico razonamiento pregunta corta",
+        "ca": "domini de quatre funcions batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "domini de quatre funcions bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p1-p2",
+      "titulo": "Funció inversa",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p2.html",
+      "numero": 2,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.25,
+          "tarea": "Calcula la inversa de $f(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.25,
+          "tarea": "Calcula la inversa de $g(x)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.25,
+          "tarea": "Calcula la inversa de $h(x)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.25,
+          "tarea": "Calcula la inversa de $t(x)$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t2p1",
+        "titulo": "Parcial 1 — 2a avaluació · Funcions, composició, inversa i derivades",
+        "tipo": "examen",
+        "fecha": "2026-01-23",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05",
+          "06",
+          "07"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "funció inversa bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico pregunta corta",
+        "ca": "funció inversa batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "funció inversa bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p1-p3",
+      "titulo": "Conjunt imatge",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p3.html",
+      "numero": 3,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.25,
+          "tarea": "Dona el conjunt imatge de $f(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.25,
+          "tarea": "Dona el conjunt imatge de $g(x)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.25,
+          "tarea": "Dona el conjunt imatge de $h(x)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.25,
+          "tarea": "Dona el conjunt imatge de $t(x)$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t2p1",
+        "titulo": "Parcial 1 — 2a avaluació · Funcions, composició, inversa i derivades",
+        "tipo": "examen",
+        "fecha": "2026-01-23",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05",
+          "06",
+          "07"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "conjunt imatge bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media razonamiento interpretación contextual pregunta corta",
+        "ca": "conjunt imatge batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "conjunt imatge bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p1-p4",
+      "titulo": "Composició de funcions",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p4.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p4.html",
+      "numero": 4,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula $(f \\circ t)(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula $(f \\circ h)(2)$."
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2526-1btl-macs-t2p1",
+        "titulo": "Parcial 1 — 2a avaluació · Funcions, composició, inversa i derivades",
+        "tipo": "examen",
+        "fecha": "2026-01-23",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05",
+          "06",
+          "07"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "composició de funcions bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) fácil cálculo simbólico pregunta corta",
+        "ca": "composició de funcions batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "composició de funcions bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p1-p5",
+      "titulo": "Comprovació $(f\\circ f^{-1})(x) = x$",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p5.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p5.html",
+      "numero": 5,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Comprova que $(f \\circ f^{-1})(x) = x$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-t2p1",
+        "titulo": "Parcial 1 — 2a avaluació · Funcions, composició, inversa i derivades",
+        "tipo": "examen",
+        "fecha": "2026-01-23",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05",
+          "06",
+          "07"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "demostracion",
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "demostracion_formal"
+        ]
+      },
+      "search_text": {
+        "es": "comprovació $(f\\circ f^{-1})(x) = x$ bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media demostración / razonamiento formal cálculo simbólico demostración formal",
+        "ca": "comprovació $(f\\circ f^{-1})(x) = x$ batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "comprovació $(f\\circ f^{-1})(x) = x$ bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p1-p6",
+      "titulo": "Cúbica: derivada, monotonia i extrems",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p6.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p6.html",
+      "numero": 6,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Deriva la funció $f(x) = x^3 + 2x^2 - 4x + 1$. Troba els punts crítics, estudia la monotonia i classifica els extrems."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-t2p1",
+        "titulo": "Parcial 1 — 2a avaluació · Funcions, composició, inversa i derivades",
+        "tipo": "examen",
+        "fecha": "2026-01-23",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05",
+          "06",
+          "07"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-derivadas",
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "cúbica: derivada, monotonia i extrems bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) derivadas: cálculo y aplicaciones (monotonía, extremos, optimización) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "cúbica: derivada, monotonia i extrems batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "cúbica: derivada, monotonia i extrems bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p1-p7",
+      "titulo": "Quadràtica per tres punts: eix de simetria i vèrtex",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p7.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p7.html",
+      "numero": 7,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Troba l'eix de simetria i el vèrtex de la funció quadràtica que passa pels punts $(0,1)$, $(-1,3)$ i $(2,9)$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-t2p1",
+        "titulo": "Parcial 1 — 2a avaluació · Funcions, composició, inversa i derivades",
+        "tipo": "examen",
+        "fecha": "2026-01-23",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05",
+          "06",
+          "07"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales",
+          "BACH-sistemas"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "quadràtica per tres punts: eix de simetria i vèrtex bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) sistemas de ecuaciones lineales y no lineales media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "quadràtica per tres punts: eix de simetria i vèrtex batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "quadràtica per tres punts: eix de simetria i vèrtex bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p1-p8",
+      "titulo": "Lectura d'una gràfica",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p8.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/p8.html",
+      "numero": 8,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.2,
+          "tarea": "Dona el domini."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.2,
+          "tarea": "Dona el conjunt imatge."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.2,
+          "tarea": "Calcula $(f \\circ f)(-1)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.2,
+          "tarea": "Troba la imatge de $-4$."
+        },
+        {
+          "letra": "e",
+          "puntos": 0.2,
+          "tarea": "Troba les antiimatges de $-10$ (aproximadament)."
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2526-1btl-macs-t2p1",
+        "titulo": "Parcial 1 — 2a avaluació · Funcions, composició, inversa i derivades",
+        "tipo": "examen",
+        "fecha": "2026-01-23",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05",
+          "06",
+          "07"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "interpretacion",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "lectura d'una gràfica bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) fácil interpretación contextual visualización / gráficos pregunta corta",
+        "ca": "lectura d'una gràfica batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "lectura d'una gràfica bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) easy"
       }
     },
     {
