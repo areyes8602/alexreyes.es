@@ -71,7 +71,13 @@
       <div class="statement">
 
         <div class="context">
-          <p>A partir de la gràfica de la funció $f(x)$ que apareix a l'examen (consulta el <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/original.pdf#page=1">PDF original</a>), respon les preguntes següents.</p>
+          <p>Donada la gràfica de la funció $f(x)$ següent, respon les preguntes:</p>
+          <figure style="margin:1rem 0;text-align:center">
+            <img src="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/q8-grafica.png"
+                 alt="Gràfica de f(x): branca dreta amb mínim a (0,0) i asímptota vertical a x=-2; branca esquerra amb màxim vora (-4,-6)"
+                 style="max-width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:0.4rem">
+            <figcaption style="font-size:0.82rem;color:var(--text-soft);margin-top:0.4rem">Gràfica de $f(x)$ (extreta del PDF de l'examen).</figcaption>
+          </figure>
         </div>
         <ol class="apartados">
           <li>Dona el domini. <span class="apartado-puntos">0,2 p</span></li>
@@ -96,7 +102,7 @@
       <section class="solution" id="sol-p8" hidden>
 
         <h3>Correcció pas a pas</h3>
-        <p class="note"><strong>Idea clau:</strong> la gràfica té dues branques separades per una asímptota vertical a $x = -2$. La branca esquerra és una "muntanya" amb un màxim vora $(-6,-6)$ i baixa cap a $-\infty$ a banda i banda; la branca dreta surt de $+\infty$ a $x \to -2^{+}$, té un mínim a prop de $(0, 0)$ i creix cap a $+\infty$ a la dreta. Llegim els valors aproximats de la quadrícula.</p>
+        <p class="note"><strong>Idea clau:</strong> la gràfica té dues branques separades per una asímptota vertical a $x = -2$. La branca <em>dreta</em> surt de $+\infty$ a $x \to -2^{+}$, baixa fins a un mínim vora $(0, 0)$ i creix cap a $+\infty$ a la dreta. La branca <em>esquerra</em> té un màxim vora $(-4, -6)$ i baixa cap a $-\infty$ tant a l'esquerra com cap a l'asímptota. Llegim els valors aproximats sobre la quadrícula.</p>
 
         <div class="apartado-sol">
           <h4><span class="letra">a)</span> Domini</h4>
@@ -112,22 +118,22 @@
 
         <div class="apartado-sol">
           <h4><span class="letra">c)</span> $(f \circ f)(-1)$</h4>
-          <p>Llegim $f(-1)$ a la branca dreta: $f(-1) \approx 4$. Després, $f(4)$ a la mateixa branca: $f(4) \approx 4$.</p>
-          <div class="final">$(f \circ f)(-1) \approx f(4) \approx 4$.</div>
+          <p>Llegim $f(-1)$ sobre la branca dreta: $x=-1$ és a prop de l'asímptota i el traç està caient ràpidament; el valor és aproximadament $f(-1) \approx 1$. Després, $f(1)$ és a la mateixa branca, just després del mínim: $f(1) \approx 1$.</p>
+          <div class="final">$(f \circ f)(-1) \approx f(1) \approx 1$.</div>
         </div>
 
         <div class="apartado-sol">
           <h4><span class="letra">d)</span> Imatge de $-4$</h4>
-          <p>$x = -4$ és a la branca esquerra, entre el màxim ($\approx -6$) i l'asímptota ($-2$). La gràfica mostra un valor proper a $y \approx -8$.</p>
-          <div class="final">$f(-4) \approx -8$.</div>
+          <p>$x = -4$ és justament al màxim de la branca esquerra. La gràfica hi mostra un valor de $y \approx -6$.</p>
+          <div class="final">$f(-4) \approx -6$.</div>
         </div>
 
         <div class="apartado-sol">
           <h4><span class="letra">e)</span> Antiimatges de $-10$</h4>
-          <p>Busquem $x$ tals que $f(x) = -10$. La branca dreta no baixa mai a $-10$ (el seu mínim és $\approx 0$), per tant només hi ha solucions a la branca esquerra. El traç hi creua $y = -10$ aproximadament dues vegades:</p>
+          <p>Busquem $x$ tals que $f(x) = -10$. La branca dreta no baixa mai a $-10$ (el seu mínim és $\approx 0$), per tant només hi ha solucions a la branca esquerra. El traç hi creua $y = -10$ dues vegades:</p>
           <ul>
-            <li>Una a la part esquerra del màxim, prop de $x \approx -10$.</li>
-            <li>Una entre el màxim i l'asímptota, prop de $x \approx -3$.</li>
+            <li>A l'esquerra del màxim, prop de $x \approx -10$.</li>
+            <li>Entre el màxim i l'asímptota, prop de $x \approx -3$.</li>
           </ul>
           <div class="final">$f^{-1}(-10) \approx \{-10,\, -3\}$ (lectura aproximada).</div>
         </div>
