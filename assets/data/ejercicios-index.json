@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-26T16:06:13.924429+00:00",
+  "generated_at": "2026-04-26T16:12:34.102533+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 55,
+  "count": 59,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -517,6 +517,308 @@
         "es": "equacions amb radicals, valor absolut, logaritmes i exponencials — escollir 5 de 6 bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
         "ca": "equacions amb radicals, valor absolut, logaritmes i exponencials — escollir 5 de 6 batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "equacions amb radicals, valor absolut, logaritmes i exponencials — escollir 5 de 6 bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t1p1-p1",
+      "titulo": "Operacions amb radicals i racionalització",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/p1.html",
+      "numero": 1,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "$\\bigl(5^{3/2}\\bigr)\\,\\bigl(25^{1/4}\\bigr) : \\sqrt[5]{125}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "$\\sqrt[3]{\\,4 \\cdot \\sqrt[5]{16} \\cdot \\sqrt{2}\\,}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "$\\dfrac{2}{1 + \\sqrt{3}}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "$\\dfrac{\\sqrt{15} \\cdot \\sqrt[3]{45}}{\\sqrt[4]{75}}$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t1p1",
+        "titulo": "Parcial 1 — 1a avaluació · Radicals, polinomis, logaritmes i equacions",
+        "tipo": "examen",
+        "fecha": "2025-10-31",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "01",
+          "02",
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "operacions amb radicals i racionalització bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido numérico números reales y operaciones potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "operacions amb radicals i racionalització batxillerat — mat. ccss 1r català examen sentit numèric mitjana",
+        "en": "operacions amb radicals i racionalització bachillerato — applied maths year 1 catalan exam number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t1p1-p2",
+      "titulo": "Factorització, MCD i MCM de polinomis",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/p2.html",
+      "numero": 2,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Factoritza $p(x)$ i $q(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Troba el $\\mathrm{MCD}(p, q)$ i el $\\mathrm{MCM}(p, q)$."
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2526-1btl-macs-t1p1",
+        "titulo": "Parcial 1 — 1a avaluació · Radicals, polinomis, logaritmes i equacions",
+        "tipo": "examen",
+        "fecha": "2025-10-31",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "01",
+          "02",
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "factorització, mcd i mcm de polinomis bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces fácil cálculo simbólico pregunta corta",
+        "ca": "factorització, mcd i mcm de polinomis batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "factorització, mcd i mcm de polinomis bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t1p1-p3",
+      "titulo": "Logaritmes — definició i propietats",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/p3.html",
+      "numero": 3,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "$\\log_{x}\\!\\left(\\dfrac{1}{9}\\right) = -4$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "$\\log_{2} x = 3$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "$3\\log_{2} x - \\log_{2} x = 4$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Calcula $\\log_{x}\\!\\sqrt[4]{x \\cdot \\sqrt[3]{x^{2}}}$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t1p1",
+        "titulo": "Parcial 1 — 1a avaluació · Radicals, polinomis, logaritmes i equacions",
+        "tipo": "examen",
+        "fecha": "2025-10-31",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "01",
+          "02",
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "logaritmes — definició i propietats bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido numérico potencias, raíces y logaritmos fácil cálculo simbólico razonamiento pregunta corta",
+        "ca": "logaritmes — definició i propietats batxillerat — mat. ccss 1r català examen sentit numèric fàcil",
+        "en": "logaritmes — definició i propietats bachillerato — applied maths year 1 catalan exam number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t1p1-p4",
+      "titulo": "Equacions polinòmiques, biquadrades i racionals",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/p4.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/p4.html",
+      "numero": 4,
+      "puntuacion": 4,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "$x^{5} + 3x^{4} - 5x^{3} - 15x^{2} + 4x + 12 = 0$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "$x^{4} + 8 = 6x^{2}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "$\\dfrac{1}{x-2} + \\dfrac{1}{x+2} = \\dfrac{1}{x^{2}-4}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "$\\dfrac{9}{x-3} = \\dfrac{3x}{x-3} + x$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t1p1",
+        "titulo": "Parcial 1 — 1a avaluació · Radicals, polinomis, logaritmes i equacions",
+        "tipo": "examen",
+        "fecha": "2025-10-31",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "01",
+          "02",
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "equacions polinòmiques, biquadrades i racionals bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) polinomios: factorización, división, raíces media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "equacions polinòmiques, biquadrades i racionals batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equacions polinòmiques, biquadrades i racionals bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
       }
     },
     {
