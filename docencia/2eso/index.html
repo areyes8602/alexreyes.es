@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matemàtiques 2n ESO — Àlex Reyes</title>
-<meta name="description" content="Matemàtiques 2n ESO — apunts, exàmens, fitxes i solucions per unitat didàctica. Grupos A y E (curs 2025-26).">
+<meta name="description" content="Grupos A y E &middot; Currículum LOMLOE &middot; Maristes Sants&mdash;Les Corts">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/docencia/2eso/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/docencia/2eso/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/docencia/2eso/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/2eso/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/2eso/">
 <style>
   .info-cta { display:flex; align-items:center; gap:1.2rem; padding:1.2rem 1.5rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; margin-bottom:2rem; }
   .info-cta:hover { border-color:var(--border-strong); transform:translateY(-1px); }
@@ -21,20 +25,16 @@
   .info-cta-arrow { font-size:1.2rem; color:var(--text-faint); flex:0 0 auto; }
   .unit-meta { display:flex; gap:0.7rem; flex-wrap:wrap; font-size:0.75rem; color:var(--text-faint); margin-bottom:0.6rem; }
   .unit-meta span { display:inline-flex; align-items:center; gap:0.3rem; }
+
 </style>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
-    <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
-      <a href="/doctorado/">Doctorado</a>
-      <a href="/notas/">Notas</a>
-      <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacto</a>
-    </div>
+    <div class="nav-links"><a href="/docencia/" class="nav-active">Docencia</a><a href="/doctorado/">Doctorado</a><a href="/notas/">Notas</a><a href="/cv/">CV</a><a href="/contacto/">Contacto</a></div>
     <div class="nav-right">
+      <div class="lang-sw"><a href="/docencia/2eso/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/docencia/2eso/">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/2eso/">EN</a></div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -47,23 +47,15 @@
 <main>
   <div class="container" style="padding-top:3rem;padding-bottom:5rem">
 
-    <div class="breadcrumb">
-      <a href="/">Inici</a>
-      <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
-      <span class="sep">/</span>
-      <span class="current">Matemàtiques 2n ESO</span>
-    </div>
+    <div class="breadcrumb"><a href="/">Inicio</a><span class="sep">/</span><a href="/docencia/">Docencia</a><span class="sep">/</span><span class="current">Matemàtiques 2n ESO</span></div>
 
-    <!-- ───────── YEAR PICKER ───────── -->
     <details class="year-picker">
-      <summary>📅 Curs 2025–26</summary>
+      <summary>📅 Curso 2025–26</summary>
       <div class="year-menu">
         <a href="/docencia/2eso/" class="active">2025–26 (actual)</a>
-        <p class="year-empty">Encara no hi ha cursos arxivats.</p>
+        <p class="year-empty">No hay cursos archivados todavía.</p>
       </div>
     </details>
-
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">ESO</span>
@@ -74,34 +66,31 @@
     </div>
 
     <div class="info-grid">
-      <div class="info-card"><div class="info-card-label">Curs</div><div class="info-card-value">2n ESO</div></div>
-      <div class="info-card"><div class="info-card-label">Grups</div><div class="info-card-value">A &middot; E</div></div>
+      <div class="info-card"><div class="info-card-label">Curso</div><div class="info-card-value">2n ESO</div></div>
+      <div class="info-card"><div class="info-card-label">Grupos</div><div class="info-card-value">A &middot; E</div></div>
       <div class="info-card"><div class="info-card-label">Idioma</div><div class="info-card-value" style="font-size:0.88rem">Català</div></div>
-      <div class="info-card"><div class="info-card-label">Unitats</div><div class="info-card-value">10</div></div>
+      <div class="info-card"><div class="info-card-label">Unidades</div><div class="info-card-value">10</div></div>
     </div>
 
-    <!-- ───────── INFORMACIÓ DE L'ASSIGNATURA (link to subpage) ───────── -->
     <a href="/docencia/2eso/info/" class="info-cta">
       <span class="info-cta-icon">📋</span>
       <div class="info-cta-body">
-        <h3>Informació de l'assignatura</h3>
-        <p>Horari, criteris d'avaluació, temari del curs, calendari i material necessari.</p>
+        <h3>Información de la asignatura</h3>
+        <p>Horario, criterios de evaluación, temario, calendario y material necesario.</p>
       </div>
       <span class="info-cta-arrow">→</span>
     </a>
 
-    <!-- ───────── UNITATS DIDÀCTIQUES ───────── -->
-    <h2 style="font-size:1.1rem;margin:0 0 0.4rem">Unitats didàctiques</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada unitat conté els apunts de classe, les fitxes d'exercicis amb les seves solucions, i els exàmens realitzats sobre la unitat.</p>
+    <h2 style="font-size:1.1rem;margin:0 0 0.4rem">Unidades didácticas</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada unidad contiene los apuntes de clase, las fichas de ejercicios con sus soluciones, y los exámenes realizados.</p>
     <div class="chapter-list" id="units-list"></div>
 
-    <!-- ───────── EXÀMENS GLOBALS ───────── -->
-    <section id="globals-section" style="margin-top:3rem">
+    <section style="margin-top:3rem">
       <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <h2 style="font-size:1.2rem;margin:0">Exàmens globals</h2>
-        <span class="tag tag-gray" id="globals-count" style="font-size:0.7rem">carregant…</span>
+        <h2 style="font-size:1.2rem;margin:0">Exámenes globales</h2>
+        <span class="tag tag-gray" id="globals-count" style="font-size:0.7rem">cargando…</span>
       </div>
-      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Globals d'avaluació, simulacres, recuperacions i exàmens finals — proves que cobreixen diverses unitats alhora.</p>
+      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Globales de evaluación, simulacros, recuperaciones y exámenes finales — pruebas que cubren varias unidades.</p>
       <div id="globals-list" class="exam-list"></div>
     </section>
 
@@ -122,76 +111,43 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
-// ───────────────────────────────────────────────────────────────────────
-// UNITATS DIDÀCTIQUES — basades en Calendari 25-26 i Temari del curs
-// ───────────────────────────────────────────────────────────────────────
-const UNITS = [
-  { num:'01', slug:'fraccions',           title:'Nombres fraccionaris',             llibre:'U3',    inici:'9 set',  final:'1 oct',  trimestre:'1a', desc:'Fraccions equivalents, ordenació, operacions amb fraccions, decimals i potències.', apunts:'/aula/eso-2/apuntes/u-fraccions/' },
-  { num:'02', slug:'decimals',            title:'Nombres decimals',                 llibre:'U4',    inici:'7 oct',  final:'17 oct', trimestre:'1a', desc:'Decimals exactes i periòdics, fracció generatriu, aproximacions.' },
-  { num:'03', slug:'probabilitat',        title:'Probabilitat',                     llibre:'U15',   inici:'21 oct', final:'7 nov',  trimestre:'1a', desc:'Experiments aleatoris, regla de Laplace i probabilitat.' },
-  { num:'04', slug:'proporcionalitat',    title:'Proporcionalitat',                 llibre:'U5',    inici:'11 nov', final:'28 nov', trimestre:'1a', desc:'Magnituds proporcionals, regla de tres i percentatges.' },
-  { num:'05', slug:'funcions',            title:'Funcions i funcions elementals',   llibre:'U8–U9', inici:'5 des',  final:'23 gen', trimestre:'2a', desc:'Concepte de funció, funció lineal, afí, quadràtica i de proporcionalitat inversa.' },
-  { num:'06', slug:'pitagores',           title:'Pitàgores',                        llibre:'U10',   inici:'27 gen', final:'30 gen', trimestre:'2a', desc:'Teorema de Pitàgores i les seves aplicacions.' },
-  { num:'07', slug:'poliedres',           title:'Poliedres',                        llibre:'U12',   inici:'3 feb',  final:'27 feb', trimestre:'2a', desc:'Prismes, piràmides, àrees i volums.' },
-  { num:'08', slug:'cossos-revolucio',    title:'Cossos de revolució',              llibre:'U13',   inici:'3 mar',  final:'10 mar', trimestre:'2a', desc:'Cilindre, con i esfera. Àrees i volums.' },
-  { num:'09', slug:'algebra',             title:'Llenguatge algebraic',             llibre:'U6',    inici:'17 mar', final:'28 abr', trimestre:'3a', desc:'Expressions algebraiques, monomis i polinomis.' },
-  { num:'10', slug:'equacions',           title:"Equacions i sistemes",             llibre:'U7',    inici:'29 abr', final:'29 mai', trimestre:'3a', desc:"Equacions de 1r grau, sistemes 2×2 i resolució de problemes." },
-];
+const UNITS = [{"num": "01", "slug": "fraccions", "title": "Nombres fraccionaris", "llibre": "U3", "inici": "9 set", "final": "1 oct", "trimestre": "1a", "apunts": "/aula/eso-2/apuntes/u-fraccions/", "desc": "Fracciones equivalentes, ordenación, operaciones con fracciones, decimales y potencias."}, {"num": "02", "slug": "decimals", "title": "Nombres decimals", "llibre": "U4", "inici": "7 oct", "final": "17 oct", "trimestre": "1a", "desc": "Decimales exactos y periódicos, fracción generatriz, aproximaciones."}, {"num": "03", "slug": "probabilitat", "title": "Probabilitat", "llibre": "U15", "inici": "21 oct", "final": "7 nov", "trimestre": "1a", "desc": "Experimentos aleatorios, regla de Laplace y probabilidad."}, {"num": "04", "slug": "proporcionalitat", "title": "Proporcionalitat", "llibre": "U5", "inici": "11 nov", "final": "28 nov", "trimestre": "1a", "desc": "Magnitudes proporcionales, regla de tres y porcentajes."}, {"num": "05", "slug": "funcions", "title": "Funcions i funcions elementals", "llibre": "U8–U9", "inici": "5 des", "final": "23 gen", "trimestre": "2a", "desc": "Concepto de función, función lineal, afín, cuadrática y de proporcionalidad inversa."}, {"num": "06", "slug": "pitagores", "title": "Pitàgores", "llibre": "U10", "inici": "27 gen", "final": "30 gen", "trimestre": "2a", "desc": "Teorema de Pitágoras y sus aplicaciones."}, {"num": "07", "slug": "poliedres", "title": "Poliedres", "llibre": "U12", "inici": "3 feb", "final": "27 feb", "trimestre": "2a", "desc": "Prismas, pirámides, áreas y volúmenes."}, {"num": "08", "slug": "cossos-revolucio", "title": "Cossos de revolució", "llibre": "U13", "inici": "3 mar", "final": "10 mar", "trimestre": "2a", "desc": "Cilindro, cono y esfera. Áreas y volúmenes."}, {"num": "09", "slug": "algebra", "title": "Llenguatge algebraic", "llibre": "U6", "inici": "17 mar", "final": "28 abr", "trimestre": "3a", "desc": "Expresiones algebraicas, monomios y polinomios."}, {"num": "10", "slug": "equacions", "title": "Equacions i sistemes", "llibre": "U7", "inici": "29 abr", "final": "29 mai", "trimestre": "3a", "desc": "Ecuaciones de 1er grado, sistemas 2×2 y resolución de problemas."}];
+const MATERIA = "eso-2";
+const MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+const LABELS_JS = {"exam_questions": "preguntas", "exam_question": "pregunta", "exam_points": "puntos", "exam_btn_pdf": "PDF", "exam_btn_html": "Ver enunciados y correcciones", "no_exams_unit": "No hay exámenes publicados de esta unidad todavía.", "exams_unit_title": "Exámenes de esta unidad", "globals_empty": "No hay exámenes globales publicados todavía.", "globals_load_error": "No se ha podido cargar el listado de exámenes.", "section_card_apunts": "Apuntes", "section_card_fitxes": "Lista de ejercicios", "section_card_solucions": "Soluciones", "unit_meta_book": "Libro", "unit_meta_dates": "Fechas", "unit_meta_trim": "evaluación", "examens_count_one": "examen", "examens_count_many": "exámenes", "trimestre_tag": "evaluación"};
 
-const SECTION_LABELS = [
-  { key:'apunts',    icon:'📄', label:"Apunts de classe" },
-  { key:'fitxes',    icon:'📝', label:"Fitxes d'exercicis" },
-  { key:'solucions', icon:'✅', label:"Solucions de fitxes" },
-];
-
-function unitNumOf(colId) { const m = (colId || '').match(/-u(\d{1,2})\b/); return m ? m[1].padStart(2, '0') : null; }
-function isGlobal(colId) { if (!colId) return false; if (unitNumOf(colId)) return false; return /-g\d+\b|-final\b|-rec\b|-simulacre\b/.test(colId); }
-
-const MESOS_CA = ['gen','feb','març','abr','maig','juny','jul','ag','set','oct','nov','des'];
-function fmtFecha(iso){ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${parseInt(d,10)} ${MESOS_CA[parseInt(m,10)-1]} ${y}`; }
-function escHtml(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function unitNumOf(colId) { const m=(colId||'').match(/-u(\d{1,2})\b/); return m ? m[1].padStart(2,'0') : null; }
+function isGlobal(colId) { if(!colId) return false; if(unitNumOf(colId)) return false; return /-g\d+\b|-final\b|-rec\b|-simulacre\b/.test(colId); }
+function fmtFecha(iso) { if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${parseInt(d,10)} ${MONTHS[parseInt(m,10)-1]} ${y}`; }
+function escHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function renderExamCard(col, ejs) {
   const ptos = ejs.reduce((s,e) => s + (e.puntuacion||0), 0);
   const npreg = ejs.length;
-  const pdfBtn = col.pdf_enunciados ? `<a class="exam-card-btn pdf" href="${escHtml(col.pdf_enunciados)}" target="_blank" rel="noopener" title="PDF original">📄 PDF</a>` : '';
-  const idxBtn = col.url_index ? `<a class="exam-card-btn html" href="${escHtml(col.url_index)}">📋 Veure enunciats i correccions</a>` : '';
-  return `<article class="exam-card"><div class="exam-card-head"><span class="exam-card-date">${escHtml(fmtFecha(col.fecha))}</span>${col.grupo?`<span class="tag tag-orange" style="font-size:0.7rem">${escHtml(col.grupo)}</span>`:''}</div><h3 class="exam-card-title">${escHtml(col.titulo||col.id)}</h3><p class="exam-card-meta">${npreg} ${npreg===1?'pregunta':'preguntes'} &middot; ${ptos} punts</p><div class="exam-card-actions">${idxBtn}${pdfBtn}</div></article>`;
+  const pdfBtn = col.pdf_enunciados ? `<a class="exam-card-btn pdf" href="${escHtml(col.pdf_enunciados)}" target="_blank" rel="noopener" title="${LABELS_JS.exam_btn_pdf}">📄 ${LABELS_JS.exam_btn_pdf}</a>` : '';
+  const idxBtn = col.url_index ? `<a class="exam-card-btn html" href="${escHtml(col.url_index)}">📋 ${LABELS_JS.exam_btn_html}</a>` : '';
+  return `<article class="exam-card"><div class="exam-card-head"><span class="exam-card-date">${escHtml(fmtFecha(col.fecha))}</span>${col.grupo?`<span class="tag tag-orange" style="font-size:0.7rem">${escHtml(col.grupo)}</span>`:''}</div><h3 class="exam-card-title">${escHtml(col.titulo||col.id)}</h3><p class="exam-card-meta">${npreg} ${npreg===1?LABELS_JS.exam_question:LABELS_JS.exam_questions} &middot; ${ptos} ${LABELS_JS.exam_points}</p><div class="exam-card-actions">${idxBtn}${pdfBtn}</div></article>`;
 }
 function buildSectionCard(href, icon, label) {
   if (href) return `<a href="${href}" class="chapter-section available" style="text-decoration:none"><span>${icon}</span><span>${label}</span></a>`;
   return `<div class="chapter-section empty"><span>${icon}</span><span>${label}</span></div>`;
 }
 const TRIM_CLASS = { '1a':'tag-orange', '2a':'tag-purple', '3a':'tag-gray' };
-
 function buildUnit(u, examsByUnit) {
-  const exs = (examsByUnit[u.num] || []).sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+  const exs = (examsByUnit[u.num]||[]).sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
   const examCount = exs.length;
-  const sections = SECTION_LABELS.map(s => buildSectionCard(u[s.key], s.icon, s.label)).join('');
+  const sections = [
+    buildSectionCard(u.apunts, '📄', LABELS_JS.section_card_apunts),
+    buildSectionCard(u.fitxes, '📝', LABELS_JS.section_card_fitxes),
+    buildSectionCard(u.solucions, '✅', LABELS_JS.section_card_solucions),
+  ].join('');
   const examsBox = examCount > 0
-    ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">Exàmens d'aquesta unitat (${examCount})</h4><div class="exam-list">${exs.map(({col,ejs}) => renderExamCard(col, ejs)).join('')}</div></div>`
-    : `<p style="font-size:0.82rem;color:var(--text-faint);margin:1rem 0 0">No hi ha exàmens publicats d'aquesta unitat encara.</p>`;
+    ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">${LABELS_JS.exams_unit_title} (${examCount})</h4><div class="exam-list">${exs.map(({col,ejs}) => renderExamCard(col, ejs)).join('')}</div></div>`
+    : `<p style="font-size:0.82rem;color:var(--text-faint);margin:1rem 0 0">${LABELS_JS.no_exams_unit}</p>`;
   const examBadge = examCount > 0
-    ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${examCount} ${examCount===1?'examen':'exàmens'}</span>`
-    : `<span class="tag ${TRIM_CLASS[u.trimestre]}" style="font-size:0.65rem;margin-left:auto">${u.trimestre} avaluació</span>`;
-  return `
-    <div class="chapter-item">
-      <div class="chapter-header" onclick="toggleChapter(this)">
-        <span class="chapter-num">${u.num}</span>
-        <span class="chapter-title">${escHtml(u.title)}</span>
-        ${examBadge}
-        <span class="chapter-arrow">&#9660;</span>
-      </div>
-      <div class="chapter-body">
-        <div class="unit-meta">
-          <span>📖 Llibre ${escHtml(u.llibre)}</span>
-          <span>📅 ${escHtml(u.inici)} → ${escHtml(u.final)}</span>
-          <span>🎯 ${escHtml(u.trimestre)} avaluació</span>
-        </div>
-        <p style="font-size:0.88rem;color:var(--text-soft);margin:0 0 1rem">${escHtml(u.desc)}</p>
-        <div class="chapter-sections">${sections}</div>
-        ${examsBox}
-      </div>
-    </div>`;
+    ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${examCount} ${examCount===1?LABELS_JS.examens_count_one:LABELS_JS.examens_count_many}</span>`
+    : (u.trimestre ? `<span class="tag ${TRIM_CLASS[u.trimestre]||'tag-gray'}" style="font-size:0.65rem;margin-left:auto">${u.trimestre} ${LABELS_JS.trimestre_tag}</span>` : '');
+  const meta = (u.llibre || u.inici) ? `<div class="unit-meta">${u.llibre?`<span>📖 ${LABELS_JS.unit_meta_book} ${escHtml(u.llibre)}</span>`:''}${u.inici?`<span>📅 ${escHtml(u.inici)} → ${escHtml(u.final||'')}</span>`:''}${u.trimestre?`<span>🎯 ${u.trimestre} ${LABELS_JS.unit_meta_trim}</span>`:''}</div>` : '';
+  return `<div class="chapter-item"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num">${u.num}</span><span class="chapter-title">${escHtml(u.title)}</span>${examBadge}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${meta}<p style="font-size:0.88rem;color:var(--text-soft);margin:0 0 1rem">${escHtml(u.desc)}</p><div class="chapter-sections">${sections}</div>${examsBox}</div></div>`;
 }
 
 fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
@@ -200,7 +156,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     const cols = new Map();
     for (const e of (idx.ejercicios || [])) {
       const c = e.coleccion || {};
-      if (e.tags && e.tags.materia !== 'eso-2') continue;
+      if (e.tags && e.tags.materia !== MATERIA) continue;
       if (!cols.has(c.id)) cols.set(c.id, { col: c, ejs: [] });
       cols.get(c.id).ejs.push(e);
     }
@@ -209,27 +165,25 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     for (const entry of cols.values()) {
       const u = unitNumOf(entry.col.id);
       if (u) { (byUnit[u] = byUnit[u] || []).push(entry); }
-      else if (isGlobal(entry.col.id)) { globals.push(entry); }
       else { globals.push(entry); }
     }
     document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, byUnit)).join('');
-
     globals.sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
     const cont = document.getElementById('globals-list');
     const count = document.getElementById('globals-count');
     if (globals.length === 0) {
       count.textContent = '0';
-      cont.innerHTML = '<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">Encara no hi ha exàmens globals publicats.</p>';
+      cont.innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${LABELS_JS.globals_empty}</p>`;
     } else {
-      count.textContent = globals.length + (globals.length===1 ? ' examen' : ' exàmens');
-      cont.innerHTML = globals.map(({col, ejs}) => renderExamCard(col, ejs)).join('');
+      count.textContent = globals.length + (globals.length===1 ? ' ' + LABELS_JS.examens_count_one : ' ' + LABELS_JS.examens_count_many);
+      cont.innerHTML = globals.map(({col,ejs}) => renderExamCard(col, ejs)).join('');
     }
   })
   .catch(err => {
     document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, {})).join('');
     document.getElementById('globals-count').textContent = 'error';
-    document.getElementById('globals-list').innerHTML = '<p style="color:var(--text-faint);font-size:0.9rem">No s\'ha pogut carregar el llistat d\'exàmens.</p>';
-    console.error('exàmens:', err);
+    document.getElementById('globals-list').innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem">${LABELS_JS.globals_load_error}</p>`;
+    console.error('exams:', err);
   });
 </script>
 </body>
