@@ -27,13 +27,36 @@
 .prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
 .prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
 .note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
-.venn-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin: 1rem 0; }
-.venn-card { background: var(--bg-subtle); border:1px solid var(--border); border-radius:8px; padding:0.9rem; text-align:center; }
-.venn-card .venn-label { font-size: 0.95rem; margin-bottom: 0.4rem; font-weight: 500; }
-.venn-card svg { display:block; margin: 0 auto; max-width: 100%; height: auto; }
+.morgan-app { background: var(--bg-subtle); border:1px solid var(--border); border-radius:10px; padding:1rem 1.1rem 1.2rem; margin: 1rem 0; }
+.morgan-tabs { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom: 0.8rem; }
+.morgan-tab { background: var(--bg); border:1px solid var(--border); border-radius:6px; padding:0.45rem 0.9rem; font-size:0.86rem; font-family:inherit; color:var(--text-soft); cursor:pointer; transition: all 0.15s; }
+.morgan-tab:hover { border-color: var(--border-strong); color: var(--text); }
+.morgan-tab.active { background: #6366f1; border-color:#6366f1; color:#fff; font-weight:500; }
+.morgan-formula { text-align:center; font-size:1rem; padding:0.6rem 0 0.4rem; color: var(--text); }
+.morgan-stage { display:grid; grid-template-columns:1fr auto 1fr; gap:0.6rem; align-items:center; margin: 0.4rem 0 0.8rem; }
+.morgan-side { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.7rem 0.6rem 0.5rem; min-width:0; }
+.morgan-side h4 { margin:0 0 0.4rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-soft); text-align:center; font-weight:600; }
+.morgan-equals { font-size:1.4rem; color:#6366f1; font-weight:700; text-align:center; padding:0 0.2rem; }
+.venn-svg { display:block; width:100%; height:auto; }
+.venn-svg .region { fill: #34d399; fill-opacity: 0; transition: fill-opacity 0.5s ease, fill 0.4s ease; }
+.venn-svg .region.lit { fill-opacity: 0.55; }
+.venn-svg .venn-stroke { fill:none; stroke:#1d4ed8; stroke-width:1.6; }
+.venn-svg .venn-label { font-family:Inter, sans-serif; font-size:14px; font-weight:600; fill:#1d4ed8; }
+.venn-svg .venn-label-e { font-family:Inter, sans-serif; font-size:11px; fill:#475569; }
+.venn-caption { text-align:center; margin:0.3rem 0 0; font-size:0.78rem; color: var(--text-soft); min-height: 2.2em; line-height:1.35; }
+.morgan-controls { display:flex; align-items:center; justify-content:space-between; gap:0.5rem; margin-top:0.7rem; }
+.morgan-controls button { background: var(--bg); border:1px solid var(--border); border-radius:6px; padding:0.45rem 0.9rem; font-size:0.86rem; font-family:inherit; color:var(--text); cursor:pointer; transition: all 0.15s; }
+.morgan-controls button:hover:not(:disabled) { border-color: var(--border-strong); }
+.morgan-controls button:disabled { opacity: 0.4; cursor:not-allowed; }
+.morgan-controls #morganStepInd { font-family:var(--mono); font-size:0.78rem; color:var(--text-soft); white-space:nowrap; }
+@media (max-width: 540px) {
+  .morgan-stage { grid-template-columns:1fr; gap:0.3rem; }
+  .morgan-equals { font-size:1.1rem; padding:0.2rem 0; }
+}
 [data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
 [data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
 [data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .venn-svg .venn-label-e { fill:#94a3b8; }
 </style>
 </head>
 <body>
@@ -149,60 +172,68 @@
           </div>
         </div>
 
-        <div class="venn-grid">
-          <div class="venn-card">
-            <div class="venn-label">$\overline{A \cup B}$</div>
-            <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="196" height="106" fill="#fde68a" fill-opacity="0.45" stroke="#1d4ed8" stroke-width="1.5"/>
-              <ellipse cx="78" cy="56" rx="50" ry="32" fill="#fff" stroke="#1d4ed8" stroke-width="1.5"/>
-              <ellipse cx="128" cy="56" rx="50" ry="32" fill="#fff" stroke="#1d4ed8" stroke-width="1.5"/>
-              <text x="55" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">A</text>
-              <text x="148" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">B</text>
-            </svg>
+        <div class="morgan-app" id="morganApp">
+          <p class="note" style="margin:0 0 0.6rem">Selecciona una de les dues lleis i avança els passos amb els botons. Veuràs com els dos costats de la igualtat dibuixen <strong>exactament la mateixa regió</strong> de l'espai mostral.</p>
+
+          <div class="morgan-tabs" role="tablist" aria-label="Lleis de Morgan">
+            <button class="morgan-tab active" type="button" data-law="1" aria-pressed="true">Llei 1: $\overline{A\cup B}=\bar A\cap\bar B$</button>
+            <button class="morgan-tab" type="button" data-law="2" aria-pressed="false">Llei 2: $\overline{A\cap B}=\bar A\cup\bar B$</button>
           </div>
-          <div class="venn-card">
-            <div class="venn-label">$\bar{A} \cap \bar{B}$</div>
-            <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="196" height="106" fill="#fde68a" fill-opacity="0.45" stroke="#1d4ed8" stroke-width="1.5"/>
-              <ellipse cx="78" cy="56" rx="50" ry="32" fill="#fff" stroke="#1d4ed8" stroke-width="1.5"/>
-              <ellipse cx="128" cy="56" rx="50" ry="32" fill="#fff" stroke="#1d4ed8" stroke-width="1.5"/>
-              <text x="55" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">A</text>
-              <text x="148" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">B</text>
-            </svg>
+
+          <div class="morgan-formula" id="morganFormula"></div>
+
+          <div class="morgan-stage">
+            <div class="morgan-side">
+              <h4 id="lhsLabel">Costat esquerre</h4>
+              <svg class="venn-svg" id="vennLHS" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de Venn — costat esquerre">
+                <defs>
+                  <mask id="m-out-L"><rect x="0" y="0" width="200" height="120" fill="white"/><ellipse cx="78" cy="62" rx="50" ry="34" fill="black"/><ellipse cx="128" cy="62" rx="50" ry="34" fill="black"/></mask>
+                  <mask id="m-only-a-L"><ellipse cx="78" cy="62" rx="50" ry="34" fill="white"/><ellipse cx="128" cy="62" rx="50" ry="34" fill="black"/></mask>
+                  <mask id="m-only-b-L"><ellipse cx="128" cy="62" rx="50" ry="34" fill="white"/><ellipse cx="78" cy="62" rx="50" ry="34" fill="black"/></mask>
+                  <clipPath id="clip-a-L"><ellipse cx="78" cy="62" rx="50" ry="34"/></clipPath>
+                </defs>
+                <rect class="region" data-region="0" x="0" y="0" width="200" height="120" mask="url(#m-out-L)"/>
+                <rect class="region" data-region="1" x="0" y="0" width="200" height="120" mask="url(#m-only-a-L)"/>
+                <rect class="region" data-region="2" x="0" y="0" width="200" height="120" mask="url(#m-only-b-L)"/>
+                <g clip-path="url(#clip-a-L)"><ellipse class="region" data-region="3" cx="128" cy="62" rx="50" ry="34"/></g>
+                <rect class="venn-stroke" x="2" y="2" width="196" height="116"/>
+                <ellipse class="venn-stroke" cx="78" cy="62" rx="50" ry="34"/>
+                <ellipse class="venn-stroke" cx="128" cy="62" rx="50" ry="34"/>
+                <text class="venn-label" x="32" y="66">A</text>
+                <text class="venn-label" x="166" y="66">B</text>
+                <text class="venn-label-e" x="186" y="116">E</text>
+              </svg>
+              <p class="venn-caption" id="lhsCaption">&nbsp;</p>
+            </div>
+            <div class="morgan-equals" id="morganEq">=</div>
+            <div class="morgan-side">
+              <h4 id="rhsLabel">Costat dret</h4>
+              <svg class="venn-svg" id="vennRHS" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de Venn — costat dret">
+                <defs>
+                  <mask id="m-out-R"><rect x="0" y="0" width="200" height="120" fill="white"/><ellipse cx="78" cy="62" rx="50" ry="34" fill="black"/><ellipse cx="128" cy="62" rx="50" ry="34" fill="black"/></mask>
+                  <mask id="m-only-a-R"><ellipse cx="78" cy="62" rx="50" ry="34" fill="white"/><ellipse cx="128" cy="62" rx="50" ry="34" fill="black"/></mask>
+                  <mask id="m-only-b-R"><ellipse cx="128" cy="62" rx="50" ry="34" fill="white"/><ellipse cx="78" cy="62" rx="50" ry="34" fill="black"/></mask>
+                  <clipPath id="clip-a-R"><ellipse cx="78" cy="62" rx="50" ry="34"/></clipPath>
+                </defs>
+                <rect class="region" data-region="0" x="0" y="0" width="200" height="120" mask="url(#m-out-R)"/>
+                <rect class="region" data-region="1" x="0" y="0" width="200" height="120" mask="url(#m-only-a-R)"/>
+                <rect class="region" data-region="2" x="0" y="0" width="200" height="120" mask="url(#m-only-b-R)"/>
+                <g clip-path="url(#clip-a-R)"><ellipse class="region" data-region="3" cx="128" cy="62" rx="50" ry="34"/></g>
+                <rect class="venn-stroke" x="2" y="2" width="196" height="116"/>
+                <ellipse class="venn-stroke" cx="78" cy="62" rx="50" ry="34"/>
+                <ellipse class="venn-stroke" cx="128" cy="62" rx="50" ry="34"/>
+                <text class="venn-label" x="32" y="66">A</text>
+                <text class="venn-label" x="166" y="66">B</text>
+                <text class="venn-label-e" x="186" y="116">E</text>
+              </svg>
+              <p class="venn-caption" id="rhsCaption">&nbsp;</p>
+            </div>
           </div>
-          <div class="venn-card">
-            <div class="venn-label">$\overline{A \cap B}$</div>
-            <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="m-anb-out">
-                  <rect x="0" y="0" width="200" height="110" fill="white"/>
-                  <ellipse cx="78" cy="56" rx="50" ry="32" fill="white"/>
-                  <ellipse cx="128" cy="56" rx="50" ry="32" fill="white"/>
-                  <path d="M 103 28 a 50 32 0 0 1 0 56 a 50 32 0 0 1 0 -56" fill="black"/>
-                </mask>
-              </defs>
-              <rect x="2" y="2" width="196" height="106" fill="#fde68a" fill-opacity="0.55" mask="url(#m-anb-out)" stroke="#1d4ed8" stroke-width="1.5"/>
-              <ellipse cx="78" cy="56" rx="50" ry="32" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
-              <ellipse cx="128" cy="56" rx="50" ry="32" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
-              <text x="55" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">A</text>
-              <text x="148" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">B</text>
-            </svg>
-          </div>
-          <div class="venn-card">
-            <div class="venn-label">$\bar{A} \cup \bar{B}$</div>
-            <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="m-aub-comp">
-                  <rect x="0" y="0" width="200" height="110" fill="white"/>
-                  <path d="M 103 28 a 50 32 0 0 1 0 56 a 50 32 0 0 1 0 -56" fill="black"/>
-                </mask>
-              </defs>
-              <rect x="2" y="2" width="196" height="106" fill="#fde68a" fill-opacity="0.55" mask="url(#m-aub-comp)" stroke="#1d4ed8" stroke-width="1.5"/>
-              <ellipse cx="78" cy="56" rx="50" ry="32" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
-              <ellipse cx="128" cy="56" rx="50" ry="32" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
-              <text x="55" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">A</text>
-              <text x="148" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">B</text>
-            </svg>
+
+          <div class="morgan-controls">
+            <button id="morganPrev" type="button" aria-label="Pas anterior">&larr; Pas anterior</button>
+            <span id="morganStepInd">Pas 1 de 5</span>
+            <button id="morganNext" type="button" aria-label="Pas següent">Pas següent &rarr;</button>
           </div>
         </div>
       </div>
@@ -273,7 +304,7 @@
       <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
         <a class="prev" href="/aula/ccss-1btl/apuntes/u-probabilitat/01-definicions-previes.html">&larr; Apartat anterior</a>
         <a class="index" href="/aula/ccss-1btl/apuntes/u-probabilitat/">Índex de la unitat</a>
-        <span class="disabled next">Apartat següent &rarr;</span>
+        <a class="next" href="/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html">Apartat següent &rarr;</a>
       </nav>
 
     </article>
@@ -293,6 +324,142 @@
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+
+// ─── Interactive Morgan demo ──────────────────────────────────────
+(function() {
+  // Each step: { lhs, rhs }, where each side is { regions: [0..3 idxs], color: '#hex', caption: 'text', formula: '...' }
+  // Region indices: 0 = outside both, 1 = only A, 2 = only B, 3 = A∩B.
+  var BLUE = '#60a5fa', PINK = '#f472b6', CYAN = '#22d3ee', GREEN = '#34d399';
+
+  var STEPS = {
+    1: [ // Llei 1: ¬(A∪B) = ¬A ∩ ¬B
+      {
+        formula: 'Comencem identificant els conjunts A i B.',
+        lhs: { regions: [], color: GREEN, caption: 'Espai mostral E amb els conjunts A i B.' },
+        rhs: { regions: [], color: GREEN, caption: 'Mateix punt de partida al costat dret.' }
+      },
+      {
+        formula: '\\(A \\cup B\\) (esquerra) &nbsp;·&nbsp; \\(\\bar{A}\\) (dreta)',
+        lhs: { regions: [1,2,3], color: BLUE, caption: 'A ∪ B: tots els elements que són d\'A o de B.' },
+        rhs: { regions: [0,2], color: PINK, caption: '¬A: tot allò que NO és d\'A (fora del cercle A).' }
+      },
+      {
+        formula: '\\(\\overline{A \\cup B}\\) (esquerra) &nbsp;·&nbsp; encara \\(\\bar{A}\\) (dreta)',
+        lhs: { regions: [0], color: GREEN, caption: '¬(A ∪ B): el complementari, és a dir, fora dels dos cercles.' },
+        rhs: { regions: [0,2], color: PINK, caption: 'Mantenim ¬A. Ara busquem la intersecció amb ¬B.' }
+      },
+      {
+        formula: 'Costat dret: \\(\\bar{A} \\cap \\bar{B}\\)',
+        lhs: { regions: [0], color: GREEN, caption: '¬(A ∪ B) — fora dels dos cercles.' },
+        rhs: { regions: [0], color: GREEN, caption: '¬A ∩ ¬B: només la part que és fora d\'A I fora de B alhora.' }
+      },
+      {
+        formula: '\\(\\overline{A \\cup B} = \\bar{A} \\cap \\bar{B}\\) ✓',
+        lhs: { regions: [0], color: GREEN, caption: 'Mateixa regió pintada…' },
+        rhs: { regions: [0], color: GREEN, caption: '…als dos costats. Llei demostrada!' }
+      }
+    ],
+    2: [ // Llei 2: ¬(A∩B) = ¬A ∪ ¬B
+      {
+        formula: 'Comencem identificant els conjunts A i B.',
+        lhs: { regions: [], color: GREEN, caption: 'Espai mostral E amb els conjunts A i B.' },
+        rhs: { regions: [], color: GREEN, caption: 'Mateix punt de partida al costat dret.' }
+      },
+      {
+        formula: '\\(A \\cap B\\) (esquerra) &nbsp;·&nbsp; \\(\\bar{A}\\) (dreta)',
+        lhs: { regions: [3], color: BLUE, caption: 'A ∩ B: només els elements que són d\'A I de B alhora (la lent central).' },
+        rhs: { regions: [0,2], color: PINK, caption: '¬A: tot allò que NO és d\'A (fora del cercle A).' }
+      },
+      {
+        formula: '\\(\\overline{A \\cap B}\\) (esquerra) &nbsp;·&nbsp; encara \\(\\bar{A}\\) (dreta)',
+        lhs: { regions: [0,1,2], color: GREEN, caption: '¬(A ∩ B): tot menys la lent central.' },
+        rhs: { regions: [0,2], color: PINK, caption: 'Mantenim ¬A. Ara hi unirem ¬B.' }
+      },
+      {
+        formula: 'Costat dret: \\(\\bar{A} \\cup \\bar{B}\\)',
+        lhs: { regions: [0,1,2], color: GREEN, caption: '¬(A ∩ B) — tot menys la lent central.' },
+        rhs: { regions: [0,1,2], color: GREEN, caption: '¬A ∪ ¬B: la unió de "fora d\'A" amb "fora de B".' }
+      },
+      {
+        formula: '\\(\\overline{A \\cap B} = \\bar{A} \\cup \\bar{B}\\) ✓',
+        lhs: { regions: [0,1,2], color: GREEN, caption: 'Mateixa regió pintada…' },
+        rhs: { regions: [0,1,2], color: GREEN, caption: '…als dos costats. Llei demostrada!' }
+      }
+    ]
+  };
+
+  var state = { law: 1, step: 0 };
+  var app = document.getElementById('morganApp');
+  if (!app) return;
+  var lhs = document.getElementById('vennLHS');
+  var rhs = document.getElementById('vennRHS');
+  var formulaEl = document.getElementById('morganFormula');
+  var lhsCap = document.getElementById('lhsCaption');
+  var rhsCap = document.getElementById('rhsCaption');
+  var stepInd = document.getElementById('morganStepInd');
+  var prevBtn = document.getElementById('morganPrev');
+  var nextBtn = document.getElementById('morganNext');
+  var tabs = app.querySelectorAll('.morgan-tab');
+
+  function paint(svg, sideCfg) {
+    var regions = sideCfg.regions || [];
+    var color = sideCfg.color;
+    svg.querySelectorAll('.region').forEach(function(r) {
+      var idx = parseInt(r.getAttribute('data-region'), 10);
+      if (regions.indexOf(idx) >= 0) {
+        r.setAttribute('fill', color);
+        r.classList.add('lit');
+      } else {
+        r.classList.remove('lit');
+      }
+    });
+  }
+
+  function render() {
+    var steps = STEPS[state.law];
+    var s = steps[state.step];
+    paint(lhs, s.lhs);
+    paint(rhs, s.rhs);
+    lhsCap.textContent = s.lhs.caption;
+    rhsCap.textContent = s.rhs.caption;
+    formulaEl.innerHTML = s.formula;
+    stepInd.textContent = 'Pas ' + (state.step + 1) + ' de ' + steps.length;
+    prevBtn.disabled = state.step === 0;
+    nextBtn.disabled = state.step === steps.length - 1;
+    if (window.renderMathInElement) {
+      try { window.renderMathInElement(formulaEl, {delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}], throwOnError:false}); } catch(e){}
+    }
+  }
+
+  prevBtn.addEventListener('click', function() {
+    if (state.step > 0) { state.step--; render(); }
+  });
+  nextBtn.addEventListener('click', function() {
+    if (state.step < STEPS[state.law].length - 1) { state.step++; render(); }
+  });
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var law = parseInt(tab.getAttribute('data-law'), 10);
+      if (state.law === law) return;
+      state.law = law;
+      state.step = 0;
+      tabs.forEach(function(t) {
+        var active = parseInt(t.getAttribute('data-law'), 10) === law;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      render();
+    });
+  });
+
+  // Render KaTeX inside tab labels once it's ready
+  function renderTabsMath() {
+    if (!window.renderMathInElement) { setTimeout(renderTabsMath, 60); return; }
+    try { window.renderMathInElement(app.querySelector('.morgan-tabs'), {delimiters:[{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError:false}); } catch(e){}
+  }
+  renderTabsMath();
+  render();
+})();
 </script>
 </body>
 </html>

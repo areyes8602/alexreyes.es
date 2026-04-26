@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Teorema de la probabilitat total i de Bayes · Probabilitat · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de probabilitat per a Mat. Aplicades CCSS 1r BTL: partició de l'espai mostral, teorema de la probabilitat total i teorema de Bayes amb exemple d'urnes.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.theorem-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.theorem-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.tree-fig { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 0.5rem 0.6rem; margin:1rem 0; text-align:center; }
+.tree-fig svg { display:block; margin:0 auto; max-width:100%; height:auto; }
+.tree-fig figcaption { font-size:0.78rem; color:var(--text-faint); margin-top:0.4rem; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .theorem-box { background: rgba(16,185,129,0.14); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/">Probabilitat</a>
+      <span class="sep">/</span>
+      <span class="current">03 · Teorema probabilitat total i Bayes</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Probabilitat</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">24 abr 2026</span>
+      </div>
+      <h1 style="margin:0">3. Teorema de la probabilitat total i de Bayes</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Què passa quan l'experiment es fa <em>en dues etapes</em>: primer triem una caixa, després mirem què hi ha dins.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Partició de l'espai mostral</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Diem que els successos $A_1, A_2, \dots, A_n$ formen una <strong>partició</strong> de l'espai mostral $E$ si compleixen dues condicions:</p>
+          <p style="margin:0.6rem 0 0.2rem"><strong>1)</strong> Són <strong>incompatibles</strong> dos a dos: per a tot $i \neq j$,</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">$$A_i \cap A_j = \emptyset$$</div>
+          <p style="margin:0.6rem 0 0.2rem"><strong>2)</strong> Són <strong>exhaustius</strong>: la seva unió és tot l'espai mostral,</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">$$A_1 \cup A_2 \cup \dots \cup A_n = E$$</div>
+        </div>
+
+        <p class="note">Pots imaginar la partició com una manera de "tallar" el pastís $E$ en trossos que no se solapen i que entre tots cobreixen el pastís sencer.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Teorema de la probabilitat total</h2>
+
+        <div class="theorem-box">
+          <h3>Enunciat</h3>
+          <p>Sigui $\{A_1, A_2, \dots, A_n\}$ una partició de l'espai mostral $E$ i $B$ qualsevol succés. Llavors:</p>
+          <div class="math-block" style="margin:0.8rem 0 0.2rem;padding:0.6rem">
+            $$P(B) = \sum_{i=1}^{n} P(B \mid A_i) \cdot P(A_i)$$
+          </div>
+          <p>O escrit "obert":</p>
+          <div class="math-block" style="margin:0.4rem 0 0;padding:0.6rem">
+            $$P(B) = P(B \mid A_1)\,P(A_1) + P(B \mid A_2)\,P(A_2) + \dots + P(B \mid A_n)\,P(A_n)$$
+          </div>
+        </div>
+
+        <p class="note"><strong>Idea:</strong> per calcular $P(B)$, mirem $B$ "passant per cada branca" de la partició i sumem.</p>
+
+        <figure class="tree-fig">
+          <svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama d'arbre per al teorema de la probabilitat total amb dues branques">
+            <!-- Tronc -->
+            <circle cx="50" cy="110" r="6" fill="#1d4ed8"/>
+            <text x="50" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#1d4ed8">E</text>
+            <!-- Branques nivell 1 -->
+            <line x1="56" y1="110" x2="170" y2="50" stroke="#1d4ed8" stroke-width="1.5"/>
+            <line x1="56" y1="110" x2="170" y2="170" stroke="#1d4ed8" stroke-width="1.5"/>
+            <text x="105" y="68" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(A₁)</text>
+            <text x="105" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(A₂)</text>
+            <!-- Nodes nivell 1 -->
+            <circle cx="180" cy="50" r="14" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+            <text x="180" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1d4ed8">A₁</text>
+            <circle cx="180" cy="170" r="14" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+            <text x="180" y="175" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1d4ed8">A₂</text>
+            <!-- Branques nivell 2 (només B) -->
+            <line x1="194" y1="50" x2="320" y2="50" stroke="#10b981" stroke-width="1.5"/>
+            <line x1="194" y1="170" x2="320" y2="170" stroke="#10b981" stroke-width="1.5"/>
+            <text x="257" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">P(B|A₁)</text>
+            <text x="257" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">P(B|A₂)</text>
+            <!-- Nodes finals -->
+            <circle cx="335" cy="50" r="14" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+            <text x="335" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#047857">B</text>
+            <circle cx="335" cy="170" r="14" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+            <text x="335" y="175" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#047857">B</text>
+            <!-- Resultats -->
+            <text x="365" y="55" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(A₁)·P(B|A₁)</text>
+            <text x="365" y="175" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(A₂)·P(B|A₂)</text>
+            <!-- Suma -->
+            <line x1="350" y1="110" x2="395" y2="110" stroke="#475569" stroke-width="0.6" stroke-dasharray="3,3"/>
+            <text x="372" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#475569" font-style="italic">sumar</text>
+          </svg>
+          <figcaption>Diagrama d'arbre per a una partició amb dues branques. Multiplica al llarg de cada branca i suma per arribar a $P(B)$.</figcaption>
+        </figure>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Teorema de Bayes</h2>
+
+        <div class="theorem-box">
+          <h3>Enunciat</h3>
+          <p>Amb la mateixa partició $\{A_1, \dots, A_n\}$ i el succés $B$ amb $P(B) > 0$:</p>
+          <div class="math-block" style="margin:0.8rem 0 0.2rem;padding:0.6rem">
+            $$P(A_j \mid B) = \dfrac{P(B \mid A_j)\,P(A_j)}{\displaystyle\sum_{i=1}^{n} P(B \mid A_i)\,P(A_i)} = \dfrac{P(B \mid A_j)\,P(A_j)}{P(B)}$$
+          </div>
+        </div>
+
+        <p class="note"><strong>Idea:</strong> el teorema de Bayes ens permet "<em>donar la volta</em>" a una probabilitat condicionada. Coneixem $P(B \mid A_j)$ (probabilitat de l'efecte donada la causa) i volem $P(A_j \mid B)$ (probabilitat de la causa, donat l'efecte).</p>
+
+        <p class="note">El denominador és exactament el teorema de la probabilitat total: per això Bayes "necessita" Total Probability — en realitat són dos cares de la mateixa moneda.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Exemple guiat: dues caixes amb boles</h2>
+
+        <div class="example-box">
+          <h3>Enunciat</h3>
+          <p>Tenim dues caixes:</p>
+          <ul style="margin:0.4rem 0 0.4rem 1.2rem;padding:0">
+            <li><strong>Caixa A:</strong> 6 boles blanques i 4 boles blaves (10 en total).</li>
+            <li><strong>Caixa B:</strong> 5 boles blanques i 2 boles blaves (7 en total).</li>
+          </ul>
+          <p>Triem una caixa a l'atzar (50% cadascuna) i n'extraiem una bola a l'atzar.</p>
+          <p><strong>(a)</strong> Quina és la probabilitat que la bola sigui blanca?</p>
+          <p><strong>(b)</strong> Si la bola ha sortit blanca, quina probabilitat hi ha que vingui de la caixa A?</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Resolució — apartat (a) · prob. total</h3>
+          <p>Sigui $W = \{\text{bola blanca}\}$. Les caixes $\{A, B\}$ formen una partició de l'espai mostral. Apliquem el teorema de la probabilitat total:</p>
+          <p>Probabilitats conegudes:</p>
+          <p style="text-align:center">$P(A) = \tfrac{1}{2}$, &nbsp; $P(B) = \tfrac{1}{2}$, &nbsp; $P(W \mid A) = \tfrac{6}{10}$, &nbsp; $P(W \mid B) = \tfrac{5}{7}$</p>
+          <div class="math-block" style="margin:0.8rem 0 0;padding:0.6rem">
+            $$P(W) = P(W \mid A)\,P(A) + P(W \mid B)\,P(B) = \tfrac{6}{10} \cdot \tfrac{1}{2} + \tfrac{5}{7} \cdot \tfrac{1}{2}$$
+          </div>
+          <div class="math-block" style="margin:0.4rem 0 0;padding:0.6rem">
+            $$P(W) = \tfrac{3}{10} + \tfrac{5}{14} = \tfrac{21}{70} + \tfrac{25}{70} = \tfrac{46}{70} = \tfrac{23}{35} \approx 0{,}657$$
+          </div>
+          <p class="note" style="margin-top:0.6rem">Per tant, una mica més del 65 % de probabilitat de treure blanca.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Resolució — apartat (b) · Bayes</h3>
+          <p>Volem $P(A \mid W)$. Apliquem el teorema de Bayes:</p>
+          <div class="math-block" style="margin:0.4rem 0 0;padding:0.6rem">
+            $$P(A \mid W) = \dfrac{P(W \mid A)\,P(A)}{P(W)} = \dfrac{\tfrac{6}{10} \cdot \tfrac{1}{2}}{\tfrac{23}{35}} = \dfrac{\tfrac{3}{10}}{\tfrac{23}{35}}$$
+          </div>
+          <div class="math-block" style="margin:0.4rem 0 0;padding:0.6rem">
+            $$P(A \mid W) = \tfrac{3}{10} \cdot \tfrac{35}{23} = \tfrac{105}{230} = \tfrac{21}{46} \approx 0{,}457$$
+          </div>
+          <p class="note" style="margin-top:0.6rem">Tot i que la caixa B té proporcionalment més blanques, el resultat surt $\tfrac{21}{46} \approx 45{,}7\%$ — sí, ha "baixat" respecte al 50 % inicial: saber que ha sortit blanca és una <em>petita</em> evidència contra la caixa A (que té proporcionalment menys blanques).</p>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-probabilitat/02-operacions-amb-conjunts.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-probabilitat/">Índex de la unitat</a>
+        <a class="next" href="/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">Apartat següent &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

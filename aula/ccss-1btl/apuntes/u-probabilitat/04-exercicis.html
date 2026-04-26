@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4. Exercicis · Probabilitat · 1r BTL CCSS</title>
+<meta name="description" content="Exercicis resolts de probabilitat per a Mat. Aplicades CCSS 1r BTL: aplicació del teorema de la probabilitat total i del teorema de Bayes amb urnes, daus i casos d'empresa.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.5rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-statement { margin:0.4rem 0 0.6rem; }
+.exercise details { margin-top:0.6rem; border-top:1px dashed var(--border); padding-top:0.7rem; }
+.exercise details summary { cursor:pointer; font-size:0.85rem; font-weight:600; color:#6366f1; list-style:none; user-select:none; padding:0.2rem 0; }
+.exercise details summary::-webkit-details-marker { display:none; }
+.exercise details summary::before { content:"▶ "; font-size:0.7em; transition: transform 0.15s; display:inline-block; margin-right:0.2rem; }
+.exercise details[open] summary::before { transform: rotate(90deg); }
+.exercise details .solution { padding:0.4rem 0 0; font-size:0.94rem; }
+.exercise details .solution p { margin:0.5rem 0; }
+.exercise details .solution ul { margin:0.4rem 0 0.6rem 1.2rem; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/">Probabilitat</a>
+      <span class="sep">/</span>
+      <span class="current">04 · Exercicis</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Probabilitat</span>
+        <span class="tag tag-orange">Exercicis</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">24 abr 2026</span>
+      </div>
+      <h1 style="margin:0">4. Exercicis</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Aplicació dels teoremes de la probabilitat total i de Bayes. Cada enunciat porta la solució amagada — intenta resoldre'l abans de desplegar-la.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ── Exercici 46 ── -->
+      <div class="exercise">
+        <div class="exercise-head">
+          <span class="num">46</span>
+          <span class="ttl">Dues caixes</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Una capsa, $A$, conté 6 boles blanques i 4 boles blaves; mentre que una altra capsa, $B$, conté 5 boles blanques i 2 blaves. Es tria una capsa a l'atzar i se n'extreuen <strong>dues boles sense reemplaçament</strong>. Calcula la probabilitat que:</p>
+          <p style="margin-left:1rem">a) Les dues boles siguin blanques.<br>
+             b) Les dues boles siguin del mateix color.<br>
+             c) Les dues boles siguin de diferent color.</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>Tenim $P(A) = P(B) = \tfrac{1}{2}$. Sigui $W = \{\text{2 boles blanques}\}$ i $V = \{\text{2 boles blaves}\}$.</p>
+            <p><strong>(a)</strong> Probabilitats condicionades:</p>
+            <p style="text-align:center">$P(W \mid A) = \tfrac{6}{10} \cdot \tfrac{5}{9} = \tfrac{30}{90} = \tfrac{1}{3}$, &nbsp; $P(W \mid B) = \tfrac{5}{7} \cdot \tfrac{4}{6} = \tfrac{20}{42} = \tfrac{10}{21}$</p>
+            <p>Pel teorema de la probabilitat total:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(W) = \tfrac{1}{2} \cdot \tfrac{1}{3} + \tfrac{1}{2} \cdot \tfrac{10}{21} = \tfrac{1}{6} + \tfrac{5}{21} = \tfrac{7}{42} + \tfrac{10}{42} = \tfrac{17}{42} \approx 0{,}405$$
+            </div>
+            <p><strong>(b)</strong> Per al mateix color, sumem $P(W) + P(V)$:</p>
+            <p style="text-align:center">$P(V \mid A) = \tfrac{4}{10} \cdot \tfrac{3}{9} = \tfrac{12}{90} = \tfrac{2}{15}$, &nbsp; $P(V \mid B) = \tfrac{2}{7} \cdot \tfrac{1}{6} = \tfrac{2}{42} = \tfrac{1}{21}$</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(V) = \tfrac{1}{2} \cdot \tfrac{2}{15} + \tfrac{1}{2} \cdot \tfrac{1}{21} = \tfrac{1}{15} + \tfrac{1}{42} = \tfrac{14}{210} + \tfrac{5}{210} = \tfrac{19}{210}$$
+            </div>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{mateix color}) = \tfrac{17}{42} + \tfrac{19}{210} = \tfrac{85}{210} + \tfrac{19}{210} = \tfrac{104}{210} = \tfrac{52}{105} \approx 0{,}495$$
+            </div>
+            <p><strong>(c)</strong> Diferent color és el succés contrari:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{diferent color}) = 1 - \tfrac{52}{105} = \tfrac{53}{105} \approx 0{,}505$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 47 ── -->
+      <div class="exercise">
+        <div class="exercise-head">
+          <span class="num">47</span>
+          <span class="ttl">Tres urnes</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Es disposa de tres urnes: l'urna $A$ conté 2 boles blanques i 4 boles vermelles; l'urna $B$, 3 boles blanques i 3 de vermelles, i la $C$, 1 de blanca i 5 de vermelles. Si es tria una urna a l'atzar i se n'extreu una bola, quina és la probabilitat que la bola sigui blanca? I si ho és, quina és la probabilitat que procedeixi de l'urna $B$?</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>$P(A) = P(B) = P(C) = \tfrac{1}{3}$. Cada urna té 6 boles. Sigui $W = \{\text{bola blanca}\}$.</p>
+            <p>Probabilitats condicionades:</p>
+            <p style="text-align:center">$P(W \mid A) = \tfrac{2}{6} = \tfrac{1}{3}$, &nbsp; $P(W \mid B) = \tfrac{3}{6} = \tfrac{1}{2}$, &nbsp; $P(W \mid C) = \tfrac{1}{6}$</p>
+            <p><strong>Probabilitat que la bola sigui blanca</strong> (probabilitat total):</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(W) = \tfrac{1}{3} \cdot \tfrac{1}{3} + \tfrac{1}{3} \cdot \tfrac{1}{2} + \tfrac{1}{3} \cdot \tfrac{1}{6} = \tfrac{1}{3}\!\left(\tfrac{2}{6} + \tfrac{3}{6} + \tfrac{1}{6}\right) = \tfrac{1}{3} \cdot 1 = \tfrac{1}{3}$$
+            </div>
+            <p><strong>Probabilitat que vingui de B</strong> sabent que és blanca (Bayes):</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(B \mid W) = \dfrac{P(W \mid B) \cdot P(B)}{P(W)} = \dfrac{\tfrac{1}{2} \cdot \tfrac{1}{3}}{\tfrac{1}{3}} = \tfrac{1}{2}$$
+            </div>
+            <p class="note">Té sentit: l'urna B és la que té més proporció de blanques (la meitat), per això quan veiem una blanca, la "sospita" cap a B s'enforteix exactament fins al 50 %.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 48 ── -->
+      <div class="exercise">
+        <div class="exercise-head">
+          <span class="num">48</span>
+          <span class="ttl">Dau i urna</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Es llança un dau i se n'observa el resultat. Si el nombre obtingut és parell, s'introdueix una bola blanca en una urna que conté 2 boles blanques i 4 de negres; i si és imparell, s'hi introdueix una bola negra.</p>
+          <p style="margin-left:1rem">a) Calcula la probabilitat d'extreure de l'urna, sense reemplaçament, dues boles blanques si, en llançar el dau, s'ha obtingut un resultat parell.<br>
+             b) Quina és la probabilitat d'extreure de l'urna, sense reemplaçament, dues boles blanques una vegada llançat el dau?</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>Sigui $\Pi$ = "el dau dóna parell" i $I$ = "el dau dóna imparell". Tenim $P(\Pi) = P(I) = \tfrac{1}{2}$.</p>
+            <p><strong>Composició final de l'urna</strong> segons el resultat del dau:</p>
+            <ul>
+              <li>Si $\Pi$: 3 blanques + 4 negres = 7 boles</li>
+              <li>Si $I$: 2 blanques + 5 negres = 7 boles</li>
+            </ul>
+            <p><strong>(a)</strong> $P(\text{2 blanques} \mid \Pi)$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{2b} \mid \Pi) = \tfrac{3}{7} \cdot \tfrac{2}{6} = \tfrac{6}{42} = \tfrac{1}{7}$$
+            </div>
+            <p><strong>(b)</strong> Probabilitat total. També necessitem $P(\text{2b} \mid I)$:</p>
+            <p style="text-align:center">$P(\text{2b} \mid I) = \tfrac{2}{7} \cdot \tfrac{1}{6} = \tfrac{2}{42} = \tfrac{1}{21}$</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{2b}) = \tfrac{1}{2} \cdot \tfrac{1}{7} + \tfrac{1}{2} \cdot \tfrac{1}{21} = \tfrac{1}{14} + \tfrac{1}{42} = \tfrac{3}{42} + \tfrac{1}{42} = \tfrac{4}{42} = \tfrac{2}{21} \approx 0{,}095$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 49 ── -->
+      <div class="exercise">
+        <div class="exercise-head">
+          <span class="num">49</span>
+          <span class="ttl">Bombetes</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Una empresa produeix bombetes halògenes i bombetes de baix consum. De cada 7 unitats produïdes, 3 són halògenes i 4 de baix consum. La probabilitat que una bombeta halògena sigui defectuosa és $0{,}02$, i la probabilitat que ho sigui una de baix consum és $0{,}09$. S'escull a l'atzar una bombeta i resulta que <strong>no és defectuosa</strong>; quina és la probabilitat que sigui halògena?</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>Sigui $H$ = halògena, $L$ = baix consum, $D$ = defectuosa. Dades:</p>
+            <p style="text-align:center">$P(H) = \tfrac{3}{7}$, &nbsp; $P(L) = \tfrac{4}{7}$, &nbsp; $P(D \mid H) = 0{,}02$, &nbsp; $P(D \mid L) = 0{,}09$</p>
+            <p>Per tant $P(\bar D \mid H) = 0{,}98$ i $P(\bar D \mid L) = 0{,}91$.</p>
+            <p><strong>Probabilitat que no sigui defectuosa</strong> (probabilitat total):</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\bar D) = \tfrac{3}{7} \cdot 0{,}98 + \tfrac{4}{7} \cdot 0{,}91 = \tfrac{2{,}94 + 3{,}64}{7} = \tfrac{6{,}58}{7} \approx 0{,}94$$
+            </div>
+            <p><strong>Aplicant Bayes:</strong></p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(H \mid \bar D) = \dfrac{P(\bar D \mid H) \cdot P(H)}{P(\bar D)} = \dfrac{0{,}98 \cdot \tfrac{3}{7}}{0{,}94} = \dfrac{0{,}42}{0{,}94} \approx 0{,}447$$
+            </div>
+            <p class="note">És a dir, hi ha un 44,7 % de probabilitat que sigui halògena.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 50 ── -->
+      <div class="exercise">
+        <div class="exercise-head">
+          <span class="num">50</span>
+          <span class="ttl">Crèdits bancaris</span>
+        </div>
+        <div class="exercise-statement">
+          <p>En un banc, el 30 % dels crèdits concedits són per a l'habitatge; el 50 %, per a empreses, i el 20 % són crèdits al consum. Se sap, a més, que dels crèdits concedits per a l'habitatge, el 10 % acaben impagats; dels atorgats a les empreses, acaben impagats el 20 %, mentre que, dels crèdits al consum, l'impagament afecta el 10 %.</p>
+          <p style="margin-left:1rem">a) Calcula la probabilitat que un crèdit triat a l'atzar sigui pagat.<br>
+             b) Si un crèdit s'ha pagat, quina probabilitat hi ha que fos de consum?</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>Sigui $H$ = habitatge, $E$ = empreses, $C$ = consum, $D$ = impagat. Dades:</p>
+            <p style="text-align:center">$P(H) = 0{,}30$, &nbsp; $P(E) = 0{,}50$, &nbsp; $P(C) = 0{,}20$</p>
+            <p style="text-align:center">$P(D \mid H) = 0{,}10$, &nbsp; $P(D \mid E) = 0{,}20$, &nbsp; $P(D \mid C) = 0{,}10$</p>
+            <p><strong>(a)</strong> Probabilitat total de l'impagament:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(D) = 0{,}30 \cdot 0{,}10 + 0{,}50 \cdot 0{,}20 + 0{,}20 \cdot 0{,}10 = 0{,}03 + 0{,}10 + 0{,}02 = 0{,}15$$
+            </div>
+            <p>Per tant:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{pagat}) = 1 - P(D) = 1 - 0{,}15 = 0{,}85$$
+            </div>
+            <p><strong>(b)</strong> Apliquem Bayes amb $\bar D$ = pagat. Necessitem $P(\bar D \mid C) = 0{,}90$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(C \mid \bar D) = \dfrac{P(\bar D \mid C) \cdot P(C)}{P(\bar D)} = \dfrac{0{,}90 \cdot 0{,}20}{0{,}85} = \dfrac{0{,}18}{0{,}85} \approx 0{,}212$$
+            </div>
+            <p class="note">Aproximadament un 21,2 % dels crèdits pagats són de consum.</p>
+          </div>
+        </details>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-probabilitat/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
