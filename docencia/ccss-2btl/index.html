@@ -4,25 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mat. Aplicadas CCSS 2º BTL — Àlex Reyes</title>
-<meta name="description" content="Matemáticas Aplicadas a las CCSS 2º BTL — asignatura del histórico docente.">
+<meta name="description" content="Mat. Aplicadas CCSS 2º BTL — històric docent.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="stylesheet" href="/assets/css/gate.css">
 <link rel="canonical" href="https://alexreyes.es/docencia/ccss-2btl/">
 <style>
-  .info-cta { display:flex; align-items:center; gap:1.2rem; padding:1.2rem 1.5rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; margin-bottom:2rem; }
-  .info-cta:hover { border-color:var(--border-strong); transform:translateY(-1px); }
-  .info-cta-icon { font-size:2rem; flex:0 0 auto; }
-  .info-cta-body { flex:1; min-width:0; }
-  .info-cta-body h3 { margin:0 0 0.25rem; font-size:1.05rem; font-weight:600; color:var(--text); }
-  .info-cta-body p { margin:0; font-size:0.88rem; color:var(--text-soft); }
-  .info-cta-arrow { font-size:1.2rem; color:var(--text-faint); flex:0 0 auto; }
-  .archived-banner { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem 1.6rem; margin-bottom:2rem; text-align:center; }
-  .archived-banner h3 { margin:0 0 0.4rem; font-size:1rem; font-weight:600; color:var(--text); }
-  .archived-banner p { margin:0; font-size:0.9rem; color:var(--text-soft); }
+  .year-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
+  .year-card { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem 1.25rem; text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; display:flex; flex-direction:column; gap:0.4rem; }
+  .year-card:hover { border-color:var(--border-strong); transform:translateY(-1px); }
+  .year-card-head { display:flex; align-items:center; justify-content:space-between; gap:0.5rem; }
+  .year-card-year { font-family:var(--mono); font-size:1.05rem; font-weight:600; color:var(--text); }
+  .year-card-meta { font-size:0.78rem; color:var(--text-faint); }
+  .year-card-center { font-size:0.85rem; color:var(--text-soft); margin:0; }
+  .year-card-arrow { font-size:0.9rem; color:var(--text-faint); }
+  .empty-state { text-align:center; padding:2.5rem 1.5rem; background:var(--bg-subtle); border:1px dashed var(--border); border-radius:var(--radius); }
+  .empty-state h3 { margin:0 0 0.5rem; font-size:1rem; font-weight:600; color:var(--text); }
+  .empty-state p { margin:0; font-size:0.9rem; color:var(--text-soft); max-width:36rem; margin-left:auto; margin-right:auto; }
 </style>
 </head>
 <body>
@@ -57,13 +57,6 @@
       <span class="current">Mat. Aplicadas CCSS 2º BTL</span>
     </div>
 
-    <details class="year-picker">
-      <summary>📅 Curso</summary>
-      <div class="year-menu">
-        <p class="year-empty">Sin cursos publicados todavía.</p>
-      </div>
-    </details>
-
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">Bachillerato</span>
@@ -76,20 +69,13 @@
     <div class="info-grid">
       <div class="info-card"><div class="info-card-label">Curso</div><div class="info-card-value">2º Bachillerato</div></div>
       <div class="info-card"><div class="info-card-label">Estado</div><div class="info-card-value" style="font-size:0.88rem">Archivada</div></div>
+      <div class="info-card"><div class="info-card-label">Cursos</div><div class="info-card-value" id="years-count">—</div></div>
     </div>
 
-    <a href="/docencia/ccss-2btl/info/" class="info-cta">
-      <span class="info-cta-icon">📋</span>
-      <div class="info-cta-body">
-        <h3>Información de la asignatura</h3>
-        <p>Horario, criterios de evaluación, temario, calendario y material necesario.</p>
-      </div>
-      <span class="info-cta-arrow">→</span>
-    </a>
-
-    <div class="archived-banner">
-      <h3>Sin contenido publicado</h3>
-      <p>Esta asignatura forma parte de mi histórico docente — todavía no he publicado material aquí.</p>
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Cursos impartidos</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada curso contiene los apuntes, fichas, soluciones y exámenes de aquel año académico.</p>
+    <div id="years-container">
+      <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Cargando…</p>
     </div>
 
   </div>
@@ -107,6 +93,41 @@
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function escHtml(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+const NO_YEARS_H = "Todav\u00eda no he a\u00f1adido cursos de esta asignatura";
+const NO_YEARS_P = "Esta materia forma parte de mi hist\u00f3rico docente. Ir\u00e9 subiendo material de los cursos en que la impart\u00ed.";
+const ERROR_LOAD = "No se han podido cargar los cursos.";
+
+fetch('/docencia/ccss-2btl/years.json', { cache: 'no-cache' })
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(data => {
+    const years = (data.years || []).slice().sort((a,b) => (b.year||'').localeCompare(a.year||''));
+    document.getElementById('years-count').textContent = years.length || '0';
+    const cont = document.getElementById('years-container');
+    if (years.length === 0) {
+      cont.innerHTML = `<div class="empty-state"><h3>${escHtml(NO_YEARS_H)}</h3><p>${escHtml(NO_YEARS_P)}</p></div>`;
+      return;
+    }
+    cont.innerHTML = '<div class="year-grid">' + years.map(y => {
+      const center = y.center ? `<p class="year-card-center">${escHtml(y.center)}</p>` : '';
+      const note = y.note ? `<span class="year-card-meta">${escHtml(y.note)}</span>` : '';
+      return `
+        <a href="/docencia/ccss-2btl/${escHtml(y.year)}/" class="year-card">
+          <div class="year-card-head">
+            <span class="year-card-year">${escHtml(y.year)}</span>
+            <span class="year-card-arrow">→</span>
+          </div>
+          ${center}
+          ${note}
+        </a>`;
+    }).join('') + '</div>';
+  })
+  .catch(err => {
+    document.getElementById('years-count').textContent = '0';
+    document.getElementById('years-container').innerHTML = `<div class="empty-state"><h3>${escHtml(NO_YEARS_H)}</h3><p>${escHtml(NO_YEARS_P)}</p></div>`;
+    console.error('years.json:', err);
+  });
 </script>
 </body>
 </html>

@@ -4,25 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matemàtiques 3r ESO — Àlex Reyes</title>
-<meta name="description" content="Matemàtiques 3r ESO — assignatura del meu històric docent.">
+<meta name="description" content="Matemàtiques 3r ESO — històric docent.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="stylesheet" href="/assets/css/gate.css">
 <link rel="canonical" href="https://alexreyes.es/docencia/eso-3/">
 <style>
-  .info-cta { display:flex; align-items:center; gap:1.2rem; padding:1.2rem 1.5rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; margin-bottom:2rem; }
-  .info-cta:hover { border-color:var(--border-strong); transform:translateY(-1px); }
-  .info-cta-icon { font-size:2rem; flex:0 0 auto; }
-  .info-cta-body { flex:1; min-width:0; }
-  .info-cta-body h3 { margin:0 0 0.25rem; font-size:1.05rem; font-weight:600; color:var(--text); }
-  .info-cta-body p { margin:0; font-size:0.88rem; color:var(--text-soft); }
-  .info-cta-arrow { font-size:1.2rem; color:var(--text-faint); flex:0 0 auto; }
-  .archived-banner { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem 1.6rem; margin-bottom:2rem; text-align:center; }
-  .archived-banner h3 { margin:0 0 0.4rem; font-size:1rem; font-weight:600; color:var(--text); }
-  .archived-banner p { margin:0; font-size:0.9rem; color:var(--text-soft); }
+  .year-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
+  .year-card { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem 1.25rem; text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; display:flex; flex-direction:column; gap:0.4rem; }
+  .year-card:hover { border-color:var(--border-strong); transform:translateY(-1px); }
+  .year-card-head { display:flex; align-items:center; justify-content:space-between; gap:0.5rem; }
+  .year-card-year { font-family:var(--mono); font-size:1.05rem; font-weight:600; color:var(--text); }
+  .year-card-meta { font-size:0.78rem; color:var(--text-faint); }
+  .year-card-center { font-size:0.85rem; color:var(--text-soft); margin:0; }
+  .year-card-arrow { font-size:0.9rem; color:var(--text-faint); }
+  .empty-state { text-align:center; padding:2.5rem 1.5rem; background:var(--bg-subtle); border:1px dashed var(--border); border-radius:var(--radius); }
+  .empty-state h3 { margin:0 0 0.5rem; font-size:1rem; font-weight:600; color:var(--text); }
+  .empty-state p { margin:0; font-size:0.9rem; color:var(--text-soft); max-width:36rem; margin-left:auto; margin-right:auto; }
 </style>
 </head>
 <body>
@@ -57,13 +57,6 @@
       <span class="current">Matemàtiques 3r ESO</span>
     </div>
 
-    <details class="year-picker">
-      <summary>📅 Curs</summary>
-      <div class="year-menu">
-        <p class="year-empty">Sense cursos publicats encara.</p>
-      </div>
-    </details>
-
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">ESO</span>
@@ -75,21 +68,14 @@
 
     <div class="info-grid">
       <div class="info-card"><div class="info-card-label">Curs</div><div class="info-card-value">3r ESO</div></div>
-      <div class="info-card"><div class="info-card-label">Estado</div><div class="info-card-value" style="font-size:0.88rem">Arxivada</div></div>
+      <div class="info-card"><div class="info-card-label">Estat</div><div class="info-card-value" style="font-size:0.88rem">Arxivada</div></div>
+      <div class="info-card"><div class="info-card-label">Cursos</div><div class="info-card-value" id="years-count">—</div></div>
     </div>
 
-    <a href="/docencia/eso-3/info/" class="info-cta">
-      <span class="info-cta-icon">📋</span>
-      <div class="info-cta-body">
-        <h3>Informació de l'assignatura</h3>
-        <p>Horari, criteris d'avaluació, temari, calendari i material necessari.</p>
-      </div>
-      <span class="info-cta-arrow">→</span>
-    </a>
-
-    <div class="archived-banner">
-      <h3>Sense contingut publicat</h3>
-      <p>Aquesta assignatura forma part del meu històric docent — encara no he publicat material aquí.</p>
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Cursos impartits</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada curs conté els apunts, fitxes, solucions i exàmens d'aquell any acadèmic.</p>
+    <div id="years-container">
+      <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Carregant…</p>
     </div>
 
   </div>
@@ -107,6 +93,41 @@
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function escHtml(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+const NO_YEARS_H = "Encara no he afegit cursos d'aquesta assignatura";
+const NO_YEARS_P = "Aquesta mat\u00e8ria forma part del meu hist\u00f2ric docent. Aviat anir\u00e9 pujant material dels cursos en qu\u00e8 la vaig impartir.";
+const ERROR_LOAD = "No s'han pogut carregar els cursos.";
+
+fetch('/docencia/eso-3/years.json', { cache: 'no-cache' })
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(data => {
+    const years = (data.years || []).slice().sort((a,b) => (b.year||'').localeCompare(a.year||''));
+    document.getElementById('years-count').textContent = years.length || '0';
+    const cont = document.getElementById('years-container');
+    if (years.length === 0) {
+      cont.innerHTML = `<div class="empty-state"><h3>${escHtml(NO_YEARS_H)}</h3><p>${escHtml(NO_YEARS_P)}</p></div>`;
+      return;
+    }
+    cont.innerHTML = '<div class="year-grid">' + years.map(y => {
+      const center = y.center ? `<p class="year-card-center">${escHtml(y.center)}</p>` : '';
+      const note = y.note ? `<span class="year-card-meta">${escHtml(y.note)}</span>` : '';
+      return `
+        <a href="/docencia/eso-3/${escHtml(y.year)}/" class="year-card">
+          <div class="year-card-head">
+            <span class="year-card-year">${escHtml(y.year)}</span>
+            <span class="year-card-arrow">→</span>
+          </div>
+          ${center}
+          ${note}
+        </a>`;
+    }).join('') + '</div>';
+  })
+  .catch(err => {
+    document.getElementById('years-count').textContent = '0';
+    document.getElementById('years-container').innerHTML = `<div class="empty-state"><h3>${escHtml(NO_YEARS_H)}</h3><p>${escHtml(NO_YEARS_P)}</p></div>`;
+    console.error('years.json:', err);
+  });
 </script>
 </body>
 </html>
