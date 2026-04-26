@@ -172,6 +172,8 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
       const m = e.tags && e.tags.materia;
       if (m !== 'ib-ai-hl' && m !== 'ib-ai-sl') continue;
       if (c.promocion !== PROMO) continue;
+      // Només mostrem exàmens al hub: les pràctiques/exercicis de classe es llisten a /aula/<materia>/apuntes/
+      if (c.tipo && c.tipo !== 'examen') continue;
       if (!cols.has(c.id)) cols.set(c.id, { col: c, ejs: [] });
       cols.get(c.id).ejs.push(e);
     }
