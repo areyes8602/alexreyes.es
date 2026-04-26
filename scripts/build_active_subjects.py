@@ -596,6 +596,15 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
     const byUnit = {{}};
     const globals = [];
     for (const entry of cols.values()) {{
+      // Si la col·lecció declara `unidades_implicadas`, l'examen apareix sota cadascuna.
+      const ui = Array.isArray(entry.col.unidades_implicadas) ? entry.col.unidades_implicadas : null;
+      if (ui && ui.length > 0) {{
+        for (const num of ui) {{
+          const k = String(num).padStart(2,'0');
+          (byUnit[k] = byUnit[k] || []).push(entry);
+        }}
+        continue;
+      }}
       const u = unitNumOf(entry.col.id);
       if (u) {{ (byUnit[u] = byUnit[u] || []).push(entry); }}
       else {{ globals.push(entry); }}

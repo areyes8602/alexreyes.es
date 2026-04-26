@@ -171,6 +171,7 @@ def build_index_entry(ejercicio, coleccion, taxonomy):
             "promocion": coleccion.get("promocion"),
             "pdf_enunciados": coleccion.get("pdf_enunciados") or coleccion.get("pdf_original"),
             "pdf_soluciones": coleccion.get("pdf_soluciones"),
+            "unidades_implicadas": coleccion.get("unidades_implicadas"),
         },
         "tags": merged_tags,
         "search_text": {

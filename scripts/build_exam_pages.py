@@ -328,6 +328,10 @@ def main():
         if sv < 3:
             print(f"  ⏭  {cf.name:30s}  (schema_version={sv}, se omite)")
             continue
+        # Les col·leccions de tipus "practica" tenen el seu propi build (build_classe_pages.py)
+        if col.get("tipo_coleccion") == "practica":
+            print(f"  ⏭  {cf.name:30s}  (tipo=practica, gestionat per build_classe_pages.py)")
+            continue
         url_index = col.get("url_index")
         if not url_index:
             print(f"  - {cf.name}: sin url_index (se omite)")

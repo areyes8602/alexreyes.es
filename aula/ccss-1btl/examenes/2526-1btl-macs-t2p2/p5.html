@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P5 · Menjar a l'alberg d'animals (cúbica) — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 5 del Parcial 2 de 1r BTL MACS: estudi d'una cúbica que modela el menjar gastat en una setmana, amb derivada, monotonia i extrems.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p5.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Parcial 2 · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P5</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">12/02/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 5 &middot; Menjar a l'alberg d'animals</h1>
+      <p class="question-descriptor">Avaluació d'una cúbica en punts concrets, resolució d'una equació factoritzable i extrems en un interval tancat.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>El nombre de quilograms de menjar que han gastat en un alberg d'animals durant una setmana concreta es pot calcular mitjançant la funció</p>
+          <div class="math-block">
+            $$f(t) = 10\!\left(-\dfrac{t^{3}}{8} + \dfrac{3t^{2}}{2} - \dfrac{9t}{2} + 10\right),$$
+          </div>
+          <p>on $t$ és el temps en dies i va des del dia $t = 1$ (dilluns) fins al dia $t = 8$ (dilluns de la setmana següent).</p>
+        </div>
+        <ol class="apartados">
+          <li>Calcula quants quilograms de menjar es van gastar el primer dilluns i el dilluns següent. Troba quin dia d'aquella setmana es van gastar 100 kg de menjar. <span class="apartado-puntos">0,8 p</span></li>
+          <li>Determina els dies de la setmana en què la despesa de menjar va ser més gran i els dies en què va ser més petita. Quants quilograms de menjar es van gastar aquests dies? <span class="apartado-puntos">1,2 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc D</span>
+        <span class="ib-chip" data-descriptor="Avaluació, resolució per factorització i extrems via $f'$">Cúbica + extrems</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p5')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p5" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> per als extrems en un interval tancat $[1, 8]$, hem de comparar els valors de $f$ als <em>punts crítics interiors</em> ($f'(t) = 0$) i als <em>extrems</em> de l'interval. La derivada simplificada surt molt neta: $f'(t) = -\tfrac{15}{4}(t-2)(t-6)$.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Valors a $t=1$, $t=8$ i quan $f(t) = 100$</h4>
+          <p>Valor el primer dilluns ($t = 1$):</p>
+          <div class="math-block">
+            $$f(1) = 10\!\left(-\tfrac{1}{8} + \tfrac{3}{2} - \tfrac{9}{2} + 10\right) = 10 \cdot \tfrac{55}{8} = \tfrac{550}{8} = 68{,}75 \text{ kg}$$
+          </div>
+          <p>Valor el dilluns següent ($t = 8$):</p>
+          <div class="math-block">
+            $$f(8) = 10\!\left(-\tfrac{512}{8} + \tfrac{3 \cdot 64}{2} - \tfrac{9 \cdot 8}{2} + 10\right) = 10\,(-64 + 96 - 36 + 10) = 60 \text{ kg}$$
+          </div>
+          <p>Per saber quan es van gastar 100 kg, plantegem $f(t) = 100$:</p>
+          <div class="math-block">
+            $$10\!\left(-\tfrac{t^3}{8} + \tfrac{3t^2}{2} - \tfrac{9t}{2} + 10\right) = 100 \;\Longleftrightarrow\; -\tfrac{t^3}{8} + \tfrac{3t^2}{2} - \tfrac{9t}{2} = 0$$
+          </div>
+          <p>Multipliquem per $-8$: $t^3 - 12t^2 + 36t = 0$, és a dir, $t(t^2 - 12t + 36) = 0$, i $t^2 - 12t + 36 = (t-6)^2$. Per tant:</p>
+          <div class="math-block">
+            $$t \cdot (t - 6)^2 = 0 \;\Longleftrightarrow\; t = 0 \text{ (fora de l'interval)} \text{ o } t = 6$$
+          </div>
+          <p>Comprovació: $f(6) = 10(-27 + 54 - 27 + 10) = 100 \checkmark$. El dia 6 és el <strong>dissabte</strong>.</p>
+          <div class="final">$f(1) = 68{,}75$ kg, $f(8) = 60$ kg, i $f(t) = 100$ kg el dissabte ($t = 6$).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Dies de despesa màxima i mínima</h4>
+          <p>Derivem la funció:</p>
+          <div class="math-block">
+            $$f'(t) = 10\!\left(-\tfrac{3t^2}{8} + 3t - \tfrac{9}{2}\right) = -\tfrac{15}{4}\,(t^2 - 8t + 12) = -\tfrac{15}{4}\,(t-2)(t-6)$$
+          </div>
+          <p>Punts crítics: $t = 2$ i $t = 6$. Estudi del signe (factor $-\tfrac{15}{4}$ negatiu, $(t-2)(t-6)$ paràbola que obre cap amunt):</p>
+          <ul>
+            <li>A $(1, 2)$: $(t-2)(t-6) > 0 \Rightarrow f'(t) < 0$. Decreixent.</li>
+            <li>A $(2, 6)$: $(t-2)(t-6) < 0 \Rightarrow f'(t) > 0$. Creixent.</li>
+            <li>A $(6, 8)$: $(t-2)(t-6) > 0 \Rightarrow f'(t) < 0$. Decreixent.</li>
+          </ul>
+          <p>Per tant: <strong>mínim relatiu</strong> a $t=2$ (dimarts) i <strong>màxim relatiu</strong> a $t=6$ (dissabte).</p>
+          <p>Avaluem als punts crítics i als extrems:</p>
+          <div class="math-block">
+            $$f(2) = 10\,(-1 + 6 - 9 + 10) = 60 \text{ kg, } \quad f(6) = 100 \text{ kg.}$$
+          </div>
+          <p>Combinant amb els valors dels extrems trobats abans:</p>
+          <ul>
+            <li>$f(1) = 68{,}75$ &nbsp;&middot;&nbsp; $f(2) = 60$ &nbsp;&middot;&nbsp; $f(6) = 100$ &nbsp;&middot;&nbsp; $f(8) = 60$.</li>
+            <li><strong>Màxim absolut</strong> a $[1, 8]$: $f(6) = 100$ kg → <strong>dissabte</strong>.</li>
+            <li><strong>Mínim absolut</strong>: $f(2) = f(8) = 60$ kg → <strong>dimarts i el dilluns següent</strong>.</li>
+          </ul>
+          <div class="final">El dia de més despesa va ser dissabte amb $100$ kg. Els dies de menys despesa van ser dimarts i el dilluns següent, els dos amb $60$ kg.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+{
+  "schema_version": 3,
+  "id": "2526-1btl-macs-t2p2",
+  "tipo_coleccion": "examen",
+  "titulo": "Parcial 2 — 2a avaluació · Funcions i derivades",
+  "fecha": "2026-02-12",
+  "grupo": "1r BTL",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/original.pdf",
+  "pdf_soluciones": null,
+  "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/",
+  "puntuacion_total": 10,
+  "baremo": null,
+  "unidades_implicadas": ["05", "06", "07"],
+  "tags_coleccion": {
+    "materia": "bach-ccss-1",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "propia",
+    "origen": "examen"
+  },
+  "ejercicios": [
+    {
+      "id": "2526-1btl-macs-t2p2-p1",
+      "numero": 1,
+      "titulo": "Derivades i punts crítics",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Deriva les funcions següents i, si en té, troba en cada cas els seus punts crítics.",
+      "apartados": [
+        { "letra": "a", "puntos": 0.5, "tarea": "$f_1(x) = 2x^3 + 24x$" },
+        { "letra": "b", "puntos": 0.5, "tarea": "$f_2(x) = \\dfrac{2x}{x-1}$" },
+        { "letra": "c", "puntos": 0.5, "tarea": "$f_3(x) = e^{x} \\cdot (x^2 + 4x)$" },
+        { "letra": "d", "puntos": 0.5, "tarea": "$f_4(x) = \\ln x$" }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-derivadas"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p2-p2",
+      "numero": 2,
+      "titulo": "Funció imparella, monotonia i extrems",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "apartados": [
+        { "letra": "a", "puntos": 2, "tarea": "Troba i demostra que hi ha com a mínim una funció imparella entre les funcions de la pregunta 1. Per a aquesta funció estudia la monotonia i dona els seus màxims i mínims." }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-derivadas", "BACH-funciones-elementales"],
+        "dificultad": "media",
+        "habilidad": ["demostracion", "calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga", "demostracion_formal"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p2-p3",
+      "numero": 3,
+      "titulo": "Valor absolut com a funció a trossos",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "apartados": [
+        { "letra": "a", "puntos": 2, "tarea": "La funció $f(x) = |x^2 - 1|$ es pot expressar com una funció definida a trossos. Expressa-la com una funció definida a trossos i fes la gràfica de la funció fent les taules de valors necessàries." }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-funciones-elementales"],
+        "dificultad": "facil",
+        "habilidad": ["interpretacion", "visualizacion", "calculo_simbolico"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p2-p4",
+      "numero": 4,
+      "titulo": "Model quadràtic de facturació, interpolació i extrapolació",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p4.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "L'evolució de la facturació d'una empresa durant els mesos del 2025 va seguir un model quadràtic. La taula adjunta dona les dades; el mes 0 és la última facturació de l'any 2024.\n\n| Mes | 0 | 4 | 10 |\n|-----|---|---|----|\n| Facturació (milers €) | 900 | 600 | 1200 |",
+      "apartados": [
+        { "letra": "a", "puntos": 0.7, "tarea": "Troba una estimació del mes de gener (mes $1$) amb el model quadràtic i digues si és una interpolació o una extrapolació." },
+        { "letra": "b", "puntos": 0.7, "tarea": "Troba una estimació del mes de desembre (mes $12$) amb el model quadràtic i digues si és una interpolació o una extrapolació." },
+        { "letra": "c", "puntos": 0.6, "tarea": "Utilitzant el model, aproximadament, digues quin mes va tenir la facturació mínima." }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-funciones-elementales", "BACH-sistemas"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2p2-p5",
+      "numero": 5,
+      "titulo": "Menjar a l'alberg d'animals (cúbica)",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p5.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "El nombre de quilograms de menjar que han gastat en un alberg d'animals durant una setmana concreta es pot calcular mitjançant la funció $$f(t) = 10\\!\\left(-\\dfrac{t^3}{8} + \\dfrac{3t^2}{2} - \\dfrac{9t}{2} + 10\\right),$$ on $t$ és el temps en dies i va des del dia $t=1$ (dilluns) fins al dia $t=8$ (dilluns de la setmana següent).",
+      "apartados": [
+        { "letra": "a", "puntos": 0.8, "tarea": "Calcula quants quilograms de menjar es van gastar el primer dilluns i el dilluns següent. Troba quin dia d'aquella setmana es van gastar 100 kg de menjar." },
+        { "letra": "b", "puntos": 1.2, "tarea": "Determina els dies de la setmana en què la despesa de menjar va ser més gran i els dies en què va ser més petita. Quants quilograms de menjar es van gastar aquests dies?" }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-derivadas", "BACH-funciones-elementales"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_simbolico", "interpretacion", "razonamiento"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}

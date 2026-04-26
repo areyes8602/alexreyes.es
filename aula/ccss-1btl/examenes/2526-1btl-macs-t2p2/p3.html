@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 · Valor absolut com a funció a trossos — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 3 del Parcial 2 de 1r BTL MACS: $f(x)=|x^2-1|$ com a funció definida a trossos i la seva representació gràfica.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p3.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Parcial 2 · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P3</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">12/02/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p4.html">Pregunta següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 3 &middot; $f(x) = |x^2 - 1|$ com a funció a trossos</h1>
+      <p class="question-descriptor">Definició a trossos d'una funció amb valor absolut i representació gràfica via taula de valors.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <ol class="apartados">
+          <li>La funció $f(x) = |x^2 - 1|$ es pot expressar com una funció definida a trossos. Expressa-la com una funció definida a trossos i fes la gràfica de la funció fent les taules de valors necessàries. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc D</span>
+        <span class="ib-chip" data-descriptor="Valor absolut, definició per trossos i representació gràfica">Valor absolut + funcions a trossos</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p3" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> $|A| = A$ si $A \ge 0$ i $|A| = -A$ si $A < 0$. Aquí cal estudiar el signe de $A = x^2 - 1$.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Estudi del signe de $x^2 - 1$</h4>
+          <p>$x^2 - 1 = 0 \Longleftrightarrow x = \pm 1$. La paràbola $y = x^2 - 1$ obre cap amunt i talla l'eix $x$ a $-1$ i $1$. Per tant:</p>
+          <ul>
+            <li>$x^2 - 1 \ge 0$ a $(-\infty, -1] \cup [1, +\infty)$.</li>
+            <li>$x^2 - 1 < 0$ a $(-1, 1)$.</li>
+          </ul>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Definició a trossos</h4>
+          <div class="math-block">
+            $$f(x) = |x^2 - 1| = \begin{cases} x^2 - 1, & \text{si } x \le -1 \text{ o } x \ge 1, \\ -(x^2 - 1) = 1 - x^2, & \text{si } -1 < x < 1. \end{cases}$$
+          </div>
+          <p>Als punts de canvi $x = \pm 1$ totes dues expressions valen $0$, així que la funció és contínua.</p>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Taula de valors i gràfica</h4>
+          <p>Com que $f$ és parella ($|(-x)^2-1| = |x^2-1|$), n'hi ha prou de calcular valors per a $x \ge 0$ i reflectir.</p>
+
+          <div style="overflow-x:auto;margin:0.6rem 0">
+          <table style="border-collapse:collapse;margin:0 auto;font-family:var(--mono);font-size:0.9rem">
+            <thead>
+              <tr style="background:var(--bg-subtle)">
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$x$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$-2$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$-1{,}5$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$-1$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$-0{,}5$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$0$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$0{,}5$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$1$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$1{,}5$</th>
+                <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$2$</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem;font-weight:600">$f(x)$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$3$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$1{,}25$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$0$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$0{,}75$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$1$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$0{,}75$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$0$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$1{,}25$</td>
+                <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$3$</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+
+          <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.4rem 0.4rem;margin:0.8rem 0;text-align:center">
+            <svg viewBox="-50 -130 460 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gràfica de f(x)=|x²−1|" style="display:block;margin:0 auto;max-width:100%;height:auto">
+              <!-- Eixos -->
+              <line x1="-50" y1="0" x2="410" y2="0" stroke="#475569" stroke-width="1"/>
+              <line x1="180" y1="-130" x2="180" y2="90" stroke="#475569" stroke-width="1"/>
+              <!-- ticks x -->
+              <g font-family="JetBrains Mono, monospace" font-size="10" fill="#475569" text-anchor="middle">
+                <line x1="60" y1="-3" x2="60" y2="3" stroke="#475569"/><text x="60" y="18">-3</text>
+                <line x1="100" y1="-3" x2="100" y2="3" stroke="#475569"/><text x="100" y="18">-2</text>
+                <line x1="140" y1="-3" x2="140" y2="3" stroke="#475569"/><text x="140" y="18">-1</text>
+                <line x1="220" y1="-3" x2="220" y2="3" stroke="#475569"/><text x="220" y="18">1</text>
+                <line x1="260" y1="-3" x2="260" y2="3" stroke="#475569"/><text x="260" y="18">2</text>
+                <line x1="300" y1="-3" x2="300" y2="3" stroke="#475569"/><text x="300" y="18">3</text>
+              </g>
+              <!-- ticks y -->
+              <g font-family="JetBrains Mono, monospace" font-size="10" fill="#475569" text-anchor="end">
+                <line x1="177" y1="-30" x2="183" y2="-30" stroke="#475569"/><text x="174" y="-26">1</text>
+                <line x1="177" y1="-60" x2="183" y2="-60" stroke="#475569"/><text x="174" y="-56">2</text>
+                <line x1="177" y1="-90" x2="183" y2="-90" stroke="#475569"/><text x="174" y="-86">3</text>
+                <line x1="177" y1="-120" x2="183" y2="-120" stroke="#475569"/><text x="174" y="-116">4</text>
+              </g>
+              <!-- Trams x≤-1 i x≥1 (paràbola y=x²-1, dalt) -->
+              <!-- Genera punts: x va de -2.5 a -1 per la branca esquerra, 1 a 2.5 per la dreta. Escala: x→180+40x, y(=valor en y)→-30·valor -->
+              <path d="M 80 -97.5 Q 110 -67.5 140 0" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+              <path d="M 220 0 Q 250 -67.5 280 -97.5" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+              <!-- Tram -1<x<1 (1-x², parabola invertida) - vèrtex (0,1) -->
+              <path d="M 140 0 Q 180 -60 220 0" fill="none" stroke="#10b981" stroke-width="2"/>
+              <!-- Punts del tall -->
+              <circle cx="140" cy="0" r="3" fill="#1d4ed8"/>
+              <circle cx="220" cy="0" r="3" fill="#1d4ed8"/>
+              <!-- Etiqueta f(x) -->
+              <text x="320" y="-110" font-family="Inter, sans-serif" font-size="12" fill="#1d4ed8" font-weight="600">f(x)</text>
+              <text x="350" y="14" font-family="Inter, sans-serif" font-size="11" fill="#475569">x</text>
+              <text x="186" y="-126" font-family="Inter, sans-serif" font-size="11" fill="#475569">y</text>
+            </svg>
+            <p style="font-size:0.78rem;color:var(--text-soft);margin:0.2rem 0 0">En blau, els trams $x^2-1$ ($x\le -1$ i $x\ge 1$). En verd, el tram reflectit $1-x^2$ ($-1\le x\le 1$). Els dos talls amb l'eix $x$ són a $x=\pm 1$, i el màxim local del tram central és a $(0,1)$.</p>
+          </div>
+
+          <div class="final">$f(x) = \begin{cases} x^2-1 & \text{si } |x|\ge 1, \\ 1-x^2 & \text{si } |x|<1. \end{cases}$ La gràfica reflecteix els trams negatius de $y=x^2-1$ cap amunt; toca l'eix $x$ a $\pm 1$ i té un cim a $(0,1)$.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p4.html">Pregunta següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

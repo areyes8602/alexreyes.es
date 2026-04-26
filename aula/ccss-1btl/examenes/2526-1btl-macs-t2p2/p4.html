@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Model quadràtic de facturació — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 4 del Parcial 2 de 1r BTL MACS: ajust d'un model quadràtic per la facturació, interpolació, extrapolació i mínim del model.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p4.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Parcial 2 · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P4</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">12/02/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p5.html">Pregunta següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 4 &middot; Model quadràtic de facturació</h1>
+      <p class="question-descriptor">Construcció d'un model $f(t) = at^2 + bt + c$ a partir de tres dades, distinció entre interpolació i extrapolació, i mínim del model.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>L'evolució de la facturació d'una empresa durant els mesos del 2025 va seguir un model quadràtic. La taula adjunta dona les dades; el mes 0 és la última facturació de l'any 2024.</p>
+          <div style="overflow-x:auto;margin:0.6rem 0">
+          <table style="border-collapse:collapse;margin:0;font-family:var(--mono);font-size:0.92rem">
+            <thead><tr style="background:var(--bg-subtle)">
+              <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">Mes</th>
+              <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$0$</th>
+              <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$4$</th>
+              <th style="border:1px solid var(--border);padding:0.3rem 0.7rem">$10$</th>
+            </tr></thead>
+            <tbody><tr>
+              <td style="border:1px solid var(--border);padding:0.3rem 0.7rem;font-weight:600">Facturació (milers €)</td>
+              <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$900$</td>
+              <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$600$</td>
+              <td style="border:1px solid var(--border);padding:0.3rem 0.7rem">$1\,200$</td>
+            </tr></tbody>
+          </table>
+          </div>
+        </div>
+        <ol class="apartados">
+          <li>Troba una estimació del mes de gener (mes $1$) amb el model quadràtic i digues si és una interpolació o una extrapolació. <span class="apartado-puntos">0,7 p</span></li>
+          <li>Troba una estimació del mes de desembre (mes $12$) amb el model quadràtic i digues si és una interpolació o una extrapolació. <span class="apartado-puntos">0,7 p</span></li>
+          <li>Utilitzant el model, aproximadament, digues quin mes va tenir la facturació mínima. <span class="apartado-puntos">0,6 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc D</span>
+        <span class="ib-chip" data-descriptor="Model quadràtic, sistemes 3×3 i interpolació/extrapolació">Modelització quadràtica</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> el model és $f(t) = at^2 + bt + c$. Substituïm les tres dades per obtenir un sistema 3×3 amb incògnites $a$, $b$ i $c$. Després apliquem el model: <em>interpolació</em> si el valor de $t$ que es vol estimar està dins del rang observat $[0, 10]$, <em>extrapolació</em> si està fora.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Construcció del model</h4>
+          <p>De $f(0) = 900$ surt directament $c = 900$. Ens queden dues equacions:</p>
+          <div class="math-block">
+            $$\left\{\begin{array}{l} 16a + 4b + 900 = 600 \\ 100a + 10b + 900 = 1\,200 \end{array}\right. \;\Longleftrightarrow\; \left\{\begin{array}{l} 4a + b = -75 \\ 10a + b = 30 \end{array}\right.$$
+          </div>
+          <p>Restant la primera de la segona: $6a = 105 \Rightarrow a = \tfrac{105}{6} = 17{,}5$. Llavors $b = -75 - 4 \cdot 17{,}5 = -145$.</p>
+          <div class="math-block">
+            $$f(t) = 17{,}5\,t^2 - 145\,t + 900$$
+          </div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Estimació del mes de gener (mes $1$)</h4>
+          <div class="math-block">
+            $$f(1) = 17{,}5 - 145 + 900 = 772{,}5 \text{ milers €}$$
+          </div>
+          <p>Com que $1 \in [0, 10]$ (rang observat), és una <strong>interpolació</strong>.</p>
+          <div class="final">$f(1) = 772{,}5$ milers € (interpolació).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Estimació del mes de desembre (mes $12$)</h4>
+          <div class="math-block">
+            $$f(12) = 17{,}5 \cdot 144 - 145 \cdot 12 + 900 = 2\,520 - 1\,740 + 900 = 1\,680 \text{ milers €}$$
+          </div>
+          <p>Com que $12 > 10$ (fora del rang observat), és una <strong>extrapolació</strong>.</p>
+          <div class="final">$f(12) = 1\,680$ milers € (extrapolació).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Mes amb la facturació mínima</h4>
+          <p>El coeficient principal és $a = 17{,}5 > 0$, així que la paràbola obre cap amunt i el seu vèrtex és el <em>mínim</em>. Vèrtex a:</p>
+          <div class="math-block">
+            $$t_v = -\dfrac{b}{2a} = -\dfrac{-145}{2 \cdot 17{,}5} = \dfrac{145}{35} = \dfrac{29}{7} \approx 4{,}14$$
+          </div>
+          <p>Aquest valor cau entre els mesos 4 i 5, però molt a prop del 4. La facturació mínima del model es dona aproximadament a <strong>l'abril (mes $4$)</strong>, amb un valor estimat:</p>
+          <div class="math-block">
+            $$f(4{,}14) \approx 17{,}5 \cdot 17{,}16 - 145 \cdot 4{,}14 + 900 \approx 600 - 600 + 900 \approx 599{,}6 \text{ milers €.}$$
+          </div>
+          <div class="final">El mínim del model és aproximadament a l'abril (mes $4$), amb $\approx 600$ milers €.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/p5.html">Pregunta següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
