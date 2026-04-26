@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Racionalització · Nombres reals · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: tres tipus de racionalització de denominadors amb arrels (quadrada, no quadrada, suma o resta d'arrels), amb exercicis resolts.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-nombres-reals/03-racionalitzacio.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.5rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-statement { margin:0.4rem 0 0.6rem; }
+.exercise details { margin-top:0.6rem; border-top:1px dashed var(--border); padding-top:0.7rem; }
+.exercise details summary { cursor:pointer; font-size:0.85rem; font-weight:600; color:#6366f1; list-style:none; user-select:none; padding:0.2rem 0; }
+.exercise details summary::-webkit-details-marker { display:none; }
+.exercise details summary::before { content:"▶ "; font-size:0.7em; transition: transform 0.15s; display:inline-block; margin-right:0.2rem; }
+.exercise details[open] summary::before { transform: rotate(90deg); }
+.exercise details .solution { padding:0.4rem 0 0; font-size:0.94rem; }
+.exercise details .solution p { margin:0.5rem 0; }
+.exercise details .solution ul { margin:0.4rem 0 0.6rem 1.2rem; }
+.exercise details .solution .final { background: rgba(16,185,129,0.10); border-left:3px solid #10b981; padding:0.4rem 0.7rem; border-radius:4px; margin-top:0.5rem; font-weight:500; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/">Nombres reals</a>
+      <span class="sep">/</span>
+      <span class="current">03 · Racionalització</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Nombres reals</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">23 set 2025</span>
+      </div>
+      <h1 style="margin:0">3. Racionalització</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Tècniques per <strong>treure les arrels del denominador</strong> d'una fracció (per poder sumar i/o restar fraccions amb radicals). Hi ha tres tipus segons com sigui el denominador.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Tipus 1 — Denominador: una arrel quadrada</h2>
+
+        <div class="def-box">
+          <h3>Tècnica</h3>
+          <p>Si el denominador és $\sqrt{a}$, multipliquem dalt i baix per $\sqrt{a}$. Així el denominador queda $(\sqrt{a})^{2} = a$.</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$\dfrac{m}{\sqrt{a}} \cdot \dfrac{\sqrt{a}}{\sqrt{a}} = \dfrac{m\,\sqrt{a}}{a}.$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$\dfrac{\sqrt{5}}{\sqrt{2}} \cdot \dfrac{\sqrt{2}}{\sqrt{2}} = \dfrac{\sqrt{10}}{2}.$$
+          </div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Tipus 2 — Denominador: una arrel no quadrada</h2>
+
+        <div class="def-box">
+          <h3>Tècnica</h3>
+          <p>Si el denominador és $\sqrt[n]{a^{m}}$ (amb $m < n$), multipliquem dalt i baix per $\sqrt[n]{a^{n-m}}$ per completar l'exponent fins a $n$ i així <em>treure</em> l'arrel:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$\dfrac{1}{\sqrt[n]{a^{m}}} \cdot \dfrac{\sqrt[n]{a^{n-m}}}{\sqrt[n]{a^{n-m}}} = \dfrac{\sqrt[n]{a^{n-m}}}{a}.$$
+          </div>
+          <p>Si numerador i denominador tenen <em>índexs diferents</em>, és més pràctic passar-ho tot a un mateix índex (LCM) i operar amb potències fraccionàries.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemples</h3>
+          <p>$\dfrac{\sqrt[3]{5}}{\sqrt[7]{5^{3}}}$: posem-ho a índex comú $21$.</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+            $$\dfrac{5^{1/3}}{5^{3/7}} = 5^{1/3 - 3/7} = 5^{7/21 - 9/21} = 5^{-2/21} = \dfrac{1}{\sqrt[21]{5^{2}}}.$$
+          </div>
+          <p>Per racionalitzar, multipliquem per $\sqrt[21]{5^{19}}/\sqrt[21]{5^{19}}$:</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+            $$\dfrac{\sqrt[21]{5^{19}}}{5}.$$
+          </div>
+          <p>$\dfrac{2}{\sqrt[3]{2^{5}}}$: cal multiplicar per $\sqrt[3]{2}$ per arribar a $\sqrt[3]{2^{6}} = 2^{2}$ al denominador:</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+            $$\dfrac{2}{\sqrt[3]{2^{5}}} \cdot \dfrac{\sqrt[3]{2}}{\sqrt[3]{2}} = \dfrac{2\,\sqrt[3]{2}}{2^{2}} = \dfrac{\sqrt[3]{2}}{2}.$$
+          </div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Tipus 3 — Denominador: suma o resta d'arrels quadrades</h2>
+
+        <div class="def-box">
+          <h3>Tècnica del conjugat</h3>
+          <p>Si el denominador és $\sqrt{a} + \sqrt{b}$ o $\sqrt{a} - \sqrt{b}$, multipliquem dalt i baix per la <strong>fracció conjugada</strong> (el mateix binomi amb el signe del mig canviat). Així s'aprofita la identitat notable</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$(a + b)(a - b) = a^{2} - b^{2}.$$
+          </div>
+          <p>El producte $(\sqrt{a} + \sqrt{b})(\sqrt{a} - \sqrt{b}) = a - b$, ja sense arrels.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Racionalitza $\dfrac{5}{\sqrt{2} - \sqrt{3}}$ multiplicant per $\dfrac{\sqrt{2} + \sqrt{3}}{\sqrt{2} + \sqrt{3}}$:</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+            $$\dfrac{5}{\sqrt{2} - \sqrt{3}} \cdot \dfrac{\sqrt{2} + \sqrt{3}}{\sqrt{2} + \sqrt{3}} = \dfrac{5\sqrt{2} + 5\sqrt{3}}{2 - 3} = -5\sqrt{2} - 5\sqrt{3}.$$
+          </div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Exercicis</h2>
+
+        <p class="note">Apliquem les tres tècniques per racionalitzar denominadors. Cada enunciat porta la solució amagada — intenta resoldre'l abans de desplegar-la.</p>
+
+        <!-- ── Exercici 32 ── -->
+        <div class="exercise" id="ex-32">
+          <div class="exercise-head">
+            <span class="num">32</span>
+            <span class="ttl">Racionalitza i simplifica</span>
+          </div>
+          <div class="exercise-statement">
+            <p>Racionalitza i simplifica les expressions següents.</p>
+            <ol type="a" style="margin-left:1.2rem">
+              <li>$\dfrac{4}{\sqrt{2}}$</li>
+              <li>$\dfrac{\sqrt{3}}{\sqrt[5]{2}}$</li>
+              <li>$\dfrac{2\sqrt{2}}{\sqrt{3} - \sqrt{2}}$</li>
+              <li>$\dfrac{2 + \sqrt{3}}{\sqrt{3} + 3}$</li>
+            </ol>
+          </div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p><strong>(a)</strong> Tipus 1 (arrel quadrada al denominador). Multipliquem per $\sqrt{2}/\sqrt{2}$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\dfrac{4}{\sqrt{2}} \cdot \dfrac{\sqrt{2}}{\sqrt{2}} = \dfrac{4\sqrt{2}}{2} = 2\sqrt{2}.$$
+            </div>
+
+            <p><strong>(b)</strong> Tipus 2 (arrel cinquena al denominador). Multipliquem per $\sqrt[5]{2^{4}}$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\dfrac{\sqrt{3}}{\sqrt[5]{2}} \cdot \dfrac{\sqrt[5]{2^{4}}}{\sqrt[5]{2^{4}}} = \dfrac{\sqrt{3} \cdot \sqrt[5]{16}}{2}.$$
+            </div>
+            <p>Si volem una sola arrel, posem-ho a índex comú $10$: $\sqrt{3} = \sqrt[10]{3^{5}}$ i $\sqrt[5]{16} = \sqrt[10]{16^{2}} = \sqrt[10]{256}$, i obtenim $\dfrac{\sqrt[10]{3^{5} \cdot 2^{8}}}{2}$.</p>
+
+            <p><strong>(c)</strong> Tipus 3. Multipliquem pel conjugat $\sqrt{3} + \sqrt{2}$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\dfrac{2\sqrt{2}}{\sqrt{3} - \sqrt{2}} \cdot \dfrac{\sqrt{3} + \sqrt{2}}{\sqrt{3} + \sqrt{2}} = \dfrac{2\sqrt{2}(\sqrt{3} + \sqrt{2})}{3 - 2} = 2\sqrt{6} + 4.$$
+            </div>
+
+            <p><strong>(d)</strong> Tipus 3 amb conjugat $\sqrt{3} - 3$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\dfrac{(2 + \sqrt{3})(\sqrt{3} - 3)}{(\sqrt{3} + 3)(\sqrt{3} - 3)} = \dfrac{2\sqrt{3} - 6 + 3 - 3\sqrt{3}}{3 - 9} = \dfrac{-3 - \sqrt{3}}{-6} = \dfrac{3 + \sqrt{3}}{6}.$$
+            </div>
+            <div class="final">$2\sqrt{2}$ &middot; $\dfrac{\sqrt[10]{3^{5} \cdot 2^{8}}}{2}$ &middot; $2\sqrt{6} + 4$ &middot; $\dfrac{3 + \sqrt{3}}{6}$.</div>
+          </div></details>
+        </div>
+
+        <!-- ── Exercici 36 ── -->
+        <div class="exercise" id="ex-36">
+          <div class="exercise-head">
+            <span class="num">36</span>
+            <span class="ttl">Operacions amb racionalització</span>
+          </div>
+          <div class="exercise-statement">
+            <p>Resol les operacions següents (combina simplificació de radicals i racionalització).</p>
+            <ol type="a" style="margin-left:1.2rem">
+              <li>$\dfrac{\sqrt{45} - \sqrt{15}}{\sqrt{15} + \sqrt{80} - \sqrt{5}}$</li>
+              <li>$\dfrac{\sqrt{28} - 6}{6 + \sqrt{63} - \sqrt{7}}$</li>
+            </ol>
+          </div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p><strong>(a)</strong> Simplifiquem cada arrel: $\sqrt{45} = 3\sqrt{5}$, $\sqrt{80} = 4\sqrt{5}$. Llavors:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\dfrac{3\sqrt{5} - \sqrt{15}}{\sqrt{15} + 4\sqrt{5} - \sqrt{5}} = \dfrac{3\sqrt{5} - \sqrt{15}}{\sqrt{15} + 3\sqrt{5}}.$$
+            </div>
+            <p>Multipliquem pel conjugat $\sqrt{15} - 3\sqrt{5}$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\dfrac{(3\sqrt{5} - \sqrt{15})(\sqrt{15} - 3\sqrt{5})}{(\sqrt{15})^{2} - (3\sqrt{5})^{2}} = \dfrac{30\sqrt{3} - 60}{15 - 45} = \dfrac{30\sqrt{3} - 60}{-30} = 2 - \sqrt{3}.$$
+            </div>
+            <p class="note">Detall del numerador: $(3\sqrt{5} - \sqrt{15})(\sqrt{15} - 3\sqrt{5}) = -(3\sqrt{5} - \sqrt{15})^{2} = -(45 - 6\sqrt{75} + 15) = -60 + 30\sqrt{3}$.</p>
+
+            <p><strong>(b)</strong> Simplifiquem $\sqrt{28} = 2\sqrt{7}$ i $\sqrt{63} = 3\sqrt{7}$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\dfrac{2\sqrt{7} - 6}{6 + 3\sqrt{7} - \sqrt{7}} = \dfrac{2\sqrt{7} - 6}{6 + 2\sqrt{7}} = \dfrac{2(\sqrt{7} - 3)}{2(3 + \sqrt{7})} = \dfrac{\sqrt{7} - 3}{3 + \sqrt{7}}.$$
+            </div>
+            <p>Multipliquem pel conjugat $3 - \sqrt{7}$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\dfrac{(\sqrt{7} - 3)(3 - \sqrt{7})}{(3)^{2} - (\sqrt{7})^{2}} = \dfrac{6\sqrt{7} - 16}{2} = 3\sqrt{7} - 8.$$
+            </div>
+            <div class="final">(a) $= 2 - \sqrt{3}$ &nbsp;&middot;&nbsp; (b) $= 3\sqrt{7} - 8$.</div>
+          </div></details>
+        </div>
+
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-nombres-reals/02-potencies-i-arrels.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-nombres-reals/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
