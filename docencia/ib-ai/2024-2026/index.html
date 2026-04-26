@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="es" data-gate-id="ib-ai-2024-2026" data-gate-name="IB AI · Promoción 2024-2026" data-gate-pw-sha="0cdea18f22c435abb0a7819e8b104c939e916abce69c9df3e7f8d9f1afd3eb8d">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IB AI 2024-2026 — Àlex Reyes</title>
 <meta name="description" content="IB Mathematics AI HL y SL — Promoción 2024-2026. 16 capítulos del libro de Oxford.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
-<script>(function(){var id=document.documentElement.dataset.gateId;if(!id)return;try{var r=localStorage.getItem('slc-gate-'+id);if(r){var t=JSON.parse(r);if(t.exp&&t.exp>Date.now())document.documentElement.classList.add('gate-unlocked');}}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/assets/css/gate.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="robots" content="noindex, follow">
 <style>
   .info-cta { display:flex; align-items:center; gap:1.2rem; padding:1.2rem 1.5rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; margin-bottom:2rem; }
   .info-cta:hover { border-color:var(--border-strong); transform:translateY(-1px); }
@@ -44,22 +41,6 @@
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 </head>
 <body>
-
-<div class="gate-overlay" id="gate-overlay">
-  <div class="gate-card">
-    <h1>
-      <svg class="gate-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      IB AI · Promoción 2024-2026
-    </h1>
-    <p class="gate-info">Este espacio está reservado a los alumnos de la promoción. Introduce la contraseña que te ha dado el profesor.</p>
-    <form id="gate-form" class="gate-form">
-      <input type="password" id="gate-pw" placeholder="Contraseña" autocomplete="current-password">
-      <button type="submit">Entrar</button>
-    </form>
-    <p class="gate-error" id="gate-err"></p>
-    <a href="/docencia/ib-ai/" class="gate-back">← Volver a IB Mathematics AI</a>
-  </div>
-</div>
 
 <nav>
   <div class="nav-inner">
@@ -105,8 +86,7 @@
       </div>
       <h1 style="margin:0.3rem 0 0.6rem">Promoción 2024&ndash;2026</h1>
       <p style="font-size:0.98rem;color:var(--text-soft)">2&ordm; año &middot; Exámenes mayo 2026 &middot; Maristes Sants&mdash;Les Corts</p>
-      <div style="margin-top:0.8rem"><span data-gate-exit-slot></span></div>
-    </div>
+</div>
 
     <div class="info-grid">
       <div class="info-card"><div class="info-card-label">Libro HL</div><div class="info-card-value" style="font-size:0.85rem">Mathematics: AI HL &mdash; Oxford (2019)</div></div>
@@ -321,6 +301,5 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     console.error('exámenes:', err);
   });
 </script>
-<script src="/assets/js/gate.js" defer></script>
 </body>
 </html>
