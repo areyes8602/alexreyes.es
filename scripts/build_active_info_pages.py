@@ -200,8 +200,35 @@ SUBJ_1BTL = {
     "section_label": {"es": "Bachillerato", "ca": "Batxillerat", "en": "Bachillerato"},
     "tag_year": "2025–26",
     "is_ib": False,
-    "schedule": None,  # placeholder
-    "aval": None,
+    # Single group (no group letter), 3 weekly sessions
+    "schedule": [
+        {"name": {"es": "Grupo único", "ca": "Grup únic", "en": "Single group"},
+         "days": [(1, "10:00"), (2, "10:00"), (4, "13:20")]},  # Tue, Wed, Fri
+    ],
+    # Per criteris d'avaluació: 60% seguiment + 40% global (mín. 3,5).
+    # Material acumulativa: la 2a global inclou la 1a; la 3a global inclou tot el curs.
+    "aval": [
+        {"num": "1", "until": {"es": "28 nov", "ca": "28 nov", "en": "28 Nov"},
+         "units_line": "U01–U04 · Nombres reals, Polinomis, Equacions i sistemes, Inequacions",
+         "proves": [
+            {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60},
+            {"nom": {"es": "Global 1ª (mín. 3,5)", "ca": "Global 1a (mín. 3,5)", "en": "1st comprehensive (min. 3.5)"}, "pes": 40, "global": True},
+         ]},
+        {"num": "2", "until": {"es": "27 feb", "ca": "27 feb", "en": "27 Feb"},
+         "units_line": "U05–U07 · Funcions reals, Estudi i representació de funcions, Introducció a la derivada",
+         "proves": [
+            {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60},
+            {"nom": {"es": "Global 2ª (mín. 3,5 · acumulativa)", "ca": "Global 2a (mín. 3,5 · acumulativa)", "en": "2nd comprehensive (min. 3.5 · cumulative)"}, "pes": 40, "global": True},
+         ]},
+        {"num": "3", "until": {"es": "5 jun", "ca": "5 jun", "en": "5 Jun"},
+         "units_line": "U08–U10 · Estadística, Probabilitat, Distribució de probabilitat",
+         "proves": [
+            {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60,},
+            {"nom": {"es": "Global 3ª (mín. 3,5 · todo el curso)", "ca": "Global 3a (mín. 3,5 · tot el curs)", "en": "3rd comprehensive (min. 3.5 · whole course)"}, "pes": 40, "global": True},
+         ]},
+    ],
+    # Documents and "Material necesario" are hand-edited in the rendered HTML
+    # (richer than the generator schema supports — see /docencia/ccss-1btl/info/).
     "documents": None,
 }
 
@@ -261,7 +288,7 @@ def picker(field, lang):
     return field
 
 
-def render_horari_block(s, L):
+def render_horari_block(s, L, lang):
     if not s.get("schedule"):
         return f"""    <div class="info-block">
       <h3>🗓️ {L['block_horari']}</h3>
@@ -274,8 +301,9 @@ def render_horari_block(s, L):
             f'<div class="schedule-day"><span>{days_list[di]}</span><strong>{time}</strong></div>'
             for di, time in grp["days"]
         )
+        grp_name = picker(grp['name'], lang)
         cards_html += f"""        <div class="schedule-card">
-          <h4>{grp['name']}</h4>
+          <h4>{grp_name}</h4>
           {rows}
         </div>
 """
@@ -410,7 +438,7 @@ def render_info_page(s, lang):
         blocks = render_ib_blocks(s, L).replace("{exam_word}", exam_word)
     else:
         blocks = "\n\n".join([
-            render_horari_block(s, L),
+            render_horari_block(s, L, lang),
             render_aval_block(s, L, lang),
             render_docs_block(s, L),
             f"""    <div class="info-block">

@@ -15,6 +15,9 @@ trilingual_paths = [
     '/docencia/', '/docencia/ejercicios/', '/docencia/mi-examen/',
     '/docencia/ib-ai/', '/docencia/ib-ai/2024-2026/', '/docencia/ib-ai/2025-2027/',
     '/docencia/ccss-1btl/', '/docencia/cangur/', '/docencia/2eso/',
+    # Subject info subpages (per asignatura)
+    '/docencia/2eso/info/', '/docencia/ccss-1btl/info/',
+    '/docencia/ib-ai/2024-2026/info/', '/docencia/ib-ai/2025-2027/info/',
 ]
 
 # Pages that exist only in ES (aula materials for a specific cohort).

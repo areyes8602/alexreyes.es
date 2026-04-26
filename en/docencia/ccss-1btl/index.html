@@ -69,7 +69,7 @@
       <div class="info-card"><div class="info-card-label">Year</div><div class="info-card-value">1st Bachillerato</div></div>
       <div class="info-card"><div class="info-card-label">Track</div><div class="info-card-value" style="font-size:0.88rem">Social Sciences</div></div>
       <div class="info-card"><div class="info-card-label">Calculator</div><div class="info-card-value" style="font-size:0.88rem">Scientific (non-graphic)</div></div>
-      <div class="info-card"><div class="info-card-label">Blocks</div><div class="info-card-value">6</div></div>
+      <div class="info-card"><div class="info-card-label">Units</div><div class="info-card-value">10</div></div>
     </div>
 
     <a href="/en/docencia/ccss-1btl/info/" class="info-cta">
@@ -111,7 +111,18 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
-const UNITS = [{"num": "01", "slug": "reales", "title": "Números reales · matemática financiera", "desc": "Real numbers, intervals, simple and compound interest, APR."}, {"num": "02", "slug": "algebra", "title": "Álgebra · ecuaciones, inecuaciones y sistemas", "desc": "Polynomials, equations, inequalities and linear/non-linear systems."}, {"num": "03", "slug": "funciones", "title": "Funciones elementales y modelización", "desc": "Linear, polynomial, rational, exponential, logarithmic and piecewise functions."}, {"num": "04", "slug": "derivadas", "title": "Límites, continuidad y derivadas", "desc": "Limit concept, continuity, derivatives and applications to function analysis."}, {"num": "05", "slug": "estadistica", "title": "Estadística descriptiva bidimensional", "desc": "Two-dimensional distributions, correlation and linear regression."}, {"num": "06", "slug": "probabilidad", "title": "Probabilidad y distribuciones", "desc": "Conditional probability, binomial and normal distributions."}];
+const UNITS = [
+  {"num": "01", "slug": "nombres-reals", "title": "Nombres reals", "desc": "Real numbers, intervals, absolute value, approximation and errors.", "llibre": "Baula 1", "inici": "16 Sep 2025", "final": "7 Oct 2025", "trimestre": "1a"},
+  {"num": "02", "slug": "polinomis", "title": "Polinomis", "desc": "Operations with polynomials, division, Ruffini's rule and factorisation.", "llibre": "—", "inici": "8 Oct 2025", "final": "28 Oct 2025", "trimestre": "1a"},
+  {"num": "03", "slug": "equacions-sistemes", "title": "Equacions i sistemes d'equacions", "desc": "Linear and quadratic equations, exponential, logarithmic, linear and non-linear systems.", "llibre": "Baula 3", "inici": "29 Oct 2025", "final": "11 Nov 2025", "trimestre": "1a"},
+  {"num": "04", "slug": "inequacions", "title": "Inequacions i sistemes d'inequacions", "desc": "Linear and quadratic inequalities, inequality systems and problem solving.", "llibre": "Baula 4", "inici": "12 Nov 2025", "final": "19 Nov 2025", "trimestre": "1a"},
+  {"num": "05", "slug": "funcions-reals", "title": "Funcions reals de variable real", "desc": "Function concept, domain, range, symmetries and operations with functions.", "llibre": "Baula 5", "inici": "2 Dec 2025", "final": "13 Jan 2026", "trimestre": "2a"},
+  {"num": "06", "slug": "representacio-funcions", "title": "Estudi i representació de funcions", "desc": "Analytical study and graphical representation of elementary functions.", "llibre": "Baula 8", "inici": "14 Jan 2026", "final": "30 Jan 2026", "trimestre": "2a"},
+  {"num": "07", "slug": "derivades", "title": "Derivada d'una funció", "desc": "Rate of change, concept of derivative, derivation rules and applications.", "llibre": "Baula 7", "inici": "3 Feb 2026", "final": "20 Feb 2026", "trimestre": "2a"},
+  {"num": "08", "slug": "estadistica", "title": "Estadística", "desc": "Descriptive statistics, parameters and two-dimensional distributions.", "llibre": "Baula 9", "inici": "3 Mar 2026", "final": "10 Apr 2026", "trimestre": "3a"},
+  {"num": "09", "slug": "probabilitat", "title": "Probabilitat", "desc": "Events, conditional probability and Bayes' theorem.", "llibre": "Baula 10", "inici": "14 Apr 2026", "final": "15 May 2026", "trimestre": "3a"},
+  {"num": "10", "slug": "distribucions", "title": "Distribucions discretes i contínues. Distribució binomial i normal", "desc": "Discrete and continuous distributions. Binomial and normal.", "llibre": "Baula 11", "inici": "19 May 2026", "final": "29 May 2026", "trimestre": "3a"}
+];
 const MATERIA = "bach-ccss-1";
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "no_exams_unit": "No exams published for this unit yet.", "exams_unit_title": "Exams from this unit", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "section_card_apunts": "Notes", "section_card_fitxes": "Exercise list", "section_card_solucions": "Solutions", "unit_meta_book": "Book", "unit_meta_dates": "Dates", "unit_meta_trim": "term", "examens_count_one": "exam", "examens_count_many": "exams", "trimestre_tag": "term"};
