@@ -136,7 +136,8 @@ function buildSectionCard(href, icon, label) {
 }
 function buildChapter(ch, nivel, byUnit) {
   const hlOnly = nivel === 'sl' && !ch.sl;
-  const exs = (byUnit[ch.num]||[]).sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.).
+  const exs = (byUnit[ch.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
   const examCount = exs.length;
   const sections = [
     buildSectionCard(ch.apuntes, '📄', LABELS_JS.section_card_apunts),

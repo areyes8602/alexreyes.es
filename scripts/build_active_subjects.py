@@ -564,7 +564,8 @@ function buildSectionCard(href, icon, label) {{
 }}
 const TRIM_CLASS = {{ '1a':'tag-orange', '2a':'tag-purple', '3a':'tag-gray' }};
 function buildUnit(u, examsByUnit) {{
-  const exs = (examsByUnit[u.num]||[]).sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+  // Dins d'una unitat ordenem per data ascendent: Parcial 1 abans del Parcial 2, simulacre abans del global, etc.
+  const exs = (examsByUnit[u.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
   const examCount = exs.length;
   const sections = [
     buildSectionCard(u.apunts, '📄', LABELS_JS.section_card_apunts),
@@ -749,7 +750,8 @@ function buildSectionCard(href, icon, label) {{
 }}
 function buildChapter(ch, nivel, byUnit) {{
   const hlOnly = nivel === 'sl' && !ch.sl;
-  const exs = (byUnit[ch.num]||[]).sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.).
+  const exs = (byUnit[ch.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
   const examCount = exs.length;
   const sections = [
     buildSectionCard(ch.apuntes, '📄', LABELS_JS.section_card_apunts),
