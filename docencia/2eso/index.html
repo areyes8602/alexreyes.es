@@ -1,60 +1,50 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca" data-gate-id="2eso" data-gate-name="Matemàtiques 2n ESO" data-gate-pw-sha="1c5abab3668fbca8dc91543c80e7af8b388ab97f6137fcba2425a682d1e05584">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matemàtiques 2n ESO — Àlex Reyes</title>
 <meta name="description" content="Matemàtiques 2n ESO — apunts, exàmens, fitxes i solucions per unitat didàctica. Grupos A y E (curs 2025-26).">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script>(function(){var id=document.documentElement.dataset.gateId;if(!id)return;try{var r=localStorage.getItem('slc-gate-'+id);if(r){var t=JSON.parse(r);if(t.exp&&t.exp>Date.now())document.documentElement.classList.add('gate-unlocked');}}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/gate.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/docencia/2eso/">
-<link rel="alternate" hreflang="es" href="https://alexreyes.es/docencia/2eso/">
-<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/docencia/2eso/">
-<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/2eso/">
-<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/2eso/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://alexreyes.es/docencia/2eso/">
-<meta property="og:title" content="Matemàtiques 2n ESO — Àlex Reyes">
-<meta property="og:description" content="Matemàtiques 2n ESO — apunts, exàmens, fitxes i solucions per unitat didàctica.">
-<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="es_ES">
-<meta property="og:locale:alternate" content="ca_ES">
-<meta property="og:locale:alternate" content="en_US">
-<meta property="og:site_name" content="alexreyes.es">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Matemàtiques 2n ESO — Àlex Reyes">
-<meta name="twitter:description" content="Matemàtiques 2n ESO — apunts, exàmens, fitxes i solucions per unitat didàctica.">
-<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<meta name="robots" content="noindex, follow">
 <style>
-  /* Tabs interns per a horari/avaluació */
-  .info-block { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.4rem; }
-  .info-block h3 { margin:0 0 0.8rem; font-size:0.95rem; font-weight:600; color:var(--text); }
-  .schedule-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
-  .schedule-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); padding:0.8rem 1rem; }
-  .schedule-card h4 { margin:0 0 0.5rem; font-size:0.85rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
-  .schedule-day { display:flex; justify-content:space-between; padding:0.25rem 0; font-size:0.9rem; }
-  .schedule-day strong { font-family:var(--mono); color:var(--text); }
-  .eval-table { width:100%; border-collapse:collapse; font-size:0.88rem; }
-  .eval-table th, .eval-table td { padding:0.5rem 0.7rem; text-align:left; border-bottom:1px solid var(--border); }
-  .eval-table th { font-weight:500; color:var(--text-soft); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; }
-  .eval-table td.pes { text-align:right; font-family:var(--mono); color:var(--text-soft); }
-  .eval-table tr.global td { font-weight:600; background:var(--bg-hover); }
-  .doc-card { display:flex; align-items:center; gap:0.8rem; padding:0.9rem 1.1rem; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); text-decoration:none; color:inherit; transition:border-color 0.15s; }
-  .doc-card:hover { border-color:var(--border-strong); }
-  .doc-card-icon { font-size:1.4rem; flex-shrink:0; }
-  .doc-card-body { flex:1; min-width:0; }
-  .doc-card-title { font-weight:500; font-size:0.92rem; color:var(--text); }
-  .doc-card-meta { font-size:0.78rem; color:var(--text-faint); margin-top:0.15rem; }
+  .info-cta { display:flex; align-items:center; gap:1.2rem; padding:1.2rem 1.5rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; margin-bottom:2rem; }
+  .info-cta:hover { border-color:var(--border-strong); transform:translateY(-1px); }
+  .info-cta-icon { font-size:2rem; flex:0 0 auto; }
+  .info-cta-body { flex:1; min-width:0; }
+  .info-cta-body h3 { margin:0 0 0.25rem; font-size:1.05rem; font-weight:600; color:var(--text); }
+  .info-cta-body p { margin:0; font-size:0.88rem; color:var(--text-soft); }
+  .info-cta-arrow { font-size:1.2rem; color:var(--text-faint); flex:0 0 auto; }
   .unit-meta { display:flex; gap:0.7rem; flex-wrap:wrap; font-size:0.75rem; color:var(--text-faint); margin-bottom:0.6rem; }
   .unit-meta span { display:inline-flex; align-items:center; gap:0.3rem; }
 </style>
 </head>
 <body>
+
+<!-- ───────── PASSWORD GATE ───────── -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-card">
+    <h1>
+      <svg class="gate-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Matemàtiques 2n ESO
+    </h1>
+    <p class="gate-info">Aquest espai està reservat als alumnes del grup. Introdueix la contrasenya que t'ha donat el professor.</p>
+    <form id="gate-form" class="gate-form">
+      <input type="password" id="gate-pw" placeholder="Contrasenya" autocomplete="current-password" inputmode="text">
+      <button type="submit">Entrar</button>
+    </form>
+    <p class="gate-error" id="gate-err"></p>
+    <a href="/docencia/" class="gate-back">← Tornar al llistat d'assignatures</a>
+  </div>
+</div>
+
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
@@ -66,10 +56,8 @@
       <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
-      <div class="lang-sw">
-        <a href="/docencia/2eso/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/docencia/2eso/">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/2eso/">EN</a>
-      </div>
-      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button><button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
@@ -81,77 +69,51 @@
   <div class="container" style="padding-top:3rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inicio</a>
+      <a href="/">Inici</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docencia</a>
+      <a href="/docencia/">Docència</a>
       <span class="sep">/</span>
       <span class="current">Matemàtiques 2n ESO</span>
     </div>
 
+    <!-- ───────── YEAR PICKER ───────── -->
+    <details class="year-picker">
+      <summary>📅 Curs 2025–26</summary>
+      <div class="year-menu">
+        <a href="/docencia/2eso/" class="active">2025–26 (actual)</a>
+        <p class="year-empty">Encara no hi ha cursos arxivats.</p>
+      </div>
+    </details>
+
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">ESO</span>
-        <span class="tag tag-orange">2025&ndash;26</span>
+        <span class="tag tag-orange">2025–26</span>
+        <span data-gate-exit-slot></span>
       </div>
       <h1 style="margin:0.3rem 0 0.6rem">Matemàtiques 2n ESO</h1>
       <p style="font-size:0.98rem;color:var(--text-soft)">Grupos A y E &middot; Currículum LOMLOE &middot; Maristes Sants&mdash;Les Corts</p>
     </div>
 
     <div class="info-grid">
-      <div class="info-card"><div class="info-card-label">Curso</div><div class="info-card-value">2n ESO</div></div>
-      <div class="info-card"><div class="info-card-label">Grupos</div><div class="info-card-value">A &middot; E</div></div>
+      <div class="info-card"><div class="info-card-label">Curs</div><div class="info-card-value">2n ESO</div></div>
+      <div class="info-card"><div class="info-card-label">Grups</div><div class="info-card-value">A &middot; E</div></div>
       <div class="info-card"><div class="info-card-label">Idioma</div><div class="info-card-value" style="font-size:0.88rem">Català</div></div>
       <div class="info-card"><div class="info-card-label">Unitats</div><div class="info-card-value">10</div></div>
     </div>
 
-    <!-- ───────── HORARI ───────── -->
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Horari de classe</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Tres sessions setmanals per grup.</p>
-    <div class="info-block">
-      <div class="schedule-grid">
-        <div class="schedule-card">
-          <h4>Grup A</h4>
-          <div class="schedule-day"><span>Dilluns</span><strong>10:00</strong></div>
-          <div class="schedule-day"><span>Dimecres</span><strong>12:25</strong></div>
-          <div class="schedule-day"><span>Divendres</span><strong>12:25</strong></div>
-        </div>
-        <div class="schedule-card">
-          <h4>Grup E</h4>
-          <div class="schedule-day"><span>Dimarts</span><strong>11:30</strong></div>
-          <div class="schedule-day"><span>Dijous</span><strong>16:30</strong></div>
-          <div class="schedule-day"><span>Divendres</span><strong>10:00</strong></div>
-        </div>
+    <!-- ───────── INFORMACIÓ DE L'ASSIGNATURA (link to subpage) ───────── -->
+    <a href="/docencia/2eso/info/" class="info-cta">
+      <span class="info-cta-icon">📋</span>
+      <div class="info-cta-body">
+        <h3>Informació de l'assignatura</h3>
+        <p>Horari, criteris d'avaluació, temari del curs, calendari i material necessari.</p>
       </div>
-    </div>
-
-    <!-- ───────── AVALUACIÓ I CRITERIS ───────── -->
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Avaluació i criteris</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Pesos de cada prova dins de cada avaluació. La calculadora es pot fer servir durant les 3 avaluacions.</p>
-    <div class="chapter-list" id="evaluacions-list"></div>
-
-    <!-- ───────── DOCUMENTS DEL CURS ───────── -->
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Documents del curs</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Programació, calendari complet i material necessari per al curs.</p>
-    <div class="chapter-sections" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-bottom:1.5rem">
-      <a href="/assets/docs/2eso/temari-2526.pdf" target="_blank" rel="noopener" class="doc-card">
-        <span class="doc-card-icon">📘</span>
-        <div class="doc-card-body">
-          <div class="doc-card-title">Temari del curs (PDF)</div>
-          <div class="doc-card-meta">Unitats del llibre i pesos d'avaluació</div>
-        </div>
-      </a>
-      <a href="/assets/docs/2eso/calendari-2eso-e-2526.xlsx" target="_blank" rel="noopener" class="doc-card">
-        <span class="doc-card-icon">🗓️</span>
-        <div class="doc-card-body">
-          <div class="doc-card-title">Calendari del curs (XLSX)</div>
-          <div class="doc-card-meta">Temporització de les 10 unitats — grup E</div>
-        </div>
-      </a>
-      <div class="chapter-section empty"><span>🎒</span><span>Material necessari</span></div>
-    </div>
+      <span class="info-cta-arrow">→</span>
+    </a>
 
     <!-- ───────── UNITATS DIDÀCTIQUES ───────── -->
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Unitats didàctiques</h2>
+    <h2 style="font-size:1.1rem;margin:0 0 0.4rem">Unitats didàctiques</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada unitat conté els apunts de classe, les fitxes d'exercicis amb les seves solucions, i els exàmens realitzats sobre la unitat.</p>
     <div class="chapter-list" id="units-list"></div>
 
@@ -204,87 +166,23 @@ const SECTION_LABELS = [
   { key:'solucions', icon:'✅', label:"Solucions de fitxes" },
 ];
 
-// ───────────────────────────────────────────────────────────────────────
-// AVALUACIONS — pesos de proves segons el Temari del curs
-// ───────────────────────────────────────────────────────────────────────
-const AVALUACIONS = [
-  { num:'1a', titol:'1a avaluació',
-    units:'U01–U04 · setembre a desembre',
-    final:'3 desembre',
-    proves:[
-      { nom:'Fraccions (previ)',         pes:20 },
-      { nom:'Fraccions i decimals',      pes:20 },
-      { nom:'Probabilitat',              pes:10 },
-      { nom:'Proporcionalitat',          pes:20 },
-      { nom:'Global 1a avaluació',       pes:30, esGlobal:true },
-    ]},
-  { num:'2a', titol:'2a avaluació',
-    units:'U05–U08 · desembre a març',
-    final:'13 març',
-    proves:[
-      { nom:'Gràfiques de funcions',                 pes:15 },
-      { nom:'Funcions i funcions elementals',         pes:25 },
-      { nom:'Pitàgores i poliedres',                  pes:20 },
-      { nom:'Projecte Monument 3.0',                  pes:10 },
-      { nom:'Global 2a avaluació',                    pes:30, esGlobal:true },
-    ]},
-  { num:'3a', titol:'3a avaluació',
-    units:'U09–U10 · març a juny',
-    final:'5 juny',
-    proves:[
-      { nom:'Expressions algebraiques (previ)',       pes:20 },
-      { nom:'Expressions algebraiques',                pes:25 },
-      { nom:"Problemes d'equacions i sistemes",        pes:25 },
-      { nom:'Global 3a avaluació',                     pes:30, esGlobal:true },
-    ]},
-];
-
-function unitNumOf(colId) {
-  const m = (colId || '').match(/-u(\d{1,2})\b/);
-  return m ? m[1].padStart(2, '0') : null;
-}
-function isGlobal(colId) {
-  if (!colId) return false;
-  if (unitNumOf(colId)) return false;
-  return /-g\d+\b|-final\b|-rec\b|-simulacre\b/.test(colId);
-}
+function unitNumOf(colId) { const m = (colId || '').match(/-u(\d{1,2})\b/); return m ? m[1].padStart(2, '0') : null; }
+function isGlobal(colId) { if (!colId) return false; if (unitNumOf(colId)) return false; return /-g\d+\b|-final\b|-rec\b|-simulacre\b/.test(colId); }
 
 const MESOS_CA = ['gen','feb','març','abr','maig','juny','jul','ag','set','oct','nov','des'];
-function fmtFecha(iso) {
-  if (!iso) return '';
-  const [y,m,d] = iso.split('-');
-  return `${parseInt(d,10)} ${MESOS_CA[parseInt(m,10)-1]} ${y}`;
-}
-function escHtml(s) {
-  return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
+function fmtFecha(iso){ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${parseInt(d,10)} ${MESOS_CA[parseInt(m,10)-1]} ${y}`; }
+function escHtml(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function renderExamCard(col, ejs) {
   const ptos = ejs.reduce((s,e) => s + (e.puntuacion||0), 0);
   const npreg = ejs.length;
-  const pdfBtn = col.pdf_enunciados
-    ? `<a class="exam-card-btn pdf" href="${escHtml(col.pdf_enunciados)}" target="_blank" rel="noopener" title="PDF original">📄 PDF</a>`
-    : '';
-  const idxBtn = col.url_index
-    ? `<a class="exam-card-btn html" href="${escHtml(col.url_index)}">📋 Veure enunciats i correccions</a>`
-    : '';
-  return `
-    <article class="exam-card">
-      <div class="exam-card-head">
-        <span class="exam-card-date">${escHtml(fmtFecha(col.fecha))}</span>
-        ${col.grupo ? `<span class="tag tag-orange" style="font-size:0.7rem">${escHtml(col.grupo)}</span>` : ''}
-      </div>
-      <h3 class="exam-card-title">${escHtml(col.titulo || col.id)}</h3>
-      <p class="exam-card-meta">${npreg} ${npreg===1?'pregunta':'preguntes'} &middot; ${ptos} punts</p>
-      <div class="exam-card-actions">${idxBtn}${pdfBtn}</div>
-    </article>
-  `;
+  const pdfBtn = col.pdf_enunciados ? `<a class="exam-card-btn pdf" href="${escHtml(col.pdf_enunciados)}" target="_blank" rel="noopener" title="PDF original">📄 PDF</a>` : '';
+  const idxBtn = col.url_index ? `<a class="exam-card-btn html" href="${escHtml(col.url_index)}">📋 Veure enunciats i correccions</a>` : '';
+  return `<article class="exam-card"><div class="exam-card-head"><span class="exam-card-date">${escHtml(fmtFecha(col.fecha))}</span>${col.grupo?`<span class="tag tag-orange" style="font-size:0.7rem">${escHtml(col.grupo)}</span>`:''}</div><h3 class="exam-card-title">${escHtml(col.titulo||col.id)}</h3><p class="exam-card-meta">${npreg} ${npreg===1?'pregunta':'preguntes'} &middot; ${ptos} punts</p><div class="exam-card-actions">${idxBtn}${pdfBtn}</div></article>`;
 }
-
 function buildSectionCard(href, icon, label) {
   if (href) return `<a href="${href}" class="chapter-section available" style="text-decoration:none"><span>${icon}</span><span>${label}</span></a>`;
   return `<div class="chapter-section empty"><span>${icon}</span><span>${label}</span></div>`;
 }
-
 const TRIM_CLASS = { '1a':'tag-orange', '2a':'tag-purple', '3a':'tag-gray' };
 
 function buildUnit(u, examsByUnit) {
@@ -315,40 +213,9 @@ function buildUnit(u, examsByUnit) {
         <div class="chapter-sections">${sections}</div>
         ${examsBox}
       </div>
-    </div>
-  `;
-}
-
-function buildAvaluacio(av) {
-  const total = av.proves.reduce((s,p) => s + p.pes, 0);
-  const rows = av.proves.map(p => `
-    <tr ${p.esGlobal ? 'class="global"' : ''}>
-      <td>${escHtml(p.nom)}</td>
-      <td class="pes">${p.pes}%</td>
-    </tr>`).join('');
-  return `
-    <div class="chapter-item">
-      <div class="chapter-header" onclick="toggleChapter(this)">
-        <span class="chapter-num">${av.num}</span>
-        <span class="chapter-title">${escHtml(av.titol)}</span>
-        <span class="tag tag-gray" style="font-size:0.65rem;margin-left:auto">fins ${escHtml(av.final)}</span>
-        <span class="chapter-arrow">&#9660;</span>
-      </div>
-      <div class="chapter-body">
-        <p style="font-size:0.85rem;color:var(--text-faint);margin:0 0 0.8rem">${escHtml(av.units)}</p>
-        <table class="eval-table">
-          <thead><tr><th>Prova</th><th style="text-align:right">Pes</th></tr></thead>
-          <tbody>${rows}<tr style="border-top:2px solid var(--border)"><td style="font-weight:600">Total</td><td class="pes" style="font-weight:600">${total}%</td></tr></tbody>
-        </table>
-      </div>
     </div>`;
 }
 
-document.getElementById('evaluacions-list').innerHTML = AVALUACIONS.map(buildAvaluacio).join('');
-
-// ───────────────────────────────────────────────────────────────────────
-// Dades dinàmiques: ejercicios-index.json
-// ───────────────────────────────────────────────────────────────────────
 fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(idx => {
@@ -387,5 +254,6 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     console.error('exàmens:', err);
   });
 </script>
+<script src="/assets/js/gate.js" defer></script>
 </body>
 </html>

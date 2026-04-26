@@ -1,0 +1,189 @@
+/* ───────────────────────────────────────────────────────────────────
+   Subject access gate — soft password gate per asignatura.
+   Usage in subject hub:
+     <head>
+       <script>(function(){var id=document.documentElement.dataset.gateId;if(!id)return;try{var r=localStorage.getItem('slc-gate-'+id);if(r){var t=JSON.parse(r);if(t.exp&&t.exp>Date.now())document.documentElement.classList.add('gate-unlocked');}}catch(e){}})();</script>
+       <link rel="stylesheet" href="/assets/css/gate.css">
+     </head>
+     <html data-gate-id="2eso" ...>
+   ─────────────────────────────────────────────────────────────────── */
+
+.gate-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  /* small fade-in to feel polished */
+  animation: gateFadeIn 0.18s ease-out;
+}
+@keyframes gateFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+html:not(.gate-unlocked) .gate-overlay { display: flex; }
+
+.gate-card {
+  max-width: 460px;
+  width: 100%;
+  padding: 2.4rem 2rem 1.6rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
+}
+.gate-card h1 {
+  font-size: 1.35rem;
+  margin: 0 0 0.4rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.gate-card .gate-lock {
+  width: 22px; height: 22px;
+  flex: 0 0 auto;
+  color: var(--text-soft);
+}
+.gate-card p.gate-info {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin: 0 0 1.3rem;
+  line-height: 1.5;
+}
+
+.gate-form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.gate-form input {
+  flex: 1 1 220px;
+  padding: 0.65rem 0.85rem;
+  font: inherit;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+.gate-form input:focus {
+  outline: none;
+  border-color: var(--text-soft);
+}
+.gate-form button {
+  padding: 0.65rem 1.4rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid var(--text);
+  border-radius: var(--radius-sm);
+  background: var(--text);
+  color: var(--bg);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.gate-form button:hover { opacity: 0.85; }
+.gate-form button:disabled { opacity: 0.5; cursor: wait; }
+
+.gate-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin: 0.7rem 0 0;
+  min-height: 1.2rem;
+}
+.gate-back {
+  display: block;
+  text-align: center;
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  text-decoration: none;
+}
+.gate-back:hover { color: var(--text-soft); }
+
+/* When locked: hide site chrome behind the overlay */
+html:not(.gate-unlocked) body > nav,
+html:not(.gate-unlocked) body > main,
+html:not(.gate-unlocked) body > footer {
+  visibility: hidden;
+}
+
+/* Locked indicator pill in the unlocked page (small "exit" button at top) */
+.gate-exit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.gate-exit:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* ───────────────────────────────────────────────────────────────────
+   Year picker — dropdown to switch course years (per-subject archive)
+   ─────────────────────────────────────────────────────────────────── */
+.year-picker {
+  display: inline-block;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.year-picker > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+}
+.year-picker > summary::-webkit-details-marker { display: none; }
+.year-picker > summary::after {
+  content: '▾';
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  margin-left: 0.2rem;
+}
+.year-picker[open] > summary::after { content: '▴'; }
+.year-picker[open] > summary { border-color: var(--border-strong); }
+.year-picker .year-menu {
+  position: absolute;
+  top: calc(100% + 0.3rem);
+  left: 0;
+  min-width: 220px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 20px -8px rgba(0,0,0,0.15);
+  padding: 0.4rem;
+  z-index: 50;
+}
+.year-picker .year-menu a {
+  display: block;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.88rem;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+.year-picker .year-menu a:hover { background: var(--bg-subtle); }
+.year-picker .year-menu a.active { background: var(--bg-hover); font-weight: 500; }
+.year-picker .year-menu .year-empty {
+  padding: 0.6rem 0.7rem;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  margin: 0;
+}
