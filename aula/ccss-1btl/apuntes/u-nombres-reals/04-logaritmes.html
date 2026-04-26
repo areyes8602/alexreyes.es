@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4. Logaritmes · Nombres reals · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: definició de logaritme, propietats, logaritme decimal i natural, i la relació inversa amb l'exponencial.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-nombres-reals/04-logaritmes.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+.props-table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.9rem; }
+.props-table th, .props-table td { padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.props-table th { background: var(--bg-subtle); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-soft); font-weight: 600; }
+.props-table tr:hover td { background: rgba(99,102,241,0.04); }
+.types-table { width:100%; border-collapse:collapse; margin:0.6rem 0; font-size:0.9rem; }
+.types-table th, .types-table td { padding:0.5rem 0.7rem; border-bottom:1px solid var(--border); text-align:left; }
+.types-table th { background: var(--bg-subtle); font-size:0.74rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/">Nombres reals</a>
+      <span class="sep">/</span>
+      <span class="current">04 · Logaritmes</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Nombres reals</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">23 set 2025</span>
+      </div>
+      <h1 style="margin:0">4. Logaritmes</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Definició, propietats, tipus de logaritmes (decimal, natural, en base $a$) i la seva relació inversa amb les funcions exponencials.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Definició</h2>
+
+        <div class="def-box">
+          <h3>Logaritme en base a</h3>
+          <p>El <strong>logaritme en base $a$ de $b$</strong> és el nombre $c$ tal que elevant la base a $c$ obtenim $b$:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$\log_{a}\!\big(b\big) = c \;\Longleftrightarrow\; a^{c} = b.$$
+          </div>
+          <p>Anomenem $a$ la <em>base</em>, $b$ l'<em>argument</em>, i $c$ el <em>resultat</em> del logaritme.</p>
+          <p class="note">El logaritme respon la pregunta: <em>"a quin exponent he d'elevar la base per obtenir l'argument?"</em></p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemples directes</h3>
+          <ul>
+            <li>$\log_{2} 8 = 3$ &nbsp;perquè&nbsp; $2^{3} = 8$.</li>
+            <li>$\log_{5} 25 = 2$ &nbsp;perquè&nbsp; $5^{2} = 25$.</li>
+            <li>$\log_{3}\!\left(\tfrac{1}{3}\right) = -1$ &nbsp;perquè&nbsp; $3^{-1} = \tfrac{1}{3}$.</li>
+          </ul>
+          <p>Un cas una mica menys directe: $\log_{\sqrt{2}} 16 = ?$</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+            $$(\sqrt{2})^{x} = 16 \;\Longleftrightarrow\; (2^{1/2})^{x} = 2^{4} \;\Longleftrightarrow\; 2^{x/2} = 2^{4} \;\Longleftrightarrow\; \tfrac{x}{2} = 4 \;\Longrightarrow\; x = 8.$$
+          </div>
+          <p>Així, $\log_{\sqrt{2}} 16 = 8$.</p>
+        </div>
+
+        <div class="warn-box">
+          <h3>Quan no existeix?</h3>
+          <p>El logaritme <strong>només està definit per a argument estrictament positiu</strong> ($b > 0$):</p>
+          <ul>
+            <li>$\log_{a}(\text{nombre negatiu})$ <em>no existeix</em>. Per exemple, $\log_{5}(-25)$ no està definit, perquè cap potència real de $5$ pot donar un nombre negatiu.</li>
+            <li>$\log_{a} 0$ <em>no existeix</em>: $a^{c} = 0$ no té solució real.</li>
+            <li>La <em>base</em> $a$ ha de ser positiva i diferent d'$1$.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Propietats dels logaritmes</h2>
+
+        <div class="prop-box">
+          <h3>Resum amb exemples</h3>
+          <table class="props-table">
+            <thead><tr><th>Propietat</th><th>Expressió</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td>Logaritme de la base</td><td>$\log_{a} a = 1$</td><td>$\log_{3} 3 = 1$</td></tr>
+              <tr><td>Logaritme d'$1$</td><td>$\log_{a} 1 = 0$</td><td>$\log_{5} 1 = 0$</td></tr>
+              <tr><td>Logaritme d'una potència de la base</td><td>$\log_{a} a^{n} = n$</td><td>$\log_{3} 9 = \log_{3} 3^{2} = 2$</td></tr>
+              <tr><td>Logaritme d'una potència</td><td>$\log_{a}(b^{n}) = n \cdot \log_{a} b$</td><td>$\log_{3} 25 = \log_{3} 5^{2} = 2\log_{3} 5$</td></tr>
+              <tr><td>Logaritme d'un producte</td><td>$\log_{a}(b \cdot d) = \log_{a} b + \log_{a} d$</td><td>$\log 6 = \log 2 + \log 3$</td></tr>
+              <tr><td>Logaritme d'un quocient</td><td>$\log_{a}\!\left(\dfrac{b}{d}\right) = \log_{a} b - \log_{a} d$</td><td>$\log\!\left(\tfrac{15}{3}\right) = \log 15 - \log 3$</td></tr>
+              <tr><td>Logaritme i arrel</td><td>$\log_{a}\!\sqrt[n]{b} = \dfrac{1}{n}\log_{a} b$</td><td>$\log\!\sqrt{100} = \tfrac{1}{2}\log 100 = 1$</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Totes aquestes propietats venen directament de les <em>propietats de les potències</em> aplicades a la definició: si $a^{c} = b$ i $a^{c'} = d$, llavors $a^{c+c'} = bd$, etc.</p>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Tipus de logaritmes</h2>
+
+        <p class="note">Segons la base, hi ha tres notacions habituals:</p>
+
+        <table class="types-table">
+          <thead><tr><th>Nom</th><th>Notació</th><th>Base</th></tr></thead>
+          <tbody>
+            <tr><td>Logaritme <strong>decimal</strong> (o "comú")</td><td>$\log b$</td><td>$10$</td></tr>
+            <tr><td>Logaritme <strong>natural</strong> (o "neperià")</td><td>$\ln b$</td><td>$e \approx 2{,}71828\ldots$</td></tr>
+            <tr><td>Logaritme en una base $a$ qualsevol</td><td>$\log_{a} b$</td><td>$a > 0$, $a \neq 1$</td></tr>
+          </tbody>
+        </table>
+
+        <p class="note">Quan veus $\log$ sense subscript a un llibre o calculadora, normalment es refereix al <em>logaritme decimal</em> (base $10$).</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Logaritmes i exponencials: són inversos</h2>
+
+        <div class="def-box">
+          <h3>Funcions inverses</h3>
+          <p>$\log_{a}(x)$ i $a^{x}$ són <strong>funcions inverses</strong>: l'una desfà l'altra. Així obtenim dues identitats molt útils:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$\log_{a}\!\big(a^{x}\big) = x \qquad \text{i} \qquad a^{\log_{a}(x)} = x.$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemples</h3>
+          <ul>
+            <li>$\log_{2}(2^{4}) = 4$.</li>
+            <li>$3^{\log_{3}(7)} = 7$.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Aplicació: resoldre equacions exponencials</h2>
+
+        <p class="note">Quan tens una equació del tipus $a^{x} = b$, hi ha dos casos típics:</p>
+
+        <div class="example-box">
+          <h3>Cas 1 — el resultat és potència exacta de la base</h3>
+          <p>$5^{x} = 25$. Com que $25 = 5^{2}$, igualem exponents:</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+            $$5^{x} = 5^{2} \;\Longrightarrow\; x = 2.$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Cas 2 — cal logaritme</h3>
+          <p>$5^{x} = 7$. No podem expressar $7$ com una potència "neta" de $5$. Apliquem logaritme als dos costats:</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+            $$\log_{5}(5^{x}) = \log_{5} 7 \;\Longrightarrow\; x = \log_{5} 7 \approx 1{,}209.$$
+          </div>
+          <p>O bé, fent servir logaritme decimal als dos costats i la propietat de la potència:</p>
+          <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+            $$\log(5^{x}) = \log 7 \;\Longrightarrow\; x \cdot \log 5 = \log 7 \;\Longrightarrow\; x = \dfrac{\log 7}{\log 5} \approx 1{,}209.$$
+          </div>
+          <p class="note">Aquesta és la fórmula del <strong>canvi de base</strong>: $\log_{a} b = \dfrac{\log b}{\log a} = \dfrac{\ln b}{\ln a}$. T'és útil quan la calculadora només té $\log$ i $\ln$.</p>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-nombres-reals/03-racionalitzacio.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-nombres-reals/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
