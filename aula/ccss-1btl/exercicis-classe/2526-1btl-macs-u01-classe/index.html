@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apunts · Nombres reals · 1r BTL CCSS</title>
-<meta name="description" content="Apunts complets de la unitat de Nombres reals per a Mat. Aplicades a les CCSS 1r BTL: conjunts numèrics, intervals, valor absolut, aproximació i errors.">
+<title>Exercicis de classe — Nombres reals (potències i arrels) — Mat. Aplicades CCSS 1r BTL</title>
+<meta name="description" content="Llistat d'exercicis de classe de Mat. Aplicades CCSS 1r BTL: Exercicis de classe — Nombres reals (potències i arrels).">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,14 +14,21 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-nombres-reals/">
+<style>
+.ej-list { display:flex; flex-direction:column; gap:0.6rem; margin-top:1rem; }
+.ej-list a { display:flex; align-items:baseline; gap:0.7rem; padding:0.8rem 1rem; background:var(--bg); border:1px solid var(--border); border-radius:8px; text-decoration:none; color:var(--text); transition:all 0.15s; }
+.ej-list a:hover { border-color:#6366f1; transform:translateX(2px); }
+.ej-list .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.ej-list .ttl { font-weight:500; }
+.ej-list .arr { margin-left:auto; color:var(--text-soft); font-size:0.85rem; }
+</style>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/docencia/" class="nav-active">Docència</a>
       <a href="/doctorado/">Doctorado</a>
       <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
@@ -38,44 +45,34 @@
 </nav>
 
 <main>
-  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:820px">
 
     <div class="breadcrumb">
-      <a href="/">Inicio</a>
+      <a href="/">Inici</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docencia</a>
+      <a href="/docencia/">Docència</a>
       <span class="sep">/</span>
       <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
       <span class="sep">/</span>
-      <span class="current">Apunts · Nombres reals</span>
+      <span class="current">Exercicis de classe — Nombres reals (potències i arrels)</span>
     </div>
 
-    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
-      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
-        <span class="section-label">1r BTL CCSS</span>
-        <span class="tag tag-orange">Apunts</span>
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.2rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem">
+        <span class="section-label">Mat. Aplicades CCSS 1r BTL</span>
+        <span class="tag tag-orange">Exercicis de classe</span>
       </div>
-      <h1 style="margin:0">Nombres reals</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Apunts de classe en català. Es publiquen per apartats a mesura que avança la unitat.</p>
+      <h1 style="margin:0">Exercicis de classe — Nombres reals (potències i arrels)</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">6 exercicis.</p>
     </div>
 
-    <div class="exam-list" style="grid-template-columns:1fr">
-      <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/01-reals-i-intervals.html" class="exam-card" style="text-decoration:none;color:inherit">
-        <div class="exam-card-head">
-          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">01</span>
-          <span class="tag tag-gray" style="font-size:0.7rem">17 sep 2025</span>
-        </div>
-        <h3 class="exam-card-title">Reals i intervals</h3>
-        <p class="exam-card-meta">Conjunts numèrics ($\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$), demostració que $\sqrt{2}$ és irracional, intervals oberts/tancats i operacions de conjunts.</p>
-      </a>
-      <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/02-potencies-i-arrels.html" class="exam-card" style="text-decoration:none;color:inherit">
-        <div class="exam-card-head">
-          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">02</span>
-          <span class="tag tag-gray" style="font-size:0.7rem">17 sep 2025</span>
-        </div>
-        <h3 class="exam-card-title">Potències i arrels</h3>
-        <p class="exam-card-meta">Definicions de potència i arrel n-èsima, taula de propietats de les potències i de les arrels, i 6 exercicis resolts (operacions amb radicals, nombre d'or i simplificacions).</p>
-      </a>
+    <div class="ej-list">
+          <a href="/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/22.html"><span class="num">22</span><span class="ttl">Operacions amb potències i arrels</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/23.html"><span class="num">23</span><span class="ttl">Nombre d'or: $\varphi^{2} = \varphi + 1$</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/24.html"><span class="num">24</span><span class="ttl">Sumes i restes amb radicals semblants</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/25.html"><span class="num">25</span><span class="ttl">Expressió amb arrels i variables</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/26.html"><span class="num">26</span><span class="ttl">Quocient amb molts radicals</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/28.html"><span class="num">28</span><span class="ttl">Simplificacions amb radicals niats</span><span class="arr">→</span></a>
     </div>
 
   </div>

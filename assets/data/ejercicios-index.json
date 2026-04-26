@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-26T16:12:34.102533+00:00",
+  "generated_at": "2026-04-26T19:09:46.545680+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 59,
+  "count": 65,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -2332,6 +2332,435 @@
         "es": "valor absolut, exponencial, logaritme i composició bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico visualización / gráficos pregunta larga (estructurada en apartados)",
         "ca": "valor absolut, exponencial, logaritme i composició batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "valor absolut, exponencial, logaritme i composició bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-22",
+      "titulo": "Operacions amb potències i arrels",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/22.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/22.html",
+      "numero": 22,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\sqrt[5]{125 \\cdot 50 \\cdot 32}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\sqrt[5]{0{,}0000004}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\sqrt{2\\sqrt{2\\sqrt{2\\sqrt{2}}}}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\sqrt[5]{(243)^{2} \\cdot (64)^{-3}}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\sqrt[5]{(243)^{2/3} \\cdot (64)^{-1/2}}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$\\dfrac{\\sqrt{3} \\cdot \\sqrt[5]{27^{2}}}{9^{-2}}$"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "operacions amb potències i arrels bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "operacions amb potències i arrels batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "operacions amb potències i arrels bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-23",
+      "titulo": "Nombre d'or: $\\varphi^{2} = \\varphi + 1$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/23.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/23.html",
+      "numero": 23,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Donat el nombre d'or $\\varphi = \\dfrac{1 + \\sqrt{5}}{2}$, comprova que $\\varphi^{2} = \\varphi + 1$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "demostracion",
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "demostracion_formal"
+        ]
+      },
+      "search_text": {
+        "es": "nombre d'or: $\\varphi^{2} = \\varphi + 1$ bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos fácil demostración / razonamiento formal cálculo simbólico demostración formal",
+        "ca": "nombre d'or: $\\varphi^{2} = \\varphi + 1$ batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "nombre d'or: $\\varphi^{2} = \\varphi + 1$ bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-24",
+      "titulo": "Sumes i restes amb radicals semblants",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/24.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/24.html",
+      "numero": 24,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\dfrac{1}{5}\\sqrt{54} - \\dfrac{1}{2}\\sqrt{18} + \\dfrac{1}{10}\\sqrt{24}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\sqrt{\\dfrac{1}{2}} + \\sqrt{32} - \\dfrac{1}{3\\sqrt{8}}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$3\\sqrt{x} - \\sqrt{4x} + 2\\sqrt{36x} - 5\\sqrt{x - \\tfrac{9x}{25}}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\sqrt{\\tfrac{2}{3}} + \\sqrt{\\tfrac{1}{3}} + \\sqrt{\\tfrac{1}{3}} - 3\\sqrt{2} + \\sqrt{\\tfrac{1}{12}}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\sqrt{18y} - \\sqrt{2y} + \\tfrac{5}{2}\\sqrt{8y} - \\tfrac{4}{3}\\sqrt{9y}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$\\sqrt{\\tfrac{2x}{8}} + \\sqrt{\\tfrac{2x}{8}} + \\sqrt{\\tfrac{2x}{3}} + \\sqrt{\\tfrac{2}{45}} - \\sqrt{\\tfrac{48}{16}}$"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "sumes i restes amb radicals semblants bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "sumes i restes amb radicals semblants batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "sumes i restes amb radicals semblants bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-25",
+      "titulo": "Expressió amb arrels i variables",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/25.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/25.html",
+      "numero": 25,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula $5\\sqrt{a - \\tfrac{9a}{25}} + \\tfrac{1}{2}\\sqrt{a^{3} \\cdot b} - \\tfrac{1}{b}\\sqrt{a \\cdot b^{3}} + \\tfrac{a}{3}\\sqrt{9b} - \\sqrt{36b}$"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "expressió amb arrels i variables bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "expressió amb arrels i variables batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "expressió amb arrels i variables bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-26",
+      "titulo": "Quocient amb molts radicals",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/26.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/26.html",
+      "numero": 26,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $\\dfrac{\\sqrt{12} \\cdot \\sqrt[3]{12} \\cdot \\sqrt[6]{12} \\cdot \\sqrt{12 \\cdot \\sqrt{12}}}{12 \\cdot \\sqrt[4]{12}}$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "quocient amb molts radicals bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "quocient amb molts radicals batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "quocient amb molts radicals bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-28",
+      "titulo": "Simplificacions amb radicals niats",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/28.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/28.html",
+      "numero": 28,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\sqrt{50\\,a^{4}\\,b\\,c^{2}} \\cdot \\sqrt[3]{5bc}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\sqrt{a^{2} \\cdot \\sqrt[3]{a^{2} \\cdot \\sqrt{a^{2}}}}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\sqrt{\\tfrac{1}{3}\\,\\sqrt[3]{3^{5} \\cdot \\sqrt{\\tfrac{1}{3} \\cdot \\sqrt{27}}}}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\sqrt{a^{5} \\cdot \\sqrt{\\tfrac{1}{x} \\cdot \\sqrt{a^{3}}}}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\left(\\sqrt{\\tfrac{1}{x} \\cdot \\sqrt[4]{x \\cdot \\sqrt{x^{8} \\cdot \\sqrt[3]{\\tfrac{1}{x} \\cdot \\sqrt{x}}}}}\\right)^{7}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$\\dfrac{\\sqrt{\\sqrt[15]{x^{5}\\,y^{3}}}}{\\sqrt[3]{\\sqrt[15]{x^{5}\\,y^{3}}}}$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$\\dfrac{\\frac{1}{x} \\cdot \\sqrt[3]{x^{2}} \\cdot \\sqrt{\\tfrac{1}{x}}}{\\frac{1}{\\sqrt{x}} \\cdot \\sqrt[3]{x} \\cdot \\sqrt{\\tfrac{1}{2}}}$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0,
+          "tarea": "$\\sqrt{\\tfrac{a}{3b}} \\cdot \\left(\\sqrt[3]{\\tfrac{3b^{3}}{a^{2}}} \\cdot \\sqrt{\\tfrac{3}{27}}\\right)$"
+        }
+      ],
+      "apartados_count": 8,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "simplificacions amb radicals niats bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos difícil cálculo simbólico pregunta larga (estructurada en apartados)",
+        "ca": "simplificacions amb radicals niats batxillerat — mat. ccss 1r català classe sentit numèric difícil",
+        "en": "simplificacions amb radicals niats bachillerato — applied maths year 1 catalan class number sense hard"
       }
     },
     {
