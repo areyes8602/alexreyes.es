@@ -1,0 +1,152 @@
+{
+  "schema_version": 3,
+  "id": "2526-1btl-macs-u09-classe",
+  "tipo_coleccion": "practica",
+  "titulo": "Exercicis de classe — Probabilitat",
+  "fecha": "2026-04-24",
+  "grupo": "1r BTL",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_enunciados": null,
+  "pdf_soluciones": null,
+  "url_index": "/aula/ccss-1btl/apuntes/u-probabilitat/",
+  "puntuacion_total": 0,
+  "baremo": null,
+  "tags_coleccion": {
+    "materia": "bach-ccss-1",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "libro_texto",
+    "origen": "classe",
+    "ambito_bach": "BACH-E"
+  },
+  "ejercicios": [
+    {
+      "id": "2526-1btl-macs-u09-classe-7c-1",
+      "numero": 1,
+      "titulo": "Smartphones i tauletes (cardinal i Venn)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/02-operacions-amb-conjunts.html#ex-1",
+      "puntuacion": 0,
+      "contexto": "S'enquesten 127 consumidors. 81 tenen una tauleta ($T$), 70 tenen un smartphone ($S$) i 29 en tenen tots dos.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Quants consumidors enquestats no tenien ni tauleta ni smartphone?" },
+        { "letra": "b", "puntos": 0, "tarea": "Quina és la probabilitat que, triant un consumidor a l'atzar, només tingui smartphone?" },
+        { "letra": "c", "puntos": 0, "tarea": "En una població de 10.000 consumidors, quants es preveu que només tinguin tauleta?" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["interpretacion", "visualizacion", "calculo_numerico"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-7c-2",
+      "numero": 2,
+      "titulo": "Biologia i història (probabilitat condicionada)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/02-operacions-amb-conjunts.html#ex-2",
+      "puntuacion": 0,
+      "contexto": "En una classe de 20 alumnes, 12 estudien biologia ($B$), 15 estudien història ($H$) i 2 alumnes no estudien ni biologia ni història.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Calcula la probabilitat que un alumne triat a l'atzar estudiï les dues matèries." },
+        { "letra": "b", "puntos": 0, "tarea": "Si un alumne triat a l'atzar estudia biologia, quina és la probabilitat que també estudiï història?" },
+        { "letra": "c", "puntos": 0, "tarea": "Si l'experiment es repeteix 60 vegades, quin és el nombre esperat de vegades que es triï un alumne que estudia les dues?" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["razonamiento", "calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-46",
+      "numero": 46,
+      "titulo": "Dues caixes amb boles (probabilitat total)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html#ex-46",
+      "puntuacion": 0,
+      "contexto": "Una capsa, $A$, conté 6 boles blanques i 4 boles blaves; mentre que una altra capsa, $B$, conté 5 boles blanques i 2 blaves. Es tria una capsa a l'atzar i se n'extreuen dues boles sense reemplaçament.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Probabilitat que les dues boles siguin blanques." },
+        { "letra": "b", "puntos": 0, "tarea": "Probabilitat que les dues boles siguin del mateix color." },
+        { "letra": "c", "puntos": 0, "tarea": "Probabilitat que les dues boles siguin de diferent color." }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-47",
+      "numero": 47,
+      "titulo": "Tres urnes (probabilitat total i Bayes)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html#ex-47",
+      "puntuacion": 0,
+      "contexto": "Es disposa de tres urnes: l'urna $A$ conté 2 boles blanques i 4 vermelles; l'urna $B$, 3 blanques i 3 vermelles, i la $C$, 1 blanca i 5 vermelles. Es tria una urna a l'atzar i se n'extreu una bola.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Quina és la probabilitat que la bola sigui blanca?" },
+        { "letra": "b", "puntos": 0, "tarea": "Si la bola és blanca, quina és la probabilitat que procedeixi de l'urna B?" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-48",
+      "numero": 48,
+      "titulo": "Dau i urna (probabilitat total)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html#ex-48",
+      "puntuacion": 0,
+      "contexto": "Es llança un dau. Si el resultat és parell, s'introdueix una bola blanca en una urna que conté 2 blanques i 4 negres; si és imparell, s'introdueix una bola negra.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Calcula la probabilitat d'extreure de l'urna, sense reemplaçament, dues boles blanques si el dau ha donat parell." },
+        { "letra": "b", "puntos": 0, "tarea": "Quina és la probabilitat d'extreure dues boles blanques una vegada llançat el dau?" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-49",
+      "numero": 49,
+      "titulo": "Bombetes halògenes vs baix consum (Bayes)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html#ex-49",
+      "puntuacion": 0,
+      "contexto": "Una empresa produeix bombetes halògenes i de baix consum (3:4 de cada 7). $P(D \\mid H) = 0{,}02$ i $P(D \\mid L) = 0{,}09$. Es tria una bombeta i resulta que no és defectuosa.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Quina és la probabilitat que sigui halògena?" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento", "interpretacion"],
+        "formato": ["pregunta_corta", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-50",
+      "numero": 50,
+      "titulo": "Crèdits bancaris (probabilitat total i Bayes)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html#ex-50",
+      "puntuacion": 0,
+      "contexto": "En un banc, el 30% dels crèdits són per a habitatge, el 50% per a empreses i el 20% per a consum. Els percentatges d'impagament són 10%, 20% i 10% respectivament.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Calcula la probabilitat que un crèdit triat a l'atzar sigui pagat." },
+        { "letra": "b", "puntos": 0, "tarea": "Si un crèdit s'ha pagat, quina probabilitat hi ha que fos de consum?" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}
