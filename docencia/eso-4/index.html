@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/docencia/eso-4/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/docencia/eso-4/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/docencia/eso-4/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/eso-4/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/eso-4/">
 <style>
   .year-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
   .year-card { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem 1.25rem; text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; display:flex; flex-direction:column; gap:0.4rem; }
@@ -29,14 +33,9 @@
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
-    <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
-      <a href="/doctorado/">Doctorado</a>
-      <a href="/notas/">Notas</a>
-      <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacto</a>
-    </div>
+    <div class="nav-links"><a href="/docencia/" class="nav-active">Docencia</a><a href="/doctorado/">Doctorado</a><a href="/notas/">Notas</a><a href="/cv/">CV</a><a href="/contacto/">Contacto</a></div>
     <div class="nav-right">
+      <div class="lang-sw"><a href="/docencia/eso-4/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/docencia/eso-4/" class="">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/eso-4/" class="">EN</a></div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -49,33 +48,27 @@
 <main>
   <div class="container" style="padding-top:3rem;padding-bottom:5rem">
 
-    <div class="breadcrumb">
-      <a href="/">Inici</a>
-      <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
-      <span class="sep">/</span>
-      <span class="current">Matemàtiques 4t ESO</span>
-    </div>
+    <div class="breadcrumb"><a href="/">Inicio</a><span class="sep">/</span><a href="/docencia/">Docencia</a><span class="sep">/</span><span class="current">Matemàtiques 4t ESO</span></div>
 
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">ESO</span>
-        <span class="tag tag-gray">Arxivada</span>
+        <span class="tag tag-gray">Archivada</span>
       </div>
       <h1 style="margin:0.3rem 0 0.6rem">Matemàtiques 4t ESO</h1>
-      <p style="font-size:0.98rem;color:var(--text-soft)">Quart d'ESO &mdash; currículum LOMLOE.</p>
+      <p style="font-size:0.98rem;color:var(--text-soft)">Cuarto de ESO &mdash; currículum LOMLOE.</p>
     </div>
 
     <div class="info-grid">
-      <div class="info-card"><div class="info-card-label">Curs</div><div class="info-card-value">4t ESO</div></div>
-      <div class="info-card"><div class="info-card-label">Estat</div><div class="info-card-value" style="font-size:0.88rem">Arxivada</div></div>
+      <div class="info-card"><div class="info-card-label">Curso</div><div class="info-card-value">4º ESO</div></div>
+      <div class="info-card"><div class="info-card-label">Estado</div><div class="info-card-value" style="font-size:0.88rem">Archivada</div></div>
       <div class="info-card"><div class="info-card-label">Cursos</div><div class="info-card-value" id="years-count">—</div></div>
     </div>
 
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Cursos impartits</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada curs conté els apunts, fitxes, solucions i exàmens d'aquell any acadèmic.</p>
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Cursos impartidos</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada curso contiene los apuntes, fichas, soluciones y exámenes de aquel año académico.</p>
     <div id="years-container">
-      <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Carregant…</p>
+      <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Cargando…</p>
     </div>
 
   </div>
@@ -95,11 +88,11 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function escHtml(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
-const NO_YEARS_H = "Encara no he afegit cursos d'aquesta assignatura";
-const NO_YEARS_P = "Aquesta mat\u00e8ria forma part del meu hist\u00f2ric docent. Aviat anir\u00e9 pujant material dels cursos en qu\u00e8 la vaig impartir.";
-const ERROR_LOAD = "No s'han pogut carregar els cursos.";
+const NO_YEARS_H = "Todav\u00eda no he a\u00f1adido cursos de esta asignatura";
+const NO_YEARS_P = "Esta materia forma parte de mi hist\u00f3rico docente. Ir\u00e9 subiendo material de los cursos en que la impart\u00ed.";
+const BASE_URL = "/docencia/eso-4/";
 
-fetch('/docencia/eso-4/years.json', { cache: 'no-cache' })
+fetch('/assets/data/archive/eso-4.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(data => {
     const years = (data.years || []).slice().sort((a,b) => (b.year||'').localeCompare(a.year||''));
@@ -113,7 +106,7 @@ fetch('/docencia/eso-4/years.json', { cache: 'no-cache' })
       const center = y.center ? `<p class="year-card-center">${escHtml(y.center)}</p>` : '';
       const note = y.note ? `<span class="year-card-meta">${escHtml(y.note)}</span>` : '';
       return `
-        <a href="/docencia/eso-4/${escHtml(y.year)}/" class="year-card">
+        <a href="${BASE_URL}${escHtml(y.year)}/" class="year-card">
           <div class="year-card-head">
             <span class="year-card-year">${escHtml(y.year)}</span>
             <span class="year-card-arrow">→</span>
@@ -126,7 +119,7 @@ fetch('/docencia/eso-4/years.json', { cache: 'no-cache' })
   .catch(err => {
     document.getElementById('years-count').textContent = '0';
     document.getElementById('years-container').innerHTML = `<div class="empty-state"><h3>${escHtml(NO_YEARS_H)}</h3><p>${escHtml(NO_YEARS_P)}</p></div>`;
-    console.error('years.json:', err);
+    console.error('archive years:', err);
   });
 </script>
 </body>
