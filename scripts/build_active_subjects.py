@@ -247,6 +247,17 @@ SUBJ_1BTL = {
     ],
     "year_current": "2025–26",
     "materia_filter": "bach-ccss-1",
+    # Avís temporal (es mostra mentre `new Date() < expire_iso`).
+    # `expire_iso` és en hora local del navegador (sense Z), així que l'avís
+    # desapareix automàticament a les 00:00 del dia indicat (hora de Barcelona).
+    "notice": {
+        "text": {
+            "es": "📌 <strong>Aviso:</strong> el <strong>22 de mayo de 2026 a las 23:59</strong> es la fecha límite para entregar el trabajo de Estadística al Teams de la asignatura.",
+            "ca": "📌 <strong>Avís:</strong> el <strong>22 de maig de 2026 a les 23:59</strong> és la data límit per entregar el treball d'Estadística al Teams de l'assignatura.",
+            "en": "📌 <strong>Notice:</strong> <strong>22 May 2026 at 23:59</strong> is the deadline to submit the Statistics project on the subject's Teams.",
+        },
+        "expire_iso": "2026-05-23T00:00:00",
+    },
     # Units in language of instruction (Catalan), descriptions per language.
     # Keep keys aligned with SUBJ_2ESO so the regular hub renderer can use them.
     "units": [
@@ -505,6 +516,22 @@ def render_regular_hub(s, lang):
     info_grid = info_grid_html(s["info_grid"], lang)
     months_js = json.dumps(MONTHS[lang])
 
+    # Avís opcional (es mostra fins a la data d'expiració, després s'amaga sol via JS)
+    notice_html = ""
+    notice = s.get("notice")
+    if notice:
+        notice_text = picker_lang_value(notice["text"], lang)
+        expire_iso = notice["expire_iso"]
+        notice_html = (
+            '\n    <div id="subject-notice" class="subject-notice" style="display:none;background:rgba(245,158,11,0.10);border:1px solid rgba(245,158,11,0.35);border-left:4px solid #f59e0b;padding:0.85rem 1.1rem;border-radius:8px;margin:1.2rem 0 0;color:var(--text);font-size:0.95rem;line-height:1.45">'
+            f'\n      {notice_text}'
+            '\n    </div>'
+            '\n    <script>(function(){'
+            f'var d=new Date("{expire_iso}");'
+            'if(new Date()<d){var n=document.getElementById("subject-notice");if(n)n.style.display="block";}'
+            '})();</script>\n'
+        )
+
     return f"""{head_block(L, title, subtitle, code)}
 <body>
 {nav_html(lang, code)}
@@ -522,7 +549,7 @@ def render_regular_hub(s, lang):
       <h1 style="margin:0.3rem 0 0.6rem">{title}</h1>
       <p style="font-size:0.98rem;color:var(--text-soft)">{subtitle}</p>
     </div>
-
+{notice_html}
     <div class="info-grid">
       {info_grid}
     </div>
