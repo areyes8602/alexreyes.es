@@ -348,6 +348,28 @@
       }
     },
     {
+      "id": "2526-1btl-macs-u01-classe-44",
+      "numero": 44,
+      "titulo": "Logaritmes amb propietats: cinc supòsits",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/44.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/06-exercicis-logaritmes.html#ex-44",
+      "puntuacion": 0,
+      "contexto": "Resol aquests supòsits aplicant les propietats dels logaritmes (reduir l'argument a una potència de la base, considerant que $\\log_{1/x}(x^{k}) = -k$).",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\log_{5}\\!\\dfrac{1}{\\sqrt{125}} - \\log_{2}\\!\\left(\\dfrac{1}{2}\\right)^{-3} - \\log_{3}\\!\\sqrt[5]{81^{2}} + \\log 0{,}001^{2}$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\log_{n}\\!\\dfrac{1}{\\sqrt[3]{n^{2}}} - \\log_{m} m^{-1} - \\log_{1/m}\\! m^{6}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\log_{h+i}(h+i)^{3} - \\log_{2a}\\!\\sqrt[5]{\\dfrac{1}{8a^{3}}} + \\log_{3/b}\\!\\dfrac{b}{3}$" },
+        { "letra": "d", "puntos": 0, "tarea": "$\\log_{\\sqrt{5}} 125 - \\log_{\\sqrt{2}} 4 - 5\\log\\sqrt{0{,}001}$" },
+        { "letra": "e", "puntos": 0, "tarea": "$\\log_{a}\\!\\left(\\dfrac{\\sqrt{a}}{\\sqrt[5]{a^{3}}}\\,a\\right) - \\log_{1/b}\\!\\left(\\dfrac{1}{\\sqrt[3]{b}}\\right)$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
       "id": "2526-1btl-macs-u01-classe-47",
       "numero": 47,
       "titulo": "Logaritme d'una expressió amb arrels niades",
