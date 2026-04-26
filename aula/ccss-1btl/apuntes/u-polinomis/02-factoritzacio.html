@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2. Factorització · Polinomis · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: factorització de polinomis — factor comú, fórmula de 2n grau, productes notables, Ruffini i exemples resolts.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-polinomis/02-factoritzacio.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+/* Taula d'estratègia */
+.estr-table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.92rem; }
+.estr-table th, .estr-table td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.estr-table th { background: var(--bg-subtle); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-soft); font-weight: 600; }
+.estr-table td:first-child { font-weight: 600; white-space: nowrap; color: #6366f1; }
+
+/* Productes notables */
+.prod-table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.95rem; }
+.prod-table td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.prod-table td:first-child { color: var(--text-soft); white-space: nowrap; width: 1%; }
+
+/* Ruffini */
+.ruffini { font-family: var(--mono); font-size: 1rem; line-height: 1.7; margin: 0.8rem auto; display: table; border-collapse: collapse; }
+.ruffini td { padding: 0.18rem 0.55rem; text-align: center; min-width: 2.4rem; }
+.ruffini .root-cell { color: #047857; font-weight: 700; padding-right: 0.7rem; border-right: 2px solid var(--text-soft); }
+.ruffini .row-result td { font-weight: 700; }
+.ruffini .row-sep td { border-bottom: 1.5px solid var(--text-soft); padding: 0; }
+.ruffini .zero-cell { color: #047857; }
+
+.steps { counter-reset: step; padding-left: 0; list-style: none; }
+.steps > li { counter-increment: step; padding: 0.4rem 0 0.4rem 2rem; position: relative; }
+.steps > li::before { content: counter(step); position: absolute; left: 0; top: 0.45rem; width: 1.4rem; height: 1.4rem; background: #6366f1; color: #fff; border-radius: 50%; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-polinomis/">Polinomis</a>
+      <span class="sep">/</span>
+      <span class="current">02 · Factorització</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Polinomis</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">15 oct 2025</span>
+      </div>
+      <h1 style="margin:0">2. Factorització</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Quina estratègia seguim segons el grau, factor comú, fórmula de 2n grau, productes notables, Ruffini i el paper del coeficient principal — tot acompanyat d'exemples resolts.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ======================= INTRODUCCIÓ ======================= -->
+      <div class="apunt-section">
+        <h2>Què vol dir factoritzar?</h2>
+
+        <div class="def-box">
+          <h3>Factoritzar un polinomi</h3>
+          <p><strong>Factoritzar</strong> un polinomi és escriure'l com a <strong>producte de factors primers</strong>, és a dir, com el producte de polinomis més senzills que ja no es poden descompondre més (en els reals, factors de grau 1 i factors irreductibles de grau 2).</p>
+        </div>
+
+        <p class="note">Recorda de l'apartat anterior: cada arrel real $a$ del polinomi dóna un factor de la forma $(x-a)$. Tota la feina d'aquest apartat consisteix, doncs, a <em>trobar les arrels</em> per construir els factors.</p>
+
+        <div class="prop-box">
+          <h3>Per a què serveix?</h3>
+          <p>La factorització ens deixa: (i) <strong>resoldre equacions</strong> polinòmiques, perquè un producte és zero només si algun factor és zero; (ii) <strong>simplificar fraccions algebraiques</strong> cancel·lant factors comuns al numerador i al denominador; i (iii) <strong>estudiar el signe</strong> d'un polinomi per resoldre inequacions.</p>
+        </div>
+      </div>
+
+      <!-- ======================= ESTRATÈGIA ======================= -->
+      <div class="apunt-section">
+        <h2>Quina estratègia faig servir?</h2>
+
+        <p>Davant un polinomi, sempre seguim el mateix esquema: <strong>primer treure factor comú</strong> (si n'hi ha) i, després, aplicar el mètode adequat segons el grau del que queda.</p>
+
+        <table class="estr-table">
+          <thead>
+            <tr><th>Grau</th><th>Mètodes recomanats</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Grau 2</td>
+              <td>Equació de 2n grau (fórmula), <em>productes notables</em> si es reconeix el patró, calculadora o Ruffini.</td>
+            </tr>
+            <tr>
+              <td>Grau 3 i 4</td>
+              <td>Ruffini (provant divisors del terme independent) o calculadora.</td>
+            </tr>
+            <tr>
+              <td>Grau 5 o més</td>
+              <td>Ruffini, aplicat tantes vegades com calgui fins a baixar el grau.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note" style="text-align:center"><strong>Pas zero comú a tots els graus:</strong> &nbsp;<em>extreure el factor comú</em> que comparteixin tots els termes.</p>
+      </div>
+
+      <!-- ======================= FACTOR COMÚ ======================= -->
+      <div class="apunt-section">
+        <h2>Pas zero: factor comú</h2>
+
+        <div class="def-box">
+          <h3>Idea</h3>
+          <p>Si tots els termes del polinomi tenen un factor comú (un nombre, una potència de $x$ o tots dos), el traiem cap a fora. Això redueix el grau del que queda dins el parèntesi i normalment fa la resta de passos molt més fàcils.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple 1 — només una potència de $x$</h3>
+          <p>Factoritza $\;P(x) = 2x^{3} - 8x^{2} + 6x$.</p>
+          <p>Els tres termes tenen el factor $2x$ en comú:</p>
+          <div class="math-block">
+            $$P(x) = 2x\,(x^{2} - 4x + 3).$$
+          </div>
+          <p>Ara cal factoritzar $\;x^{2} - 4x + 3$, que és de grau 2. Les seves arrels són $x=1$ i $x=3$ (de cap o per fórmula), així que:</p>
+          <div class="math-block">
+            $$\boxed{\,P(x) = 2x\,(x-1)\,(x-3).\,}$$
+          </div>
+          <p class="note">Observa que $x=0$ és arrel (perquè $2x$ és un factor): no es pot oblidar quan resols $P(x)=0$.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple 2 — només un nombre comú</h3>
+          <p>Factoritza $\;Q(x) = 3x^{2} - 12$.</p>
+          <p>Treiem el $3$:</p>
+          <div class="math-block">
+            $$Q(x) = 3\,(x^{2} - 4) = 3\,(x-2)(x+2).$$
+          </div>
+          <p>(El segon pas és un producte notable, $a^2-b^2=(a-b)(a+b)$, que veurem ara mateix.)</p>
+        </div>
+      </div>
+
+      <!-- ======================= GRAU 2: 3 CAMINS ======================= -->
+      <div class="apunt-section">
+        <h2>Grau 2: tres camins</h2>
+
+        <h3 style="font-size:0.95rem;margin:1.2rem 0 0.4rem;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.05em">Camí A · Fórmula de 2n grau</h3>
+
+        <div class="def-box">
+          <h3>Fórmula</h3>
+          <p>Si $\;ax^{2} + bx + c = 0$, les arrels venen donades per:</p>
+          <div class="math-block">
+            $$x = \dfrac{-b \pm \sqrt{\,b^{2} - 4ac\,}}{2a}.$$
+          </div>
+          <p>El nombre $\Delta = b^{2}-4ac$ és el <strong>discriminant</strong> i ens diu quantes arrels reals hi ha:</p>
+          <ul style="margin-top:0.4rem">
+            <li>$\Delta > 0$: dues arrels reals diferents → dos factors de grau 1.</li>
+            <li>$\Delta = 0$: una arrel doble $x_{0}$ → un factor al quadrat $(x-x_{0})^{2}$.</li>
+            <li>$\Delta < 0$: cap arrel real → el polinomi és <em>irreductible</em> en els reals.</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple guiat — $P(x) = x^{2} - 5x + 6$</h3>
+          <p>Identifiquem els coeficients: $a=1$, $b=-5$, $c=6$. Apliquem la fórmula:</p>
+          <div class="math-block">
+            $$x = \dfrac{-(-5) \pm \sqrt{(-5)^{2}-4\cdot 1\cdot 6}}{2\cdot 1} = \dfrac{5 \pm \sqrt{25-24}}{2} = \dfrac{5 \pm 1}{2}.$$
+          </div>
+          <p>D'aquí surten dues arrels: $\;x_{1} = \dfrac{5+1}{2} = 3\;$ i $\;x_{2} = \dfrac{5-1}{2} = 2$.</p>
+          <p>Cada arrel dóna un factor:</p>
+          <div class="math-block">
+            $$\boxed{\,x^{2} - 5x + 6 = (x-2)\,(x-3).\,}$$
+          </div>
+          <p class="note">Comprovació ràpida: $(x-2)(x-3) = x^{2} - 3x - 2x + 6 = x^{2} - 5x + 6$. ✓</p>
+        </div>
+
+        <h3 style="font-size:0.95rem;margin:1.5rem 0 0.4rem;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.05em">Camí B · Productes notables</h3>
+
+        <div class="def-box">
+          <h3>Identitats que has de saber reconèixer</h3>
+          <table class="prod-table">
+            <tr>
+              <td>Quadrat de la suma</td>
+              <td>$\;(a+b)^{2} = a^{2} + 2ab + b^{2}$</td>
+            </tr>
+            <tr>
+              <td>Quadrat de la resta</td>
+              <td>$\;(a-b)^{2} = a^{2} - 2ab + b^{2}$</td>
+            </tr>
+            <tr>
+              <td>Suma per diferència</td>
+              <td>$\;(a+b)(a-b) = a^{2} - b^{2}$</td>
+            </tr>
+          </table>
+          <p class="note">Quan veus aquestes formes "al revés", saltes la fórmula i factoritzes directament. <strong>Truc:</strong> els quadrats perfectes tenen $\Delta = 0$ (arrel doble); les diferències de quadrats no tenen terme en $x$.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — diferència de quadrats</h3>
+          <p>Factoritza $\;x^{2} - 9$.</p>
+          <p>Reconeixem que $9 = 3^{2}$, així que és $a^{2}-b^{2}$ amb $a=x$ i $b=3$:</p>
+          <div class="math-block">
+            $$x^{2} - 9 = (x-3)(x+3).$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — quadrat perfecte</h3>
+          <p>Factoritza $\;x^{2} + 6x + 9$.</p>
+          <p>Comprovem si és un quadrat perfecte: $9 = 3^{2}$ i el doble producte hauria de ser $2\cdot x \cdot 3 = 6x$. ✓</p>
+          <div class="math-block">
+            $$x^{2} + 6x + 9 = (x+3)^{2}.$$
+          </div>
+          <p class="note">És el cas $\Delta=0$: $\;6^{2}-4\cdot 1\cdot 9 = 36-36 = 0$, arrel doble $x=-3$.</p>
+        </div>
+
+        <h3 style="font-size:0.95rem;margin:1.5rem 0 0.4rem;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.05em">Camí C · Polinomi irreductible</h3>
+
+        <div class="warn-box">
+          <h3>Quan el discriminant és negatiu</h3>
+          <p>Si $\Delta < 0$, el polinomi <strong>no es pot factoritzar</strong> en els reals. Es queda com està: és el seu propi factor.</p>
+          <p>Per exemple, $\;x^{2}+1\;$ té $\Delta = 0 - 4 = -4 < 0$. No té cap arrel real i, per tant, és irreductible. Igual passa amb $\;x^{2}+x+1\;$ ($\Delta = 1-4 = -3 < 0$).</p>
+        </div>
+      </div>
+
+      <!-- ======================= RUFFINI ======================= -->
+      <div class="apunt-section">
+        <h2>Grau ≥ 3: Ruffini</h2>
+
+        <div class="def-box">
+          <h3>La regla de Ruffini, en una frase</h3>
+          <p>És una manera ràpida de dividir un polinomi $P(x)$ per un binomi de la forma $(x-a)$. Si la divisió dóna <strong>residu zero</strong>, vol dir que $a$ és arrel de $P(x)$, i $P(x) = (x-a)\cdot Q(x)$, amb $Q(x)$ el quocient (un polinomi un grau més baix).</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>Quins valors de $a$ provem?</h3>
+          <p>Pel <em>teorema de l'arrel racional</em>, si $P(x)$ té coeficients enters i coeficient principal $1$, totes les arrels racionals són <strong>divisors enters del terme independent</strong>. Així, només cal anar provant $\pm 1, \pm 2, \pm 3, \ldots$ entre els divisors.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple guiat — tornem a $P(x) = x^{2} - 5x + 6$ amb Ruffini</h3>
+          <p>Els coeficients són $1,\,-5,\,6$. Els divisors de $6$ són $\pm 1, \pm 2, \pm 3, \pm 6$. Provem primer $a=2$:</p>
+
+          <table class="ruffini">
+            <tr><td></td><td>1</td><td>$-5$</td><td>$6$</td></tr>
+            <tr><td class="root-cell">2</td><td></td><td>$2$</td><td>$-6$</td></tr>
+            <tr class="row-sep"><td colspan="4"></td></tr>
+            <tr class="row-result"><td></td><td>$1$</td><td>$-3$</td><td class="zero-cell">$0$</td></tr>
+          </table>
+
+          <p>El residu és <strong>0</strong>, així que $x=2$ és arrel i $P(x) = (x-2)(x-3)$ — el quocient és $x-3$, llegit dels coeficients $1$ i $-3$. Si volguéssim continuar, podríem aplicar Ruffini un altre cop al quocient amb $a=3$:</p>
+
+          <table class="ruffini">
+            <tr><td></td><td>1</td><td>$-3$</td></tr>
+            <tr><td class="root-cell">3</td><td></td><td>$3$</td></tr>
+            <tr class="row-sep"><td colspan="3"></td></tr>
+            <tr class="row-result"><td></td><td>$1$</td><td class="zero-cell">$0$</td></tr>
+          </table>
+
+          <p>Arribem a quocient $1$ i residu $0$: hem esgotat les arrels. La factorització és:</p>
+          <div class="math-block">
+            $$\boxed{\,x^{2}-5x+6 = 1 \cdot (x-2)(x-3) = (x-2)(x-3).\,}$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — grau 3</h3>
+          <p>Factoritza $\;P(x) = x^{3} - 6x^{2} + 11x - 6$.</p>
+          <p>Divisors de $-6$: $\pm 1, \pm 2, \pm 3, \pm 6$. Provem $a=1$:</p>
+
+          <table class="ruffini">
+            <tr><td></td><td>1</td><td>$-6$</td><td>$11$</td><td>$-6$</td></tr>
+            <tr><td class="root-cell">1</td><td></td><td>$1$</td><td>$-5$</td><td>$6$</td></tr>
+            <tr class="row-sep"><td colspan="5"></td></tr>
+            <tr class="row-result"><td></td><td>$1$</td><td>$-5$</td><td>$6$</td><td class="zero-cell">$0$</td></tr>
+          </table>
+
+          <p>Residu $0$, així que $x=1$ és arrel i:</p>
+          <div class="math-block">
+            $$P(x) = (x-1)(x^{2} - 5x + 6).$$
+          </div>
+          <p>El quocient $\;x^{2}-5x+6\;$ ja l'hem factoritzat a l'exemple anterior, així que:</p>
+          <div class="math-block">
+            $$\boxed{\,x^{3} - 6x^{2} + 11x - 6 = (x-1)(x-2)(x-3).\,}$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — quan una arrel no funciona</h3>
+          <p>Factoritza $\;Q(x) = x^{3} - x^{2} - 4x + 4$.</p>
+          <p>Divisors de $4$: $\pm 1, \pm 2, \pm 4$. Provem primer $a=1$:</p>
+
+          <table class="ruffini">
+            <tr><td></td><td>1</td><td>$-1$</td><td>$-4$</td><td>$4$</td></tr>
+            <tr><td class="root-cell">1</td><td></td><td>$1$</td><td>$0$</td><td>$-4$</td></tr>
+            <tr class="row-sep"><td colspan="5"></td></tr>
+            <tr class="row-result"><td></td><td>$1$</td><td>$0$</td><td>$-4$</td><td class="zero-cell">$0$</td></tr>
+          </table>
+
+          <p>Sí, $x=1$ és arrel: $Q(x) = (x-1)(x^{2}-4)$. El factor $x^{2}-4$ és una diferència de quadrats, així que:</p>
+          <div class="math-block">
+            $$\boxed{\,Q(x) = (x-1)(x-2)(x+2).\,}$$
+          </div>
+          <p class="note">Si $a=1$ no hagués donat residu zero, hauríem provat $a=-1$, $a=2$, $a=-2$… fins a trobar-ne una.</p>
+        </div>
+      </div>
+
+      <!-- ======================= COEFICIENT PRINCIPAL ======================= -->
+      <div class="apunt-section">
+        <h2>El coeficient principal no es perd</h2>
+
+        <div class="warn-box">
+          <h3>Compte amb el factor numèric</h3>
+          <p>Quan factoritzem un polinomi de la forma $\,a_{n}\,x^{n}+\cdots\,$ amb $a_{n}\neq 1$, el <strong>coeficient principal $a_{n}$</strong> apareix multiplicant el producte de factors. Si l'ignorem, l'expressió deixa de ser igual al polinomi original.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Factoritza $\;R(x) = 2x^{2} - 10x + 12$.</p>
+          <p>Primer, factor comú: $R(x) = 2\,(x^{2}-5x+6) = 2\,(x-2)(x-3)$.</p>
+          <div class="math-block">
+            $$\boxed{\,R(x) = 2\,(x-2)(x-3).\,}$$
+          </div>
+          <p class="note">Comprovació: $\;2(x-2)(x-3) = 2(x^{2}-5x+6) = 2x^{2}-10x+12$. ✓</p>
+          <p>Si haguéssim escrit només $(x-2)(x-3)$, ens hauríem deixat el $2$ i hauríem perdut la igualtat.</p>
+        </div>
+      </div>
+
+      <!-- ======================= CHECKLIST ======================= -->
+      <div class="apunt-section">
+        <h2>Recepta general (checklist)</h2>
+
+        <div class="prop-box">
+          <h3>Passos a seguir davant d'un polinomi</h3>
+          <ol class="steps">
+            <li><strong>Factor comú primer:</strong> mira si tots els termes comparteixen un nombre o una potència de $x$ — i treu-lo.</li>
+            <li><strong>Mira el grau del que queda:</strong>
+              <ul style="margin-top:0.3rem">
+                <li>Grau 2 → fórmula del 2n grau (o productes notables si reconeixes el patró).</li>
+                <li>Grau 3, 4 o més → Ruffini, provant divisors del terme independent.</li>
+              </ul>
+            </li>
+            <li><strong>Repeteix Ruffini</strong> sobre el quocient mentre encara tingui grau ≥ 2 i puguis trobar més arrels.</li>
+            <li>Quan arribis a un factor de grau 2 amb $\Delta < 0$, <strong>para</strong>: és irreductible.</li>
+            <li><strong>Comprovació:</strong> multiplica de nou els factors i mira que recuperes el polinomi original (en particular, el coeficient principal).</li>
+          </ol>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-polinomis/01-definicions.html">&larr; 01 · Definicions</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-polinomis/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
