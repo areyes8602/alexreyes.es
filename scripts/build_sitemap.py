@@ -55,6 +55,26 @@ for p in sorted(_REPO.glob("aula/*/apuntes/*/*.html")):
         continue
     single_paths.append('/' + str(p.relative_to(_REPO)))
 
+# Fitxes: llistes d'exercicis amb solucions desplegables
+for p in sorted(_REPO.glob("aula/*/fitxes/*/index.html")):
+    if _is_retired(p):
+        continue
+    single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
+for p in sorted(_REPO.glob("aula/*/fitxes/*/*.html")):
+    if p.name == "index.html" or _is_retired(p):
+        continue
+    single_paths.append('/' + str(p.relative_to(_REPO)))
+
+# Exercicis de classe (col·leccions de pràctica generades per build_classe_pages.py)
+for p in sorted(_REPO.glob("aula/*/exercicis-classe/*/index.html")):
+    if _is_retired(p):
+        continue
+    single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
+for p in sorted(_REPO.glob("aula/*/exercicis-classe/*/*.html")):
+    if p.name == "index.html" or _is_retired(p):
+        continue
+    single_paths.append('/' + str(p.relative_to(_REPO)))
+
 
 def url_tag(base_path, lang):
     loc = BASE + (base_path if lang == 'es' else f'/{lang}' + (base_path if base_path != '/' else '/'))
