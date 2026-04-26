@@ -132,10 +132,17 @@ function buildSectionCard(href, icon, label) {
   return `<div class="chapter-section empty"><span>${icon}</span><span>${label}</span></div>`;
 }
 const TRIM_CLASS = { '1a':'tag-orange', '2a':'tag-purple', '3a':'tag-gray' };
+function summaryBadge(label, value, color, hasContent) {
+  const cls = hasContent ? `tag ${color}` : 'tag tag-gray';
+  const sty = hasContent ? 'font-size:0.65rem;font-weight:500' : 'font-size:0.65rem;font-weight:500;opacity:0.55';
+  return `<span class="${cls}" style="${sty}">${label}: ${value}</span>`;
+}
 function buildUnit(u, examsByUnit) {
   // Dins d'una unitat ordenem per data ascendent: Parcial 1 abans del Parcial 2, simulacre abans del global, etc.
   const exs = (examsByUnit[u.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
   const examCount = exs.length;
+  const fitxesCount = u.fitxes ? 1 : 0;
+  const hasApunts = !!u.apunts;
   const sections = [
     buildSectionCard(u.apunts, '📄', LABELS_JS.section_card_apunts),
     buildSectionCard(u.fitxes, '📝', LABELS_JS.section_card_fitxes),
@@ -144,11 +151,15 @@ function buildUnit(u, examsByUnit) {
   const examsBox = examCount > 0
     ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">${LABELS_JS.exams_unit_title} (${examCount})</h4><div class="exam-list">${exs.map(({col,ejs}) => renderExamCard(col, ejs)).join('')}</div></div>`
     : `<p style="font-size:0.82rem;color:var(--text-faint);margin:1rem 0 0">${LABELS_JS.no_exams_unit}</p>`;
-  const examBadge = examCount > 0
-    ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${examCount} ${examCount===1?LABELS_JS.examens_count_one:LABELS_JS.examens_count_many}</span>`
-    : (u.trimestre ? `<span class="tag ${TRIM_CLASS[u.trimestre]||'tag-gray'}" style="font-size:0.65rem;margin-left:auto">${u.trimestre} ${LABELS_JS.trimestre_tag}</span>` : '');
+  // Resum visible al header (abans de desplegar): exàmens, llistat d'exercicis i apunts.
+  const summaryBadges = [
+    summaryBadge(LABELS_JS.summary_exams_label, examCount, 'tag-purple', examCount > 0),
+    summaryBadge(LABELS_JS.summary_fitxes_label, fitxesCount, 'tag-orange', fitxesCount > 0),
+    summaryBadge(LABELS_JS.summary_apunts_label, hasApunts ? LABELS_JS.summary_yes : LABELS_JS.summary_no, 'tag-green', hasApunts),
+  ].join('');
+  const headerBadges = `<span class="unit-summary-badges" style="margin-left:auto;display:inline-flex;gap:0.3rem;flex-wrap:wrap;align-items:center">${summaryBadges}</span>`;
   const meta = (u.llibre || u.inici) ? `<div class="unit-meta">${u.llibre?`<span>📖 ${LABELS_JS.unit_meta_book} ${escHtml(u.llibre)}</span>`:''}${u.inici?`<span>📅 ${escHtml(u.inici)} → ${escHtml(u.final||'')}</span>`:''}${u.trimestre?`<span>🎯 ${u.trimestre} ${LABELS_JS.unit_meta_trim}</span>`:''}</div>` : '';
-  return `<div class="chapter-item"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num">${u.num}</span><span class="chapter-title">${escHtml(u.title)}</span>${examBadge}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${meta}<p style="font-size:0.88rem;color:var(--text-soft);margin:0 0 1rem">${escHtml(u.desc)}</p><div class="chapter-sections">${sections}</div>${examsBox}</div></div>`;
+  return `<div class="chapter-item"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num">${u.num}</span><span class="chapter-title">${escHtml(u.title)}</span>${headerBadges}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${meta}<p style="font-size:0.88rem;color:var(--text-soft);margin:0 0 1rem">${escHtml(u.desc)}</p><div class="chapter-sections">${sections}</div>${examsBox}</div></div>`;
 }
 
 fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
