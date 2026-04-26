@@ -294,6 +294,17 @@
       }
     },
 
+    "origen": {
+      "label": { "es": "Origen", "ca": "Origen", "en": "Origin" },
+      "descripcion": { "es": "Cómo se ha usado el ejercicio en la docencia: en un examen oficial del centro, en clase, o procedente de Selectividad/PAU.", "ca": "Com s'ha utilitzat l'exercici a la docència: en un examen oficial del centre, a classe, o procedent de Selectivitat/PAU.", "en": "How the exercise has been used in teaching: in a school exam, in class, or sourced from a university entrance exam." },
+      "multi": false,
+      "valores": {
+        "examen":       { "label": { "es": "Examen", "ca": "Examen", "en": "Exam" } },
+        "classe":       { "label": { "es": "Clase", "ca": "Classe", "en": "Class" } },
+        "selectivitat": { "label": { "es": "Selectividad / PAU", "ca": "Selectivitat / PAU", "en": "University entrance exam" } }
+      }
+    },
+
     "curso_academico": {
       "label": { "es": "Curso académico", "ca": "Curs acadèmic", "en": "Academic year" },
       "multi": false,

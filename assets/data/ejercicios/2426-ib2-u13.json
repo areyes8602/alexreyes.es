@@ -12,19 +12,48 @@
   "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u13/",
   "puntuacion_total": 70,
   "baremo": [
-    { "min": 58, "max": 70, "nota": 7 },
-    { "min": 46, "max": 57, "nota": 6 },
-    { "min": 35, "max": 45, "nota": 5 },
-    { "min": 25, "max": 34, "nota": 4 },
-    { "min": 16, "max": 24, "nota": 3 },
-    { "min":  8, "max": 15, "nota": 2 },
-    { "min":  1, "max":  7, "nota": 1 }
+    {
+      "min": 58,
+      "max": 70,
+      "nota": 7
+    },
+    {
+      "min": 46,
+      "max": 57,
+      "nota": 6
+    },
+    {
+      "min": 35,
+      "max": 45,
+      "nota": 5
+    },
+    {
+      "min": 25,
+      "max": 34,
+      "nota": 4
+    },
+    {
+      "min": 16,
+      "max": 24,
+      "nota": 3
+    },
+    {
+      "min": 8,
+      "max": 15,
+      "nota": 2
+    },
+    {
+      "min": 1,
+      "max": 7,
+      "nota": 1
+    }
   ],
   "tags_coleccion": {
     "materia": "ib-ai-hl",
     "curso_academico": "2025-2026",
     "idioma": "es",
-    "fuente": "propia"
+    "fuente": "propia",
+    "origen": "examen"
   },
   "ejercicios": [
     {
@@ -33,24 +62,60 @@
       "titulo": "Movimiento de proyectil en 2D",
       "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p1.html",
       "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 20,
       "contexto": "Un jugador de fútbol chuta un balón desde el suelo con una velocidad inicial de $24$ m/s formando un ángulo de $40^\\circ$ con la horizontal. Se desprecia la resistencia del aire y se toma $g = 9{,}8$ m/s².",
       "apartados": [
-        { "letra": "a", "puntos": 3, "tarea": "Escribe la velocidad inicial en forma de vector columna." },
-        { "letra": "b", "puntos": 4, "tarea": "Escribe la ecuación vectorial de la velocidad del balón en el instante $t$." },
-        { "letra": "c", "puntos": 4, "tarea": "Halla la ecuación vectorial de la posición del balón en el instante $t$, tomando como origen el punto de chut." },
-        { "letra": "d", "puntos": 3, "tarea": "Calcula el tiempo que tarda el balón en volver al suelo." },
-        { "letra": "e", "puntos": 3, "tarea": "Calcula el alcance horizontal del balón." },
-        { "letra": "f", "puntos": 3, "tarea": "Calcula la altura máxima alcanzada." }
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Escribe la velocidad inicial en forma de vector columna."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Escribe la ecuación vectorial de la velocidad del balón en el instante $t$."
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Halla la ecuación vectorial de la posición del balón en el instante $t$, tomando como origen el punto de chut."
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Calcula el tiempo que tarda el balón en volver al suelo."
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Calcula el alcance horizontal del balón."
+        },
+        {
+          "letra": "f",
+          "puntos": 3,
+          "tarea": "Calcula la altura máxima alcanzada."
+        }
       ],
       "tags": {
         "ambito_iba": "T3",
-        "concepto_iba": ["TANS 3.10", "TANS 3.12"],
+        "concepto_iba": [
+          "TANS 3.10",
+          "TANS 3.12"
+        ],
         "dificultad": "media",
-        "habilidad": ["modelizacion", "calculo_simbolico", "interpretacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
       }
     },
     {
@@ -59,22 +124,51 @@
       "titulo": "Método de Euler y modelo presa-depredador",
       "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p2.html",
       "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 15,
       "contexto": "En un ecosistema simplificado, $x$ representa la población de conejos (en cientos) e $y$ la población de zorros (en decenas). El tiempo $t$ se mide en meses. Se propone el modelo: $\\dfrac{dx}{dt} = 0{,}4x - 0{,}2y$, $\\dfrac{dy}{dt} = 0{,}1x - 0{,}3y$, con condiciones iniciales $x(0) = 5$, $y(0) = 2$. Usando el método de Euler con paso $h = 0{,}5$:",
       "apartados": [
-        { "letra": "a", "puntos": 5, "tarea": "Aplica dos pasos de Euler con $h = 0{,}5$ para obtener $x(1)$ e $y(1)$. Escribe explícitamente las fórmulas iterativas que usas." },
-        { "letra": "b", "puntos": 4, "tarea": "Usa la calculadora para aplicar Euler con $h = 0{,}1$ hasta $t = 1$ y obtén $x(1)$ e $y(1)$." },
-        { "letra": "c", "puntos": 3, "tarea": "Compara los resultados obtenidos en a) y b). ¿Qué conclusión sacas sobre la precisión del método de Euler?" },
-        { "letra": "d", "puntos": 3, "tarea": "Calcula el punto de equilibrio del sistema e interpreta su significado en el contexto del ecosistema." }
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Aplica dos pasos de Euler con $h = 0{,}5$ para obtener $x(1)$ e $y(1)$. Escribe explícitamente las fórmulas iterativas que usas."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Usa la calculadora para aplicar Euler con $h = 0{,}1$ hasta $t = 1$ y obtén $x(1)$ e $y(1)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Compara los resultados obtenidos en a) y b). ¿Qué conclusión sacas sobre la precisión del método de Euler?"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Calcula el punto de equilibrio del sistema e interpreta su significado en el contexto del ecosistema."
+        }
       ],
       "tags": {
         "ambito_iba": "T5",
-        "concepto_iba": ["TANS 5.16", "TANS 5.17"],
+        "concepto_iba": [
+          "TANS 5.16",
+          "TANS 5.17"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_numerico", "uso_calculadora", "interpretacion", "modelizacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "calculo_numerico",
+          "uso_calculadora",
+          "interpretacion",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
       }
     },
     {
@@ -83,23 +177,56 @@
       "titulo": "EDO de 2.º orden, sistema y autovalores",
       "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p3.html",
       "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=2",
-      "pages_enunciado": [2],
+      "pages_enunciado": [
+        2
+      ],
       "pages_solucion": null,
       "puntuacion": 20,
       "contexto": "Un ingeniero modela la diferencia de temperatura $x(t)$ (en °C) entre dos zonas contiguas de un edificio, una interior climatizada y una exterior, tras un cambio brusco en el sistema de calefacción. Bajo ciertas hipótesis de conducción térmica y capacidad calorífica, la evolución de $x(t)$ satisface la ecuación diferencial $\\dfrac{d^2 x}{dt^2} - 5\\dfrac{dx}{dt} + 6x = 0$, donde $t$ se mide en horas. En el momento inicial la diferencia de temperatura es de $10$ °C y está aumentando a razón de $2$ °C/hora.",
       "apartados": [
-        { "letra": "a", "puntos": 4, "tarea": "Introduce una nueva variable y transforma la ecuación diferencial de segundo grado en un sistema de ecuaciones diferenciales de primer orden." },
-        { "letra": "b", "puntos": 4, "tarea": "Escribe el sistema en forma matricial $X' = AX$." },
-        { "letra": "c", "puntos": 4, "tarea": "Calcula los autovalores de la matriz $A$." },
-        { "letra": "d", "puntos": 4, "tarea": "Indica si los autovalores son reales y distintos, y explica qué implica sobre la forma general de la solución." },
-        { "letra": "e", "puntos": 4, "tarea": "Describe el comportamiento cualitativo de las soluciones cuando $t \\to \\infty$." }
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Introduce una nueva variable y transforma la ecuación diferencial de segundo grado en un sistema de ecuaciones diferenciales de primer orden."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Escribe el sistema en forma matricial $X' = AX$."
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Calcula los autovalores de la matriz $A$."
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "Indica si los autovalores son reales y distintos, y explica qué implica sobre la forma general de la solución."
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Describe el comportamiento cualitativo de las soluciones cuando $t \\to \\infty$."
+        }
       ],
       "tags": {
         "ambito_iba": "T5",
-        "concepto_iba": ["TANS 5.17", "TANS 1.14", "TANS 1.15"],
+        "concepto_iba": [
+          "TANS 5.17",
+          "TANS 1.14",
+          "TANS 1.15"
+        ],
         "dificultad": "dificil",
-        "habilidad": ["calculo_simbolico", "razonamiento", "modelizacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
       }
     },
     {
@@ -108,23 +235,55 @@
       "titulo": "Retrato de fases con autovalores complejos",
       "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u13/p4.html",
       "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u13/original.pdf#page=2",
-      "pages_enunciado": [2],
+      "pages_enunciado": [
+        2
+      ],
       "pages_solucion": null,
       "puntuacion": 15,
       "contexto": "Se considera el sistema $\\begin{cases} \\dfrac{dx}{dt} = 2x - 5y \\\\ \\dfrac{dy}{dt} = x + 2y \\end{cases}$",
       "apartados": [
-        { "letra": "a", "puntos": 3, "tarea": "Escribe el sistema en forma matricial." },
-        { "letra": "b", "puntos": 4, "tarea": "Calcula los autovalores de la matriz asociada." },
-        { "letra": "c", "puntos": 2, "tarea": "Los autovalores de este sistema tienen parte real no nula. Explica qué diferencia hay entre tener autovalores imaginarios puros y autovalores complejos con parte real no nula." },
-        { "letra": "d", "puntos": 3, "tarea": "Sin resolver completamente el sistema, describe el comportamiento del retrato de fases." },
-        { "letra": "e", "puntos": 3, "tarea": "Indica si las trayectorias se acercan al origen, se alejan o permanecen a distancia constante. Justifica tu respuesta." }
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Escribe el sistema en forma matricial."
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Calcula los autovalores de la matriz asociada."
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Los autovalores de este sistema tienen parte real no nula. Explica qué diferencia hay entre tener autovalores imaginarios puros y autovalores complejos con parte real no nula."
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Sin resolver completamente el sistema, describe el comportamiento del retrato de fases."
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Indica si las trayectorias se acercan al origen, se alejan o permanecen a distancia constante. Justifica tu respuesta."
+        }
       ],
       "tags": {
         "ambito_iba": "T5",
-        "concepto_iba": ["TANS 1.14", "TANS 1.15", "TANS 5.17"],
+        "concepto_iba": [
+          "TANS 1.14",
+          "TANS 1.15",
+          "TANS 5.17"
+        ],
         "dificultad": "dificil",
-        "habilidad": ["razonamiento", "visualizacion", "interpretacion"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "razonamiento",
+          "visualizacion",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     }
   ]
