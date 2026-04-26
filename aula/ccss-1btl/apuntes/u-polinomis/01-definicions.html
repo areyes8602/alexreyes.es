@@ -31,7 +31,6 @@
 [data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
 [data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
 [data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
-.monomi-svg { display:block; margin: 0.8rem auto; max-width: 100%; height:auto; }
 </style>
 </head>
 <body>
@@ -95,23 +94,9 @@
           <h3>Exemple: parts d'un monomi</h3>
           <p>Considerem el monomi $5\,x^{2}\,y$:</p>
 
-          <svg class="monomi-svg" viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama del monomi 5 x quadrat y, separant el coeficient i la part literal">
-            <!-- Monomi -->
-            <text x="230" y="80" font-family="JetBrains Mono,monospace" font-size="36" font-weight="700" text-anchor="middle" fill="var(--text)">
-              <tspan fill="#b45309">5</tspan>
-              <tspan fill="#1d4ed8">&#160;x</tspan>
-              <tspan fill="#1d4ed8" baseline-shift="super" font-size="22">2</tspan>
-              <tspan fill="#1d4ed8">&#160;y</tspan>
-            </text>
-
-            <!-- Línia coeficient -->
-            <path d="M 200 92 Q 160 130 110 150" stroke="#b45309" stroke-width="1.4" fill="none"/>
-            <text x="40" y="170" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#b45309">coeficient</text>
-
-            <!-- Línia part literal -->
-            <path d="M 260 92 Q 320 130 380 150" stroke="#1d4ed8" stroke-width="1.4" fill="none"/>
-            <text x="335" y="170" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#1d4ed8">part literal</text>
-          </svg>
+          <div class="math-block" style="margin:1rem 0;padding:0.6rem;text-align:center">
+            $$\underbrace{\,5\,}_{\textsf{coeficient}}\,\underbrace{\,x^{2}\,y\,}_{\textsf{part literal}}$$
+          </div>
 
           <ul>
             <li>El <strong>coeficient</strong> és $5$.</li>
@@ -122,7 +107,10 @@
 
         <div class="example-box">
           <h3>Exemple: parts d'un polinomi</h3>
-          <p>Considerem $\;P(x, y) = 3x^{2} + 5xy^{3} - 7xy^{2} + 2$:</p>
+          <p>Considerem el polinomi:</p>
+          <div class="math-block" style="margin:0.8rem 0;padding:0.6rem;text-align:center">
+            $$\underbrace{P}_{\textsf{nom}}(\underbrace{x,\,y}_{\textsf{variables}}) \;=\; \underbrace{3x^{2} \,+\, 5xy^{3} \,-\, 7xy^{2} \,+\, 2}_{\textsf{termes}}$$
+          </div>
           <ul>
             <li><strong>Nom:</strong> $P$ (és com l'etiqueta del polinomi).</li>
             <li><strong>Variables:</strong> $x$ i $y$.</li>
@@ -154,7 +142,9 @@
 
         <div class="example-box">
           <h3>Exemple</h3>
-          <p>$P(x) = \boxed{x^{2}} - 5x + \boxed{6}$.</p>
+          <div class="math-block" style="margin:0.8rem 0;padding:0.6rem;text-align:center">
+            $$P(x) \;=\; \underbrace{\,x^{2}\,}_{\textsf{terme principal}} \,-\, 5x \,+\, \underbrace{\,6\,}_{\textsf{terme independent}}$$
+          </div>
           <ul>
             <li><strong>Terme principal:</strong> $x^{2}$ &nbsp;(grau $2$, coeficient $a_{2} = 1$).</li>
             <li><strong>Terme independent:</strong> $6$ &nbsp;($a_{0} = 6$).</li>
