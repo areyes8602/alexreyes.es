@@ -161,6 +161,41 @@
         </div>
       </div>
 
+        <!-- Exercici 45 -->
+        <div class="exercise" id="ex-45">
+          <div class="exercise-head">
+            <span class="num">45</span>
+            <span class="ttl">Desenvolupa les expressions fins a deixar-les en funció de $x$</span>
+          </div>
+          <div class="exercise-statement">
+            <p>Utilitzant les propietats dels logaritmes, desenvolupa les expressions següents fins a deixar-les en funció de $x$.</p>
+            <ol type="a" style="margin-left:1.2rem">
+              <li>$\log_{n}\!\left(n^{-3/7} \cdot \dfrac{1}{n^{x}}\right)$</li>
+              <li>$\log_{3}\!\left(\dfrac{9^{4}}{\sqrt{27^{-2x}}}\right)$</li>
+              <li>$\log_{3}\!\left(\dfrac{9^{x} \cdot \sqrt[3]{27^{2}}}{\sqrt[5]{3^{6x}}}\right)$</li>
+            </ol>
+          </div>
+          <details>
+            <summary>Mostrar solució</summary>
+            <div class="solution">
+              <h4>(a)</h4>
+              <p>$n^{-3/7} \cdot \dfrac{1}{n^{x}} = n^{-3/7 - x}$, així:</p>
+              <div class="final">$\log_{n}(n^{-3/7 - x}) = -x - \dfrac{3}{7}$.</div>
+
+              <h4>(b)</h4>
+              <p>$9^{4} = (3^{2})^{4} = 3^{8}$ i $\sqrt{27^{-2x}} = (3^{3})^{-x} = 3^{-3x}$.</p>
+              <p>Quocient: $\dfrac{3^{8}}{3^{-3x}} = 3^{8 + 3x}$.</p>
+              <div class="final">$\log_{3}(3^{8+3x}) = 8 + 3x$.</div>
+
+              <h4>(c)</h4>
+              <p>$9^{x} = 3^{2x}$, $\sqrt[3]{27^{2}} = 3^{2}$, $\sqrt[5]{3^{6x}} = 3^{6x/5}$.</p>
+              <p>Argument: $\dfrac{3^{2x} \cdot 3^{2}}{3^{6x/5}} = 3^{\,2x + 2 - 6x/5} = 3^{(10x + 10 - 6x)/5} = 3^{(4x+10)/5}$.</p>
+              <div class="final">$\log_{3}\!\bigl(3^{(4x+10)/5}\bigr) = \dfrac{4x+10}{5}$.</div>
+            </div>
+          </details>
+        </div>
+      </div>
+
       <div class="apunt-section">
         <h2>Logaritme d'una expressió amb arrels niades</h2>
 
@@ -263,6 +298,116 @@
               <p>Domini: $x > 0$. Descartem $x = -2$.</p>
               <div class="final">$x = 3$.</div>
 
+            </div>
+          </details>
+        </div>
+
+      </div>
+
+      <div class="apunt-section">
+        <h2>Equacions amb logaritmes desenvolupats</h2>
+
+        <!-- Exercici 50 -->
+        <div class="exercise" id="ex-50">
+          <div class="exercise-head">
+            <span class="num">50</span>
+            <span class="ttl">Equació logarítmica que reaprofita Ex. 45c</span>
+          </div>
+          <div class="exercise-statement">
+            <p>Emprant les propietats dels logaritmes, resol l'equació següent:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem;text-align:center">
+              $\log_{3}\!\left(\dfrac{9^{x} \cdot \sqrt[3]{27^{2}}}{\sqrt[5]{3^{6x}}}\right) = 2x + 1$
+            </div>
+          </div>
+          <details>
+            <summary>Mostrar solució</summary>
+            <div class="solution">
+              <p>Per l'Ex. 45c, el costat esquerre és $\dfrac{4x+10}{5}$. Igualem:</p>
+              <div class="math-block">$\dfrac{4x+10}{5} = 2x + 1 \;\Longleftrightarrow\; 4x + 10 = 10x + 5 \;\Longleftrightarrow\; 5 = 6x.$</div>
+              <div class="final">$x = \dfrac{5}{6}$.</div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Exercici 51 -->
+        <div class="exercise" id="ex-51">
+          <div class="exercise-head">
+            <span class="num">51</span>
+            <span class="ttl">Relació entre $a$ i $b$</span>
+          </div>
+          <div class="exercise-statement">
+            <p>Si $\log a + \log b = 3$, quina relació hi ha entre $a$ i $b$?</p>
+          </div>
+          <details>
+            <summary>Mostrar solució</summary>
+            <div class="solution">
+              <p>Apliquem la propietat del producte: $\log a + \log b = \log(ab)$.</p>
+              <div class="math-block">$\log(ab) = 3 \;\Longleftrightarrow\; ab = 10^{3} = 1\,000.$</div>
+              <div class="final">$a \cdot b = 1\,000$.</div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Exercici 52 -->
+        <div class="exercise" id="ex-52">
+          <div class="exercise-head">
+            <span class="num">52</span>
+            <span class="ttl">Operacions i simplificació</span>
+          </div>
+          <div class="exercise-statement">
+            <p>Fes les operacions següents i simplifica:</p>
+            <ol type="a" style="margin-left:1.2rem">
+              <li>$\log_{2} 28 - \log_{2}\!\dfrac{8}{7} + \log_{2}\!\dfrac{1}{49} - 4\log_{2}\!\dfrac{1}{\sqrt{2}}$</li>
+              <li>$\log_{3}\!\dfrac{\sqrt{27}}{5} + \log_{3}\!\dfrac{3}{125} - \log_{3}\!\dfrac{1}{\sqrt{75}}$</li>
+              <li>$\log_{5} 50 - \log_{5}\!\dfrac{\sqrt{125}}{2} + \log_{5}\!\dfrac{25}{8} - \log_{5}\!\dfrac{1}{\sqrt{20}}$</li>
+            </ol>
+          </div>
+          <details>
+            <summary>Mostrar solució dels tres apartats</summary>
+            <div class="solution">
+              <p class="note"><strong>Estratègia:</strong> ajuntar tots els logaritmes en un de sol amb la propietat del producte/quocient i simplificar l'argument abans de calcular el resultat.</p>
+
+              <h4>(a)</h4>
+              <p>$\log_{2}\!\left(\dfrac{28 \cdot \tfrac{1}{49}}{\tfrac{8}{7}} \cdot \left(\dfrac{1}{\sqrt{2}}\right)^{-4}\right)$. L'últim terme: $\left(\dfrac{1}{\sqrt{2}}\right)^{-4} = (\sqrt{2})^{4} = 4$.</p>
+              <p>$\dfrac{28}{49} \cdot \dfrac{7}{8} \cdot 4 = \dfrac{28 \cdot 7 \cdot 4}{49 \cdot 8} = \dfrac{784}{392} = 2$.</p>
+              <div class="final">$\log_{2} 2 = 1$.</div>
+
+              <h4>(b)</h4>
+              <p>Argument combinat: $\dfrac{\sqrt{27}/5 \cdot 3/125}{1/\sqrt{75}} = \dfrac{3\sqrt{27} \cdot \sqrt{75}}{5 \cdot 125} = \dfrac{3 \sqrt{27 \cdot 75}}{625} = \dfrac{3 \sqrt{2025}}{625} = \dfrac{3 \cdot 45}{625} = \dfrac{135}{625} = \dfrac{27}{125}$.</p>
+              <p>$\log_{3}\!\dfrac{27}{125} = \log_{3}(3^{3}/5^{3}) = 3 - 3\log_{3} 5$.</p>
+              <div class="final">$= 3 - 3\log_{3} 5 = 3\log_{3}(3/5)$.</div>
+
+              <h4>(c)</h4>
+              <p>Argument combinat: $\dfrac{50 \cdot 25/8 \cdot \sqrt{20}}{\sqrt{125}/2} = \dfrac{50 \cdot 25 \cdot 2 \sqrt{20}}{8 \sqrt{125}}$. Aprofitem $\sqrt{20}/\sqrt{125} = \sqrt{20/125} = \sqrt{4/25} = 2/5$:</p>
+              <p>$= \dfrac{2500 \cdot 2/5}{8} = \dfrac{1\,000}{8} = 125 = 5^{3}$.</p>
+              <div class="final">$\log_{5} 125 = 3$.</div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Exercici 54 -->
+        <div class="exercise" id="ex-54">
+          <div class="exercise-head">
+            <span class="num">54</span>
+            <span class="ttl">Aplica les propietats dels logaritmes i calcula</span>
+          </div>
+          <div class="exercise-statement">
+            <ol type="a" style="margin-left:1.2rem">
+              <li>$\log_{3} 63 - \log_{3}\!\dfrac{\sqrt[3]{3}}{7} + \log_{3}\!\bigl(3\sqrt[3]{9}\bigr)$</li>
+              <li>$\log_{2} 40 - \log_{2}\!\dfrac{\sqrt{8}}{5} + \log_{2}\!\dfrac{2}{125} - \log_{2}\!\dfrac{1}{\sqrt{50}}$</li>
+            </ol>
+          </div>
+          <details>
+            <summary>Mostrar solució</summary>
+            <div class="solution">
+              <h4>(a)</h4>
+              <p>Argument combinat: $\dfrac{63 \cdot 3\sqrt[3]{9}}{\sqrt[3]{3}/7} = \dfrac{63 \cdot 7 \cdot 3 \sqrt[3]{9}}{\sqrt[3]{3}} = 1\,323 \cdot \dfrac{\sqrt[3]{9}}{\sqrt[3]{3}} = 1\,323 \cdot \sqrt[3]{3}$.</p>
+              <p>$1\,323 = 49 \cdot 27 = 7^{2} \cdot 3^{3}$. Per tant $\log_{3}(7^{2} \cdot 3^{3} \cdot 3^{1/3}) = 2\log_{3} 7 + 3 + \tfrac{1}{3}$.</p>
+              <div class="final">$= \dfrac{10}{3} + 2\log_{3} 7$.</div>
+
+              <h4>(b)</h4>
+              <p>Argument combinat: $\dfrac{40 \cdot 2/125 \cdot \sqrt{50}}{\sqrt{8}/5} = \dfrac{400 \sqrt{50}}{125 \sqrt{8}} = \dfrac{16}{5} \cdot \sqrt{\dfrac{50}{8}} = \dfrac{16}{5} \cdot \sqrt{\dfrac{25}{4}} = \dfrac{16}{5} \cdot \dfrac{5}{2} = 8$.</p>
+              <div class="final">$\log_{2} 8 = 3$.</div>
             </div>
           </details>
         </div>

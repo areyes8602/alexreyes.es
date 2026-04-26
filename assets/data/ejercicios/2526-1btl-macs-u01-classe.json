@@ -370,6 +370,26 @@
       }
     },
     {
+      "id": "2526-1btl-macs-u01-classe-45",
+      "numero": 45,
+      "titulo": "Desenvolupa les expressions en funció de $x$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/45.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/06-exercicis-logaritmes.html#ex-45",
+      "puntuacion": 0,
+      "contexto": "Utilitzant les propietats dels logaritmes, desenvolupa les expressions següents fins a deixar-les en funció de $x$.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\log_{n}\\!\\left(n^{-3/7} \\cdot \\dfrac{1}{n^{x}}\\right)$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\log_{3}\\!\\left(\\dfrac{9^{4}}{\\sqrt{27^{-2x}}}\\right)$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\log_{3}\\!\\left(\\dfrac{9^{x} \\cdot \\sqrt[3]{27^{2}}}{\\sqrt[5]{3^{6x}}}\\right)$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
       "id": "2526-1btl-macs-u01-classe-47",
       "numero": 47,
       "titulo": "Logaritme d'una expressió amb arrels niades",
@@ -404,6 +424,78 @@
         "concepto_bach": ["BACH-ecuaciones", "BACH-potencias"],
         "dificultad": "media",
         "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-50",
+      "numero": 50,
+      "titulo": "Equació logarítmica amb expressió desenvolupada",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/50.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/06-exercicis-logaritmes.html#ex-50",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Resol $\\log_{3}\\!\\left(\\dfrac{9^{x} \\cdot \\sqrt[3]{27^{2}}}{\\sqrt[5]{3^{6x}}}\\right) = 2x + 1$." }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-ecuaciones", "BACH-potencias"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-51",
+      "numero": 51,
+      "titulo": "Relació entre $a$ i $b$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/51.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/06-exercicis-logaritmes.html#ex-51",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Si $\\log a + \\log b = 3$, quina relació hi ha entre $a$ i $b$?" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["razonamiento", "calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-52",
+      "numero": 52,
+      "titulo": "Operacions amb logaritmes i simplificació",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/52.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/06-exercicis-logaritmes.html#ex-52",
+      "puntuacion": 0,
+      "contexto": "Fes les operacions següents i simplifica.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\log_{2} 28 - \\log_{2}\\!\\dfrac{8}{7} + \\log_{2}\\!\\dfrac{1}{49} - 4\\log_{2}\\!\\dfrac{1}{\\sqrt{2}}$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\log_{3}\\!\\dfrac{\\sqrt{27}}{5} + \\log_{3}\\!\\dfrac{3}{125} - \\log_{3}\\!\\dfrac{1}{\\sqrt{75}}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\log_{5} 50 - \\log_{5}\\!\\dfrac{\\sqrt{125}}{2} + \\log_{5}\\!\\dfrac{25}{8} - \\log_{5}\\!\\dfrac{1}{\\sqrt{20}}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-54",
+      "numero": 54,
+      "titulo": "Aplica les propietats dels logaritmes i calcula",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/54.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/06-exercicis-logaritmes.html#ex-54",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\log_{3} 63 - \\log_{3}\\!\\dfrac{\\sqrt[3]{3}}{7} + \\log_{3}\\!\\bigl(3\\sqrt[3]{9}\\bigr)$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\log_{2} 40 - \\log_{2}\\!\\dfrac{\\sqrt{8}}{5} + \\log_{2}\\!\\dfrac{2}{125} - \\log_{2}\\!\\dfrac{1}{\\sqrt{50}}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico"],
         "formato": ["pregunta_corta"]
       }
     },
