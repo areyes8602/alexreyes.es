@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P1 · Equacions, sistemes i inequacions — Mini prova 2 · 1r BTL MACS</title>
-<meta name="description" content="Mini prova 2 de la 1a avaluació de 1r BTL MACS (20 nov 2025): vuit equacions, sistemes i inequacions, totes resoltes pas a pas.">
+<title>P1 · Equacions — Mini prova 2 · 1r BTL MACS</title>
+<meta name="description" content="Mini prova 2 de la 1a avaluació de 1r BTL MACS (14 nov 2025): sis equacions amb radicals, valor absolut, logaritmes i exponencials, totes resoltes pas a pas.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
         <span class="section-label">1r BTL · MACS</span>
-        <span class="tag tag-orange">Mini prova · 20/11/2025</span>
+        <span class="tag tag-orange">Mini prova · 14/11/2025</span>
       </div>
     </div>
 
@@ -64,29 +64,27 @@
     </nav>
 
     <article class="question-block">
-      <h1>Pregunta 1 &middot; Equacions, sistemes i inequacions</h1>
-      <p class="question-descriptor">Vuit problemes diversos (radicals, valor absolut, logarítmiques, exponencials, dos sistemes i una inequació); a l'examen calia escollir-ne 5.</p>
+      <h1>Pregunta 1 &middot; Equacions</h1>
+      <p class="question-descriptor">Sis equacions amb radicals, valor absolut, logaritmes i exponencials; a l'examen calia escollir-ne 5.</p>
       <span class="score-pill">Puntuació màxima · 10 punts</span>
 
       <div class="statement">
         <div class="context">
-          <p>Fes <strong>5 de les següents 8</strong> equacions, sistemes o inequacions. Cadascuna val 2 punts a l'examen.</p>
+          <p>Fes <strong>5 de les següents 6</strong> equacions. Cada equació val 2 punts a l'examen.</p>
         </div>
         <ol class="apartados">
-          <li>$\sqrt{x-7} + 2 = \sqrt{x+9}$ <span class="apartado-puntos">2 p</span></li>
-          <li>$|2x - 4| = x - 2$ <span class="apartado-puntos">2 p</span></li>
-          <li>$\log_{3}(x+1) + \log_{3}(x-5) = 3$ <span class="apartado-puntos">2 p</span></li>
-          <li>$2^{x+1} \cdot 2^{2x-3} \cdot 2^{x+4} = 16$ <span class="apartado-puntos">2 p</span></li>
-          <li>$25^{x} - 6 \cdot 5^{x+1} + 125 = 0$ <span class="apartado-puntos">2 p</span></li>
-          <li>Sistema: $\begin{cases} 3^{x} \cdot 3^{y+1} = 9 \\ \sqrt{x+1} = y + 10 \end{cases}$ <span class="apartado-puntos">2 p</span></li>
-          <li>Sistema: $\begin{cases} \log(x \cdot y^{2}) = 5 \\ 2\log(x) - \log(y^{3}) = 3 \end{cases}$ <span class="apartado-puntos">2 p</span></li>
-          <li>Inequació: $\dfrac{3x-1}{2} \geq x - \dfrac{x+3}{3}$ <span class="apartado-puntos">2 p</span></li>
+          <li>$\sqrt{x+1} + 2 = \sqrt{2x+1}$ <span class="apartado-puntos">2 p</span></li>
+          <li>$|x+1| - |x-2| = x - 1$ <span class="apartado-puntos">2 p</span></li>
+          <li>$\log_{2}(x+1) - \log_{2}(x-1) = 1 - 4\log_{2}\sqrt{x-2}$ <span class="apartado-puntos">2 p</span></li>
+          <li>$3^{x-2} + 3^{x} - 2 \cdot 3^{x-1} = 108$ <span class="apartado-puntos">2 p</span></li>
+          <li>$2 \cdot 16^{x-1} - 5 \cdot 4^{x} + 48 = 0$ <span class="apartado-puntos">2 p</span></li>
+          <li>$|x-1| = \sqrt{x-1}$ <span class="apartado-puntos">2 p</span></li>
         </ol>
       </div>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Bachillerato CCSS · Bloc D</span>
-        <span class="ib-chip" data-descriptor="Equacions amb radicals, valor absolut, logarítmiques i exponencials, sistemes i inequacions">Equacions + sistemes + inequacions</span>
+        <span class="ib-chip" data-descriptor="Equacions amb radicals, valor absolut, logarítmiques i exponencials">Equacions diverses</span>
       </div>
 
       <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p1')">
@@ -97,104 +95,81 @@
       <section class="solution" id="sol-p1" hidden>
         <h3>Correcció pas a pas</h3>
 
-        <p class="note"><strong>Idea clau:</strong> cada tipus d'equació té el seu mètode propi, però la idea general és sempre la mateixa: aïllar la part complicada (radical, exponencial, logaritme, valor absolut o fracció), aplicar la transformació inversa (elevar al quadrat, fer un canvi de variable, exponenciar, distingir casos…) i <strong>verificar</strong> les solucions perquè aquestes manipulacions poden afegir solucions estranyes.</p>
+        <p class="note"><strong>Idea clau:</strong> aïllem la part complicada (radical, exponencial, logaritme, valor absolut), apliquem la transformació inversa (elevar al quadrat, canvi de variable, propietats de logaritmes, casos del valor absolut) i <strong>verifiquem</strong> les solucions perquè aquests passos poden afegir solucions estranyes.</p>
 
         <div class="apartado-sol">
-          <h4><span class="letra">a)</span> $\sqrt{x-7} + 2 = \sqrt{x+9}$</h4>
-          <p>Aïllem un dels radicals i elevem al quadrat:</p>
+          <h4><span class="letra">a)</span> $\sqrt{x+1} + 2 = \sqrt{2x+1}$</h4>
+          <p>Aïllem un radical i elevem al quadrat:</p>
           <div class="math-block">
-            $$\sqrt{x+9} - \sqrt{x-7} = 2 \;\Longrightarrow\; (x+9) - 2\sqrt{(x+9)(x-7)} + (x-7) = 4.$$
+            $$\sqrt{2x+1} - \sqrt{x+1} = 2 \;\Longrightarrow\; (2x+1) - 2\sqrt{(2x+1)(x+1)} + (x+1) = 4.$$
           </div>
-          <p>Simplifiquem: $2x + 2 - 2\sqrt{(x+9)(x-7)} = 4 \;\Rightarrow\; \sqrt{(x+9)(x-7)} = x - 1$.</p>
-          <p>Tornem a elevar al quadrat: $(x+9)(x-7) = (x-1)^{2}$.</p>
+          <p>Simplifiquem: $3x + 2 - 2\sqrt{(2x+1)(x+1)} = 4 \;\Rightarrow\; 2\sqrt{(2x+1)(x+1)} = 3x - 2$.</p>
+          <p>Ara cal $3x - 2 \ge 0$, és a dir $x \ge \tfrac{2}{3}$. Tornem a elevar al quadrat:</p>
           <div class="math-block">
-            $$x^{2} + 2x - 63 = x^{2} - 2x + 1 \;\Longrightarrow\; 4x = 64 \;\Longrightarrow\; x = 16.$$
+            $$4(2x+1)(x+1) = (3x-2)^{2} \;\Longleftrightarrow\; 8x^{2} + 12x + 4 = 9x^{2} - 12x + 4 \;\Longleftrightarrow\; x^{2} - 24x = 0.$$
           </div>
-          <p>Verificació: $\sqrt{9} + 2 = 3 + 2 = 5 = \sqrt{25}$ ✓.</p>
-          <div class="final">$x = 16$.</div>
+          <p>$x(x-24) = 0 \Rightarrow x = 0$ o $x = 24$. Descartem $x = 0$ perquè $3 \cdot 0 - 2 = -2 < 0$. Verifiquem $x = 24$: $\sqrt{25} + 2 = 5 + 2 = 7 = \sqrt{49}$ ✓.</p>
+          <div class="final">$x = 24$.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">b)</span> $|2x - 4| = x - 2$</h4>
-          <p>Notem que $2x - 4 = 2(x-2)$, així $|2x-4| = 2|x-2|$. L'equació queda $2|x-2| = x - 2$.</p>
-          <p>Cal que el RHS $x - 2 \ge 0$, és a dir $x \ge 2$. En aquest cas $|x-2| = x-2$:</p>
-          <div class="math-block">
-            $$2(x-2) = x - 2 \;\Longrightarrow\; x - 2 = 0 \;\Longrightarrow\; x = 2.$$
-          </div>
-          <p>Verificació: $|0| = 0 = 2 - 2$ ✓.</p>
-          <div class="final">$x = 2$.</div>
+          <h4><span class="letra">b)</span> $|x+1| - |x-2| = x - 1$</h4>
+          <p>Punts crítics: $x = -1$ i $x = 2$. Tres trams:</p>
+          <ul>
+            <li><strong>$x < -1$:</strong> $|x+1| = -(x+1)$, $|x-2| = -(x-2)$. LHS $= -(x+1) + (x-2) = -3$. Equació $-3 = x-1 \Rightarrow x = -2$ ✓ (és $<-1$).</li>
+            <li><strong>$-1 \le x < 2$:</strong> $|x+1| = x+1$, $|x-2| = -(x-2)$. LHS $= (x+1) + (x-2) = 2x-1$. Equació $2x-1 = x-1 \Rightarrow x = 0$ ✓ (és en l'interval).</li>
+            <li><strong>$x \ge 2$:</strong> $|x+1| = x+1$, $|x-2| = x-2$. LHS $= (x+1) - (x-2) = 3$. Equació $3 = x-1 \Rightarrow x = 4$ ✓ (és $\ge 2$).</li>
+          </ul>
+          <p>Verificacions ràpides: $|{-1}| - |{-4}| = 1 - 4 = -3 = -2-1$ ✓; $|1| - |{-2}| = 1 - 2 = -1 = 0 - 1$ ✓; $|5| - |2| = 3 = 4 - 1$ ✓.</p>
+          <div class="final">$x \in \{-2,\, 0,\, 4\}$.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">c)</span> $\log_{3}(x+1) + \log_{3}(x-5) = 3$</h4>
-          <p>Domini: $x + 1 > 0$ i $x - 5 > 0 \;\Rightarrow\; x > 5$. Apliquem la propietat del producte:</p>
+          <h4><span class="letra">c)</span> $\log_{2}(x+1) - \log_{2}(x-1) = 1 - 4\log_{2}\sqrt{x-2}$</h4>
+          <p>Domini: $x+1>0$, $x-1>0$ i $x-2>0$ → $x > 2$. Notem que $4\log_{2}\sqrt{x-2} = 4 \cdot \tfrac{1}{2}\log_{2}(x-2) = 2\log_{2}(x-2) = \log_{2}((x-2)^{2})$. L'equació esdevé:</p>
           <div class="math-block">
-            $$\log_{3}\!\bigl((x+1)(x-5)\bigr) = 3 \;\Longleftrightarrow\; (x+1)(x-5) = 3^{3} = 27.$$
+            $$\log_{2}\!\dfrac{x+1}{x-1} = \log_{2} 2 - \log_{2}((x-2)^{2}) = \log_{2}\!\dfrac{2}{(x-2)^{2}}.$$
           </div>
-          <p>Desenvolupem: $x^{2} - 4x - 5 = 27 \;\Longrightarrow\; x^{2} - 4x - 32 = 0$.</p>
+          <p>Igualem arguments:</p>
           <div class="math-block">
-            $$x = \dfrac{4 \pm \sqrt{16 + 128}}{2} = \dfrac{4 \pm 12}{2} = 8 \text{ o } -4.$$
+            $$\dfrac{x+1}{x-1} = \dfrac{2}{(x-2)^{2}} \;\Longleftrightarrow\; (x+1)(x-2)^{2} = 2(x-1).$$
           </div>
-          <p>Només $x = 8$ és al domini. Verificació: $\log_{3} 9 + \log_{3} 3 = 2 + 1 = 3$ ✓.</p>
-          <div class="final">$x = 8$.</div>
+          <p>Desenvolupant: $x^{3} - 3x^{2} + 4 = 2x - 2 \Rightarrow x^{3} - 3x^{2} - 2x + 6 = 0$. Provem $x = 3$: $27 - 27 - 6 + 6 = 0$ ✓. Per Ruffini: $x^{3} - 3x^{2} - 2x + 6 = (x-3)(x^{2} - 2)$. Les altres arrels són $x = \pm\sqrt{2}$, fora del domini.</p>
+          <p>Verificació de $x=3$: $\log_{2} 4 - \log_{2} 2 = 2 - 1 = 1$, i $1 - 4\log_{2}\sqrt{1} = 1 - 0 = 1$ ✓.</p>
+          <div class="final">$x = 3$.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">d)</span> $2^{x+1} \cdot 2^{2x-3} \cdot 2^{x+4} = 16$</h4>
-          <p>Sumem exponents al primer membre i passem $16 = 2^{4}$:</p>
+          <h4><span class="letra">d)</span> $3^{x-2} + 3^{x} - 2 \cdot 3^{x-1} = 108$</h4>
+          <p>Treiem factor comú $3^{x-2}$:</p>
           <div class="math-block">
-            $$2^{(x+1)+(2x-3)+(x+4)} = 2^{4} \;\Longleftrightarrow\; 2^{4x+2} = 2^{4}.$$
+            $$3^{x-2}\,(1 + 3^{2} - 2 \cdot 3) = 3^{x-2} \cdot (1 + 9 - 6) = 3^{x-2} \cdot 4 = 108.$$
           </div>
-          <p>Igualant exponents: $4x + 2 = 4 \;\Rightarrow\; x = \tfrac{1}{2}$.</p>
-          <div class="final">$x = \tfrac{1}{2}$.</div>
+          <p>$3^{x-2} = 27 = 3^{3} \Rightarrow x - 2 = 3 \Rightarrow x = 5$. Verificació: $3^{3} + 3^{5} - 2\cdot 3^{4} = 27 + 243 - 162 = 108$ ✓.</p>
+          <div class="final">$x = 5$.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">e)</span> $25^{x} - 6 \cdot 5^{x+1} + 125 = 0$</h4>
-          <p>Posem-ho tot en termes de $5^{x}$: $25^{x} = (5^{x})^{2}$ i $5^{x+1} = 5 \cdot 5^{x}$. Canvi de variable $y = 5^{x}$:</p>
+          <h4><span class="letra">e)</span> $2 \cdot 16^{x-1} - 5 \cdot 4^{x} + 48 = 0$</h4>
+          <p>$16^{x-1} = \dfrac{16^{x}}{16} = \dfrac{(4^{x})^{2}}{16}$. Canvi de variable $y = 4^{x}$:</p>
           <div class="math-block">
-            $$y^{2} - 30y + 125 = 0 \;\Longrightarrow\; y = \dfrac{30 \pm \sqrt{900 - 500}}{2} = \dfrac{30 \pm 20}{2} = 25 \text{ o } 5.$$
+            $$\dfrac{2 y^{2}}{16} - 5y + 48 = 0 \;\Longleftrightarrow\; y^{2} - 40y + 384 = 0.$$
           </div>
-          <p>Tornant a $x$: $5^{x} = 25 \Rightarrow x = 2$, $5^{x} = 5 \Rightarrow x = 1$.</p>
-          <p>Verificació: $625 - 750 + 125 = 0$ ✓ i $25 - 150 + 125 = 0$ ✓.</p>
-          <div class="final">$x = 1$ i $x = 2$.</div>
+          <p>$y = \dfrac{40 \pm \sqrt{1600 - 1536}}{2} = \dfrac{40 \pm 8}{2} = 24$ o $16$.</p>
+          <p>$4^{x} = 16 \Rightarrow x = 2$. $4^{x} = 24 \Rightarrow x = \log_{4} 24 = \dfrac{\log_{2} 24}{2} = \dfrac{3 + \log_{2} 3}{2} \approx 2{,}292$.</p>
+          <p>Verificació de $x = 2$: $2 \cdot 16 - 5 \cdot 16 + 48 = 32 - 80 + 48 = 0$ ✓.</p>
+          <div class="final">$x = 2$ &nbsp; i &nbsp; $x = \log_{4} 24 \approx 2{,}292$.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">f)</span> Sistema: $3^{x} \cdot 3^{y+1} = 9$, &nbsp; $\sqrt{x+1} = y + 10$</h4>
-          <p>De la primera: $3^{x+y+1} = 3^{2} \Rightarrow x + y + 1 = 2 \Rightarrow y = 1 - x$.</p>
-          <p>Substituïm a la segona: $\sqrt{x+1} = (1-x) + 10 = 11 - x$. Cal que $11 - x \ge 0$ (perquè $\sqrt{} \ge 0$). Elevem al quadrat:</p>
+          <h4><span class="letra">f)</span> $|x-1| = \sqrt{x-1}$</h4>
+          <p>Per a què la $\sqrt{}$ tingui sentit cal $x - 1 \ge 0$, és a dir $x \ge 1$. Aleshores $|x-1| = x - 1$, i l'equació queda:</p>
           <div class="math-block">
-            $$x + 1 = (11 - x)^{2} = 121 - 22x + x^{2} \;\Longleftrightarrow\; x^{2} - 23x + 120 = 0.$$
+            $$x - 1 = \sqrt{x-1}.$$
           </div>
-          <div class="math-block">
-            $$x = \dfrac{23 \pm \sqrt{529 - 480}}{2} = \dfrac{23 \pm 7}{2} = 15 \text{ o } 8.$$
-          </div>
-          <p>Descartem $x = 15$ (donaria $\sqrt{16} = -4$, impossible) i ens quedem amb $x = 8 \Rightarrow y = -7$.</p>
-          <p>Verificació: $3^{8} \cdot 3^{-6} = 3^{2} = 9$ ✓ i $\sqrt{9} = 3 = -7 + 10$ ✓.</p>
-          <div class="final">$(x, y) = (8, -7)$.</div>
-        </div>
-
-        <div class="apartado-sol">
-          <h4><span class="letra">g)</span> Sistema: $\log(x y^{2}) = 5$, &nbsp; $2\log(x) - \log(y^{3}) = 3$</h4>
-          <p class="note" style="background:rgba(255,166,0,0.08);padding:0.4rem 0.6rem;border-left:3px solid #f59e0b;border-radius:4px"><em>Nota:</em> el PDF original sembla mostrar un subscript $3$ al segon logaritme. Si s'interpreta tot en base $10$ (la convenció habitual quan "log" no porta subscript) la solució és neta i la presentem aquí. Si la base del segon log és realment $3$, la solució no és cap parell d'enters.</p>
-          <p>Apliquem propietats: $\log(xy^{2}) = \log x + 2\log y = 5$ i $2\log x - 3\log y = 3$. Sigui $a = \log x$, $b = \log y$:</p>
-          <div class="math-block">
-            $$\left\{\begin{array}{l} a + 2b = 5 \\ 2a - 3b = 3 \end{array}\right. \;\Longrightarrow\; a = 5 - 2b, \;\; 2(5-2b) - 3b = 3 \;\Rightarrow\; 10 - 7b = 3 \;\Rightarrow\; b = 1.$$
-          </div>
-          <p>Llavors $a = 5 - 2 = 3$. Per tant $x = 10^{3} = 1\,000$ i $y = 10^{1} = 10$.</p>
-          <p>Verificació: $\log(1000 \cdot 100) = \log(10^{5}) = 5$ ✓ i $2 \cdot 3 - 3 \cdot 1 = 3$ ✓.</p>
-          <div class="final">$(x, y) = (1\,000, 10)$.</div>
-        </div>
-
-        <div class="apartado-sol">
-          <h4><span class="letra">h)</span> $\dfrac{3x-1}{2} \geq x - \dfrac{x+3}{3}$</h4>
-          <p>Multipliquem per $6$ (mcm de $2$ i $3$, positiu, així que la desigualtat no canvia):</p>
-          <div class="math-block">
-            $$3(3x-1) \geq 6x - 2(x+3) \;\Longleftrightarrow\; 9x - 3 \geq 6x - 2x - 6 \;\Longleftrightarrow\; 9x - 3 \geq 4x - 6.$$
-          </div>
-          <p>Aïllem $x$: $5x \geq -3 \;\Longrightarrow\; x \geq -\tfrac{3}{5}$.</p>
-          <div class="final">$x \in \left[-\tfrac{3}{5},\,+\infty\right)$.</div>
+          <p>Sigui $u = \sqrt{x-1} \ge 0$, així $x - 1 = u^{2}$ i l'equació esdevé $u^{2} = u \Rightarrow u(u-1) = 0$.</p>
+          <p>$u = 0 \Rightarrow x = 1$, $u = 1 \Rightarrow x = 2$. Verificació: $|0| = 0 = \sqrt{0}$ ✓; $|1| = 1 = \sqrt{1}$ ✓.</p>
+          <div class="final">$x = 1$ &nbsp; i &nbsp; $x = 2$.</div>
         </div>
 
       </section>

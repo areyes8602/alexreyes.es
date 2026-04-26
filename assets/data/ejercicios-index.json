@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-26T15:45:59.576162+00:00",
+  "generated_at": "2026-04-26T15:59:17.573631+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 51,
+  "count": 52,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -335,17 +335,17 @@
       }
     },
     {
-      "id": "2526-1btl-macs-t1-prov2-p1",
+      "id": "2526-1btl-macs-t1-prov2-bis-p1",
       "titulo": "Equacions, sistemes i inequacions — escollir 5 de 8",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/p1.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/original.pdf#page=1",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2-bis/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2-bis/original.pdf#page=1",
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [
         1
       ],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/p1.html",
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2-bis/p1.html",
       "numero": 1,
       "puntuacion": 10,
       "apartados": [
@@ -392,14 +392,14 @@
       ],
       "apartados_count": 8,
       "coleccion": {
-        "id": "2526-1btl-macs-t1-prov2",
-        "titulo": "Mini prova 2 — 1a avaluació · Equacions, sistemes i inequacions",
+        "id": "2526-1btl-macs-t1-prov2-bis",
+        "titulo": "Mini prova 2 (Bis) — 1a avaluació · Equacions, sistemes i inequacions",
         "tipo": "examen",
         "fecha": "2025-11-20",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2-bis/",
         "grupo": "1r BTL",
         "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/original.pdf",
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2-bis/original.pdf",
         "pdf_soluciones": null,
         "unidades_implicadas": [
           "03",
@@ -431,6 +431,92 @@
         "es": "equacions, sistemes i inequacions — escollir 5 de 8 bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) sistemas de ecuaciones lineales y no lineales inecuaciones y sistemas de inecuaciones media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
         "ca": "equacions, sistemes i inequacions — escollir 5 de 8 batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "equacions, sistemes i inequacions — escollir 5 de 8 bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t1-prov2-p1",
+      "titulo": "Equacions amb radicals, valor absolut, logaritmes i exponencials — escollir 5 de 6",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/p1.html",
+      "numero": 1,
+      "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.5,
+          "tarea": "$\\sqrt{x+1} + 2 = \\sqrt{2x+1}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1.5,
+          "tarea": "$|x+1| - |x-2| = x - 1$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1.5,
+          "tarea": "$\\log_{2}(x+1) - \\log_{2}(x-1) = 1 - 4\\log_{2}\\sqrt{x-2}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 1.5,
+          "tarea": "$3^{x-2} + 3^{x} - 2 \\cdot 3^{x-1} = 108$"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "$2 \\cdot 16^{x-1} - 5 \\cdot 4^{x} + 48 = 0$"
+        },
+        {
+          "letra": "f",
+          "puntos": 2,
+          "tarea": "$|x-1| = \\sqrt{x-1}$"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2526-1btl-macs-t1-prov2",
+        "titulo": "Mini prova 2 — 1a avaluació · Equacions",
+        "tipo": "examen",
+        "fecha": "2025-11-14",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "equacions amb radicals, valor absolut, logaritmes i exponencials — escollir 5 de 6 bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "equacions amb radicals, valor absolut, logaritmes i exponencials — escollir 5 de 6 batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equacions amb radicals, valor absolut, logaritmes i exponencials — escollir 5 de 6 bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
       }
     },
     {
