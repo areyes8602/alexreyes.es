@@ -561,7 +561,7 @@ function toggleChapter(h){{h.parentElement.classList.toggle('open');}}
 const UNITS = {units_json};
 const MATERIA = {json.dumps(s['materia_filter'])};
 const MONTHS = {months_js};
-const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','no_exams_unit','exams_unit_title','globals_empty','globals_load_error','section_card_apunts','section_card_fitxes','section_card_solucions','unit_meta_book','unit_meta_dates','unit_meta_trim','examens_count_one','examens_count_many','trimestre_tag']}, ensure_ascii=False)};
+const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','no_exams_unit','exams_unit_title','globals_empty','globals_load_error','section_card_apunts','section_card_fitxes','section_card_solucions','unit_meta_book','unit_meta_dates','unit_meta_trim','examens_count_one','examens_count_many','trimestre_tag','summary_exams_label','summary_fitxes_label','summary_apunts_label','summary_yes','summary_no']}, ensure_ascii=False)};
 
 function unitNumOf(colId) {{ const m=(colId||'').match(/-u(\\d{{1,2}})\\b/); return m ? m[1].padStart(2,'0') : null; }}
 function isGlobal(colId) {{ if(!colId) return false; if(unitNumOf(colId)) return false; return /-g\\d+\\b|-final\\b|-rec\\b|-simulacre\\b/.test(colId); }}
@@ -760,7 +760,7 @@ def render_ib_hub(s, lang):
 const CHAPTERS = {chapters_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
-const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','no_exams_unit','exams_unit_title','globals_empty','globals_load_error','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','examens_count_one','examens_count_many','ib_chapter_hlonly']}, ensure_ascii=False)};
+const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','no_exams_unit','exams_unit_title','globals_empty','globals_load_error','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','examens_count_one','examens_count_many','ib_chapter_hlonly','summary_exams_label','summary_fitxes_label','summary_apunts_label','summary_yes','summary_no']}, ensure_ascii=False)};
 
 function unitNumOf(colId) {{ const m=(colId||'').match(/-u(\\d{{1,2}})\\b/); return m ? m[1].padStart(2,'0') : null; }}
 function fmtFecha(iso) {{ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${{parseInt(d,10)}} ${{MONTHS[parseInt(m,10)-1]}} ${{y}}`; }}
