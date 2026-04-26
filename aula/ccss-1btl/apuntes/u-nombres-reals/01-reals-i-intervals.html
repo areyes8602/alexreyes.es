@@ -117,25 +117,32 @@
           </div>
           <p>Tots els conjunts numèrics que has vist abans encaixen en aquesta jerarquia: $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$.</p>
 
-          <svg class="sets-svg" viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de conjunts encaixats N⊂Z⊂Q⊂R i I separat">
-            <!-- R: rectangle exterior -->
-            <rect x="6" y="6" width="448" height="218" rx="8" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
-            <text x="436" y="22" text-anchor="end" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">ℝ</text>
-            <!-- I: ellipse a l'esquerra -->
-            <ellipse cx="120" cy="115" rx="100" ry="80" fill="rgba(244,63,94,0.08)" stroke="#f43f5e" stroke-width="1.5"/>
-            <text x="120" y="65" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#be123c">𝕀</text>
-            <text x="120" y="180" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#be123c">irracionals</text>
-            <!-- Q: ellipse a la dreta amb encaixats -->
-            <ellipse cx="320" cy="115" rx="120" ry="92" fill="rgba(99,102,241,0.06)" stroke="#1d4ed8" stroke-width="1.5"/>
-            <text x="225" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">ℚ</text>
-            <ellipse cx="345" cy="115" rx="85" ry="65" fill="rgba(99,102,241,0.05)" stroke="#1d4ed8" stroke-width="1.2"/>
-            <text x="278" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1d4ed8">ℤ</text>
-            <ellipse cx="370" cy="115" rx="55" ry="45" fill="rgba(99,102,241,0.05)" stroke="#1d4ed8" stroke-width="1.2"/>
-            <text x="328" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">ℚ−ℤ</text>
-            <ellipse cx="395" cy="115" rx="28" ry="24" fill="rgba(99,102,241,0.05)" stroke="#1d4ed8" stroke-width="1.2"/>
-            <text x="395" y="119" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1d4ed8">ℕ</text>
+          <svg class="sets-svg" viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de conjunts: rectangle ℝ contenint l'el·lipse 𝕀 a l'esquerra i tres el·lipses concèntriques ℕ⊂ℤ⊂ℚ a la dreta">
+            <!-- ℝ: rectangle exterior -->
+            <rect x="6" y="6" width="468" height="228" rx="10" fill="none" stroke="#475569" stroke-width="1.6"/>
+            <text x="22" y="26" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#475569">ℝ</text>
+
+            <!-- 𝕀: el·lipse aïllada a l'esquerra (no toca ℚ) -->
+            <ellipse cx="130" cy="125" rx="105" ry="88" fill="rgba(244,63,94,0.08)" stroke="#f43f5e" stroke-width="1.6"/>
+            <text x="58" y="58" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="#be123c">𝕀</text>
+            <text x="130" y="138" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#be123c">irracionals</text>
+            <text x="130" y="155" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#be123c">π, e, √2, log₂3 …</text>
+
+            <!-- ℚ: el·lipse a la dreta amb ℤ i ℕ niats dins -->
+            <ellipse cx="345" cy="125" rx="115" ry="92" fill="rgba(99,102,241,0.07)" stroke="#1d4ed8" stroke-width="1.6"/>
+            <text x="252" y="80" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="#1d4ed8">ℚ</text>
+
+            <ellipse cx="365" cy="125" rx="85" ry="68" fill="rgba(99,102,241,0.07)" stroke="#1d4ed8" stroke-width="1.4"/>
+            <text x="295" y="98" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">ℤ</text>
+
+            <ellipse cx="385" cy="125" rx="55" ry="45" fill="rgba(99,102,241,0.07)" stroke="#1d4ed8" stroke-width="1.3"/>
+            <text x="385" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">ℕ</text>
+
+            <!-- Petites pistes: alguns números d'exemple -->
+            <text x="285" y="155" font-family="JetBrains Mono,monospace" font-size="9" fill="#1d4ed8">½ ; ¾</text>
+            <text x="335" y="155" font-family="JetBrains Mono,monospace" font-size="9" fill="#1d4ed8">−2</text>
           </svg>
-          <p class="note" style="text-align:center">$\mathbb{R} = \mathbb{Q} \cup \mathbb{I}$, amb $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}$.</p>
+          <p class="note" style="text-align:center">$\mathbb{R} = \mathbb{Q} \cup \mathbb{I}$, &nbsp; amb &nbsp; $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}$ &nbsp; i &nbsp; $\mathbb{Q} \cap \mathbb{I} = \varnothing$.</p>
         </div>
       </div>
 
