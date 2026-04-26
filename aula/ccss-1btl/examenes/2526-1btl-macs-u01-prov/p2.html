@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Logaritmes — Mini prova U1 · 1r BTL MACS</title>
+<meta name="description" content="Pregunta 2 de la mini prova de la unitat 1: trobar la base d'un logaritme i avaluar-ne un altre.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/p2.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/">Mini prova U1 · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P2</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">Mini prova · 7 oct 2025</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/">Índex de la mini prova</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/p3.html">Pregunta següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Logaritmes</h1>
+      <p class="question-descriptor">Resolució d'una equació logarítmica per trobar la base i avaluació d'un logaritme amb arrels.</p>
+      <span class="score-pill">Puntuació màxima · 4 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Troba el valor de $x$ o resol el logaritme següent.</p>
+        </div>
+        <ol class="apartados">
+          <li>$\log_{x}\!\left(\dfrac{49}{4}\right) = -2$ <span class="apartado-puntos">2 p</span></li>
+          <li>$\log_{3}\!\left(\sqrt[4]{27 \cdot \sqrt[3]{9}}\right)$ <span class="apartado-puntos">2 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc A</span>
+        <span class="ib-chip" data-descriptor="Definició de logaritme i propietats bàsiques">Logaritmes</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> per definició, $\log_{a}(b) = c \;\Longleftrightarrow\; a^{c} = b$. I per avaluar logaritmes amb arrels, posa-ho tot com a potència de la base i simplifica.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> $\log_{x}\!\left(\dfrac{49}{4}\right) = -2$</h4>
+          <p>Per definició, $x^{-2} = \dfrac{49}{4}$, és a dir, $\dfrac{1}{x^{2}} = \dfrac{49}{4}$.</p>
+          <div class="math-block">
+            $$x^{2} = \dfrac{4}{49} \;\Longrightarrow\; x = \dfrac{2}{7}$$
+          </div>
+          <p>(prenem la solució positiva, perquè la base d'un logaritme ha de ser positiva i diferent d'$1$).</p>
+          <p>Verificació: $\left(\tfrac{2}{7}\right)^{-2} = \left(\tfrac{7}{2}\right)^{2} = \tfrac{49}{4}$ ✓.</p>
+          <div class="final">$x = \dfrac{2}{7}$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> $\log_{3}\!\left(\sqrt[4]{27 \cdot \sqrt[3]{9}}\right)$</h4>
+          <p>Posem-ho tot en base $3$: $27 = 3^{3}$, $9 = 3^{2}$, així $\sqrt[3]{9} = 3^{2/3}$.</p>
+          <p>Llavors $27 \cdot \sqrt[3]{9} = 3^{3} \cdot 3^{2/3} = 3^{3 + 2/3} = 3^{11/3}$.</p>
+          <div class="math-block">
+            $$\sqrt[4]{27 \cdot \sqrt[3]{9}} = \left(3^{11/3}\right)^{1/4} = 3^{11/12}.$$
+          </div>
+          <p>Per tant:</p>
+          <div class="math-block">
+            $$\log_{3}\!\left(3^{11/12}\right) = \dfrac{11}{12}.$$
+          </div>
+          <div class="final">$= \dfrac{11}{12}$.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/">Índex de la mini prova</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/p3.html">Pregunta següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
