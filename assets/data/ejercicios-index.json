@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-26T15:59:17.573631+00:00",
+  "generated_at": "2026-04-26T16:06:13.924429+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 52,
+  "count": 55,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -2030,6 +2030,218 @@
         "es": "valor absolut, exponencial, logaritme i composició bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico visualización / gráficos pregunta larga (estructurada en apartados)",
         "ca": "valor absolut, exponencial, logaritme i composició batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "valor absolut, exponencial, logaritme i composició bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-prov-bis-p1",
+      "titulo": "Operacions amb potències i arrels",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p1.html",
+      "numero": 1,
+      "puntuacion": 4,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Simplifica $\\left(\\dfrac{2^{4}\\,x^{-2}\\,y^{3}}{2\\,x^{2}\\,y^{-2}}\\right)^{3}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Expressa en forma de potència en base 2: $\\sqrt[5]{16} \\cdot 2^{3/2} \\cdot \\dfrac{1}{\\sqrt[3]{4}}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Racionalitza i simplifica $\\dfrac{\\sqrt{5}}{\\sqrt[3]{25}}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "Expressa com una potència de base 2: $\\sqrt[3]{\\,2\\,\\sqrt{8\\,\\sqrt[5]{16}}\\,}$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-prov-bis",
+        "titulo": "Mini prova 1 (Bis) — Unitat 1: potències, arrels i logaritmes",
+        "tipo": "examen",
+        "fecha": "2025-10-14",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "operacions amb potències i arrels bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido numérico números reales y operaciones potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "operacions amb potències i arrels batxillerat — mat. ccss 1r català examen sentit numèric mitjana",
+        "en": "operacions amb potències i arrels bachillerato — applied maths year 1 catalan exam number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-prov-bis-p2",
+      "titulo": "Càlcul i simplificació amb logaritmes",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p2.html",
+      "numero": 2,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Simplifica $\\log_{3}(9x^{4}) - 2\\log_{3} x$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Calcula $\\log(1000) - \\log(0{,}01)$"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-prov-bis",
+        "titulo": "Mini prova 1 (Bis) — Unitat 1: potències, arrels i logaritmes",
+        "tipo": "examen",
+        "fecha": "2025-10-14",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "càlcul i simplificació amb logaritmes bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido numérico potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "càlcul i simplificació amb logaritmes batxillerat — mat. ccss 1r català examen sentit numèric fàcil",
+        "en": "càlcul i simplificació amb logaritmes bachillerato — applied maths year 1 catalan exam number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-prov-bis-p3",
+      "titulo": "Equacions logarítmiques",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p3.html",
+      "numero": 3,
+      "puntuacion": 4,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "$\\log_{5}(2x-1) = 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "$\\log(x^{2} - 5x + 6) = \\log(x - 2)$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "$\\log_{2}(x^{2} - 5) = 2$"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "$\\log(x^{2} - 9) - \\log(x - 3) = 1$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-prov-bis",
+        "titulo": "Mini prova 1 (Bis) — Unitat 1: potències, arrels i logaritmes",
+        "tipo": "examen",
+        "fecha": "2025-10-14",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equacions logarítmiques bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) potencias, raíces y logaritmos media cálculo simbólico razonamiento pregunta corta",
+        "ca": "equacions logarítmiques batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equacions logarítmiques bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
       }
     },
     {
