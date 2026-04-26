@@ -133,8 +133,14 @@ function buildSectionCard(href, icon, label) {
 }
 const TRIM_CLASS = { '1a':'tag-orange', '2a':'tag-purple', '3a':'tag-gray' };
 function buildUnit(u, examsByUnit) {
-  // Dins d'una unitat ordenem per data ascendent: Parcial 1 abans del Parcial 2, simulacre abans del global, etc.
-  const exs = (examsByUnit[u.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
+  // Dins d'una unitat ordenem per data ascendent (Parcial 1 abans del Parcial 2, etc.).
+  // Si dues col·leccions tenen la mateixa data, agafem com a desempat l'id en ordre descendent
+  // (per exemple, 't1t' apareix abans que 'g1' a igualtat de data).
+  const exs = (examsByUnit[u.num]||[]).sort((a,b) => {
+    const d = (a.col.fecha||'').localeCompare(b.col.fecha||'');
+    if (d !== 0) return d;
+    return (b.col.id||'').localeCompare(a.col.id||'');
+  });
   const examCount = exs.length;
   const sections = [
     buildSectionCard(u.apunts, '📄', LABELS_JS.section_card_apunts),

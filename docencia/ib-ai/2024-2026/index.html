@@ -136,8 +136,13 @@ function buildSectionCard(href, icon, label) {
 }
 function buildChapter(ch, nivel, byUnit) {
   const hlOnly = nivel === 'sl' && !ch.sl;
-  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.).
-  const exs = (byUnit[ch.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
+  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.);
+  // si coincideix data, desempatem per id descendent.
+  const exs = (byUnit[ch.num]||[]).sort((a,b) => {
+    const d = (a.col.fecha||'').localeCompare(b.col.fecha||'');
+    if (d !== 0) return d;
+    return (b.col.id||'').localeCompare(a.col.id||'');
+  });
   const examCount = exs.length;
   const sections = [
     buildSectionCard(ch.apuntes, '📄', LABELS_JS.section_card_apunts),

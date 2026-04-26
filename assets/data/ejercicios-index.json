@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-26T14:52:48.966302+00:00",
+  "generated_at": "2026-04-26T15:15:39.418142+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 44,
+  "count": 47,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -668,6 +668,266 @@
         "es": "valor absolut, exponencial, logaritme i composició bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico visualización / gráficos pregunta larga (estructurada en apartados)",
         "ca": "valor absolut, exponencial, logaritme i composició batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "valor absolut, exponencial, logaritme i composició bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t1t-p1",
+      "titulo": "Operacions amb radicals, potències i logaritmes",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p1.html",
+      "numero": 1,
+      "puntuacion": 3,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "$\\dfrac{9\\sqrt{8} - 3\\sqrt{72}}{\\sqrt{2}} + \\sqrt{49} - \\left(27^{1/3}\\right)\\!\\left(8^{2/3}\\right)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "$\\log\\!\\left(\\dfrac{100\\sqrt{10}}{0{,}01}\\right) - \\log(10^{3})$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "$\\log_{2} 32 - \\log_{2}\\!\\left(\\dfrac{1}{8}\\right) + \\log_{2}\\!\\left(\\sqrt{2}\\right)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "$\\dfrac{5^{-2} \\cdot \\sqrt{125}}{\\,(1/25)^{1{,}5}\\,}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0.5,
+          "tarea": "$\\log_{3}\\!\\left(\\sqrt[3]{3} \\cdot \\sqrt{27}\\right)$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0.5,
+          "tarea": "$\\dfrac{4}{2 - \\sqrt{3}}$ (racionalitza el denominador)"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2526-1btl-macs-t1t",
+        "titulo": "Global 1a avaluació — Radicals, logaritmes, polinomis i equacions",
+        "tipo": "examen",
+        "fecha": "2025-11-25",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "01",
+          "02",
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "operacions amb radicals, potències i logaritmes bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido numérico números reales y operaciones potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "operacions amb radicals, potències i logaritmes batxillerat — mat. ccss 1r català examen sentit numèric mitjana",
+        "en": "operacions amb radicals, potències i logaritmes bachillerato — applied maths year 1 catalan exam number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t1t-p2",
+      "titulo": "Polinomis: factorització, MCD i MCM",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p2.html",
+      "numero": 2,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Factoritza els polinomis $p(x)$ i $q(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula el MCD i el MCM de $p(x)$ i $q(x)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Calcula i simplifica $\\dfrac{p(x)}{q(x)} - \\dfrac{x^{2} + 2x}{x^{2} - 4}$."
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-t1t",
+        "titulo": "Global 1a avaluació — Radicals, logaritmes, polinomis i equacions",
+        "tipo": "examen",
+        "fecha": "2025-11-25",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "01",
+          "02",
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "polinomis: factorització, mcd i mcm bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "polinomis: factorització, mcd i mcm batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "polinomis: factorització, mcd i mcm bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t1t-p3",
+      "titulo": "Equacions i sistemes — escollir 5 de 8",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p3.html",
+      "numero": 3,
+      "puntuacion": 5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.625,
+          "tarea": "$\\sqrt{x+5} + \\sqrt{x-4} = 9$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.625,
+          "tarea": "$3^{2x} - 10 \\cdot 3^{x} + 9 = 0$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.625,
+          "tarea": "$2\\log_{5}(x+2) - \\log_{5}(2x-1) = 1 - \\log_{5}(x-2)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0.625,
+          "tarea": "$|3x-9| + 1 = |x|$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0.625,
+          "tarea": "$x^{4} + 36 = 13x^{2}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0.625,
+          "tarea": "$\\dfrac{x}{x-2} + \\dfrac{1}{x+2} = 1 - \\dfrac{2}{x^{2}-4}$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0.625,
+          "tarea": "Sistema: $\\begin{cases} x^{2} + y^{2} = 25 \\\\ y = x + 1 \\end{cases}$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0.625,
+          "tarea": "Sistema: $\\begin{cases} \\log(x) + \\log(y^{2}) = 4 \\\\ \\log(x/y) = 1 \\end{cases}$"
+        }
+      ],
+      "apartados_count": 8,
+      "coleccion": {
+        "id": "2526-1btl-macs-t1t",
+        "titulo": "Global 1a avaluació — Radicals, logaritmes, polinomis i equacions",
+        "tipo": "examen",
+        "fecha": "2025-11-25",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "01",
+          "02",
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-sistemas"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "equacions i sistemes — escollir 5 de 8 bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) sistemas de ecuaciones lineales y no lineales media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "equacions i sistemes — escollir 5 de 8 batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equacions i sistemes — escollir 5 de 8 bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
       }
     },
     {
