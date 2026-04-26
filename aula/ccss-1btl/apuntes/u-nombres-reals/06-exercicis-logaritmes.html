@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6. Exercicis de logaritmes · Nombres reals · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: exercicis de logaritmes amb propietats i equacions logarítmiques resoltes pas a pas.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-nombres-reals/06-exercicis-logaritmes.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.5rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-statement { margin:0.4rem 0 0.6rem; }
+.exercise-statement ol { margin: 0.4rem 0 0 1.2rem; }
+.exercise-statement ol li { margin: 0.3rem 0; }
+.exercise details { margin-top:0.6rem; border-top:1px dashed var(--border); padding-top:0.7rem; }
+.exercise details summary { cursor:pointer; font-size:0.85rem; font-weight:600; color:#6366f1; list-style:none; user-select:none; padding:0.2rem 0; }
+.exercise details summary::-webkit-details-marker { display:none; }
+.exercise details summary::before { content:"▶ "; font-size:0.7em; transition: transform 0.15s; display:inline-block; margin-right:0.2rem; }
+.exercise details[open] summary::before { transform: rotate(90deg); }
+.exercise details .solution { padding:0.4rem 0 0; font-size:0.94rem; }
+.exercise details .solution p { margin:0.5rem 0; }
+.exercise details .solution h4 { font-size:0.95rem; font-weight:600; margin:0.8rem 0 0.3rem; padding-top:0.5rem; border-top:1px dotted var(--border); }
+.exercise details .solution h4:first-child { border-top:none; padding-top:0; margin-top:0.2rem; }
+.exercise details .solution ul { margin:0.4rem 0 0.6rem 1.2rem; }
+.exercise details .solution .final { background: rgba(16,185,129,0.10); border-left:3px solid #10b981; padding:0.4rem 0.7rem; border-radius:4px; margin-top:0.5rem; font-weight:500; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/">Nombres reals</a>
+      <span class="sep">/</span>
+      <span class="current">06 · Exercicis logaritmes</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Nombres reals</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">1 oct 2025</span>
+      </div>
+      <h1 style="margin:0">6. Exercicis de logaritmes</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Logaritme d'una expressió amb arrels niades (Ex. 47) i quatre equacions logarítmiques (Ex. 49). Cada enunciat porta la solució amagada — intenta resoldre'l abans de desplegar-la.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Logaritme d'una expressió amb arrels niades</h2>
+
+        <!-- Exercici 47 -->
+        <div class="exercise" id="ex-47">
+          <div class="exercise-head">
+            <span class="num">47</span>
+            <span class="ttl">Logaritme d'una expressió amb radicals niats</span>
+          </div>
+          <div class="exercise-statement">
+            <p>Troba el valor del logaritme següent:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem;text-align:center">
+              $\displaystyle \log_{1/a}\!\left(\sqrt[7]{a \cdot \sqrt{a^{3} \cdot \sqrt[5]{\tfrac{1}{a^{2}} \cdot \sqrt[6]{a}}}}\,\right)$
+            </div>
+          </div>
+
+          <details>
+            <summary>Mostrar solució</summary>
+            <div class="solution">
+              <p>Reduïm tot l'argument a una sola potència d'$a$ treballant <em>de dins cap a fora</em>, i després apliquem $\log_{1/a}(a^{k}) = -k$ (perquè $(1/a)^{-k} = a^{k}$).</p>
+              <ul>
+                <li>$\sqrt[6]{a} = a^{1/6}$</li>
+                <li>$\dfrac{1}{a^{2}} \cdot a^{1/6} = a^{-2 + 1/6} = a^{-11/6}$</li>
+                <li>$\sqrt[5]{a^{-11/6}} = a^{-11/30}$</li>
+                <li>$a^{3} \cdot a^{-11/30} = a^{90/30 - 11/30} = a^{79/30}$</li>
+                <li>$\sqrt{a^{79/30}} = a^{79/60}$</li>
+                <li>$a \cdot a^{79/60} = a^{60/60 + 79/60} = a^{139/60}$</li>
+                <li>$\sqrt[7]{a^{139/60}} = a^{139/420}$</li>
+              </ul>
+              <p>Apliquem ara $\log_{1/a}(a^{k}) = -k$:</p>
+              <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+                $$\log_{1/a}\!\bigl(a^{139/420}\bigr) = -\dfrac{139}{420}.$$
+              </div>
+              <p class="note">El valor exacte depèn de la lectura precisa dels índexs de cada arrel niada al PDF original; el procediment és sempre el mateix (reduir a $a^{k}$ i fer servir la propietat).</p>
+              <div class="final">$= -\dfrac{139}{420}$ &nbsp;(amb la lectura mostrada).</div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Equacions logarítmiques</h2>
+
+        <!-- Exercici 49 -->
+        <div class="exercise" id="ex-49">
+          <div class="exercise-head">
+            <span class="num">49</span>
+            <span class="ttl">Resol les equacions amb la definició i les propietats dels logaritmes</span>
+          </div>
+          <div class="exercise-statement">
+            <p>Resol les equacions següents (a tot el problema, $\log$ vol dir logaritme decimal, base $10$):</p>
+            <ol type="a" style="margin-left:1.2rem">
+              <li>$\log(2x + 6) = 2$</li>
+              <li>$\log(x + 3) - \log(2x - 2) = 1 - \log 5$</li>
+              <li>$2\log x - \log(x - 16) = \log 100$</li>
+              <li>$2\log x - \log(x + 6) = 0$</li>
+            </ol>
+          </div>
+
+          <details>
+            <summary>Mostrar solució dels quatre apartats</summary>
+            <div class="solution">
+              <p class="note"><strong>Idea clau:</strong> ajunta tots els logaritmes amb les propietats del producte/quocient/potència fins tenir $\log(\text{cosa}) = \log(\text{una altra cosa})$ (i igualar arguments) o $\log(\text{cosa}) = c$ (i exponenciar a $10^{c}$). Després <em>verifica el domini</em> (els arguments han de ser positius).</p>
+
+              <h4>(a) $\log(2x + 6) = 2$</h4>
+              <p>Per definició, $2x + 6 = 10^{2} = 100$.</p>
+              <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+                $$2x = 94 \;\Longrightarrow\; x = 47.$$
+              </div>
+              <p>Domini: $2x + 6 > 0 \Rightarrow x > -3$ ✓.</p>
+              <div class="final">$x = 47$.</div>
+
+              <h4>(b) $\log(x + 3) - \log(2x - 2) = 1 - \log 5$</h4>
+              <p>Apliquem la propietat del quocient i $1 = \log 10$:</p>
+              <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+                $$\log\!\dfrac{x+3}{2x-2} = \log 10 - \log 5 = \log\!\dfrac{10}{5} = \log 2.$$
+              </div>
+              <p>Igualem arguments: $\dfrac{x+3}{2x-2} = 2 \Rightarrow x + 3 = 4x - 4 \Rightarrow 3x = 7 \Rightarrow x = \tfrac{7}{3}$.</p>
+              <p>Domini: $x + 3 > 0$ i $2x - 2 > 0 \Rightarrow x > 1$. $x = \tfrac{7}{3} \approx 2{,}33$ ✓.</p>
+              <div class="final">$x = \dfrac{7}{3}$.</div>
+
+              <h4>(c) $2\log x - \log(x - 16) = \log 100$</h4>
+              <p>Propietat de la potència i del quocient:</p>
+              <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+                $$\log x^{2} - \log(x-16) = \log 100 \;\Longleftrightarrow\; \log\!\dfrac{x^{2}}{x-16} = \log 100.$$
+              </div>
+              <p>Igualem arguments: $\dfrac{x^{2}}{x-16} = 100 \Rightarrow x^{2} = 100x - 1600 \Rightarrow x^{2} - 100x + 1600 = 0$.</p>
+              <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+                $$x = \dfrac{100 \pm \sqrt{10\,000 - 6\,400}}{2} = \dfrac{100 \pm 60}{2} = 80 \text{ o } 20.$$
+              </div>
+              <p>Domini: $x > 0$ i $x - 16 > 0 \Rightarrow x > 16$. <strong>Totes dues solucions valen.</strong></p>
+              <div class="final">$x = 20$ &nbsp;i&nbsp; $x = 80$.</div>
+
+              <h4>(d) $2\log x - \log(x + 6) = 0$</h4>
+              <p>Igualem a $0 = \log 1$:</p>
+              <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+                $$\log\!\dfrac{x^{2}}{x + 6} = \log 1 \;\Longrightarrow\; \dfrac{x^{2}}{x + 6} = 1.$$
+              </div>
+              <p>$x^{2} = x + 6 \Rightarrow x^{2} - x - 6 = 0 \Rightarrow (x - 3)(x + 2) = 0$. Solucions candidates: $x = 3$ o $x = -2$.</p>
+              <p>Domini: $x > 0$. Descartem $x = -2$.</p>
+              <div class="final">$x = 3$.</div>
+
+            </div>
+          </details>
+        </div>
+
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-nombres-reals/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
