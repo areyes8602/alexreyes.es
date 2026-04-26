@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-26T19:55:26.691214+00:00",
+  "generated_at": "2026-04-26T19:59:41.435965+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 69,
+  "count": 79,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -2332,6 +2332,673 @@
         "es": "valor absolut, exponencial, logaritme i composició bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico visualización / gráficos pregunta larga (estructurada en apartados)",
         "ca": "valor absolut, exponencial, logaritme i composició batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "valor absolut, exponencial, logaritme i composició bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-1",
+      "titulo": "Escriu en forma de potència de base $a$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/1.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/1.html",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\sqrt{a^{6}}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\sqrt[3]{a^{12}}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\dfrac{1}{\\sqrt{a^{5}}}$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "escriu en forma de potència de base $a$ bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "escriu en forma de potència de base $a$ batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "escriu en forma de potència de base $a$ bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-2",
+      "titulo": "Simplifica les expressions",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/2.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/2.html",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\dfrac{2^{5} \\cdot 2^{3}}{2^{4}}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$(3^{2})^{4}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\left(\\dfrac{5^{3}}{5^{2}}\\right)^{2}$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "simplifica les expressions bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "simplifica les expressions batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "simplifica les expressions bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-3",
+      "titulo": "Calcula el valor (aprox. amb 2 decimals si cal)",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/3.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/3.html",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\sqrt{75}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\sqrt[3]{0{,}008}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\dfrac{1}{\\sqrt[4]{16}}$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "calcula el valor (aprox. amb 2 decimals si cal) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos fácil cálculo simbólico cálculo numérico pregunta corta",
+        "ca": "calcula el valor (aprox. amb 2 decimals si cal) batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "calcula el valor (aprox. amb 2 decimals si cal) bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-4",
+      "titulo": "Expressa amb potències de base $10$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/4.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/4.html",
+      "numero": 4,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$1\\,000\\,000$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\dfrac{1}{1000}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\sqrt{0{,}01}$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "expressa amb potències de base $10$ bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "expressa amb potències de base $10$ batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "expressa amb potències de base $10$ bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-5",
+      "titulo": "Calcula el resultat (potències d'exponent fraccionari)",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/5.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/5.html",
+      "numero": 5,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$9^{1/2}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$27^{2/3}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$32^{-3/5}$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "calcula el resultat (potències d'exponent fraccionari) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico números reales y operaciones potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "calcula el resultat (potències d'exponent fraccionari) batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "calcula el resultat (potències d'exponent fraccionari) bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-6",
+      "titulo": "Escriu en forma de potència la definició de logaritme",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/6.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/6.html",
+      "numero": 6,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{2} 8 = x$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{10} 0{,}01 = y$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log_{5} 25 = z$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "escriu en forma de potència la definició de logaritme bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "escriu en forma de potència la definició de logaritme batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "escriu en forma de potència la definició de logaritme bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-7",
+      "titulo": "Resol per $x$ aplicant la definició de logaritme",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/7.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/7.html",
+      "numero": 7,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{3} x = 4$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{10} x = -2$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log_{7} x = 0$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "resol per $x$ aplicant la definició de logaritme bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "resol per $x$ aplicant la definició de logaritme batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "resol per $x$ aplicant la definició de logaritme bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-8",
+      "titulo": "Troba el valor dels logaritmes senzills",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/8.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/8.html",
+      "numero": 8,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{2} 16$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{4} 64$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log_{5} 1$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "troba el valor dels logaritmes senzills bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "troba el valor dels logaritmes senzills batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "troba el valor dels logaritmes senzills bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-9",
+      "titulo": "Equacions exponencials senzilles",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/9.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/9.html",
+      "numero": 9,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$2^{x} = 32$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$10^{y} = 0{,}001$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$5^{z} = 1$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equacions exponencials senzilles bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico ecuaciones (1º y 2º grado, racionales, irracionales) potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "equacions exponencials senzilles batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "equacions exponencials senzilles bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-10",
+      "titulo": "Escriu en forma de logaritme les igualtats",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/10.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/10.html",
+      "numero": 10,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$3^{2} = 9$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$10^{-3} = 0{,}001$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$7^{0} = 1$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "escriu en forma de logaritme les igualtats bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos fácil cálculo simbólico pregunta corta",
+        "ca": "escriu en forma de logaritme les igualtats batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "escriu en forma de logaritme les igualtats bachillerato — applied maths year 1 catalan class number sense easy"
       }
     },
     {

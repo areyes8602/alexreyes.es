@@ -21,6 +21,196 @@
   },
   "ejercicios": [
     {
+      "id": "2526-1btl-macs-u01-classe-1",
+      "numero": 1,
+      "titulo": "Escriu en forma de potència de base $a$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/1.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-1",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\sqrt{a^{6}}$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\sqrt[3]{a^{12}}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\dfrac{1}{\\sqrt{a^{5}}}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-numeros-reales", "BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-2",
+      "numero": 2,
+      "titulo": "Simplifica les expressions",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/2.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-2",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\dfrac{2^{5} \\cdot 2^{3}}{2^{4}}$" },
+        { "letra": "b", "puntos": 0, "tarea": "$(3^{2})^{4}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\left(\\dfrac{5^{3}}{5^{2}}\\right)^{2}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-numeros-reales", "BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-3",
+      "numero": 3,
+      "titulo": "Calcula el valor (aprox. amb 2 decimals si cal)",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/3.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-3",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\sqrt{75}$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\sqrt[3]{0{,}008}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\dfrac{1}{\\sqrt[4]{16}}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-numeros-reales", "BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico", "calculo_numerico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-4",
+      "numero": 4,
+      "titulo": "Expressa amb potències de base $10$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/4.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-4",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$1\\,000\\,000$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\dfrac{1}{1000}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\sqrt{0{,}01}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-numeros-reales", "BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-5",
+      "numero": 5,
+      "titulo": "Calcula el resultat (potències d'exponent fraccionari)",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/5.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-5",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$9^{1/2}$" },
+        { "letra": "b", "puntos": 0, "tarea": "$27^{2/3}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$32^{-3/5}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-numeros-reales", "BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-6",
+      "numero": 6,
+      "titulo": "Escriu en forma de potència la definició de logaritme",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/6.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-6",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\log_{2} 8 = x$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\log_{10} 0{,}01 = y$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\log_{5} 25 = z$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-7",
+      "numero": 7,
+      "titulo": "Resol per $x$ aplicant la definició de logaritme",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/7.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-7",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\log_{3} x = 4$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\log_{10} x = -2$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\log_{7} x = 0$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-8",
+      "numero": 8,
+      "titulo": "Troba el valor dels logaritmes senzills",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/8.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-8",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\log_{2} 16$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\log_{4} 64$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\log_{5} 1$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-9",
+      "numero": 9,
+      "titulo": "Equacions exponencials senzilles",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/9.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-9",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$2^{x} = 32$" },
+        { "letra": "b", "puntos": 0, "tarea": "$10^{y} = 0{,}001$" },
+        { "letra": "c", "puntos": 0, "tarea": "$5^{z} = 1$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-ecuaciones", "BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-10",
+      "numero": 10,
+      "titulo": "Escriu en forma de logaritme les igualtats",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/10.html",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html#ex-10",
+      "puntuacion": 0,
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$3^{2} = 9$" },
+        { "letra": "b", "puntos": 0, "tarea": "$10^{-3} = 0{,}001$" },
+        { "letra": "c", "puntos": 0, "tarea": "$7^{0} = 1$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-potencias"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
       "id": "2526-1btl-macs-u01-classe-22",
       "numero": 22,
       "titulo": "Operacions amb potències i arrels",

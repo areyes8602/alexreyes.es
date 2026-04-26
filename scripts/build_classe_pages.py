@@ -103,12 +103,39 @@ def extract_exercise_block(apunt_path: Path, anchor: str) -> tuple[str, str] | N
     else:
         body = '<div class="exercise" id="' + anchor + '">' + m.group("body") + "</div>"
 
-    # Extreure les dues seccions
+    # ── Format estàndard: <div class="exercise-statement">…</div> + <details>…<div class="solution">…</div></details>
     stmt = re.search(r'<div class="exercise-statement">(.*?)</div>\s*(?=<details|</div>)', body, flags=re.DOTALL)
     sol = re.search(r'<details>\s*<summary[^>]*>.*?</summary>\s*<div class="solution">(.*?)</div>\s*</details>', body, flags=re.DOTALL)
-    statement_html = stmt.group(1).strip() if stmt else ""
-    solution_html = sol.group(1).strip() if sol else ""
-    return statement_html, solution_html
+    if stmt and sol:
+        return stmt.group(1).strip(), sol.group(1).strip()
+
+    # ── Format per-apartado (apunt 05): cada apartat és un .apart > details amb summary (enunciat)
+    #     i un .apart-solution (solució). Reconstruïm un statement+solution combinats.
+    apart_re = re.compile(
+        r'<div class="apart">\s*<details>\s*<summary>(?P<sum>.*?)</summary>\s*<div class="apart-solution">(?P<sol>.*?)</div>\s*</details>\s*</div>',
+        flags=re.DOTALL,
+    )
+    aparts = list(apart_re.finditer(body))
+    if aparts:
+        # Intro opcional (.exercise-intro)
+        intro_match = re.search(r'<p class="exercise-intro">(.*?)</p>', body, flags=re.DOTALL)
+        intro_html = f'<p class="note">{intro_match.group(1).strip()}</p>' if intro_match else ''
+
+        stmt_items = []
+        sol_blocks = []
+        for a in aparts:
+            summary = a.group('sum').strip()
+            sol_html = a.group('sol').strip()
+            # El summary porta <span class="letter">a)</span> <span class="stmt">…</span>
+            stmt_items.append(f'<li>{summary}</li>')
+            sol_blocks.append(
+                f'<div class="apartado-sol"><h4>{summary}</h4>{sol_html}</div>'
+            )
+        statement_html = intro_html + '<ol class="apartados">\n' + '\n'.join(stmt_items) + '\n</ol>'
+        solution_html = '\n'.join(sol_blocks)
+        return statement_html, solution_html
+
+    return "", ""
 
 
 PAGE_TPL = """<!DOCTYPE html>
