@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Deures · Polinomis · 1r BTL CCSS</title>
+<meta name="description" content="Deures de Polinomis (Mat. Aplicades CCSS 1r BTL): valor numèric, divisibilitat, divisió per Ruffini, polinomi a partir d'arrels i factoritzacions — tots resolts.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.exercise { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+.exercise-num { background: #6366f1; color: #fff; font-family: var(--mono); font-size: 0.78rem; font-weight: 700; padding: 0.18rem 0.55rem; border-radius: 4px; }
+.exercise-title { font-size: 0.92rem; color: var(--text-soft); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.exercise-statement { font-size: 0.96rem; line-height: 1.55; }
+details.solution { margin-top: 0.9rem; border-top: 1px dashed var(--border); padding-top: 0.6rem; }
+details.solution > summary { cursor: pointer; font-size: 0.82rem; color: #047857; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.35rem 0.6rem; border-radius: 4px; background: rgba(16,185,129,0.08); display: inline-block; user-select: none; transition: background 0.15s; list-style: none; }
+details.solution > summary::-webkit-details-marker { display: none; }
+details.solution > summary::before { content: "▸"; display: inline-block; margin-right: 0.4rem; transition: transform 0.15s; font-size: 0.7rem; }
+details.solution[open] > summary::before { transform: rotate(90deg); }
+details.solution > summary:hover { background: rgba(16,185,129,0.14); }
+details.solution[open] > summary { background: rgba(16,185,129,0.18); }
+.solution-body { padding: 0.7rem 0.4rem 0.2rem; font-size: 0.94rem; line-height: 1.55; }
+.solution-body p { margin: 0.4rem 0; }
+.subitems { display: grid; grid-template-columns: 1fr; gap: 0.7rem; margin-top: 0.6rem; }
+.subitem { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.7rem 0.9rem; }
+.subitem-head { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.3rem; }
+.subitem-letter { background: #b45309; color: #fff; font-family: var(--mono); font-size: 0.7rem; font-weight: 700; padding: 0.12rem 0.45rem; border-radius: 3px; min-width: 1.2rem; text-align: center; }
+.note { font-size: 0.9rem; color: var(--text-soft); }
+.ruffini { font-family: var(--mono); font-size: 0.95rem; line-height: 1.65; margin: 0.6rem auto; display: table; border-collapse: collapse; }
+.ruffini td { padding: 0.18rem 0.55rem; text-align: center; min-width: 2.4rem; }
+.ruffini .root-cell { color: #047857; font-weight: 700; padding-right: 0.7rem; border-right: 2px solid var(--text-soft); }
+.ruffini .row-result td { font-weight: 700; }
+.ruffini .row-sep td { border-bottom: 1.5px solid var(--text-soft); padding: 0; }
+.ruffini .zero-cell { color: #047857; }
+.ruffini .res-cell { color: #be123c; }
+[data-theme="dark"] details.solution > summary { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] details.solution > summary:hover { background: rgba(16,185,129,0.22); }
+.exercise:target { box-shadow: 0 0 0 2px #6366f1; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-polinomis/">Polinomis</a>
+      <span class="sep">/</span>
+      <span class="current">03 · Deures</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Polinomis</span>
+        <span class="tag tag-orange">Deures</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">17 oct 2025</span>
+      </div>
+      <h1 style="margin:0">3. Deures</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Cinc exercicis (3, 6, 7, 9 i 14) sobre valor numèric, divisibilitat, divisió per Ruffini, construcció de polinomis i factorització. Cada solució està amagada — clica el botó verd per veure-la.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ EX 3 ============ -->
+      <div class="exercise" id="ex-3">
+        <div class="exercise-head">
+          <span class="exercise-num">Ex. 3</span>
+          <span class="exercise-title">Valor numèric</span>
+        </div>
+        <p class="exercise-statement">Calcula el valor de $a$ sabent que el valor numèric de $\;Q(x) = 2x^{3} + ax^{2} - x + 15\;$ per a $x=-2$ és $-11$.</p>
+
+        <details class="solution">
+          <summary>Veure solució</summary>
+          <div class="solution-body">
+            <p>Substituïm $x=-2$ a $Q(x)$ i imposem que el resultat sigui $-11$:</p>
+            <div class="math-block">
+              $$Q(-2) = 2(-2)^{3} + a(-2)^{2} - (-2) + 15 = -16 + 4a + 2 + 15 = 4a + 1.$$
+            </div>
+            <p>Igualem a $-11$ i aïllem $a$:</p>
+            <div class="math-block">
+              $$4a + 1 = -11 \;\Longrightarrow\; 4a = -12 \;\Longrightarrow\; \boxed{\,a = -3.\,}$$
+            </div>
+            <p class="note">Comprovació: $Q(-2)=2(-8)+(-3)(4)-(-2)+15=-16-12+2+15=-11$. ✓</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ============ EX 6 ============ -->
+      <div class="exercise" id="ex-6">
+        <div class="exercise-head">
+          <span class="exercise-num">Ex. 6</span>
+          <span class="exercise-title">Divisibilitat</span>
+        </div>
+        <p class="exercise-statement">Calcula el valor de $m$ perquè el polinomi $\;P(x) = 2x^{3} - 3mx^{2} + x + 3\;$ sigui divisible entre $x+1$.</p>
+
+        <details class="solution">
+          <summary>Veure solució</summary>
+          <div class="solution-body">
+            <p>Pel teorema del residu, $P(x)$ és divisible entre $x+1=x-(-1)$ si i només si $P(-1)=0$:</p>
+            <div class="math-block">
+              $$P(-1) = 2(-1)^{3} - 3m(-1)^{2} + (-1) + 3 = -2 - 3m - 1 + 3 = -3m.$$
+            </div>
+            <p>Imposem la condició:</p>
+            <div class="math-block">
+              $$-3m = 0 \;\Longrightarrow\; \boxed{\,m = 0.\,}$$
+            </div>
+            <p class="note">Comprovació: amb $m=0$ tenim $P(x)=2x^{3}+x+3$, i $P(-1)=-2-1+3=0$. ✓</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ============ EX 7 ============ -->
+      <div class="exercise" id="ex-7">
+        <div class="exercise-head">
+          <span class="exercise-num">Ex. 7</span>
+          <span class="exercise-title">Divisió per Ruffini</span>
+        </div>
+        <p class="exercise-statement">Considera els polinomis següents i fes la divisió de $P(x)$ i $Q(x)$ entre $S(x)$ i $T(x)$ aplicant la regla de Ruffini:</p>
+        <ul style="margin:0.4rem 0">
+          <li>$P(x) = 3x^{5} - 2x^{4} + x^{3} - 2x + 1$</li>
+          <li>$Q(x) = -x^{5} - x^{2} + 3x$</li>
+          <li>$S(x) = x - 2$</li>
+          <li>$T(x) = x + \tfrac{1}{2}$</li>
+        </ul>
+
+        <details class="solution">
+          <summary>Veure solució</summary>
+          <div class="solution-body">
+
+            <p><strong>1) $P(x) \div S(x)$ &nbsp;(arrel a provar: $a=2$).</strong> Coeficients de $P$: $3,\,-2,\,1,\,0,\,-2,\,1$.</p>
+            <table class="ruffini">
+              <tr><td></td><td>$3$</td><td>$-2$</td><td>$1$</td><td>$0$</td><td>$-2$</td><td>$1$</td></tr>
+              <tr><td class="root-cell">$2$</td><td></td><td>$6$</td><td>$8$</td><td>$18$</td><td>$36$</td><td>$68$</td></tr>
+              <tr class="row-sep"><td colspan="7"></td></tr>
+              <tr class="row-result"><td></td><td>$3$</td><td>$4$</td><td>$9$</td><td>$18$</td><td>$34$</td><td class="res-cell">$69$</td></tr>
+            </table>
+            <div class="math-block">
+              $$P(x) = (x-2)(3x^{4} + 4x^{3} + 9x^{2} + 18x + 34) + 69.$$
+            </div>
+
+            <p><strong>2) $P(x) \div T(x)$ &nbsp;(arrel a provar: $a=-\tfrac{1}{2}$).</strong></p>
+            <table class="ruffini">
+              <tr><td></td><td>$3$</td><td>$-2$</td><td>$1$</td><td>$0$</td><td>$-2$</td><td>$1$</td></tr>
+              <tr><td class="root-cell">$-\tfrac{1}{2}$</td><td></td><td>$-\tfrac{3}{2}$</td><td>$\tfrac{7}{4}$</td><td>$-\tfrac{11}{8}$</td><td>$\tfrac{11}{16}$</td><td>$\tfrac{21}{32}$</td></tr>
+              <tr class="row-sep"><td colspan="7"></td></tr>
+              <tr class="row-result"><td></td><td>$3$</td><td>$-\tfrac{7}{2}$</td><td>$\tfrac{11}{4}$</td><td>$-\tfrac{11}{8}$</td><td>$-\tfrac{21}{16}$</td><td class="res-cell">$\tfrac{53}{32}$</td></tr>
+            </table>
+            <div class="math-block">
+              $$P(x) = \left(x+\tfrac{1}{2}\right)\!\left(3x^{4} - \tfrac{7}{2}x^{3} + \tfrac{11}{4}x^{2} - \tfrac{11}{8}x - \tfrac{21}{16}\right) + \tfrac{53}{32}.$$
+            </div>
+
+            <p><strong>3) $Q(x) \div S(x)$ &nbsp;(arrel a provar: $a=2$).</strong> Coeficients de $Q$: $-1,\,0,\,0,\,-1,\,3,\,0$.</p>
+            <table class="ruffini">
+              <tr><td></td><td>$-1$</td><td>$0$</td><td>$0$</td><td>$-1$</td><td>$3$</td><td>$0$</td></tr>
+              <tr><td class="root-cell">$2$</td><td></td><td>$-2$</td><td>$-4$</td><td>$-8$</td><td>$-18$</td><td>$-30$</td></tr>
+              <tr class="row-sep"><td colspan="7"></td></tr>
+              <tr class="row-result"><td></td><td>$-1$</td><td>$-2$</td><td>$-4$</td><td>$-9$</td><td>$-15$</td><td class="res-cell">$-30$</td></tr>
+            </table>
+            <div class="math-block">
+              $$Q(x) = (x-2)(-x^{4} - 2x^{3} - 4x^{2} - 9x - 15) - 30.$$
+            </div>
+
+            <p><strong>4) $Q(x) \div T(x)$ &nbsp;(arrel a provar: $a=-\tfrac{1}{2}$).</strong></p>
+            <table class="ruffini">
+              <tr><td></td><td>$-1$</td><td>$0$</td><td>$0$</td><td>$-1$</td><td>$3$</td><td>$0$</td></tr>
+              <tr><td class="root-cell">$-\tfrac{1}{2}$</td><td></td><td>$\tfrac{1}{2}$</td><td>$-\tfrac{1}{4}$</td><td>$\tfrac{1}{8}$</td><td>$\tfrac{7}{16}$</td><td>$-\tfrac{55}{32}$</td></tr>
+              <tr class="row-sep"><td colspan="7"></td></tr>
+              <tr class="row-result"><td></td><td>$-1$</td><td>$\tfrac{1}{2}$</td><td>$-\tfrac{1}{4}$</td><td>$-\tfrac{7}{8}$</td><td>$\tfrac{55}{16}$</td><td class="res-cell">$-\tfrac{55}{32}$</td></tr>
+            </table>
+            <div class="math-block">
+              $$Q(x) = \left(x+\tfrac{1}{2}\right)\!\left(-x^{4} + \tfrac{1}{2}x^{3} - \tfrac{1}{4}x^{2} - \tfrac{7}{8}x + \tfrac{55}{16}\right) - \tfrac{55}{32}.$$
+            </div>
+
+            <p class="note">Cap dels quatre residus és zero, així que ni $S$ ni $T$ són factors de $P$ o $Q$.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ============ EX 9 ============ -->
+      <div class="exercise" id="ex-9">
+        <div class="exercise-head">
+          <span class="exercise-num">Ex. 9</span>
+          <span class="exercise-title">Polinomi a partir d'arrels</span>
+        </div>
+        <p class="exercise-statement">Un polinomi té per arrels $-1$ i $2$, la segona de les quals és una arrel doble. Escriu l'expressió algebraica d'aquest polinomi sabent que $P(0) = 12$.</p>
+
+        <details class="solution">
+          <summary>Veure solució</summary>
+          <div class="solution-body">
+            <p>Si $-1$ és arrel simple i $2$ és arrel doble, els factors del polinomi són $(x+1)$ i $(x-2)^{2}$. Com que ens en falta el coeficient principal, l'escrivim com a $a$:</p>
+            <div class="math-block">
+              $$P(x) = a\,(x+1)(x-2)^{2}.$$
+            </div>
+            <p>Imposem la condició $P(0) = 12$:</p>
+            <div class="math-block">
+              $$P(0) = a \cdot (0+1) \cdot (0-2)^{2} = a \cdot 1 \cdot 4 = 4a = 12 \;\Longrightarrow\; a = 3.$$
+            </div>
+            <p>Per tant:</p>
+            <div class="math-block">
+              $$\boxed{\,P(x) = 3\,(x+1)(x-2)^{2}.\,}$$
+            </div>
+            <p>Si l'expandim:</p>
+            <div class="math-block">
+              $$(x-2)^{2} = x^{2} - 4x + 4,\quad (x+1)(x^{2}-4x+4) = x^{3} - 3x^{2} + 4,$$
+            </div>
+            <div class="math-block">
+              $$P(x) = 3x^{3} - 9x^{2} + 12.$$
+            </div>
+            <p class="note">Comprovació: $P(-1) = -3 - 9 + 12 = 0$ ✓, &nbsp;$P(2) = 24 - 36 + 12 = 0$ ✓, &nbsp;$P(0) = 12$ ✓.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ============ EX 14 ============ -->
+      <div class="exercise" id="ex-14">
+        <div class="exercise-head">
+          <span class="exercise-num">Ex. 14</span>
+          <span class="exercise-title">Factoritza els polinomis següents</span>
+        </div>
+
+        <div class="subitems">
+
+          <!-- 14a -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">a</span>
+              <span class="exercise-statement">$\;P(x) = 16x^{2} + 8x + 1$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>$\Delta = 8^{2} - 4 \cdot 16 \cdot 1 = 64 - 64 = 0$ &nbsp;⇒&nbsp; arrel doble:</p>
+                <div class="math-block">
+                  $$x = \dfrac{-8 \pm \sqrt{0}}{2 \cdot 16} = -\dfrac{1}{4}.$$
+                </div>
+                <p>Per tant:</p>
+                <div class="math-block">
+                  $$\boxed{\,P(x) = 16\!\left(x+\tfrac{1}{4}\right)^{\!2} = (4x+1)^{2}.\,}$$
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14b -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">b</span>
+              <span class="exercise-statement">$\;Q(y) = y^{2} + \tfrac{5y}{6} + \tfrac{1}{6}$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>Multipliquem tot per $6$ per treure els denominadors i resoldre l'equació $\;6y^{2}+5y+1=0$:</p>
+                <div class="math-block">
+                  $$y = \dfrac{-5 \pm \sqrt{25-24}}{12} = \dfrac{-5 \pm 1}{12}.$$
+                </div>
+                <p>Arrels: $\;y_{1} = -\tfrac{1}{3},\; y_{2} = -\tfrac{1}{2}$. Com que el coeficient principal de $Q$ és $1$:</p>
+                <div class="math-block">
+                  $$\boxed{\,Q(y) = \left(y+\tfrac{1}{3}\right)\!\left(y+\tfrac{1}{2}\right).\,}$$
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14c -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">c</span>
+              <span class="exercise-statement">$\;R(x) = 3x^{3} + x^{2} - 12x - 4$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>Provem $a=2$ amb Ruffini sobre $3,\,1,\,-12,\,-4$:</p>
+                <table class="ruffini">
+                  <tr><td></td><td>$3$</td><td>$1$</td><td>$-12$</td><td>$-4$</td></tr>
+                  <tr><td class="root-cell">$2$</td><td></td><td>$6$</td><td>$14$</td><td>$4$</td></tr>
+                  <tr class="row-sep"><td colspan="5"></td></tr>
+                  <tr class="row-result"><td></td><td>$3$</td><td>$7$</td><td>$2$</td><td class="zero-cell">$0$</td></tr>
+                </table>
+                <p>$R(x) = (x-2)(3x^{2}+7x+2)$. Factoritzem el segon factor:</p>
+                <div class="math-block">
+                  $$x = \dfrac{-7 \pm \sqrt{49-24}}{6} = \dfrac{-7 \pm 5}{6} \;\Rightarrow\; x_{1}=-\tfrac{1}{3},\; x_{2}=-2.$$
+                </div>
+                <p>Així $\;3x^{2}+7x+2 = 3\!\left(x+\tfrac{1}{3}\right)(x+2)\;$ i:</p>
+                <div class="math-block">
+                  $$\boxed{\,R(x) = 3\,(x-2)(x+2)\!\left(x+\tfrac{1}{3}\right).\,}$$
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14d -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">d</span>
+              <span class="exercise-statement">$\;S(x) = x^{2} - x^{4}$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>Factor comú $-x^{2}$ (o equivalentment $x^{2}$ amb un signe global), i diferència de quadrats:</p>
+                <div class="math-block">
+                  $$S(x) = -x^{4} + x^{2} = -x^{2}(x^{2}-1) = -x^{2}(x-1)(x+1).$$
+                </div>
+                <div class="math-block">
+                  $$\boxed{\,S(x) = -x^{2}(x-1)(x+1).\,}$$
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14e -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">e</span>
+              <span class="exercise-statement">$\;T(x) = x^{2} + x^{4}$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>Treiem $x^{2}$ com a factor comú:</p>
+                <div class="math-block">
+                  $$T(x) = x^{2}\,(1 + x^{2}).$$
+                </div>
+                <p>El factor $\,x^{2}+1\,$ té $\Delta = -4 < 0$, així que és <strong>irreductible</strong> en els reals i ja no es pot descompondre més:</p>
+                <div class="math-block">
+                  $$\boxed{\,T(x) = x^{2}\,(x^{2}+1).\,}$$
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14f -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">f</span>
+              <span class="exercise-statement">$\;U(x) = x^{4} - 5x^{2} + 4$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>És una <em>biquadràtica</em>: fem el canvi $u = x^{2}$ i resolem $u^{2} - 5u + 4 = 0$:</p>
+                <div class="math-block">
+                  $$u = \dfrac{5 \pm \sqrt{25-16}}{2} = \dfrac{5 \pm 3}{2} \;\Rightarrow\; u_{1}=4,\; u_{2}=1.$$
+                </div>
+                <p>Així $\;U(x) = (x^{2}-1)(x^{2}-4)\;$ i, fent diferència de quadrats a cadascun:</p>
+                <div class="math-block">
+                  $$\boxed{\,U(x) = (x-1)(x+1)(x-2)(x+2).\,}$$
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14g -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">g</span>
+              <span class="exercise-statement">$\;V(x) = 6x^{5} - 5x^{4} - x^{2} + 2x$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>Factor comú $x$:</p>
+                <div class="math-block">
+                  $$V(x) = x\,(6x^{4} - 5x^{3} - x + 2).$$
+                </div>
+                <p>El segon factor no té cap arrel racional — comprovat provant tots els divisors enters i fraccionaris del terme independent ($\pm 1, \pm 2, \pm \tfrac{1}{2}, \pm \tfrac{1}{3}, \pm \tfrac{1}{6}, \pm \tfrac{2}{3}$): cap dóna residu zero. A més, és sempre positiu (mínim $\approx 1{,}02$ a $x \approx 0{,}71$), o sigui que tampoc té arrels reals.</p>
+                <p>La factorització "de mà" arriba fins aquí:</p>
+                <div class="math-block">
+                  $$\boxed{\,V(x) = x\,(6x^{4} - 5x^{3} - x + 2).\,}$$
+                </div>
+                <p class="note">Per anar més enllà cal GeoGebra o calculadora — l'enunciat ho dóna a entendre quan diu "comprova amb GeoGebra els resultats obtinguts".</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14h -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">h</span>
+              <span class="exercise-statement">$\;W(x) = x^{3} - \tfrac{9}{2}x^{2} + \tfrac{3}{2}x + 2$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>Per evitar fraccions a Ruffini, factoritzem $\;2W(x) = 2x^{3} - 9x^{2} + 3x + 4\;$ i, al final, dividim per $2$. Provem $a=1$:</p>
+                <table class="ruffini">
+                  <tr><td></td><td>$2$</td><td>$-9$</td><td>$3$</td><td>$4$</td></tr>
+                  <tr><td class="root-cell">$1$</td><td></td><td>$2$</td><td>$-7$</td><td>$-4$</td></tr>
+                  <tr class="row-sep"><td colspan="5"></td></tr>
+                  <tr class="row-result"><td></td><td>$2$</td><td>$-7$</td><td>$-4$</td><td class="zero-cell">$0$</td></tr>
+                </table>
+                <p>$\;2W(x) = (x-1)(2x^{2}-7x-4)$. Resolem $\;2x^{2}-7x-4=0$:</p>
+                <div class="math-block">
+                  $$x = \dfrac{7 \pm \sqrt{49+32}}{4} = \dfrac{7 \pm 9}{4} \;\Rightarrow\; x_{1}=4,\; x_{2}=-\tfrac{1}{2}.$$
+                </div>
+                <p>Llavors $\;2x^{2}-7x-4 = 2(x-4)\!\left(x+\tfrac{1}{2}\right)\;$, així que $\;2W(x) = 2(x-1)(x-4)\!\left(x+\tfrac{1}{2}\right)\;$ i:</p>
+                <div class="math-block">
+                  $$\boxed{\,W(x) = (x-1)(x-4)\!\left(x+\tfrac{1}{2}\right).\,}$$
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14i -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">i</span>
+              <span class="exercise-statement">$\;Y(x) = 2x - 8x^{3}$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>Factor comú $2x$:</p>
+                <div class="math-block">
+                  $$Y(x) = 2x\,(1 - 4x^{2}).$$
+                </div>
+                <p>$1-4x^{2}$ és una diferència de quadrats: $\;1-(2x)^{2} = (1-2x)(1+2x)$. Per tant:</p>
+                <div class="math-block">
+                  $$\boxed{\,Y(x) = 2x\,(1-2x)(1+2x).\,}$$
+                </div>
+                <p class="note">Equivalentment, $\;Y(x) = -8x\!\left(x-\tfrac{1}{2}\right)\!\!\left(x+\tfrac{1}{2}\right)\;$ — recupera el coeficient principal $-8$ del polinomi original.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- 14j -->
+          <div class="subitem">
+            <div class="subitem-head">
+              <span class="subitem-letter">j</span>
+              <span class="exercise-statement">$\;Z(x) = x^{3} - 4x^{2} + 4x$</span>
+            </div>
+            <details class="solution">
+              <summary>Veure solució</summary>
+              <div class="solution-body">
+                <p>Factor comú $x$ i, després, quadrat de la resta $a^{2}-2ab+b^{2}=(a-b)^{2}$ amb $a=x,\,b=2$:</p>
+                <div class="math-block">
+                  $$Z(x) = x\,(x^{2}-4x+4) = x\,(x-2)^{2}.$$
+                </div>
+                <div class="math-block">
+                  $$\boxed{\,Z(x) = x\,(x-2)^{2}.\,}$$
+                </div>
+              </div>
+            </details>
+          </div>
+
+        </div><!-- /subitems -->
+      </div><!-- /ex 14 -->
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-polinomis/02-factoritzacio.html">&larr; 02 · Factorització</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-polinomis/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
