@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. Definicions prèvies · Probabilitat · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de probabilitat per a Mat. Aplicades CCSS 1r BTL: experiments aleatoris, espai mostral, successos, cardinal i llei de Laplace.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/01-definicions-previes.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.prob-scale { margin: 1rem 0; padding: 1.2rem 0.4rem 0.6rem; background: var(--bg-subtle); border-radius: 8px; text-align: center; }
+.prob-scale svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/">Probabilitat</a>
+      <span class="sep">/</span>
+      <span class="current">01 · Definicions prèvies</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Probabilitat</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">17 abr 2026</span>
+      </div>
+      <h1 style="margin:0">1. Definicions prèvies</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Vocabulari bàsic per parlar de probabilitat: experiments deterministes i aleatoris, espai mostral, successos, cardinal i llei de Laplace.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Experiments deterministes i aleatoris</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Un <strong>experiment determinista</strong> és una acció de la qual podem saber el resultat <strong>abans</strong> de realitzar l'acció.</p>
+        </div>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Un <strong>experiment aleatori</strong> és una acció amb més d'un possible resultat i que <strong>no es pot predir</strong> abans de fer l'acció.</p>
+        </div>
+
+        <p class="note">A partir d'ara treballarem sempre amb experiments aleatoris (E.A.).</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Esdeveniment o succés elemental</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Són cadascun dels <strong>possibles resultats</strong> d'un experiment aleatori.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Sigui l'experiment aleatori $E.A. = \{\text{llençar un dau cúbic}\}$. Els successos elementals són:</p>
+          <p style="text-align:center">
+            $S_1 = \{1\}$, &nbsp; $S_2 = \{2\}$, &nbsp; $S_3 = \{3\}$, &nbsp; $S_4 = \{4\}$, &nbsp; $S_5 = \{5\}$, &nbsp; $S_6 = \{6\}$
+          </p>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Espai mostral $E$</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>És el <strong>conjunt de tots els possibles resultats</strong> d'un experiment aleatori.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Per al dau cúbic anterior:</p>
+          <p style="text-align:center">$E = \{1, 2, 3, 4, 5, 6\}$</p>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Esdeveniment o succés</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Qualsevol <strong>unió de successos elementals</strong>.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Per al dau cúbic, el succés "treure parell" es pot escriure:</p>
+          <p style="text-align:center">$A = \{2, 4, 6\} = \{\text{"treure parell"}\}$</p>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Cardinal d'un conjunt</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>El <strong>cardinal</strong> d'un conjunt és el nombre d'elements que el formen. S'escriu $n(\cdot)$.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Si $A = \{2, 4, 6\}$ i $E = \{1, 2, 3, 4, 5, 6\}$, llavors:</p>
+          <p style="text-align:center">$n(A) = 3$ &nbsp;&nbsp; i &nbsp;&nbsp; $n(E) = 6$</p>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Llei de Laplace</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Sigui $A$ un succés i $E$ el seu espai mostral. La <strong>probabilitat</strong> de $A$ és:</p>
+          <div class="math-block" style="margin:0.8rem 0 0;padding:0.6rem">
+            $$P(A) = \dfrac{n(A)}{n(E)} = \dfrac{\text{casos favorables d'}A}{\text{casos possibles}}$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Per al succés $A = \{\text{"treure parell"}\}$ amb un dau cúbic:</p>
+          <div class="math-block" style="margin:0.8rem 0 0;padding:0.6rem">
+            $$P(A) = \dfrac{n(A)}{n(E)} = \dfrac{3}{6} = \dfrac{1}{2} = 0{,}5 \;=\; 50\%$$
+          </div>
+          <p class="note" style="margin-top:0.6rem">⚠ La llei de Laplace només s'aplica si <strong>tots els resultats elementals són igualment possibles</strong> (un dau no trucat, una moneda equilibrada, etc.).</p>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Què és la probabilitat d'un succés?</h2>
+
+        <div class="def-box">
+          <h3>Idea</h3>
+          <p>És un <strong>nombre entre 0 i 1</strong> que mesura les possibilitats que té el succés $A$ com a resultat de l'experiment aleatori.</p>
+        </div>
+
+        <div class="prob-scale">
+          <svg viewBox="0 0 480 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escala de probabilitat de 0 a 1">
+            <!-- Eix horitzontal -->
+            <line x1="40" y1="80" x2="440" y2="80" stroke="#1d4ed8" stroke-width="2"/>
+            <polygon points="440,80 432,75 432,85" fill="#1d4ed8"/>
+            <!-- Cercles 0 i 1 -->
+            <circle cx="40" cy="80" r="14" fill="none" stroke="#059669" stroke-width="2.5"/>
+            <text x="40" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#059669">0</text>
+            <circle cx="420" cy="80" r="14" fill="none" stroke="#059669" stroke-width="2.5"/>
+            <text x="420" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#059669">1</text>
+            <!-- Etiquetes Impossible / Segur -->
+            <text x="40" y="115" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#059669">Impossible</text>
+            <text x="420" y="115" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#059669">Segur</text>
+            <!-- Etiquetes menys / més possible -->
+            <text x="140" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#be185d">← menys possible</text>
+            <text x="320" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#be185d">més possible →</text>
+            <!-- Marcador 0.5 -->
+            <line x1="230" y1="74" x2="230" y2="86" stroke="#1d4ed8" stroke-width="2"/>
+            <text x="230" y="105" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--text-soft)">0,5</text>
+          </svg>
+        </div>
+
+        <p class="note">Així doncs: si $P(A) = 0$ el succés és impossible; si $P(A) = 1$ és segur; i com més proper a 1, més probable.</p>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Apartat anterior</span>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-probabilitat/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
