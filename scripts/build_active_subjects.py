@@ -564,14 +564,8 @@ function buildSectionCard(href, icon, label) {{
 }}
 const TRIM_CLASS = {{ '1a':'tag-orange', '2a':'tag-purple', '3a':'tag-gray' }};
 function buildUnit(u, examsByUnit) {{
-  // Dins d'una unitat ordenem per data ascendent (Parcial 1 abans del Parcial 2, etc.).
-  // Si dues col·leccions tenen la mateixa data, agafem com a desempat l'id en ordre descendent
-  // (per exemple, 't1t' apareix abans que 'g1' a igualtat de data).
-  const exs = (examsByUnit[u.num]||[]).sort((a,b) => {{
-    const d = (a.col.fecha||'').localeCompare(b.col.fecha||'');
-    if (d !== 0) return d;
-    return (b.col.id||'').localeCompare(a.col.id||'');
-  }});
+  // Dins d'una unitat ordenem per data ascendent: Parcial 1 abans del Parcial 2, simulacre abans del global, etc.
+  const exs = (examsByUnit[u.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
   const examCount = exs.length;
   const sections = [
     buildSectionCard(u.apunts, '📄', LABELS_JS.section_card_apunts),
@@ -617,7 +611,8 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
       else {{ globals.push(entry); }}
     }}
     document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, byUnit)).join('');
-    globals.sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+    // Globals també ordenats cronològicament (ASC) perquè Global 1a sortí abans que Global 2a, etc.
+    globals.sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
     const cont = document.getElementById('globals-list');
     const count = document.getElementById('globals-count');
     if (globals.length === 0) {{
@@ -756,13 +751,8 @@ function buildSectionCard(href, icon, label) {{
 }}
 function buildChapter(ch, nivel, byUnit) {{
   const hlOnly = nivel === 'sl' && !ch.sl;
-  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.);
-  // si coincideix data, desempatem per id descendent.
-  const exs = (byUnit[ch.num]||[]).sort((a,b) => {{
-    const d = (a.col.fecha||'').localeCompare(b.col.fecha||'');
-    if (d !== 0) return d;
-    return (b.col.id||'').localeCompare(a.col.id||'');
-  }});
+  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.).
+  const exs = (byUnit[ch.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
   const examCount = exs.length;
   const sections = [
     buildSectionCard(ch.apuntes, '📄', LABELS_JS.section_card_apunts),
@@ -815,7 +805,8 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
     const params = new URLSearchParams(window.location.search);
     if (params.get('nivel') === 'sl') document.querySelectorAll('.promo-tab')[1].click();
 
-    globals.sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+    // Globals també ordenats cronològicament (ASC).
+    globals.sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
     const cont = document.getElementById('globals-list');
     const count = document.getElementById('globals-count');
     if (globals.length === 0) {{

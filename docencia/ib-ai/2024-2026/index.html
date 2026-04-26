@@ -136,13 +136,8 @@ function buildSectionCard(href, icon, label) {
 }
 function buildChapter(ch, nivel, byUnit) {
   const hlOnly = nivel === 'sl' && !ch.sl;
-  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.);
-  // si coincideix data, desempatem per id descendent.
-  const exs = (byUnit[ch.num]||[]).sort((a,b) => {
-    const d = (a.col.fecha||'').localeCompare(b.col.fecha||'');
-    if (d !== 0) return d;
-    return (b.col.id||'').localeCompare(a.col.id||'');
-  });
+  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.).
+  const exs = (byUnit[ch.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
   const examCount = exs.length;
   const sections = [
     buildSectionCard(ch.apuntes, '📄', LABELS_JS.section_card_apunts),
@@ -195,7 +190,8 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     const params = new URLSearchParams(window.location.search);
     if (params.get('nivel') === 'sl') document.querySelectorAll('.promo-tab')[1].click();
 
-    globals.sort((a,b) => (b.col.fecha||'').localeCompare(a.col.fecha||''));
+    // Globals també ordenats cronològicament (ASC).
+    globals.sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
     const cont = document.getElementById('globals-list');
     const count = document.getElementById('globals-count');
     if (globals.length === 0) {

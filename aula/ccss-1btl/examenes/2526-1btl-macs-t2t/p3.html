@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 · Funció racional: monotonia i simetria — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 3 de l'examen Global 2a Avaluació de Mat. Aplicades a CCSS de 1r BTL: domini, monotonia, simetria i invertibilitat de f(x)=1/(1+x²). Enunciat i correcció.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p3.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/">Global 2a avaluació · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P3</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">25/11/2025</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p4.html">Pregunta següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 3 &middot; Funció $f(x) = \dfrac{1}{1+x^2}$</h1>
+      <p class="question-descriptor">Domini, estudi de la monotonia, simetria i discussió de la invertibilitat.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Considereu la funció $f(x) = \dfrac{1}{1+x^2}$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Esbrina el domini de la funció. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Fes un estudi de monotonia (creixement i decreixement de la funció). <span class="apartado-puntos">0,5 p</span></li>
+          <li>Comprova si té simetria parella o senar. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Argumenta si una funció de simetria parella pot tenir inversa. Completa el procediment d'inversió de la funció i, si escau, modifica-la perquè el resultat sigui una funció. <span class="apartado-puntos">0,5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc D</span>
+        <span class="ib-chip" data-descriptor="Funcions racionals: domini, monotonia, simetria, invertibilitat">Funcions elementals</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p3" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Domini</h4>
+          <p>El denominador és $1+x^2$. Com que $x^2 \ge 0$ per a tot $x \in \mathbb{R}$, tenim $1+x^2 \ge 1 > 0$, i mai s'anul·la.</p>
+          <div class="final">$\text{Dom}(f) = \mathbb{R}$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Estudi de monotonia</h4>
+          <p>Estudiem el signe de $f'(x)$. Aplicant la regla del quocient o, més fàcil, derivant directament $f(x) = (1+x^2)^{-1}$:</p>
+          <div class="math-block">
+            $$f'(x) = -\dfrac{2x}{(1+x^2)^2}$$
+          </div>
+          <p>El denominador $(1+x^2)^2$ és sempre positiu, així que el signe de $f'(x)$ depèn només del numerador $-2x$:</p>
+          <div class="math-block">
+            $$f'(x) > 0 \iff x < 0, \qquad f'(x) < 0 \iff x > 0, \qquad f'(0) = 0$$
+          </div>
+          <div class="final">$f$ és <strong>creixent</strong> a $(-\infty,\,0)$ i <strong>decreixent</strong> a $(0,\,+\infty)$. A $x=0$ té un màxim absolut amb valor $f(0) = 1$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Simetria</h4>
+          <p>Comprovem si és parella ($f(-x) = f(x)$) o senar ($f(-x) = -f(x)$):</p>
+          <div class="math-block">
+            $$f(-x) = \dfrac{1}{1+(-x)^2} = \dfrac{1}{1+x^2} = f(x)$$
+          </div>
+          <div class="final">$f$ és <strong>parella</strong>: la seva gràfica és simètrica respecte de l'eix $OY$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Invertibilitat d'una funció parella</h4>
+          <p class="note"><strong>Argument:</strong> una funció és invertible si i només si és <em>injectiva</em> (a cada $y$ del recorregut li correspon un únic $x$ del domini). Una funció parella compleix $f(-x) = f(x)$, així que <strong>no és injectiva</strong> (excepte en casos trivials), perquè $x$ i $-x$ tenen la mateixa imatge. Per tant, en general una funció parella <strong>no té inversa</strong>.</p>
+          <p>Mirem què passa si intentem invertir-la:</p>
+          <div class="math-block">
+            $$y = \dfrac{1}{1+x^2} \;\;\Longrightarrow\;\; 1 + x^2 = \dfrac{1}{y} \;\;\Longrightarrow\;\; x^2 = \dfrac{1-y}{y} \;\;\Longrightarrow\;\; x = \pm\sqrt{\dfrac{1-y}{y}}$$
+          </div>
+          <p>El signe $\pm$ confirma el problema: per a cada $y$ obtenim dos valors de $x$, així que la relació no és funció.</p>
+          <p><strong>Solució:</strong> restringim el domini a un tros on $f$ sigui injectiva. Triem $x \ge 0$ (on $f$ és decreixent i, per tant, injectiva). Llavors:</p>
+          <div class="math-block">
+            $$f^{-1}(x) = \sqrt{\dfrac{1-x}{x}}, \qquad \text{amb } x \in (0,\,1]$$
+          </div>
+          <p class="note">Domini de $f^{-1}$: el recorregut de $f$ restringida a $[0,+\infty)$ és $(0,1]$ (s'apropa a $0$ però no l'arriba a assolir, i té màxim 1 a $x=0$).</p>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p4.html">Pregunta següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

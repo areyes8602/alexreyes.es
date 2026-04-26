@@ -1,0 +1,234 @@
+{
+  "schema_version": 3,
+  "id": "2526-1btl-macs-t2t",
+  "tipo_coleccion": "examen",
+  "titulo": "Global 2a avaluació — Funcions elementals",
+  "fecha": "2025-11-25",
+  "grupo": "1r BTL",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/original.pdf",
+  "pdf_soluciones": null,
+  "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/",
+  "puntuacion_total": 10,
+  "baremo": null,
+  "tags_coleccion": {
+    "materia": "bach-ccss-1",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "propia",
+    "origen": "examen"
+  },
+  "ejercicios": [
+    {
+      "id": "2526-1btl-macs-t2t-p1",
+      "numero": 1,
+      "titulo": "Optimització: benefici màxim d'un taller de bicicletes",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/original.pdf#page=1",
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Els beneficis diaris, en centenars d'euros, d'un taller de bicicletes són definits per la funció $B(x) = -20x^2 + 50x - 20$, on $x$ són els centenars de bicicletes venudes. El taller només té capacitat per a fabricar 200 bicicletes al dia.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Calculeu el benefici màxim diari que pot obtenir el taller."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Determineu el nombre mínim de bicicletes que ha de fabricar per a no tenir pèrdues."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2t-p2",
+      "numero": 2,
+      "titulo": "Funció racional: domini, talls amb l'eix i inversa",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/original.pdf#page=1",
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Considereu la funció $f(x) = \\dfrac{3x-4}{2x-5}$.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Indiqueu-ne el domini i els punts on la gràfica de la funció $f$ talla l'eix d'abscisses."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Calcula la funció inversa i el recorregut de $f(x)$."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2t-p3",
+      "numero": 3,
+      "titulo": "Funció racional: monotonia, simetria i invertibilitat",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/original.pdf#page=1",
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Considereu la funció $f(x) = \\dfrac{1}{1+x^2}$.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Esbrina el domini de la funció."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Fes un estudi de monotonia (creixement i decreixement de la funció)."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Comprova si té simetria parella o senar."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Argumenta si una funció de simetria parella pot tenir inversa. Completa el procediment d'inversió de la funció i, si escau, modifica-la perquè el resultat sigui una funció."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "demostracion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2t-p4",
+      "numero": 4,
+      "titulo": "Interpolació i extrapolació de dades poblacionals",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p4.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/original.pdf#page=1",
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "La taula recull l'evolució de la població a Espanya, en milions d'habitants:\n\n| Any | 1990 | 2000 | 2010 | 2020 |\n|---|---|---|---|---|\n| Població | 39,4 | 41,1 | 47,0 | 47,3 |",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Estima la població a l'any 2016."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Estima la població a l'any 2027. Quin dels 2 càlculs consideres que té més incertesa?"
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-estadistica-bi",
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "modelizacion",
+          "calculo_numerico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t2t-p5",
+      "numero": 5,
+      "titulo": "Valor absolut, exponencial, logaritme i composició",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p5.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/original.pdf#page=1",
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Donades les funcions $f(x) = |2x - 4| + 2$, $g(x) = 3^x$ i $h(x) = \\log_3(4x - 3)$:",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Expressa la funció $f(x)$ com una funció definida a trossos i fes una representació."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Calcula $(g \\circ h)(x)$ i $(h \\circ g)(1)$."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      }
+    }
+  ]
+}
