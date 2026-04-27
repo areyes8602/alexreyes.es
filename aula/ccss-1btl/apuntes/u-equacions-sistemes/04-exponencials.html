@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4. Equacions exponencials · Equacions i sistemes · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: equacions exponencials. Quatre tipus (potència, productes/quocients, sumes/restes amb factor comú, canvi de variable) amb exemples i 4 exercicis resolts.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.apunt-section > h3 { font-size: 1.02rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: #6366f1; }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+
+.tipus-pill { display:inline-block; background:#6366f1; color:#fff; padding:0.15rem 0.55rem; border-radius:4px; font-family:var(--mono); font-size:0.72rem; font-weight:600; margin-right:0.5rem; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Equacions i sistemes</a>
+      <span class="sep">/</span>
+      <span class="current">04 · Equacions exponencials</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Equacions i sistemes</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">4 nov 2025</span>
+      </div>
+      <h1 style="margin:0">4. Equacions exponencials</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Quatre tipus d'equacions amb la incògnita a l'exponent: $a^x=b$, productes i quocients, sumes i restes amb factor comú, i les "amagades" de 2n grau (canvi de variable). Quatre exercicis resolts amb solució amagada.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ INTRODUCCIÓ ============ -->
+      <div class="apunt-section">
+        <h2>Què és una equació exponencial?</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Una <strong>equació exponencial</strong> és una equació en què la incògnita apareix a l'<strong>exponent</strong> d'una potència. Per exemple, $\;3^{x} = 81\;$ o $\;5^{x+2} - 5^{x} = 120$.</p>
+        </div>
+
+        <div class="warn-box">
+          <h3>Atenció: no totes es resolen</h3>
+          <p>No tota equació exponencial té una solució que es pugui trobar analíticament. Per exemple, $\;5^{x} + 2x = 10\;$ <strong>no es pot aïllar</strong> per a $x$ amb mètodes algebraics — caldria un mètode numèric.</p>
+          <p>Aquí veurem els <strong>quatre tipus</strong> d'equacions exponencials que <em>sí</em> sabem resoldre.</p>
+        </div>
+      </div>
+
+      <!-- ============ TIPUS 1 ============ -->
+      <div class="apunt-section">
+        <h3><span class="tipus-pill">Tipus 1</span> $a^{x} = b$</h3>
+
+        <div class="def-box">
+          <h3>Estratègia</h3>
+          <p>Tenim dues opcions:</p>
+          <ul>
+            <li><strong>Factoritzar</strong>: si $b$ és una potència d'$a$ (o es pot escriure com a tal), igualem els exponents.</li>
+            <li><strong>Logaritmes</strong>: en cas contrari, prenem logaritmes en base $a$ als dos costats.</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — factoritzant</h3>
+          <p>Resol $\;3^{x} = \dfrac{1}{9}$. Com que $\dfrac{1}{9} = 3^{-2}$:</p>
+          <div class="math-block">
+            $$3^{x} = 3^{-2} \;\Longrightarrow\; x = -2.$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — amb logaritmes</h3>
+          <p>Resol $\;5^{x} = 7$. Com que $7$ no és potència de $5$:</p>
+          <div class="math-block">
+            $$\log_{5}(5^{x}) = \log_{5} 7 \;\Longrightarrow\; x = \log_{5} 7 \approx 1{,}209.$$
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ TIPUS 2 ============ -->
+      <div class="apunt-section">
+        <h3><span class="tipus-pill">Tipus 2</span> Productes i quocients d'exponencials = nombre</h3>
+
+        <div class="def-box">
+          <h3>Estratègia</h3>
+          <p>Combinem totes les exponencials en una sola usant les propietats:</p>
+          <div class="math-block">
+            $$a^{m} \cdot a^{n} = a^{m+n}, \qquad \dfrac{a^{m}}{a^{n}} = a^{m-n}, \qquad (a^{m})^{n} = a^{m\cdot n}.$$
+          </div>
+          <p>Després apliquem els mètodes del Tipus 1.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Resol $\;5^{x} \cdot 25^{x+1} : 5^{x-3} = 13$. Convertim $25 = 5^{2}$:</p>
+          <div class="math-block">
+            $$5^{x} \cdot \bigl(5^{2}\bigr)^{x+1} : 5^{x-3} = 5^{x} \cdot 5^{2x+2} : 5^{x-3} = 13.$$
+          </div>
+          <div class="math-block">
+            $$5^{x+(2x+2)-(x-3)} = 5^{2x+5} = 13.$$
+          </div>
+          <p>Apliquem $\log_{5}$ a banda i banda:</p>
+          <div class="math-block">
+            $$2x+5 = \log_{5} 13 \;\Longrightarrow\; x = \dfrac{\log_{5} 13 - 5}{2}.$$
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ TIPUS 3 ============ -->
+      <div class="apunt-section">
+        <h3><span class="tipus-pill">Tipus 3</span> Sumes i restes d'exponencials (mateixa base) = nombre</h3>
+
+        <div class="def-box">
+          <h3>Estratègia</h3>
+          <p>Quan tots els termes són potències de la <em>mateixa base</em>, traiem <strong>factor comú</strong> — fem servir l'exponent més petit (positiu o no) per a tots els termes — i així ens queda una equació del Tipus 1.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Resol $\;3^{x} - 3^{x-1} + 3^{x+1} = 33$. Traiem factor comú $3^{x}$:</p>
+          <div class="math-block">
+            $$3^{x}\!\left(1 - \tfrac{1}{3} + 3\right) = 33 \;\Longrightarrow\; 3^{x} \cdot \dfrac{3-1+9}{3} = 33.$$
+          </div>
+          <div class="math-block">
+            $$3^{x} \cdot \dfrac{11}{3} = 33 \;\Longrightarrow\; 3^{x} = 9 = 3^{2} \;\Longrightarrow\; x = 2.$$
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ TIPUS 4 ============ -->
+      <div class="apunt-section">
+        <h3><span class="tipus-pill">Tipus 4</span> Equació de 2n grau amagada</h3>
+
+        <div class="def-box">
+          <h3>Estratègia</h3>
+          <p>Quan a l'equació apareixen $a^{2x}$ i $a^{x}$ (o equivalents), fem el <strong>canvi de variable</strong> $a^{x} = t$. L'equació es transforma en una de 2n grau, que ja sabem resoldre. Després desfem el canvi.</p>
+          <p class="note"><strong>Compte:</strong> si trobem $t \le 0$, ho descartem — perquè $a^{x}$ sempre és positiu (per $a>0$).</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple</h3>
+          <p>Resol $\;25^{x} - 5^{x+1} + 6 = 0$. Reescrivim usant $25^{x} = (5^{x})^{2}$ i $5^{x+1} = 5\cdot 5^{x}$:</p>
+          <div class="math-block">
+            $$(5^{x})^{2} - 5\cdot 5^{x} + 6 = 0.$$
+          </div>
+          <p>Canvi $5^{x} = t$:</p>
+          <div class="math-block">
+            $$t^{2} - 5t + 6 = 0 \;\Longrightarrow\; t = \dfrac{5 \pm \sqrt{25-24}}{2} = \dfrac{5 \pm 1}{2}.$$
+          </div>
+          <p>$t_{1} = 3$ i $t_{2} = 2$, tots dos positius. Desfem el canvi:</p>
+          <ul>
+            <li>Si $t = 3$: $\;5^{x} = 3 \Longrightarrow x = \log_{5} 3$.</li>
+            <li>Si $t = 2$: $\;5^{x} = 2 \Longrightarrow x = \log_{5} 2$.</li>
+          </ul>
+          <div class="math-block">
+            $$\boxed{\;x = \log_{5} 2 \quad\text{o}\quad x = \log_{5} 3.\;}$$
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ EXERCICIS ============ -->
+      <div class="apunt-section">
+        <h2>Exercicis</h2>
+
+        <!-- Exercici a -->
+        <div class="exercise" id="ex-a">
+          <div class="exercise-head">
+            <span class="num">a</span>
+            <span class="ttl">Equació del Tipus 1</span>
+          </div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Resol $\;5^{3x+1} = 1$.</span></summary>
+            <div class="apart-solution">
+              <p>Reescrivim $1$ com a potència de $5$: &nbsp;$1 = 5^{0}$. Així:</p>
+              <div class="math-block">$$5^{3x+1} = 5^{0} \;\Longrightarrow\; 3x+1 = 0.$$</div>
+              <div class="math-block">$$\boxed{\;x = -\tfrac{1}{3}.\;}$$</div>
+              <p class="note">Equivalentment, prenent $\log_{5}$ als dos costats: $\log_{5} 5^{3x+1} = \log_{5} 1 = 0$, que dóna la mateixa equació $3x+1=0$.</p>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Exercici b -->
+        <div class="exercise" id="ex-b">
+          <div class="exercise-head">
+            <span class="num">b</span>
+            <span class="ttl">Equació del Tipus 2</span>
+          </div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Resol $\;5^{x+3} \cdot 5^{x} \cdot 5^{x-1} \cdot 5^{-x} = 25$.</span></summary>
+            <div class="apart-solution">
+              <p>Combinem totes les exponencials sumant els exponents:</p>
+              <div class="math-block">$$5^{(x+3)+x+(x-1)+(-x)} = 5^{2}.$$</div>
+              <p>L'exponent simplifica a $\;x+3+x+x-1-x = 2x+2$. Per tant:</p>
+              <div class="math-block">$$5^{2x+2} = 5^{2} \;\Longrightarrow\; 2x+2 = 2 \;\Longrightarrow\; \boxed{\,x = 0.\,}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Exercici c -->
+        <div class="exercise" id="ex-c">
+          <div class="exercise-head">
+            <span class="num">c</span>
+            <span class="ttl">Equació del Tipus 3 (factor comú)</span>
+          </div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Resol $\;5^{x+3} + 5^{x} + 5^{x-1} = 131$.</span></summary>
+            <div class="apart-solution">
+              <p>Traiem factor comú $5^{x}$:</p>
+              <div class="math-block">$$5^{x}\!\left(5^{3} + 1 + \tfrac{1}{5}\right) = 131.$$</div>
+              <div class="math-block">$$5^{x}\!\left(125 + 1 + \tfrac{1}{5}\right) = 5^{x} \cdot \dfrac{625 + 5 + 1}{5} = 5^{x} \cdot \dfrac{631}{5} = 131.$$</div>
+              <div class="math-block">$$5^{x} = \dfrac{131 \cdot 5}{631} = \dfrac{655}{631}.$$</div>
+              <p>Apliquem $\log_{5}$:</p>
+              <div class="math-block">$$\boxed{\;x = \log_{5}\!\dfrac{655}{631} \approx 0{,}0237.\;}$$</div>
+              <p class="note">Resposta una mica "lletja" — quan els coeficients no es retallen ni $b$ no és potència d'$a$, la solució es queda en forma de logaritme.</p>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Exercici d -->
+        <div class="exercise" id="ex-d">
+          <div class="exercise-head">
+            <span class="num">d</span>
+            <span class="ttl">Equació del Tipus 4 (canvi de variable)</span>
+          </div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Resol $\;25^{x} + 5^{x+1} = 14$.</span></summary>
+            <div class="apart-solution">
+              <p>Reescrivim: $\,25^{x} = (5^{x})^{2}\,$ i $\,5^{x+1} = 5 \cdot 5^{x}\,$. Així:</p>
+              <div class="math-block">$$(5^{x})^{2} + 5 \cdot 5^{x} - 14 = 0.$$</div>
+              <p>Canvi $5^{x} = t$:</p>
+              <div class="math-block">$$t^{2} + 5t - 14 = 0 \;\Longrightarrow\; t = \dfrac{-5 \pm \sqrt{25+56}}{2} = \dfrac{-5 \pm 9}{2}.$$</div>
+              <p>$t_{1} = 2$ &nbsp;i&nbsp; $t_{2} = -7$. Però $5^{x}$ és sempre positiu, així que descartem $t = -7$:</p>
+              <div class="math-block">$$5^{x} = 2 \;\Longrightarrow\; \boxed{\;x = \log_{5} 2 \approx 0{,}431.\;}$$</div>
+              <p class="note">És la trampa típica del Tipus 4: el "canvi" porta a una 2n grau amb dues solucions, però només les positives es poden desfer.</p>
+            </div>
+          </details></div>
+        </div>
+
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html">&larr; 03 · Repàs</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
