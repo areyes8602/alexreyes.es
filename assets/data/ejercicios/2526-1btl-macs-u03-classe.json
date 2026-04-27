@@ -143,6 +143,34 @@
         "habilidad": ["calculo_simbolico", "razonamiento"],
         "formato": ["pregunta_corta"]
       }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-log-2",
+      "numero": 2,
+      "titulo": "Equacions amb logaritmes",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/05-logaritmes.html#ex-2",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/05-logaritmes.html#ex-2",
+      "puntuacion": 0,
+      "contexto": "Resol les equacions amb logaritmes. Recorda verificar que tots els arguments siguin positius en les solucions.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$\\log_{x} 64 = 3$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\log_{2} x + \\log_{2}(x+3) = 2$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\log(2x-4) - \\log(x+2) = 1$" },
+        { "letra": "d", "puntos": 0, "tarea": "$\\log x + \\log 50 = \\log 1000$" },
+        { "letra": "e", "puntos": 0, "tarea": "$\\log x = 1 + \\log(22-x)$" },
+        { "letra": "f", "puntos": 0, "tarea": "$2\\log(x+1) - \\log 2 = \\log(x^{2}-1)$" },
+        { "letra": "g", "puntos": 0, "tarea": "$\\log(3x+1) - \\log(2x-3) = 1 - \\log 5$" },
+        { "letra": "h", "puntos": 0, "tarea": "$2\\log(2x+1) + 2\\log(3x-4) = 2$" },
+        { "letra": "i", "puntos": 0, "tarea": "$\\log(40x) - \\log(5x-1) = 1$" },
+        { "letra": "j", "puntos": 0, "tarea": "$\\log x + \\log(x+5) = \\log(9+x)$" },
+        { "letra": "k", "puntos": 0, "tarea": "$2\\log_{2} x = -\\log_{2} 3 + \\log_{2}(x+10)$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-ecuaciones"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
     }
   ]
 }
