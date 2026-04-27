@@ -62,6 +62,21 @@ table.signs-table .neg { color:#be123c; font-weight:600; }
 .numline .pt-closed { fill: #6366f1; stroke: #6366f1; stroke-width: 2.5; }
 .numline .lbl { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 11px; fill: var(--text-soft); }
 [data-theme="dark"] .numline .pt-open { fill: var(--bg-subtle); }
+
+/* Exercicis amb solució amagada (botó "Mostrar solució") */
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.8rem 1rem; margin: 0.8rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-statement { margin:0.2rem 0 0.4rem; font-size:0.95rem; }
+.exercise details { margin-top:0.4rem; border-top:1px dashed var(--border); padding-top:0.5rem; }
+.exercise details summary { cursor:pointer; font-size:0.84rem; font-weight:600; color:#6366f1; list-style:none; user-select:none; padding:0.15rem 0; }
+.exercise details summary::-webkit-details-marker { display:none; }
+.exercise details summary::before { content:"▶ "; font-size:0.7em; transition: transform 0.15s; display:inline-block; margin-right:0.2rem; }
+.exercise details[open] summary::before { transform: rotate(90deg); }
+.exercise details .solution { padding:0.3rem 0 0; font-size:0.92rem; color:var(--text); }
+.exercise details .solution p { margin:0.4rem 0; }
+.exercise details .solution .final { background: rgba(16,185,129,0.10); border-left:3px solid #10b981; padding:0.4rem 0.7rem; border-radius:4px; margin-top:0.5rem; font-weight:500; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
 </style>
 </head>
 <body>
@@ -306,6 +321,261 @@ table.signs-table .neg { color:#be123c; font-weight:600; }
           <div class="solution-row">
             <span class="interval">$\operatorname{Dom} f = \mathbb{R}$</span>
           </div>
+        </div>
+      </div>
+
+      <!-- ============ EXERCICIS ============ -->
+      <div class="apunt-section">
+        <h2>Exercicis</h2>
+        <p style="font-size:0.92rem;color:var(--text-soft);margin:0 0 0.8rem">Calcula el domini de les següents 21 funcions. Estan ordenades de més senzilles (polinomi, log, racional, arrel) a més complexes (quocients amb arrels, arrels de quocients i tres funcions definides per peces). Cada apartat porta la solució amagada — intenta-la primer i després desplega-la.</p>
+
+        <!-- a -->
+        <div class="exercise" id="ex-1a">
+          <div class="exercise-head"><span class="num">1a</span></div>
+          <div class="exercise-statement"><p>$f_{1}(x) = -3x^{2} + 12$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>És un polinomi: està definit per a tot $x \in \mathbb{R}$.</p>
+            <div class="final">$\operatorname{Dom} f_{1} = \mathbb{R}$.</div>
+          </div></details>
+        </div>
+
+        <!-- b -->
+        <div class="exercise" id="ex-1b">
+          <div class="exercise-head"><span class="num">1b</span></div>
+          <div class="exercise-statement"><p>$f_{2}(x) = \ln(3x+1)$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Logaritme d'un polinomi. Cal $\,3x+1 > 0$:</p>
+            <p>$3x > -1 \;\Longrightarrow\; x > -\tfrac{1}{3}$.</p>
+            <div class="final">$\operatorname{Dom} f_{2} = \bigl(-\tfrac{1}{3},\;+\infty\bigr)$.</div>
+          </div></details>
+        </div>
+
+        <!-- c -->
+        <div class="exercise" id="ex-1c">
+          <div class="exercise-head"><span class="num">1c</span></div>
+          <div class="exercise-statement"><p>$f_{3}(x) = \dfrac{5}{x}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Funció racional: cal denominador $\neq 0$, és a dir $x \neq 0$.</p>
+            <div class="final">$\operatorname{Dom} f_{3} = \mathbb{R} \setminus \{0\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- d -->
+        <div class="exercise" id="ex-1d">
+          <div class="exercise-head"><span class="num">1d</span></div>
+          <div class="exercise-statement"><p>$f_{4}(x) = \sqrt{3x+2}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Arrel parell: cal $\,3x+2 \geq 0$:</p>
+            <p>$3x \geq -2 \;\Longrightarrow\; x \geq -\tfrac{2}{3}$.</p>
+            <div class="final">$\operatorname{Dom} f_{4} = \bigl[-\tfrac{2}{3},\;+\infty\bigr)$.</div>
+          </div></details>
+        </div>
+
+        <!-- e -->
+        <div class="exercise" id="ex-1e">
+          <div class="exercise-head"><span class="num">1e</span></div>
+          <div class="exercise-statement"><p>$f_{5}(x) = \sqrt[5]{2x+1}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Arrel d'<strong>ordre senar</strong> (5): no té cap restricció sobre el radicand. Està definida per a tot $x \in \mathbb{R}$.</p>
+            <div class="final">$\operatorname{Dom} f_{5} = \mathbb{R}$.</div>
+          </div></details>
+        </div>
+
+        <!-- f -->
+        <div class="exercise" id="ex-1f">
+          <div class="exercise-head"><span class="num">1f</span></div>
+          <div class="exercise-statement"><p>$f_{6}(x) = \dfrac{(x-1)(x-2)}{x+1}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Racional: cal denominador $\neq 0$, és a dir $x+1 \neq 0$ → $x \neq -1$.</p>
+            <div class="final">$\operatorname{Dom} f_{6} = \mathbb{R} \setminus \{-1\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- g -->
+        <div class="exercise" id="ex-1g">
+          <div class="exercise-head"><span class="num">1g</span></div>
+          <div class="exercise-statement"><p>$f_{7}(x) = \dfrac{(x-1)(x-2)}{x-1}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Racional: cal $x - 1 \neq 0$ → $x \neq 1$.</p>
+            <p class="note">Encara que algebraicament $\dfrac{(x-1)(x-2)}{x-1} = x-2$ per $x \neq 1$, l'expressió original <strong>no està definida</strong> a $x = 1$ (un "forat" o discontinuïtat evitable).</p>
+            <div class="final">$\operatorname{Dom} f_{7} = \mathbb{R} \setminus \{1\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- h -->
+        <div class="exercise" id="ex-1h">
+          <div class="exercise-head"><span class="num">1h</span></div>
+          <div class="exercise-statement"><p>$f_{8}(x) = \dfrac{\sqrt{x+3}}{x+1}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cal: arrel del numerador definida ($x+3 \geq 0$) <strong>i</strong> denominador $\neq 0$ ($x+1 \neq 0$):</p>
+            <p>$x \geq -3 \;\;$ i $\;\; x \neq -1$.</p>
+            <div class="final">$\operatorname{Dom} f_{8} = [-3,\,-1) \cup (-1,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- i -->
+        <div class="exercise" id="ex-1i">
+          <div class="exercise-head"><span class="num">1i</span></div>
+          <div class="exercise-statement"><p>$f_{9}(x) = \dfrac{x+4}{\sqrt{2x+6}}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>L'arrel és al <strong>denominador</strong>: cal $2x+6 > 0$ (estricte, perquè denominador no pot ser zero):</p>
+            <p>$2x > -6 \;\Longrightarrow\; x > -3$.</p>
+            <div class="final">$\operatorname{Dom} f_{9} = (-3,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- j -->
+        <div class="exercise" id="ex-1j">
+          <div class="exercise-head"><span class="num">1j</span></div>
+          <div class="exercise-statement"><p>$f_{10}(x) = \dfrac{2}{x^{2}+1}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Denominador $x^{2}+1 \geq 1 > 0$ per a tot $x$ — mai s'anul·la.</p>
+            <div class="final">$\operatorname{Dom} f_{10} = \mathbb{R}$.</div>
+          </div></details>
+        </div>
+
+        <!-- k -->
+        <div class="exercise" id="ex-1k">
+          <div class="exercise-head"><span class="num">1k</span></div>
+          <div class="exercise-statement"><p>$f_{11}(x) = \dfrac{2}{x^{2}-1}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cal $x^{2} - 1 \neq 0$, és a dir $x \neq \pm 1$.</p>
+            <div class="final">$\operatorname{Dom} f_{11} = \mathbb{R} \setminus \{-1,\,1\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- l -->
+        <div class="exercise" id="ex-1l">
+          <div class="exercise-head"><span class="num">1l</span></div>
+          <div class="exercise-statement"><p>$f_{12}(x) = \dfrac{\sqrt{x+2}}{\sqrt{x-3}}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cada arrel té el seu domini, i la del denominador estricta $> 0$:</p>
+            <p>Numerador: $x+2 \geq 0 \Rightarrow x \geq -2$.</p>
+            <p>Denominador: $x-3 > 0 \Rightarrow x > 3$.</p>
+            <p>Intersecció: $x > 3$ (perquè $(3, +\infty) \subset [-2, +\infty)$).</p>
+            <div class="final">$\operatorname{Dom} f_{12} = (3,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- m -->
+        <div class="exercise" id="ex-1m">
+          <div class="exercise-head"><span class="num">1m</span></div>
+          <div class="exercise-statement"><p>$f_{13}(x) = \dfrac{\sqrt{x^{2}-16}}{5x+1}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cal: $x^{2}-16 \geq 0$ (arrel) <strong>i</strong> $5x+1 \neq 0$ (denominador).</p>
+            <p>$x^{2} \geq 16 \Rightarrow x \leq -4$ o $x \geq 4$. &nbsp;Per altra banda, $x = -\tfrac{1}{5}$ ja és <em>dins</em> de $(-4, 4)$ — fora del domini de l'arrel — així que no afegeix nova restricció.</p>
+            <div class="final">$\operatorname{Dom} f_{13} = (-\infty,\,-4] \cup [4,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- n -->
+        <div class="exercise" id="ex-1n">
+          <div class="exercise-head"><span class="num">1n</span></div>
+          <div class="exercise-statement"><p>$f_{14}(x) = \sqrt{\dfrac{2x+4}{x-3}}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cal $\dfrac{2x+4}{x-3} \geq 0$ i $x-3 \neq 0$. Arrels: numerador $x = -2$, denominador $x = 3$ (forat). Mètode dels signes:</p>
+            <table class="signs-table">
+              <thead><tr><th>Interval</th><th>$2x+4$</th><th>$x-3$</th><th>quocient</th></tr></thead>
+              <tbody>
+                <tr><td>$(-\infty,\,-2)$</td><td class="neg">−</td><td class="neg">−</td><td class="pos">+</td></tr>
+                <tr><td>$(-2,\,3)$</td><td class="pos">+</td><td class="neg">−</td><td class="neg">−</td></tr>
+                <tr><td>$(3,\,+\infty)$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td></tr>
+              </tbody>
+            </table>
+            <p>$\geq 0$ → $(-\infty, -2] \cup (3, +\infty)$. $x=-2$ inclòs (quocient $= 0$); $x=3$ exclòs (denominador $= 0$).</p>
+            <div class="final">$\operatorname{Dom} f_{14} = (-\infty,\,-2] \cup (3,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- o -->
+        <div class="exercise" id="ex-1o">
+          <div class="exercise-head"><span class="num">1o</span></div>
+          <div class="exercise-statement"><p>$f_{15}(x) = \sqrt{\dfrac{2x+4}{x^{2}-4}}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cal $\dfrac{2x+4}{x^{2}-4} \geq 0$ i $x^{2}-4 \neq 0$ (és a dir $x \neq \pm 2$). Factoritzem: $\dfrac{2(x+2)}{(x-2)(x+2)}$.</p>
+            <p>Per $x \neq -2$ podem simplificar a $\dfrac{2}{x-2}$. Per $x = -2$ la funció <strong>no està definida</strong> (denominador zero, encara que el numerador també).</p>
+            <p>Així, per $x \neq \pm 2$, cal $\dfrac{2}{x-2} \geq 0 \Leftrightarrow x - 2 > 0 \Leftrightarrow x > 2$.</p>
+            <div class="final">$\operatorname{Dom} f_{15} = (2,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- p -->
+        <div class="exercise" id="ex-1p">
+          <div class="exercise-head"><span class="num">1p</span></div>
+          <div class="exercise-statement"><p>$f_{16}(x) = \sqrt{\,-\dfrac{x-4}{3x-9}\,}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cal $-\dfrac{x-4}{3x-9} \geq 0$, és a dir $\dfrac{x-4}{3(x-3)} \leq 0$, i $x \neq 3$.</p>
+            <p>Arrels: $x = 4$ (numerador), $x = 3$ (denominador, forat). Signes de $\dfrac{x-4}{x-3}$:</p>
+            <table class="signs-table">
+              <thead><tr><th>Interval</th><th>$x-4$</th><th>$x-3$</th><th>quocient</th></tr></thead>
+              <tbody>
+                <tr><td>$(-\infty,\,3)$</td><td class="neg">−</td><td class="neg">−</td><td class="pos">+</td></tr>
+                <tr><td>$(3,\,4)$</td><td class="neg">−</td><td class="pos">+</td><td class="neg">−</td></tr>
+                <tr><td>$(4,\,+\infty)$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td></tr>
+              </tbody>
+            </table>
+            <p>Volem $\leq 0$ → $(3, 4]$. ($x=3$ exclòs per denominador, $x=4$ inclòs perquè el quocient és $0$ i l'arrel és $\sqrt{0} = 0$.)</p>
+            <div class="final">$\operatorname{Dom} f_{16} = (3,\,4]$.</div>
+          </div></details>
+        </div>
+
+        <!-- q -->
+        <div class="exercise" id="ex-1q">
+          <div class="exercise-head"><span class="num">1q</span></div>
+          <div class="exercise-statement"><p>$f_{17}(x) = \ln(x^{2}+4)$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cal $x^{2}+4 > 0$. Però $x^{2} \geq 0$ sempre, així que $x^{2}+4 \geq 4 > 0$ per a tot $x$.</p>
+            <div class="final">$\operatorname{Dom} f_{17} = \mathbb{R}$.</div>
+          </div></details>
+        </div>
+
+        <!-- r -->
+        <div class="exercise" id="ex-1r">
+          <div class="exercise-head"><span class="num">1r</span></div>
+          <div class="exercise-statement"><p>$f_{18}(x) = \sqrt{x^{2}-4}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Cal $x^{2}-4 \geq 0$, és a dir $x^{2} \geq 4$, és a dir $|x| \geq 2$.</p>
+            <div class="final">$\operatorname{Dom} f_{18} = (-\infty,\,-2] \cup [2,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- s -->
+        <div class="exercise" id="ex-1s">
+          <div class="exercise-head"><span class="num">1s</span></div>
+          <div class="exercise-statement"><p>$f_{19}(x) = \begin{cases} \dfrac{1}{x-4} & x > 5 \\[0.4em] \ln(-3x+20) & x < 5 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Estudiem cada branca al seu interval:</p>
+            <p><strong>·</strong> Per $x > 5$: $x - 4 > 1 > 0$, ja és $\neq 0$. Tot el tros vàlid: $(5, +\infty)$.</p>
+            <p><strong>·</strong> Per $x < 5$: cal $-3x + 20 > 0 \Rightarrow x < \tfrac{20}{3} \approx 6{,}67$. Com $x < 5 < \tfrac{20}{3}$, tot el tros vàlid: $(-\infty, 5)$.</p>
+            <p><strong>·</strong> A $x = 5$: cap branca el cobreix (les dues són estrictes).</p>
+            <div class="final">$\operatorname{Dom} f_{19} = \mathbb{R} \setminus \{5\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- t -->
+        <div class="exercise" id="ex-1t">
+          <div class="exercise-head"><span class="num">1t</span></div>
+          <div class="exercise-statement"><p>$f_{20}(x) = \begin{cases} \sqrt{x+1} & x > 0 \\[0.4em] e^{-x} & x < 0 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p><strong>·</strong> Per $x > 0$: $x + 1 > 1 > 0$ — l'arrel sempre definida. Tot el tros vàlid: $(0, +\infty)$.</p>
+            <p><strong>·</strong> Per $x < 0$: l'exponencial $e^{-x}$ està definida sempre. Tot el tros vàlid: $(-\infty, 0)$.</p>
+            <p><strong>·</strong> A $x = 0$: cap branca el cobreix.</p>
+            <div class="final">$\operatorname{Dom} f_{20} = \mathbb{R} \setminus \{0\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- u -->
+        <div class="exercise" id="ex-1u">
+          <div class="exercise-head"><span class="num">1u</span></div>
+          <div class="exercise-statement"><p>$f_{21}(x) = \begin{cases} \dfrac{x^{2}-1}{x^{2}-4} & x < -1 \\[0.5em] \sqrt{3x+3} & -1 \leq x < 2 \\[0.4em] \ln(3-x) & 2 \leq x \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solution">
+            <p>Tres branques:</p>
+            <p><strong>·</strong> Per $x < -1$ (1a branca): cal $x^{2}-4 \neq 0 \Rightarrow x \neq \pm 2$. Dins de $(-\infty, -1)$ això tan sols treu $x = -2$. Vàlid: $(-\infty, -2) \cup (-2, -1)$.</p>
+            <p><strong>·</strong> Per $-1 \leq x < 2$ (2a branca): cal $3x+3 \geq 0 \Rightarrow x \geq -1$. Es compleix per tot l'interval. Vàlid: $[-1, 2)$.</p>
+            <p><strong>·</strong> Per $2 \leq x$ (3a branca): cal $3 - x > 0 \Rightarrow x < 3$. Combinant amb $x \geq 2$: vàlid $[2, 3)$.</p>
+            <p>Unió: $(-\infty, -2) \cup (-2, -1) \cup [-1, 2) \cup [2, 3) = (-\infty, -2) \cup (-2, 3)$.</p>
+            <div class="final">$\operatorname{Dom} f_{21} = (-\infty,\,-2) \cup (-2,\,3)$.</div>
+          </div></details>
         </div>
       </div>
 
