@@ -130,7 +130,11 @@
       <div class="news-grid">
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot"></span>Docència</h3>
-          <ul class="news-list">
+          <ul class="news-list" id="news-docencia">
+            <li>
+              <span class="news-date">27 abr 2026</span>
+              <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html" class="news-text">Comencem els <strong>apunts de la unitat d'Equacions i sistemes</strong> (Unitat 3) de Mat. Aplicades CCSS 1r BTL: primer apartat sobre <em>equacions biquadrades</em> — el canvi de variable $x^{n}=z$ que les transforma en una de 2n grau, tres exemples treballats i l'exercici 30 amb les seves quatre equacions resoltes.</a>
+            </li>
             <li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html" class="news-text">Quart apartat dels <strong>apunts de Polinomis</strong>: <em>MCD i MCM</em>. Definicions, la propietat $P\cdot Q = \operatorname{MCD}\cdot\operatorname{MCM}$, dos exemples treballats (nombres i polinomis) i tres exercicis resolts. També van al banc com a exercicis de classe.</a>
@@ -168,10 +172,11 @@
               <a href="/aula/eso-2/apuntes/u-fraccions/" class="news-text">Apunts complets de la unitat <strong>Fraccions</strong> publicats per a 2n ESO.</a>
             </li>
           </ul>
+          <div class="news-more-wrap"><button class="news-more-btn" data-target="news-docencia" data-more="Veure més notícies" data-less="Veure'n menys">Veure més notícies</button></div>
         </div>
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot dot-purple"></span>Doctorat</h3>
-          <ul class="news-list">
+          <ul class="news-list" id="news-doctorado">
             <li>
               <span class="news-date">abr 2026</span>
               <span class="news-text">Inici del doctorat a la UPC amb el Dr. <strong>Jaume Franch Bullich</strong>.</span>
@@ -203,6 +208,15 @@
 
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+document.querySelectorAll('.news-more-btn').forEach(function(btn){
+  var list=document.getElementById(btn.dataset.target);
+  if(!list)return;
+  if(list.children.length<=5){btn.parentElement.style.display='none';return;}
+  btn.addEventListener('click',function(){
+    list.classList.toggle('expanded');
+    btn.textContent=list.classList.contains('expanded')?btn.dataset.less:btn.dataset.more;
+  });
+});
 </script>
 </body>
 </html>

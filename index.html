@@ -130,7 +130,11 @@
       <div class="news-grid">
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot"></span>Docencia</h3>
-          <ul class="news-list">
+          <ul class="news-list" id="news-docencia">
+            <li>
+              <span class="news-date">27 abr 2026</span>
+              <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html" class="news-text">Empezamos los <strong>apuntes de la unidad de Equacions i sistemes</strong> (Unidad 3) de Mat. Aplicadas CCSS 1º BTL: primer apartado sobre <em>ecuaciones bicuadradas</em> — el cambio de variable $x^{n}=z$ que las transforma en una de 2º grado, tres ejemplos trabajados y el ejercicio 30 con sus cuatro ecuaciones resueltas.</a>
+            </li>
             <li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html" class="news-text">Cuarto apartado de los <strong>apuntes de Polinomis</strong>: <em>MCD i MCM</em>. Definiciones, la propiedad $P\cdot Q = \operatorname{MCD}\cdot\operatorname{MCM}$, dos ejemplos trabajados (números y polinomios) y tres ejercicios resueltos. También van al banco como ejercicios de clase.</a>
@@ -224,10 +228,11 @@
               <a href="/aula/eso-2/apuntes/u-fraccions/" class="news-text">Apuntes completos de la unidad <strong>Fraccions</strong> publicados para 2n ESO.</a>
             </li>
           </ul>
+          <div class="news-more-wrap"><button class="news-more-btn" data-target="news-docencia" data-more="Ver más noticias" data-less="Ver menos">Ver más noticias</button></div>
         </div>
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot dot-purple"></span>Doctorado</h3>
-          <ul class="news-list">
+          <ul class="news-list" id="news-doctorado">
             <li>
               <span class="news-date">abr 2026</span>
               <span class="news-text">Inicio del doctorado en la UPC con el Dr. <strong>Jaume Franch Bullich</strong>.</span>
@@ -259,6 +264,16 @@
 
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+document.querySelectorAll('.news-more-btn').forEach(function(btn){
+  var list=document.getElementById(btn.dataset.target);
+  if(!list)return;
+  // Si la llista té 5 o menys elements, amaga el botó
+  if(list.children.length<=5){btn.parentElement.style.display='none';return;}
+  btn.addEventListener('click',function(){
+    list.classList.toggle('expanded');
+    btn.textContent=list.classList.contains('expanded')?btn.dataset.less:btn.dataset.more;
+  });
+});
 </script>
 </body>
 </html>

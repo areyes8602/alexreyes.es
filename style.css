@@ -224,6 +224,17 @@ h1 {
 }
 a.news-text:hover { color: var(--text); }
 a.news-text strong { color: var(--text); font-weight: 600; }
+.news-list li:nth-child(n+6) { display: none; }
+.news-list.expanded li:nth-child(n+6) { display: grid; }
+.news-more-wrap { margin-top: 1rem; }
+.news-more-btn {
+  background: transparent; border: 1px dashed var(--border);
+  color: var(--text-soft); cursor: pointer;
+  font-family: inherit; font-size: 0.82rem; font-weight: 500;
+  padding: 0.45rem 0.9rem; border-radius: 6px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.news-more-btn:hover { border-color: var(--border-strong); color: var(--text); background: var(--bg-subtle); }
 
 /* ---- ABOUT ---- */
 .about-section { padding: 3rem 0; border-top: 1px solid var(--border); }

@@ -130,7 +130,11 @@
       <div class="news-grid">
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot"></span>Teaching</h3>
-          <ul class="news-list">
+          <ul class="news-list" id="news-docencia">
+            <li>
+              <span class="news-date">27 Apr 2026</span>
+              <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html" class="news-text">Started the <strong>Equations and systems unit notes</strong> (Unit 3) for Applied Maths for Social Sciences (1st BTL): first section on <em>biquadratic equations</em> — the change of variable $x^{n}=z$ that turns them into a quadratic, three worked examples and exercise 30 with its four equations solved.</a>
+            </li>
             <li>
               <span class="news-date">27 Apr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html" class="news-text">Fourth section of the <strong>Polynomials notes</strong>: <em>GCD and LCM</em>. Definitions, the property $P\cdot Q = \operatorname{GCD}\cdot\operatorname{LCM}$, two worked examples (numbers and polynomials) and three worked exercises. Also added to the bank as class exercises.</a>
@@ -168,10 +172,11 @@
               <a href="/aula/eso-2/apuntes/u-fraccions/" class="news-text">Complete <strong>Fractions</strong> unit notes published for 2nd ESO.</a>
             </li>
           </ul>
+          <div class="news-more-wrap"><button class="news-more-btn" data-target="news-docencia" data-more="Show more news" data-less="Show less">Show more news</button></div>
         </div>
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot dot-purple"></span>PhD</h3>
-          <ul class="news-list">
+          <ul class="news-list" id="news-doctorado">
             <li>
               <span class="news-date">Apr 2026</span>
               <span class="news-text">Started the PhD at UPC with Dr. <strong>Jaume Franch Bullich</strong>.</span>
@@ -203,6 +208,15 @@
 
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+document.querySelectorAll('.news-more-btn').forEach(function(btn){
+  var list=document.getElementById(btn.dataset.target);
+  if(!list)return;
+  if(list.children.length<=5){btn.parentElement.style.display='none';return;}
+  btn.addEventListener('click',function(){
+    list.classList.toggle('expanded');
+    btn.textContent=list.classList.contains('expanded')?btn.dataset.less:btn.dataset.more;
+  });
+});
 </script>
 </body>
 </html>
