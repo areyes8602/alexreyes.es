@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Repàs · Equacions i sistemes · 1r BTL CCSS</title>
+<meta name="description" content="Sessió de repàs de la unitat 3: 17 equacions resoltes (6 polinòmiques, 4 biquadrades, 7 racionals) amb solució amagada. Mat. Aplicades CCSS 1r BTL.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+
+/* Taula de Ruffini */
+.ruffini { font-family: var(--mono); font-size: 0.95rem; line-height: 1.65; margin: 0.6rem auto; display: table; border-collapse: collapse; }
+.ruffini td { padding: 0.18rem 0.55rem; text-align: center; min-width: 2.4rem; }
+.ruffini .root-cell { color: #047857; font-weight: 700; padding-right: 0.7rem; border-right: 2px solid var(--text-soft); }
+.ruffini .row-result td { font-weight: 700; }
+.ruffini .row-sep td { border-bottom: 1.5px solid var(--text-soft); padding: 0; }
+.ruffini .zero-cell { color: #047857; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Equacions i sistemes</a>
+      <span class="sep">/</span>
+      <span class="current">03 · Repàs</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Equacions i sistemes</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">28 oct 2025</span>
+      </div>
+      <h1 style="margin:0">3. Repàs</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Sessió de repàs de la unitat: 17 equacions resoltes (sis polinòmiques, quatre biquadrades i set racionals) amb la solució amagada — clica el ▶ de cada apartat per veure-la.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ EX 1: POLINÒMIQUES ============ -->
+      <div class="apunt-section">
+        <h2>Equacions polinòmiques</h2>
+
+        <div class="exercise" id="ex-1">
+          <div class="exercise-head">
+            <span class="num">1</span>
+            <span class="ttl">Resol les equacions polinòmiques</span>
+          </div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$3x^{3} + 2x - 1 = 2\,(x^{3} - 2x^{2}) + 6$</span></summary>
+            <div class="apart-solution">
+              <p>Passem-ho tot a l'esquerra:</p>
+              <div class="math-block">$$3x^{3}+2x-1-2x^{3}+4x^{2}-6 = 0 \;\Longrightarrow\; x^{3}+4x^{2}+2x-7 = 0.$$</div>
+              <p>Provem $a=1$ amb Ruffini:</p>
+              <table class="ruffini">
+                <tr><td></td><td>$1$</td><td>$4$</td><td>$2$</td><td>$-7$</td></tr>
+                <tr><td class="root-cell">$1$</td><td></td><td>$1$</td><td>$5$</td><td>$7$</td></tr>
+                <tr class="row-sep"><td colspan="5"></td></tr>
+                <tr class="row-result"><td></td><td>$1$</td><td>$5$</td><td>$7$</td><td class="zero-cell">$0$</td></tr>
+              </table>
+              <p>Per tant, $\;(x-1)(x^{2}+5x+7) = 0$. El factor $\,x^{2}+5x+7\,$ té $\Delta = 25-28 = -3 < 0$, és irreductible.</p>
+              <div class="math-block">$$\boxed{\;x = 1.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$x^{3} - 2x^{2} = 3x - 6$</span></summary>
+            <div class="apart-solution">
+              <p>Tot a l'esquerra i factoritzem per agrupació:</p>
+              <div class="math-block">$$x^{3}-2x^{2}-3x+6 = x^{2}(x-2) - 3(x-2) = (x-2)(x^{2}-3) = 0.$$</div>
+              <p>$x-2 = 0 \Rightarrow x = 2$. &nbsp;$x^{2}-3 = 0 \Rightarrow x = \pm\sqrt{3}$.</p>
+              <div class="math-block">$$\boxed{\;x \in \{-\sqrt{3},\,\sqrt{3},\,2\}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$(x+1)^{2} - (x-2)^{2} = (x+3)^{2} + x^{2} - 20$</span></summary>
+            <div class="apart-solution">
+              <p>Desenvolupem ambdós costats:</p>
+              <div class="math-block">$$\text{LHS} = (x^{2}+2x+1)-(x^{2}-4x+4) = 6x-3.$$</div>
+              <div class="math-block">$$\text{RHS} = (x^{2}+6x+9)+x^{2}-20 = 2x^{2}+6x-11.$$</div>
+              <p>Igualem i simplifiquem:</p>
+              <div class="math-block">$$6x-3 = 2x^{2}+6x-11 \;\Longrightarrow\; 2x^{2} = 8 \;\Longrightarrow\; x^{2}=4.$$</div>
+              <div class="math-block">$$\boxed{\;x = \pm 2.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$x^{4} + x^{2} = 2x^{3}$</span></summary>
+            <div class="apart-solution">
+              <p>Tot a l'esquerra i traiem factor comú $x^{2}$:</p>
+              <div class="math-block">$$x^{4}-2x^{3}+x^{2} = x^{2}(x^{2}-2x+1) = x^{2}(x-1)^{2} = 0.$$</div>
+              <div class="math-block">$$\boxed{\;x = 0\ \text{(doble)},\ \ x = 1\ \text{(doble)}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">e)</span> <span class="stmt">$x^{3} - 5x^{2} + 7x - 3 = 0$</span></summary>
+            <div class="apart-solution">
+              <p>Provem $a=1$ amb Ruffini:</p>
+              <table class="ruffini">
+                <tr><td></td><td>$1$</td><td>$-5$</td><td>$7$</td><td>$-3$</td></tr>
+                <tr><td class="root-cell">$1$</td><td></td><td>$1$</td><td>$-4$</td><td>$3$</td></tr>
+                <tr class="row-sep"><td colspan="5"></td></tr>
+                <tr class="row-result"><td></td><td>$1$</td><td>$-4$</td><td>$3$</td><td class="zero-cell">$0$</td></tr>
+              </table>
+              <p>Així $\;(x-1)(x^{2}-4x+3) = 0$. Factoritzem el segon factor: $x^{2}-4x+3 = (x-1)(x-3)$.</p>
+              <div class="math-block">$$x^{3}-5x^{2}+7x-3 = (x-1)^{2}(x-3) = 0.$$</div>
+              <div class="math-block">$$\boxed{\;x = 1\ \text{(doble)},\ \ x = 3.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">f)</span> <span class="stmt">$x^{3} = 2\,(2x + 4 - x^{2})$</span></summary>
+            <div class="apart-solution">
+              <p>Tot a l'esquerra:</p>
+              <div class="math-block">$$x^{3}+2x^{2}-4x-8 = 0.$$</div>
+              <p>Per agrupació:</p>
+              <div class="math-block">$$x^{2}(x+2)-4(x+2) = (x+2)(x^{2}-4) = (x+2)^{2}(x-2) = 0.$$</div>
+              <div class="math-block">$$\boxed{\;x = -2\ \text{(doble)},\ \ x = 2.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <!-- ============ EX 2: BIQUADRADES ============ -->
+      <div class="apunt-section">
+        <h2>Equacions biquadrades</h2>
+
+        <div class="exercise" id="ex-2">
+          <div class="exercise-head">
+            <span class="num">2</span>
+            <span class="ttl">Resol les equacions biquadrades</span>
+          </div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$x^{4} + 4x^{2} = 0$</span></summary>
+            <div class="apart-solution">
+              <p>Factor comú $x^{2}$:</p>
+              <div class="math-block">$$x^{2}(x^{2}+4) = 0.$$</div>
+              <p>$x^{2}+4$ no té arrels reals (suma de positius), així que només queda $x^{2}=0$.</p>
+              <div class="math-block">$$\boxed{\;x = 0\ \text{(doble)}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$x^{4} - 8x^{2} = 9$</span></summary>
+            <div class="apart-solution">
+              <p>Canvi $x^{2} = t$: $\;t^{2}-8t-9 = 0$.</p>
+              <div class="math-block">$$t = \dfrac{8 \pm \sqrt{64+36}}{2} = \dfrac{8\pm 10}{2} \;\Rightarrow\; t = 9\ \text{o}\ t = -1.$$</div>
+              <p>Si $t=-1$: $x^{2}=-1$ no té arrels reals. Si $t=9$: $x = \pm 3$.</p>
+              <div class="math-block">$$\boxed{\;x = \pm 3.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$x^{6} + x^{2} + 216 = x^{2}\,(1 + 35x)$</span></summary>
+            <div class="apart-solution">
+              <p>Desenvolupem el costat dret i passem tot a l'esquerra:</p>
+              <div class="math-block">$$x^{6}+x^{2}+216 = x^{2}+35x^{3} \;\Longrightarrow\; x^{6}-35x^{3}+216 = 0.$$</div>
+              <p>Canvi $x^{3} = t$: $\;t^{2}-35t+216 = 0$.</p>
+              <div class="math-block">$$t = \dfrac{35 \pm \sqrt{1225-864}}{2} = \dfrac{35 \pm 19}{2} \;\Rightarrow\; t = 27\ \text{o}\ t = 8.$$</div>
+              <p>$x^{3}=27 \Rightarrow x = 3$. &nbsp;$x^{3}=8 \Rightarrow x = 2$.</p>
+              <div class="math-block">$$\boxed{\;x \in \{2,\,3\}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$36 = x^{2}\,(13 - x^{2})$</span></summary>
+            <div class="apart-solution">
+              <p>Desenvolupem i passem tot a un costat:</p>
+              <div class="math-block">$$36 = 13x^{2}-x^{4} \;\Longrightarrow\; x^{4}-13x^{2}+36 = 0.$$</div>
+              <p>Canvi $x^{2} = t$: $\;t^{2}-13t+36 = 0$.</p>
+              <div class="math-block">$$t = \dfrac{13 \pm \sqrt{169-144}}{2} = \dfrac{13 \pm 5}{2} \;\Rightarrow\; t = 9\ \text{o}\ t = 4.$$</div>
+              <p>$x^{2}=9 \Rightarrow x = \pm 3$. &nbsp;$x^{2}=4 \Rightarrow x = \pm 2$.</p>
+              <div class="math-block">$$\boxed{\;x \in \{-3,\,-2,\,2,\,3\}.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <!-- ============ EX 3: RACIONALS ============ -->
+      <div class="apunt-section">
+        <h2>Equacions racionals</h2>
+
+        <div class="exercise" id="ex-3">
+          <div class="exercise-head">
+            <span class="num">3</span>
+            <span class="ttl">Resol les equacions racionals</span>
+          </div>
+          <p class="exercise-intro">Recorda els 5 passos: factoritzar, MCM, amplificar, eliminar denominadors i resoldre. Al final, comprova que cap solució anul·li els denominadors originals.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$\dfrac{1}{x} + \dfrac{1}{x+3} = \dfrac{3}{10}$</span></summary>
+            <div class="apart-solution">
+              <p>Sumem el costat esquerre i fem productes creuats:</p>
+              <div class="math-block">$$\dfrac{(x+3)+x}{x(x+3)} = \dfrac{3}{10} \;\Longrightarrow\; 10\,(2x+3) = 3x(x+3).$$</div>
+              <div class="math-block">$$20x+30 = 3x^{2}+9x \;\Longrightarrow\; 3x^{2}-11x-30 = 0.$$</div>
+              <div class="math-block">$$x = \dfrac{11 \pm \sqrt{121+360}}{6} = \dfrac{11 \pm \sqrt{481}}{6}.$$</div>
+              <p>Cap dels dos valors anul·la $x$ ni $x+3$, per tant tots dos són vàlids:</p>
+              <div class="math-block">$$\boxed{\;x = \dfrac{11+\sqrt{481}}{6} \approx 5{,}49,\quad x = \dfrac{11-\sqrt{481}}{6} \approx -1{,}82.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$\dfrac{4}{x} + \dfrac{2x+2}{3x-6} = 4$</span></summary>
+            <div class="apart-solution">
+              <p>Factoritzem $3x-6 = 3(x-2)$. MCM: $3x(x-2)$. Eliminem denominadors:</p>
+              <div class="math-block">$$12(x-2) + x(2x+2) = 12x(x-2).$$</div>
+              <div class="math-block">$$12x-24 + 2x^{2}+2x = 12x^{2}-24x \;\Longrightarrow\; 10x^{2}-38x+24 = 0.$$</div>
+              <p>Dividim per $2$: $\;5x^{2}-19x+12 = 0$. $\Delta = 361-240 = 121$:</p>
+              <div class="math-block">$$x = \dfrac{19 \pm 11}{10} \;\Rightarrow\; x = 3\ \text{o}\ x = \tfrac{4}{5}.$$</div>
+              <p>Cap anul·la denominadors. <strong>Verificat:</strong></p>
+              <div class="math-block">$$\boxed{\;x = 3\ \text{o}\ x = \tfrac{4}{5}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$\dfrac{8-x}{2} - \dfrac{2x-11}{x-3} = \dfrac{x+6}{2}$</span></summary>
+            <div class="apart-solution">
+              <p>MCM: $2(x-3)$. Eliminem denominadors:</p>
+              <div class="math-block">$$(8-x)(x-3) - 2\,(2x-11) = (x+6)(x-3).$$</div>
+              <p>Desenvolupem cada producte:</p>
+              <div class="math-block">$$(-x^{2}+11x-24) - (4x-22) = (x^{2}+3x-18).$$</div>
+              <div class="math-block">$$-x^{2}+7x-2 = x^{2}+3x-18 \;\Longrightarrow\; 2x^{2}-4x-16 = 0 \;\Longrightarrow\; x^{2}-2x-8 = 0.$$</div>
+              <div class="math-block">$$x = \dfrac{2 \pm \sqrt{4+32}}{2} = \dfrac{2 \pm 6}{2} \;\Rightarrow\; x = 4\ \text{o}\ x = -2.$$</div>
+              <div class="math-block">$$\boxed{\;x = 4\ \text{o}\ x = -2.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$\dfrac{2x}{x-3} - \dfrac{6}{x} = \dfrac{18}{x^{2}-3x}$</span></summary>
+            <div class="apart-solution">
+              <p>Factoritzem $x^{2}-3x = x(x-3)$. MCM: $x(x-3)$. Eliminem denominadors:</p>
+              <div class="math-block">$$2x \cdot x - 6(x-3) = 18 \;\Longrightarrow\; 2x^{2}-6x+18 = 18.$$</div>
+              <div class="math-block">$$2x^{2}-6x = 0 \;\Longrightarrow\; 2x(x-3) = 0 \;\Rightarrow\; x = 0\ \text{o}\ x = 3.$$</div>
+              <p>Compte! Tant $x=0$ com $x=3$ <strong>anul·len</strong> els denominadors originals ($x$ i $x-3$). Totes dues són solucions <em>extranyes</em>.</p>
+              <div class="math-block">$$\boxed{\;\text{No té solució.}\;}$$</div>
+              <p class="note">És un exemple molt típic de la trampa de les solucions extranyes — sempre cal verificar.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">e)</span> <span class="stmt">$\dfrac{x-1}{x-2} - \dfrac{2x-2}{x^{2}+3x} = \dfrac{5x-5}{x^{2}+x-6}$</span></summary>
+            <div class="apart-solution">
+              <p>Factoritzem: $\;x^{2}+3x = x(x+3)$, $\;x^{2}+x-6 = (x+3)(x-2)$, &nbsp;$2x-2=2(x-1)$, &nbsp;$5x-5=5(x-1)$. Reescrivim l'equació:</p>
+              <div class="math-block">$$\dfrac{x-1}{x-2} - \dfrac{2(x-1)}{x(x+3)} = \dfrac{5(x-1)}{(x+3)(x-2)}.$$</div>
+              <p>MCM: $x(x-2)(x+3)$. Eliminem denominadors:</p>
+              <div class="math-block">$$(x-1)\cdot x(x+3) - 2(x-1)(x-2) = 5(x-1)\cdot x.$$</div>
+              <p>Traiem factor comú $(x-1)$:</p>
+              <div class="math-block">$$(x-1)\bigl[\,x(x+3) - 2(x-2) - 5x\,\bigr] = 0.$$</div>
+              <div class="math-block">$$(x-1)\bigl[\,x^{2}+3x-2x+4-5x\,\bigr] = (x-1)(x^{2}-4x+4) = (x-1)(x-2)^{2} = 0.$$</div>
+              <p>Per tant $x = 1$ o $x = 2$. Però $x = 2$ <strong>anul·la</strong> el denominador $x-2$ (extranya). $x = 1$ no anul·la cap denominador.</p>
+              <div class="math-block">$$\boxed{\;x = 1.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">f)</span> <span class="stmt">$\dfrac{x+4}{x-3} - \dfrac{1-2x}{x^{2}-x-6} = 0$</span></summary>
+            <div class="apart-solution">
+              <p>Factoritzem $x^{2}-x-6 = (x-3)(x+2)$. MCM: $(x-3)(x+2)$:</p>
+              <div class="math-block">$$(x+4)(x+2) - (1-2x) = 0.$$</div>
+              <div class="math-block">$$x^{2}+6x+8 - 1 + 2x = x^{2}+8x+7 = 0 \;\Rightarrow\; (x+1)(x+7) = 0.$$</div>
+              <p>$x = -1$ i $x = -7$. Cap anul·la denominadors:</p>
+              <div class="math-block">$$\boxed{\;x = -1\ \text{o}\ x = -7.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">g)</span> <span class="stmt">$\dfrac{3}{x} + \dfrac{4}{2x^{2}-4x} = \dfrac{1}{2x-4}$</span></summary>
+            <div class="apart-solution">
+              <p>Factoritzem: $\;2x^{2}-4x = 2x(x-2)$, $\;2x-4 = 2(x-2)$. MCM: $2x(x-2)$. Eliminem denominadors:</p>
+              <div class="math-block">$$3 \cdot 2(x-2) + 4 = x.$$</div>
+              <div class="math-block">$$6x-12+4 = x \;\Longrightarrow\; 6x-8 = x \;\Longrightarrow\; 5x = 8.$$</div>
+              <p>$x = \tfrac{8}{5}$. No anul·la cap denominador:</p>
+              <div class="math-block">$$\boxed{\;x = \tfrac{8}{5}.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html">&larr; 02 · Equacions racionals</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
