@@ -1,0 +1,63 @@
+{
+  "schema_version": 3,
+  "id": "2526-1btl-macs-u05-fitxa-dominis",
+  "tipo_coleccion": "practica",
+  "titulo": "Fitxa — Càlcul de dominis de funcions",
+  "fecha": "2025-12-05",
+  "grupo": "1r BTL",
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_enunciados": "/aula/ccss-1btl/fitxes/u-funcions-domini/original.pdf",
+  "pdf_soluciones": null,
+  "url_index": "/aula/ccss-1btl/fitxes/u-funcions-domini/",
+  "puntuacion_total": 0,
+  "baremo": null,
+  "unidades_implicadas": ["05"],
+  "tags_coleccion": {
+    "materia": "bach-ccss-1",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "libro_texto",
+    "origen": "classe",
+    "ambito_bach": "BACH-B"
+  },
+  "ejercicios": [
+    {
+      "id": "2526-1btl-macs-u05-fitxa-dominis-1",
+      "numero": 1,
+      "titulo": "Calcula els següents dominis de funcions",
+      "url_enunciado": "/aula/ccss-1btl/fitxes/u-funcions-domini/#ex-1a",
+      "source_apunt": "/aula/ccss-1btl/fitxes/u-funcions-domini/",
+      "puntuacion": 0,
+      "contexto": "Bateria de 21 funcions ordenades de més senzilles (polinomi, logaritme, racional, arrel) a més complexes (quocients d'arrels, arrels de quocients i funcions definides per peces). Cobreix tots els tipus treballats a l'apartat de teoria d'aquesta unitat.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$f_{1}(x) = -3x^{2} + 12$" },
+        { "letra": "b", "puntos": 0, "tarea": "$f_{2}(x) = \\ln(3x+1)$" },
+        { "letra": "c", "puntos": 0, "tarea": "$f_{3}(x) = \\dfrac{5}{x}$" },
+        { "letra": "d", "puntos": 0, "tarea": "$f_{4}(x) = \\sqrt{3x+2}$" },
+        { "letra": "e", "puntos": 0, "tarea": "$f_{5}(x) = \\sqrt[5]{2x+1}$" },
+        { "letra": "f", "puntos": 0, "tarea": "$f_{6}(x) = \\dfrac{(x-1)(x-2)}{x+1}$" },
+        { "letra": "g", "puntos": 0, "tarea": "$f_{7}(x) = \\dfrac{(x-1)(x-2)}{x-1}$" },
+        { "letra": "h", "puntos": 0, "tarea": "$f_{8}(x) = \\dfrac{\\sqrt{x+3}}{x+1}$" },
+        { "letra": "i", "puntos": 0, "tarea": "$f_{9}(x) = \\dfrac{x+4}{\\sqrt{2x+6}}$" },
+        { "letra": "j", "puntos": 0, "tarea": "$f_{10}(x) = \\dfrac{2}{x^{2}+1}$" },
+        { "letra": "k", "puntos": 0, "tarea": "$f_{11}(x) = \\dfrac{2}{x^{2}-1}$" },
+        { "letra": "l", "puntos": 0, "tarea": "$f_{12}(x) = \\dfrac{\\sqrt{x+2}}{\\sqrt{x-3}}$" },
+        { "letra": "m", "puntos": 0, "tarea": "$f_{13}(x) = \\dfrac{\\sqrt{x^{2}-16}}{5x+1}$" },
+        { "letra": "n", "puntos": 0, "tarea": "$f_{14}(x) = \\sqrt{\\dfrac{2x+4}{x-3}}$" },
+        { "letra": "o", "puntos": 0, "tarea": "$f_{15}(x) = \\sqrt{\\dfrac{2x+4}{x^{2}-4}}$" },
+        { "letra": "p", "puntos": 0, "tarea": "$f_{16}(x) = \\sqrt{\\,-\\dfrac{x-4}{3x-9}\\,}$" },
+        { "letra": "q", "puntos": 0, "tarea": "$f_{17}(x) = \\ln(x^{2}+4)$" },
+        { "letra": "r", "puntos": 0, "tarea": "$f_{18}(x) = \\sqrt{x^{2}-4}$" },
+        { "letra": "s", "puntos": 0, "tarea": "$f_{19}(x) = \\begin{cases} \\dfrac{1}{x-4} & x > 5 \\\\ \\ln(-3x+20) & x < 5 \\end{cases}$" },
+        { "letra": "t", "puntos": 0, "tarea": "$f_{20}(x) = \\begin{cases} \\sqrt{x+1} & x > 0 \\\\ e^{-x} & x < 0 \\end{cases}$" },
+        { "letra": "u", "puntos": 0, "tarea": "$f_{21}(x) = \\begin{cases} \\dfrac{x^{2}-1}{x^{2}-4} & x < -1 \\\\ \\sqrt{3x+3} & -1 \\leq x < 2 \\\\ \\ln(3-x) & 2 \\leq x \\end{cases}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-funciones-elementales"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
+    }
+  ]
+}
