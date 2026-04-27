@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. Inequacions de primer grau · Inequacions · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: inequacions de primer grau. Definició, regles per resoldre-les (amb el detall del canvi de signe en multiplicar/dividir per un negatiu) i quatre exemples treballats — un d'ells de 2n grau pel mètode dels signes — amb la solució com a interval i sobre la recta numèrica.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-inequacions/01-lineals.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+.via-label { display:inline-block; background:#6366f1; color:#fff; padding:0.1rem 0.55rem; border-radius:99px; font-family:var(--mono); font-size:0.7rem; font-weight:600; letter-spacing:0.04em; margin-right:0.35rem; }
+.bonus-tag { display:inline-block; background:rgba(244,63,94,0.10); color:#be123c; padding:0.1rem 0.55rem; border-radius:99px; font-family:var(--mono); font-size:0.7rem; font-weight:600; letter-spacing:0.04em; border:1px solid rgba(244,63,94,0.3); }
+
+.numline { display:block; margin:0.6rem auto 0.2rem; width:100%; max-width:340px; height:auto; }
+.numline .axis { stroke: var(--text-soft); stroke-width: 1; }
+.numline .axis-arrow { fill: var(--text-soft); }
+.numline .region { stroke: #6366f1; stroke-width: 3; fill: none; }
+.numline .region-arrow { fill: #6366f1; }
+.numline .pt-open { fill: var(--bg); stroke: #6366f1; stroke-width: 2.5; }
+.numline .pt-closed { fill: #6366f1; stroke: #6366f1; stroke-width: 2.5; }
+.numline .lbl { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 11px; fill: var(--text-soft); }
+[data-theme="dark"] .numline .pt-open { fill: var(--bg-subtle); }
+.solution-row { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; margin-top:0.5rem; }
+.solution-row .interval { font-family: ui-monospace, monospace; font-size:0.95rem; padding:0.2rem 0.6rem; background: rgba(16,185,129,0.10); border:1px solid rgba(16,185,129,0.3); border-radius:4px; color:#047857; font-weight:500; }
+[data-theme="dark"] .solution-row .interval { background: rgba(16,185,129,0.15); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-inequacions/">Inequacions</a>
+      <span class="sep">/</span>
+      <span class="current">01 · Inequacions de primer grau</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Inequacions</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">19 nov 2025</span>
+      </div>
+      <h1 style="margin:0">1. Inequacions de primer grau</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Què és una inequació, les regles per resoldre-la (amb la regla clau del <strong>canvi de signe quan multipliquem o dividim per un negatiu</strong>), i quatre exemples treballats — bàsic, amb canvi de signe (per dues vies), amb fraccions, i una <em>ampliació</em> de 2n grau pel mètode dels signes. La solució es presenta com a interval i sobre la recta numèrica.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ TEORIA ============ -->
+      <div class="apunt-section">
+        <h2>Què és una inequació</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Una <strong>inequació</strong> és una <em>desigualtat</em> entre dues expressions algebraiques. Pot fer servir un dels quatre símbols següents:</p>
+          <div class="math-block">$$<,\quad \leq,\quad >,\quad \geq.$$</div>
+          <p>A diferència d'una equació (que té una llista finita de solucions), una inequació té típicament <strong>un interval</strong> de solucions — tot un tram de la recta real.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>Regles per resoldre</h3>
+          <p>Treballem una inequació pràcticament igual que una equació, amb dues regles que es mantenen i una que canvia:</p>
+          <p><strong>1) Suma i resta</strong>: podem sumar o restar el mateix nombre als dos costats sense canviar res. La desigualtat es manté.</p>
+          <p><strong>2) Multiplicar o dividir per un nombre POSITIU</strong>: la desigualtat <em>també</em> es manté.</p>
+          <p><strong>3) Multiplicar o dividir per un nombre NEGATIU</strong>: la desigualtat <strong>canvia de sentit</strong>. És a dir:</p>
+          <div class="math-block">$$< \;\longleftrightarrow\; >, \qquad \leq \;\longleftrightarrow\; \geq.$$</div>
+        </div>
+
+        <div class="warn-box">
+          <h3>La regla clau: el canvi de signe</h3>
+          <p>Aquesta és la diferència essencial entre equacions i inequacions. Cada vegada que multipliquem o dividim els dos costats per una quantitat negativa, <strong>cal girar el signe</strong>. Si es descuida, la solució surt al revés.</p>
+          <p>Truc per evitar-ho: si arribes a una situació tipus $-2x \geq 14$, en lloc de dividir per $-2$ pots <em>passar el $-2x$ a l'altre costat</em> (que esdevé $+2x$) i el $14$ aquí — així només dividies per nombres positius i estalvies el canvi de signe. Ho veurem a l'<em>Exemple 2</em> per dues vies.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>Com escriure la solució</h3>
+          <p>La solució es pot expressar de tres maneres equivalents:</p>
+          <p><strong>·</strong> Amb la <strong>desigualtat</strong> mateixa: $x < \tfrac{5}{2}$.</p>
+          <p><strong>·</strong> Com a <strong>interval</strong>: $(-\infty, \tfrac{5}{2})$. &nbsp;Recordem: parèntesi $(\,)$ si l'extrem <em>no</em> hi entra (signes $<$ i $>$); claudàtor $[\,]$ si l'extrem hi entra (signes $\leq$ i $\geq$). $\pm\infty$ sempre va amb parèntesi.</p>
+          <p><strong>·</strong> Sobre la <strong>recta numèrica</strong>: una semirecta amb un cercle <em>obert</em> ($\circ$) si l'extrem no entra, o <em>tancat</em> ($\bullet$) si hi entra.</p>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 1 ============ -->
+      <div class="apunt-section">
+        <h2>Exemple 1 — Cas bàsic</h2>
+
+        <div class="example-box">
+          <h3>$2x - 1 < 4$</h3>
+          <p>Sumem $1$ als dos costats:</p>
+          <div class="math-block">$$2x < 5.$$</div>
+          <p>Dividim per $2$ (positiu, així que el signe es manté):</p>
+          <div class="math-block">$$x < \dfrac{5}{2}.$$</div>
+
+          <div class="solution-row">
+            <span class="interval">$\bigl(-\infty,\;\tfrac{5}{2}\bigr)$</span>
+          </div>
+
+          <svg class="numline" viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg" aria-label="Recta numèrica: x menor que 5/2">
+            <line class="axis" x1="14" y1="25" x2="266" y2="25"/>
+            <polygon class="axis-arrow" points="14,25 22,21 22,29"/>
+            <polygon class="axis-arrow" points="266,25 258,21 258,29"/>
+            <line class="region" x1="22" y1="25" x2="170" y2="25"/>
+            <polygon class="region-arrow" points="14,25 22,21 22,29"/>
+            <circle class="pt-open" cx="170" cy="25" r="5"/>
+            <text class="lbl" x="170" y="45" text-anchor="middle">5/2</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 2 ============ -->
+      <div class="apunt-section">
+        <h2>Exemple 2 — Amb canvi de signe (per dues vies)</h2>
+
+        <div class="example-box">
+          <h3>$-2x + 3 \geq 17$</h3>
+
+          <p><span class="via-label">VIA 1</span> &nbsp;Aïllem el $-2x$ i dividim per $-2$ (cal <strong>girar el signe</strong>):</p>
+          <div class="math-block">$$-2x \geq 17 - 3 = 14 \;\Longrightarrow\; x \leq \dfrac{14}{-2} = -7.$$</div>
+          <p>El símbol passa de $\geq$ a $\leq$ perquè hem dividit per un negatiu.</p>
+
+          <p><span class="via-label">VIA 2</span> &nbsp;Per evitar el canvi de signe, passem el $-2x$ al costat dret (esdevé $+2x$) i el $17$ a l'esquerra:</p>
+          <div class="math-block">$$3 - 17 \geq 2x \;\Longrightarrow\; -14 \geq 2x \;\Longrightarrow\; -7 \geq x.$$</div>
+          <p>Que és el mateix que $x \leq -7$, sense haver hagut de girar el signe.</p>
+
+          <div class="solution-row">
+            <span class="interval">$(-\infty,\;-7]$</span>
+          </div>
+
+          <svg class="numline" viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg" aria-label="Recta numèrica: x menor o igual que -7">
+            <line class="axis" x1="14" y1="25" x2="266" y2="25"/>
+            <polygon class="axis-arrow" points="14,25 22,21 22,29"/>
+            <polygon class="axis-arrow" points="266,25 258,21 258,29"/>
+            <line class="region" x1="22" y1="25" x2="190" y2="25"/>
+            <polygon class="region-arrow" points="14,25 22,21 22,29"/>
+            <circle class="pt-closed" cx="190" cy="25" r="5"/>
+            <text class="lbl" x="190" y="45" text-anchor="middle">-7</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 3 ============ -->
+      <div class="apunt-section">
+        <h2>Exemple 3 — Amb fraccions</h2>
+
+        <div class="example-box">
+          <h3>$\dfrac{x-1}{2} + \dfrac{3x}{4} < x + 1$</h3>
+          <p>Per netejar denominadors, multipliquem tot per $\,\text{m.c.m.}(2, 4, 1) = 4$:</p>
+          <div class="math-block">$$2(x-1) + 3x < 4(x+1).$$</div>
+          <div class="math-block">$$2x - 2 + 3x < 4x + 4 \;\Longrightarrow\; 5x - 2 < 4x + 4.$$</div>
+          <p>Restem $4x$ i sumem $2$ als dos costats:</p>
+          <div class="math-block">$$x < 6.$$</div>
+
+          <div class="solution-row">
+            <span class="interval">$(-\infty,\;6)$</span>
+          </div>
+
+          <svg class="numline" viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg" aria-label="Recta numèrica: x menor que 6">
+            <line class="axis" x1="14" y1="25" x2="266" y2="25"/>
+            <polygon class="axis-arrow" points="14,25 22,21 22,29"/>
+            <polygon class="axis-arrow" points="266,25 258,21 258,29"/>
+            <line class="region" x1="22" y1="25" x2="170" y2="25"/>
+            <polygon class="region-arrow" points="14,25 22,21 22,29"/>
+            <circle class="pt-open" cx="170" cy="25" r="5"/>
+            <text class="lbl" x="170" y="45" text-anchor="middle">6</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 4 — AMPLIACIÓ ============ -->
+      <div class="apunt-section">
+        <h2>Exemple 4 <span class="bonus-tag">AMPLIACIÓ</span> — Inequació de 2n grau (mètode dels signes)</h2>
+
+        <div class="example-box">
+          <h3>$x^{2} - 5x + 6 \geq 0$</h3>
+          <p class="note">Aquest exemple ja no és una inequació de primer grau, però el resolem aquí com a <em>aperitiu</em> per veure la idea del <strong>mètode dels signes</strong>: trobar les arrels del polinomi i estudiar quin signe pren a cada interval.</p>
+
+          <p><strong>1) Trobem les arrels</strong> de l'equació associada $x^{2} - 5x + 6 = 0$. Factoritzant:</p>
+          <div class="math-block">$$(x-2)(x-3) = 0 \;\Longrightarrow\; x = 2\ \text{o}\ x = 3.$$</div>
+
+          <p><strong>2) Aquestes arrels parteixen la recta real en tres trams</strong>: $(-\infty, 2)$, $(2, 3)$ i $(3, +\infty)$. A cada tram avaluem el signe del polinomi triant un punt de prova:</p>
+          <div class="math-block">$$\begin{array}{c|c|c|c}\text{Interval} & (-\infty,\,2) & (2,\,3) & (3,\,+\infty) \\\hline \text{Punt de prova} & x = 0 & x = 2{,}5 & x = 4 \\\hline x^{2}-5x+6 & 6 & -0{,}25 & 2 \\\hline \text{Signe} & + & - & + \end{array}$$</div>
+
+          <p><strong>3) Volem $x^{2} - 5x + 6 \geq 0$</strong> (positiu o zero). Pels signes de la taula, els intervals on això passa són $(-\infty, 2)$ i $(3, +\infty)$; i els punts $x=2$ i $x=3$ <em>també hi entren</em> perquè el polinomi val $0$ en ells (i $0 \geq 0$ ✓).</p>
+
+          <div class="solution-row">
+            <span class="interval">$(-\infty,\;2]\,\cup\,[3,\;+\infty)$</span>
+          </div>
+
+          <svg class="numline" viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg" aria-label="Recta numèrica: x menor o igual que 2 o x major o igual que 3">
+            <line class="axis" x1="14" y1="25" x2="266" y2="25"/>
+            <polygon class="axis-arrow" points="14,25 22,21 22,29"/>
+            <polygon class="axis-arrow" points="266,25 258,21 258,29"/>
+            <!-- regió esquerra: fins al 2 -->
+            <line class="region" x1="22" y1="25" x2="120" y2="25"/>
+            <polygon class="region-arrow" points="14,25 22,21 22,29"/>
+            <circle class="pt-closed" cx="120" cy="25" r="5"/>
+            <text class="lbl" x="120" y="45" text-anchor="middle">2</text>
+            <!-- regió dreta: des del 3 -->
+            <line class="region" x1="160" y1="25" x2="258" y2="25"/>
+            <polygon class="region-arrow" points="266,25 258,21 258,29"/>
+            <circle class="pt-closed" cx="160" cy="25" r="5"/>
+            <text class="lbl" x="160" y="45" text-anchor="middle">3</text>
+          </svg>
+
+          <p>Equivalentment: <strong>$x \leq 2$ &nbsp;o&nbsp; $x \geq 3$</strong>.</p>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Apartat anterior</span>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-inequacions/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
