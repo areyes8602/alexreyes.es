@@ -171,6 +171,50 @@
         "habilidad": ["calculo_simbolico", "razonamiento"],
         "formato": ["pregunta_larga"]
       }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-irr-36",
+      "numero": 36,
+      "titulo": "Resol les equacions irracionals següents",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html#ex-36",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html#ex-36",
+      "puntuacion": 0,
+      "contexto": "Resol les equacions irracionals (amb arrels quadrades). Aïlla l'arrel, eleva al quadrat i verifica les solucions per descartar les extranyes. Després, comprova amb GeoGebra els resultats que has obtingut.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$x + \\sqrt{x+1} = 2x - 1$" },
+        { "letra": "b", "puntos": 0, "tarea": "$3 + \\sqrt{x^{2}-3} = x^{2}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$\\sqrt{x} + \\sqrt{x+1} = 1$" },
+        { "letra": "d", "puntos": 0, "tarea": "$\\sqrt{7-3x} - x = 7$" },
+        { "letra": "e", "puntos": 0, "tarea": "$3\\sqrt{6x+1} - 5 = 2x$" },
+        { "letra": "f", "puntos": 0, "tarea": "$\\sqrt{x+4} = 3 - \\sqrt{x-1}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-ecuaciones"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-irr-37",
+      "numero": 37,
+      "titulo": "Equacions irracionals més complicades (dues o tres arrels)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html#ex-37",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html#ex-37",
+      "puntuacion": 0,
+      "contexto": "Resol les equacions següents (algunes requereixen elevar al quadrat dues vegades). Comprova amb GeoGebra els resultats que has obtingut.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$x + \\sqrt{x+1} - 2x = 1$" },
+        { "letra": "b", "puntos": 0, "tarea": "$\\sqrt{x-3} + \\sqrt{x+4} = \\sqrt{4x+1}$" },
+        { "letra": "c", "puntos": 0, "tarea": "$x - \\sqrt{x^{2}-3} = \\sqrt{x-1}$" },
+        { "letra": "d", "puntos": 0, "tarea": "$\\sqrt{x} + \\dfrac{1}{\\sqrt{x}} = \\dfrac{x+1}{2}$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-ecuaciones"],
+        "dificultad": "dificil",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
     }
   ]
 }

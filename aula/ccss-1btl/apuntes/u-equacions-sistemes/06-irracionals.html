@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6. Equacions irracionals · Equacions i sistemes · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: equacions irracionals. Estratègia (aïllar l'arrel + elevar al quadrat + verificar), un exemple treballat amb tres arrels (sense solució) i 10 exercicis (36a–f i 37a–d) amb solució amagada.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Equacions i sistemes</a>
+      <span class="sep">/</span>
+      <span class="current">06 · Equacions irracionals</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Equacions i sistemes</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">7 nov 2025</span>
+      </div>
+      <h1 style="margin:0">6. Equacions irracionals</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">L'estratègia per resoldre equacions amb arrels quadrades (aïllar + elevar al quadrat + verificar), un exemple treballat amb tres arrels (que acaba sense solució) i 10 exercicis (36a–f i 37a–d) amb la solució amagada.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ TEORIA ============ -->
+      <div class="apunt-section">
+        <h2>Idea: aïllar l'arrel i elevar al quadrat</h2>
+
+        <div class="def-box">
+          <h3>Equació irracional</h3>
+          <p>Anomenem <strong>equacions irracionals</strong> les que tenen la incògnita <strong>dins d'una arrel quadrada</strong> (o, més en general, dins d'un radical).</p>
+          <p>Per exemple: $\;\sqrt{2x-1} + \sqrt{x-3} = \sqrt{5-x}\;$ o $\;3 + \sqrt{x^{2}-3} = x^{2}$.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>Estratègia general (3 passos)</h3>
+          <p><strong>1) Aïllar una arrel</strong> en un dels dos costats de la igualtat.</p>
+          <p><strong>2) Elevar al quadrat</strong> tots dos costats per fer-la desaparèixer. Si encara queden arrels (perquè en teníem dues o tres), tornem a aïllar i a elevar.</p>
+          <p><strong>3) Resoldre</strong> l'equació polinòmica resultant i <strong>verificar</strong> totes les solucions a l'equació original.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Productes notables que usarem sovint</h3>
+          <div class="math-block">$$(a+b)^{2} = a^{2} + 2ab + b^{2}, \qquad (a-b)^{2} = a^{2} - 2ab + b^{2}.$$</div>
+          <p>Quan elevem al quadrat una expressió amb una arrel sumada (o restada) a un altre terme, sempre apareix el doble producte $\;2ab$ amb una arrel dins.</p>
+        </div>
+
+        <div class="warn-box">
+          <h3>Verificació imprescindible — soluciones extranyes</h3>
+          <p>Elevar al quadrat <strong>no és una operació reversible</strong>: pot crear solucions que no satisfan l'equació original (les anomenem <em>extranyes</em>, igual que a les racionals). En particular, si en aïllar una arrel queda $\;\sqrt{\,\cdot\,} = E\;$ amb $\,E < 0$, aquella branca no aporta cap solució vàlida.</p>
+          <p><strong>Cal substituir sempre</strong> els valors candidats a l'equació original. Si algun no encaixa, es <em>descarta</em>.</p>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE TREBALLAT ============ -->
+      <div class="apunt-section">
+        <h2>Exemple treballat (tres arrels, sense solució)</h2>
+
+        <div class="example-box">
+          <h3>$\sqrt{2x-1} + \sqrt{x-3} = \sqrt{5-x}$</h3>
+          <p>Tenim <strong>tres arrels</strong>; haurem d'elevar al quadrat dues vegades. Comencem elevant directament:</p>
+          <div class="math-block">$$\bigl(\sqrt{2x-1} + \sqrt{x-3}\bigr)^{2} = \bigl(\sqrt{5-x}\bigr)^{2}.$$</div>
+          <div class="math-block">$$(2x-1) + 2\sqrt{(2x-1)(x-3)} + (x-3) = 5 - x.$$</div>
+
+          <p>Aïllem l'arrel que queda i agrupem:</p>
+          <div class="math-block">$$2\sqrt{(2x-1)(x-3)} = 5 - x - 2x + 1 - x + 3 = 9 - 4x.$$</div>
+
+          <p>Tornem a elevar al quadrat:</p>
+          <div class="math-block">$$\bigl(2\sqrt{(2x-1)(x-3)}\bigr)^{2} = (9-4x)^{2}.$$</div>
+          <div class="math-block">$$4(2x-1)(x-3) = 81 - 72x + 16x^{2}.$$</div>
+
+          <p>Desenvolupem el costat esquerre: $\;(2x-1)(x-3) = 2x^{2} - 7x + 3$, així que $\;4(2x^{2}-7x+3) = 8x^{2} - 28x + 12$. Igualant:</p>
+          <div class="math-block">$$8x^{2} - 28x + 12 = 16x^{2} - 72x + 81 \;\Longrightarrow\; 0 = 8x^{2} - 44x + 69.$$</div>
+
+          <p>Discriminant: $\;\Delta = 44^{2} - 4 \cdot 8 \cdot 69 = 1936 - 2208 = -272 < 0$. <strong>L'equació quadràtica no té cap arrel real</strong>, i per tant l'equació original tampoc.</p>
+          <div class="math-block">$$\boxed{\;\text{No té solució.}\;}$$</div>
+          <p class="note">Aquí és la mateixa quadràtica final qui ens diu que no hi ha solució — no cal ni arribar a verificar.</p>
+        </div>
+      </div>
+
+      <!-- ============ EXERCICIS ============ -->
+      <div class="apunt-section">
+        <h2>Exercicis</h2>
+
+        <div class="exercise" id="ex-36">
+          <div class="exercise-head">
+            <span class="num">36</span>
+            <span class="ttl">Resol les equacions irracionals següents</span>
+          </div>
+          <p class="exercise-intro">Després, comprova amb GeoGebra els resultats que has obtingut.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$x + \sqrt{x+1} = 2x - 1$</span></summary>
+            <div class="apart-solution">
+              <p>Aïllem l'arrel: $\;\sqrt{x+1} = x - 1$. Elevem al quadrat:</p>
+              <div class="math-block">$$x + 1 = (x-1)^{2} = x^{2} - 2x + 1 \;\Longrightarrow\; 0 = x^{2} - 3x = x(x-3).$$</div>
+              <p>Candidats: $x = 0$ o $x = 3$.</p>
+              <p><strong>Verificació:</strong> $x = 0$: $\;0 + \sqrt{1} = 1 \neq -1$ → descarta. &nbsp;$x = 3$: $\;3 + \sqrt{4} = 5 = 2\cdot 3 - 1$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = 3.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$3 + \sqrt{x^{2}-3} = x^{2}$</span></summary>
+            <div class="apart-solution">
+              <p>Aïllem l'arrel: $\;\sqrt{x^{2}-3} = x^{2} - 3$. Elevem al quadrat:</p>
+              <div class="math-block">$$x^{2} - 3 = (x^{2})^{2} - 2 \cdot x^{2} \cdot 3 + 9 = x^{4} - 6x^{2} + 9.$$</div>
+              <div class="math-block">$$0 = x^{4} - 7x^{2} + 12.$$</div>
+              <p>És una <strong>biquadrada</strong>. Canvi $\,x^{2} = t$:</p>
+              <div class="math-block">$$0 = t^{2} - 7t + 12 = (t-3)(t-4) \;\Longrightarrow\; t = 3 \text{ o } t = 4.$$</div>
+              <p>Desfent el canvi: $\;x = \pm\sqrt{3}\,$ o $\,x = \pm 2$.</p>
+              <p><strong>Verificació:</strong> tots quatre valors compleixen $x^{2}-3 \geq 0$ i $x^{2}-3 \geq 0$ (la part dreta després d'aïllar). Es comprova: $\,3 + \sqrt{0} = 3 = (\pm\sqrt{3})^{2}\,$ ✓ &nbsp;i&nbsp; $\,3 + \sqrt{1} = 4 = (\pm 2)^{2}\,$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = \pm\sqrt{3}\ \text{o}\ x = \pm 2.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$\sqrt{x} + \sqrt{x+1} = 1$</span></summary>
+            <div class="apart-solution">
+              <p>Aïllem una arrel: $\;\sqrt{x+1} = 1 - \sqrt{x}$. Elevem al quadrat:</p>
+              <div class="math-block">$$x + 1 = 1 - 2\sqrt{x} + x \;\Longrightarrow\; 0 = -2\sqrt{x} \;\Longrightarrow\; \sqrt{x} = 0 \;\Longrightarrow\; x = 0.$$</div>
+              <p><strong>Verificació:</strong> $\sqrt{0} + \sqrt{1} = 0 + 1 = 1$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = 0.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$\sqrt{7-3x} - x = 7$</span></summary>
+            <div class="apart-solution">
+              <p>Aïllem l'arrel: $\;\sqrt{7-3x} = x + 7$. Elevem al quadrat:</p>
+              <div class="math-block">$$7 - 3x = (x+7)^{2} = x^{2} + 14x + 49 \;\Longrightarrow\; 0 = x^{2} + 17x + 42.$$</div>
+              <div class="math-block">$$x = \dfrac{-17 \pm \sqrt{289 - 168}}{2} = \dfrac{-17 \pm 11}{2} \;\Rightarrow\; x = -3\ \text{o}\ x = -14.$$</div>
+              <p><strong>Verificació:</strong> $x = -3$: $\;\sqrt{16} - (-3) = 4 + 3 = 7$ ✓. &nbsp;$x = -14$: $\;\sqrt{49} - (-14) = 7 + 14 = 21 \neq 7$ → descarta.</p>
+              <div class="math-block">$$\boxed{\;x = -3.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">e)</span> <span class="stmt">$3\sqrt{6x+1} - 5 = 2x$</span></summary>
+            <div class="apart-solution">
+              <p>Aïllem l'arrel: $\;3\sqrt{6x+1} = 2x + 5$. Elevem al quadrat:</p>
+              <div class="math-block">$$9(6x+1) = (2x+5)^{2} \;\Longrightarrow\; 54x + 9 = 4x^{2} + 20x + 25.$$</div>
+              <div class="math-block">$$0 = 4x^{2} - 34x + 16 \;\Longrightarrow\; 0 = 2x^{2} - 17x + 8.$$</div>
+              <div class="math-block">$$x = \dfrac{17 \pm \sqrt{289 - 64}}{4} = \dfrac{17 \pm 15}{4} \;\Rightarrow\; x = 8\ \text{o}\ x = \tfrac{1}{2}.$$</div>
+              <p><strong>Verificació:</strong> $x = 8$: $\;3\sqrt{49} - 5 = 21 - 5 = 16 = 2\cdot 8$ ✓. &nbsp;$x = \tfrac{1}{2}$: $\;3\sqrt{4} - 5 = 6 - 5 = 1 = 2\cdot\tfrac{1}{2}$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = 8\ \text{o}\ x = \tfrac{1}{2}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">f)</span> <span class="stmt">$\sqrt{x+4} = 3 - \sqrt{x-1}$</span></summary>
+            <div class="apart-solution">
+              <p>Elevem al quadrat directament:</p>
+              <div class="math-block">$$x + 4 = 9 - 6\sqrt{x-1} + (x-1) = 8 + x - 6\sqrt{x-1}.$$</div>
+              <p>Aïllem l'arrel restant: $\;-4 = -6\sqrt{x-1} \;\Rightarrow\; \sqrt{x-1} = \dfrac{2}{3}$. Elevem al quadrat:</p>
+              <div class="math-block">$$x - 1 = \dfrac{4}{9} \;\Longrightarrow\; x = \dfrac{13}{9}.$$</div>
+              <p><strong>Verificació:</strong> $\sqrt{\tfrac{13}{9}+4} = \sqrt{\tfrac{49}{9}} = \tfrac{7}{3}$, &nbsp;$3 - \sqrt{\tfrac{13}{9}-1} = 3 - \tfrac{2}{3} = \tfrac{7}{3}$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = \dfrac{13}{9}.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <div class="exercise" id="ex-37">
+          <div class="exercise-head">
+            <span class="num">37</span>
+            <span class="ttl">Resol les equacions següents</span>
+          </div>
+          <p class="exercise-intro">Comprova amb GeoGebra els resultats que has obtingut.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$x + \sqrt{x+1} - 2x = 1$</span></summary>
+            <div class="apart-solution">
+              <p>Simplifiquem: $\;-x + \sqrt{x+1} = 1 \;\Rightarrow\; \sqrt{x+1} = x + 1$. Elevem al quadrat:</p>
+              <div class="math-block">$$x + 1 = (x+1)^{2}.$$</div>
+              <p>Sigui $u = x+1$: $\;u = u^{2} \Rightarrow u(u-1) = 0 \Rightarrow u = 0$ o $u = 1$. Així $\,x = -1$ o $\,x = 0$.</p>
+              <p><strong>Verificació:</strong> $x=-1$: $\;-1 + \sqrt{0} - (-2) = -1 + 0 + 2 = 1$ ✓. &nbsp;$x=0$: $\;0 + \sqrt{1} - 0 = 1$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = -1\ \text{o}\ x = 0.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$\sqrt{x-3} + \sqrt{x+4} = \sqrt{4x+1}$</span></summary>
+            <div class="apart-solution">
+              <p>Elevem al quadrat directament:</p>
+              <div class="math-block">$$(x-3) + 2\sqrt{(x-3)(x+4)} + (x+4) = 4x + 1.$$</div>
+              <p>Aïllem l'arrel: $\;2\sqrt{(x-3)(x+4)} = 4x + 1 - 2x - 1 = 2x \;\Rightarrow\; \sqrt{(x-3)(x+4)} = x$. Elevem al quadrat:</p>
+              <div class="math-block">$$(x-3)(x+4) = x^{2} \;\Longrightarrow\; x^{2} + x - 12 = x^{2} \;\Longrightarrow\; x = 12.$$</div>
+              <p><strong>Verificació:</strong> $\;\sqrt{9} + \sqrt{16} = 3 + 4 = 7 = \sqrt{49}$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = 12.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$x - \sqrt{x^{2}-3} = \sqrt{x-1}$</span></summary>
+            <div class="apart-solution">
+              <p>Elevem al quadrat:</p>
+              <div class="math-block">$$\bigl(x - \sqrt{x^{2}-3}\bigr)^{2} = x - 1 \;\Longrightarrow\; x^{2} - 2x\sqrt{x^{2}-3} + (x^{2}-3) = x - 1.$$</div>
+              <p>Aïllem l'arrel: $\;2x^{2} - 3 - x + 1 = 2x\sqrt{x^{2}-3} \;\Rightarrow\; 2x^{2} - x - 2 = 2x\sqrt{x^{2}-3}$. Elevem al quadrat:</p>
+              <div class="math-block">$$(2x^{2} - x - 2)^{2} = 4x^{2}(x^{2} - 3).$$</div>
+              <div class="math-block">$$4x^{4} - 4x^{3} - 7x^{2} + 4x + 4 = 4x^{4} - 12x^{2}.$$</div>
+              <div class="math-block">$$0 = 4x^{3} - 5x^{2} - 4x - 4.$$</div>
+              <p>Per Ruffini provem $x = 2$: $\,32 - 20 - 8 - 4 = 0$ ✓. Llavors $\,4x^{3} - 5x^{2} - 4x - 4 = (x-2)(4x^{2} + 3x + 2)$, i la quadràtica té $\Delta = 9 - 32 < 0$, sense més arrels reals.</p>
+              <p><strong>Verificació:</strong> $x = 2$: $\;2 - \sqrt{1} = 1 = \sqrt{1}$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = 2.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$\sqrt{x} + \dfrac{1}{\sqrt{x}} = \dfrac{x+1}{2}$</span></summary>
+            <div class="apart-solution">
+              <p>Multipliquem tot per $\,2\sqrt{x}\,$ (condició $x > 0$):</p>
+              <div class="math-block">$$2x + 2 = \sqrt{x}\,(x+1).$$</div>
+              <p>Elevem al quadrat:</p>
+              <div class="math-block">$$(2x+2)^{2} = x\,(x+1)^{2} \;\Longrightarrow\; 4x^{2} + 8x + 4 = x^{3} + 2x^{2} + x.$$</div>
+              <div class="math-block">$$0 = x^{3} - 2x^{2} - 7x - 4.$$</div>
+              <p>Per Ruffini provem $x = 4$: $\,64 - 32 - 28 - 4 = 0$ ✓. Llavors $\,x^{3} - 2x^{2} - 7x - 4 = (x-4)(x^{2} + 2x + 1) = (x-4)(x+1)^{2}$. Candidats: $x = 4$ i $x = -1$ (doble).</p>
+              <p><strong>Verificació:</strong> $x = -1$: $\sqrt{-1}$ no està definit → descarta. &nbsp;$x = 4$: $\;\sqrt{4} + \tfrac{1}{\sqrt{4}} = 2 + \tfrac{1}{2} = \tfrac{5}{2} = \tfrac{4+1}{2}$ ✓.</p>
+              <div class="math-block">$$\boxed{\;x = 4.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/05-logaritmes.html">&larr; 05 · Equacions amb logaritmes</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
