@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1. Equacions biquadrades · Equacions i sistemes · 1r BTL CCSS</title>
-<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: equacions biquadrades. Canvi de variable $x^{n}=z$, tres exemples treballats i quatre exercicis resolts amb solució amagada.">
+<title>2. Equacions racionals · Equacions i sistemes · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: equacions racionals. Estratègia de 5 passos (factoritzar, MCM, amplificar, eliminar denominadors, resoldre) i 2 exercicis resolts amb solució amagada.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html">
 <style>
 .apunt-section { margin: 2.2rem 0; }
 .apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
@@ -49,11 +49,12 @@
 .apart > details[open] > summary::before { transform: rotate(90deg); }
 .apart > details > summary:hover { background: rgba(99,102,241,0.06); }
 .apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
-.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
 .apart > details > summary .stmt { flex: 1; }
 .apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
 .apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
 .apart-solution p { margin: 0.3rem 0; }
+.apart-solution .step { margin-top: 0.7rem; }
+.apart-solution .step-label { font-weight: 600; color: #6366f1; font-size: 0.86rem; text-transform: uppercase; letter-spacing: 0.05em; }
 [data-theme="dark"] .exercise { background: var(--bg-subtle); }
 [data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
 </style>
@@ -91,106 +92,50 @@
       <span class="sep">/</span>
       <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Equacions i sistemes</a>
       <span class="sep">/</span>
-      <span class="current">01 · Equacions biquadrades</span>
+      <span class="current">02 · Equacions racionals</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
         <span class="section-label">1r BTL CCSS · Equacions i sistemes</span>
         <span class="tag tag-orange">Apunts</span>
-        <span class="tag tag-gray" style="font-size:0.7rem">22 oct 2025</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">24 oct 2025</span>
       </div>
-      <h1 style="margin:0">1. Equacions biquadrades</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">El canvi de variable $x^{n}=z$ que transforma una equació de grau $2n$ en una de segon grau, exemples treballats i 4 exercicis resolts amb solució amagada.</p>
+      <h1 style="margin:0">2. Equacions racionals</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Estratègia de 5 passos (factoritzar, MCM, amplificar, eliminar denominadors i resoldre) i dos exercicis resolts amb la solució amagada.</p>
     </div>
 
     <article class="question-block" style="border:none;padding:0;background:none">
 
       <!-- ============ DEFINICIÓ ============ -->
       <div class="apunt-section">
-        <h2>Què és una equació biquadrada?</h2>
+        <h2>Què és una equació racional?</h2>
 
         <div class="def-box">
           <h3>Definició</h3>
-          <p>Una <strong>equació biquadrada</strong> és una equació que es pot transformar en una equació de <strong>segon grau</strong> mitjançant un <strong>canvi de variable</strong>.</p>
-          <p>El cas típic és una equació de grau parell on només apareixen el terme principal, un terme de grau intermedi i el terme independent — i els exponents són tals que un és el doble de l'altre. Per exemple, el grau més alt és $2n$ i el del mig és $n$:</p>
+          <p>Una <strong>equació racional</strong> és una equació en què la incògnita apareix al <strong>denominador</strong> d'una o més fraccions algebraiques.</p>
+          <p>Per exemple:</p>
           <div class="math-block">
-            $$a\,x^{2n} + b\,x^{n} + c = 0.$$
+            $$\dfrac{x-1}{x} - \dfrac{x+1}{x-5} = \dfrac{x+2}{x^{2}-5x}.$$
           </div>
-          <p>Amb el canvi $\;x^{n} = z\;$ ens queda:</p>
-          <div class="math-block">
-            $$a\,z^{2} + b\,z + c = 0,$$
-          </div>
-          <p>una equació de 2n grau en $z$, que ja sabem resoldre.</p>
+          <p>La idea per resoldre-les és la mateixa que amb les fraccions numèriques: <strong>treure els denominadors</strong> per quedar-nos amb una equació polinòmica que ja sabem resoldre.</p>
         </div>
 
         <div class="prop-box">
-          <h3>Estratègia general</h3>
+          <h3>Estratègia (5 passos)</h3>
           <ol style="margin:0.4rem 0 0 1.2rem">
-            <li>Identifica el canvi: si l'equació té termes $x^{2n}, x^{n}$ i constant, posa $\;z = x^{n}$.</li>
-            <li>Reescriu l'equació en $z$: et queda una equació de 2n grau.</li>
-            <li>Resol la 2n grau per la fórmula (o factoritzant): obtens un o dos valors $z$.</li>
-            <li>Per a cada valor de $z$, <strong>desfés el canvi</strong> ($x^{n} = z$) i troba les arrels en $x$.</li>
-            <li>Recull totes les solucions.</li>
+            <li><strong>Factoritzar</strong> tots els denominadors.</li>
+            <li>Calcular el <strong>MCM</strong> dels denominadors.</li>
+            <li><strong>Amplificar</strong> cada fracció perquè totes tinguin el MCM com a denominador.</li>
+            <li><strong>Eliminar</strong> els denominadors (queda una igualtat de polinomis).</li>
+            <li><strong>Resoldre</strong> l'equació polinòmica resultant.</li>
           </ol>
         </div>
 
         <div class="warn-box">
-          <h3>Compte amb les solucions extra (i les que es perden)</h3>
-          <p>Si surt $\,z<0\,$ i $n$ és <em>parell</em> (per exemple $x^{2}=z$), aquell valor <strong>no</strong> dóna cap arrel real, perquè cap quadrat real és negatiu.</p>
-          <p>En canvi, si $n$ és <em>imparell</em> ($x^{3}=z$), qualsevol valor de $z$ dóna una sola arrel real, també si és negatiu: $x = \sqrt[3]{z}$.</p>
-        </div>
-      </div>
-
-      <!-- ============ EXEMPLES ============ -->
-      <div class="apunt-section">
-        <h2>Exemples treballats</h2>
-
-        <div class="example-box">
-          <h3>Exemple 1 — només el canvi</h3>
-          <p>Considerem $\;5x^{4} - 3x^{2} + 8 = 0$. Fem el canvi $\;x^{2} = z$:</p>
-          <div class="math-block">
-            $$5z^{2} - 3z + 8 = 0.$$
-          </div>
-          <p class="note">El discriminant val $\Delta = 9 - 4\cdot 5\cdot 8 = -151 < 0$, així que la 2n grau no té solucions reals. Per tant, l'equació original tampoc en té.</p>
-        </div>
-
-        <div class="example-box">
-          <h3>Exemple 2 — $2x^{4} - 26x^{2} + 72 = 0$</h3>
-          <p>Apliquem el canvi $\;x^{2}=z$:</p>
-          <div class="math-block">
-            $$2z^{2} - 26z + 72 = 0.$$
-          </div>
-          <p>Resolem per la fórmula del 2n grau:</p>
-          <div class="math-block">
-            $$z = \dfrac{26 \pm \sqrt{676 - 4\cdot 2\cdot 72}}{4} = \dfrac{26 \pm \sqrt{100}}{4} = \dfrac{26 \pm 10}{4}.$$
-          </div>
-          <p>Així, &nbsp;$z_{1} = \dfrac{36}{4} = 9$ &nbsp;i&nbsp; $z_{2} = \dfrac{16}{4} = 4$. Ara desfem el canvi:</p>
-          <ul>
-            <li>Si $z = 9$: &nbsp;$x^{2} = 9 \;\Longrightarrow\; x = \pm\sqrt{9} = \pm 3$.</li>
-            <li>Si $z = 4$: &nbsp;$x^{2} = 4 \;\Longrightarrow\; x = \pm\sqrt{4} = \pm 2$.</li>
-          </ul>
-          <div class="math-block">
-            $$\boxed{\;x \in \{-3,\,-2,\,2,\,3\}.\;}$$
-          </div>
-          <p class="note">Una equació biquadrada amb canvi $x^{2}=z$ pot tenir <strong>fins a quatre</strong> solucions reals (dues per cada $z>0$).</p>
-        </div>
-
-        <div class="example-box">
-          <h3>Exemple 3 — canvi cúbic $x^{6} - 9x^{3} + 8 = 0$</h3>
-          <p>Aquí els exponents són $6$ i $3$, així que el canvi és $\;x^{3} = z$:</p>
-          <div class="math-block">
-            $$z^{2} - 9z + 8 = 0 \;\Longrightarrow\; z = \dfrac{9 \pm \sqrt{81-32}}{2} = \dfrac{9 \pm 7}{2}.$$
-          </div>
-          <p>Així, &nbsp;$z_{1} = 8$ &nbsp;i&nbsp; $z_{2} = 1$. Desfem el canvi (ara amb arrel cúbica):</p>
-          <ul>
-            <li>Si $z = 8$: &nbsp;$x^{3} = 8 \;\Longrightarrow\; x = \sqrt[3]{8} = 2$.</li>
-            <li>Si $z = 1$: &nbsp;$x^{3} = 1 \;\Longrightarrow\; x = \sqrt[3]{1} = 1$.</li>
-          </ul>
-          <div class="math-block">
-            $$\boxed{\;x \in \{1,\,2\}.\;}$$
-          </div>
-          <p class="note">Amb canvi imparell ($x^{3}=z$) cada $z$ dóna <strong>una sola</strong> arrel real, així que en aquest cas tenim com a màxim dues solucions.</p>
+          <h3>Verificació final imprescindible</h3>
+          <p>En multiplicar per un denominador que conté la incògnita, podem introduir <strong>solucions falses</strong> (anomenades <em>extranyes</em>) que fan zero algun denominador original i, per tant, no són vàlides.</p>
+          <p>Per això, un cop trobades les solucions, sempre cal <strong>comprovar</strong> que cap d'elles anul·la cap denominador. Si alguna ho fa, es descarta.</p>
         </div>
       </div>
 
@@ -198,74 +143,122 @@
       <div class="apunt-section">
         <h2>Exercicis</h2>
 
-        <!-- Exercici 30 -->
-        <div class="exercise" id="ex-30">
+        <!-- Exercici 1 -->
+        <div class="exercise" id="ex-1">
           <div class="exercise-head">
-            <span class="num">30</span>
-            <span class="ttl">Resol les equacions biquadrades</span>
+            <span class="num">1</span>
+            <span class="ttl">Equació amb tres fraccions</span>
           </div>
-          <p class="exercise-intro">Resol les equacions biquadrades proposades. Després, comprova amb GeoGebra els resultats que has obtingut.</p>
-
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">$x^{4} - 5x^{2} + 4 = 0$</span></summary>
+            <summary><span class="stmt">Resol $\;\dfrac{x-1}{x} - \dfrac{x+1}{x-5} = \dfrac{x+2}{x^{2}-5x}$.</span></summary>
             <div class="apart-solution">
-              <p>Canvi $\;x^{2} = t$:</p>
-              <div class="math-block">$$t^{2} - 5t + 4 = 0 \;\Longrightarrow\; t = \dfrac{5 \pm \sqrt{25-16}}{2} = \dfrac{5 \pm 3}{2}.$$</div>
-              <p>$t_{1} = 4$ &nbsp;i&nbsp; $t_{2} = 1$. Desfem el canvi:</p>
-              <ul>
-                <li>Si $x^{2} = 1$: &nbsp;$x = \pm 1$.</li>
-                <li>Si $x^{2} = 4$: &nbsp;$x = \pm 2$.</li>
-              </ul>
-              <div class="math-block">$$\boxed{\;x \in \{-2,\,-1,\,1,\,2\}.\;}$$</div>
-            </div>
-          </details></div>
+              <div class="step">
+                <p class="step-label">Pas 1 — Factoritzar els denominadors</p>
+                <p>Els dos primers ja ho estan. El tercer es factoritza:</p>
+                <div class="math-block">$$x^{2}-5x = x\,(x-5).$$</div>
+                <p>Reescrivim l'equació:</p>
+                <div class="math-block">$$\dfrac{x-1}{x} - \dfrac{x+1}{x-5} = \dfrac{x+2}{x(x-5)}.$$</div>
+              </div>
 
-          <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt">$x^{4} - 2x^{2} + 1 = 0$</span></summary>
-            <div class="apart-solution">
-              <p>Canvi $\;x^{2} = t$:</p>
-              <div class="math-block">$$t^{2} - 2t + 1 = 0 \;\Longrightarrow\; (t-1)^{2} = 0 \;\Longrightarrow\; t = 1\ \text{(doble)}.$$</div>
-              <p>Desfem el canvi: si $x^{2} = 1$, llavors $x = \pm 1$. Com que $t=1$ era arrel doble, cadascuna d'aquestes és <strong>doble</strong>:</p>
-              <div class="math-block">$$\boxed{\;x = 1\ \text{(doble)},\quad x = -1\ \text{(doble)}.\;}$$</div>
-              <p class="note">Es veu millor factoritzant: $\;x^{4} - 2x^{2} + 1 = (x^{2}-1)^{2} = (x-1)^{2}(x+1)^{2}$.</p>
-            </div>
-          </details></div>
+              <div class="step">
+                <p class="step-label">Pas 2 — MCM dels denominadors</p>
+                <p>Els denominadors són $x$, $(x-5)$ i $x(x-5)$. El MCM és $\;x(x-5)$.</p>
+              </div>
 
-          <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">$x^{4} - 3x^{2} = 0$</span></summary>
-            <div class="apart-solution">
-              <p>Aquí no fa falta canvi de variable: traiem factor comú $x^{2}$ i tenim un producte que es fa zero quan ho fa algun dels factors:</p>
-              <div class="math-block">$$x^{2}(x^{2} - 3) = 0.$$</div>
-              <ul>
-                <li>$x^{2} = 0$: &nbsp;$x = 0\ \text{(doble)}$.</li>
-                <li>$x^{2} - 3 = 0$: &nbsp;$x = \pm\sqrt{3}$.</li>
-              </ul>
-              <div class="math-block">$$\boxed{\;x = 0\ \text{(doble)},\quad x = \pm\sqrt{3}.\;}$$</div>
-              <p class="note">Factoritzat: $\;x^{4} - 3x^{2} = x^{2}\,(x-\sqrt{3})(x+\sqrt{3})$.</p>
-            </div>
-          </details></div>
+              <div class="step">
+                <p class="step-label">Pas 3 — Amplificar cada fracció</p>
+                <div class="math-block">$$\dfrac{(x-1)(x-5)}{x(x-5)} - \dfrac{(x+1)\cdot x}{x(x-5)} = \dfrac{x+2}{x(x-5)}.$$</div>
+              </div>
 
-          <div class="apart"><details>
-            <summary><span class="letter">d)</span> <span class="stmt">$x^{6} - 7x^{3} - 8 = 0$</span></summary>
-            <div class="apart-solution">
-              <p>Els exponents són $6$ i $3$, així que el canvi és $\;x^{3} = t$:</p>
-              <div class="math-block">$$t^{2} - 7t - 8 = 0 \;\Longrightarrow\; t = \dfrac{7 \pm \sqrt{49+32}}{2} = \dfrac{7 \pm 9}{2}.$$</div>
-              <p>$t_{1} = 8$ &nbsp;i&nbsp; $t_{2} = -1$. Desfem el canvi (arrel cúbica):</p>
-              <ul>
-                <li>Si $x^{3} = 8$: &nbsp;$x = \sqrt[3]{8} = 2$.</li>
-                <li>Si $x^{3} = -1$: &nbsp;$x = \sqrt[3]{-1} = -1$.</li>
-              </ul>
-              <div class="math-block">$$\boxed{\;x \in \{-1,\,2\}.\;}$$</div>
-              <p class="note">L'arrel cúbica d'un nombre negatiu existeix en els reals, així que el cas $t=-1$ <em>no</em> es descarta — només passa això amb el canvi $x^{2}=z$.</p>
+              <div class="step">
+                <p class="step-label">Pas 4 — Eliminar els denominadors</p>
+                <p>Com que totes tres fraccions tenen el mateix denominador, igualem els numeradors:</p>
+                <div class="math-block">$$(x-1)(x-5) - (x+1)\cdot x = x+2.$$</div>
+              </div>
+
+              <div class="step">
+                <p class="step-label">Pas 5 — Resoldre l'equació</p>
+                <p>Desenvolupem els productes:</p>
+                <div class="math-block">$$x^{2}-5x-x+5 \;-\; x^{2}-x \;=\; x+2.$$</div>
+                <p>Els $x^{2}$ es cancel·len:</p>
+                <div class="math-block">$$-7x + 5 = x + 2.$$</div>
+                <div class="math-block">$$5 - 2 = x + 7x \;\Longrightarrow\; 3 = 8x \;\Longrightarrow\; \boxed{\,x = \tfrac{3}{8}.\,}$$</div>
+              </div>
+
+              <div class="step">
+                <p class="step-label">Verificació</p>
+                <p>Comprovem que $x = \tfrac{3}{8}$ no anul·la cap denominador:</p>
+                <ul>
+                  <li>$x = \tfrac{3}{8} \neq 0$ ✓</li>
+                  <li>$x - 5 = \tfrac{3}{8} - 5 = -\tfrac{37}{8} \neq 0$ ✓</li>
+                  <li>$x(x-5) \neq 0$ ✓ (perquè els dos factors no ho són)</li>
+                </ul>
+                <p>La solució és vàlida.</p>
+              </div>
             </div>
           </details></div>
         </div>
+
+        <!-- Exercici 2 -->
+        <div class="exercise" id="ex-2">
+          <div class="exercise-head">
+            <span class="num">2</span>
+            <span class="ttl">Equació amb un terme sense denominador</span>
+          </div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Resol $\;\dfrac{3}{x+2} - \dfrac{x}{x-2} = 2$.</span></summary>
+            <div class="apart-solution">
+              <div class="step">
+                <p class="step-label">Pas 1 — Factoritzar els denominadors</p>
+                <p>Tots els denominadors són ja factors irreductibles: $\;(x+2)$, $\;(x-2)$ &nbsp;i el $1$ del costat dret (que tractarem com a $\dfrac{2}{1}$).</p>
+              </div>
+
+              <div class="step">
+                <p class="step-label">Pas 2 — MCM dels denominadors</p>
+                <p>$\operatorname{MCM}\bigl(x+2,\; x-2,\; 1\bigr) = (x+2)(x-2)$.</p>
+              </div>
+
+              <div class="step">
+                <p class="step-label">Pas 3 — Amplificar cada fracció</p>
+                <div class="math-block">$$\dfrac{3(x-2)}{(x+2)(x-2)} - \dfrac{x(x+2)}{(x+2)(x-2)} = \dfrac{2(x+2)(x-2)}{(x+2)(x-2)}.$$</div>
+              </div>
+
+              <div class="step">
+                <p class="step-label">Pas 4 — Eliminar els denominadors</p>
+                <div class="math-block">$$3(x-2) - x(x+2) = 2(x+2)(x-2).$$</div>
+              </div>
+
+              <div class="step">
+                <p class="step-label">Pas 5 — Resoldre l'equació</p>
+                <p>Desenvolupem els tres productes:</p>
+                <div class="math-block">$$3x-6 \;-\; x^{2}-2x \;=\; 2\,(x^{2}-4) = 2x^{2}-8.$$</div>
+                <p>Agrupem tot a un costat:</p>
+                <div class="math-block">$$3x-6-x^{2}-2x-2x^{2}+8 = 0 \;\Longrightarrow\; -3x^{2}+x+2 = 0.$$</div>
+                <p>Multipliquem per $-1$ per tenir el coeficient principal positiu i apliquem la fórmula:</p>
+                <div class="math-block">$$3x^{2}-x-2 = 0 \;\Longrightarrow\; x = \dfrac{1 \pm \sqrt{1-4\cdot 3\cdot(-2)}}{6} = \dfrac{1 \pm \sqrt{25}}{6} = \dfrac{1 \pm 5}{6}.$$</div>
+                <p>Així:</p>
+                <div class="math-block">$$x_{1} = \dfrac{6}{6} = 1, \qquad x_{2} = \dfrac{-4}{6} = -\tfrac{2}{3}.$$</div>
+              </div>
+
+              <div class="step">
+                <p class="step-label">Verificació</p>
+                <p>Cap dels dos valors anul·la $\,x+2\,$ ni $\,x-2$:</p>
+                <ul>
+                  <li>$x=1$: $\;1+2 = 3$, $\;1-2 = -1$. ✓</li>
+                  <li>$x=-\tfrac{2}{3}$: $\;-\tfrac{2}{3}+2 = \tfrac{4}{3}$, $\;-\tfrac{2}{3}-2 = -\tfrac{8}{3}$. ✓</li>
+                </ul>
+                <div class="math-block">$$\boxed{\;x = 1 \quad\text{o}\quad x = -\tfrac{2}{3}.\;}$$</div>
+              </div>
+            </div>
+          </details></div>
+        </div>
+
       </div>
 
       <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
-        <span class="disabled prev">&larr; Apartat anterior</span>
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">&larr; 01 · Equacions biquadrades</a>
         <a class="index" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Índex de la unitat</a>
-        <a class="next" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html">02 · Equacions racionals &rarr;</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
       </nav>
 
     </article>
