@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2. Imatges i antiimatges · Funcions reals · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: imatge ($f(x_0)$, sempre única) i antiimatge ($f^{-1}(y)$, pot ser cap, una o diverses). Exemples amb fórmula, taula i gràfic, una aplicació amb funció d'eficiència empresarial $P(t)=\frac{100}{1+4e^{-0{,}05t}}$ i exercicis amb solució amagada.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+/* Taules petites de valors */
+table.val-table { border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+table.val-table th, table.val-table td { border:1px solid var(--border); padding:0.35rem 0.7rem; text-align:center; vertical-align:middle; }
+table.val-table th { background: var(--bg-subtle); font-weight:600; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-soft); }
+[data-theme="dark"] table.val-table th { background: rgba(255,255,255,0.04); }
+
+/* Gràfic exemple 3 */
+.mini-plot { display:block; margin:0.6rem auto 0.4rem; width:100%; max-width:260px; height:auto; }
+.mini-plot .axis { stroke: var(--text-soft); stroke-width: 1; }
+.mini-plot .grid { stroke: var(--border); stroke-width: 0.5; stroke-dasharray: 2,2; }
+.mini-plot .curve { stroke: #38bdf8; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.mini-plot .pt { fill: #38bdf8; }
+.mini-plot .lbl { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 10px; fill: var(--text-soft); }
+.mini-plot .dash { stroke: #f43f5e; stroke-width: 1.2; stroke-dasharray: 3,3; fill: none; }
+
+/* Exercicis APART-STYLE (summary = enunciat) */
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/">Funcions reals</a>
+      <span class="sep">/</span>
+      <span class="current">02 · Imatges i antiimatges</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Funcions reals</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">10 dic 2025</span>
+      </div>
+      <h1 style="margin:0">2. Imatges i antiimatges</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">La <strong>imatge</strong> d'un valor $x_0$ és $f(x_0)$ — sempre única (és l'essència de la definició de funció). L'<strong>antiimatge</strong> d'un valor $y$ són els $x$ tals que $f(x)=y$ — pot ser <em>cap</em>, <em>una</em> o <em>diverses</em>. Per resoldre-la, plantegem i resolem l'<em>equació</em> $f(x) = y$.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ IMATGE ============ -->
+      <div class="apunt-section">
+        <h2>Imatge d'un valor</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>La <strong>imatge</strong> d'un valor $x_0 \in \operatorname{Dom} f$ és el valor $f(x_0)$, és a dir el valor de $y$ relacionat amb $x_0$. Com que $f$ és una funció, aquest valor és <strong>únic</strong>.</p>
+          <div class="math-block">$$\operatorname{Im}(x_0) = f(x_0).$$</div>
+          <p>Calcular una imatge sempre és <em>directe</em>: només cal substituir.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple 1 — Imatge per fórmula: $f(x) = \log_{3}(x^{2}+1)$</h3>
+          <p>Quina és la imatge de $2\sqrt{2}$? Substituïm:</p>
+          <div class="math-block">$$f(2\sqrt{2}) = \log_{3}\!\bigl((2\sqrt{2})^{2} + 1\bigr) = \log_{3}(8+1) = \log_{3} 9 = 2.$$</div>
+          <div class="math-block">$$\boxed{\;f(2\sqrt{2}) = 2.\;}$$</div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple 2 — Imatge per taula de valors</h3>
+          <p>Una funció ve donada per la taula:</p>
+          <table class="val-table">
+            <thead><tr><th>$x$</th><th>$-3$</th><th>$-2$</th><th>$-1$</th><th>$0$</th><th>$1$</th></tr></thead>
+            <tbody><tr><th>$f(x)$</th><td>$3\sqrt{3}$</td><td>$3\sqrt{2}$</td><td>$3$</td><td>$0$</td><td>$\tfrac{1}{3}$</td></tr></tbody>
+          </table>
+          <p>Quina és la imatge de $-2$? Mirem la taula:</p>
+          <div class="math-block">$$\boxed{\;f(-2) = 3\sqrt{2}.\;}$$</div>
+          <p class="note">Igual que abans: la imatge és única — a la columna del $-2$ només hi ha un valor.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple 3 — Imatge per gràfic</h3>
+          <p>Donat el gràfic següent, llegim les imatges de $0$ i de $-2$ traçant una línia vertical des del valor de $x$ fins a la corba i, des d'allà, una horitzontal cap a l'eix $y$:</p>
+
+          <svg class="mini-plot" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg" aria-label="Gràfic exemple 3">
+            <!-- grid -->
+            <line class="grid" x1="20" y1="50" x2="220" y2="50"/>
+            <line class="grid" x1="20" y1="130" x2="220" y2="130"/>
+            <line class="grid" x1="60" y1="20" x2="60" y2="160"/>
+            <line class="grid" x1="180" y1="20" x2="180" y2="160"/>
+            <!-- axes (origen a (120,90)) -->
+            <line class="axis" x1="20" y1="90" x2="225" y2="90"/>
+            <line class="axis" x1="120" y1="20" x2="120" y2="165"/>
+            <polygon points="225,90 219,87 219,93" fill="var(--text-soft)"/>
+            <polygon points="120,20 117,26 123,26" fill="var(--text-soft)"/>
+            <!-- corba: pic prop d'x≈-0.5 a y≈3, passa per (-2,0) i per (0,2), després baixa cap a y≈0 per x gran -->
+            <path class="curve" d="M 60,90 C 75,90 90,40 120,50 C 150,60 175,80 220,88"/>
+            <!-- línies discontínues per llegir les imatges -->
+            <line class="dash" x1="60" y1="90" x2="60" y2="90"/>      <!-- (-2,0) ja a l'eix -->
+            <line class="dash" x1="120" y1="50" x2="60" y2="50"/>     <!-- de (0,2) a eix Y -->
+            <line class="dash" x1="120" y1="50" x2="120" y2="90"/>    <!-- de (0,2) baixa a eix X -->
+            <!-- punts -->
+            <circle class="pt" cx="60" cy="90" r="3"/>     <!-- (-2,0) -->
+            <circle class="pt" cx="120" cy="50" r="3"/>    <!-- (0,2) -->
+            <!-- etiquetes eixos -->
+            <text class="lbl" x="60" y="103" text-anchor="middle">-2</text>
+            <text class="lbl" x="180" y="103" text-anchor="middle">2</text>
+            <text class="lbl" x="55" y="54" text-anchor="end">2</text>
+            <text class="lbl" x="55" y="134" text-anchor="end">-2</text>
+            <text class="lbl" x="228" y="86" text-anchor="start">x</text>
+            <text class="lbl" x="124" y="22" text-anchor="start">y</text>
+          </svg>
+
+          <p>Llegim:</p>
+          <div class="math-block">$$f(0) = 2 \qquad\text{i}\qquad f(-2) = 0.$$</div>
+        </div>
+      </div>
+
+      <!-- ============ ANTIIMATGE ============ -->
+      <div class="apunt-section">
+        <h2>Antiimatge d'un valor</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>L'<strong>antiimatge</strong> d'un valor $y$ són tots els valors de $x$ tals que $f(x) = y$. S'escriu:</p>
+          <div class="math-block">$$f^{-1}(y) = \{\,x \in \operatorname{Dom} f \;\mid\; f(x) = y\,\}.$$</div>
+          <p>A diferència de la imatge, una antiimatge pot tenir <strong>cap</strong>, <strong>una</strong> o <strong>diverses</strong> solucions: cal <em>resoldre l'equació</em> $f(x) = y$.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>Estratègia</h3>
+          <p>Per calcular $f^{-1}(y)$:</p>
+          <p><strong>1)</strong> Plantejar l'equació $\;f(x) = y\;$ amb $y$ com a dada concreta.</p>
+          <p><strong>2)</strong> Resoldre-la — <em>amb totes les eines de la unitat anterior</em> (polinòmica, racional, exponencial, logarítmica, irracional, etc.).</p>
+          <p><strong>3)</strong> Comprovar que les solucions trobades són <em>al domini</em> de $f$. Les que no, es descarten.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — Antiimatges de $4$ per $f(x) = x^{2} - 5$</h3>
+          <p>Plantegem $f(x) = 4$ i resolem:</p>
+          <div class="math-block">$$x^{2} - 5 = 4 \;\Longrightarrow\; x^{2} = 9 \;\Longrightarrow\; x = \pm\sqrt{9} = \pm 3.$$</div>
+          <p>Les dues solucions són reals i estan al domini ($\operatorname{Dom} f = \mathbb{R}$). Per tant:</p>
+          <div class="math-block">$$\boxed{\;f^{-1}(4) = \{-3,\; +3\}.\;}$$</div>
+          <p class="note">Geomètricament, talleu la paràbola $y = x^{2} - 5$ amb la recta horitzontal $y=4$: la talla en dos punts, $x=-3$ i $x=3$.</p>
+
+          <svg class="mini-plot" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-label="Paràbola y=x²-5 tallada per y=4">
+            <!-- grid lleuger -->
+            <line class="grid" x1="20" y1="50" x2="220" y2="50"/>
+            <line class="grid" x1="20" y1="170" x2="220" y2="170"/>
+            <line class="grid" x1="60" y1="20" x2="60" y2="190"/>
+            <line class="grid" x1="180" y1="20" x2="180" y2="190"/>
+            <!-- eixos: origen a (120,140), 1 unitat = 20 px en x, 1 unitat = 12 px en y -->
+            <line class="axis" x1="20" y1="140" x2="225" y2="140"/>
+            <line class="axis" x1="120" y1="15" x2="120" y2="195"/>
+            <polygon points="225,140 219,137 219,143" fill="var(--text-soft)"/>
+            <polygon points="120,15 117,21 123,21" fill="var(--text-soft)"/>
+            <!-- paràbola y=x²-5: punts (-4,11),(-3,4),(-2,-1),(-1,-4),(0,-5),(1,-4),(2,-1),(3,4),(4,11) -->
+            <!-- coords pantalla: x_p = 120 + 20*x; y_p = 140 - 12*(x²-5) -->
+            <!-- (-4,11): (40, 8) -->
+            <!-- (-3,4): (60, 92) -->
+            <!-- (-2,-1): (80, 152) -->
+            <!-- (-1,-4): (100, 188) -->
+            <!-- (0,-5): (120, 200) — fora -->
+            <!-- per estètica acoto -->
+            <path class="curve" d="M 50,30 Q 60,90 80,150 Q 100,185 120,195 Q 140,185 160,150 Q 180,90 190,30"/>
+            <!-- recta y=4: y_p = 140 - 12*4 = 92 -->
+            <line class="dash" x1="20" y1="92" x2="220" y2="92"/>
+            <!-- punts d'intersecció (-3,4) i (3,4) -->
+            <circle class="pt" cx="60" cy="92" r="3"/>
+            <circle class="pt" cx="180" cy="92" r="3"/>
+            <text class="lbl" x="60" y="155" text-anchor="middle">-3</text>
+            <text class="lbl" x="180" y="155" text-anchor="middle">3</text>
+            <text class="lbl" x="115" y="92" text-anchor="end">4</text>
+            <text class="lbl" x="115" y="200" text-anchor="end">-5</text>
+            <text class="lbl" x="228" y="136" text-anchor="start">x</text>
+            <text class="lbl" x="124" y="18" text-anchor="start">y</text>
+          </svg>
+        </div>
+
+        <div class="warn-box">
+          <h3>Imatge vs antiimatge — diferència essencial</h3>
+          <p><strong>Imatge:</strong> avaluar — sempre únic resultat.</p>
+          <p><strong>Antiimatge:</strong> resoldre una equació — <em>0, 1 o més</em> resultats.</p>
+          <p>Per exemple, amb $f(x) = x^{2} - 5$:</p>
+          <p><strong>·</strong> $\;f^{-1}(-5) = \{0\}$ &nbsp;(una antiimatge: $x^{2}=0$).</p>
+          <p><strong>·</strong> $\;f^{-1}(4) = \{-3,\,3\}$ &nbsp;(dues antiimatges).</p>
+          <p><strong>·</strong> $\;f^{-1}(-10) = \varnothing$ &nbsp;(cap antiimatge: $x^{2} = -5$ no té solució real).</p>
+        </div>
+      </div>
+
+      <!-- ============ APLICACIÓ: EFICIÈNCIA D'UNA EMPRESA ============ -->
+      <div class="apunt-section">
+        <h2>Aplicació — Eficiència d'una empresa</h2>
+
+        <div class="example-box">
+          <h3>El model: $P(t) = \dfrac{100}{1 + 4\,e^{-0{,}05\,t}}$</h3>
+          <p>El percentatge d'eficiència d'una empresa en funció dels dies $t$ que han passat des del seu inici es modelitza amb la funció anterior. La utilitzarem per veure els tres tipus de càlcul: <strong>domini</strong>, <strong>imatge</strong> i <strong>antiimatge</strong>.</p>
+
+          <p><strong>1) Domini.</strong> &nbsp;És una funció racional amb denominador $1 + 4e^{-0{,}05t}$. Anul·lem-lo per veure si treu cap valor:</p>
+          <div class="math-block">
+            $$1 + 4e^{-0{,}05t} = 0 \;\Longrightarrow\; 4e^{-0{,}05t} = -1 \;\Longrightarrow\; e^{-0{,}05t} = -\tfrac{1}{4}.$$
+          </div>
+          <p>Però una exponencial mai és negativa, així que <em>no té solució</em> — el denominador no s'anul·la mai. A més, físicament $t$ representa un nombre de dies $\geq 0$, així que:</p>
+          <div class="math-block">$$\boxed{\;\operatorname{Dom} P = [0,\,+\infty).\;}$$</div>
+        </div>
+
+        <div class="example-box">
+          <h3>2) Imatges — eficiència inicial i als 20 dies</h3>
+          <p><strong>Quina és l'eficiència inicial?</strong> &nbsp;Calculem $P(0)$:</p>
+          <div class="math-block">
+            $$P(0) = \dfrac{100}{1 + 4 e^{-0{,}05 \cdot 0}} = \dfrac{100}{1 + 4 \cdot 1} = \dfrac{100}{5} = 20.$$
+          </div>
+          <div class="math-block">$$\boxed{\;P(0) = 20\,\%.\;}$$</div>
+
+          <p><strong>I passats 20 dies?</strong> &nbsp;Ara $P(20)$:</p>
+          <div class="math-block">
+            $$P(20) = \dfrac{100}{1 + 4\,e^{-0{,}05 \cdot 20}} = \dfrac{100}{1 + 4\,e^{-1}} \approx \dfrac{100}{1 + 1{,}4715} \approx 40{,}46.$$
+          </div>
+          <div class="math-block">$$\boxed{\;P(20) \approx 40{,}46\,\%.\;}$$</div>
+          <p class="note">Els dos càlculs són imatges directes — substituir i calcular.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>3) Antiimatge — quin dia s'assoleix el $70\,\%$ d'eficiència?</h3>
+          <p>Ara la pregunta és <em>inversa</em>: cerquem $t$ tal que $P(t) = 70$. Plantegem l'equació:</p>
+          <div class="math-block">
+            $$70 = \dfrac{100}{1 + 4\,e^{-0{,}05\,t}}.$$
+          </div>
+          <p>Multipliquem pel denominador i aïllem l'exponencial:</p>
+          <div class="math-block">
+            $$70\bigl(1 + 4 e^{-0{,}05 t}\bigr) = 100 \;\Longrightarrow\; 70 + 280\,e^{-0{,}05 t} = 100 \;\Longrightarrow\; 280\,e^{-0{,}05 t} = 30.$$
+          </div>
+          <div class="math-block">
+            $$e^{-0{,}05 t} = \dfrac{30}{280} = \dfrac{3}{28}.$$
+          </div>
+          <p>Apliquem logaritme neperià als dos costats per "treure" l'exponencial:</p>
+          <div class="math-block">
+            $$-0{,}05\,t = \ln\!\dfrac{3}{28} \;\Longrightarrow\; t = -\dfrac{1}{0{,}05}\,\ln\!\dfrac{3}{28} \approx 44{,}67.$$
+          </div>
+          <p>Com que $t$ representa un nombre enter de dies, arrodonim cap amunt — l'eficiència del $70\,\%$ <em>s'assoleix per primera vegada</em> al final del dia 45:</p>
+          <div class="math-block">$$\boxed{\;t \approx 45\;\text{dies}.\;}$$</div>
+          <p class="note">L'antiimatge és única perquè $P(t)$ és estrictament creixent: per a cada valor de $y \in (20, 100)$ hi ha exactament un $t \geq 0$.</p>
+        </div>
+      </div>
+
+      <!-- ============ EXERCICIS ============ -->
+      <div class="apunt-section">
+        <h2>Exercicis</h2>
+
+        <!-- Exercici 1: imatges -->
+        <div class="exercise" id="ex-1">
+          <div class="exercise-head">
+            <span class="num">1</span>
+            <span class="ttl">Càlcul d'imatges</span>
+          </div>
+          <p class="exercise-intro">Per a cada funció, calcula la imatge demanada. Recorda: només cal substituir i operar.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Si $f(x) = 2x - 5$, calcula $f(3)$.</span></summary>
+            <div class="apart-solution">
+              <p>Substituïm $x=3$:</p>
+              <div class="math-block">$$f(3) = 2 \cdot 3 - 5 = 6 - 5 = 1.$$</div>
+              <div class="math-block">$$\boxed{\;f(3) = 1.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Si $f(x) = x^{2} + 1$, calcula $f(-2)$.</span></summary>
+            <div class="apart-solution">
+              <p>$f(-2) = (-2)^{2} + 1 = 4 + 1 = 5$. Atenció a posar el $-2$ entre parèntesis abans d'elevar al quadrat.</p>
+              <div class="math-block">$$\boxed{\;f(-2) = 5.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">Si $f(x) = \log_{2}(x+4)$, calcula $f(4)$.</span></summary>
+            <div class="apart-solution">
+              <p>$f(4) = \log_{2}(4+4) = \log_{2} 8 = 3$ (perquè $2^{3} = 8$).</p>
+              <div class="math-block">$$\boxed{\;f(4) = 3.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">Si $f(x) = \dfrac{6}{x-1}$, calcula $f(4)$.</span></summary>
+            <div class="apart-solution">
+              <p>$f(4) = \dfrac{6}{4-1} = \dfrac{6}{3} = 2$. Comprovem que $4 \in \operatorname{Dom} f = \mathbb{R} \setminus \{1\}$ ✓.</p>
+              <div class="math-block">$$\boxed{\;f(4) = 2.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Exercici 2: antiimatges -->
+        <div class="exercise" id="ex-2">
+          <div class="exercise-head">
+            <span class="num">2</span>
+            <span class="ttl">Càlcul d'antiimatges</span>
+          </div>
+          <p class="exercise-intro">Calcula totes les antiimatges del valor demanat. Recorda: hi pot haver <em>cap</em>, <em>una</em> o <em>diverses</em> — i cal verificar que les solucions són al domini.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Si $f(x) = 3x + 1$, troba $f^{-1}(7)$.</span></summary>
+            <div class="apart-solution">
+              <p>Plantejem $3x + 1 = 7$ i aïllem $x$:</p>
+              <div class="math-block">$$3x = 6 \;\Longrightarrow\; x = 2.$$</div>
+              <p>Una sola antiimatge (les funcions afins són sempre injectives).</p>
+              <div class="math-block">$$\boxed{\;f^{-1}(7) = \{2\}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Si $f(x) = x^{2} - 1$, troba $f^{-1}(8)$.</span></summary>
+            <div class="apart-solution">
+              <p>$x^{2} - 1 = 8 \Rightarrow x^{2} = 9 \Rightarrow x = \pm 3$. Les dues solucions són al domini $\mathbb{R}$.</p>
+              <div class="math-block">$$\boxed{\;f^{-1}(8) = \{-3,\;3\}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">Si $f(x) = x^{2} + 4$, troba $f^{-1}(0)$.</span></summary>
+            <div class="apart-solution">
+              <p>$x^{2} + 4 = 0 \Rightarrow x^{2} = -4$, que no té solucions reals.</p>
+              <div class="math-block">$$\boxed{\;f^{-1}(0) = \varnothing\;\;\text{(cap antiimatge).}\;}$$</div>
+              <p class="note">Geomètricament: la paràbola $y = x^{2} + 4$ té vèrtex a $(0,4)$ i no toca mai l'eix $y=0$.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">Si $f(x) = \log(x-1)$, troba $f^{-1}(2)$.</span></summary>
+            <div class="apart-solution">
+              <p>Plantegem $\log(x-1) = 2$. Per la definició inversa del logaritme decimal ($\log = \log_{10}$):</p>
+              <div class="math-block">$$x - 1 = 10^{2} = 100 \;\Longrightarrow\; x = 101.$$</div>
+              <p><strong>Verificació:</strong> $x = 101$ és al domini ($x - 1 = 100 > 0$) ✓.</p>
+              <div class="math-block">$$\boxed{\;f^{-1}(2) = \{101\}.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Exercici 3: aplicació -->
+        <div class="exercise" id="ex-3">
+          <div class="exercise-head">
+            <span class="num">3</span>
+            <span class="ttl">Aplicació — depreciació d'un cotxe</span>
+          </div>
+          <p class="exercise-intro">El valor d'un cotxe (en milers d'euros) en funció dels anys $t$ des de la compra es modelitza amb $V(t) = 24 \cdot 0{,}85^{t}$.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Quin és el valor del cotxe a la compra ($t=0$)?</span></summary>
+            <div class="apart-solution">
+              <p>És una imatge: $V(0) = 24 \cdot 0{,}85^{0} = 24 \cdot 1 = 24$.</p>
+              <div class="math-block">$$\boxed{\;V(0) = 24\,000\;\text{€}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Quin és el valor passats 5 anys?</span></summary>
+            <div class="apart-solution">
+              <p>$V(5) = 24 \cdot 0{,}85^{5} \approx 24 \cdot 0{,}4437 \approx 10{,}65$.</p>
+              <div class="math-block">$$\boxed{\;V(5) \approx 10\,650\;\text{€}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">Al cap de quants anys el cotxe valdrà la meitat ($12$ mil €)?</span></summary>
+            <div class="apart-solution">
+              <p>És una antiimatge: cerquem $t$ amb $V(t) = 12$.</p>
+              <div class="math-block">$$24 \cdot 0{,}85^{t} = 12 \;\Longrightarrow\; 0{,}85^{t} = \dfrac{1}{2}.$$</div>
+              <p>Apliquem logaritme als dos costats:</p>
+              <div class="math-block">$$t \cdot \log 0{,}85 = \log \tfrac{1}{2} \;\Longrightarrow\; t = \dfrac{\log(1/2)}{\log 0{,}85} \approx \dfrac{-0{,}3010}{-0{,}0706} \approx 4{,}27.$$</div>
+              <div class="math-block">$$\boxed{\;t \approx 4{,}27\;\text{anys (entre 4 i 5 anys).}\;}$$</div>
+              <p class="note">L'exponencial decreixent $0{,}85^{t}$ és estrictament monòtona, així que l'antiimatge és única.</p>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Exercici 4: gràfic -->
+        <div class="exercise" id="ex-4">
+          <div class="exercise-head">
+            <span class="num">4</span>
+            <span class="ttl">Lectura sobre gràfic</span>
+          </div>
+          <p class="exercise-intro">Suposa que el gràfic de $f$ és la paràbola $y = x^{2} - 4$. Respon usant el gràfic com a referència visual (i comprova-ho algebraicament).</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Quina és la imatge de $-3$?</span></summary>
+            <div class="apart-solution">
+              <p>$f(-3) = (-3)^{2} - 4 = 9 - 4 = 5$.</p>
+              <div class="math-block">$$\boxed{\;f(-3) = 5.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Quantes antiimatges té el valor $y = 5$? Calcula-les.</span></summary>
+            <div class="apart-solution">
+              <p>$x^{2} - 4 = 5 \Rightarrow x^{2} = 9 \Rightarrow x = \pm 3$. Dues antiimatges.</p>
+              <div class="math-block">$$\boxed{\;f^{-1}(5) = \{-3,\;3\}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">Quantes antiimatges té el valor $y = -4$ (vèrtex)?</span></summary>
+            <div class="apart-solution">
+              <p>$x^{2} - 4 = -4 \Rightarrow x^{2} = 0 \Rightarrow x = 0$. <strong>Una sola antiimatge.</strong></p>
+              <div class="math-block">$$\boxed{\;f^{-1}(-4) = \{0\}.\;}$$</div>
+              <p class="note">Geomètricament, la recta $y = -4$ és tangent a la paràbola pel vèrtex.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">Quantes antiimatges té el valor $y = -5$?</span></summary>
+            <div class="apart-solution">
+              <p>$x^{2} - 4 = -5 \Rightarrow x^{2} = -1$, no té solucions reals.</p>
+              <div class="math-block">$$\boxed{\;f^{-1}(-5) = \varnothing\;\;\text{(cap antiimatge).}\;}$$</div>
+              <p class="note">La recta $y=-5$ està per <em>sota</em> del vèrtex de la paràbola: no la talla.</p>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-funcions-reals/01-domini.html">&larr; 01 · Funcions i domini</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-funcions-reals/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
