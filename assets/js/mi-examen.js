@@ -488,7 +488,7 @@
   }
 
   // ============================================================
-  // Print trigger
+  // PDF download via html2pdf.js (renderitza HTML → fitxer .pdf real)
   // ============================================================
   async function generatePDF(mode) {
     const btnId = mode === 'enunciados' ? 'mx-dl-enun' : 'mx-dl-sol';
@@ -499,39 +499,86 @@
 
     const bodyClass = mode === 'enunciados' ? 'mx-printing-enunciados' : 'mx-printing-soluciones';
 
-    let cleanup = () => {
+    const cleanup = () => {
       document.body.classList.remove('mx-printing', 'mx-printing-enunciados', 'mx-printing-soluciones');
       btn.textContent = orig;
       btn.disabled = false;
     };
 
+    if (!window.html2pdf) {
+      alert('html2pdf.js no s\'ha carregat. Comprova la connexió i recarrega.');
+      cleanup();
+      return;
+    }
+
     try {
       await buildPrintArea(mode);
 
-      // Activa el mode imprimible (CSS s'ocupa d'amagar la resta i mostrar només
-      // l'àrea imprimible quan body té .mx-printing).
+      // Activa el mode imprimible — el CSS amaga la UI d'edició i deixa
+      // visible només l'àrea, indispensable per a html2canvas.
       document.body.classList.add('mx-printing', bodyClass);
 
-      // Donem a KaTeX/ressources un microtick per estabilitzar layout.
-      await new Promise((resolve) => setTimeout(resolve, 50));
+      // Espera de KaTeX + reflow.
+      await new Promise(resolve => setTimeout(resolve, 250));
 
-      // Captura el final de la impressió per restaurar l'UI.
-      const onAfterPrint = () => {
-        cleanup();
-        window.removeEventListener('afterprint', onAfterPrint);
+      const titleSlug = ($('mx-title')?.value || 'examen')
+        .trim().toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 60) || 'examen';
+      const date = new Date().toISOString().slice(0, 10);
+      const suffix = mode === 'enunciados' ? 'enunciats' : 'solucions';
+      const filename = `${titleSlug}-${date}-${suffix}.pdf`;
+
+      const target = $('mx-print-area');
+
+      // Configuració html2pdf — A4, marges còmodes, alta resolució.
+      const opt = {
+        margin:       [12, 12, 14, 12], // top, right, bottom, left (mm)
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#ffffff',
+          windowWidth: 900, // amplada de captura, equival a una columna A4 estable
+        },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['css', 'legacy'], avoid: ['.mxp-question', '.exercise', '.apart', '.def-box', '.example-box', '.prop-box', '.warn-box', '.katex-display'] },
       };
+
+      await window.html2pdf().set(opt).from(target).save();
+
+      btn.textContent = '✓ ' + t('ok');
+      setTimeout(cleanup, 1200);
+    } catch (e) {
+      console.error(e);
+      alert(t('error_pdflib') + ': ' + e.message);
+      cleanup();
+    }
+  }
+
+  // Imprimir natiu (window.print) — ara el deixem com a opció separada al botó
+  // "🖨 Vista / Imprimir": diàleg del navegador (qualitat vectorial KaTeX).
+  async function printPreview() {
+    const btn = $('mx-print');
+    const orig = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = t('generando');
+    const cleanup = () => {
+      document.body.classList.remove('mx-printing', 'mx-printing-enunciados');
+      btn.textContent = orig;
+      btn.disabled = false;
+    };
+    try {
+      await buildPrintArea('enunciados');
+      document.body.classList.add('mx-printing', 'mx-printing-enunciados');
+      await new Promise(r => setTimeout(r, 80));
+      const onAfterPrint = () => { cleanup(); window.removeEventListener('afterprint', onAfterPrint); };
       window.addEventListener('afterprint', onAfterPrint);
-
       window.print();
-
-      // Fallback: alguns navegadors no disparen afterprint immediatament; restaurem
-      // amb un timeout llarg si l'esdeveniment no arriba.
-      setTimeout(() => {
-        if (document.body.classList.contains('mx-printing')) {
-          cleanup();
-          window.removeEventListener('afterprint', onAfterPrint);
-        }
-      }, 60_000);
+      setTimeout(() => { if (document.body.classList.contains('mx-printing')) { cleanup(); window.removeEventListener('afterprint', onAfterPrint); } }, 60_000);
     } catch (e) {
       console.error(e);
       alert(t('error_pdflib') + ': ' + e.message);
@@ -568,7 +615,7 @@
       $('mx-container').innerHTML = `<div class="banco-empty">Error: ${escHtml(e.message)}</div>`;
       return;
     }
-    $('mx-print').addEventListener('click', () => generatePDF('enunciados'));
+    $('mx-print').addEventListener('click', printPreview);
     $('mx-clear').addEventListener('click', clearAll);
     $('mx-export').addEventListener('click', exportJSON);
     const enun = $('mx-dl-enun');
