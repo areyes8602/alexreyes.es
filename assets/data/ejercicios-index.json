@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-26T19:59:41.435965+00:00",
+  "generated_at": "2026-04-28T07:32:11.062528+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 79,
+  "count": 113,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -3474,6 +3474,149 @@
       }
     },
     {
+      "id": "2526-1btl-macs-u01-classe-44",
+      "titulo": "Logaritmes amb propietats: cinc supòsits",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/44.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/44.html",
+      "numero": 44,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{5}\\!\\dfrac{1}{\\sqrt{125}} - \\log_{2}\\!\\left(\\dfrac{1}{2}\\right)^{-3} - \\log_{3}\\!\\sqrt[5]{81^{2}} + \\log 0{,}001^{2}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{n}\\!\\dfrac{1}{\\sqrt[3]{n^{2}}} - \\log_{m} m^{-1} - \\log_{1/m}\\! m^{6}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log_{h+i}(h+i)^{3} - \\log_{2a}\\!\\sqrt[5]{\\dfrac{1}{8a^{3}}} + \\log_{3/b}\\!\\dfrac{b}{3}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\log_{\\sqrt{5}} 125 - \\log_{\\sqrt{2}} 4 - 5\\log\\sqrt{0{,}001}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\log_{a}\\!\\left(\\dfrac{\\sqrt{a}}{\\sqrt[5]{a^{3}}}\\,a\\right) - \\log_{1/b}\\!\\left(\\dfrac{1}{\\sqrt[3]{b}}\\right)$"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "logaritmes amb propietats: cinc supòsits bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos media cálculo simbólico razonamiento pregunta corta",
+        "ca": "logaritmes amb propietats: cinc supòsits batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "logaritmes amb propietats: cinc supòsits bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-45",
+      "titulo": "Desenvolupa les expressions en funció de $x$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/45.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/45.html",
+      "numero": 45,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{n}\\!\\left(n^{-3/7} \\cdot \\dfrac{1}{n^{x}}\\right)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{3}\\!\\left(\\dfrac{9^{4}}{\\sqrt{27^{-2x}}}\\right)$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log_{3}\\!\\left(\\dfrac{9^{x} \\cdot \\sqrt[3]{27^{2}}}{\\sqrt[5]{3^{6x}}}\\right)$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "desenvolupa les expressions en funció de $x$ bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "desenvolupa les expressions en funció de $x$ batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "desenvolupa les expressions en funció de $x$ bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
       "id": "2526-1btl-macs-u01-classe-47",
       "titulo": "Logaritme d'una expressió amb arrels niades",
       "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/47.html",
@@ -3602,6 +3745,248 @@
         "es": "equacions logarítmiques bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico ecuaciones (1º y 2º grado, racionales, irracionales) potencias, raíces y logaritmos media cálculo simbólico razonamiento pregunta corta",
         "ca": "equacions logarítmiques batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
         "en": "equacions logarítmiques bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-50",
+      "titulo": "Equació logarítmica amb expressió desenvolupada",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/50.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/50.html",
+      "numero": 50,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $\\log_{3}\\!\\left(\\dfrac{9^{x} \\cdot \\sqrt[3]{27^{2}}}{\\sqrt[5]{3^{6x}}}\\right) = 2x + 1$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equació logarítmica amb expressió desenvolupada bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico ecuaciones (1º y 2º grado, racionales, irracionales) potencias, raíces y logaritmos media cálculo simbólico razonamiento pregunta corta",
+        "ca": "equació logarítmica amb expressió desenvolupada batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "equació logarítmica amb expressió desenvolupada bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-51",
+      "titulo": "Relació entre $a$ i $b$",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/51.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/51.html",
+      "numero": 51,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Si $\\log a + \\log b = 3$, quina relació hi ha entre $a$ i $b$?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "razonamiento",
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "relació entre $a$ i $b$ bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos fácil razonamiento cálculo simbólico pregunta corta",
+        "ca": "relació entre $a$ i $b$ batxillerat — mat. ccss 1r català classe sentit numèric fàcil",
+        "en": "relació entre $a$ i $b$ bachillerato — applied maths year 1 catalan class number sense easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-52",
+      "titulo": "Operacions amb logaritmes i simplificació",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/52.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/52.html",
+      "numero": 52,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{2} 28 - \\log_{2}\\!\\dfrac{8}{7} + \\log_{2}\\!\\dfrac{1}{49} - 4\\log_{2}\\!\\dfrac{1}{\\sqrt{2}}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{3}\\!\\dfrac{\\sqrt{27}}{5} + \\log_{3}\\!\\dfrac{3}{125} - \\log_{3}\\!\\dfrac{1}{\\sqrt{75}}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log_{5} 50 - \\log_{5}\\!\\dfrac{\\sqrt{125}}{2} + \\log_{5}\\!\\dfrac{25}{8} - \\log_{5}\\!\\dfrac{1}{\\sqrt{20}}$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "operacions amb logaritmes i simplificació bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "operacions amb logaritmes i simplificació batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "operacions amb logaritmes i simplificació bachillerato — applied maths year 1 catalan class number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u01-classe-54",
+      "titulo": "Aplica les propietats dels logaritmes i calcula",
+      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/54.html",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/54.html",
+      "numero": 54,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{3} 63 - \\log_{3}\\!\\dfrac{\\sqrt[3]{3}}{7} + \\log_{3}\\!\\bigl(3\\sqrt[3]{9}\\bigr)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{2} 40 - \\log_{2}\\!\\dfrac{\\sqrt{8}}{5} + \\log_{2}\\!\\dfrac{2}{125} - \\log_{2}\\!\\dfrac{1}{\\sqrt{50}}$"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2526-1btl-macs-u01-classe",
+        "titulo": "Exercicis de classe — Nombres reals (potències i arrels)",
+        "tipo": "practica",
+        "fecha": "2025-09-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-nombres-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "aplica les propietats dels logaritmes i calcula bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico potencias, raíces y logaritmos media cálculo simbólico pregunta corta",
+        "ca": "aplica les propietats dels logaritmes i calcula batxillerat — mat. ccss 1r català classe sentit numèric mitjana",
+        "en": "aplica les propietats dels logaritmes i calcula bachillerato — applied maths year 1 catalan class number sense medium"
       }
     },
     {
@@ -4094,6 +4479,2240 @@
         "es": "equació amb logaritmes bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) potencias, raíces y logaritmos media cálculo simbólico razonamiento pregunta corta",
         "ca": "equació amb logaritmes batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "equació amb logaritmes bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u02-classe-1",
+      "titulo": "Factoritza els polinomis",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-1",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(x) = x^{3} - 5x^{2} + 6x$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$Q(x) = -3x^{2} + 12$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$R(x) = 2x^{2} - 18$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u02-classe",
+        "titulo": "Exercicis de classe — MCD i MCM de polinomis",
+        "tipo": "practica",
+        "fecha": "2025-10-21",
+        "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "02"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "factoritza els polinomis bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces fácil cálculo simbólico pregunta corta",
+        "ca": "factoritza els polinomis batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "factoritza els polinomis bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u02-classe-2",
+      "titulo": "MCD i MCM de $P(x)$ i $Q(x)$",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-2",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\operatorname{MCD}\\!\\bigl(P(x), Q(x)\\bigr)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\operatorname{MCM}\\!\\bigl(P(x), Q(x)\\bigr)$"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2526-1btl-macs-u02-classe",
+        "titulo": "Exercicis de classe — MCD i MCM de polinomis",
+        "tipo": "practica",
+        "fecha": "2025-10-21",
+        "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "02"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "mcd i mcm de $p(x)$ i $q(x)$ bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces media cálculo simbólico razonamiento pregunta corta",
+        "ca": "mcd i mcm de $p(x)$ i $q(x)$ batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "mcd i mcm de $p(x)$ i $q(x)$ bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u02-classe-3",
+      "titulo": "MCD i MCM dels tres polinomis",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-3",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\operatorname{MCD}\\!\\bigl(P(x), Q(x), R(x)\\bigr)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\operatorname{MCM}\\!\\bigl(P(x), Q(x), R(x)\\bigr)$"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2526-1btl-macs-u02-classe",
+        "titulo": "Exercicis de classe — MCD i MCM de polinomis",
+        "tipo": "practica",
+        "fecha": "2025-10-21",
+        "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "02"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "mcd i mcm dels tres polinomis bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces media cálculo simbólico razonamiento pregunta corta",
+        "ca": "mcd i mcm dels tres polinomis batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "mcd i mcm dels tres polinomis bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u02-deures-3",
+      "titulo": "Valor numèric — calcular un coeficient",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-3",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula el valor de $a$ sabent que el valor numèric de $Q(x) = 2x^{3} + ax^{2} - x + 15$ per a $x=-2$ és $-11$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u02-deures",
+        "titulo": "Deures — Polinomis",
+        "tipo": "deures",
+        "fecha": "2025-10-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "02"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "valor numèric — calcular un coeficient bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces fácil cálculo simbólico pregunta corta",
+        "ca": "valor numèric — calcular un coeficient batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "valor numèric — calcular un coeficient bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u02-deures-6",
+      "titulo": "Divisibilitat per $x+1$",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-6",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-6",
+      "numero": 6,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula el valor de $m$ perquè el polinomi $P(x) = 2x^{3} - 3mx^{2} + x + 3$ sigui divisible entre $x+1$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u02-deures",
+        "titulo": "Deures — Polinomis",
+        "tipo": "deures",
+        "fecha": "2025-10-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "02"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "divisibilitat per $x+1$ bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces fácil cálculo simbólico razonamiento pregunta corta",
+        "ca": "divisibilitat per $x+1$ batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "divisibilitat per $x+1$ bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u02-deures-7",
+      "titulo": "Divisió per Ruffini de dos polinomis entre dos divisors",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-7",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-7",
+      "numero": 7,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Divideix $P(x)$ entre $S(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Divideix $P(x)$ entre $T(x)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Divideix $Q(x)$ entre $S(x)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Divideix $Q(x)$ entre $T(x)$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u02-deures",
+        "titulo": "Deures — Polinomis",
+        "tipo": "deures",
+        "fecha": "2025-10-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "02"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "divisió per ruffini de dos polinomis entre dos divisors bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces media cálculo simbólico pregunta larga (estructurada en apartados)",
+        "ca": "divisió per ruffini de dos polinomis entre dos divisors batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "divisió per ruffini de dos polinomis entre dos divisors bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u02-deures-9",
+      "titulo": "Polinomi a partir de les seves arrels",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-9",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-9",
+      "numero": 9,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Un polinomi té per arrels $-1$ i $2$, la segona de les quals és una arrel doble. Escriu l'expressió algebraica d'aquest polinomi sabent que $P(0) = 12$. Després, comprova amb GeoGebra els resultats que has obtingut."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u02-deures",
+        "titulo": "Deures — Polinomis",
+        "tipo": "deures",
+        "fecha": "2025-10-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "02"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento",
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "polinomi a partir de les seves arrels bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces media razonamiento cálculo simbólico pregunta corta",
+        "ca": "polinomi a partir de les seves arrels batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "polinomi a partir de les seves arrels bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u02-deures-14",
+      "titulo": "Factoritza els polinomis següents",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-14",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-14",
+      "numero": 14,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(x) = 16x^{2} + 8x + 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$Q(y) = y^{2} + \\tfrac{5y}{6} + \\tfrac{1}{6}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$R(x) = 3x^{3} + x^{2} - 12x - 4$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$S(x) = x^{2} - x^{4}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$T(x) = x^{2} + x^{4}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$U(x) = x^{4} - 5x^{2} + 4$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$V(x) = 6x^{5} - 5x^{4} - x^{2} + 2x$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0,
+          "tarea": "$W(x) = x^{3} - \\tfrac{9}{2}x^{2} + \\tfrac{3}{2}x + 2$"
+        },
+        {
+          "letra": "i",
+          "puntos": 0,
+          "tarea": "$Y(x) = 2x - 8x^{3}$"
+        },
+        {
+          "letra": "j",
+          "puntos": 0,
+          "tarea": "$Z(x) = x^{3} - 4x^{2} + 4x$"
+        }
+      ],
+      "apartados_count": 10,
+      "coleccion": {
+        "id": "2526-1btl-macs-u02-deures",
+        "titulo": "Deures — Polinomis",
+        "tipo": "deures",
+        "fecha": "2025-10-17",
+        "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "02"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "factoritza els polinomis següents bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) polinomios: factorización, división, raíces media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "factoritza els polinomis següents batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "factoritza els polinomis següents bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-30",
+      "titulo": "Resol les equacions biquadrades",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html#ex-30",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html#ex-30",
+      "numero": 30,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$x^{4} - 5x^{2} + 4 = 0$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$x^{4} - 2x^{2} + 1 = 0$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$x^{4} - 3x^{2} = 0$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$x^{6} - 7x^{3} - 8 = 0$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "resol les equacions biquadrades bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico pregunta corta",
+        "ca": "resol les equacions biquadrades batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "resol les equacions biquadrades bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-rac-1",
+      "titulo": "Equació racional amb tres fraccions",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html#ex-1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html#ex-1",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $\\dfrac{x-1}{x} - \\dfrac{x+1}{x-5} = \\dfrac{x+2}{x^{2}-5x}$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equació racional amb tres fraccions bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico pregunta corta",
+        "ca": "equació racional amb tres fraccions batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equació racional amb tres fraccions bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-rac-2",
+      "titulo": "Equació racional amb un terme sense denominador",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html#ex-2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html#ex-2",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $\\dfrac{3}{x+2} - \\dfrac{x}{x-2} = 2$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equació racional amb un terme sense denominador bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta corta",
+        "ca": "equació racional amb un terme sense denominador batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equació racional amb un terme sense denominador bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-exp-a",
+      "titulo": "Equació exponencial — Tipus 1 ($a^x = b$)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-a",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-a",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $5^{3x+1} = 1$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equació exponencial — tipus 1 ($a^x = b$) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) fácil cálculo simbólico pregunta corta",
+        "ca": "equació exponencial — tipus 1 ($a^x = b$) batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "equació exponencial — tipus 1 ($a^x = b$) bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-exp-b",
+      "titulo": "Equació exponencial — Tipus 2 (productes/quocients)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-b",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-b",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $5^{x+3} \\cdot 5^{x} \\cdot 5^{x-1} \\cdot 5^{-x} = 25$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equació exponencial — tipus 2 (productes/quocients) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) fácil cálculo simbólico pregunta corta",
+        "ca": "equació exponencial — tipus 2 (productes/quocients) batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "equació exponencial — tipus 2 (productes/quocients) bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-exp-c",
+      "titulo": "Equació exponencial — Tipus 3 (factor comú)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-c",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-c",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $5^{x+3} + 5^{x} + 5^{x-1} = 131$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equació exponencial — tipus 3 (factor comú) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico pregunta corta",
+        "ca": "equació exponencial — tipus 3 (factor comú) batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equació exponencial — tipus 3 (factor comú) bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-exp-d",
+      "titulo": "Equació exponencial — Tipus 4 (canvi de variable)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-d",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-d",
+      "numero": 4,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $25^{x} + 5^{x+1} = 14$."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "equació exponencial — tipus 4 (canvi de variable) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta corta",
+        "ca": "equació exponencial — tipus 4 (canvi de variable) batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equació exponencial — tipus 4 (canvi de variable) bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-log-2",
+      "titulo": "Equacions amb logaritmes",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/05-logaritmes.html#ex-2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/05-logaritmes.html#ex-2",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{x} 64 = 3$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{2} x + \\log_{2}(x+3) = 2$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log(2x-4) - \\log(x+2) = 1$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\log x + \\log 50 = \\log 1000$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\log x = 1 + \\log(22-x)$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$2\\log(x+1) - \\log 2 = \\log(x^{2}-1)$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$\\log(3x+1) - \\log(2x-3) = 1 - \\log 5$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0,
+          "tarea": "$2\\log(2x+1) + 2\\log(3x-4) = 2$"
+        },
+        {
+          "letra": "i",
+          "puntos": 0,
+          "tarea": "$\\log(40x) - \\log(5x-1) = 1$"
+        },
+        {
+          "letra": "j",
+          "puntos": 0,
+          "tarea": "$\\log x + \\log(x+5) = \\log(9+x)$"
+        },
+        {
+          "letra": "k",
+          "puntos": 0,
+          "tarea": "$2\\log_{2} x = -\\log_{2} 3 + \\log_{2}(x+10)$"
+        }
+      ],
+      "apartados_count": 11,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "equacions amb logaritmes bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "equacions amb logaritmes batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equacions amb logaritmes bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-irr-36",
+      "titulo": "Resol les equacions irracionals següents",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html#ex-36",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html#ex-36",
+      "numero": 36,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$x + \\sqrt{x+1} = 2x - 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$3 + \\sqrt{x^{2}-3} = x^{2}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\sqrt{x} + \\sqrt{x+1} = 1$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\sqrt{7-3x} - x = 7$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$3\\sqrt{6x+1} - 5 = 2x$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$\\sqrt{x+4} = 3 - \\sqrt{x-1}$"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "resol les equacions irracionals següents bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "resol les equacions irracionals següents batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "resol les equacions irracionals següents bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-classe-irr-37",
+      "titulo": "Equacions irracionals més complicades (dues o tres arrels)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html#ex-37",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html#ex-37",
+      "numero": 37,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$x + \\sqrt{x+1} - 2x = 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\sqrt{x-3} + \\sqrt{x+4} = \\sqrt{4x+1}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$x - \\sqrt{x^{2}-3} = \\sqrt{x-1}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\sqrt{x} + \\dfrac{1}{\\sqrt{x}} = \\dfrac{x+1}{2}$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-classe",
+        "titulo": "Exercicis de classe — Equacions biquadrades",
+        "tipo": "practica",
+        "fecha": "2025-10-22",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "equacions irracionals més complicades (dues o tres arrels) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) difícil cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "equacions irracionals més complicades (dues o tres arrels) batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) difícil",
+        "en": "equacions irracionals més complicades (dues o tres arrels) bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) hard"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-fitxa-exp-log-1",
+      "titulo": "Resol les següents equacions exponencials",
+      "url_enunciado": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-1a",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-1a",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$5^{3x+1} = 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$5^{x+3} \\cdot 5^{x} \\cdot 5^{x-1} \\cdot 5^{-x} = 25$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$5^{x+3} + 5^{x} + 5^{x-1} = 131$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$25^{x} + 5^{x+1} = 14$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$4^{2x+1} - 3 \\cdot 4^{x} - 10 = 0$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$3^{x-1} + 3^{x} + 3^{x+1} = 13$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$3^{x-1} \\cdot 3^{x} \\cdot 3^{x+1} = 243$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0,
+          "tarea": "$4^{x} - 5 \\cdot 2^{x+1} + 16 = 0$"
+        },
+        {
+          "letra": "i",
+          "puntos": 0,
+          "tarea": "$4^{x+1} = \\left(\\dfrac{1}{2}\\right)^{x}$"
+        },
+        {
+          "letra": "j",
+          "puntos": 0,
+          "tarea": "$9^{x+1} - 2 \\cdot 3^{x+3} + 81 = 0$"
+        },
+        {
+          "letra": "k",
+          "puntos": 0,
+          "tarea": "$4^{x-1} + 4^{x-2} - 4^{x} = -11$"
+        },
+        {
+          "letra": "l",
+          "puntos": 0,
+          "tarea": "$7^{2x} - 35 \\cdot 7^{x-1} + 6 = 0$"
+        },
+        {
+          "letra": "m",
+          "puntos": 0,
+          "tarea": "$5^{x+2} \\cdot 5^{x-1} \\cdot 5^{x} = 625$"
+        },
+        {
+          "letra": "n",
+          "puntos": 0,
+          "tarea": "$5^{x+2} + 5^{x-1} + 5^{x} = 131$"
+        },
+        {
+          "letra": "o",
+          "puntos": 0,
+          "tarea": "$25^{x} - 2 \\cdot 5^{x+1} = -21$"
+        },
+        {
+          "letra": "p",
+          "puntos": 0,
+          "tarea": "$2^{x^{2}-2x} = 0{,}5$"
+        },
+        {
+          "letra": "q",
+          "puntos": 0,
+          "tarea": "$3^{x} + 2 \\cdot 3^{x-1} + 5 \\cdot 3^{x+2} = 140$"
+        },
+        {
+          "letra": "r",
+          "puntos": 0,
+          "tarea": "$5^{2x} + 3 \\cdot 5^{x+1} - 400 = 600$"
+        },
+        {
+          "letra": "s",
+          "puntos": 0,
+          "tarea": "$2^{x-1} + 3 \\cdot 2^{x} + 2^{x+1} = 44$"
+        },
+        {
+          "letra": "t",
+          "puntos": 0,
+          "tarea": "$2^{x} + 2^{x+1} + 2^{x-2} + 2^{x-3} = 960$"
+        },
+        {
+          "letra": "u",
+          "puntos": 0,
+          "tarea": "$3^{x+1} = 9^{x-3}$"
+        },
+        {
+          "letra": "v",
+          "puntos": 0,
+          "tarea": "$5^{x} + 5^{x+1} + 5^{x+2} = \\dfrac{31}{5}$"
+        },
+        {
+          "letra": "w",
+          "puntos": 0,
+          "tarea": "$1 - 7^{x+1} + 49^{x} = -9$"
+        },
+        {
+          "letra": "x",
+          "puntos": 0,
+          "tarea": "$2^{x} \\cdot 5^{x} = 100$"
+        }
+      ],
+      "apartados_count": 24,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-fitxa-exp-log",
+        "titulo": "Fitxa — Equacions i sistemes exponencials i logarítmiques",
+        "tipo": "practica",
+        "fecha": "2025-11-12",
+        "url_index": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "resol les següents equacions exponencials bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico ecuaciones (1º y 2º grado, racionales, irracionales) difícil cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "resol les següents equacions exponencials batxillerat — mat. ccss 1r català classe sentit numèric difícil",
+        "en": "resol les següents equacions exponencials bachillerato — applied maths year 1 catalan class number sense hard"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-fitxa-exp-log-2",
+      "titulo": "Resol les següents equacions amb logaritmes",
+      "url_enunciado": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-2a",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-2a",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{x} 64 = 3$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{2} x + \\log_{2}(x+3) = 2$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log(2x-4) - \\log(x+2) = 1$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\log x + \\log 50 = \\log 1000$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\log x = 1 + \\log(22 - x)$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$2\\log(x+1) - \\log 2 = \\log(x^{2}-1)$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$\\log(3x+1) - \\log(2x-3) = 1 - \\log 5$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0,
+          "tarea": "$2\\log(2x+1) + 2\\log(3x-4) = 2$"
+        },
+        {
+          "letra": "i",
+          "puntos": 0,
+          "tarea": "$\\log(40x) - \\log(5x-1) = 1$"
+        },
+        {
+          "letra": "j",
+          "puntos": 0,
+          "tarea": "$\\log x + \\log(x+5) = \\log(9+x)$"
+        },
+        {
+          "letra": "k",
+          "puntos": 0,
+          "tarea": "$2\\log_{2} x = -\\log_{2} 3 + \\log_{2}(x+10)$"
+        },
+        {
+          "letra": "l",
+          "puntos": 0,
+          "tarea": "$\\log_{x+3}(6x) = 2$"
+        },
+        {
+          "letra": "m",
+          "puntos": 0,
+          "tarea": "$\\log(x+1) + \\log(x-1) = \\log 3$"
+        },
+        {
+          "letra": "n",
+          "puntos": 0,
+          "tarea": "$\\log_{x}(5x-6) = 2$"
+        },
+        {
+          "letra": "o",
+          "puntos": 0,
+          "tarea": "$\\log x^{2} + \\log 10 = 1 + \\log(10x+11)$"
+        },
+        {
+          "letra": "p",
+          "puntos": 0,
+          "tarea": "$\\log\\sqrt{3x+10} - \\log\\sqrt{x+2} = 1 - \\log 5$"
+        },
+        {
+          "letra": "q",
+          "puntos": 0,
+          "tarea": "$1 + \\log_{2}(x-2) = \\log_{2} x - \\log_{2} 6$"
+        },
+        {
+          "letra": "r",
+          "puntos": 0,
+          "tarea": "$\\log_{x+5} 25 = 2$"
+        },
+        {
+          "letra": "s",
+          "puntos": 0,
+          "tarea": "$\\dfrac{\\log_{3} 9^{x+1}}{x} = 1$"
+        },
+        {
+          "letra": "t",
+          "puntos": 0,
+          "tarea": "$3\\log x - \\log 32 = \\log\\dfrac{x}{2}$"
+        },
+        {
+          "letra": "u",
+          "puntos": 0,
+          "tarea": "$2\\log x + 1 = \\log\\dfrac{x}{2}$"
+        }
+      ],
+      "apartados_count": 21,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-fitxa-exp-log",
+        "titulo": "Fitxa — Equacions i sistemes exponencials i logarítmiques",
+        "tipo": "practica",
+        "fecha": "2025-11-12",
+        "url_index": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "resol les següents equacions amb logaritmes bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico ecuaciones (1º y 2º grado, racionales, irracionales) difícil cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "resol les següents equacions amb logaritmes batxillerat — mat. ccss 1r català classe sentit numèric difícil",
+        "en": "resol les següents equacions amb logaritmes bachillerato — applied maths year 1 catalan class number sense hard"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-fitxa-exp-log-3",
+      "titulo": "Resol els següents sistemes d'exponencials i logaritmes",
+      "url_enunciado": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-3a",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-3a",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} \\log x + \\log y = 7 \\\\ \\log x - \\log y = 3 \\end{cases}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} 2\\log x + \\log y = 5 \\\\ \\log(xy) = 4 \\end{cases}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} y - 4x = 0 \\\\ \\log x + \\log y = 4 \\end{cases}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} \\log_{2} x + \\log_{2} y = 7 \\\\ \\log_{2} x^{2} - \\log_{2} y = 2 \\end{cases}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} \\log x + 2\\log y = 5 \\\\ 2\\log x - 3\\log y = -4 \\end{cases}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} \\log(xy) = 4 \\\\ \\log\\!\\dfrac{x}{y^{2}} = -2 \\end{cases}$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} x - 5y = -5 \\\\ \\log x + \\log y = 1 \\end{cases}$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} \\log x = \\log(y-1) + 1 \\\\ \\log_{x}(2y+6) = 1 \\end{cases}$"
+        },
+        {
+          "letra": "i",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} 2\\log x - 3\\log y = 5 \\\\ \\log x^{3} + \\log y = 2 \\end{cases}$"
+        },
+        {
+          "letra": "j",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} \\log x - 3\\log y = -1 \\\\ 2\\log x + \\log y = 5 \\end{cases}$"
+        },
+        {
+          "letra": "k",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} 3\\log x + \\log y^{3} = 6 \\\\ \\log x - \\log y^{2} = -1 \\end{cases}$"
+        },
+        {
+          "letra": "l",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} 2\\log x - 3\\log y = 7 \\\\ \\log x + \\log y = 1 \\end{cases}$"
+        },
+        {
+          "letra": "m",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} \\log x + 3\\log y = 5 \\\\ \\log\\!\\dfrac{x^{2}}{y} = 3 \\end{cases}$"
+        },
+        {
+          "letra": "n",
+          "puntos": 0,
+          "tarea": "$\\begin{cases} 2^{x} + 2^{y} = 12 \\\\ 2^{x} \\cdot 2^{y} = 32 \\end{cases}$"
+        }
+      ],
+      "apartados_count": 14,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-fitxa-exp-log",
+        "titulo": "Fitxa — Equacions i sistemes exponencials i logarítmiques",
+        "tipo": "practica",
+        "fecha": "2025-11-12",
+        "url_index": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-sistemas",
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "resol els següents sistemes d'exponencials i logaritmes bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido numérico sistemas de ecuaciones lineales y no lineales ecuaciones (1º y 2º grado, racionales, irracionales) difícil cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "resol els següents sistemes d'exponencials i logaritmes batxillerat — mat. ccss 1r català classe sentit numèric difícil",
+        "en": "resol els següents sistemes d'exponencials i logaritmes bachillerato — applied maths year 1 catalan class number sense hard"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-repas-1",
+      "titulo": "Resol les equacions polinòmiques",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-1",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$3x^{3} + 2x - 1 = 2\\,(x^{3} - 2x^{2}) + 6$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$x^{3} - 2x^{2} = 3x - 6$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$(x+1)^{2} - (x-2)^{2} = (x+3)^{2} + x^{2} - 20$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$x^{4} + x^{2} = 2x^{3}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$x^{3} - 5x^{2} + 7x - 3 = 0$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$x^{3} = 2\\,(2x + 4 - x^{2})$"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-repas",
+        "titulo": "Sessió de repàs — Equacions polinòmiques, biquadrades i racionals",
+        "tipo": "practica",
+        "fecha": "2025-10-28",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "resol les equacions polinòmiques bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) polinomios: factorización, división, raíces media cálculo simbólico pregunta corta",
+        "ca": "resol les equacions polinòmiques batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "resol les equacions polinòmiques bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-repas-2",
+      "titulo": "Resol les equacions biquadrades",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-2",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$x^{4} + 4x^{2} = 0$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$x^{4} - 8x^{2} = 9$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$x^{6} + x^{2} + 216 = x^{2}\\,(1 + 35x)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$36 = x^{2}\\,(13 - x^{2})$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-repas",
+        "titulo": "Sessió de repàs — Equacions polinòmiques, biquadrades i racionals",
+        "tipo": "practica",
+        "fecha": "2025-10-28",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "resol les equacions biquadrades bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico pregunta corta",
+        "ca": "resol les equacions biquadrades batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "resol les equacions biquadrades bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u03-repas-3",
+      "titulo": "Resol les equacions racionals",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-3",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\dfrac{1}{x} + \\dfrac{1}{x+3} = \\dfrac{3}{10}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\dfrac{4}{x} + \\dfrac{2x+2}{3x-6} = 4$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\dfrac{8-x}{2} - \\dfrac{2x-11}{x-3} = \\dfrac{x+6}{2}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\dfrac{2x}{x-3} - \\dfrac{6}{x} = \\dfrac{18}{x^{2}-3x}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\dfrac{x-1}{x-2} - \\dfrac{2x-2}{x^{2}+3x} = \\dfrac{5x-5}{x^{2}+x-6}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$\\dfrac{x+4}{x-3} - \\dfrac{1-2x}{x^{2}-x-6} = 0$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$\\dfrac{3}{x} + \\dfrac{4}{2x^{2}-4x} = \\dfrac{1}{2x-4}$"
+        }
+      ],
+      "apartados_count": 7,
+      "coleccion": {
+        "id": "2526-1btl-macs-u03-repas",
+        "titulo": "Sessió de repàs — Equacions polinòmiques, biquadrades i racionals",
+        "tipo": "practica",
+        "fecha": "2025-10-28",
+        "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "03"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "resol les equacions racionals bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "resol les equacions racionals batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "resol les equacions racionals bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u05-classe-im-1",
+      "titulo": "Càlcul d'imatges",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-1",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Si $f(x) = 2x - 5$, calcula $f(3)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Si $f(x) = x^{2} + 1$, calcula $f(-2)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Si $f(x) = \\log_{2}(x+4)$, calcula $f(4)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Si $f(x) = \\dfrac{6}{x-1}$, calcula $f(4)$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u05-classe",
+        "titulo": "Exercicis de classe — Funcions reals",
+        "tipo": "practica",
+        "fecha": "2025-12-10",
+        "url_index": "/aula/ccss-1btl/apuntes/u-funcions-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "càlcul d'imatges bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) fácil cálculo simbólico pregunta corta",
+        "ca": "càlcul d'imatges batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "càlcul d'imatges bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u05-classe-im-2",
+      "titulo": "Càlcul d'antiimatges",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-2",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Si $f(x) = 3x + 1$, troba $f^{-1}(7)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Si $f(x) = x^{2} - 1$, troba $f^{-1}(8)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Si $f(x) = x^{2} + 4$, troba $f^{-1}(0)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Si $f(x) = \\log(x-1)$, troba $f^{-1}(2)$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u05-classe",
+        "titulo": "Exercicis de classe — Funcions reals",
+        "tipo": "practica",
+        "fecha": "2025-12-10",
+        "url_index": "/aula/ccss-1btl/apuntes/u-funcions-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales",
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "càlcul d'antiimatges bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta corta",
+        "ca": "càlcul d'antiimatges batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "càlcul d'antiimatges bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u05-classe-im-3",
+      "titulo": "Aplicació — Depreciació d'un cotxe ($V(t) = 24 \\cdot 0{,}85^{t}$)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-3",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Quin és el valor del cotxe a la compra ($t=0$)?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Quin és el valor passats 5 anys?"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Al cap de quants anys el cotxe valdrà la meitat ($12$ mil €)?"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-u05-classe",
+        "titulo": "Exercicis de classe — Funcions reals",
+        "tipo": "practica",
+        "fecha": "2025-12-10",
+        "url_index": "/aula/ccss-1btl/apuntes/u-funcions-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales",
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "aplicació — depreciació d'un cotxe ($v(t) = 24 \\cdot 0{,}85^{t}$) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) ecuaciones (1º y 2º grado, racionales, irracionales) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "aplicació — depreciació d'un cotxe ($v(t) = 24 \\cdot 0{,}85^{t}$) batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "aplicació — depreciació d'un cotxe ($v(t) = 24 \\cdot 0{,}85^{t}$) bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u05-classe-im-4",
+      "titulo": "Lectura sobre gràfic — Paràbola $y = x^{2} - 4$",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-4",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-4",
+      "numero": 4,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Quina és la imatge de $-3$?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Quantes antiimatges té el valor $y = 5$? Calcula-les."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Quantes antiimatges té el valor $y = -4$ (vèrtex)?"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Quantes antiimatges té el valor $y = -5$?"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u05-classe",
+        "titulo": "Exercicis de classe — Funcions reals",
+        "tipo": "practica",
+        "fecha": "2025-12-10",
+        "url_index": "/aula/ccss-1btl/apuntes/u-funcions-reals/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "05"
+        ]
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "lectura sobre gràfic — paràbola $y = x^{2} - 4$ bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) fácil razonamiento pregunta corta",
+        "ca": "lectura sobre gràfic — paràbola $y = x^{2} - 4$ batxillerat — mat. ccss 1r català classe sentit algebraic (àlgebra i anàlisi) fàcil",
+        "en": "lectura sobre gràfic — paràbola $y = x^{2} - 4$ bachillerato — applied maths year 1 catalan class algebraic sense (algebra and analysis) easy"
       }
     },
     {

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sessió de repàs — Equacions polinòmiques, biquadrades i racionals — Mat. Aplicades CCSS 1r BTL</title>
-<meta name="description" content="Llistat d'exercicis de classe de Mat. Aplicades CCSS 1r BTL: Sessió de repàs — Equacions polinòmiques, biquadrades i racionals.">
+<title>Exercici 4 · Equació exponencial — Tipus 4 (canvi de variable) — Mat. Aplicades CCSS 1r BTL</title>
+<meta name="description" content="Exercici 4: Equació exponencial — Tipus 4 (canvi de variable). Exercicis de classe — Equacions biquadrades.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,13 +14,17 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-d">
 <style>
-.ej-list { display:flex; flex-direction:column; gap:0.6rem; margin-top:1rem; }
-.ej-list a { display:flex; align-items:baseline; gap:0.7rem; padding:0.8rem 1rem; background:var(--bg); border:1px solid var(--border); border-radius:8px; text-decoration:none; color:var(--text); transition:all 0.15s; }
-.ej-list a:hover { border-color:#6366f1; transform:translateX(2px); }
-.ej-list .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
-.ej-list .ttl { font-weight:500; }
-.ej-list .arr { margin-left:auto; color:var(--text-soft); font-size:0.85rem; }
+.classe-exercise { background: var(--bg); border:1px solid var(--border); border-radius:10px; padding:1.2rem 1.4rem; margin: 1.2rem 0 1.4rem; }
+.classe-exercise .exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.8rem; }
+.classe-exercise .exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.classe-exercise .exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.classe-exercise .statement-wrap > p:first-child { margin-top:0; }
+.classe-solution { margin-top:1rem; border-top:1px dashed var(--border); padding-top:1rem; }
+.classe-solution > p:first-child { margin-top:0; }
+.classe-back { display:inline-block; margin-top:1.5rem; font-size:0.85rem; color:var(--text-soft); text-decoration:none; border-bottom:1px dashed var(--border); }
+.classe-back:hover { color:#6366f1; border-color:#6366f1; }
 </style>
 </head>
 <body>
@@ -54,7 +58,9 @@
       <span class="sep">/</span>
       <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
       <span class="sep">/</span>
-      <span class="current">Sessió de repàs — Equacions polinòmiques, biquadrades i racionals</span>
+      <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Exercicis de classe — Equacions biquadrades</a>
+      <span class="sep">/</span>
+      <span class="current">Exercici 4</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.2rem">
@@ -62,15 +68,38 @@
         <span class="section-label">Mat. Aplicades CCSS 1r BTL</span>
         <span class="tag tag-orange">Exercicis de classe</span>
       </div>
-      <h1 style="margin:0">Sessió de repàs — Equacions polinòmiques, biquadrades i racionals</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">3 exercicis.</p>
+      <h1 style="margin:0">Exercici 4 · Equació exponencial — Tipus 4 (canvi de variable)</h1>
     </div>
 
-    <div class="ej-list">
-          <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-1"><span class="num">1</span><span class="ttl">Resol les equacions polinòmiques</span><span class="arr">→</span></a>
-    <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-2"><span class="num">2</span><span class="ttl">Resol les equacions biquadrades</span><span class="arr">→</span></a>
-    <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-3"><span class="num">3</span><span class="ttl">Resol les equacions racionals</span><span class="arr">→</span></a>
-    </div>
+    <article class="classe-exercise">
+      <div class="exercise-head">
+        <span class="num">4</span>
+        <span class="ttl">Equació exponencial — Tipus 4 (canvi de variable)</span>
+      </div>
+      <div class="statement-wrap">
+        <ol class="apartados">
+<li><span class="stmt">Resol $\;25^{x} + 5^{x+1} = 14$.</span></li>
+</ol>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-4" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-4')">
+        <span class="toggle-label">Mostra la solució</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="classe-solution" id="sol-4" hidden>
+        <h3 style="margin:0 0 0.6rem;font-size:1rem">Solució pas a pas</h3>
+        <div class="apartado-sol"><h4><span class="stmt">Resol $\;25^{x} + 5^{x+1} = 14$.</span></h4><p>Reescrivim: $\,25^{x} = (5^{x})^{2}\,$ i $\,5^{x+1} = 5 \cdot 5^{x}\,$. Així:</p>
+              <div class="math-block">$$(5^{x})^{2} + 5 \cdot 5^{x} - 14 = 0.$$</div>
+              <p>Canvi $5^{x} = t$:</p>
+              <div class="math-block">$$t^{2} + 5t - 14 = 0 \;\Longrightarrow\; t = \dfrac{-5 \pm \sqrt{25+56}}{2} = \dfrac{-5 \pm 9}{2}.$$</div>
+              <p>$t_{1} = 2$ &nbsp;i&nbsp; $t_{2} = -7$. Però $5^{x}$ és sempre positiu, així que descartem $t = -7$:</p>
+              <div class="math-block">$$5^{x} = 2 \;\Longrightarrow\; \boxed{\;x = \log_{5} 2 \approx 0{,}431.\;}$$</div>
+              <p class="note">És la trampa típica del Tipus 4: el "canvi" porta a una 2n grau amb dues solucions, però només les positives es poden desfer.</p></div>
+      </section>
+
+      <a class="classe-back" href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-d">Veure dins de l'apunt original →</a>
+    </article>
 
   </div>
 </main>
@@ -84,6 +113,7 @@
   </div>
 </footer>
 
+<script src="/assets/js/examenes.js"></script>
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}

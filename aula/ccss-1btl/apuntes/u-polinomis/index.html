@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apunts · Polinomis · 1r BTL CCSS</title>
-<meta name="description" content="Apunts complets de la unitat de Polinomis per a Mat. Aplicades a les CCSS 1r BTL: definicions, operacions, valor numèric, arrels i factorització.">
+<title>Exercicis de classe — MCD i MCM de polinomis — Mat. Aplicades CCSS 1r BTL</title>
+<meta name="description" content="Llistat d'exercicis de classe de Mat. Aplicades CCSS 1r BTL: Exercicis de classe — MCD i MCM de polinomis.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,14 +14,21 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-polinomis/">
+<style>
+.ej-list { display:flex; flex-direction:column; gap:0.6rem; margin-top:1rem; }
+.ej-list a { display:flex; align-items:baseline; gap:0.7rem; padding:0.8rem 1rem; background:var(--bg); border:1px solid var(--border); border-radius:8px; text-decoration:none; color:var(--text); transition:all 0.15s; }
+.ej-list a:hover { border-color:#6366f1; transform:translateX(2px); }
+.ej-list .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.ej-list .ttl { font-weight:500; }
+.ej-list .arr { margin-left:auto; color:var(--text-soft); font-size:0.85rem; }
+</style>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/docencia/" class="nav-active">Docència</a>
       <a href="/doctorado/">Doctorado</a>
       <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
@@ -38,60 +45,31 @@
 </nav>
 
 <main>
-  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:820px">
 
     <div class="breadcrumb">
-      <a href="/">Inicio</a>
+      <a href="/">Inici</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docencia</a>
+      <a href="/docencia/">Docència</a>
       <span class="sep">/</span>
       <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
       <span class="sep">/</span>
-      <span class="current">Apunts · Polinomis</span>
+      <span class="current">Exercicis de classe — MCD i MCM de polinomis</span>
     </div>
 
-    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
-      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
-        <span class="section-label">1r BTL CCSS</span>
-        <span class="tag tag-orange">Apunts</span>
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.2rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem">
+        <span class="section-label">Mat. Aplicades CCSS 1r BTL</span>
+        <span class="tag tag-orange">Exercicis de classe</span>
       </div>
-      <h1 style="margin:0">Polinomis</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Apunts de classe en català. Es publiquen per apartats a mesura que avança la unitat.</p>
+      <h1 style="margin:0">Exercicis de classe — MCD i MCM de polinomis</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">3 exercicis.</p>
     </div>
 
-    <div class="exam-list" style="grid-template-columns:1fr">
-      <a href="/aula/ccss-1btl/apuntes/u-polinomis/01-definicions.html" class="exam-card" style="text-decoration:none;color:inherit">
-        <div class="exam-card-head">
-          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">01</span>
-          <span class="tag tag-gray" style="font-size:0.7rem">15 oct 2025</span>
-        </div>
-        <h3 class="exam-card-title">Definicions</h3>
-        <p class="exam-card-meta">Monomi (coeficient i part literal), polinomi i el seu grau, expressió general $P(x) = \sum_{i=0}^{n} a_i x^i$, terme principal, terme independent, valor numèric i arrel d'un polinomi, i factors de grau 1 i 2.</p>
-      </a>
-      <a href="/aula/ccss-1btl/apuntes/u-polinomis/02-factoritzacio.html" class="exam-card" style="text-decoration:none;color:inherit">
-        <div class="exam-card-head">
-          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">02</span>
-          <span class="tag tag-gray" style="font-size:0.7rem">15 oct 2025</span>
-        </div>
-        <h3 class="exam-card-title">Factorització</h3>
-        <p class="exam-card-meta">Estratègia segons el grau, factor comú, fórmula del 2n grau ($\Delta = b^2-4ac$), productes notables, regla de Ruffini i el paper del coeficient principal — amb 8 exemples resolts (factor comú, diferència de quadrats, quadrat perfecte, Ruffini de grau 3…).</p>
-      </a>
-      <a href="/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html" class="exam-card" style="text-decoration:none;color:inherit">
-        <div class="exam-card-head">
-          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">03</span>
-          <span class="tag tag-gray" style="font-size:0.7rem">17 oct 2025</span>
-        </div>
-        <h3 class="exam-card-title">Deures</h3>
-        <p class="exam-card-meta">Cinc exercicis resolts (3, 6, 7, 9 i 14a–j): valor numèric, divisibilitat per $x+1$, divisió per Ruffini, construcció d'un polinomi a partir d'arrels i les 10 factoritzacions de l'exercici 14. Cada solució està amagada — clica per veure-la.</p>
-      </a>
-      <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html" class="exam-card" style="text-decoration:none;color:inherit">
-        <div class="exam-card-head">
-          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">04</span>
-          <span class="tag tag-gray" style="font-size:0.7rem">21 oct 2025</span>
-        </div>
-        <h3 class="exam-card-title">MCD i MCM</h3>
-        <p class="exam-card-meta">Definicions de màxim comú divisor i mínim comú múltiple, la propietat $P\cdot Q = \operatorname{MCD}\cdot\operatorname{MCM}$, dos exemples treballats (nombres i polinomis) i tres exercicis resolts (factoritzar, MCD i MCM de dos i de tres polinomis).</p>
-      </a>
+    <div class="ej-list">
+          <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-1"><span class="num">1</span><span class="ttl">Factoritza els polinomis</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-2"><span class="num">2</span><span class="ttl">MCD i MCM de $P(x)$ i $Q(x)$</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-3"><span class="num">3</span><span class="ttl">MCD i MCM dels tres polinomis</span><span class="arr">→</span></a>
     </div>
 
   </div>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apunts · Funcions reals de variable real · 1r BTL CCSS</title>
-<meta name="description" content="Apunts complets de la unitat de Funcions reals de variable real per a Mat. Aplicades CCSS 1r BTL: definició, càlcul de domini per tipus (logaritmes, racionals, arrels, exponencials) i la subtilesa entre l'arrel d'un quocient i el quocient de dues arrels.">
+<title>Exercicis de classe — Funcions reals — Mat. Aplicades CCSS 1r BTL</title>
+<meta name="description" content="Llistat d'exercicis de classe de Mat. Aplicades CCSS 1r BTL: Exercicis de classe — Funcions reals.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,14 +14,21 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-funcions-reals/">
+<style>
+.ej-list { display:flex; flex-direction:column; gap:0.6rem; margin-top:1rem; }
+.ej-list a { display:flex; align-items:baseline; gap:0.7rem; padding:0.8rem 1rem; background:var(--bg); border:1px solid var(--border); border-radius:8px; text-decoration:none; color:var(--text); transition:all 0.15s; }
+.ej-list a:hover { border-color:#6366f1; transform:translateX(2px); }
+.ej-list .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.ej-list .ttl { font-weight:500; }
+.ej-list .arr { margin-left:auto; color:var(--text-soft); font-size:0.85rem; }
+</style>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/docencia/" class="nav-active">Docència</a>
       <a href="/doctorado/">Doctorado</a>
       <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
@@ -38,44 +45,32 @@
 </nav>
 
 <main>
-  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:820px">
 
     <div class="breadcrumb">
-      <a href="/">Inicio</a>
+      <a href="/">Inici</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docencia</a>
+      <a href="/docencia/">Docència</a>
       <span class="sep">/</span>
       <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
       <span class="sep">/</span>
-      <span class="current">Apunts · Funcions reals de variable real</span>
+      <span class="current">Exercicis de classe — Funcions reals</span>
     </div>
 
-    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
-      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
-        <span class="section-label">1r BTL CCSS</span>
-        <span class="tag tag-orange">Apunts</span>
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.2rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem">
+        <span class="section-label">Mat. Aplicades CCSS 1r BTL</span>
+        <span class="tag tag-orange">Exercicis de classe</span>
       </div>
-      <h1 style="margin:0">Funcions reals de variable real</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Apunts de classe en català. Es publiquen per apartats a mesura que avança la unitat.</p>
+      <h1 style="margin:0">Exercicis de classe — Funcions reals</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">4 exercicis.</p>
     </div>
 
-    <div class="exam-list" style="grid-template-columns:1fr">
-      <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/01-domini.html" class="exam-card" style="text-decoration:none;color:inherit">
-        <div class="exam-card-head">
-          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">01</span>
-          <span class="tag tag-gray" style="font-size:0.7rem">2 dic 2025</span>
-        </div>
-        <h3 class="exam-card-title">Funcions i domini</h3>
-        <p class="exam-card-meta">Definició formal de funció amb l'exemple del cotxe a 100 km/h ($y = 200/x$), definició de domini, 5 exemples treballats per tipus (logaritme, racional, arrel d'un quocient, quocient de dues arrels com a cas didàctic comparatiu i exponencial) i una bateria final de <strong>21 exercicis</strong> (a–u) amb solució amagada — inclou el "forat" de $\frac{(x-1)(x-2)}{x-1}$, casos amb arrel d'ordre senar, i tres funcions definides per peces.</p>
-      </a>
-      <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html" class="exam-card" style="text-decoration:none;color:inherit">
-        <div class="exam-card-head">
-          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">02</span>
-          <span class="tag tag-gray" style="font-size:0.7rem">10 dic 2025</span>
-        </div>
-        <h3 class="exam-card-title">Imatges i antiimatges</h3>
-        <p class="exam-card-meta">La <strong>imatge</strong> $f(x_0)$ — sempre única — i l'<strong>antiimatge</strong> $f^{-1}(y)$ — pot ser cap, una o diverses. Tres exemples d'imatge (per fórmula, per taula i per gràfic), un exemple d'antiimatge amb $f(x)=x^2-5$ (dues solucions $\pm 3$) i una <em>aplicació completa</em> amb la funció d'eficiència $P(t) = \frac{100}{1+4e^{-0{,}05t}}$ on calculem domini, dues imatges ($P(0)=20\,\%$, $P(20)\approx 40{,}46\,\%$) i una antiimatge ($P(t)=70 \Rightarrow t \approx 45$ dies). Tanca amb 4 exercicis (a–d) amb solució amagada.</p>
-      </a>
+    <div class="ej-list">
+          <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-1"><span class="num">1</span><span class="ttl">Càlcul d'imatges</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-2"><span class="num">2</span><span class="ttl">Càlcul d'antiimatges</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-3"><span class="num">3</span><span class="ttl">Aplicació — Depreciació d'un cotxe ($V(t) = 24 \cdot 0{,}85^{t}$)</span><span class="arr">→</span></a>
+    <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html#ex-4"><span class="num">4</span><span class="ttl">Lectura sobre gràfic — Paràbola $y = x^{2} - 4$</span><span class="arr">→</span></a>
     </div>
 
   </div>
