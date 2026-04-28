@@ -154,6 +154,88 @@
         "habilidad": ["calculo_simbolico", "razonamiento", "interpretacion"],
         "formato": ["pregunta_larga", "problema_aplicado"]
       }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-tipus-1",
+      "numero": 1,
+      "titulo": "Classifica parells d'esdeveniments — compatibles o incompatibles",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-1",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-1",
+      "puntuacion": 0,
+      "contexto": "Sobre l'espai mostral $\\Omega = \\{1,2,3,4,5,6,7,8,9,10\\}$, considera $A = \\{2,4,6,8,10\\}$ (parells), $B = \\{1,3,5,7,9\\}$ (senars), $C = \\{1,2,3\\}$ i $D = \\{5,6,7,8\\}$. Per a cada parell, indica si són compatibles o incompatibles i justifica-ho amb la intersecció.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "$A$ i $B$" },
+        { "letra": "b", "puntos": 0, "tarea": "$A$ i $C$" },
+        { "letra": "c", "puntos": 0, "tarea": "$B$ i $D$" },
+        { "letra": "d", "puntos": 0, "tarea": "$C$ i $D$" }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["razonamiento"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-tipus-2",
+      "numero": 2,
+      "titulo": "Regla de la suma — esdeveniments incompatibles (dau)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-2",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-2",
+      "puntuacion": 0,
+      "contexto": "En llançar un dau correcte de 6 cares, considera $A$ = \"treure un nombre parell\" i $B$ = \"treure un múltiple de 5\".",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Calcula $P(A)$, $P(B)$ i $P(A \\cap B)$. Són $A$ i $B$ incompatibles?" },
+        { "letra": "b", "puntos": 0, "tarea": "Calcula $P(A \\cup B)$." }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-tipus-3",
+      "numero": 3,
+      "titulo": "Regla del producte — esdeveniments independents",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-3",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-3",
+      "puntuacion": 0,
+      "contexto": "Sigui $A$ i $B$ dos esdeveniments amb $P(A) = 0{,}4$ i $P(B) = 0{,}25$. Suposa que són independents.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Calcula $P(A \\cap B)$." },
+        { "letra": "b", "puntos": 0, "tarea": "Calcula $P(A \\cup B)$." },
+        { "letra": "c", "puntos": 0, "tarea": "Calcula $P(A - B)$." },
+        { "letra": "d", "puntos": 0, "tarea": "Comprova que $P(A \\mid B) = P(A)$." }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-tipus-4",
+      "numero": 4,
+      "titulo": "Independents o dependents? — quatre escenaris",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-4",
+      "source_apunt": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-4",
+      "puntuacion": 0,
+      "contexto": "Per a cada experiment, raona si els dos esdeveniments són independents o dependents.",
+      "apartados": [
+        { "letra": "a", "puntos": 0, "tarea": "Llancem dos daus. $A$ = \"el primer dau treu 6\", $B$ = \"el segon dau treu un nombre parell\"." },
+        { "letra": "b", "puntos": 0, "tarea": "Treiem dues cartes seguides d'una baralla espanyola (40 cartes), sense reposició. $A$ = \"la 1a carta és or\", $B$ = \"la 2a carta és or\"." },
+        { "letra": "c", "puntos": 0, "tarea": "Mateix experiment però amb reposició. $A$ = \"la 1a és or\", $B$ = \"la 2a és or\"." },
+        { "letra": "d", "puntos": 0, "tarea": "Una urna conté 3 boles vermelles i 2 negres. Treiem 2 boles, una rere l'altra, sense reposició. $A$ = \"la 1a és vermella\", $B$ = \"la 2a és vermella\"." }
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["razonamiento", "interpretacion"],
+        "formato": ["pregunta_larga"]
+      }
     }
   ]
 }

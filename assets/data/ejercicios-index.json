@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-28T07:37:19.081985+00:00",
+  "generated_at": "2026-04-28T08:58:36.304360+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 113,
+  "count": 117,
   "ejercicios": [
     {
       "id": "2426-ib2-u13-p1",
@@ -7164,6 +7164,283 @@
         "es": "crèdits bancaris (probabilitat total i bayes) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo simbólico razonamiento interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
         "ca": "crèdits bancaris (probabilitat total i bayes) batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
         "en": "crèdits bancaris (probabilitat total i bayes) bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-tipus-1",
+      "titulo": "Classifica parells d'esdeveniments — compatibles o incompatibles",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-1",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$A$ i $B$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$A$ i $C$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$B$ i $D$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$C$ i $D$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u09-classe",
+        "titulo": "Exercicis de classe — Probabilitat",
+        "tipo": "practica",
+        "fecha": "2026-04-24",
+        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "classifica parells d'esdeveniments — compatibles o incompatibles bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil razonamiento pregunta corta",
+        "ca": "classifica parells d'esdeveniments — compatibles o incompatibles batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) fàcil",
+        "en": "classifica parells d'esdeveniments — compatibles o incompatibles bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-tipus-2",
+      "titulo": "Regla de la suma — esdeveniments incompatibles (dau)",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-2",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula $P(A)$, $P(B)$ i $P(A \\cap B)$. Són $A$ i $B$ incompatibles?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Calcula $P(A \\cup B)$."
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2526-1btl-macs-u09-classe",
+        "titulo": "Exercicis de classe — Probabilitat",
+        "tipo": "practica",
+        "fecha": "2026-04-24",
+        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "regla de la suma — esdeveniments incompatibles (dau) bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil cálculo simbólico razonamiento pregunta corta",
+        "ca": "regla de la suma — esdeveniments incompatibles (dau) batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) fàcil",
+        "en": "regla de la suma — esdeveniments incompatibles (dau) bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-tipus-3",
+      "titulo": "Regla del producte — esdeveniments independents",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-3",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula $P(A \\cap B)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Calcula $P(A \\cup B)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Calcula $P(A - B)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Comprova que $P(A \\mid B) = P(A)$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u09-classe",
+        "titulo": "Exercicis de classe — Probabilitat",
+        "tipo": "practica",
+        "fecha": "2026-04-24",
+        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "regla del producte — esdeveniments independents bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "regla del producte — esdeveniments independents batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "regla del producte — esdeveniments independents bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-u09-classe-tipus-4",
+      "titulo": "Independents o dependents? — quatre escenaris",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-4",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html#ex-4",
+      "numero": 4,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Llancem dos daus. $A$ = \"el primer dau treu 6\", $B$ = \"el segon dau treu un nombre parell\"."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Treiem dues cartes seguides d'una baralla espanyola (40 cartes), sense reposició. $A$ = \"la 1a carta és or\", $B$ = \"la 2a carta és or\"."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Mateix experiment però amb reposició. $A$ = \"la 1a és or\", $B$ = \"la 2a és or\"."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Una urna conté 3 boles vermelles i 2 negres. Treiem 2 boles, una rere l'altra, sense reposició. $A$ = \"la 1a és vermella\", $B$ = \"la 2a és vermella\"."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-u09-classe",
+        "titulo": "Exercicis de classe — Probabilitat",
+        "tipo": "practica",
+        "fecha": "2026-04-24",
+        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "bach-ccss-1",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "libro_texto",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "independents o dependents? — quatre escenaris bachillerato — mat. ccss 1º 2025-2026 catalán libro de texto clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media razonamiento interpretación contextual pregunta larga (estructurada en apartados)",
+        "ca": "independents o dependents? — quatre escenaris batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "independents o dependents? — quatre escenaris bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
       }
     },
     {

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5. Tipus d'esdeveniments · Probabilitat · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: tipus d'esdeveniments — compatibles vs incompatibles ($A \cap B = \emptyset$ → $P(A \cup B) = P(A)+P(B)$) i dependents vs independents ($A,B$ indep → $P(A \cap B) = P(A) \cdot P(B)$). Exemples amb diagrames de Venn i exercicis amb solució amagada.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+/* Diagrames de Venn SVG */
+.venn { display:block; margin:0.8rem auto 0.4rem; width:100%; max-width:380px; height:auto; }
+.venn .frame { fill:none; stroke:var(--border); stroke-width:1.2; }
+.venn .circ { fill:rgba(99,102,241,0.10); stroke:#6366f1; stroke-width:1.6; }
+.venn .circ-b { fill:rgba(245,158,11,0.12); stroke:#b45309; stroke-width:1.6; }
+.venn .inter { fill:rgba(250,204,21,0.55); stroke:none; }
+.venn .lbl { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 13px; fill: var(--text); font-weight:600; }
+.venn .num { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 12px; fill: var(--text); }
+[data-theme="dark"] .venn .circ { fill:rgba(99,102,241,0.18); }
+[data-theme="dark"] .venn .circ-b { fill:rgba(245,158,11,0.18); }
+
+/* Exercicis APART-STYLE */
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/">Probabilitat</a>
+      <span class="sep">/</span>
+      <span class="current">05 · Tipus d'esdeveniments</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Probabilitat</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">28 abr 2026</span>
+      </div>
+      <h1 style="margin:0">5. Tipus d'esdeveniments</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Dues classificacions clau d'esdeveniments — <strong>compatibles vs incompatibles</strong> (es poden donar alhora o no) i <strong>dependents vs independents</strong> (un afecta la probabilitat de l'altre o no) — i les fórmules clau que se'n deriven: <em>regla de la suma</em> per incompatibles i <em>regla del producte</em> per independents.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ COMPATIBLES vs INCOMPATIBLES ============ -->
+      <div class="apunt-section">
+        <h2>Compatibles i incompatibles</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Dos esdeveniments $A$ i $B$ d'un mateix experiment són:</p>
+          <p><strong>·</strong> <strong>Compatibles</strong> si poden succeir <em>alhora</em> — és a dir, si tenen elements en comú:</p>
+          <div class="math-block">$$A \cap B \neq \varnothing.$$</div>
+          <p><strong>·</strong> <strong>Incompatibles</strong> (o <em>mútuament exclusius</em>) si no poden succeir alhora:</p>
+          <div class="math-block">$$A \cap B = \varnothing.$$</div>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — Sobre l'espai mostral $\Omega = \{1,2,3,4,5,6\}$</h3>
+          <p>Considerem els esdeveniments $A = \{1,3,4\}$, $B = \{2,4\}$ i $C = \{2,5\}$.</p>
+
+          <p><strong>$A$ i $B$ són compatibles</strong>: comparteixen el $4$, i.e. $A \cap B = \{4\}$.</p>
+
+          <svg class="venn" viewBox="0 0 380 170" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de Venn A ∩ B = {4}">
+            <rect class="frame" x="20" y="10" width="340" height="150"/>
+            <!-- A circle -->
+            <circle class="circ" cx="145" cy="85" r="55"/>
+            <!-- B circle -->
+            <circle class="circ-b" cx="225" cy="85" r="55"/>
+            <!-- intersection (yellow lens) -->
+            <path class="inter" d="M 185 51.5 A 55 55 0 0 1 185 118.5 A 55 55 0 0 1 185 51.5 Z"/>
+            <!-- labels A and B -->
+            <text class="lbl" x="105" y="35">A</text>
+            <text class="lbl" x="265" y="35">B</text>
+            <!-- elements: A only: 1, 3 (left); intersection: 4; B only: 2 (right); outside: 5, 6 -->
+            <text class="num" x="115" y="80" text-anchor="middle">1</text>
+            <text class="num" x="115" y="100" text-anchor="middle">3</text>
+            <text class="num" x="185" y="92" text-anchor="middle">4</text>
+            <text class="num" x="252" y="92" text-anchor="middle">2</text>
+            <text class="num" x="320" y="92" text-anchor="middle">5</text>
+            <text class="num" x="345" y="40" text-anchor="middle">6</text>
+          </svg>
+
+          <p><strong>$A$ i $C$ són incompatibles</strong>: no comparteixen cap element, $A \cap C = \varnothing$.</p>
+
+          <svg class="venn" viewBox="0 0 380 170" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de Venn A ∩ C = ∅">
+            <rect class="frame" x="20" y="10" width="340" height="150"/>
+            <ellipse class="circ" cx="115" cy="85" rx="55" ry="42"/>
+            <ellipse class="circ-b" cx="265" cy="85" rx="55" ry="42"/>
+            <text class="lbl" x="80" y="38">A</text>
+            <text class="lbl" x="240" y="38">C</text>
+            <!-- A: 1, 3, 4 -->
+            <text class="num" x="100" y="82" text-anchor="middle">1</text>
+            <text class="num" x="125" y="82" text-anchor="middle">3</text>
+            <text class="num" x="115" y="105" text-anchor="middle">4</text>
+            <!-- C: 2, 5 -->
+            <text class="num" x="252" y="92" text-anchor="middle">2</text>
+            <text class="num" x="278" y="92" text-anchor="middle">5</text>
+            <!-- outside: 6 -->
+            <text class="num" x="345" y="150" text-anchor="middle">6</text>
+          </svg>
+        </div>
+
+        <div class="prop-box">
+          <h3>Conseqüència — Regla de la suma per incompatibles</h3>
+          <p>Si $A$ i $B$ són <strong>incompatibles</strong> ($A \cap B = \varnothing$), aleshores $P(A \cap B) = 0$ i la fórmula general de la unió es <em>simplifica</em>:</p>
+          <div class="math-block">
+            $$P(A \cup B) = P(A) + P(B) - \underbrace{P(A \cap B)}_{=\,0} \;=\; P(A) + P(B).$$
+          </div>
+          <p class="note">Si $A$ i $B$ <em>no</em> són incompatibles, no es pot eliminar el terme $P(A \cap B)$ — es comptaria dues vegades la zona compartida.</p>
+        </div>
+      </div>
+
+      <!-- ============ DEPENDENTS vs INDEPENDENTS ============ -->
+      <div class="apunt-section">
+        <h2>Dependents i independents</h2>
+
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>$A$ i $B$ són <strong>independents</strong> si el fet que un dels dos succeeixi <em>no afecta</em> la probabilitat de l'altre. Formalment, $A$ i $B$ són independents si i només si:</p>
+          <div class="math-block">
+            $$P(A) = P(A \mid B) \;\Longleftrightarrow\; P(B) = P(B \mid A).$$
+          </div>
+          <p>En cas contrari, es diu que són <strong>dependents</strong>.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>Conseqüència — Regla del producte per independents</h3>
+          <p>Recordem la definició de probabilitat condicionada: $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$. Si imposem la condició d'independència $P(A) = P(A \mid B)$:</p>
+          <div class="math-block">
+            $$P(A) = \dfrac{P(A \cap B)}{P(B)} \;\Longrightarrow\; \boxed{\;P(A \cap B) = P(A) \cdot P(B).\;}$$
+          </div>
+          <p>Aquesta és la <em>regla del producte</em>: <strong>la probabilitat de la intersecció de dos esdeveniments independents és el producte de les seves probabilitats</strong>.</p>
+        </div>
+
+        <div class="warn-box">
+          <h3>Independents ≠ Incompatibles</h3>
+          <p>Dos conceptes diferents que sovint es confonen:</p>
+          <p><strong>·</strong> <em>Incompatibles</em>: $A \cap B = \varnothing$ (no es poden donar alhora).</p>
+          <p><strong>·</strong> <em>Independents</em>: $P(A \cap B) = P(A) \cdot P(B)$ (el fet que un succeeixi no canvia la probabilitat de l'altre).</p>
+          <p>De fet, si $A$ i $B$ tenen probabilitat positiva i són <em>incompatibles</em> ($P(A \cap B) = 0$), llavors no poden ser independents (perquè $P(A) \cdot P(B) > 0$).</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Exemple — $P(A) = 0{,}5$, $P(B) = 0{,}3$, independents. Calcula $P(A - B)$.</h3>
+          <p>Com que $A$ i $B$ són independents, apliquem la regla del producte:</p>
+          <div class="math-block">
+            $$P(A \cap B) = P(A) \cdot P(B) = 0{,}5 \cdot 0{,}3 = 0{,}15.$$
+          </div>
+          <p>I la diferència $A - B$ són els elements de $A$ que <em>no</em> són a $B$. Per tant:</p>
+          <div class="math-block">
+            $$P(A - B) = P(A) - P(A \cap B) = 0{,}5 - 0{,}15 = 0{,}35.$$
+          </div>
+          <div class="math-block">$$\boxed{\;P(A - B) = 0{,}35.\;}$$</div>
+
+          <svg class="venn" viewBox="0 0 380 170" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama A − B amb A i B parcialment superposats">
+            <rect class="frame" x="20" y="10" width="340" height="150"/>
+            <ellipse class="circ" cx="155" cy="85" rx="55" ry="42"/>
+            <ellipse class="circ-b" cx="225" cy="85" rx="60" ry="42"/>
+            <text class="lbl" x="110" y="40">A</text>
+            <text class="lbl" x="290" y="40">B</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ============ EXERCICIS ============ -->
+      <div class="apunt-section">
+        <h2>Exercicis</h2>
+
+        <!-- Ex 1: classificació compatibles/incompatibles -->
+        <div class="exercise" id="ex-1">
+          <div class="exercise-head">
+            <span class="num">1</span>
+            <span class="ttl">Classifica parells d'esdeveniments</span>
+          </div>
+          <p class="exercise-intro">Sobre l'espai mostral $\Omega = \{1,2,3,4,5,6,7,8,9,10\}$, considera els esdeveniments $A = \{2,4,6,8,10\}$ (parells), $B = \{1,3,5,7,9\}$ (senars), $C = \{1,2,3\}$ i $D = \{5,6,7,8\}$. Per a cada parell, indica si són compatibles o incompatibles i justifica-ho amb la intersecció.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$A$ i $B$</span></summary>
+            <div class="apart-solution">
+              <p>$A \cap B = \varnothing$ (cap número és parell i senar alhora).</p>
+              <div class="math-block">$$\boxed{\;\text{Incompatibles.}\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$A$ i $C$</span></summary>
+            <div class="apart-solution">
+              <p>$A \cap C = \{2\}$ (el 2 és parell i menor o igual a 3).</p>
+              <div class="math-block">$$\boxed{\;\text{Compatibles.}\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$B$ i $D$</span></summary>
+            <div class="apart-solution">
+              <p>$B \cap D = \{5,7\}$ (els senars dins de $D$).</p>
+              <div class="math-block">$$\boxed{\;\text{Compatibles.}\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$C$ i $D$</span></summary>
+            <div class="apart-solution">
+              <p>$C \cap D = \varnothing$ (els elements de $C$ són $\le 3$ i els de $D$ són $\ge 5$).</p>
+              <div class="math-block">$$\boxed{\;\text{Incompatibles.}\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Ex 2: regla de la suma -->
+        <div class="exercise" id="ex-2">
+          <div class="exercise-head">
+            <span class="num">2</span>
+            <span class="ttl">Regla de la suma — incompatibles</span>
+          </div>
+          <p class="exercise-intro">En llançar un dau correcte de 6 cares, considera $A$ = "treure un nombre parell" i $B$ = "treure un múltiple de 5". Calcula:</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(A)$, $P(B)$ i $P(A \cap B)$. Són $A$ i $B$ incompatibles?</span></summary>
+            <div class="apart-solution">
+              <p>$A = \{2,4,6\}$, $B = \{5\}$. Llei de Laplace:</p>
+              <div class="math-block">$$P(A) = \tfrac{3}{6} = \tfrac{1}{2}, \qquad P(B) = \tfrac{1}{6}, \qquad A \cap B = \varnothing.$$</div>
+              <p>Com que $A \cap B = \varnothing$, <strong>són incompatibles</strong>.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(A \cup B)$.</span></summary>
+            <div class="apart-solution">
+              <p>Com que són incompatibles, apliquem la regla de la suma:</p>
+              <div class="math-block">$$P(A \cup B) = P(A) + P(B) = \tfrac{1}{2} + \tfrac{1}{6} = \tfrac{4}{6} = \tfrac{2}{3}.$$</div>
+              <div class="math-block">$$\boxed{\;P(A \cup B) = \tfrac{2}{3} \approx 0{,}667.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Ex 3: regla del producte (independents) -->
+        <div class="exercise" id="ex-3">
+          <div class="exercise-head">
+            <span class="num">3</span>
+            <span class="ttl">Regla del producte — independents</span>
+          </div>
+          <p class="exercise-intro">Sigui $A$ i $B$ dos esdeveniments amb $P(A) = 0{,}4$ i $P(B) = 0{,}25$. Suposa que són <strong>independents</strong>.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Calcula $P(A \cap B)$.</span></summary>
+            <div class="apart-solution">
+              <p>Per la regla del producte:</p>
+              <div class="math-block">$$P(A \cap B) = P(A) \cdot P(B) = 0{,}4 \cdot 0{,}25 = 0{,}10.$$</div>
+              <div class="math-block">$$\boxed{\;P(A \cap B) = 0{,}10.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Calcula $P(A \cup B)$.</span></summary>
+            <div class="apart-solution">
+              <p>Pel principi d'inclusió-exclusió:</p>
+              <div class="math-block">$$P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0{,}4 + 0{,}25 - 0{,}10 = 0{,}55.$$</div>
+              <div class="math-block">$$\boxed{\;P(A \cup B) = 0{,}55.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">Calcula $P(A - B)$.</span></summary>
+            <div class="apart-solution">
+              <p>$A - B$ són els elements de $A$ que no són de $B$:</p>
+              <div class="math-block">$$P(A - B) = P(A) - P(A \cap B) = 0{,}4 - 0{,}10 = 0{,}30.$$</div>
+              <div class="math-block">$$\boxed{\;P(A - B) = 0{,}30.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">Comprova que $P(A \mid B) = P(A)$.</span></summary>
+            <div class="apart-solution">
+              <p>Per la definició de probabilitat condicionada:</p>
+              <div class="math-block">$$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{0{,}10}{0{,}25} = 0{,}4 = P(A).$$</div>
+              <p>✓ Aquesta igualtat <em>és</em> la definició d'independència — verifiquem que es compleix.</p>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Ex 4: distinció dependents/independents en context -->
+        <div class="exercise" id="ex-4">
+          <div class="exercise-head">
+            <span class="num">4</span>
+            <span class="ttl">Independents o dependents?</span>
+          </div>
+          <p class="exercise-intro">Per a cada experiment, raona si els dos esdeveniments són independents o dependents.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Llancem dos daus. $A$ = "el primer dau treu 6", $B$ = "el segon dau treu un nombre parell".</span></summary>
+            <div class="apart-solution">
+              <p>El resultat del primer dau no afecta el del segon — són dos llançaments separats.</p>
+              <div class="math-block">$$\boxed{\;\text{Independents.}\;}$$</div>
+              <p class="note">Comprovació: $P(A) = \tfrac{1}{6}$, $P(B) = \tfrac{1}{2}$, $P(A \cap B) = \tfrac{1}{12} = \tfrac{1}{6} \cdot \tfrac{1}{2}$ ✓.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Treiem dues cartes <em>seguides</em> d'una baralla espanyola (40 cartes), <strong>sense reposició</strong>. $A$ = "la 1a carta és or", $B$ = "la 2a carta és or".</span></summary>
+            <div class="apart-solution">
+              <p>Si surt or a la primera, queden 9 ors entre 39 cartes. Si no surt or, queden 10 ors entre 39. La probabilitat de $B$ <em>depèn</em> del que ha passat a $A$.</p>
+              <div class="math-block">$$\boxed{\;\text{Dependents.}\;}$$</div>
+              <p class="note">$P(B \mid A) = \tfrac{9}{39}$ però $P(B \mid \overline{A}) = \tfrac{10}{39}$ — diferents → no independents.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">Mateix experiment però <strong>amb reposició</strong> (després de la 1a carta, la tornem a la baralla i barregem). $A$ = "la 1a és or", $B$ = "la 2a és or".</span></summary>
+            <div class="apart-solution">
+              <p>En tornar la carta, la baralla es restaura: la 2a carta s'extreu d'una baralla de 40 cartes amb 10 ors, igual que la 1a.</p>
+              <div class="math-block">$$\boxed{\;\text{Independents.}\;}$$</div>
+              <p class="note">Aquesta és la diferència clau entre "amb" i "sense" reposició.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">Una urna conté 3 boles vermelles i 2 negres. Treiem 2 boles, una rere l'altra, sense reposició. $A$ = "la 1a és vermella", $B$ = "la 2a és vermella".</span></summary>
+            <div class="apart-solution">
+              <p>Sense reposició, el contingut de l'urna canvia després de la 1a extracció:</p>
+              <p>· Si surt vermella ($A$), queden $2$ vermelles i $2$ negres → $P(B \mid A) = \tfrac{2}{4} = \tfrac{1}{2}$.</p>
+              <p>· Si no surt vermella ($\overline{A}$), queden $3$ vermelles i $1$ negra → $P(B \mid \overline{A}) = \tfrac{3}{4}$.</p>
+              <div class="math-block">$$\boxed{\;\text{Dependents.}\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">&larr; 04 · Exercicis</a>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-probabilitat/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
