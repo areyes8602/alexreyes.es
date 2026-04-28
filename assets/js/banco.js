@@ -51,6 +51,9 @@
     const idx = c.indexOf(id);
     if (idx >= 0) c.splice(idx, 1); else c.push(id);
     saveCart(c);
+    // També actualitzem la fotografia de filtres: així si l'usuari afegeix
+    // exercicis amb filtres concrets, /docencia/mi-examen/ els mostrarà.
+    if (typeof persistFiltersSnapshot === 'function') persistFiltersSnapshot();
   }
   function updateCartBadge() {
     const c = loadCart();
@@ -395,6 +398,34 @@
     renderResults();
     renderActiveFilters();
     pushState();
+    persistFiltersSnapshot();
+  }
+
+  // Persisteix l'estat actual de filtres a localStorage perquè /docencia/mi-examen/
+  // pugui mostrar el bloc "Filtres aplicats" del PDF generat.
+  function persistFiltersSnapshot() {
+    try {
+      const snapshot = {
+        search: state.search || '',
+        filters: state.filters || {},
+        sort: state.sort || 'fecha_desc',
+        // labels resoltes amb la taxonomia (per si l'usuari neteja l'idioma)
+        labels: {
+          search_label: state.search ? `"${state.search}"` : '',
+          filter_chips: Object.entries(state.filters || {}).flatMap(([ns, vals]) =>
+            (vals || []).map((v) => ({
+              ns, val: v,
+              ns_label: getNsLabel(ns),
+              val_label: getLabel(ns, v),
+              full: `${getNsLabel(ns)}: ${getLabel(ns, v)}`,
+            }))
+          ),
+        },
+        saved_at: new Date().toISOString(),
+        lang: LANG,
+      };
+      localStorage.setItem('mi-examen-filtros', JSON.stringify(snapshot));
+    } catch (e) { /* ignora quota / disabled */ }
   }
 
   // ---- Init ----
@@ -441,6 +472,7 @@
     renderResults();
     renderActiveFilters();
     updateCartBadge();
+    persistFiltersSnapshot();
   }
 
   document.addEventListener('DOMContentLoaded', init);

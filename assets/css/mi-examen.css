@@ -200,18 +200,208 @@
   font-style: italic;
 }
 
-/* --- PRINT --- */
+/* ============================================================
+   Print area (#mx-print-area) — només visible en mode imprimible.
+   Es popula via JS abans de window.print() amb:
+     · Capçalera unificada (alexreyes.es + data)
+     · Bloc de filtres aplicats (capturats des de banco.js)
+     · Una pregunta per bloc (HTML viu de la pàgina font, KaTeX inclòs)
+   ============================================================ */
+.mx-print-area { display: none; } /* amagat per defecte en pantalla */
+
+/* Capçalera */
+.mx-print-area .mxp-cover {
+  margin-bottom: 1.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #333;
+}
+.mx-print-area .mxp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  color: #555;
+  margin-bottom: 0.4rem;
+}
+.mx-print-area .mxp-brand { font-weight: 600; letter-spacing: 0.02em; color: #111; }
+.mx-print-area .mxp-meta { display: flex; gap: 1rem; }
+.mx-print-area .mxp-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.6rem;
+  color: #111;
+}
+.mx-print-area .mxp-filters {
+  font-size: 0.82rem;
+  color: #333;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.mx-print-area .mxp-filters-label {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #555;
+  flex-shrink: 0;
+  padding-top: 0.1rem;
+}
+.mx-print-area .mxp-filters em { color: #888; font-style: italic; }
+.mx-print-area .mxp-chips {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.mx-print-area .mxp-chip {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: baseline;
+  font-size: 0.78rem;
+  padding: 0.15rem 0.5rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 99px;
+  color: #222;
+  white-space: nowrap;
+}
+.mx-print-area .mxp-chip-ns {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.mx-print-area .mxp-chip-search { font-family: var(--mono); }
+
+/* Llistat de preguntes */
+.mx-print-area .mxp-questions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: mxp-q;
+}
+.mx-print-area .mxp-question {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-before: auto;
+  margin: 0 0 1.6rem;
+  padding: 0.8rem 0 1rem;
+  border-bottom: 1px dashed #bbb;
+}
+.mx-print-area .mxp-question:last-child { border-bottom: none; }
+.mx-print-area .mxp-q-num {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.mx-print-area .mxp-q-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+  color: #111;
+}
+.mx-print-area .mxp-q-pts {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #555;
+  margin-left: 0.4rem;
+}
+.mx-print-area .mxp-q-origin {
+  font-size: 0.78rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.mx-print-area .mxp-q-body {
+  margin-top: 0.5rem;
+}
+.mx-print-area .mxp-q-error {
+  background: #fff3f3;
+  border: 1px solid #f0c0c0;
+  color: #a33;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+.mx-print-area .mxp-q-no-sol {
+  background: #fff8e1;
+  border: 1px solid #f0d878;
+  color: #8a6d00;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Quan injectem el bloc font: estèticament netejem alguns elements */
+.mx-print-area .mxp-q-body .breadcrumb,
+.mx-print-area .mxp-q-body nav,
+.mx-print-area .mxp-q-body .exam-nav,
+.mx-print-area .mxp-q-body .exam-header,
+.mx-print-area .mxp-q-body .ib-chips,
+.mx-print-area .mxp-q-body .solution-toggle { display: none !important; }
+/* En mode "enunciats" amaguem qualsevol bloc de solució */
+.mx-print-area.mxp-mode-enunciados .mxp-q-body .solution,
+.mx-print-area.mxp-mode-enunciados .mxp-q-body .apart-solution { display: none !important; }
+/* En mode "solucions" obrim els <details> amb estil net */
+.mx-print-area.mxp-mode-soluciones details { background: transparent !important; padding: 0 !important; }
+.mx-print-area.mxp-mode-soluciones details > summary { cursor: default !important; }
+.mx-print-area.mxp-mode-soluciones details > summary::before { display: none !important; }
+.mx-print-area.mxp-mode-soluciones .apart-solution { display: block !important; padding-left: 1rem; border-left: 2px solid #ddd; }
+
+/* --- ACTIVACIÓ DEL MODE IMPRIMIBLE --- */
+/* Quan el body té .mx-printing, amaguem la UI d'edició i mostrem només
+   l'àrea imprimible. Ho fem en pantalla i imprimint perquè el navegador
+   capturi exactament el que veu. */
+body.mx-printing nav,
+body.mx-printing footer,
+body.mx-printing .breadcrumb,
+body.mx-printing .mx-head,
+body.mx-printing .mx-toolbar,
+body.mx-printing .mx-cover,
+body.mx-printing .mx-empty,
+body.mx-printing .mx-container,
+body.mx-printing .no-print { display: none !important; }
+body.mx-printing .mx-print-area {
+  display: block !important;
+  background: white;
+  color: #111;
+}
+body.mx-printing main > .container { padding-top: 0.6rem !important; padding-bottom: 1rem !important; }
+
+/* --- @media print: regles dedicades al PDF --- */
 @media print {
-  nav, footer, .breadcrumb, .no-print, .mx-toolbar { display: none !important; }
-  body { background: white !important; color: black !important; }
-  .mx-item, .mx-cover {
-    border-color: #999 !important;
-    background: white !important;
-    box-shadow: none !important;
-  }
-  .mx-item { margin-bottom: 1.2rem; }
-  .mx-head { border: none; padding: 0 0 0.5rem; }
-  .mx-head p { display: none; }
+  /* Sempre, fins i tot si l'usuari prem Ctrl+P sense passar per JS */
+  nav, footer, .breadcrumb, .no-print,
+  .mx-toolbar, .mx-head, .mx-cover, .mx-empty, .mx-container { display: none !important; }
+  body { background: white !important; color: #111 !important; }
+  body.mx-printing .mx-print-area,
+  .mx-print-area { display: block !important; }
   a { color: inherit !important; text-decoration: none !important; }
-  @page { margin: 1.6cm 1.5cm; }
+
+  /* Pàgina A4 amb marges còmodes */
+  @page { margin: 1.6cm 1.5cm; size: A4; }
+
+  /* KaTeX: prevenim que la fórmula es talli al final de pàgina */
+  .katex-display { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Caixes d'apunt, exercicis, taules, etc. — break-inside avoid si caben */
+  .def-box, .example-box, .prop-box, .warn-box,
+  .mx-print-area .mxp-question,
+  .mx-print-area .exercise,
+  .mx-print-area .apart,
+  .mx-print-area .question-block { break-inside: avoid-page; page-break-inside: avoid; }
 }

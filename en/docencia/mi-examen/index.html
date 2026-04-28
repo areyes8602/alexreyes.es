@@ -13,6 +13,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="stylesheet" href="/assets/css/mi-examen.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/en/docencia/mi-examen/">
@@ -21,7 +22,6 @@
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/mi-examen/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/mi-examen/">
 <meta name="robots" content="noindex, follow">
-<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script defer src="/assets/js/mi-examen.js"></script>
 </head>
 <body>
@@ -108,6 +108,9 @@
     </div>
 
     <div class="mx-container" id="mx-container" hidden></div>
+
+    <!-- Printable area: populated by JS before window.print(). -->
+    <div class="mx-print-area" id="mx-print-area" aria-hidden="true"></div>
 
   </div>
 </main>
