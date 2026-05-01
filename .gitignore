@@ -1,0 +1,50 @@
+# macOS / OS metadata
+.DS_Store
+**/.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Backups y temporales
+*.bak
+*.tmp
+*.orig
+~$*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Secretos / config local — NUNCA commitear
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.dev.vars
+
+# Cloudflare Workers / Pages
+.wrangler/
+.mf/
+wrangler.toml.local
+
+# Build artifacts
+dist/
+build/
+.next/
+.cache/

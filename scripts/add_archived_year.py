@@ -309,7 +309,7 @@ def render_year_hub(code, year, lang, center, note):
   <div class="container">
     <div class="footer-inner">
       <span><strong>Àlex Reyes</strong> &middot; {L['footer_brand']}</span>
-      <span>Barcelona &middot; 2026</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>
@@ -432,7 +432,7 @@ def render_year_info(code, year, lang):
   <div class="container">
     <div class="footer-inner">
       <span><strong>Àlex Reyes</strong> &middot; {L['footer_brand']}</span>
-      <span>Barcelona &middot; 2026</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

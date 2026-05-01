@@ -19,7 +19,7 @@
       fecha: '',
       grupo: '',
       promocion: '',
-      centro: 'Maristes Sants—Les Corts',
+      centro: '',
       url_index: '',
       pdf_original: '',
       puntuacion_total: 0,
