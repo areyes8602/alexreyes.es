@@ -86,7 +86,7 @@ SHELL = """<!DOCTYPE html>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Bachillerato CCSS · Bloc {bloc}</span>
-        <span class="ib-chip" data-descriptor="{chip_descr}">{chip_label}</span>
+        <span class="ib-chip">{chip_label}</span>
       </div>
 
       <button class="solution-toggle" data-toggles="sol-p{numero}" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p{numero}')">

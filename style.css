@@ -680,3 +680,25 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
 @media print {
   .manual-attribution { display: none; }
 }
+
+
+/* ─── Disclaimer IBO obligatorio en páginas IB ─────────────────────── */
+.ibo-disclaimer {
+  margin: 2.5rem 0 0;
+  padding: 1rem 1.2rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-left: 3px solid #94a3b8;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.ibo-disclaimer p { margin: 0 0 0.4rem; }
+.ibo-disclaimer p:last-child { margin: 0; }
+.ibo-disclaimer strong { color: var(--text); }
+.ibo-disclaimer em { font-style: italic; color: var(--text-faint); }
+.ibo-disclaimer-marks { font-size: 0.76rem; color: var(--text-faint); }
+@media print {
+  .ibo-disclaimer { display: none; }
+}
