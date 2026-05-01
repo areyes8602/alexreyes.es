@@ -823,7 +823,7 @@ def render_ib_hub(s, lang):
 const TEMAS = {temas_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
-const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content']}, ensure_ascii=False)};
+const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra']}, ensure_ascii=False)};
 
 function fmtFecha(iso) {{ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${{parseInt(d,10)}} ${{MONTHS[parseInt(m,10)-1]}} ${{y}}`; }}
 function escHtml(s) {{ return String(s||'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c])); }}
@@ -834,24 +834,43 @@ function renderExamCard(col, ejs) {{
   const idxBtn = col.url_index ? `<a class="exam-card-btn html" href="${{escHtml(col.url_index)}}">📋 ${{LABELS_JS.exam_btn_html}}</a>` : '';
   return `<article class="exam-card"><div class="exam-card-head"><span class="exam-card-date">${{escHtml(fmtFecha(col.fecha))}}</span>${{col.grupo?`<span class="tag tag-orange" style="font-size:0.7rem">${{escHtml(col.grupo)}}</span>`:''}}</div><h3 class="exam-card-title">${{escHtml(col.titulo||col.id)}}</h3><p class="exam-card-meta">${{npreg}} ${{npreg===1?LABELS_JS.exam_question:LABELS_JS.exam_questions}} &middot; ${{ptos}} ${{LABELS_JS.exam_points}}</p><div class="exam-card-actions">${{idxBtn}}${{pdfBtn}}</div></article>`;
 }}
-function buildSubtemaRow(sub, conceptosConContenido) {{
-  const tieneContenido = conceptosConContenido.has(sub.code);
-  const url = `/aula/ib-ai-hl/${{sub.code.split(' ')[0].replace('.','-').replace(' ','-').toLowerCase()}}/${{sub.slug}}/`;
-  const nivelBadge = `<span class="subtema-nivel subtema-nivel-${{sub.nivel.toLowerCase()}}">${{sub.nivel}}</span>`;
-  const inner = `<span class="subtema-code">${{escHtml(sub.code)}}</span><span class="subtema-title">${{escHtml(sub.title)}}</span>${{nivelBadge}}`;
-  if (tieneContenido) {{
-    return `<a href="${{url}}" class="subtema-row subtema-row-active">${{inner}}<span class="subtema-arrow">→</span></a>`;
-  }}
-  return `<div class="subtema-row subtema-row-empty" title="${{LABELS_JS.subtema_empty}}">${{inner}}<span class="subtema-status">·</span></div>`;
+
+// Card de sección dentro de un subtema (apuntes/ejercicios/soluciones/materiales)
+function buildSectionCard(href, icon, label) {{
+  if (href) return `<a href="${{href}}" class="chapter-section available" style="text-decoration:none"><span>${{icon}}</span><span>${{label}}</span></a>`;
+  return `<div class="chapter-section empty"><span>${{icon}}</span><span>${{label}}</span></div>`;
 }}
+
+// Subtema (NM o TANS) — chapter-item plegable con sus 4 secciones
+function buildSubtema(sub, conceptosConContenido) {{
+  const tieneContenido = conceptosConContenido.has(sub.code);
+  const slugBloque = sub.code.split(' ')[0].toLowerCase();  // "NM 1.1" → "nm"
+  const baseUrl = `/aula/ib-ai-hl/${{slugBloque}}/${{sub.slug}}`;
+  const sections = [
+    buildSectionCard(null, '📄', LABELS_JS.section_card_apunts),
+    buildSectionCard(null, '📝', LABELS_JS.section_card_fitxes),
+    buildSectionCard(null, '✅', LABELS_JS.section_card_solucions),
+    buildSectionCard(null, '🔗', LABELS_JS.section_card_extra),
+  ].join('');
+  const nivelClass = `subtema-nivel-${{sub.nivel.toLowerCase()}}`;
+  const statusBadge = tieneContenido
+    ? `<span class="tag tag-green" style="font-size:0.62rem;margin-left:auto">●</span>`
+    : `<span class="tag tag-gray" style="font-size:0.62rem;margin-left:auto;opacity:0.5">○</span>`;
+  return `<div class="chapter-item subtema-item ${{nivelClass}}"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num subtema-num">${{escHtml(sub.code)}}</span><span class="chapter-title">${{escHtml(sub.title)}}</span>${{statusBadge}}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body"><div class="chapter-sections">${{sections}}</div></div></div>`;
+}}
+
+// Bloque (T1-T5) — chapter-item plegable que contiene los subtemas dentro
 function buildBloque(t, nivel, conceptosConContenido) {{
   const subs = t.subtemas.filter(s => nivel === 'hl' || s.nivel === 'NM');
-  const rows = subs.map(s => buildSubtemaRow(s, conceptosConContenido)).join('');
-  return `<div class="bloque-item"><div class="bloque-header"><span class="bloque-code">${{t.code}}</span><span class="bloque-title">${{escHtml(t.label)}}</span><span class="bloque-count">${{subs.length}}</span></div><div class="bloque-body"><div class="subtema-list">${{rows}}</div></div></div>`;
+  const subtemasHtml = subs.map(s => buildSubtema(s, conceptosConContenido)).join('');
+  const countBadge = `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${{subs.length}} subtemas</span>`;
+  return `<div class="chapter-item bloque-tema"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num bloque-num">${{t.code}}</span><span class="chapter-title">${{escHtml(t.label)}}</span>${{countBadge}}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body"><div class="subtemas-stack">${{subtemasHtml}}</div></div></div>`;
 }}
+
 function renderBloques(nivel, conceptosConContenido) {{
   document.getElementById('bloques-' + nivel).innerHTML = TEMAS.map(t => buildBloque(t, nivel, conceptosConContenido)).join('');
 }}
+function toggleChapter(h) {{ h.parentElement.classList.toggle('open'); }}
 function showNivel(id, btn) {{
   document.querySelectorAll('.promo-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.promo-tab').forEach(t => t.classList.remove('active'));
