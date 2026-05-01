@@ -28,9 +28,13 @@ LABELS = {
         "year_picker_current": "actual",
         "year_picker_empty": "No hay cursos archivados todavía.",
         "units_h2_regular": "Unidades didácticas",
-        "units_h2_chapters": "Capítulos del libro",
+        "ib_blocks_h2": "Bloques del syllabus IB",
         "units_help_regular": "Cada unidad contiene los apuntes de clase, las fichas de ejercicios con sus soluciones, y los exámenes realizados.",
-        "units_help_chapters": "Cada capítulo agrupa los apuntes, listas de ejercicios con sus soluciones, recursos extra y los exámenes parciales.",
+        "ib_blocks_help": "El syllabus oficial del IB Math AI organiza el contenido en 5 bloques. Cada bloque contiene los subtemas NM (Nivel Medio = SL/HL) y, en HL, los TANS (Temas Adicionales del Nivel Superior).",
+        "exams_h2": "Exámenes",
+        "exams_help": "Listado cronológico de los exámenes oficiales realizados. Cada examen está etiquetado con los subtemas NM/TANS que cubre.",
+        "subtema_empty": "Aún no hay material publicado para este subtema",
+        "subtema_with_content": "Material disponible",
         "globals_h2": "Exámenes globales",
         "globals_help": "Globales de evaluación, simulacros, recuperaciones y exámenes finales — pruebas que cubren varias unidades.",
         "globals_loading": "cargando…",
@@ -71,9 +75,13 @@ LABELS = {
         "year_picker_current": "actual",
         "year_picker_empty": "Encara no hi ha cursos arxivats.",
         "units_h2_regular": "Unitats didàctiques",
-        "units_h2_chapters": "Capítols del llibre",
+        "ib_blocks_h2": "Blocs del syllabus IB",
         "units_help_regular": "Cada unitat conté els apunts de classe, les fitxes d'exercicis amb les seves solucions, i els exàmens realitzats.",
-        "units_help_chapters": "Cada capítol agrupa els apunts, llistes d'exercicis amb les seves solucions, recursos extra i els exàmens parcials.",
+        "ib_blocks_help": "El syllabus oficial de l'IB Math AI organitza el contingut en 5 blocs. Cada bloc conté els subtemes NM (Nivell Mitjà = SL/HL) i, en HL, els TANS (Temes Addicionals del Nivell Superior).",
+        "exams_h2": "Exàmens",
+        "exams_help": "Llistat cronològic dels exàmens oficials realitzats. Cada examen està etiquetat amb els subtemes NM/TANS que cobreix.",
+        "subtema_empty": "Encara no hi ha material publicat per a aquest subtema",
+        "subtema_with_content": "Material disponible",
         "globals_h2": "Exàmens globals",
         "globals_help": "Globals d'avaluació, simulacres, recuperacions i exàmens finals — proves que cobreixen diverses unitats.",
         "globals_loading": "carregant…",
@@ -114,9 +122,13 @@ LABELS = {
         "year_picker_current": "current",
         "year_picker_empty": "No archived years yet.",
         "units_h2_regular": "Teaching units",
-        "units_h2_chapters": "Book chapters",
+        "ib_blocks_h2": "IB syllabus topics",
         "units_help_regular": "Each unit contains the class notes, exercise sheets with solutions, and the exams from that unit.",
-        "units_help_chapters": "Each chapter groups the notes, exercise lists with solutions, extra resources and the partial exams.",
+        "ib_blocks_help": "The official IB Math AI syllabus organises content in 5 topics. Each topic contains the SL subtopics (NM) and, for HL, the HL-only subtopics (TANS).",
+        "exams_h2": "Exams",
+        "exams_help": "Chronological list of official exams. Each exam is tagged with the NM/TANS subtopics it covers.",
+        "subtema_empty": "No content published yet for this subtopic",
+        "subtema_with_content": "Content available",
         "globals_h2": "Comprehensive exams",
         "globals_help": "Term-final exams, mocks, retakes and final exams — assessments covering several units.",
         "globals_loading": "loading…",
@@ -307,29 +319,46 @@ SUBJ_1BTL = {
     ],
 }
 
-# IB AI HL/SL — taught in English
-IB_CHAPTERS = [
-    {"num":"01","title":"Measuring space: accuracy and geometry","hl":True,"sl":True},
-    {"num":"02","title":"Representing and describing data: descriptive statistics","hl":True,"sl":True},
-    {"num":"03","title":"Dividing up space: coordinate geometry, Voronoi diagrams, vectors, lines","hl":True,"sl":True},
-    {"num":"04","title":"Modelling constant rates of change: linear functions and regressions","hl":True,"sl":True},
-    {"num":"05","title":"Quantifying uncertainty: probability","hl":True,"sl":True},
-    {"num":"06","title":"Modelling relationships with functions: power and polynomial functions","hl":True,"sl":True},
-    {"num":"07","title":"Modelling rates of change: exponential and logarithmic functions","hl":True,"sl":True},
-    {"num":"08","title":"Modelling periodic phenomena: trigonometric functions and complex numbers","hl":True,"sl":True,
-     "note":{"es":"8.3–8.5 solo HL","ca":"8.3–8.5 només HL","en":"8.3–8.5 HL only"}},
-    {"num":"09","title":"Modelling with matrices: storing and analysing data","hl":True,"sl":False,
-     "note":{"es":"Solo HL","ca":"Només HL","en":"HL only"}},
-    {"num":"10","title":"Analyzing rates of change: differential calculus","hl":True,"sl":True},
-    {"num":"11","title":"Approximating irregular spaces: integration and differential equations","hl":True,"sl":True},
-    {"num":"12","title":"Modelling motion and change in two and three dimensions","hl":True,"sl":False,
-     "note":{"es":"Solo HL","ca":"Només HL","en":"HL only"}},
-    {"num":"13","title":"Representing multiple outcomes: random variables and probability distributions","hl":True,"sl":True},
-    {"num":"14","title":"Testing for validity: Spearman's, hypothesis testing and χ² test","hl":True,"sl":True},
-    {"num":"15","title":"Optimizing complex networks: graph theory","hl":True,"sl":False,
-     "note":{"es":"Solo HL","ca":"Només HL","en":"HL only"}},
-    {"num":"16","title":"Exploration (IA)","hl":True,"sl":True},
-]
+# IB AI HL/SL — Estructura oficial del syllabus IBO (5 bloques · NM/TANS)
+# Se carga directamente desde assets/data/tags.json (la única fuente de verdad).
+# Los códigos NM (Nivel Medio = SL) aplican a HL y SL.
+# Los códigos TANS (Temas Adicionales del Nivel Superior) aplican solo a HL.
+def load_ib_temas():
+    """Lee tags.json y devuelve la lista de bloques con sus subtemas."""
+    tags = json.loads((REPO / "assets/data/tags.json").read_text(encoding="utf-8"))
+    bloques = tags["namespaces"]["ambito_iba"]["valores"]
+    subtemas = tags["namespaces"]["concepto_iba"]["valores"]
+    out = []
+    for tcode in ["T1", "T2", "T3", "T4", "T5"]:
+        bloque_label = bloques[tcode]["label"]  # dict con es/ca/en
+        sub_lista = []
+        for code, meta in subtemas.items():
+            if meta.get("ambito_iba") != tcode:
+                continue
+            label = meta["label"]
+            es_label = label.get("es", code)
+            # Quitar el prefijo del código del título: "NM 1.1 — Notación científica" → "Notación científica"
+            title_pure = es_label.split(" — ", 1)[1] if " — " in es_label else es_label
+            slug = code.replace(" ", "-").replace(".", "-")  # "NM 1.1" → "NM-1-1"
+            nivel = "HL" if code.startswith("TANS") else "NM"  # NM = ambos, TANS = HL
+            sub_lista.append({
+                "code": code, "slug": slug, "title": title_pure, "nivel": nivel,
+            })
+        # Ordenar: NM primero (alfanumérico), luego TANS (alfanumérico)
+        def sort_key(s):
+            parts = s["code"].replace("NM ", "").replace("TANS ", "").split(".")
+            tema = int(parts[0])
+            num = int(parts[1])
+            return (0 if s["code"].startswith("NM") else 1, tema, num)
+        sub_lista.sort(key=sort_key)
+        out.append({
+            "code": tcode,
+            "label": bloque_label,
+            "subtemas": sub_lista,
+        })
+    return out
+
+IB_TEMAS = load_ib_temas()
 
 def make_ib_subject(promo, anyo_examen):
     return {
@@ -699,13 +728,15 @@ def render_ib_hub(s, lang):
     subtitle = picker_lang_value(s["subtitle"], lang)
     info_url = f"{lang_prefix(lang)}/docencia/{code}/info/"
 
-    chapters_for_js = []
-    for ch in IB_CHAPTERS:
-        ch2 = {k: v for k, v in ch.items() if k != "note"}
-        if "note" in ch:
-            ch2["note"] = ch["note"][lang]
-        chapters_for_js.append(ch2)
-    chapters_json = json.dumps(chapters_for_js, ensure_ascii=False)
+    # Estructura para JS: bloques T1-T5 con sus subtemas NM/TANS
+    temas_for_js = []
+    for t in IB_TEMAS:
+        temas_for_js.append({
+            "code": t["code"],
+            "label": t["label"].get(lang, t["label"]["es"]),
+            "subtemas": t["subtemas"],  # ya tienen code, slug, title, nivel
+        })
+    temas_json = json.dumps(temas_for_js, ensure_ascii=False)
 
     breadcrumb = (
         f'<a href="{lang_prefix(lang)}/">{L["home"]}</a>'
@@ -753,8 +784,8 @@ def render_ib_hub(s, lang):
       <span class="info-cta-arrow">→</span>
     </a>
 
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L['units_h2_chapters']}</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['units_help_chapters']}</p>
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L['ib_blocks_h2']}</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['ib_blocks_help']}</p>
 
     <div class="promo-tabs">
       <button class="promo-tab active" onclick="showNivel('hl', this)">{L['promo_tab_hl']}</button>
@@ -762,35 +793,38 @@ def render_ib_hub(s, lang):
     </div>
 
     <div id="nivel-hl" class="promo-panel active">
-      <div class="chapter-list" id="chapters-hl"></div>
+      <div class="bloque-list" id="bloques-hl"></div>
     </div>
 
     <div id="nivel-sl" class="promo-panel">
       <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['promo_sl_intro']}</p>
-      <div class="chapter-list" id="chapters-sl"></div>
+      <div class="bloque-list" id="bloques-sl"></div>
     </div>
 
     <section style="margin-top:3rem">
       <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <h2 style="font-size:1.2rem;margin:0">{L['globals_h2']}</h2>
-        <span class="tag tag-gray" id="globals-count" style="font-size:0.7rem">{L['globals_loading']}</span>
+        <h2 style="font-size:1.2rem;margin:0">{L['exams_h2']}</h2>
+        <span class="tag tag-gray" id="exams-count" style="font-size:0.7rem">{L['globals_loading']}</span>
       </div>
-      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['globals_help']}</p>
-      <div id="globals-list" class="exam-list"></div>
+      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['exams_help']}</p>
+      <div id="exams-list" class="exam-list"></div>
     </section>
 
   </div>
+  <aside class="ibo-disclaimer">
+    <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+    <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+  </aside>
 </main>
 
 {footer_html(L)}
 
 <script>
-const CHAPTERS = {chapters_json};
+const TEMAS = {temas_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
-const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','no_exams_unit','exams_unit_title','globals_empty','globals_load_error','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','examens_count_one','examens_count_many','ib_chapter_hlonly','summary_exams_label','summary_fitxes_label','summary_apunts_label','summary_yes','summary_no']}, ensure_ascii=False)};
+const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content']}, ensure_ascii=False)};
 
-function unitNumOf(colId) {{ const m=(colId||'').match(/-u(\\d{{1,2}})\\b/); return m ? m[1].padStart(2,'0') : null; }}
 function fmtFecha(iso) {{ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${{parseInt(d,10)}} ${{MONTHS[parseInt(m,10)-1]}} ${{y}}`; }}
 function escHtml(s) {{ return String(s||'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c])); }}
 function renderExamCard(col, ejs) {{
@@ -800,31 +834,24 @@ function renderExamCard(col, ejs) {{
   const idxBtn = col.url_index ? `<a class="exam-card-btn html" href="${{escHtml(col.url_index)}}">📋 ${{LABELS_JS.exam_btn_html}}</a>` : '';
   return `<article class="exam-card"><div class="exam-card-head"><span class="exam-card-date">${{escHtml(fmtFecha(col.fecha))}}</span>${{col.grupo?`<span class="tag tag-orange" style="font-size:0.7rem">${{escHtml(col.grupo)}}</span>`:''}}</div><h3 class="exam-card-title">${{escHtml(col.titulo||col.id)}}</h3><p class="exam-card-meta">${{npreg}} ${{npreg===1?LABELS_JS.exam_question:LABELS_JS.exam_questions}} &middot; ${{ptos}} ${{LABELS_JS.exam_points}}</p><div class="exam-card-actions">${{idxBtn}}${{pdfBtn}}</div></article>`;
 }}
-function buildSectionCard(href, icon, label) {{
-  if (href) return `<a href="${{href}}" class="chapter-section available" style="text-decoration:none"><span>${{icon}}</span><span>${{label}}</span></a>`;
-  return `<div class="chapter-section empty"><span>${{icon}}</span><span>${{label}}</span></div>`;
+function buildSubtemaRow(sub, conceptosConContenido) {{
+  const tieneContenido = conceptosConContenido.has(sub.code);
+  const url = `/aula/ib-ai-hl/${{sub.code.split(' ')[0].replace('.','-').replace(' ','-').toLowerCase()}}/${{sub.slug}}/`;
+  const nivelBadge = `<span class="subtema-nivel subtema-nivel-${{sub.nivel.toLowerCase()}}">${{sub.nivel}}</span>`;
+  const inner = `<span class="subtema-code">${{escHtml(sub.code)}}</span><span class="subtema-title">${{escHtml(sub.title)}}</span>${{nivelBadge}}`;
+  if (tieneContenido) {{
+    return `<a href="${{url}}" class="subtema-row subtema-row-active">${{inner}}<span class="subtema-arrow">→</span></a>`;
+  }}
+  return `<div class="subtema-row subtema-row-empty" title="${{LABELS_JS.subtema_empty}}">${{inner}}<span class="subtema-status">·</span></div>`;
 }}
-function buildChapter(ch, nivel, byUnit) {{
-  const hlOnly = nivel === 'sl' && !ch.sl;
-  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.).
-  const exs = (byUnit[ch.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
-  const examCount = exs.length;
-  const sections = [
-    buildSectionCard(ch.apuntes, '📄', LABELS_JS.section_card_apunts),
-    buildSectionCard(ch.fichas, '📝', LABELS_JS.section_card_fitxes),
-    buildSectionCard(ch.soluciones, '✅', LABELS_JS.section_card_solucions),
-    buildSectionCard(ch.extra, '🔗', LABELS_JS.section_card_extra),
-  ].join('');
-  const examsBox = examCount > 0
-    ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">${{LABELS_JS.exams_unit_title}} (${{examCount}})</h4><div class="exam-list">${{exs.map(({{col,ejs}}) => renderExamCard(col, ejs)).join('')}}</div></div>`
-    : `<p style="font-size:0.82rem;color:var(--text-faint);margin:1rem 0 0">${{LABELS_JS.no_exams_unit}}</p>`;
-  const examBadge = examCount > 0
-    ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${{examCount}} ${{examCount===1?LABELS_JS.examens_count_one:LABELS_JS.examens_count_many}}</span>`
-    : (ch.note ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${{escHtml(ch.note)}}</span>` : '');
-  return `<div class="chapter-item ${{hlOnly?'hl-only':''}}"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num">${{ch.num}}</span><span class="chapter-title">${{escHtml(ch.title)}}</span>${{examBadge}}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{hlOnly?`<p style="font-size:0.88rem;color:var(--text-faint);padding:0.5rem 0">${{LABELS_JS.ib_chapter_hlonly}}</p>`:`<div class="chapter-sections">${{sections}}</div>${{examsBox}}`}}</div></div>`;
+function buildBloque(t, nivel, conceptosConContenido) {{
+  const subs = t.subtemas.filter(s => nivel === 'hl' || s.nivel === 'NM');
+  const rows = subs.map(s => buildSubtemaRow(s, conceptosConContenido)).join('');
+  return `<div class="bloque-item"><div class="bloque-header"><span class="bloque-code">${{t.code}}</span><span class="bloque-title">${{escHtml(t.label)}}</span><span class="bloque-count">${{subs.length}}</span></div><div class="bloque-body"><div class="subtema-list">${{rows}}</div></div></div>`;
 }}
-function renderChapters(nivel, byUnit) {{ document.getElementById('chapters-' + nivel).innerHTML = CHAPTERS.map(ch => buildChapter(ch, nivel, byUnit)).join(''); }}
-function toggleChapter(h) {{ h.parentElement.classList.toggle('open'); }}
+function renderBloques(nivel, conceptosConContenido) {{
+  document.getElementById('bloques-' + nivel).innerHTML = TEMAS.map(t => buildBloque(t, nivel, conceptosConContenido)).join('');
+}}
 function showNivel(id, btn) {{
   document.querySelectorAll('.promo-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.promo-tab').forEach(t => t.classList.remove('active'));
@@ -838,45 +865,41 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(idx => {{
     const cols = new Map();
+    const conceptosConContenido = new Set();
     for (const e of (idx.ejercicios || [])) {{
       const c = e.coleccion || {{}};
       const m = e.tags && e.tags.materia;
       if (m !== 'ib-ai-hl' && m !== 'ib-ai-sl') continue;
       if (c.promocion !== PROMO) continue;
-      // Només mostrem exàmens al hub: les pràctiques/exercicis de classe es llisten a /aula/<materia>/apuntes/
       if (c.tipo && c.tipo !== 'examen') continue;
       if (!cols.has(c.id)) cols.set(c.id, {{ col: c, ejs: [] }});
       cols.get(c.id).ejs.push(e);
+      // Marcar conceptos IB que tienen al menos un ejercicio
+      const cs = (e.tags && e.tags.concepto_iba) || [];
+      cs.forEach(x => conceptosConContenido.add(x));
     }}
-    const byUnit = {{}};
-    const globals = [];
-    for (const entry of cols.values()) {{
-      const u = unitNumOf(entry.col.id);
-      if (u) {{ (byUnit[u] = byUnit[u] || []).push(entry); }}
-      else {{ globals.push(entry); }}
-    }}
-    renderChapters('hl', byUnit);
-    renderChapters('sl', byUnit);
+    renderBloques('hl', conceptosConContenido);
+    renderBloques('sl', conceptosConContenido);
     const params = new URLSearchParams(window.location.search);
     if (params.get('nivel') === 'sl') document.querySelectorAll('.promo-tab')[1].click();
 
-    // Globals també ordenats cronològicament (ASC).
-    globals.sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
-    const cont = document.getElementById('globals-list');
-    const count = document.getElementById('globals-count');
-    if (globals.length === 0) {{
+    // Lista de exámenes (ordenados cronológicamente ASC, todos juntos)
+    const exams = [...cols.values()].sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
+    const cont = document.getElementById('exams-list');
+    const count = document.getElementById('exams-count');
+    if (exams.length === 0) {{
       count.textContent = '0';
       cont.innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${{LABELS_JS.globals_empty}}</p>`;
     }} else {{
-      count.textContent = globals.length + (globals.length===1 ? ' ' + LABELS_JS.examens_count_one : ' ' + LABELS_JS.examens_count_many);
-      cont.innerHTML = globals.map(({{col,ejs}}) => renderExamCard(col, ejs)).join('');
+      count.textContent = exams.length + (exams.length===1 ? ' ' + LABELS_JS.examens_count_one : ' ' + LABELS_JS.examens_count_many);
+      cont.innerHTML = exams.map(({{col,ejs}}) => renderExamCard(col, ejs)).join('');
     }}
   }})
   .catch(err => {{
-    renderChapters('hl', {{}});
-    renderChapters('sl', {{}});
-    document.getElementById('globals-count').textContent = 'error';
-    document.getElementById('globals-list').innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem">${{LABELS_JS.globals_load_error}}</p>`;
+    renderBloques('hl', new Set());
+    renderBloques('sl', new Set());
+    document.getElementById('exams-count').textContent = 'error';
+    document.getElementById('exams-list').innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem">${{LABELS_JS.globals_load_error}}</p>`;
     console.error('exams:', err);
   }});
 </script>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2024-2026 Cohort — Àlex Reyes</title>
-<meta name="description" content="Official exams May 2026 &middot; Maristes Sants&mdash;Les Corts">
+<meta name="description" content="Official exams May 2026">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
         <span class="tag tag-orange">2024–2026</span>
       </div>
       <h1 style="margin:0.3rem 0 0.6rem">2024-2026 Cohort</h1>
-      <p style="font-size:0.98rem;color:var(--text-soft)">Official exams May 2026 &middot; Maristes Sants&mdash;Les Corts</p>
+      <p style="font-size:0.98rem;color:var(--text-soft)">Official exams May 2026</p>
     </div>
 
     <div class="info-grid">
@@ -76,8 +76,8 @@
       <span class="info-cta-arrow">→</span>
     </a>
 
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Book chapters</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Each chapter groups the notes, exercise lists with solutions, extra resources and the partial exams.</p>
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">IB syllabus topics</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">The official IB Math AI syllabus organises content in 5 topics. Each topic contains the SL subtopics (NM) and, for HL, the HL-only subtopics (TANS).</p>
 
     <div class="promo-tabs">
       <button class="promo-tab active" onclick="showNivel('hl', this)">HL — Higher Level</button>
@@ -85,46 +85,45 @@
     </div>
 
     <div id="nivel-hl" class="promo-panel active">
-      <div class="chapter-list" id="chapters-hl"></div>
+      <div class="bloque-list" id="bloques-hl"></div>
     </div>
 
     <div id="nivel-sl" class="promo-panel">
       <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">SL shares most chapters with HL, with less depth on some topics and without the HL-exclusive chapters.</p>
-      <div class="chapter-list" id="chapters-sl"></div>
+      <div class="bloque-list" id="bloques-sl"></div>
     </div>
 
     <section style="margin-top:3rem">
       <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <h2 style="font-size:1.2rem;margin:0">Comprehensive exams</h2>
-        <span class="tag tag-gray" id="globals-count" style="font-size:0.7rem">loading…</span>
+        <h2 style="font-size:1.2rem;margin:0">Exams</h2>
+        <span class="tag tag-gray" id="exams-count" style="font-size:0.7rem">loading…</span>
       </div>
-      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Term-final exams, mocks, retakes and final exams — assessments covering several units.</p>
-      <div id="globals-list" class="exam-list"></div>
+      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Chronological list of official exams. Each exam is tagged with the NM/TANS subtopics it covers.</p>
+      <div id="exams-list" class="exam-list"></div>
     </section>
 
   </div>
   <aside class="ibo-disclaimer">
-  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
-  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
-</aside>
+    <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+    <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+  </aside>
 </main>
 
 <footer>
   <div class="container">
     <div class="footer-inner">
       <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and research</span>
-      <span>Barcelona &middot; 2026</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>
 
 <script>
-const CHAPTERS = [{"num": "01", "title": "Measuring space: accuracy and geometry", "hl": true, "sl": true}, {"num": "02", "title": "Representing and describing data: descriptive statistics", "hl": true, "sl": true}, {"num": "03", "title": "Dividing up space: coordinate geometry, Voronoi diagrams, vectors, lines", "hl": true, "sl": true}, {"num": "04", "title": "Modelling constant rates of change: linear functions and regressions", "hl": true, "sl": true}, {"num": "05", "title": "Quantifying uncertainty: probability", "hl": true, "sl": true}, {"num": "06", "title": "Modelling relationships with functions: power and polynomial functions", "hl": true, "sl": true}, {"num": "07", "title": "Modelling rates of change: exponential and logarithmic functions", "hl": true, "sl": true}, {"num": "08", "title": "Modelling periodic phenomena: trigonometric functions and complex numbers", "hl": true, "sl": true, "note": "8.3–8.5 HL only"}, {"num": "09", "title": "Modelling with matrices: storing and analysing data", "hl": true, "sl": false, "note": "HL only"}, {"num": "10", "title": "Analyzing rates of change: differential calculus", "hl": true, "sl": true}, {"num": "11", "title": "Approximating irregular spaces: integration and differential equations", "hl": true, "sl": true}, {"num": "12", "title": "Modelling motion and change in two and three dimensions", "hl": true, "sl": false, "note": "HL only"}, {"num": "13", "title": "Representing multiple outcomes: random variables and probability distributions", "hl": true, "sl": true}, {"num": "14", "title": "Testing for validity: Spearman's, hypothesis testing and χ² test", "hl": true, "sl": true}, {"num": "15", "title": "Optimizing complex networks: graph theory", "hl": true, "sl": false, "note": "HL only"}, {"num": "16", "title": "Exploration (IA)", "hl": true, "sl": true}];
+const TEMAS = [{"code": "T1", "label": "Topic 1 — Number and algebra", "subtemas": [{"code": "NM 1.1", "slug": "NM-1-1", "title": "Notación científica", "nivel": "NM"}, {"code": "NM 1.2", "slug": "NM-1-2", "title": "Progresiones y series aritméticas", "nivel": "NM"}, {"code": "NM 1.3", "slug": "NM-1-3", "title": "Progresiones y series geométricas", "nivel": "NM"}, {"code": "NM 1.4", "slug": "NM-1-4", "title": "Aplicaciones financieras (interés compuesto, anualidades)", "nivel": "NM"}, {"code": "NM 1.5", "slug": "NM-1-5", "title": "Potencias con exponente entero y forma exponencial", "nivel": "NM"}, {"code": "NM 1.6", "slug": "NM-1-6", "title": "Aproximación: cifras decimales, c.s., error porcentual", "nivel": "NM"}, {"code": "NM 1.7", "slug": "NM-1-7", "title": "Amortización y anualidades con tecnología", "nivel": "NM"}, {"code": "NM 1.8", "slug": "NM-1-8", "title": "Sistemas lineales (con tecnología)", "nivel": "NM"}, {"code": "TANS 1.9", "slug": "TANS-1-9", "title": "Logaritmos; propiedades", "nivel": "HL"}, {"code": "TANS 1.10", "slug": "TANS-1-10", "title": "Simplificación de expresiones con exponentes y radicales", "nivel": "HL"}, {"code": "TANS 1.11", "slug": "TANS-1-11", "title": "Suma infinita de progresión geométrica convergente", "nivel": "HL"}, {"code": "TANS 1.12", "slug": "TANS-1-12", "title": "Números complejos: i, forma cartesiana", "nivel": "HL"}, {"code": "TANS 1.13", "slug": "TANS-1-13", "title": "Forma polar y exponencial de complejos", "nivel": "HL"}, {"code": "TANS 1.14", "slug": "TANS-1-14", "title": "Matrices; suma, producto, inversa; sistemas en forma matricial", "nivel": "HL"}, {"code": "TANS 1.15", "slug": "TANS-1-15", "title": "Valores y vectores propios; potencias de matrices; cadenas de Markov", "nivel": "HL"}]}, {"code": "T2", "label": "Topic 2 — Functions", "subtemas": [{"code": "NM 2.1", "slug": "NM-2-1", "title": "Diferentes formas de la ecuación de una recta", "nivel": "NM"}, {"code": "NM 2.2", "slug": "NM-2-2", "title": "Concepto de función: dominio, recorrido, gráfico", "nivel": "NM"}, {"code": "NM 2.3", "slug": "NM-2-3", "title": "Gráfico de una función; intersecciones; intervalos crec./dec.", "nivel": "NM"}, {"code": "NM 2.4", "slug": "NM-2-4", "title": "Modelos lineales, cuadráticos, exponenciales y otros", "nivel": "NM"}, {"code": "NM 2.5", "slug": "NM-2-5", "title": "Modelado: cuadrático, cúbico, exponencial, sinusoidal, logarítmico", "nivel": "NM"}, {"code": "NM 2.6", "slug": "NM-2-6", "title": "Habilidades de modelización", "nivel": "NM"}, {"code": "TANS 2.7", "slug": "TANS-2-7", "title": "Composición de funciones; función inversa", "nivel": "HL"}, {"code": "TANS 2.8", "slug": "TANS-2-8", "title": "Transformaciones de gráficos", "nivel": "HL"}, {"code": "TANS 2.9", "slug": "TANS-2-9", "title": "Modelos: logarítmicos, logísticos, función a trozos", "nivel": "HL"}, {"code": "TANS 2.10", "slug": "TANS-2-10", "title": "Habilidades de modelización avanzadas", "nivel": "HL"}]}, {"code": "T3", "label": "Topic 3 — Geometry and trigonometry", "subtemas": [{"code": "NM 3.1", "slug": "NM-3-1", "title": "Distancia y punto medio en 2D y 3D; volumen y superficie", "nivel": "NM"}, {"code": "NM 3.2", "slug": "NM-3-2", "title": "Trigonometría de triángulos rectángulos", "nivel": "NM"}, {"code": "NM 3.3", "slug": "NM-3-3", "title": "Aplicaciones de trigonometría; ley del seno, del coseno, área de un triángulo", "nivel": "NM"}, {"code": "NM 3.4", "slug": "NM-3-4", "title": "Longitud de arco y área de sector circular", "nivel": "NM"}, {"code": "NM 3.5", "slug": "NM-3-5", "title": "Mediatrices; ecuaciones de circunferencias y de mediatrices", "nivel": "NM"}, {"code": "NM 3.6", "slug": "NM-3-6", "title": "Diagramas de Voronoi", "nivel": "NM"}, {"code": "TANS 3.7", "slug": "TANS-3-7", "title": "Modelos logísticos; logaritmos en geometría", "nivel": "HL"}, {"code": "TANS 3.8", "slug": "TANS-3-8", "title": "Funciones trigonométricas: senθ, cosθ; identidad senoidal y cosenoidal", "nivel": "HL"}, {"code": "TANS 3.9", "slug": "TANS-3-9", "title": "Aplicaciones de funciones sinusoidales (incl. fasores)", "nivel": "HL"}, {"code": "TANS 3.10", "slug": "TANS-3-10", "title": "Vectores: componentes y representación por columnas; módulo", "nivel": "HL"}, {"code": "TANS 3.11", "slug": "TANS-3-11", "title": "Ecuación vectorial de una recta en 2D y 3D", "nivel": "HL"}, {"code": "TANS 3.12", "slug": "TANS-3-12", "title": "Aplicación de vectores a cinemática (velocidad, aceleración)", "nivel": "HL"}, {"code": "TANS 3.13", "slug": "TANS-3-13", "title": "Producto escalar y vectorial; ángulos; áreas", "nivel": "HL"}, {"code": "TANS 3.14", "slug": "TANS-3-14", "title": "Teoría de grafos: vértices, aristas, grado, conexión", "nivel": "HL"}, {"code": "TANS 3.15", "slug": "TANS-3-15", "title": "Matriz de adyacencia; recorridos; potencias", "nivel": "HL"}, {"code": "TANS 3.16", "slug": "TANS-3-16", "title": "Algoritmos en grafos: MST (Kruskal/Prim), TSP (NN, vértice borrado), caminos más cortos", "nivel": "HL"}]}, {"code": "T4", "label": "Topic 4 — Statistics and probability", "subtemas": [{"code": "NM 4.1", "slug": "NM-4-1", "title": "Conceptos: población, muestra, variable, fiabilidad", "nivel": "NM"}, {"code": "NM 4.2", "slug": "NM-4-2", "title": "Medidas de centralización y dispersión", "nivel": "NM"}, {"code": "NM 4.3", "slug": "NM-4-3", "title": "Métodos de muestreo", "nivel": "NM"}, {"code": "NM 4.4", "slug": "NM-4-4", "title": "Correlación lineal; regresión lineal", "nivel": "NM"}, {"code": "NM 4.5", "slug": "NM-4-5", "title": "Probabilidad: ensayo, suceso, espacio muestral", "nivel": "NM"}, {"code": "NM 4.6", "slug": "NM-4-6", "title": "Diagramas de Venn, árboles, tablas de contingencia", "nivel": "NM"}, {"code": "NM 4.7", "slug": "NM-4-7", "title": "Variable aleatoria discreta y esperanza", "nivel": "NM"}, {"code": "NM 4.8", "slug": "NM-4-8", "title": "Distribución binomial", "nivel": "NM"}, {"code": "NM 4.9", "slug": "NM-4-9", "title": "Distribución normal", "nivel": "NM"}, {"code": "NM 4.10", "slug": "NM-4-10", "title": "Coeficiente de Spearman", "nivel": "NM"}, {"code": "NM 4.11", "slug": "NM-4-11", "title": "Test χ² de bondad de ajuste y de independencia; test t", "nivel": "NM"}, {"code": "TANS 4.12", "slug": "TANS-4-12", "title": "Diseño experimental y métodos de obtención de datos", "nivel": "HL"}, {"code": "TANS 4.13", "slug": "TANS-4-13", "title": "Regresión no lineal; r²; coeficiente de determinación", "nivel": "HL"}, {"code": "TANS 4.14", "slug": "TANS-4-14", "title": "Transformación lineal de variables aleatorias", "nivel": "HL"}, {"code": "TANS 4.15", "slug": "TANS-4-15", "title": "Combinación lineal de variables; teorema central del límite", "nivel": "HL"}, {"code": "TANS 4.16", "slug": "TANS-4-16", "title": "Intervalos de confianza para la media", "nivel": "HL"}, {"code": "TANS 4.17", "slug": "TANS-4-17", "title": "Distribución de Poisson; suma; aproximación a la normal", "nivel": "HL"}, {"code": "TANS 4.18", "slug": "TANS-4-18", "title": "Test de hipótesis: regiones críticas, valores críticos, errores tipo I/II", "nivel": "HL"}, {"code": "TANS 4.19", "slug": "TANS-4-19", "title": "Test t de dos muestras (independientes y pareadas)", "nivel": "HL"}]}, {"code": "T5", "label": "Topic 5 — Calculus", "subtemas": [{"code": "NM 5.1", "slug": "NM-5-1", "title": "Introducción al concepto de límite", "nivel": "NM"}, {"code": "NM 5.2", "slug": "NM-5-2", "title": "Funciones crecientes/decrecientes; interpretación gráfica de derivadas", "nivel": "NM"}, {"code": "NM 5.3", "slug": "NM-5-3", "title": "Derivada de f(x)=axⁿ; suma de potencias", "nivel": "NM"}, {"code": "NM 5.4", "slug": "NM-5-4", "title": "Recta tangente y normal", "nivel": "NM"}, {"code": "NM 5.5", "slug": "NM-5-5", "title": "Introducción a la integración como primitiva; integrales definidas", "nivel": "NM"}, {"code": "NM 5.6", "slug": "NM-5-6", "title": "Pendiente máxima/mínima; máximos y mínimos locales", "nivel": "NM"}, {"code": "NM 5.7", "slug": "NM-5-7", "title": "Optimización en contextos aplicados", "nivel": "NM"}, {"code": "TANS 5.8", "slug": "TANS-5-8", "title": "Derivada de funciones estándar (regla del producto, cociente, cadena)", "nivel": "HL"}, {"code": "TANS 5.9", "slug": "TANS-5-9", "title": "Segunda derivada; concavidad; puntos de inflexión", "nivel": "HL"}, {"code": "TANS 5.10", "slug": "TANS-5-10", "title": "Cinemática: velocidad y aceleración a partir del desplazamiento", "nivel": "HL"}, {"code": "TANS 5.11", "slug": "TANS-5-11", "title": "Integral indefinida (incl. funciones trigonométricas, exp, log)", "nivel": "HL"}, {"code": "TANS 5.12", "slug": "TANS-5-12", "title": "Integración por sustitución y por partes", "nivel": "HL"}, {"code": "TANS 5.13", "slug": "TANS-5-13", "title": "Integral definida; área bajo curva y entre curvas", "nivel": "HL"}, {"code": "TANS 5.14", "slug": "TANS-5-14", "title": "Volúmenes de revolución", "nivel": "HL"}, {"code": "TANS 5.15", "slug": "TANS-5-15", "title": "Métodos numéricos: trapecio, Simpson", "nivel": "HL"}, {"code": "TANS 5.16", "slug": "TANS-5-16", "title": "EDOs de 1er orden: separación de variables, método de Euler", "nivel": "HL"}, {"code": "TANS 5.17", "slug": "TANS-5-17", "title": "Sistemas de EDOs acopladas y EDO de 2º orden lineal", "nivel": "HL"}]}];
 const PROMO = "2024-2026";
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "no_exams_unit": "No exams published for this unit yet.", "exams_unit_title": "Exams from this unit", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "section_card_apunts": "Notes", "section_card_fitxes": "Exercise list", "section_card_solucions": "Solutions", "section_card_extra": "Extra resources", "examens_count_one": "exam", "examens_count_many": "exams", "ib_chapter_hlonly": "This chapter is exclusive to the HL level.", "summary_exams_label": "Exams", "summary_fitxes_label": "Lists", "summary_apunts_label": "Notes", "summary_yes": "Yes", "summary_no": "No"};
+const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "examens_count_one": "exam", "examens_count_many": "exams", "subtema_empty": "No content published yet for this subtopic", "subtema_with_content": "Content available"};
 
-function unitNumOf(colId) { const m=(colId||'').match(/-u(\d{1,2})\b/); return m ? m[1].padStart(2,'0') : null; }
 function fmtFecha(iso) { if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${parseInt(d,10)} ${MONTHS[parseInt(m,10)-1]} ${y}`; }
 function escHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function renderExamCard(col, ejs) {
@@ -134,31 +133,24 @@ function renderExamCard(col, ejs) {
   const idxBtn = col.url_index ? `<a class="exam-card-btn html" href="${escHtml(col.url_index)}">📋 ${LABELS_JS.exam_btn_html}</a>` : '';
   return `<article class="exam-card"><div class="exam-card-head"><span class="exam-card-date">${escHtml(fmtFecha(col.fecha))}</span>${col.grupo?`<span class="tag tag-orange" style="font-size:0.7rem">${escHtml(col.grupo)}</span>`:''}</div><h3 class="exam-card-title">${escHtml(col.titulo||col.id)}</h3><p class="exam-card-meta">${npreg} ${npreg===1?LABELS_JS.exam_question:LABELS_JS.exam_questions} &middot; ${ptos} ${LABELS_JS.exam_points}</p><div class="exam-card-actions">${idxBtn}${pdfBtn}</div></article>`;
 }
-function buildSectionCard(href, icon, label) {
-  if (href) return `<a href="${href}" class="chapter-section available" style="text-decoration:none"><span>${icon}</span><span>${label}</span></a>`;
-  return `<div class="chapter-section empty"><span>${icon}</span><span>${label}</span></div>`;
+function buildSubtemaRow(sub, conceptosConContenido) {
+  const tieneContenido = conceptosConContenido.has(sub.code);
+  const url = `/aula/ib-ai-hl/${sub.code.split(' ')[0].replace('.','-').replace(' ','-').toLowerCase()}/${sub.slug}/`;
+  const nivelBadge = `<span class="subtema-nivel subtema-nivel-${sub.nivel.toLowerCase()}">${sub.nivel}</span>`;
+  const inner = `<span class="subtema-code">${escHtml(sub.code)}</span><span class="subtema-title">${escHtml(sub.title)}</span>${nivelBadge}`;
+  if (tieneContenido) {
+    return `<a href="${url}" class="subtema-row subtema-row-active">${inner}<span class="subtema-arrow">→</span></a>`;
+  }
+  return `<div class="subtema-row subtema-row-empty" title="${LABELS_JS.subtema_empty}">${inner}<span class="subtema-status">·</span></div>`;
 }
-function buildChapter(ch, nivel, byUnit) {
-  const hlOnly = nivel === 'sl' && !ch.sl;
-  // Dins d'una unitat/capítol ordenem per data ascendent (Parcial 1 abans del 2, etc.).
-  const exs = (byUnit[ch.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
-  const examCount = exs.length;
-  const sections = [
-    buildSectionCard(ch.apuntes, '📄', LABELS_JS.section_card_apunts),
-    buildSectionCard(ch.fichas, '📝', LABELS_JS.section_card_fitxes),
-    buildSectionCard(ch.soluciones, '✅', LABELS_JS.section_card_solucions),
-    buildSectionCard(ch.extra, '🔗', LABELS_JS.section_card_extra),
-  ].join('');
-  const examsBox = examCount > 0
-    ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">${LABELS_JS.exams_unit_title} (${examCount})</h4><div class="exam-list">${exs.map(({col,ejs}) => renderExamCard(col, ejs)).join('')}</div></div>`
-    : `<p style="font-size:0.82rem;color:var(--text-faint);margin:1rem 0 0">${LABELS_JS.no_exams_unit}</p>`;
-  const examBadge = examCount > 0
-    ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${examCount} ${examCount===1?LABELS_JS.examens_count_one:LABELS_JS.examens_count_many}</span>`
-    : (ch.note ? `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${escHtml(ch.note)}</span>` : '');
-  return `<div class="chapter-item ${hlOnly?'hl-only':''}"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num">${ch.num}</span><span class="chapter-title">${escHtml(ch.title)}</span>${examBadge}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${hlOnly?`<p style="font-size:0.88rem;color:var(--text-faint);padding:0.5rem 0">${LABELS_JS.ib_chapter_hlonly}</p>`:`<div class="chapter-sections">${sections}</div>${examsBox}`}</div></div>`;
+function buildBloque(t, nivel, conceptosConContenido) {
+  const subs = t.subtemas.filter(s => nivel === 'hl' || s.nivel === 'NM');
+  const rows = subs.map(s => buildSubtemaRow(s, conceptosConContenido)).join('');
+  return `<div class="bloque-item"><div class="bloque-header"><span class="bloque-code">${t.code}</span><span class="bloque-title">${escHtml(t.label)}</span><span class="bloque-count">${subs.length}</span></div><div class="bloque-body"><div class="subtema-list">${rows}</div></div></div>`;
 }
-function renderChapters(nivel, byUnit) { document.getElementById('chapters-' + nivel).innerHTML = CHAPTERS.map(ch => buildChapter(ch, nivel, byUnit)).join(''); }
-function toggleChapter(h) { h.parentElement.classList.toggle('open'); }
+function renderBloques(nivel, conceptosConContenido) {
+  document.getElementById('bloques-' + nivel).innerHTML = TEMAS.map(t => buildBloque(t, nivel, conceptosConContenido)).join('');
+}
 function showNivel(id, btn) {
   document.querySelectorAll('.promo-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.promo-tab').forEach(t => t.classList.remove('active'));
@@ -172,45 +164,41 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(idx => {
     const cols = new Map();
+    const conceptosConContenido = new Set();
     for (const e of (idx.ejercicios || [])) {
       const c = e.coleccion || {};
       const m = e.tags && e.tags.materia;
       if (m !== 'ib-ai-hl' && m !== 'ib-ai-sl') continue;
       if (c.promocion !== PROMO) continue;
-      // Només mostrem exàmens al hub: les pràctiques/exercicis de classe es llisten a /aula/<materia>/apuntes/
       if (c.tipo && c.tipo !== 'examen') continue;
       if (!cols.has(c.id)) cols.set(c.id, { col: c, ejs: [] });
       cols.get(c.id).ejs.push(e);
+      // Marcar conceptos IB que tienen al menos un ejercicio
+      const cs = (e.tags && e.tags.concepto_iba) || [];
+      cs.forEach(x => conceptosConContenido.add(x));
     }
-    const byUnit = {};
-    const globals = [];
-    for (const entry of cols.values()) {
-      const u = unitNumOf(entry.col.id);
-      if (u) { (byUnit[u] = byUnit[u] || []).push(entry); }
-      else { globals.push(entry); }
-    }
-    renderChapters('hl', byUnit);
-    renderChapters('sl', byUnit);
+    renderBloques('hl', conceptosConContenido);
+    renderBloques('sl', conceptosConContenido);
     const params = new URLSearchParams(window.location.search);
     if (params.get('nivel') === 'sl') document.querySelectorAll('.promo-tab')[1].click();
 
-    // Globals també ordenats cronològicament (ASC).
-    globals.sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
-    const cont = document.getElementById('globals-list');
-    const count = document.getElementById('globals-count');
-    if (globals.length === 0) {
+    // Lista de exámenes (ordenados cronológicamente ASC, todos juntos)
+    const exams = [...cols.values()].sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
+    const cont = document.getElementById('exams-list');
+    const count = document.getElementById('exams-count');
+    if (exams.length === 0) {
       count.textContent = '0';
       cont.innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${LABELS_JS.globals_empty}</p>`;
     } else {
-      count.textContent = globals.length + (globals.length===1 ? ' ' + LABELS_JS.examens_count_one : ' ' + LABELS_JS.examens_count_many);
-      cont.innerHTML = globals.map(({col,ejs}) => renderExamCard(col, ejs)).join('');
+      count.textContent = exams.length + (exams.length===1 ? ' ' + LABELS_JS.examens_count_one : ' ' + LABELS_JS.examens_count_many);
+      cont.innerHTML = exams.map(({col,ejs}) => renderExamCard(col, ejs)).join('');
     }
   })
   .catch(err => {
-    renderChapters('hl', {});
-    renderChapters('sl', {});
-    document.getElementById('globals-count').textContent = 'error';
-    document.getElementById('globals-list').innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem">${LABELS_JS.globals_load_error}</p>`;
+    renderBloques('hl', new Set());
+    renderBloques('sl', new Set());
+    document.getElementById('exams-count').textContent = 'error';
+    document.getElementById('exams-list').innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem">${LABELS_JS.globals_load_error}</p>`;
     console.error('exams:', err);
   });
 </script>

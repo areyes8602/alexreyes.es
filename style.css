@@ -702,3 +702,68 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
 @media print {
   .ibo-disclaimer { display: none; }
 }
+
+
+/* ─── IB · Bloques del syllabus + subtemas NM/TANS ─────────────── */
+.bloque-list { display: flex; flex-direction: column; gap: 0.8rem; margin: 1rem 0; }
+.bloque-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  overflow: hidden;
+}
+.bloque-header {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.bloque-code {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  background: #4f46e5; color: white;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  flex: 0 0 auto;
+}
+.bloque-title { font-size: 0.98rem; font-weight: 600; color: var(--text); flex: 1; }
+.bloque-count {
+  font-size: 0.72rem; color: var(--text-faint);
+  background: var(--bg-subtle); padding: 0.15rem 0.5rem; border-radius: 99px;
+  font-family: var(--mono);
+}
+.bloque-body { padding: 0; }
+
+.subtema-list { display: flex; flex-direction: column; }
+.subtema-row {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  text-decoration: none;
+  color: var(--text-soft);
+  transition: background 0.12s;
+}
+.subtema-row:last-child { border-bottom: none; }
+.subtema-row-active { color: var(--text); cursor: pointer; }
+.subtema-row-active:hover { background: var(--bg-hover); }
+.subtema-row-empty { cursor: default; opacity: 0.65; }
+.subtema-code {
+  font-family: var(--mono); font-size: 0.74rem;
+  color: var(--text-faint); flex: 0 0 5rem; font-weight: 500;
+}
+.subtema-title { flex: 1; }
+.subtema-nivel {
+  font-size: 0.65rem; font-family: var(--mono);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  flex: 0 0 auto;
+  font-weight: 600;
+}
+.subtema-nivel-nm { background: rgba(99,102,241,0.12); color: #4f46e5; }
+.subtema-nivel-hl { background: rgba(245,158,11,0.15); color: #b45309; }
+.subtema-arrow { color: var(--text-faint); font-size: 0.85rem; flex: 0 0 auto; }
+.subtema-status { color: var(--text-faint); font-size: 1rem; flex: 0 0 auto; }
+[data-theme="dark"] .subtema-nivel-nm { background: rgba(99,102,241,0.22); color: #a5b4fc; }
+[data-theme="dark"] .subtema-nivel-hl { background: rgba(245,158,11,0.22); color: #fbbf24; }
