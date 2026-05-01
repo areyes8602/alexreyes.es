@@ -1,0 +1,22 @@
+# ─────────────────────────────────────────────────────────────────────
+# Cloudflare Pages — security headers for alexreyes.es
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+# ─────────────────────────────────────────────────────────────────────
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(self "https://js.stripe.com")
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://api.stripe.com; frame-src https://js.stripe.com; base-uri 'self'; form-action 'self'
+
+# Editor: bloqueado a indexación + sin frame embedding
+/editor/*
+  X-Robots-Tag: noindex, nofollow
+
+# Cache largo para assets versionados — ajustar cuando se introduzcan hashes en filenames
+/assets/css/*
+  Cache-Control: public, max-age=3600
+/assets/js/*
+  Cache-Control: public, max-age=3600
