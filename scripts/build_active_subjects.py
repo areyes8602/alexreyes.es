@@ -28,13 +28,17 @@ LABELS = {
         "year_picker_current": "actual",
         "year_picker_empty": "No hay cursos archivados todavía.",
         "units_h2_regular": "Unidades didácticas",
-        "ib_blocks_h2": "Bloques del syllabus IB",
+        "ib_blocks_h2": "Buscar por syllabus IB",
         "units_help_regular": "Cada unidad contiene los apuntes de clase, las fichas de ejercicios con sus soluciones, y los exámenes realizados.",
-        "ib_blocks_help": "El syllabus oficial del IB Math AI organiza el contenido en 5 bloques. Cada bloque contiene los subtemas NM (Nivel Medio = SL/HL) y, en HL, los TANS (Temas Adicionales del Nivel Superior).",
+        "ib_blocks_help": "Índice del syllabus oficial: 5 bloques (T1-T5) con sus subtemas NM (común SL/HL) y TANS (solo HL). Útil para revisar de cara al examen — cada subtema lista las unidades didácticas y ejercicios que lo cubren.",
+        "ib_units_h2": "Unidades didácticas",
+        "ib_units_help": "Las unidades en el orden en que se imparten en clase. Cada unidad agrupa apuntes, ejercicios y materiales de varios subtemas del syllabus IB.",
         "exams_h2": "Exámenes",
         "exams_help": "Listado cronológico de los exámenes oficiales realizados. Cada examen está etiquetado con los subtemas NM/TANS que cubre.",
         "subtema_empty": "Aún no hay material publicado para este subtema",
         "subtema_with_content": "Material disponible",
+        "unidad_empty": "Sin contenido publicado todavía",
+        "unidad_covers": "Cubre",
         "globals_h2": "Exámenes globales",
         "globals_help": "Globales de evaluación, simulacros, recuperaciones y exámenes finales — pruebas que cubren varias unidades.",
         "globals_loading": "cargando…",
@@ -75,13 +79,17 @@ LABELS = {
         "year_picker_current": "actual",
         "year_picker_empty": "Encara no hi ha cursos arxivats.",
         "units_h2_regular": "Unitats didàctiques",
-        "ib_blocks_h2": "Blocs del syllabus IB",
+        "ib_blocks_h2": "Cercar pel syllabus IB",
         "units_help_regular": "Cada unitat conté els apunts de classe, les fitxes d'exercicis amb les seves solucions, i els exàmens realitzats.",
-        "ib_blocks_help": "El syllabus oficial de l'IB Math AI organitza el contingut en 5 blocs. Cada bloc conté els subtemes NM (Nivell Mitjà = SL/HL) i, en HL, els TANS (Temes Addicionals del Nivell Superior).",
+        "ib_blocks_help": "Índex del syllabus oficial: 5 blocs (T1-T5) amb els seus subtemes NM (comú SL/HL) i TANS (només HL). Útil per repassar de cara a l'examen — cada subtema llista les unitats didàctiques i exercicis que el cobreixen.",
+        "ib_units_h2": "Unitats didàctiques",
+        "ib_units_help": "Les unitats en l'ordre en què s'imparteixen a classe. Cada unitat agrupa apunts, exercicis i materials de diversos subtemes del syllabus IB.",
         "exams_h2": "Exàmens",
         "exams_help": "Llistat cronològic dels exàmens oficials realitzats. Cada examen està etiquetat amb els subtemes NM/TANS que cobreix.",
         "subtema_empty": "Encara no hi ha material publicat per a aquest subtema",
         "subtema_with_content": "Material disponible",
+        "unidad_empty": "Sense contingut publicat encara",
+        "unidad_covers": "Cobreix",
         "globals_h2": "Exàmens globals",
         "globals_help": "Globals d'avaluació, simulacres, recuperacions i exàmens finals — proves que cobreixen diverses unitats.",
         "globals_loading": "carregant…",
@@ -122,13 +130,17 @@ LABELS = {
         "year_picker_current": "current",
         "year_picker_empty": "No archived years yet.",
         "units_h2_regular": "Teaching units",
-        "ib_blocks_h2": "IB syllabus topics",
+        "ib_blocks_h2": "Search by IB syllabus",
         "units_help_regular": "Each unit contains the class notes, exercise sheets with solutions, and the exams from that unit.",
-        "ib_blocks_help": "The official IB Math AI syllabus organises content in 5 topics. Each topic contains the SL subtopics (NM) and, for HL, the HL-only subtopics (TANS).",
+        "ib_blocks_help": "Official syllabus index: 5 topics (T1-T5) with their NM subtopics (shared SL/HL) and TANS (HL only). Useful for exam revision — each subtopic lists the teaching units and exercises that cover it.",
+        "ib_units_h2": "Teaching units",
+        "ib_units_help": "Units in the order they are taught in class. Each unit groups notes, exercises and resources covering several IB syllabus subtopics.",
         "exams_h2": "Exams",
         "exams_help": "Chronological list of official exams. Each exam is tagged with the NM/TANS subtopics it covers.",
         "subtema_empty": "No content published yet for this subtopic",
         "subtema_with_content": "Content available",
+        "unidad_empty": "No content published yet",
+        "unidad_covers": "Covers",
         "globals_h2": "Comprehensive exams",
         "globals_help": "Term-final exams, mocks, retakes and final exams — assessments covering several units.",
         "globals_loading": "loading…",
@@ -359,6 +371,17 @@ def load_ib_temas():
     return out
 
 IB_TEMAS = load_ib_temas()
+
+
+def load_ib_unidades():
+    """Lee assets/data/ib-unidades.json: lista de unidades didácticas propias."""
+    fp = REPO / "assets/data/ib-unidades.json"
+    if not fp.exists():
+        return []
+    data = json.loads(fp.read_text(encoding="utf-8"))
+    return data.get("unidades", [])
+
+IB_UNIDADES = load_ib_unidades()
 
 def make_ib_subject(promo, anyo_examen):
     return {
@@ -738,6 +761,23 @@ def render_ib_hub(s, lang):
         })
     temas_json = json.dumps(temas_for_js, ensure_ascii=False)
 
+    # Unidades didácticas propias para esta promoción
+    unidades_for_js = []
+    for u in IB_UNIDADES:
+        if u.get("promo", "all") not in ("all", promo):
+            continue
+        unidades_for_js.append({
+            "id": u["id"],
+            "title": u["title"].get(lang, u["title"]["es"]),
+            "intro": u.get("intro", {}).get(lang, u.get("intro", {}).get("es", "")),
+            "tags_iba": u.get("tags_iba", []),
+            "orden": u.get("orden", 999),
+            "tier": u.get("tier", "free"),
+            "level": u.get("level", "both"),
+        })
+    unidades_for_js.sort(key=lambda u: u["orden"])
+    unidades_json = json.dumps(unidades_for_js, ensure_ascii=False)
+
     breadcrumb = (
         f'<a href="{lang_prefix(lang)}/">{L["home"]}</a>'
         f'<span class="sep">/</span>'
@@ -784,8 +824,9 @@ def render_ib_hub(s, lang):
       <span class="info-cta-arrow">→</span>
     </a>
 
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L['ib_blocks_h2']}</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['ib_blocks_help']}</p>
+    <!-- ━━━ Eje 1: UNIDADES DIDÁCTICAS (pedagógicas, propias) ━━━ -->
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L['ib_units_h2']}</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['ib_units_help']}</p>
 
     <div class="promo-tabs">
       <button class="promo-tab active" onclick="showNivel('hl', this)">{L['promo_tab_hl']}</button>
@@ -793,13 +834,22 @@ def render_ib_hub(s, lang):
     </div>
 
     <div id="nivel-hl" class="promo-panel active">
-      <div class="bloque-list" id="bloques-hl"></div>
+      <div class="chapter-list" id="unidades-hl"></div>
     </div>
 
     <div id="nivel-sl" class="promo-panel">
       <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['promo_sl_intro']}</p>
-      <div class="bloque-list" id="bloques-sl"></div>
+      <div class="chapter-list" id="unidades-sl"></div>
     </div>
+
+    <!-- ━━━ Eje 2: SYLLABUS IB (referencia, colapsado) ━━━ -->
+    <details class="syllabus-section" style="margin-top:2.5rem">
+      <summary style="cursor:pointer;font-size:1.1rem;font-weight:600;padding:0.5rem 0;color:var(--text)">
+        📚 {L['ib_blocks_h2']}
+      </summary>
+      <p style="color:var(--text-soft);font-size:0.92rem;margin:0.6rem 0 1rem">{L['ib_blocks_help']}</p>
+      <div class="bloque-list" id="bloques-hl"></div>
+    </details>
 
     <section style="margin-top:3rem">
       <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
@@ -821,9 +871,10 @@ def render_ib_hub(s, lang):
 
 <script>
 const TEMAS = {temas_json};
+const UNIDADES = {unidades_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
-const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra']}, ensure_ascii=False)};
+const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','unidad_empty','unidad_covers']}, ensure_ascii=False)};
 
 function fmtFecha(iso) {{ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${{parseInt(d,10)}} ${{MONTHS[parseInt(m,10)-1]}} ${{y}}`; }}
 function escHtml(s) {{ return String(s||'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c])); }}
@@ -841,22 +892,36 @@ function buildSectionCard(href, icon, label) {{
   return `<div class="chapter-section empty"><span>${{icon}}</span><span>${{label}}</span></div>`;
 }}
 
-// Subtema (NM o TANS) — chapter-item plegable con sus 4 secciones
+// Subtema (NM o TANS) — link a su página /syllabus/<slug>/ que se autogeneran
 function buildSubtema(sub, conceptosConContenido) {{
   const tieneContenido = conceptosConContenido.has(sub.code);
-  const slugBloque = sub.code.split(' ')[0].toLowerCase();  // "NM 1.1" → "nm"
-  const baseUrl = `/aula/ib-ai-hl/${{slugBloque}}/${{sub.slug}}`;
+  const url = `/aula/ib-ai-hl/syllabus/${{sub.slug}}/`;
+  const nivelClass = `subtema-nivel-${{sub.nivel.toLowerCase()}}`;
+  const statusBadge = tieneContenido
+    ? `<span class="tag tag-green" style="font-size:0.62rem;margin-left:auto">●</span>`
+    : `<span class="tag tag-gray" style="font-size:0.62rem;margin-left:auto;opacity:0.5">○</span>`;
+  return `<a href="${{url}}" class="subtema-link ${{nivelClass}}"><span class="chapter-num subtema-num">${{escHtml(sub.code)}}</span><span class="chapter-title">${{escHtml(sub.title)}}</span>${{statusBadge}}<span class="chapter-arrow">→</span></a>`;
+}}
+
+// Unidad didáctica (eje pedagógico) — chapter-item plegable con sus 4 secciones
+function buildUnidad(u) {{
+  const url = `/aula/ib-ai-hl/unidades/${{u.id}}/`;
   const sections = [
     buildSectionCard(null, '📄', LABELS_JS.section_card_apunts),
     buildSectionCard(null, '📝', LABELS_JS.section_card_fitxes),
     buildSectionCard(null, '✅', LABELS_JS.section_card_solucions),
     buildSectionCard(null, '🔗', LABELS_JS.section_card_extra),
   ].join('');
-  const nivelClass = `subtema-nivel-${{sub.nivel.toLowerCase()}}`;
-  const statusBadge = tieneContenido
-    ? `<span class="tag tag-green" style="font-size:0.62rem;margin-left:auto">●</span>`
-    : `<span class="tag tag-gray" style="font-size:0.62rem;margin-left:auto;opacity:0.5">○</span>`;
-  return `<div class="chapter-item subtema-item ${{nivelClass}}"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num subtema-num">${{escHtml(sub.code)}}</span><span class="chapter-title">${{escHtml(sub.title)}}</span>${{statusBadge}}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body"><div class="chapter-sections">${{sections}}</div></div></div>`;
+  const tagsBadges = (u.tags_iba || []).map(t => {{
+    const cls = t.startsWith('TANS') ? 'subtema-nivel-hl' : 'subtema-nivel-nm';
+    return `<span class="unidad-tag ${{cls}}">${{escHtml(t)}}</span>`;
+  }}).join(' ');
+  const intro = u.intro ? `<p class="unidad-intro">${{escHtml(u.intro)}}</p>` : '';
+  const tagsBox = tagsBadges
+    ? `<div class="unidad-tags"><span class="unidad-tags-label">${{LABELS_JS.unidad_covers}}:</span> ${{tagsBadges}}</div>`
+    : '';
+  const levelClass = u.level === 'hl' ? 'unidad-hl-only' : '';
+  return `<div class="chapter-item unidad-item ${{levelClass}}"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-title">${{escHtml(u.title)}}</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div></div></div>`;
 }}
 
 // Bloque (T1-T5) — chapter-item plegable que contiene los subtemas dentro
@@ -868,7 +933,18 @@ function buildBloque(t, nivel, conceptosConContenido) {{
 }}
 
 function renderBloques(nivel, conceptosConContenido) {{
-  document.getElementById('bloques-' + nivel).innerHTML = TEMAS.map(t => buildBloque(t, nivel, conceptosConContenido)).join('');
+  // Solo hay un panel de bloques (visible siempre, dentro del details)
+  // pero filtramos NM/TANS según el nivel activo.
+  const el = document.getElementById('bloques-' + nivel);
+  if (el) el.innerHTML = TEMAS.map(t => buildBloque(t, nivel, conceptosConContenido)).join('');
+}}
+function renderUnidades(nivel) {{
+  const filtered = UNIDADES.filter(u => nivel === 'hl' || u.level !== 'hl');
+  const html = filtered.length === 0
+    ? `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${{LABELS_JS.unidad_empty}}</p>`
+    : filtered.map(buildUnidad).join('');
+  const el = document.getElementById('unidades-' + nivel);
+  if (el) el.innerHTML = html;
 }}
 function toggleChapter(h) {{ h.parentElement.classList.toggle('open'); }}
 function showNivel(id, btn) {{
@@ -898,7 +974,8 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
       cs.forEach(x => conceptosConContenido.add(x));
     }}
     renderBloques('hl', conceptosConContenido);
-    renderBloques('sl', conceptosConContenido);
+    renderUnidades('hl');
+    renderUnidades('sl');
     const params = new URLSearchParams(window.location.search);
     if (params.get('nivel') === 'sl') document.querySelectorAll('.promo-tab')[1].click();
 

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "_doc": "Unidades didácticas propias para IB Math AI HL/SL — eje pedagógico. Cada unidad agrupa contenido (apuntes, ejercicios, materiales) en el orden y nivel de detalle con que tú lo enseñas, NO en el orden del syllabus oficial. El campo 'tags_iba' lista los códigos NM/TANS del syllabus que la unidad cubre — esto se usa para auto-listar la unidad bajo cada página de subtema en /syllabus/. El campo 'promo' es 'all' (común a todas las promociones) o un identificador específico (ej: '2024-2026').",
+
+  "_campos": {
+    "id":      "Identificador único, en kebab-case. Se usa como slug de URL.",
+    "title":   "Título mostrado al usuario. Dict con es/ca/en.",
+    "intro":   "Breve descripción (1-2 frases) de qué cubre la unidad. Dict con es/ca/en.",
+    "tags_iba": "Lista de códigos NM/TANS del syllabus que la unidad cubre. Importante para el cross-listing.",
+    "orden":   "Entero, define el orden de aparición en el hub. Más bajo = aparece antes.",
+    "promo":   "Promoción a la que aplica: 'all', '2024-2026', '2025-2027'.",
+    "tier":    "Acceso: 'free' (público) o 'premium' (futuro paywall). Por defecto 'free'.",
+    "level":   "Nivel: 'hl' (solo HL), 'sl' (solo SL), 'both' (ambos). Si la unidad solo cubre TANS, marca 'hl'."
+  },
+
+  "unidades": [
+    {
+      "id": "u-vectores-y-cinematica-2d",
+      "title": {
+        "es": "Vectores y cinemática en 2D",
+        "ca": "Vectors i cinemàtica en 2D",
+        "en": "Vectors and 2D kinematics"
+      },
+      "intro": {
+        "es": "Introducción a los vectores como herramienta para describir velocidad, posición y aceleración en 2D. Aplicación al movimiento de proyectiles y problemas de cinemática vectorial.",
+        "ca": "Introducció als vectors com a eina per descriure velocitat, posició i acceleració en 2D. Aplicació al moviment de projectils i problemes de cinemàtica vectorial.",
+        "en": "Introduction to vectors as a tool to describe velocity, position and acceleration in 2D. Application to projectile motion and vector kinematics problems."
+      },
+      "tags_iba": ["TANS 3.10", "TANS 3.11", "TANS 3.12", "TANS 5.10"],
+      "orden": 10,
+      "promo": "all",
+      "tier": "free",
+      "level": "hl"
+    },
+    {
+      "id": "u-funciones-exp-log",
+      "title": {
+        "es": "Funciones exponenciales y logarítmicas",
+        "ca": "Funcions exponencials i logarítmiques",
+        "en": "Exponential and logarithmic functions"
+      },
+      "intro": {
+        "es": "Modelos exponenciales y logarítmicos: definición, propiedades, gráficas y aplicaciones (interés compuesto, decaimiento radioactivo, modelos logísticos).",
+        "ca": "Models exponencials i logarítmics: definició, propietats, gràfiques i aplicacions (interès compost, decaïment radioactiu, models logístics).",
+        "en": "Exponential and logarithmic models: definition, properties, graphs and applications (compound interest, radioactive decay, logistic models)."
+      },
+      "tags_iba": ["NM 1.5", "NM 2.4", "NM 2.5", "TANS 1.9", "TANS 2.9"],
+      "orden": 30,
+      "promo": "all",
+      "tier": "free",
+      "level": "both"
+    },
+    {
+      "id": "u-probabilidad-y-distribuciones",
+      "title": {
+        "es": "Probabilidad y distribuciones",
+        "ca": "Probabilitat i distribucions",
+        "en": "Probability and distributions"
+      },
+      "intro": {
+        "es": "Conceptos de probabilidad, espacio muestral, sucesos compuestos. Variables aleatorias discretas y continuas. Distribución binomial y normal.",
+        "ca": "Conceptes de probabilitat, espai mostral, successos compostos. Variables aleatòries discretes i contínues. Distribució binomial i normal.",
+        "en": "Probability concepts, sample space, compound events. Discrete and continuous random variables. Binomial and normal distributions."
+      },
+      "tags_iba": ["NM 4.5", "NM 4.6", "NM 4.7", "NM 4.8", "NM 4.9"],
+      "orden": 50,
+      "promo": "all",
+      "tier": "free",
+      "level": "both"
+    }
+  ]
+}

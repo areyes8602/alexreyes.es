@@ -743,3 +743,60 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
   padding: 0.2rem 0.5rem;
   letter-spacing: 0.02em;
 }
+
+
+/* ─── IB · Unidades didácticas (eje pedagógico) ──────────────────── */
+.chapter-item.unidad-item { border-left: 4px solid #059669; }
+.chapter-item.unidad-item > .chapter-header .chapter-title { font-weight: 600; }
+.chapter-item.unidad-item.unidad-hl-only { border-left-color: #d97706; }
+
+.unidad-intro {
+  margin: 0.6rem 0 0.8rem; padding: 0;
+  font-size: 0.9rem; color: var(--text-soft); line-height: 1.5;
+}
+.unidad-tags {
+  margin: 0.5rem 0 0.8rem;
+  font-size: 0.78rem; color: var(--text-soft);
+}
+.unidad-tags-label { font-weight: 600; margin-right: 0.3rem; color: var(--text-faint); }
+.unidad-tag {
+  display: inline-block;
+  font-family: var(--mono); font-size: 0.7rem;
+  padding: 0.12rem 0.45rem; margin: 0.15rem 0.2rem 0.15rem 0;
+  border-radius: 3px; font-weight: 500;
+}
+.unidad-tag.subtema-nivel-nm { background: rgba(8,145,178,0.12); color: #0e7490; }
+.unidad-tag.subtema-nivel-hl { background: rgba(217,119,6,0.15); color: #b45309; }
+[data-theme="dark"] .unidad-tag.subtema-nivel-nm { background: rgba(8,145,178,0.22); color: #67e8f9; }
+[data-theme="dark"] .unidad-tag.subtema-nivel-hl { background: rgba(217,119,6,0.22); color: #fbbf24; }
+
+/* ─── IB · Subtema link (en el syllabus colapsado) ────────────────── */
+.subtema-link {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  transition: background 0.12s;
+}
+.subtema-link:last-child { border-bottom: none; }
+.subtema-link:hover { background: var(--bg-hover); opacity: 1; }
+.subtema-link .chapter-num.subtema-num {
+  font-family: var(--mono); font-size: 0.7rem;
+  padding: 0.18rem 0.5rem; border-radius: 4px; flex: 0 0 auto;
+  font-weight: 600; color: white;
+}
+.subtema-link.subtema-nivel-nm .subtema-num { background: #0891b2; }
+.subtema-link.subtema-nivel-hl .subtema-num { background: #d97706; }
+.subtema-link .chapter-title { flex: 1; color: var(--text); }
+.subtema-link .chapter-arrow { color: var(--text-faint); font-size: 0.85rem; }
+
+/* Syllabus colapsable section */
+.syllabus-section > summary { list-style: none; }
+.syllabus-section > summary::-webkit-details-marker { display: none; }
+.syllabus-section > summary::before {
+  content: '▶ '; font-size: 0.7em; margin-right: 0.3rem;
+  color: var(--text-faint); transition: transform 0.15s; display: inline-block;
+}
+.syllabus-section[open] > summary::before { transform: rotate(90deg); }
