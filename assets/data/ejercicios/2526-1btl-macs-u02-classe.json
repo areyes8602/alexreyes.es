@@ -2,6 +2,8 @@
   "schema_version": 3,
   "id": "2526-1btl-macs-u02-classe",
   "tipo_coleccion": "practica",
+  "tier": "free",
+  "manual_fuente": "Matemàtiques aplicades CCSS 1 — Baula · 2022 LOMLOE",
   "titulo": "Exercicis de classe — MCD i MCM de polinomis",
   "fecha": "2025-10-21",
   "grupo": "1r BTL",
@@ -11,7 +13,9 @@
   "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html",
   "puntuacion_total": 0,
   "baremo": null,
-  "unidades_implicadas": ["02"],
+  "unidades_implicadas": [
+    "02"
+  ],
   "tags_coleccion": {
     "materia": "bach-ccss-1",
     "curso_academico": "2025-2026",
@@ -29,15 +33,33 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html#ex-1",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$P(x) = x^{3} - 5x^{2} + 6x$" },
-        { "letra": "b", "puntos": 0, "tarea": "$Q(x) = -3x^{2} + 12$" },
-        { "letra": "c", "puntos": 0, "tarea": "$R(x) = 2x^{2} - 18$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(x) = x^{3} - 5x^{2} + 6x$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$Q(x) = -3x^{2} + 12$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$R(x) = 2x^{2} - 18$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -49,14 +71,29 @@
       "puntuacion": 0,
       "contexto": "Donats $P(x) = x(x-2)(x-3)$ i $Q(x) = -3(x-2)(x+2)$, factoritzats a l'exercici 1, calcula:",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$\\operatorname{MCD}\\!\\bigl(P(x), Q(x)\\bigr)$" },
-        { "letra": "b", "puntos": 0, "tarea": "$\\operatorname{MCM}\\!\\bigl(P(x), Q(x)\\bigr)$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\operatorname{MCD}\\!\\bigl(P(x), Q(x)\\bigr)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\operatorname{MCM}\\!\\bigl(P(x), Q(x)\\bigr)$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -68,14 +105,29 @@
       "puntuacion": 0,
       "contexto": "Considera $P(x) = x(x-2)(x-3)$, $Q(x) = -3(x-2)(x+2)$ i $R(x) = 2(x-3)(x+3)$ i calcula:",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$\\operatorname{MCD}\\!\\bigl(P(x), Q(x), R(x)\\bigr)$" },
-        { "letra": "b", "puntos": 0, "tarea": "$\\operatorname{MCM}\\!\\bigl(P(x), Q(x), R(x)\\bigr)$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\operatorname{MCD}\\!\\bigl(P(x), Q(x), R(x)\\bigr)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\operatorname{MCM}\\!\\bigl(P(x), Q(x), R(x)\\bigr)$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     }
   ]

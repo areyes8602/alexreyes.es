@@ -2,6 +2,8 @@
   "schema_version": 3,
   "id": "2526-1btl-macs-u09-classe",
   "tipo_coleccion": "practica",
+  "tier": "free",
+  "manual_fuente": "Matemàtiques aplicades CCSS 1 — Baula · 2022 LOMLOE",
   "titulo": "Exercicis de classe — Probabilitat",
   "fecha": "2026-04-24",
   "grupo": "1r BTL",
@@ -29,15 +31,36 @@
       "puntuacion": 0,
       "contexto": "S'enquesten 127 consumidors. 81 tenen una tauleta ($T$), 70 tenen un smartphone ($S$) i 29 en tenen tots dos.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Quants consumidors enquestats no tenien ni tauleta ni smartphone?" },
-        { "letra": "b", "puntos": 0, "tarea": "Quina és la probabilitat que, triant un consumidor a l'atzar, només tingui smartphone?" },
-        { "letra": "c", "puntos": 0, "tarea": "En una població de 10.000 consumidors, quants es preveu que només tinguin tauleta?" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Quants consumidors enquestats no tenien ni tauleta ni smartphone?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Quina és la probabilitat que, triant un consumidor a l'atzar, només tingui smartphone?"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "En una població de 10.000 consumidors, quants es preveu que només tinguin tauleta?"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "facil",
-        "habilidad": ["interpretacion", "visualizacion", "calculo_numerico"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "interpretacion",
+          "visualizacion",
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
       }
     },
     {
@@ -49,15 +72,35 @@
       "puntuacion": 0,
       "contexto": "En una classe de 20 alumnes, 12 estudien biologia ($B$), 15 estudien història ($H$) i 2 alumnes no estudien ni biologia ni història.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Calcula la probabilitat que un alumne triat a l'atzar estudiï les dues matèries." },
-        { "letra": "b", "puntos": 0, "tarea": "Si un alumne triat a l'atzar estudia biologia, quina és la probabilitat que també estudiï història?" },
-        { "letra": "c", "puntos": 0, "tarea": "Si l'experiment es repeteix 60 vegades, quin és el nombre esperat de vegades que es triï un alumne que estudia les dues?" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula la probabilitat que un alumne triat a l'atzar estudiï les dues matèries."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Si un alumne triat a l'atzar estudia biologia, quina és la probabilitat que també estudiï història?"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Si l'experiment es repeteix 60 vegades, quin és el nombre esperat de vegades que es triï un alumne que estudia les dues?"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "media",
-        "habilidad": ["razonamiento", "calculo_simbolico", "interpretacion"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "razonamiento",
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -69,15 +112,34 @@
       "puntuacion": 0,
       "contexto": "Una capsa, $A$, conté 6 boles blanques i 4 boles blaves; mentre que una altra capsa, $B$, conté 5 boles blanques i 2 blaves. Es tria una capsa a l'atzar i se n'extreuen dues boles sense reemplaçament.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Probabilitat que les dues boles siguin blanques." },
-        { "letra": "b", "puntos": 0, "tarea": "Probabilitat que les dues boles siguin del mateix color." },
-        { "letra": "c", "puntos": 0, "tarea": "Probabilitat que les dues boles siguin de diferent color." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Probabilitat que les dues boles siguin blanques."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Probabilitat que les dues boles siguin del mateix color."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Probabilitat que les dues boles siguin de diferent color."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -89,14 +151,29 @@
       "puntuacion": 0,
       "contexto": "Es disposa de tres urnes: l'urna $A$ conté 2 boles blanques i 4 vermelles; l'urna $B$, 3 blanques i 3 vermelles, i la $C$, 1 blanca i 5 vermelles. Es tria una urna a l'atzar i se n'extreu una bola.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Quina és la probabilitat que la bola sigui blanca?" },
-        { "letra": "b", "puntos": 0, "tarea": "Si la bola és blanca, quina és la probabilitat que procedeixi de l'urna B?" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Quina és la probabilitat que la bola sigui blanca?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Si la bola és blanca, quina és la probabilitat que procedeixi de l'urna B?"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -108,14 +185,29 @@
       "puntuacion": 0,
       "contexto": "Es llança un dau. Si el resultat és parell, s'introdueix una bola blanca en una urna que conté 2 blanques i 4 negres; si és imparell, s'introdueix una bola negra.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Calcula la probabilitat d'extreure de l'urna, sense reemplaçament, dues boles blanques si el dau ha donat parell." },
-        { "letra": "b", "puntos": 0, "tarea": "Quina és la probabilitat d'extreure dues boles blanques una vegada llançat el dau?" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula la probabilitat d'extreure de l'urna, sense reemplaçament, dues boles blanques si el dau ha donat parell."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Quina és la probabilitat d'extreure dues boles blanques una vegada llançat el dau?"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -127,13 +219,26 @@
       "puntuacion": 0,
       "contexto": "Una empresa produeix bombetes halògenes i de baix consum (3:4 de cada 7). $P(D \\mid H) = 0{,}02$ i $P(D \\mid L) = 0{,}09$. Es tria una bombeta i resulta que no és defectuosa.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Quina és la probabilitat que sigui halògena?" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Quina és la probabilitat que sigui halògena?"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento", "interpretacion"],
-        "formato": ["pregunta_corta", "problema_aplicado"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
       }
     },
     {
@@ -145,14 +250,31 @@
       "puntuacion": 0,
       "contexto": "En un banc, el 30% dels crèdits són per a habitatge, el 50% per a empreses i el 20% per a consum. Els percentatges d'impagament són 10%, 20% i 10% respectivament.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Calcula la probabilitat que un crèdit triat a l'atzar sigui pagat." },
-        { "letra": "b", "puntos": 0, "tarea": "Si un crèdit s'ha pagat, quina probabilitat hi ha que fos de consum?" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula la probabilitat que un crèdit triat a l'atzar sigui pagat."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Si un crèdit s'ha pagat, quina probabilitat hi ha que fos de consum?"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento", "interpretacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
       }
     },
     {
@@ -164,16 +286,38 @@
       "puntuacion": 0,
       "contexto": "Sobre l'espai mostral $\\Omega = \\{1,2,3,4,5,6,7,8,9,10\\}$, considera $A = \\{2,4,6,8,10\\}$ (parells), $B = \\{1,3,5,7,9\\}$ (senars), $C = \\{1,2,3\\}$ i $D = \\{5,6,7,8\\}$. Per a cada parell, indica si són compatibles o incompatibles i justifica-ho amb la intersecció.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$A$ i $B$" },
-        { "letra": "b", "puntos": 0, "tarea": "$A$ i $C$" },
-        { "letra": "c", "puntos": 0, "tarea": "$B$ i $D$" },
-        { "letra": "d", "puntos": 0, "tarea": "$C$ i $D$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$A$ i $B$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$A$ i $C$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$B$ i $D$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$C$ i $D$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "facil",
-        "habilidad": ["razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -185,14 +329,29 @@
       "puntuacion": 0,
       "contexto": "En llançar un dau correcte de 6 cares, considera $A$ = \"treure un nombre parell\" i $B$ = \"treure un múltiple de 5\".",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Calcula $P(A)$, $P(B)$ i $P(A \\cap B)$. Són $A$ i $B$ incompatibles?" },
-        { "letra": "b", "puntos": 0, "tarea": "Calcula $P(A \\cup B)$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula $P(A)$, $P(B)$ i $P(A \\cap B)$. Són $A$ i $B$ incompatibles?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Calcula $P(A \\cup B)$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -204,16 +363,39 @@
       "puntuacion": 0,
       "contexto": "Sigui $A$ i $B$ dos esdeveniments amb $P(A) = 0{,}4$ i $P(B) = 0{,}25$. Suposa que són independents.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Calcula $P(A \\cap B)$." },
-        { "letra": "b", "puntos": 0, "tarea": "Calcula $P(A \\cup B)$." },
-        { "letra": "c", "puntos": 0, "tarea": "Calcula $P(A - B)$." },
-        { "letra": "d", "puntos": 0, "tarea": "Comprova que $P(A \\mid B) = P(A)$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula $P(A \\cap B)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Calcula $P(A \\cup B)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Calcula $P(A - B)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Comprova que $P(A \\mid B) = P(A)$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -225,16 +407,39 @@
       "puntuacion": 0,
       "contexto": "Per a cada experiment, raona si els dos esdeveniments són independents o dependents.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Llancem dos daus. $A$ = \"el primer dau treu 6\", $B$ = \"el segon dau treu un nombre parell\"." },
-        { "letra": "b", "puntos": 0, "tarea": "Treiem dues cartes seguides d'una baralla espanyola (40 cartes), sense reposició. $A$ = \"la 1a carta és or\", $B$ = \"la 2a carta és or\"." },
-        { "letra": "c", "puntos": 0, "tarea": "Mateix experiment però amb reposició. $A$ = \"la 1a és or\", $B$ = \"la 2a és or\"." },
-        { "letra": "d", "puntos": 0, "tarea": "Una urna conté 3 boles vermelles i 2 negres. Treiem 2 boles, una rere l'altra, sense reposició. $A$ = \"la 1a és vermella\", $B$ = \"la 2a és vermella\"." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Llancem dos daus. $A$ = \"el primer dau treu 6\", $B$ = \"el segon dau treu un nombre parell\"."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Treiem dues cartes seguides d'una baralla espanyola (40 cartes), sense reposició. $A$ = \"la 1a carta és or\", $B$ = \"la 2a carta és or\"."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Mateix experiment però amb reposició. $A$ = \"la 1a és or\", $B$ = \"la 2a és or\"."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Una urna conté 3 boles vermelles i 2 negres. Treiem 2 boles, una rere l'altra, sense reposició. $A$ = \"la 1a és vermella\", $B$ = \"la 2a és vermella\"."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-probabilidad"],
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
         "dificultad": "media",
-        "habilidad": ["razonamiento", "interpretacion"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     }
   ]

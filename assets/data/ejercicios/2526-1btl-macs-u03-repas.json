@@ -2,6 +2,8 @@
   "schema_version": 3,
   "id": "2526-1btl-macs-u03-repas",
   "tipo_coleccion": "practica",
+  "tier": "free",
+  "manual_fuente": "Matemàtiques aplicades CCSS 1 — Baula · 2022 LOMLOE",
   "titulo": "Sessió de repàs — Equacions polinòmiques, biquadrades i racionals",
   "fecha": "2025-10-28",
   "grupo": "1r BTL",
@@ -11,7 +13,9 @@
   "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html",
   "puntuacion_total": 0,
   "baremo": null,
-  "unidades_implicadas": ["03"],
+  "unidades_implicadas": [
+    "03"
+  ],
   "tags_coleccion": {
     "materia": "bach-ccss-1",
     "curso_academico": "2025-2026",
@@ -29,18 +33,49 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-1",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$3x^{3} + 2x - 1 = 2\\,(x^{3} - 2x^{2}) + 6$" },
-        { "letra": "b", "puntos": 0, "tarea": "$x^{3} - 2x^{2} = 3x - 6$" },
-        { "letra": "c", "puntos": 0, "tarea": "$(x+1)^{2} - (x-2)^{2} = (x+3)^{2} + x^{2} - 20$" },
-        { "letra": "d", "puntos": 0, "tarea": "$x^{4} + x^{2} = 2x^{3}$" },
-        { "letra": "e", "puntos": 0, "tarea": "$x^{3} - 5x^{2} + 7x - 3 = 0$" },
-        { "letra": "f", "puntos": 0, "tarea": "$x^{3} = 2\\,(2x + 4 - x^{2})$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$3x^{3} + 2x - 1 = 2\\,(x^{3} - 2x^{2}) + 6$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$x^{3} - 2x^{2} = 3x - 6$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$(x+1)^{2} - (x-2)^{2} = (x+3)^{2} + x^{2} - 20$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$x^{4} + x^{2} = 2x^{3}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$x^{3} - 5x^{2} + 7x - 3 = 0$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$x^{3} = 2\\,(2x + 4 - x^{2})$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones", "BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-polinomios"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -51,16 +86,38 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html#ex-2",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$x^{4} + 4x^{2} = 0$" },
-        { "letra": "b", "puntos": 0, "tarea": "$x^{4} - 8x^{2} = 9$" },
-        { "letra": "c", "puntos": 0, "tarea": "$x^{6} + x^{2} + 216 = x^{2}\\,(1 + 35x)$" },
-        { "letra": "d", "puntos": 0, "tarea": "$36 = x^{2}\\,(13 - x^{2})$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$x^{4} + 4x^{2} = 0$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$x^{4} - 8x^{2} = 9$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$x^{6} + x^{2} + 216 = x^{2}\\,(1 + 35x)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$36 = x^{2}\\,(13 - x^{2})$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -72,19 +129,54 @@
       "puntuacion": 0,
       "contexto": "Recorda els 5 passos: factoritzar, MCM, amplificar, eliminar denominadors i resoldre. Al final, comprova que cap solució anul·li els denominadors originals.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$\\dfrac{1}{x} + \\dfrac{1}{x+3} = \\dfrac{3}{10}$" },
-        { "letra": "b", "puntos": 0, "tarea": "$\\dfrac{4}{x} + \\dfrac{2x+2}{3x-6} = 4$" },
-        { "letra": "c", "puntos": 0, "tarea": "$\\dfrac{8-x}{2} - \\dfrac{2x-11}{x-3} = \\dfrac{x+6}{2}$" },
-        { "letra": "d", "puntos": 0, "tarea": "$\\dfrac{2x}{x-3} - \\dfrac{6}{x} = \\dfrac{18}{x^{2}-3x}$" },
-        { "letra": "e", "puntos": 0, "tarea": "$\\dfrac{x-1}{x-2} - \\dfrac{2x-2}{x^{2}+3x} = \\dfrac{5x-5}{x^{2}+x-6}$" },
-        { "letra": "f", "puntos": 0, "tarea": "$\\dfrac{x+4}{x-3} - \\dfrac{1-2x}{x^{2}-x-6} = 0$" },
-        { "letra": "g", "puntos": 0, "tarea": "$\\dfrac{3}{x} + \\dfrac{4}{2x^{2}-4x} = \\dfrac{1}{2x-4}$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\dfrac{1}{x} + \\dfrac{1}{x+3} = \\dfrac{3}{10}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\dfrac{4}{x} + \\dfrac{2x+2}{3x-6} = 4$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\dfrac{8-x}{2} - \\dfrac{2x-11}{x-3} = \\dfrac{x+6}{2}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\dfrac{2x}{x-3} - \\dfrac{6}{x} = \\dfrac{18}{x^{2}-3x}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\dfrac{x-1}{x-2} - \\dfrac{2x-2}{x^{2}+3x} = \\dfrac{5x-5}{x^{2}+x-6}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$\\dfrac{x+4}{x-3} - \\dfrac{1-2x}{x^{2}-x-6} = 0$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$\\dfrac{3}{x} + \\dfrac{4}{2x^{2}-4x} = \\dfrac{1}{2x-4}$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     }
   ]

@@ -2,6 +2,8 @@
   "schema_version": 3,
   "id": "2526-1btl-macs-u03-classe",
   "tipo_coleccion": "practica",
+  "tier": "free",
+  "manual_fuente": "Matemàtiques aplicades CCSS 1 — Baula · 2022 LOMLOE",
   "titulo": "Exercicis de classe — Equacions biquadrades",
   "fecha": "2025-10-22",
   "grupo": "1r BTL",
@@ -11,7 +13,9 @@
   "url_index": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html",
   "puntuacion_total": 0,
   "baremo": null,
-  "unidades_implicadas": ["03"],
+  "unidades_implicadas": [
+    "03"
+  ],
   "tags_coleccion": {
     "materia": "bach-ccss-1",
     "curso_academico": "2025-2026",
@@ -30,16 +34,38 @@
       "puntuacion": 0,
       "contexto": "Resol les equacions biquadrades proposades. Després, comprova amb GeoGebra els resultats que has obtingut.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$x^{4} - 5x^{2} + 4 = 0$" },
-        { "letra": "b", "puntos": 0, "tarea": "$x^{4} - 2x^{2} + 1 = 0$" },
-        { "letra": "c", "puntos": 0, "tarea": "$x^{4} - 3x^{2} = 0$" },
-        { "letra": "d", "puntos": 0, "tarea": "$x^{6} - 7x^{3} - 8 = 0$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$x^{4} - 5x^{2} + 4 = 0$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$x^{4} - 2x^{2} + 1 = 0$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$x^{4} - 3x^{2} = 0$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$x^{6} - 7x^{3} - 8 = 0$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -50,13 +76,23 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html#ex-1",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Resol $\\dfrac{x-1}{x} - \\dfrac{x+1}{x-5} = \\dfrac{x+2}{x^{2}-5x}$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $\\dfrac{x-1}{x} - \\dfrac{x+1}{x-5} = \\dfrac{x+2}{x^{2}-5x}$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -67,13 +103,24 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html#ex-2",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Resol $\\dfrac{3}{x+2} - \\dfrac{x}{x-2} = 2$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $\\dfrac{3}{x+2} - \\dfrac{x}{x-2} = 2$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -84,13 +131,23 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-a",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Resol $5^{3x+1} = 1$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $5^{3x+1} = 1$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -101,13 +158,23 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-b",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Resol $5^{x+3} \\cdot 5^{x} \\cdot 5^{x-1} \\cdot 5^{-x} = 25$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $5^{x+3} \\cdot 5^{x} \\cdot 5^{x-1} \\cdot 5^{-x} = 25$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -118,13 +185,23 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-c",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Resol $5^{x+3} + 5^{x} + 5^{x-1} = 131$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $5^{x+3} + 5^{x} + 5^{x-1} = 131$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -135,13 +212,24 @@
       "source_apunt": "/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html#ex-d",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Resol $25^{x} + 5^{x+1} = 14$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Resol $25^{x} + 5^{x+1} = 14$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -153,23 +241,74 @@
       "puntuacion": 0,
       "contexto": "Resol les equacions amb logaritmes. Recorda verificar que tots els arguments siguin positius en les solucions.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$\\log_{x} 64 = 3$" },
-        { "letra": "b", "puntos": 0, "tarea": "$\\log_{2} x + \\log_{2}(x+3) = 2$" },
-        { "letra": "c", "puntos": 0, "tarea": "$\\log(2x-4) - \\log(x+2) = 1$" },
-        { "letra": "d", "puntos": 0, "tarea": "$\\log x + \\log 50 = \\log 1000$" },
-        { "letra": "e", "puntos": 0, "tarea": "$\\log x = 1 + \\log(22-x)$" },
-        { "letra": "f", "puntos": 0, "tarea": "$2\\log(x+1) - \\log 2 = \\log(x^{2}-1)$" },
-        { "letra": "g", "puntos": 0, "tarea": "$\\log(3x+1) - \\log(2x-3) = 1 - \\log 5$" },
-        { "letra": "h", "puntos": 0, "tarea": "$2\\log(2x+1) + 2\\log(3x-4) = 2$" },
-        { "letra": "i", "puntos": 0, "tarea": "$\\log(40x) - \\log(5x-1) = 1$" },
-        { "letra": "j", "puntos": 0, "tarea": "$\\log x + \\log(x+5) = \\log(9+x)$" },
-        { "letra": "k", "puntos": 0, "tarea": "$2\\log_{2} x = -\\log_{2} 3 + \\log_{2}(x+10)$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$\\log_{x} 64 = 3$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\log_{2} x + \\log_{2}(x+3) = 2$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\log(2x-4) - \\log(x+2) = 1$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\log x + \\log 50 = \\log 1000$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$\\log x = 1 + \\log(22-x)$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$2\\log(x+1) - \\log 2 = \\log(x^{2}-1)$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$\\log(3x+1) - \\log(2x-3) = 1 - \\log 5$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0,
+          "tarea": "$2\\log(2x+1) + 2\\log(3x-4) = 2$"
+        },
+        {
+          "letra": "i",
+          "puntos": 0,
+          "tarea": "$\\log(40x) - \\log(5x-1) = 1$"
+        },
+        {
+          "letra": "j",
+          "puntos": 0,
+          "tarea": "$\\log x + \\log(x+5) = \\log(9+x)$"
+        },
+        {
+          "letra": "k",
+          "puntos": 0,
+          "tarea": "$2\\log_{2} x = -\\log_{2} 3 + \\log_{2}(x+10)$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -181,18 +320,49 @@
       "puntuacion": 0,
       "contexto": "Resol les equacions irracionals (amb arrels quadrades). Aïlla l'arrel, eleva al quadrat i verifica les solucions per descartar les extranyes. Després, comprova amb GeoGebra els resultats que has obtingut.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$x + \\sqrt{x+1} = 2x - 1$" },
-        { "letra": "b", "puntos": 0, "tarea": "$3 + \\sqrt{x^{2}-3} = x^{2}$" },
-        { "letra": "c", "puntos": 0, "tarea": "$\\sqrt{x} + \\sqrt{x+1} = 1$" },
-        { "letra": "d", "puntos": 0, "tarea": "$\\sqrt{7-3x} - x = 7$" },
-        { "letra": "e", "puntos": 0, "tarea": "$3\\sqrt{6x+1} - 5 = 2x$" },
-        { "letra": "f", "puntos": 0, "tarea": "$\\sqrt{x+4} = 3 - \\sqrt{x-1}$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$x + \\sqrt{x+1} = 2x - 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$3 + \\sqrt{x^{2}-3} = x^{2}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$\\sqrt{x} + \\sqrt{x+1} = 1$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\sqrt{7-3x} - x = 7$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$3\\sqrt{6x+1} - 5 = 2x$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$\\sqrt{x+4} = 3 - \\sqrt{x-1}$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -204,16 +374,39 @@
       "puntuacion": 0,
       "contexto": "Resol les equacions següents (algunes requereixen elevar al quadrat dues vegades). Comprova amb GeoGebra els resultats que has obtingut.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$x + \\sqrt{x+1} - 2x = 1$" },
-        { "letra": "b", "puntos": 0, "tarea": "$\\sqrt{x-3} + \\sqrt{x+4} = \\sqrt{4x+1}$" },
-        { "letra": "c", "puntos": 0, "tarea": "$x - \\sqrt{x^{2}-3} = \\sqrt{x-1}$" },
-        { "letra": "d", "puntos": 0, "tarea": "$\\sqrt{x} + \\dfrac{1}{\\sqrt{x}} = \\dfrac{x+1}{2}$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$x + \\sqrt{x+1} - 2x = 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$\\sqrt{x-3} + \\sqrt{x+4} = \\sqrt{4x+1}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$x - \\sqrt{x^{2}-3} = \\sqrt{x-1}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$\\sqrt{x} + \\dfrac{1}{\\sqrt{x}} = \\dfrac{x+1}{2}$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "dificil",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     }
   ]

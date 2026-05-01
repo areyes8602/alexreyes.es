@@ -658,3 +658,25 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
 .exam-card-btn.pdf:hover { background: rgba(220,38,38,0.12); }
 [data-theme="dark"] .exam-card-btn.html { color: #a5b4fc; }
 [data-theme="dark"] .exam-card-btn.pdf { color: #fca5a5; }
+
+
+/* ─── Atribución a manual fuente (libro_texto, tier:free) ──────────── */
+.manual-attribution {
+  margin: 2.5rem 0 0;
+  padding: 1rem 1.2rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-left: 3px solid #6366f1;
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.manual-attribution p { margin: 0; }
+.manual-attribution strong { color: var(--text); }
+.manual-attribution em { font-style: italic; }
+.manual-attribution a { color: var(--text); text-decoration: underline; text-decoration-color: var(--border-strong); }
+.manual-attribution a:hover { text-decoration-color: var(--text); }
+@media print {
+  .manual-attribution { display: none; }
+}

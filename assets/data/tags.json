@@ -1,321 +1,1397 @@
 {
   "schema_version": 3,
   "_doc": "Taxonomía v3 — jerarquía Materia → Ámbito → Concepto. Cada ejercicio tiene una materia (IB AI HL/SL, Bachillerato Mat. CCSS 1º/2º, 2º ESO, Cangur, ...). Según la materia se aplican los namespaces de ámbito y concepto correspondientes (ámbito_iba/concepto_iba para IB; ámbito_bach/concepto_bach para bachillerato LOMLOE; ámbito_eso/concepto_eso para ESO LOMLOE). Otros namespaces (dificultad, formato, etc.) son comunes a todas las materias. Para subir ejercicios usa schema_version 3 en la colección.",
-
   "namespaces": {
-
     "materia": {
-      "label": { "es": "Materia", "ca": "Matèria", "en": "Subject" },
-      "descripcion": { "es": "Asignatura/curso al que pertenece el ejercicio.", "ca": "Assignatura/curs al qual pertany l'exercici.", "en": "Subject/course the exercise belongs to." },
+      "label": {
+        "es": "Materia",
+        "ca": "Matèria",
+        "en": "Subject"
+      },
+      "descripcion": {
+        "es": "Asignatura/curso al que pertenece el ejercicio.",
+        "ca": "Assignatura/curs al qual pertany l'exercici.",
+        "en": "Subject/course the exercise belongs to."
+      },
       "multi": false,
       "valores": {
-        "ib-ai-hl":      { "label": { "es": "IB Math AI HL", "ca": "IB Math AI HL", "en": "IB Math AI HL" } },
-        "ib-ai-sl":      { "label": { "es": "IB Math AI SL", "ca": "IB Math AI SL", "en": "IB Math AI SL" } },
-        "bach-ccss-1":   { "label": { "es": "Bachillerato — Mat. CCSS 1º", "ca": "Batxillerat — Mat. CCSS 1r", "en": "Bachillerato — Applied Maths Year 1" } },
-        "bach-ccss-2":   { "label": { "es": "Bachillerato — Mat. CCSS 2º", "ca": "Batxillerat — Mat. CCSS 2n", "en": "Bachillerato — Applied Maths Year 2" } },
-        "bach-cient-1":  { "label": { "es": "Bachillerato — Matemáticas 1º", "ca": "Batxillerat — Matemàtiques 1r", "en": "Bachillerato — Mathematics Year 1" } },
-        "bach-cient-2":  { "label": { "es": "Bachillerato — Matemáticas 2º", "ca": "Batxillerat — Matemàtiques 2n", "en": "Bachillerato — Mathematics Year 2" } },
-        "eso-1":         { "label": { "es": "1º ESO", "ca": "1r ESO", "en": "Year 7 (1º ESO)" } },
-        "eso-2":         { "label": { "es": "2º ESO", "ca": "2n ESO", "en": "Year 8 (2º ESO)" } },
-        "eso-3":         { "label": { "es": "3º ESO", "ca": "3r ESO", "en": "Year 9 (3º ESO)" } },
-        "eso-4":         { "label": { "es": "4º ESO", "ca": "4t ESO", "en": "Year 10 (4º ESO)" } },
-        "cangur":        { "label": { "es": "Cangur (olimpiada SCM)", "ca": "Cangur (olimpíada SCM)", "en": "Cangur (SCM olympiad)" } }
+        "ib-ai-hl": {
+          "label": {
+            "es": "IB Math AI HL",
+            "ca": "IB Math AI HL",
+            "en": "IB Math AI HL"
+          }
+        },
+        "ib-ai-sl": {
+          "label": {
+            "es": "IB Math AI SL",
+            "ca": "IB Math AI SL",
+            "en": "IB Math AI SL"
+          }
+        },
+        "bach-ccss-1": {
+          "label": {
+            "es": "Bachillerato — Mat. CCSS 1º",
+            "ca": "Batxillerat — Mat. CCSS 1r",
+            "en": "Bachillerato — Applied Maths Year 1"
+          }
+        },
+        "bach-ccss-2": {
+          "label": {
+            "es": "Bachillerato — Mat. CCSS 2º",
+            "ca": "Batxillerat — Mat. CCSS 2n",
+            "en": "Bachillerato — Applied Maths Year 2"
+          }
+        },
+        "bach-cient-1": {
+          "label": {
+            "es": "Bachillerato — Matemáticas 1º",
+            "ca": "Batxillerat — Matemàtiques 1r",
+            "en": "Bachillerato — Mathematics Year 1"
+          }
+        },
+        "bach-cient-2": {
+          "label": {
+            "es": "Bachillerato — Matemáticas 2º",
+            "ca": "Batxillerat — Matemàtiques 2n",
+            "en": "Bachillerato — Mathematics Year 2"
+          }
+        },
+        "eso-1": {
+          "label": {
+            "es": "1º ESO",
+            "ca": "1r ESO",
+            "en": "Year 7 (1º ESO)"
+          }
+        },
+        "eso-2": {
+          "label": {
+            "es": "2º ESO",
+            "ca": "2n ESO",
+            "en": "Year 8 (2º ESO)"
+          }
+        },
+        "eso-3": {
+          "label": {
+            "es": "3º ESO",
+            "ca": "3r ESO",
+            "en": "Year 9 (3º ESO)"
+          }
+        },
+        "eso-4": {
+          "label": {
+            "es": "4º ESO",
+            "ca": "4t ESO",
+            "en": "Year 10 (4º ESO)"
+          }
+        },
+        "cangur": {
+          "label": {
+            "es": "Cangur (olimpiada SCM)",
+            "ca": "Cangur (olimpíada SCM)",
+            "en": "Cangur (SCM olympiad)"
+          }
+        }
       }
     },
-
     "ambito_iba": {
-      "label": { "es": "Ámbito IB", "ca": "Àmbit IB", "en": "IB topic" },
-      "descripcion": { "es": "Los 5 temas oficiales del syllabus IB Math AI.", "ca": "Els 5 temes oficials del syllabus IB Math AI.", "en": "The 5 official IB Math AI syllabus topics." },
-      "aplica_si": { "materia": ["ib-ai-hl", "ib-ai-sl"] },
+      "label": {
+        "es": "Ámbito IB",
+        "ca": "Àmbit IB",
+        "en": "IB topic"
+      },
+      "descripcion": {
+        "es": "Los 5 temas oficiales del syllabus IB Math AI.",
+        "ca": "Els 5 temes oficials del syllabus IB Math AI.",
+        "en": "The 5 official IB Math AI syllabus topics."
+      },
+      "aplica_si": {
+        "materia": [
+          "ib-ai-hl",
+          "ib-ai-sl"
+        ]
+      },
       "multi": false,
       "valores": {
-        "T1": { "label": { "es": "Tema 1 — Número y álgebra", "ca": "Tema 1 — Nombre i àlgebra", "en": "Topic 1 — Number and algebra" } },
-        "T2": { "label": { "es": "Tema 2 — Funciones", "ca": "Tema 2 — Funcions", "en": "Topic 2 — Functions" } },
-        "T3": { "label": { "es": "Tema 3 — Geometría y trigonometría", "ca": "Tema 3 — Geometria i trigonometria", "en": "Topic 3 — Geometry and trigonometry" } },
-        "T4": { "label": { "es": "Tema 4 — Estadística y probabilidad", "ca": "Tema 4 — Estadística i probabilitat", "en": "Topic 4 — Statistics and probability" } },
-        "T5": { "label": { "es": "Tema 5 — Análisis (cálculo)", "ca": "Tema 5 — Anàlisi (càlcul)", "en": "Topic 5 — Calculus" } }
+        "T1": {
+          "label": {
+            "es": "Tema 1 — Número y álgebra",
+            "ca": "Tema 1 — Nombre i àlgebra",
+            "en": "Topic 1 — Number and algebra"
+          }
+        },
+        "T2": {
+          "label": {
+            "es": "Tema 2 — Funciones",
+            "ca": "Tema 2 — Funcions",
+            "en": "Topic 2 — Functions"
+          }
+        },
+        "T3": {
+          "label": {
+            "es": "Tema 3 — Geometría y trigonometría",
+            "ca": "Tema 3 — Geometria i trigonometria",
+            "en": "Topic 3 — Geometry and trigonometry"
+          }
+        },
+        "T4": {
+          "label": {
+            "es": "Tema 4 — Estadística y probabilidad",
+            "ca": "Tema 4 — Estadística i probabilitat",
+            "en": "Topic 4 — Statistics and probability"
+          }
+        },
+        "T5": {
+          "label": {
+            "es": "Tema 5 — Análisis (cálculo)",
+            "ca": "Tema 5 — Anàlisi (càlcul)",
+            "en": "Topic 5 — Calculus"
+          }
+        }
       }
     },
-
     "concepto_iba": {
-      "label": { "es": "Concepto / subtema IB", "ca": "Concepte / subtema IB", "en": "IB concept / subtopic" },
-      "descripcion": { "es": "Subtemas oficiales del syllabus IB Math AI. Códigos NM (NM = Nivel Medio = SL) y TANS (Temas Adicionales del Nivel Superior = HL extra).", "ca": "Subtemes oficials del syllabus IB Math AI. Codis NM i TANS.", "en": "Official IB Math AI subtopics. NM = SL, TANS = HL-only." },
-      "aplica_si": { "materia": ["ib-ai-hl", "ib-ai-sl"] },
+      "label": {
+        "es": "Concepto / subtema IB",
+        "ca": "Concepte / subtema IB",
+        "en": "IB concept / subtopic"
+      },
+      "descripcion": {
+        "es": "Subtemas oficiales del syllabus IB Math AI. Códigos NM (NM = Nivel Medio = SL) y TANS (Temas Adicionales del Nivel Superior = HL extra).",
+        "ca": "Subtemes oficials del syllabus IB Math AI. Codis NM i TANS.",
+        "en": "Official IB Math AI subtopics. NM = SL, TANS = HL-only."
+      },
+      "aplica_si": {
+        "materia": [
+          "ib-ai-hl",
+          "ib-ai-sl"
+        ]
+      },
       "multi": true,
       "valores": {
-        "NM 1.1":  { "ambito_iba": "T1", "label": { "es": "NM 1.1 — Notación científica" } },
-        "NM 1.2":  { "ambito_iba": "T1", "label": { "es": "NM 1.2 — Progresiones y series aritméticas" } },
-        "NM 1.3":  { "ambito_iba": "T1", "label": { "es": "NM 1.3 — Progresiones y series geométricas" } },
-        "NM 1.4":  { "ambito_iba": "T1", "label": { "es": "NM 1.4 — Aplicaciones financieras (interés compuesto, anualidades)" } },
-        "NM 1.5":  { "ambito_iba": "T1", "label": { "es": "NM 1.5 — Potencias con exponente entero y forma exponencial" } },
-        "NM 1.6":  { "ambito_iba": "T1", "label": { "es": "NM 1.6 — Aproximación: cifras decimales, c.s., error porcentual" } },
-        "NM 1.7":  { "ambito_iba": "T1", "label": { "es": "NM 1.7 — Amortización y anualidades con tecnología" } },
-        "NM 1.8":  { "ambito_iba": "T1", "label": { "es": "NM 1.8 — Sistemas lineales (con tecnología)" } },
-
-        "NM 2.1":  { "ambito_iba": "T2", "label": { "es": "NM 2.1 — Diferentes formas de la ecuación de una recta" } },
-        "NM 2.2":  { "ambito_iba": "T2", "label": { "es": "NM 2.2 — Concepto de función: dominio, recorrido, gráfico" } },
-        "NM 2.3":  { "ambito_iba": "T2", "label": { "es": "NM 2.3 — Gráfico de una función; intersecciones; intervalos crec./dec." } },
-        "NM 2.4":  { "ambito_iba": "T2", "label": { "es": "NM 2.4 — Modelos lineales, cuadráticos, exponenciales y otros" } },
-        "NM 2.5":  { "ambito_iba": "T2", "label": { "es": "NM 2.5 — Modelado: cuadrático, cúbico, exponencial, sinusoidal, logarítmico" } },
-        "NM 2.6":  { "ambito_iba": "T2", "label": { "es": "NM 2.6 — Habilidades de modelización" } },
-
-        "NM 3.1":  { "ambito_iba": "T3", "label": { "es": "NM 3.1 — Distancia y punto medio en 2D y 3D; volumen y superficie" } },
-        "NM 3.2":  { "ambito_iba": "T3", "label": { "es": "NM 3.2 — Trigonometría de triángulos rectángulos" } },
-        "NM 3.3":  { "ambito_iba": "T3", "label": { "es": "NM 3.3 — Aplicaciones de trigonometría; ley del seno, del coseno, área de un triángulo" } },
-        "NM 3.4":  { "ambito_iba": "T3", "label": { "es": "NM 3.4 — Longitud de arco y área de sector circular" } },
-        "NM 3.5":  { "ambito_iba": "T3", "label": { "es": "NM 3.5 — Mediatrices; ecuaciones de circunferencias y de mediatrices" } },
-        "NM 3.6":  { "ambito_iba": "T3", "label": { "es": "NM 3.6 — Diagramas de Voronoi" } },
-
-        "NM 4.1":  { "ambito_iba": "T4", "label": { "es": "NM 4.1 — Conceptos: población, muestra, variable, fiabilidad" } },
-        "NM 4.2":  { "ambito_iba": "T4", "label": { "es": "NM 4.2 — Medidas de centralización y dispersión" } },
-        "NM 4.3":  { "ambito_iba": "T4", "label": { "es": "NM 4.3 — Métodos de muestreo" } },
-        "NM 4.4":  { "ambito_iba": "T4", "label": { "es": "NM 4.4 — Correlación lineal; regresión lineal" } },
-        "NM 4.5":  { "ambito_iba": "T4", "label": { "es": "NM 4.5 — Probabilidad: ensayo, suceso, espacio muestral" } },
-        "NM 4.6":  { "ambito_iba": "T4", "label": { "es": "NM 4.6 — Diagramas de Venn, árboles, tablas de contingencia" } },
-        "NM 4.7":  { "ambito_iba": "T4", "label": { "es": "NM 4.7 — Variable aleatoria discreta y esperanza" } },
-        "NM 4.8":  { "ambito_iba": "T4", "label": { "es": "NM 4.8 — Distribución binomial" } },
-        "NM 4.9":  { "ambito_iba": "T4", "label": { "es": "NM 4.9 — Distribución normal" } },
-        "NM 4.10": { "ambito_iba": "T4", "label": { "es": "NM 4.10 — Coeficiente de Spearman" } },
-        "NM 4.11": { "ambito_iba": "T4", "label": { "es": "NM 4.11 — Test χ² de bondad de ajuste y de independencia; test t" } },
-
-        "NM 5.1":  { "ambito_iba": "T5", "label": { "es": "NM 5.1 — Introducción al concepto de límite" } },
-        "NM 5.2":  { "ambito_iba": "T5", "label": { "es": "NM 5.2 — Funciones crecientes/decrecientes; interpretación gráfica de derivadas" } },
-        "NM 5.3":  { "ambito_iba": "T5", "label": { "es": "NM 5.3 — Derivada de f(x)=axⁿ; suma de potencias" } },
-        "NM 5.4":  { "ambito_iba": "T5", "label": { "es": "NM 5.4 — Recta tangente y normal" } },
-        "NM 5.5":  { "ambito_iba": "T5", "label": { "es": "NM 5.5 — Introducción a la integración como primitiva; integrales definidas" } },
-        "NM 5.6":  { "ambito_iba": "T5", "label": { "es": "NM 5.6 — Pendiente máxima/mínima; máximos y mínimos locales" } },
-        "NM 5.7":  { "ambito_iba": "T5", "label": { "es": "NM 5.7 — Optimización en contextos aplicados" } },
-
-        "TANS 1.9":  { "ambito_iba": "T1", "label": { "es": "TANS 1.9 — Logaritmos; propiedades" } },
-        "TANS 1.10": { "ambito_iba": "T1", "label": { "es": "TANS 1.10 — Simplificación de expresiones con exponentes y radicales" } },
-        "TANS 1.11": { "ambito_iba": "T1", "label": { "es": "TANS 1.11 — Suma infinita de progresión geométrica convergente" } },
-        "TANS 1.12": { "ambito_iba": "T1", "label": { "es": "TANS 1.12 — Números complejos: i, forma cartesiana" } },
-        "TANS 1.13": { "ambito_iba": "T1", "label": { "es": "TANS 1.13 — Forma polar y exponencial de complejos" } },
-        "TANS 1.14": { "ambito_iba": "T1", "label": { "es": "TANS 1.14 — Matrices; suma, producto, inversa; sistemas en forma matricial" } },
-        "TANS 1.15": { "ambito_iba": "T1", "label": { "es": "TANS 1.15 — Valores y vectores propios; potencias de matrices; cadenas de Markov" } },
-
-        "TANS 2.7":  { "ambito_iba": "T2", "label": { "es": "TANS 2.7 — Composición de funciones; función inversa" } },
-        "TANS 2.8":  { "ambito_iba": "T2", "label": { "es": "TANS 2.8 — Transformaciones de gráficos" } },
-        "TANS 2.9":  { "ambito_iba": "T2", "label": { "es": "TANS 2.9 — Modelos: logarítmicos, logísticos, función a trozos" } },
-        "TANS 2.10": { "ambito_iba": "T2", "label": { "es": "TANS 2.10 — Habilidades de modelización avanzadas" } },
-
-        "TANS 3.7":  { "ambito_iba": "T3", "label": { "es": "TANS 3.7 — Modelos logísticos; logaritmos en geometría" } },
-        "TANS 3.8":  { "ambito_iba": "T3", "label": { "es": "TANS 3.8 — Funciones trigonométricas: senθ, cosθ; identidad senoidal y cosenoidal" } },
-        "TANS 3.9":  { "ambito_iba": "T3", "label": { "es": "TANS 3.9 — Aplicaciones de funciones sinusoidales (incl. fasores)" } },
-        "TANS 3.10": { "ambito_iba": "T3", "label": { "es": "TANS 3.10 — Vectores: componentes y representación por columnas; módulo" } },
-        "TANS 3.11": { "ambito_iba": "T3", "label": { "es": "TANS 3.11 — Ecuación vectorial de una recta en 2D y 3D" } },
-        "TANS 3.12": { "ambito_iba": "T3", "label": { "es": "TANS 3.12 — Aplicación de vectores a cinemática (velocidad, aceleración)" } },
-        "TANS 3.13": { "ambito_iba": "T3", "label": { "es": "TANS 3.13 — Producto escalar y vectorial; ángulos; áreas" } },
-        "TANS 3.14": { "ambito_iba": "T3", "label": { "es": "TANS 3.14 — Teoría de grafos: vértices, aristas, grado, conexión" } },
-        "TANS 3.15": { "ambito_iba": "T3", "label": { "es": "TANS 3.15 — Matriz de adyacencia; recorridos; potencias" } },
-        "TANS 3.16": { "ambito_iba": "T3", "label": { "es": "TANS 3.16 — Algoritmos en grafos: MST (Kruskal/Prim), TSP (NN, vértice borrado), caminos más cortos" } },
-
-        "TANS 4.12": { "ambito_iba": "T4", "label": { "es": "TANS 4.12 — Diseño experimental y métodos de obtención de datos" } },
-        "TANS 4.13": { "ambito_iba": "T4", "label": { "es": "TANS 4.13 — Regresión no lineal; r²; coeficiente de determinación" } },
-        "TANS 4.14": { "ambito_iba": "T4", "label": { "es": "TANS 4.14 — Transformación lineal de variables aleatorias" } },
-        "TANS 4.15": { "ambito_iba": "T4", "label": { "es": "TANS 4.15 — Combinación lineal de variables; teorema central del límite" } },
-        "TANS 4.16": { "ambito_iba": "T4", "label": { "es": "TANS 4.16 — Intervalos de confianza para la media" } },
-        "TANS 4.17": { "ambito_iba": "T4", "label": { "es": "TANS 4.17 — Distribución de Poisson; suma; aproximación a la normal" } },
-        "TANS 4.18": { "ambito_iba": "T4", "label": { "es": "TANS 4.18 — Test de hipótesis: regiones críticas, valores críticos, errores tipo I/II" } },
-        "TANS 4.19": { "ambito_iba": "T4", "label": { "es": "TANS 4.19 — Test t de dos muestras (independientes y pareadas)" } },
-
-        "TANS 5.8":  { "ambito_iba": "T5", "label": { "es": "TANS 5.8 — Derivada de funciones estándar (regla del producto, cociente, cadena)" } },
-        "TANS 5.9":  { "ambito_iba": "T5", "label": { "es": "TANS 5.9 — Segunda derivada; concavidad; puntos de inflexión" } },
-        "TANS 5.10": { "ambito_iba": "T5", "label": { "es": "TANS 5.10 — Cinemática: velocidad y aceleración a partir del desplazamiento" } },
-        "TANS 5.11": { "ambito_iba": "T5", "label": { "es": "TANS 5.11 — Integral indefinida (incl. funciones trigonométricas, exp, log)" } },
-        "TANS 5.12": { "ambito_iba": "T5", "label": { "es": "TANS 5.12 — Integración por sustitución y por partes" } },
-        "TANS 5.13": { "ambito_iba": "T5", "label": { "es": "TANS 5.13 — Integral definida; área bajo curva y entre curvas" } },
-        "TANS 5.14": { "ambito_iba": "T5", "label": { "es": "TANS 5.14 — Volúmenes de revolución" } },
-        "TANS 5.15": { "ambito_iba": "T5", "label": { "es": "TANS 5.15 — Métodos numéricos: trapecio, Simpson" } },
-        "TANS 5.16": { "ambito_iba": "T5", "label": { "es": "TANS 5.16 — EDOs de 1er orden: separación de variables, método de Euler" } },
-        "TANS 5.17": { "ambito_iba": "T5", "label": { "es": "TANS 5.17 — Sistemas de EDOs acopladas y EDO de 2º orden lineal" } }
+        "NM 1.1": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "NM 1.1 — Notación científica"
+          }
+        },
+        "NM 1.2": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "NM 1.2 — Progresiones y series aritméticas"
+          }
+        },
+        "NM 1.3": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "NM 1.3 — Progresiones y series geométricas"
+          }
+        },
+        "NM 1.4": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "NM 1.4 — Aplicaciones financieras (interés compuesto, anualidades)"
+          }
+        },
+        "NM 1.5": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "NM 1.5 — Potencias con exponente entero y forma exponencial"
+          }
+        },
+        "NM 1.6": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "NM 1.6 — Aproximación: cifras decimales, c.s., error porcentual"
+          }
+        },
+        "NM 1.7": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "NM 1.7 — Amortización y anualidades con tecnología"
+          }
+        },
+        "NM 1.8": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "NM 1.8 — Sistemas lineales (con tecnología)"
+          }
+        },
+        "NM 2.1": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "NM 2.1 — Diferentes formas de la ecuación de una recta"
+          }
+        },
+        "NM 2.2": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "NM 2.2 — Concepto de función: dominio, recorrido, gráfico"
+          }
+        },
+        "NM 2.3": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "NM 2.3 — Gráfico de una función; intersecciones; intervalos crec./dec."
+          }
+        },
+        "NM 2.4": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "NM 2.4 — Modelos lineales, cuadráticos, exponenciales y otros"
+          }
+        },
+        "NM 2.5": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "NM 2.5 — Modelado: cuadrático, cúbico, exponencial, sinusoidal, logarítmico"
+          }
+        },
+        "NM 2.6": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "NM 2.6 — Habilidades de modelización"
+          }
+        },
+        "NM 3.1": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "NM 3.1 — Distancia y punto medio en 2D y 3D; volumen y superficie"
+          }
+        },
+        "NM 3.2": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "NM 3.2 — Trigonometría de triángulos rectángulos"
+          }
+        },
+        "NM 3.3": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "NM 3.3 — Aplicaciones de trigonometría; ley del seno, del coseno, área de un triángulo"
+          }
+        },
+        "NM 3.4": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "NM 3.4 — Longitud de arco y área de sector circular"
+          }
+        },
+        "NM 3.5": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "NM 3.5 — Mediatrices; ecuaciones de circunferencias y de mediatrices"
+          }
+        },
+        "NM 3.6": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "NM 3.6 — Diagramas de Voronoi"
+          }
+        },
+        "NM 4.1": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.1 — Conceptos: población, muestra, variable, fiabilidad"
+          }
+        },
+        "NM 4.2": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.2 — Medidas de centralización y dispersión"
+          }
+        },
+        "NM 4.3": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.3 — Métodos de muestreo"
+          }
+        },
+        "NM 4.4": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.4 — Correlación lineal; regresión lineal"
+          }
+        },
+        "NM 4.5": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.5 — Probabilidad: ensayo, suceso, espacio muestral"
+          }
+        },
+        "NM 4.6": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.6 — Diagramas de Venn, árboles, tablas de contingencia"
+          }
+        },
+        "NM 4.7": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.7 — Variable aleatoria discreta y esperanza"
+          }
+        },
+        "NM 4.8": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.8 — Distribución binomial"
+          }
+        },
+        "NM 4.9": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.9 — Distribución normal"
+          }
+        },
+        "NM 4.10": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.10 — Coeficiente de Spearman"
+          }
+        },
+        "NM 4.11": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "NM 4.11 — Test χ² de bondad de ajuste y de independencia; test t"
+          }
+        },
+        "NM 5.1": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "NM 5.1 — Introducción al concepto de límite"
+          }
+        },
+        "NM 5.2": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "NM 5.2 — Funciones crecientes/decrecientes; interpretación gráfica de derivadas"
+          }
+        },
+        "NM 5.3": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "NM 5.3 — Derivada de f(x)=axⁿ; suma de potencias"
+          }
+        },
+        "NM 5.4": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "NM 5.4 — Recta tangente y normal"
+          }
+        },
+        "NM 5.5": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "NM 5.5 — Introducción a la integración como primitiva; integrales definidas"
+          }
+        },
+        "NM 5.6": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "NM 5.6 — Pendiente máxima/mínima; máximos y mínimos locales"
+          }
+        },
+        "NM 5.7": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "NM 5.7 — Optimización en contextos aplicados"
+          }
+        },
+        "TANS 1.9": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "TANS 1.9 — Logaritmos; propiedades"
+          }
+        },
+        "TANS 1.10": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "TANS 1.10 — Simplificación de expresiones con exponentes y radicales"
+          }
+        },
+        "TANS 1.11": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "TANS 1.11 — Suma infinita de progresión geométrica convergente"
+          }
+        },
+        "TANS 1.12": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "TANS 1.12 — Números complejos: i, forma cartesiana"
+          }
+        },
+        "TANS 1.13": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "TANS 1.13 — Forma polar y exponencial de complejos"
+          }
+        },
+        "TANS 1.14": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "TANS 1.14 — Matrices; suma, producto, inversa; sistemas en forma matricial"
+          }
+        },
+        "TANS 1.15": {
+          "ambito_iba": "T1",
+          "label": {
+            "es": "TANS 1.15 — Valores y vectores propios; potencias de matrices; cadenas de Markov"
+          }
+        },
+        "TANS 2.7": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "TANS 2.7 — Composición de funciones; función inversa"
+          }
+        },
+        "TANS 2.8": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "TANS 2.8 — Transformaciones de gráficos"
+          }
+        },
+        "TANS 2.9": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "TANS 2.9 — Modelos: logarítmicos, logísticos, función a trozos"
+          }
+        },
+        "TANS 2.10": {
+          "ambito_iba": "T2",
+          "label": {
+            "es": "TANS 2.10 — Habilidades de modelización avanzadas"
+          }
+        },
+        "TANS 3.7": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.7 — Modelos logísticos; logaritmos en geometría"
+          }
+        },
+        "TANS 3.8": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.8 — Funciones trigonométricas: senθ, cosθ; identidad senoidal y cosenoidal"
+          }
+        },
+        "TANS 3.9": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.9 — Aplicaciones de funciones sinusoidales (incl. fasores)"
+          }
+        },
+        "TANS 3.10": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.10 — Vectores: componentes y representación por columnas; módulo"
+          }
+        },
+        "TANS 3.11": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.11 — Ecuación vectorial de una recta en 2D y 3D"
+          }
+        },
+        "TANS 3.12": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.12 — Aplicación de vectores a cinemática (velocidad, aceleración)"
+          }
+        },
+        "TANS 3.13": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.13 — Producto escalar y vectorial; ángulos; áreas"
+          }
+        },
+        "TANS 3.14": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.14 — Teoría de grafos: vértices, aristas, grado, conexión"
+          }
+        },
+        "TANS 3.15": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.15 — Matriz de adyacencia; recorridos; potencias"
+          }
+        },
+        "TANS 3.16": {
+          "ambito_iba": "T3",
+          "label": {
+            "es": "TANS 3.16 — Algoritmos en grafos: MST (Kruskal/Prim), TSP (NN, vértice borrado), caminos más cortos"
+          }
+        },
+        "TANS 4.12": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "TANS 4.12 — Diseño experimental y métodos de obtención de datos"
+          }
+        },
+        "TANS 4.13": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "TANS 4.13 — Regresión no lineal; r²; coeficiente de determinación"
+          }
+        },
+        "TANS 4.14": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "TANS 4.14 — Transformación lineal de variables aleatorias"
+          }
+        },
+        "TANS 4.15": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "TANS 4.15 — Combinación lineal de variables; teorema central del límite"
+          }
+        },
+        "TANS 4.16": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "TANS 4.16 — Intervalos de confianza para la media"
+          }
+        },
+        "TANS 4.17": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "TANS 4.17 — Distribución de Poisson; suma; aproximación a la normal"
+          }
+        },
+        "TANS 4.18": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "TANS 4.18 — Test de hipótesis: regiones críticas, valores críticos, errores tipo I/II"
+          }
+        },
+        "TANS 4.19": {
+          "ambito_iba": "T4",
+          "label": {
+            "es": "TANS 4.19 — Test t de dos muestras (independientes y pareadas)"
+          }
+        },
+        "TANS 5.8": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.8 — Derivada de funciones estándar (regla del producto, cociente, cadena)"
+          }
+        },
+        "TANS 5.9": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.9 — Segunda derivada; concavidad; puntos de inflexión"
+          }
+        },
+        "TANS 5.10": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.10 — Cinemática: velocidad y aceleración a partir del desplazamiento"
+          }
+        },
+        "TANS 5.11": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.11 — Integral indefinida (incl. funciones trigonométricas, exp, log)"
+          }
+        },
+        "TANS 5.12": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.12 — Integración por sustitución y por partes"
+          }
+        },
+        "TANS 5.13": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.13 — Integral definida; área bajo curva y entre curvas"
+          }
+        },
+        "TANS 5.14": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.14 — Volúmenes de revolución"
+          }
+        },
+        "TANS 5.15": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.15 — Métodos numéricos: trapecio, Simpson"
+          }
+        },
+        "TANS 5.16": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.16 — EDOs de 1er orden: separación de variables, método de Euler"
+          }
+        },
+        "TANS 5.17": {
+          "ambito_iba": "T5",
+          "label": {
+            "es": "TANS 5.17 — Sistemas de EDOs acopladas y EDO de 2º orden lineal"
+          }
+        }
       }
     },
-
     "ambito_bach": {
-      "label": { "es": "Ámbito Bachillerato (LOMLOE)", "ca": "Àmbit Batxillerat (LOMLOE)", "en": "Bachillerato block (LOMLOE)" },
-      "descripcion": { "es": "Bloques curriculares LOMLOE para Matemáticas Aplicadas a las CCSS y Matemáticas Bachillerato.", "ca": "Blocs curriculars LOMLOE per a Matemàtiques de batxillerat.", "en": "LOMLOE Bachillerato curriculum blocks." },
-      "aplica_si": { "materia": ["bach-ccss-1", "bach-ccss-2", "bach-cient-1", "bach-cient-2"] },
+      "label": {
+        "es": "Ámbito Bachillerato (LOMLOE)",
+        "ca": "Àmbit Batxillerat (LOMLOE)",
+        "en": "Bachillerato block (LOMLOE)"
+      },
+      "descripcion": {
+        "es": "Bloques curriculares LOMLOE para Matemáticas Aplicadas a las CCSS y Matemáticas Bachillerato.",
+        "ca": "Blocs curriculars LOMLOE per a Matemàtiques de batxillerat.",
+        "en": "LOMLOE Bachillerato curriculum blocks."
+      },
+      "aplica_si": {
+        "materia": [
+          "bach-ccss-1",
+          "bach-ccss-2",
+          "bach-cient-1",
+          "bach-cient-2"
+        ]
+      },
       "multi": false,
       "valores": {
-        "BACH-A":  { "label": { "es": "Sentido numérico", "ca": "Sentit numèric", "en": "Number sense" } },
-        "BACH-B":  { "label": { "es": "Sentido de la medida", "ca": "Sentit de la mesura", "en": "Measurement sense" } },
-        "BACH-C":  { "label": { "es": "Sentido espacial (geometría)", "ca": "Sentit espacial (geometria)", "en": "Spatial sense (geometry)" } },
-        "BACH-D":  { "label": { "es": "Sentido algebraico (álgebra y análisis)", "ca": "Sentit algebraic (àlgebra i anàlisi)", "en": "Algebraic sense (algebra and analysis)" } },
-        "BACH-E":  { "label": { "es": "Sentido estocástico (estadística y probabilidad)", "ca": "Sentit estocàstic (estadística i probabilitat)", "en": "Stochastic sense (statistics and probability)" } },
-        "BACH-F":  { "label": { "es": "Sentido socioafectivo y resolución de problemas", "ca": "Sentit socioafectiu i resolució de problemes", "en": "Socio-affective sense and problem solving" } }
+        "BACH-A": {
+          "label": {
+            "es": "Sentido numérico",
+            "ca": "Sentit numèric",
+            "en": "Number sense"
+          }
+        },
+        "BACH-B": {
+          "label": {
+            "es": "Sentido de la medida",
+            "ca": "Sentit de la mesura",
+            "en": "Measurement sense"
+          }
+        },
+        "BACH-C": {
+          "label": {
+            "es": "Sentido espacial (geometría)",
+            "ca": "Sentit espacial (geometria)",
+            "en": "Spatial sense (geometry)"
+          }
+        },
+        "BACH-D": {
+          "label": {
+            "es": "Sentido algebraico (álgebra y análisis)",
+            "ca": "Sentit algebraic (àlgebra i anàlisi)",
+            "en": "Algebraic sense (algebra and analysis)"
+          }
+        },
+        "BACH-E": {
+          "label": {
+            "es": "Sentido estocástico (estadística y probabilidad)",
+            "ca": "Sentit estocàstic (estadística i probabilitat)",
+            "en": "Stochastic sense (statistics and probability)"
+          }
+        },
+        "BACH-F": {
+          "label": {
+            "es": "Sentido socioafectivo y resolución de problemas",
+            "ca": "Sentit socioafectiu i resolució de problemes",
+            "en": "Socio-affective sense and problem solving"
+          }
+        }
       }
     },
-
     "concepto_bach": {
-      "label": { "es": "Concepto Bachillerato", "ca": "Concepte Batxillerat", "en": "Bachillerato concept" },
-      "aplica_si": { "materia": ["bach-ccss-1", "bach-ccss-2", "bach-cient-1", "bach-cient-2"] },
+      "label": {
+        "es": "Concepto Bachillerato",
+        "ca": "Concepte Batxillerat",
+        "en": "Bachillerato concept"
+      },
+      "aplica_si": {
+        "materia": [
+          "bach-ccss-1",
+          "bach-ccss-2",
+          "bach-cient-1",
+          "bach-cient-2"
+        ]
+      },
       "multi": true,
       "valores": {
-        "BACH-numeros-reales":     { "ambito_bach": "BACH-A", "label": { "es": "Números reales y operaciones" } },
-        "BACH-potencias":          { "ambito_bach": "BACH-A", "label": { "es": "Potencias, raíces y logaritmos" } },
-        "BACH-progresiones":       { "ambito_bach": "BACH-A", "label": { "es": "Progresiones aritméticas y geométricas" } },
-        "BACH-matematicas-financieras": { "ambito_bach": "BACH-A", "label": { "es": "Matemáticas financieras (interés, anualidades)" } },
-
-        "BACH-ecuaciones":         { "ambito_bach": "BACH-D", "label": { "es": "Ecuaciones (1º y 2º grado, racionales, irracionales)" } },
-        "BACH-inecuaciones":       { "ambito_bach": "BACH-D", "label": { "es": "Inecuaciones y sistemas de inecuaciones" } },
-        "BACH-sistemas":           { "ambito_bach": "BACH-D", "label": { "es": "Sistemas de ecuaciones lineales y no lineales" } },
-        "BACH-polinomios":         { "ambito_bach": "BACH-D", "label": { "es": "Polinomios: factorización, división, raíces" } },
-        "BACH-funciones-elementales":{ "ambito_bach": "BACH-D", "label": { "es": "Funciones elementales (lineal, cuadrática, racional, exp, log, trig)" } },
-        "BACH-limites":            { "ambito_bach": "BACH-D", "label": { "es": "Límites y continuidad" } },
-        "BACH-derivadas":          { "ambito_bach": "BACH-D", "label": { "es": "Derivadas: cálculo y aplicaciones (monotonía, extremos, optimización)" } },
-        "BACH-integrales":         { "ambito_bach": "BACH-D", "label": { "es": "Integrales: indefinida y definida; área bajo curva" } },
-        "BACH-matrices":           { "ambito_bach": "BACH-D", "label": { "es": "Matrices: operaciones, inversa, rango" } },
-        "BACH-determinantes":      { "ambito_bach": "BACH-D", "label": { "es": "Determinantes" } },
-        "BACH-programacion-lineal":{ "ambito_bach": "BACH-D", "label": { "es": "Programación lineal" } },
-
-        "BACH-trigonometria":      { "ambito_bach": "BACH-C", "label": { "es": "Trigonometría: razones, identidades, ecuaciones" } },
-        "BACH-vectores":           { "ambito_bach": "BACH-C", "label": { "es": "Vectores en el plano y en el espacio" } },
-        "BACH-rectas-planos":      { "ambito_bach": "BACH-C", "label": { "es": "Rectas y planos: ecuaciones, distancias, ángulos" } },
-        "BACH-conicas":            { "ambito_bach": "BACH-C", "label": { "es": "Cónicas: circunferencia, elipse, hipérbola, parábola" } },
-
-        "BACH-estadistica-uni":    { "ambito_bach": "BACH-E", "label": { "es": "Estadística unidimensional" } },
-        "BACH-estadistica-bi":     { "ambito_bach": "BACH-E", "label": { "es": "Estadística bidimensional, correlación y regresión" } },
-        "BACH-probabilidad":       { "ambito_bach": "BACH-E", "label": { "es": "Probabilidad: combinatoria, condicional, Bayes" } },
-        "BACH-distribuciones":     { "ambito_bach": "BACH-E", "label": { "es": "Distribuciones (binomial, normal)" } },
-        "BACH-inferencia":         { "ambito_bach": "BACH-E", "label": { "es": "Inferencia: muestreo, IC, contraste de hipótesis" } }
+        "BACH-numeros-reales": {
+          "ambito_bach": "BACH-A",
+          "label": {
+            "es": "Números reales y operaciones"
+          }
+        },
+        "BACH-potencias": {
+          "ambito_bach": "BACH-A",
+          "label": {
+            "es": "Potencias, raíces y logaritmos"
+          }
+        },
+        "BACH-progresiones": {
+          "ambito_bach": "BACH-A",
+          "label": {
+            "es": "Progresiones aritméticas y geométricas"
+          }
+        },
+        "BACH-matematicas-financieras": {
+          "ambito_bach": "BACH-A",
+          "label": {
+            "es": "Matemáticas financieras (interés, anualidades)"
+          }
+        },
+        "BACH-ecuaciones": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Ecuaciones (1º y 2º grado, racionales, irracionales)"
+          }
+        },
+        "BACH-inecuaciones": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Inecuaciones y sistemas de inecuaciones"
+          }
+        },
+        "BACH-sistemas": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Sistemas de ecuaciones lineales y no lineales"
+          }
+        },
+        "BACH-polinomios": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Polinomios: factorización, división, raíces"
+          }
+        },
+        "BACH-funciones-elementales": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Funciones elementales (lineal, cuadrática, racional, exp, log, trig)"
+          }
+        },
+        "BACH-limites": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Límites y continuidad"
+          }
+        },
+        "BACH-derivadas": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Derivadas: cálculo y aplicaciones (monotonía, extremos, optimización)"
+          }
+        },
+        "BACH-integrales": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Integrales: indefinida y definida; área bajo curva"
+          }
+        },
+        "BACH-matrices": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Matrices: operaciones, inversa, rango"
+          }
+        },
+        "BACH-determinantes": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Determinantes"
+          }
+        },
+        "BACH-programacion-lineal": {
+          "ambito_bach": "BACH-D",
+          "label": {
+            "es": "Programación lineal"
+          }
+        },
+        "BACH-trigonometria": {
+          "ambito_bach": "BACH-C",
+          "label": {
+            "es": "Trigonometría: razones, identidades, ecuaciones"
+          }
+        },
+        "BACH-vectores": {
+          "ambito_bach": "BACH-C",
+          "label": {
+            "es": "Vectores en el plano y en el espacio"
+          }
+        },
+        "BACH-rectas-planos": {
+          "ambito_bach": "BACH-C",
+          "label": {
+            "es": "Rectas y planos: ecuaciones, distancias, ángulos"
+          }
+        },
+        "BACH-conicas": {
+          "ambito_bach": "BACH-C",
+          "label": {
+            "es": "Cónicas: circunferencia, elipse, hipérbola, parábola"
+          }
+        },
+        "BACH-estadistica-uni": {
+          "ambito_bach": "BACH-E",
+          "label": {
+            "es": "Estadística unidimensional"
+          }
+        },
+        "BACH-estadistica-bi": {
+          "ambito_bach": "BACH-E",
+          "label": {
+            "es": "Estadística bidimensional, correlación y regresión"
+          }
+        },
+        "BACH-probabilidad": {
+          "ambito_bach": "BACH-E",
+          "label": {
+            "es": "Probabilidad: combinatoria, condicional, Bayes"
+          }
+        },
+        "BACH-distribuciones": {
+          "ambito_bach": "BACH-E",
+          "label": {
+            "es": "Distribuciones (binomial, normal)"
+          }
+        },
+        "BACH-inferencia": {
+          "ambito_bach": "BACH-E",
+          "label": {
+            "es": "Inferencia: muestreo, IC, contraste de hipótesis"
+          }
+        }
       }
     },
-
     "ambito_eso": {
-      "label": { "es": "Ámbito ESO (LOMLOE)", "ca": "Àmbit ESO (LOMLOE)", "en": "ESO block (LOMLOE)" },
-      "descripcion": { "es": "Sentidos matemáticos LOMLOE para ESO.", "ca": "Sentits matemàtics LOMLOE per a ESO.", "en": "LOMLOE math senses for ESO." },
-      "aplica_si": { "materia": ["eso-1", "eso-2", "eso-3", "eso-4"] },
+      "label": {
+        "es": "Ámbito ESO (LOMLOE)",
+        "ca": "Àmbit ESO (LOMLOE)",
+        "en": "ESO block (LOMLOE)"
+      },
+      "descripcion": {
+        "es": "Sentidos matemáticos LOMLOE para ESO.",
+        "ca": "Sentits matemàtics LOMLOE per a ESO.",
+        "en": "LOMLOE math senses for ESO."
+      },
+      "aplica_si": {
+        "materia": [
+          "eso-1",
+          "eso-2",
+          "eso-3",
+          "eso-4"
+        ]
+      },
       "multi": false,
       "valores": {
-        "ESO-A":  { "label": { "es": "Sentido numérico", "ca": "Sentit numèric", "en": "Number sense" } },
-        "ESO-B":  { "label": { "es": "Sentido de la medida", "ca": "Sentit de la mesura", "en": "Measurement sense" } },
-        "ESO-C":  { "label": { "es": "Sentido espacial (geometría)", "ca": "Sentit espacial (geometria)", "en": "Spatial sense (geometry)" } },
-        "ESO-D":  { "label": { "es": "Sentido algebraico", "ca": "Sentit algebraic", "en": "Algebraic sense" } },
-        "ESO-E":  { "label": { "es": "Sentido estocástico (estadística y probabilidad)", "ca": "Sentit estocàstic (estadística i probabilitat)", "en": "Stochastic sense" } },
-        "ESO-F":  { "label": { "es": "Sentido socioafectivo y resolución de problemas", "ca": "Sentit socioafectiu i resolució de problemes", "en": "Socio-affective sense and problem solving" } }
+        "ESO-A": {
+          "label": {
+            "es": "Sentido numérico",
+            "ca": "Sentit numèric",
+            "en": "Number sense"
+          }
+        },
+        "ESO-B": {
+          "label": {
+            "es": "Sentido de la medida",
+            "ca": "Sentit de la mesura",
+            "en": "Measurement sense"
+          }
+        },
+        "ESO-C": {
+          "label": {
+            "es": "Sentido espacial (geometría)",
+            "ca": "Sentit espacial (geometria)",
+            "en": "Spatial sense (geometry)"
+          }
+        },
+        "ESO-D": {
+          "label": {
+            "es": "Sentido algebraico",
+            "ca": "Sentit algebraic",
+            "en": "Algebraic sense"
+          }
+        },
+        "ESO-E": {
+          "label": {
+            "es": "Sentido estocástico (estadística y probabilidad)",
+            "ca": "Sentit estocàstic (estadística i probabilitat)",
+            "en": "Stochastic sense"
+          }
+        },
+        "ESO-F": {
+          "label": {
+            "es": "Sentido socioafectivo y resolución de problemas",
+            "ca": "Sentit socioafectiu i resolució de problemes",
+            "en": "Socio-affective sense and problem solving"
+          }
+        }
       }
     },
-
     "concepto_eso": {
-      "label": { "es": "Concepto ESO", "ca": "Concepte ESO", "en": "ESO concept" },
-      "aplica_si": { "materia": ["eso-1", "eso-2", "eso-3", "eso-4"] },
+      "label": {
+        "es": "Concepto ESO",
+        "ca": "Concepte ESO",
+        "en": "ESO concept"
+      },
+      "aplica_si": {
+        "materia": [
+          "eso-1",
+          "eso-2",
+          "eso-3",
+          "eso-4"
+        ]
+      },
       "multi": true,
       "valores": {
-        "ESO-naturales":         { "ambito_eso": "ESO-A", "label": { "es": "Números naturales y operaciones" } },
-        "ESO-enteros":           { "ambito_eso": "ESO-A", "label": { "es": "Números enteros y operaciones" } },
-        "ESO-fracciones":        { "ambito_eso": "ESO-A", "label": { "es": "Fracciones y números racionales" } },
-        "ESO-decimales":         { "ambito_eso": "ESO-A", "label": { "es": "Números decimales" } },
-        "ESO-potencias":         { "ambito_eso": "ESO-A", "label": { "es": "Potencias y raíces" } },
-        "ESO-divisibilidad":     { "ambito_eso": "ESO-A", "label": { "es": "Divisibilidad, MCD, MCM" } },
-        "ESO-proporcionalidad":  { "ambito_eso": "ESO-A", "label": { "es": "Proporcionalidad, porcentajes, regla de tres" } },
-
-        "ESO-medidas":           { "ambito_eso": "ESO-B", "label": { "es": "Unidades de medida y cambios" } },
-        "ESO-perimetros":        { "ambito_eso": "ESO-B", "label": { "es": "Perímetros, áreas y volúmenes" } },
-
-        "ESO-figuras-planas":    { "ambito_eso": "ESO-C", "label": { "es": "Figuras planas: triángulos, cuadriláteros, polígonos" } },
-        "ESO-circulo":           { "ambito_eso": "ESO-C", "label": { "es": "Circunferencia y círculo" } },
-        "ESO-pitagoras":         { "ambito_eso": "ESO-C", "label": { "es": "Teorema de Pitágoras" } },
-        "ESO-thales":            { "ambito_eso": "ESO-C", "label": { "es": "Teorema de Tales y semejanza" } },
-        "ESO-trigonometria":     { "ambito_eso": "ESO-C", "label": { "es": "Trigonometría básica (4º ESO)" } },
-        "ESO-cuerpos":           { "ambito_eso": "ESO-C", "label": { "es": "Cuerpos geométricos: prismas, pirámides, cilindros, esferas" } },
-        "ESO-coords":            { "ambito_eso": "ESO-C", "label": { "es": "Coordenadas, vectores en el plano" } },
-
-        "ESO-expresiones":       { "ambito_eso": "ESO-D", "label": { "es": "Expresiones algebraicas y polinomios" } },
-        "ESO-ecuaciones-1g":     { "ambito_eso": "ESO-D", "label": { "es": "Ecuaciones de 1r grado" } },
-        "ESO-ecuaciones-2g":     { "ambito_eso": "ESO-D", "label": { "es": "Ecuaciones de 2º grado" } },
-        "ESO-sistemas":          { "ambito_eso": "ESO-D", "label": { "es": "Sistemas de ecuaciones lineales" } },
-        "ESO-inecuaciones":      { "ambito_eso": "ESO-D", "label": { "es": "Inecuaciones" } },
-        "ESO-funciones":         { "ambito_eso": "ESO-D", "label": { "es": "Funciones: lineal, afín, cuadrática" } },
-        "ESO-funciones-elementales":{ "ambito_eso": "ESO-D", "label": { "es": "Funciones elementales (4º ESO): exp, log, racional, trig" } },
-
-        "ESO-estadistica":       { "ambito_eso": "ESO-E", "label": { "es": "Estadística descriptiva: tablas, gráficos, medidas" } },
-        "ESO-probabilidad":      { "ambito_eso": "ESO-E", "label": { "es": "Probabilidad: experimentos, sucesos, Laplace" } },
-        "ESO-combinatoria":      { "ambito_eso": "ESO-E", "label": { "es": "Combinatoria básica" } }
+        "ESO-naturales": {
+          "ambito_eso": "ESO-A",
+          "label": {
+            "es": "Números naturales y operaciones"
+          }
+        },
+        "ESO-enteros": {
+          "ambito_eso": "ESO-A",
+          "label": {
+            "es": "Números enteros y operaciones"
+          }
+        },
+        "ESO-fracciones": {
+          "ambito_eso": "ESO-A",
+          "label": {
+            "es": "Fracciones y números racionales"
+          }
+        },
+        "ESO-decimales": {
+          "ambito_eso": "ESO-A",
+          "label": {
+            "es": "Números decimales"
+          }
+        },
+        "ESO-potencias": {
+          "ambito_eso": "ESO-A",
+          "label": {
+            "es": "Potencias y raíces"
+          }
+        },
+        "ESO-divisibilidad": {
+          "ambito_eso": "ESO-A",
+          "label": {
+            "es": "Divisibilidad, MCD, MCM"
+          }
+        },
+        "ESO-proporcionalidad": {
+          "ambito_eso": "ESO-A",
+          "label": {
+            "es": "Proporcionalidad, porcentajes, regla de tres"
+          }
+        },
+        "ESO-medidas": {
+          "ambito_eso": "ESO-B",
+          "label": {
+            "es": "Unidades de medida y cambios"
+          }
+        },
+        "ESO-perimetros": {
+          "ambito_eso": "ESO-B",
+          "label": {
+            "es": "Perímetros, áreas y volúmenes"
+          }
+        },
+        "ESO-figuras-planas": {
+          "ambito_eso": "ESO-C",
+          "label": {
+            "es": "Figuras planas: triángulos, cuadriláteros, polígonos"
+          }
+        },
+        "ESO-circulo": {
+          "ambito_eso": "ESO-C",
+          "label": {
+            "es": "Circunferencia y círculo"
+          }
+        },
+        "ESO-pitagoras": {
+          "ambito_eso": "ESO-C",
+          "label": {
+            "es": "Teorema de Pitágoras"
+          }
+        },
+        "ESO-thales": {
+          "ambito_eso": "ESO-C",
+          "label": {
+            "es": "Teorema de Tales y semejanza"
+          }
+        },
+        "ESO-trigonometria": {
+          "ambito_eso": "ESO-C",
+          "label": {
+            "es": "Trigonometría básica (4º ESO)"
+          }
+        },
+        "ESO-cuerpos": {
+          "ambito_eso": "ESO-C",
+          "label": {
+            "es": "Cuerpos geométricos: prismas, pirámides, cilindros, esferas"
+          }
+        },
+        "ESO-coords": {
+          "ambito_eso": "ESO-C",
+          "label": {
+            "es": "Coordenadas, vectores en el plano"
+          }
+        },
+        "ESO-expresiones": {
+          "ambito_eso": "ESO-D",
+          "label": {
+            "es": "Expresiones algebraicas y polinomios"
+          }
+        },
+        "ESO-ecuaciones-1g": {
+          "ambito_eso": "ESO-D",
+          "label": {
+            "es": "Ecuaciones de 1r grado"
+          }
+        },
+        "ESO-ecuaciones-2g": {
+          "ambito_eso": "ESO-D",
+          "label": {
+            "es": "Ecuaciones de 2º grado"
+          }
+        },
+        "ESO-sistemas": {
+          "ambito_eso": "ESO-D",
+          "label": {
+            "es": "Sistemas de ecuaciones lineales"
+          }
+        },
+        "ESO-inecuaciones": {
+          "ambito_eso": "ESO-D",
+          "label": {
+            "es": "Inecuaciones"
+          }
+        },
+        "ESO-funciones": {
+          "ambito_eso": "ESO-D",
+          "label": {
+            "es": "Funciones: lineal, afín, cuadrática"
+          }
+        },
+        "ESO-funciones-elementales": {
+          "ambito_eso": "ESO-D",
+          "label": {
+            "es": "Funciones elementales (4º ESO): exp, log, racional, trig"
+          }
+        },
+        "ESO-estadistica": {
+          "ambito_eso": "ESO-E",
+          "label": {
+            "es": "Estadística descriptiva: tablas, gráficos, medidas"
+          }
+        },
+        "ESO-probabilidad": {
+          "ambito_eso": "ESO-E",
+          "label": {
+            "es": "Probabilidad: experimentos, sucesos, Laplace"
+          }
+        },
+        "ESO-combinatoria": {
+          "ambito_eso": "ESO-E",
+          "label": {
+            "es": "Combinatoria básica"
+          }
+        }
       }
     },
-
     "dificultad": {
-      "label": { "es": "Dificultad", "ca": "Dificultat", "en": "Difficulty" },
+      "label": {
+        "es": "Dificultad",
+        "ca": "Dificultat",
+        "en": "Difficulty"
+      },
       "multi": false,
       "valores": {
-        "facil":   { "orden": 1, "label": { "es": "Fácil",   "ca": "Fàcil",    "en": "Easy" } },
-        "media":   { "orden": 2, "label": { "es": "Media",   "ca": "Mitjana",  "en": "Medium" } },
-        "dificil": { "orden": 3, "label": { "es": "Difícil", "ca": "Difícil",  "en": "Hard" } }
+        "facil": {
+          "orden": 1,
+          "label": {
+            "es": "Fácil",
+            "ca": "Fàcil",
+            "en": "Easy"
+          }
+        },
+        "media": {
+          "orden": 2,
+          "label": {
+            "es": "Media",
+            "ca": "Mitjana",
+            "en": "Medium"
+          }
+        },
+        "dificil": {
+          "orden": 3,
+          "label": {
+            "es": "Difícil",
+            "ca": "Difícil",
+            "en": "Hard"
+          }
+        }
       }
     },
-
     "habilidad": {
-      "label": { "es": "Habilidad", "ca": "Habilitat", "en": "Skill" },
+      "label": {
+        "es": "Habilidad",
+        "ca": "Habilitat",
+        "en": "Skill"
+      },
       "multi": true,
       "valores": {
-        "modelizacion":      { "label": { "es": "Modelización" } },
-        "calculo_simbolico": { "label": { "es": "Cálculo simbólico" } },
-        "calculo_numerico":  { "label": { "es": "Cálculo numérico" } },
-        "demostracion":      { "label": { "es": "Demostración / razonamiento formal" } },
-        "interpretacion":    { "label": { "es": "Interpretación contextual" } },
-        "razonamiento":      { "label": { "es": "Razonamiento" } },
-        "visualizacion":     { "label": { "es": "Visualización / gráficos" } },
-        "uso_calculadora":   { "label": { "es": "Uso de calculadora gráfica" } }
+        "modelizacion": {
+          "label": {
+            "es": "Modelización"
+          }
+        },
+        "calculo_simbolico": {
+          "label": {
+            "es": "Cálculo simbólico"
+          }
+        },
+        "calculo_numerico": {
+          "label": {
+            "es": "Cálculo numérico"
+          }
+        },
+        "demostracion": {
+          "label": {
+            "es": "Demostración / razonamiento formal"
+          }
+        },
+        "interpretacion": {
+          "label": {
+            "es": "Interpretación contextual"
+          }
+        },
+        "razonamiento": {
+          "label": {
+            "es": "Razonamiento"
+          }
+        },
+        "visualizacion": {
+          "label": {
+            "es": "Visualización / gráficos"
+          }
+        },
+        "uso_calculadora": {
+          "label": {
+            "es": "Uso de calculadora gráfica"
+          }
+        }
       }
     },
-
     "formato": {
-      "label": { "es": "Formato", "ca": "Format", "en": "Format" },
+      "label": {
+        "es": "Formato",
+        "ca": "Format",
+        "en": "Format"
+      },
       "multi": true,
       "valores": {
-        "pregunta_corta":    { "label": { "es": "Pregunta corta" } },
-        "pregunta_larga":    { "label": { "es": "Pregunta larga (estructurada en apartados)" } },
-        "opcion_multiple":   { "label": { "es": "Opción múltiple" } },
-        "demostracion_formal":{ "label": { "es": "Demostración formal" } },
-        "problema_aplicado": { "label": { "es": "Problema aplicado / contexto real" } }
+        "pregunta_corta": {
+          "label": {
+            "es": "Pregunta corta"
+          }
+        },
+        "pregunta_larga": {
+          "label": {
+            "es": "Pregunta larga (estructurada en apartados)"
+          }
+        },
+        "opcion_multiple": {
+          "label": {
+            "es": "Opción múltiple"
+          }
+        },
+        "demostracion_formal": {
+          "label": {
+            "es": "Demostración formal"
+          }
+        },
+        "problema_aplicado": {
+          "label": {
+            "es": "Problema aplicado / contexto real"
+          }
+        }
       }
     },
-
     "idioma": {
-      "label": { "es": "Idioma", "ca": "Idioma", "en": "Language" },
+      "label": {
+        "es": "Idioma",
+        "ca": "Idioma",
+        "en": "Language"
+      },
       "multi": false,
       "valores": {
-        "es": { "label": { "es": "Español", "ca": "Castellà", "en": "Spanish" } },
-        "ca": { "label": { "es": "Catalán", "ca": "Català", "en": "Catalan" } },
-        "en": { "label": { "es": "Inglés", "ca": "Anglès", "en": "English" } }
+        "es": {
+          "label": {
+            "es": "Español",
+            "ca": "Castellà",
+            "en": "Spanish"
+          }
+        },
+        "ca": {
+          "label": {
+            "es": "Catalán",
+            "ca": "Català",
+            "en": "Catalan"
+          }
+        },
+        "en": {
+          "label": {
+            "es": "Inglés",
+            "ca": "Anglès",
+            "en": "English"
+          }
+        }
       }
     },
-
     "fuente": {
-      "label": { "es": "Fuente", "ca": "Font", "en": "Source" },
+      "label": {
+        "es": "Fuente",
+        "ca": "Font",
+        "en": "Source"
+      },
       "multi": false,
       "valores": {
-        "propia":          { "label": { "es": "Propia" } },
-        "ib_past_paper":   { "label": { "es": "IB past paper" } },
-        "cangur_oficial":  { "label": { "es": "Cangur oficial" } },
-        "libro_texto":     { "label": { "es": "Libro de texto" } },
-        "adaptado":        { "label": { "es": "Adaptado" } }
+        "propia": {
+          "label": {
+            "es": "Propia"
+          }
+        },
+        "ib_past_paper": {
+          "label": {
+            "es": "IB past paper"
+          }
+        },
+        "cangur_oficial": {
+          "label": {
+            "es": "Cangur oficial"
+          }
+        },
+        "libro_texto": {
+          "label": {
+            "es": "Libro de texto"
+          }
+        },
+        "adaptado": {
+          "label": {
+            "es": "Adaptado"
+          }
+        }
       }
     },
-
+    "tier": {
+      "label": {
+        "es": "Acceso",
+        "ca": "Accés",
+        "en": "Access tier"
+      },
+      "descripcion": {
+        "es": "Si el ejercicio es de acceso libre o reservado a suscriptores. Las colecciones marcadas como 'free' permanecen públicas siempre, también después de activar la suscripción de pago.",
+        "ca": "Si l'exercici és d'accés lliure o reservat a subscriptors. Les col·leccions marcades com a 'free' romanen públiques sempre, també després d'activar la subscripció de pagament.",
+        "en": "Whether the exercise is freely accessible or reserved to subscribers. Collections tagged 'free' remain public always, even after the paid subscription is activated."
+      },
+      "multi": false,
+      "valores": {
+        "free": {
+          "label": {
+            "es": "Acceso libre",
+            "ca": "Accés lliure",
+            "en": "Free"
+          }
+        },
+        "premium": {
+          "label": {
+            "es": "Suscriptores",
+            "ca": "Subscriptors",
+            "en": "Subscribers"
+          }
+        }
+      }
+    },
     "origen": {
-      "label": { "es": "Origen", "ca": "Origen", "en": "Origin" },
-      "descripcion": { "es": "Cómo se ha usado el ejercicio en la docencia: en un examen oficial del centro, en clase, o procedente de Selectividad/PAU.", "ca": "Com s'ha utilitzat l'exercici a la docència: en un examen oficial del centre, a classe, o procedent de Selectivitat/PAU.", "en": "How the exercise has been used in teaching: in a school exam, in class, or sourced from a university entrance exam." },
+      "label": {
+        "es": "Origen",
+        "ca": "Origen",
+        "en": "Origin"
+      },
+      "descripcion": {
+        "es": "Cómo se ha usado el ejercicio en la docencia: en un examen oficial del centro, en clase, o procedente de Selectividad/PAU.",
+        "ca": "Com s'ha utilitzat l'exercici a la docència: en un examen oficial del centre, a classe, o procedent de Selectivitat/PAU.",
+        "en": "How the exercise has been used in teaching: in a school exam, in class, or sourced from a university entrance exam."
+      },
       "multi": false,
       "valores": {
-        "examen":       { "label": { "es": "Examen", "ca": "Examen", "en": "Exam" } },
-        "classe":       { "label": { "es": "Clase", "ca": "Classe", "en": "Class" } },
-        "selectivitat": { "label": { "es": "Selectividad / PAU", "ca": "Selectivitat / PAU", "en": "University entrance exam" } }
+        "examen": {
+          "label": {
+            "es": "Examen",
+            "ca": "Examen",
+            "en": "Exam"
+          }
+        },
+        "classe": {
+          "label": {
+            "es": "Clase",
+            "ca": "Classe",
+            "en": "Class"
+          }
+        },
+        "selectivitat": {
+          "label": {
+            "es": "Selectividad / PAU",
+            "ca": "Selectivitat / PAU",
+            "en": "University entrance exam"
+          }
+        }
       }
     },
-
     "curso_academico": {
-      "label": { "es": "Curso académico", "ca": "Curs acadèmic", "en": "Academic year" },
+      "label": {
+        "es": "Curso académico",
+        "ca": "Curs acadèmic",
+        "en": "Academic year"
+      },
       "multi": false,
       "valores": {
-        "2025-2026": { "label": { "es": "2025-2026" } },
-        "2024-2025": { "label": { "es": "2024-2025" } },
-        "2023-2024": { "label": { "es": "2023-2024" } },
-        "2022-2023": { "label": { "es": "2022-2023" } },
-        "2021-2022": { "label": { "es": "2021-2022" } },
-        "2020-2021": { "label": { "es": "2020-2021" } },
-        "2019-2020": { "label": { "es": "2019-2020" } }
+        "2025-2026": {
+          "label": {
+            "es": "2025-2026"
+          }
+        },
+        "2024-2025": {
+          "label": {
+            "es": "2024-2025"
+          }
+        },
+        "2023-2024": {
+          "label": {
+            "es": "2023-2024"
+          }
+        },
+        "2022-2023": {
+          "label": {
+            "es": "2022-2023"
+          }
+        },
+        "2021-2022": {
+          "label": {
+            "es": "2021-2022"
+          }
+        },
+        "2020-2021": {
+          "label": {
+            "es": "2020-2021"
+          }
+        },
+        "2019-2020": {
+          "label": {
+            "es": "2019-2020"
+          }
+        }
       }
     }
   }

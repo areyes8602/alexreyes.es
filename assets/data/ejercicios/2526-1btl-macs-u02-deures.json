@@ -2,6 +2,8 @@
   "schema_version": 3,
   "id": "2526-1btl-macs-u02-deures",
   "tipo_coleccion": "deures",
+  "tier": "free",
+  "manual_fuente": "Matemàtiques aplicades CCSS 1 — Baula · 2022 LOMLOE",
   "titulo": "Deures — Polinomis",
   "fecha": "2025-10-17",
   "grupo": "1r BTL",
@@ -11,7 +13,9 @@
   "url_index": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html",
   "puntuacion_total": 0,
   "baremo": null,
-  "unidades_implicadas": ["02"],
+  "unidades_implicadas": [
+    "02"
+  ],
   "tags_coleccion": {
     "materia": "bach-ccss-1",
     "curso_academico": "2025-2026",
@@ -28,13 +32,23 @@
       "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-3",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Calcula el valor de $a$ sabent que el valor numèric de $Q(x) = 2x^{3} + ax^{2} - x + 15$ per a $x=-2$ és $-11$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula el valor de $a$ sabent que el valor numèric de $Q(x) = 2x^{3} + ax^{2} - x + 15$ per a $x=-2$ és $-11$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -44,13 +58,24 @@
       "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-6",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Calcula el valor de $m$ perquè el polinomi $P(x) = 2x^{3} - 3mx^{2} + x + 3$ sigui divisible entre $x+1$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula el valor de $m$ perquè el polinomi $P(x) = 2x^{3} - 3mx^{2} + x + 3$ sigui divisible entre $x+1$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -61,16 +86,38 @@
       "puntuacion": 0,
       "contexto": "Considera els polinomis $P(x) = 3x^{5} - 2x^{4} + x^{3} - 2x + 1$, $Q(x) = -x^{5} - x^{2} + 3x$, $S(x) = x-2$ i $T(x) = x + \\tfrac{1}{2}$. Aplica la regla de Ruffini.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Divideix $P(x)$ entre $S(x)$." },
-        { "letra": "b", "puntos": 0, "tarea": "Divideix $P(x)$ entre $T(x)$." },
-        { "letra": "c", "puntos": 0, "tarea": "Divideix $Q(x)$ entre $S(x)$." },
-        { "letra": "d", "puntos": 0, "tarea": "Divideix $Q(x)$ entre $T(x)$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Divideix $P(x)$ entre $S(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Divideix $P(x)$ entre $T(x)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Divideix $Q(x)$ entre $S(x)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Divideix $Q(x)$ entre $T(x)$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -80,13 +127,24 @@
       "url_enunciado": "/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html#ex-9",
       "puntuacion": 0,
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Un polinomi té per arrels $-1$ i $2$, la segona de les quals és una arrel doble. Escriu l'expressió algebraica d'aquest polinomi sabent que $P(0) = 12$. Després, comprova amb GeoGebra els resultats que has obtingut." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Un polinomi té per arrels $-1$ i $2$, la segona de les quals és una arrel doble. Escriu l'expressió algebraica d'aquest polinomi sabent que $P(0) = 12$. Després, comprova amb GeoGebra els resultats que has obtingut."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "media",
-        "habilidad": ["razonamiento", "calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "razonamiento",
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -97,22 +155,69 @@
       "puntuacion": 0,
       "contexto": "Factoritza els polinomis següents. Després, comprova amb GeoGebra els resultats obtinguts.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "$P(x) = 16x^{2} + 8x + 1$" },
-        { "letra": "b", "puntos": 0, "tarea": "$Q(y) = y^{2} + \\tfrac{5y}{6} + \\tfrac{1}{6}$" },
-        { "letra": "c", "puntos": 0, "tarea": "$R(x) = 3x^{3} + x^{2} - 12x - 4$" },
-        { "letra": "d", "puntos": 0, "tarea": "$S(x) = x^{2} - x^{4}$" },
-        { "letra": "e", "puntos": 0, "tarea": "$T(x) = x^{2} + x^{4}$" },
-        { "letra": "f", "puntos": 0, "tarea": "$U(x) = x^{4} - 5x^{2} + 4$" },
-        { "letra": "g", "puntos": 0, "tarea": "$V(x) = 6x^{5} - 5x^{4} - x^{2} + 2x$" },
-        { "letra": "h", "puntos": 0, "tarea": "$W(x) = x^{3} - \\tfrac{9}{2}x^{2} + \\tfrac{3}{2}x + 2$" },
-        { "letra": "i", "puntos": 0, "tarea": "$Y(x) = 2x - 8x^{3}$" },
-        { "letra": "j", "puntos": 0, "tarea": "$Z(x) = x^{3} - 4x^{2} + 4x$" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(x) = 16x^{2} + 8x + 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$Q(y) = y^{2} + \\tfrac{5y}{6} + \\tfrac{1}{6}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$R(x) = 3x^{3} + x^{2} - 12x - 4$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$S(x) = x^{2} - x^{4}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$T(x) = x^{2} + x^{4}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "$U(x) = x^{4} - 5x^{2} + 4$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0,
+          "tarea": "$V(x) = 6x^{5} - 5x^{4} - x^{2} + 2x$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0,
+          "tarea": "$W(x) = x^{3} - \\tfrac{9}{2}x^{2} + \\tfrac{3}{2}x + 2$"
+        },
+        {
+          "letra": "i",
+          "puntos": 0,
+          "tarea": "$Y(x) = 2x - 8x^{3}$"
+        },
+        {
+          "letra": "j",
+          "puntos": 0,
+          "tarea": "$Z(x) = x^{3} - 4x^{2} + 4x$"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     }
   ]

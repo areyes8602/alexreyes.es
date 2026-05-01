@@ -2,6 +2,8 @@
   "schema_version": 3,
   "id": "2526-1btl-macs-u05-classe",
   "tipo_coleccion": "practica",
+  "tier": "free",
+  "manual_fuente": "Matemàtiques aplicades CCSS 1 — Baula · 2022 LOMLOE",
   "titulo": "Exercicis de classe — Funcions reals",
   "fecha": "2025-12-10",
   "grupo": "1r BTL",
@@ -11,7 +13,9 @@
   "url_index": "/aula/ccss-1btl/apuntes/u-funcions-reals/",
   "puntuacion_total": 0,
   "baremo": null,
-  "unidades_implicadas": ["05"],
+  "unidades_implicadas": [
+    "05"
+  ],
   "tags_coleccion": {
     "materia": "bach-ccss-1",
     "curso_academico": "2025-2026",
@@ -30,16 +34,38 @@
       "puntuacion": 0,
       "contexto": "Per a cada funció, calcula la imatge demanada. Recorda: només cal substituir i operar.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Si $f(x) = 2x - 5$, calcula $f(3)$." },
-        { "letra": "b", "puntos": 0, "tarea": "Si $f(x) = x^{2} + 1$, calcula $f(-2)$." },
-        { "letra": "c", "puntos": 0, "tarea": "Si $f(x) = \\log_{2}(x+4)$, calcula $f(4)$." },
-        { "letra": "d", "puntos": 0, "tarea": "Si $f(x) = \\dfrac{6}{x-1}$, calcula $f(4)$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Si $f(x) = 2x - 5$, calcula $f(3)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Si $f(x) = x^{2} + 1$, calcula $f(-2)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Si $f(x) = \\log_{2}(x+4)$, calcula $f(4)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Si $f(x) = \\dfrac{6}{x-1}$, calcula $f(4)$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-funciones-elementales"],
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -51,16 +77,40 @@
       "puntuacion": 0,
       "contexto": "Calcula totes les antiimatges del valor demanat. Recorda: hi pot haver cap, una o diverses solucions, i cal verificar que són al domini.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Si $f(x) = 3x + 1$, troba $f^{-1}(7)$." },
-        { "letra": "b", "puntos": 0, "tarea": "Si $f(x) = x^{2} - 1$, troba $f^{-1}(8)$." },
-        { "letra": "c", "puntos": 0, "tarea": "Si $f(x) = x^{2} + 4$, troba $f^{-1}(0)$." },
-        { "letra": "d", "puntos": 0, "tarea": "Si $f(x) = \\log(x-1)$, troba $f^{-1}(2)$." }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Si $f(x) = 3x + 1$, troba $f^{-1}(7)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Si $f(x) = x^{2} - 1$, troba $f^{-1}(8)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Si $f(x) = x^{2} + 4$, troba $f^{-1}(0)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Si $f(x) = \\log(x-1)$, troba $f^{-1}(2)$."
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-funciones-elementales", "BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-funciones-elementales",
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -72,15 +122,35 @@
       "puntuacion": 0,
       "contexto": "El valor d'un cotxe (en milers d'euros) en funció dels anys $t$ des de la compra es modelitza amb $V(t) = 24 \\cdot 0{,}85^{t}$.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Quin és el valor del cotxe a la compra ($t=0$)?" },
-        { "letra": "b", "puntos": 0, "tarea": "Quin és el valor passats 5 anys?" },
-        { "letra": "c", "puntos": 0, "tarea": "Al cap de quants anys el cotxe valdrà la meitat ($12$ mil €)?" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Quin és el valor del cotxe a la compra ($t=0$)?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Quin és el valor passats 5 anys?"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Al cap de quants anys el cotxe valdrà la meitat ($12$ mil €)?"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-funciones-elementales", "BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-funciones-elementales",
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -92,16 +162,38 @@
       "puntuacion": 0,
       "contexto": "Suposa que el gràfic de $f$ és la paràbola $y = x^{2} - 4$. Respon usant el gràfic com a referència visual i comprova-ho algebraicament.",
       "apartados": [
-        { "letra": "a", "puntos": 0, "tarea": "Quina és la imatge de $-3$?" },
-        { "letra": "b", "puntos": 0, "tarea": "Quantes antiimatges té el valor $y = 5$? Calcula-les." },
-        { "letra": "c", "puntos": 0, "tarea": "Quantes antiimatges té el valor $y = -4$ (vèrtex)?" },
-        { "letra": "d", "puntos": 0, "tarea": "Quantes antiimatges té el valor $y = -5$?" }
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Quina és la imatge de $-3$?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Quantes antiimatges té el valor $y = 5$? Calcula-les."
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Quantes antiimatges té el valor $y = -4$ (vèrtex)?"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Quantes antiimatges té el valor $y = -5$?"
+        }
       ],
       "tags": {
-        "concepto_bach": ["BACH-funciones-elementales"],
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
         "dificultad": "facil",
-        "habilidad": ["razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     }
   ]
