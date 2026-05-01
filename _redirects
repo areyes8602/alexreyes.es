@@ -1,0 +1,10 @@
+# ─────────────────────────────────────────────────────────────────────
+# Cloudflare Pages — redirects / route blocking for alexreyes.es
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+# ─────────────────────────────────────────────────────────────────────
+
+# /editor/ is a local-only authoring tool. Block public access at the edge.
+# To use it: clone the repo and run `python3 -m http.server 8000` from the
+# repo root, then open http://localhost:8000/editor/
+/editor/* /404.html 404
+/editor /404.html 404
