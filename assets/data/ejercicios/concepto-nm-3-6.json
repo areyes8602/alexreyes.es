@@ -1,0 +1,113 @@
+{
+  "schema_version": 3,
+  "id": "concepto-nm-3-6",
+  "tipo_coleccion": "apuntes_concepto",
+  "titulo": "Apuntes NM 3.6 — Diagramas de Voronoi · Ejercicios base",
+  "fecha": "2026-05-01",
+  "promocion": "all",
+  "url_index": "/aula/ib-ai-hl/conceptos/NM-3-6/",
+  "puntuacion_total": 16,
+  "tags_coleccion": {
+    "materia": "ib-ai-hl",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia",
+    "origen": "classe",
+    "ambito_iba": "T3"
+  },
+  "ejercicios": [
+    {
+      "id": "concepto-nm-3-6-e1",
+      "numero": 1,
+      "titulo": "Cobertura de dos antenas en una localidad costera",
+      "url_enunciado": "/aula/ib-ai-hl/conceptos/NM-3-6/#ejercicio-e1",
+      "url_solucion_html": "/aula/ib-ai-hl/conceptos/NM-3-6/#ejercicio-e1",
+      "puntuacion": 3,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Ecuación de la frontera (mediatriz) entre las celdas $V(A)$ y $V(B)$ con $A=(2,1)$ antena del faro y $B=(8,5)$ antena del paseo"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Determinar si la vivienda $P=(7,2)$ se conecta a la antena del faro o del paseo, calculando las distancias"
+        }
+      ],
+      "tags": {
+        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_corta", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "concepto-nm-3-6-e2",
+      "numero": 2,
+      "titulo": "Repetidor equidistante a tres estaciones meteorológicas",
+      "url_enunciado": "/aula/ib-ai-hl/conceptos/NM-3-6/#ejercicio-e2",
+      "url_solucion_html": "/aula/ib-ai-hl/conceptos/NM-3-6/#ejercicio-e2",
+      "puntuacion": 5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Coordenadas del vértice del diagrama de Voronoi (punto equidistante) de la estación valle $A=(0,0)$, río $B=(6,0)$ y cumbre $C=(0,8)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Distancia común desde el vértice a las tres estaciones"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Justificación geométrica vía teorema de Tales del círculo de que la distancia coincide con $|BC|/2$"
+        }
+      ],
+      "tags": {
+        "concepto_iba": ["NM 3.6", "NM 3.1"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento", "visualizacion"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "concepto-nm-3-6-e3",
+      "numero": 3,
+      "titulo": "Vertedero municipal en una ciudad con cuatro escuelas",
+      "url_enunciado": "/aula/ib-ai-hl/conceptos/NM-3-6/#ejercicio-e3",
+      "url_solucion_html": "/aula/ib-ai-hl/conceptos/NM-3-6/#ejercicio-e3",
+      "puntuacion": 8,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Mediatrices de los segmentos $\\overline{AB}$ y $\\overline{AD}$ con $A=(2,5)$, $B=(3,3)$, $D=(8,1)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Vértice $Q$ del diagrama como intersección del par de mediatrices apropiadas, con dos cifras decimales"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Distancias $d(P,B)$ y $d(Q,A)$ con $P=(5,3.5)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Decidir en qué vértice se construye el vertedero para maximizar la distancia mínima a una escuela"
+        }
+      ],
+      "tags": {
+        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "dificultad": "dificil",
+        "habilidad": ["modelizacion", "calculo_simbolico", "interpretacion", "razonamiento"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}

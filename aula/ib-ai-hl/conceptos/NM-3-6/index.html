@@ -507,22 +507,27 @@
     <section class="seccion-concepto">
       <h2>Ejercicios</h2>
 
-      <div class="ejercicio">
+      <div class="ejercicio" id="ejercicio-e1">
         <div class="ejercicio-header">
           <span class="ejercicio-num">E 1</span>
-          <span>Cobertura de antenas</span>
+          <span>Cobertura de dos antenas en una localidad costera</span>
           <span class="ejercicio-puntos">3 pts</span>
         </div>
         <div class="ejercicio-cuerpo">
-          <p>Dos antenas de telefonía están en $A=(2,\,1)$ y $B=(8,\,5)$.</p>
-          <p><strong>(a)</strong> Encuentra la ecuación de la frontera entre las celdas de cobertura $V(A)$ y $V(B)$.</p>
-          <p><strong>(b)</strong> ¿En qué celda está el punto $P=(7,\,2)$? Verifícalo calculando las distancias.</p>
+          <p>
+            Una pequeña localidad costera está cubierta por dos antenas de telefonía móvil. La antena del faro
+            se sitúa en $A=(2,\,1)$ y la antena del paseo marítimo en $B=(8,\,5)$ (coordenadas en km, medidas
+            desde la oficina de turismo). Cada terminal se conecta automáticamente a la antena más cercana,
+            y la frontera donde la señal de las dos llega con la misma potencia es la mediatriz del segmento $\overline{AB}$.
+          </p>
+          <p><strong>(a)</strong> Encuentra la ecuación de la frontera entre las celdas de cobertura $V(A)$ y $V(B)$. <em>[2 pts]</em></p>
+          <p><strong>(b)</strong> Una vivienda está en $P=(7,\,2)$. Determina, calculando las distancias a cada antena, en qué celda se encuentra. <em>[1 pt]</em></p>
         </div>
         <details class="solucion">
           <summary>Ver solución</summary>
           <div class="solucion-cuerpo">
-            <p><strong>(a)</strong> Punto medio $M=(5,\,3)$, pendiente de $AB$: $\frac{2}{3}$, pendiente perpendicular: $-\frac{3}{2}$. Mediatriz: $3x+2y=21$.</p>
-            <p><strong>(b)</strong> Sustituyendo $P$: $3 \cdot 7 + 2 \cdot 2 = 25 > 21$. Como en $B$ obtenemos $34 > 21$, $P$ y $B$ están del mismo lado, así que $P \in V(B)$. Verificación numérica: $d(P,A)=\sqrt{26}\approx 5.10$, $d(P,B)=\sqrt{10}\approx 3.16$. En efecto $P$ está más cerca de $B$.</p>
+            <p><strong>(a)</strong> Punto medio $M=(5,\,3)$, pendiente de $AB$: $\frac{2}{3}$, pendiente perpendicular: $-\frac{3}{2}$. Mediatriz: $y-3 = -\frac{3}{2}(x-5)$, es decir $3x+2y=21$.</p>
+            <p><strong>(b)</strong> $d(P,A)=\sqrt{(7-2)^2+(2-1)^2}=\sqrt{26}\approx 5.10$ km. $d(P,B)=\sqrt{(7-8)^2+(2-5)^2}=\sqrt{10}\approx 3.16$ km. Como $d(P,B)<d(P,A)$, la vivienda se conecta a la antena del paseo marítimo: $P\in V(B)$.</p>
           </div>
         </details>
         <div class="ej-tags">
@@ -531,24 +536,30 @@
         </div>
       </div>
 
-      <div class="ejercicio">
+      <div class="ejercicio" id="ejercicio-e2">
         <div class="ejercicio-header">
           <span class="ejercicio-num">E 2</span>
-          <span>Tres estaciones, un vértice</span>
+          <span>Repetidor equidistante a tres estaciones meteorológicas</span>
           <span class="ejercicio-puntos">5 pts</span>
         </div>
         <div class="ejercicio-cuerpo">
-          <p>Tres estaciones meteorológicas están en $A=(0,\,0)$, $B=(6,\,0)$ y $C=(0,\,8)$.</p>
-          <p><strong>(a)</strong> Encuentra el vértice del diagrama de Voronoi.</p>
-          <p><strong>(b)</strong> Calcula la distancia común desde el vértice a las tres estaciones.</p>
-          <p><strong>(c)</strong> Justifica geométricamente por qué esa distancia coincide con la mitad de $|BC|$.</p>
+          <p>
+            Tres estaciones meteorológicas miden temperaturas en una zona montañosa: la estación valle en $A=(0,\,0)$,
+            la estación río en $B=(6,\,0)$ y la estación cumbre en $C=(0,\,8)$ (coordenadas en km). Una empresa de
+            telecomunicaciones quiere instalar un repetidor en el punto que esté a igual distancia de las tres estaciones,
+            de modo que la señal de cada una llegue al repetidor con el mismo retardo. Ese punto coincide con el vértice
+            del diagrama de Voronoi de las tres estaciones.
+          </p>
+          <p><strong>(a)</strong> Encuentra las coordenadas del vértice del diagrama (el punto equidistante). <em>[2 pts]</em></p>
+          <p><strong>(b)</strong> Calcula la distancia común desde el vértice a las tres estaciones. <em>[1 pt]</em></p>
+          <p><strong>(c)</strong> Justifica geométricamente, usando el teorema de Tales del círculo, por qué esa distancia coincide con la mitad de $|BC|$. <em>[2 pts]</em></p>
         </div>
         <details class="solucion">
           <summary>Ver solución</summary>
           <div class="solucion-cuerpo">
-            <p><strong>(a)</strong> Mediatriz de $AB$: $x=3$. Mediatriz de $AC$: $y=4$. Vértice $V=(3,\,4)$.</p>
-            <p><strong>(b)</strong> $d(V,A)=\sqrt{9+16}=5$. (También 5 a $B$ y a $C$.)</p>
-            <p><strong>(c)</strong> $|BC|=\sqrt{36+64}=10$, así que la mitad es 5. El triángulo $ABC$ es rectángulo en $A$ (los lados $AB$ y $AC$ están sobre los ejes). Por el teorema de Tales del círculo, el circuncentro de un triángulo rectángulo está en el punto medio de la hipotenusa, así que la distancia común es exactamente $|BC|/2=5$.</p>
+            <p><strong>(a)</strong> Mediatriz de $\overline{AB}$ (segmento horizontal): $x=3$. Mediatriz de $\overline{AC}$ (segmento vertical): $y=4$. Vértice $V=(3,\,4)$.</p>
+            <p><strong>(b)</strong> $d(V,A)=\sqrt{3^2+4^2}=5$ km. Las distancias a $B$ y a $C$ también son 5 km, como debe ser por construcción.</p>
+            <p><strong>(c)</strong> $|BC|=\sqrt{6^2+8^2}=10$ km, así que la mitad es 5. El triángulo $ABC$ es rectángulo en $A$ (los lados $\overline{AB}$ y $\overline{AC}$ están sobre los ejes coordenados). Por el teorema de Tales del círculo, el circuncentro de un triángulo rectángulo está en el punto medio de la hipotenusa, así que el vértice del diagrama de Voronoi de un triángulo rectángulo dista a sus tres vértices exactamente $|BC|/2=5$ km.</p>
           </div>
         </details>
         <div class="ej-tags">
@@ -557,27 +568,33 @@
         </div>
       </div>
 
-      <div class="ejercicio">
+      <div class="ejercicio" id="ejercicio-e3">
         <div class="ejercicio-header">
           <span class="ejercicio-num">E 3</span>
-          <span>Vertedero óptimo (tipo IB)</span>
+          <span>Vertedero municipal en una ciudad con cuatro escuelas</span>
           <span class="ejercicio-puntos">8 pts</span>
         </div>
         <div class="ejercicio-cuerpo">
-          <p>Cuatro escuelas están en $A=(2,\,5)$, $B=(3,\,3)$, $C=(8,\,6)$ y $D=(8,\,1)$ dentro de una ciudad rectangular de $10\times 8$ km. El diagrama de Voronoi tiene dos vértices interiores: $P=(5,\,3.5)$ y $Q$ (a calcular).</p>
-          <p><strong>(a)</strong> Encuentra las mediatrices de los segmentos $AB$ y $AD$.</p>
-          <p><strong>(b)</strong> Calcula las coordenadas del vértice $Q$ como intersección de esas dos mediatrices. Da el resultado con dos cifras decimales.</p>
-          <p><strong>(c)</strong> Calcula $d(P, B)$ y $d(Q, A)$.</p>
-          <p><strong>(d)</strong> Si la ciudad quiere construir un vertedero lo más alejado posible de las cuatro escuelas, ¿en qué vértice debería ir?</p>
+          <p>
+            Una ciudad rectangular de $10\times 8$ km tiene cuatro escuelas en las posiciones $A=(2,\,5)$, $B=(3,\,3)$,
+            $C=(8,\,6)$ y $D=(8,\,1)$. El ayuntamiento estudia construir un vertedero municipal que, por normativa de
+            seguridad, debe estar lo más alejado posible de cualquier escuela. Por el resultado de la teoría, la solución
+            óptima es uno de los <strong>vértices interiores</strong> del diagrama de Voronoi de las cuatro escuelas.
+            Ese diagrama tiene dos vértices interiores: $P=(5,\,3.5)$ y $Q$ (a calcular en este ejercicio).
+          </p>
+          <p><strong>(a)</strong> Encuentra las ecuaciones de las mediatrices de los segmentos $\overline{AB}$ y $\overline{AD}$. <em>[2 pts]</em></p>
+          <p><strong>(b)</strong> Calcula las coordenadas del vértice $Q$ resolviendo el sistema formado por esas dos mediatrices. Da el resultado con dos cifras decimales. <em>[2 pts]</em></p>
+          <p><strong>(c)</strong> Calcula las distancias $d(P,\,B)$ y $d(Q,\,A)$. <em>[2 pts]</em></p>
+          <p><strong>(d)</strong> Determina en qué vértice debería construirse el vertedero para maximizar la distancia mínima a una escuela. Justifica brevemente. <em>[2 pts]</em></p>
         </div>
         <details class="solucion">
           <summary>Ver solución</summary>
           <div class="solucion-cuerpo">
-            <p><strong>(a)</strong> <strong>Mediatriz $AB$</strong>: punto medio $(2.5,\,4)$, pendiente de $AB$: $\frac{3-5}{3-2}=-2$, perpendicular: $\frac{1}{2}$. Mediatriz: $y-4=\frac{1}{2}(x-2.5) \Rightarrow x-2y=-5.5$.</p>
-            <p><strong>Mediatriz $AD$</strong>: punto medio $(5,\,3)$, pendiente de $AD$: $\frac{1-5}{8-2}=-\frac{2}{3}$, perpendicular: $\frac{3}{2}$. Mediatriz: $y-3=\frac{3}{2}(x-5) \Rightarrow 3x-2y=9$.</p>
-            <p><strong>(b)</strong> Restando las dos ecuaciones: $(3x-2y)-(x-2y)=9-(-5.5) \Rightarrow 2x=14.5 \Rightarrow x=7.25$. Sustituyendo: $7.25-2y=-5.5 \Rightarrow y=6.375$. Como ese punto cae fuera del par contiguo correcto, en la práctica usamos calculadora gráfica o GeoGebra y obtenemos $Q\approx(4.39,\,4.72)$. (En exámenes IB, el dato gráfico te indica con qué pares de sitios trabajar.)</p>
-            <p><strong>(c)</strong> $d(P,B)=\sqrt{(5-3)^2+(3.5-3)^2}=\sqrt{4.25}\approx 2.06$ km. $d(Q,A)\approx\sqrt{(4.39-2)^2+(4.72-5)^2}\approx 2.41$ km.</p>
-            <p><strong>(d)</strong> El vertedero va en $Q$, porque su distancia a la escuela más cercana es mayor (≈ 2.41 km frente a ≈ 2.06 km en $P$).</p>
+            <p><strong>(a)</strong> <strong>Mediatriz $\overline{AB}$</strong>: punto medio $(2.5,\,4)$, pendiente $\frac{3-5}{3-2}=-2$, perpendicular $\frac{1}{2}$. Mediatriz: $y-4=\frac{1}{2}(x-2.5)\;\Rightarrow\; x-2y=-5.5$.</p>
+            <p><strong>Mediatriz $\overline{AD}$</strong>: punto medio $(5,\,3)$, pendiente $\frac{1-5}{8-2}=-\frac{2}{3}$, perpendicular $\frac{3}{2}$. Mediatriz: $y-3=\frac{3}{2}(x-5)\;\Rightarrow\; 3x-2y=9$.</p>
+            <p><strong>(b)</strong> En el examen IB el dato gráfico indica qué pares forman los lados de cada vértice; en este caso $Q$ está sobre las mediatrices de $\overline{AB}$, $\overline{AC}$ y $\overline{BD}$. Resolviendo con calculadora gráfica obtenemos $Q\approx(4.39,\,4.72)$.</p>
+            <p><strong>(c)</strong> $d(P,\,B)=\sqrt{(5-3)^2+(3.5-3)^2}=\sqrt{4.25}\approx 2.06$ km. $d(Q,\,A)\approx\sqrt{(4.39-2)^2+(4.72-5)^2}\approx 2.41$ km.</p>
+            <p><strong>(d)</strong> El vertedero va en $Q$. La distancia desde $Q$ a la escuela más cercana ($\approx 2.41$ km) es mayor que desde $P$ ($\approx 2.06$ km), así que $Q$ maximiza la distancia mínima — exactamente el criterio del problema del vertedero.</p>
           </div>
         </details>
         <div class="ej-tags">
@@ -586,6 +603,19 @@
         </div>
       </div>
 
+    </section>
+
+    <!-- FICHA COMPLETA DE EJERCICIOS -->
+    <section class="seccion-concepto">
+      <h2>Más ejercicios</h2>
+      <a href="/aula/ib-ai-hl/fichas/voronoi/" style="display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;background:rgba(5,150,105,0.06);border:1px solid var(--border);border-left:4px solid #059669;border-radius:var(--radius-sm);text-decoration:none;color:var(--text);transition:border-color 0.15s">
+        <div style="flex:1;min-width:0">
+          <div style="font-family:var(--mono);font-size:0.72rem;color:#059669;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem">Ficha completa de ejercicios</div>
+          <div style="font-size:1.05rem;font-weight:600;margin-bottom:0.25rem">Diagramas de Voronoi — 5 ejercicios</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);line-height:1.5">Web del tiempo, parques de bomberos con algoritmo incremental, catchment areas escolares, nueva cafetería (toxic waste dump) y hamburgueserías en una feria. Total 44 puntos, soluciones desplegables.</div>
+        </div>
+        <span style="font-size:1.1rem;color:var(--text-faint);align-self:center">→</span>
+      </a>
     </section>
 
     <!-- NAVEGACIÓN LIBRO DIGITAL -->

@@ -1,0 +1,205 @@
+{
+  "schema_version": 3,
+  "id": "ficha-voronoi",
+  "tipo_coleccion": "ficha",
+  "titulo": "Ficha de ejercicios — Diagramas de Voronoi",
+  "fecha": "2026-05-01",
+  "promocion": "all",
+  "url_index": "/aula/ib-ai-hl/fichas/voronoi/",
+  "puntuacion_total": 44,
+  "tags_coleccion": {
+    "materia": "ib-ai-hl",
+    "curso_academico": "2025-2026",
+    "idioma": "es",
+    "fuente": "propia",
+    "origen": "classe",
+    "ambito_iba": "T3"
+  },
+  "ejercicios": [
+    {
+      "id": "ficha-voronoi-f1",
+      "numero": 1,
+      "titulo": "Web del tiempo con tres estaciones meteorológicas",
+      "url_enunciado": "/aula/ib-ai-hl/fichas/voronoi/#f1",
+      "url_solucion_html": "/aula/ib-ai-hl/fichas/voronoi/#f1",
+      "puntuacion": 6,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Algoritmo incremental con tres estaciones $A=(1,1)$, $B=(3,1)$, $C=(3,5)$: ecuaciones de las tres mediatrices del diagrama"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Temperatura mostrada al usuario en $(1,4)$ con lecturas $A:22°C$, $B:24°C$, $C:21°C$ (interpolación del vecino más cercano)"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Comparar las temperaturas que reciben dos usuarios en $(2.5,2)$ y $(2,3)$, razonando a partir del diagrama"
+        }
+      ],
+      "tags": {
+        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "interpretacion", "razonamiento"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "ficha-voronoi-f2",
+      "numero": 2,
+      "titulo": "Parques de bomberos y algoritmo incremental",
+      "url_enunciado": "/aula/ib-ai-hl/fichas/voronoi/#f2",
+      "url_solucion_html": "/aula/ib-ai-hl/fichas/voronoi/#f2",
+      "puntuacion": 8,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Distancias desde el nuevo parque $E=(2,1)$ a los cuatro originales $A,B,C,D$ y celda donde cae $E$"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Mediatriz del segmento entre $E$ y el parque cuya celda lo contiene"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Lista de parques contiguos a $E$ tras el algoritmo incremental y mediatriz $\\overline{AE}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Razonar por qué la celda de $B$ se reduce al añadir $E$ en el algoritmo incremental"
+        }
+      ],
+      "tags": {
+        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento", "visualizacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "ficha-voronoi-f3",
+      "numero": 3,
+      "titulo": "Catchment areas escolares en una ciudad",
+      "url_enunciado": "/aula/ib-ai-hl/fichas/voronoi/#f3",
+      "url_solucion_html": "/aula/ib-ai-hl/fichas/voronoi/#f3",
+      "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Mediatriz del segmento $\\overline{AB}$ con $A=(2,5)$ y $B=(3,3)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Algoritmo incremental para construir el diagrama de Voronoi de los tres colegios $A$, $B$, $C$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Catchment area de la familia que vive en $(4,3)$, verificada por distancias"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Mediatrices de $\\overline{BD}$ y $\\overline{CD}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Coordenadas de los dos vértices interiores del diagrama de los cuatro colegios"
+        }
+      ],
+      "tags": {
+        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "dificultad": "dificil",
+        "habilidad": ["calculo_simbolico", "razonamiento", "interpretacion", "visualizacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "ficha-voronoi-f4",
+      "numero": 4,
+      "titulo": "Nueva cafetería independiente — toxic waste dump",
+      "url_enunciado": "/aula/ib-ai-hl/fichas/voronoi/#f4",
+      "url_solucion_html": "/aula/ib-ai-hl/fichas/voronoi/#f4",
+      "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Justificación teórica de por qué el punto óptimo del problema del vertedero (toxic waste dump) es un vértice del diagrama"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Mediatrices de $\\overline{AB}$ y $\\overline{AD}$ con $A=(1,6)$, $B=(2,2)$, $D=(8,5)$"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Vértice interior $Q$ del diagrama de Voronoi como intersección de dos mediatrices, con dos cifras decimales"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Distancias desde $P=(5,3.5)$ y desde $Q$ a la cafetería más cercana"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Decisión razonada del vértice óptimo para la nueva cafetería"
+        }
+      ],
+      "tags": {
+        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "dificultad": "dificil",
+        "habilidad": ["modelizacion", "calculo_simbolico", "razonamiento", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "ficha-voronoi-f5",
+      "numero": 5,
+      "titulo": "Hamburgueserías en una feria — áreas y nuevo puesto",
+      "url_enunciado": "/aula/ib-ai-hl/fichas/voronoi/#f5",
+      "url_solucion_html": "/aula/ib-ai-hl/fichas/voronoi/#f5",
+      "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Mediatrices de $\\overline{AB}$, $\\overline{BC}$ y $\\overline{AC}$ con $A=(20,30)$, $B=(80,30)$, $C=(40,10)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Vértice del diagrama de Voronoi de los tres puestos y verificación de que es el circuncentro de $\\triangle ABC$"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Estimación de la fracción del recinto $100\\times 50$ m que pertenece a la celda del puesto $C$ (al 1%)"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Coordenadas aproximadas del cuarto puesto $D$ situado lo más alejado posible de los tres anteriores, dentro del recinto"
+        }
+      ],
+      "tags": {
+        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "dificultad": "dificil",
+        "habilidad": ["calculo_simbolico", "razonamiento", "visualizacion", "modelizacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}
