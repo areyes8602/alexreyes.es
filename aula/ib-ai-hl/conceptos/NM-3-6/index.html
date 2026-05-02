@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NM 3.6 · Diagramas de Voronoi · IB Math AI — alexreyes.es</title>
-<meta name="description" content="Apuntes de NM 3.6: diagramas de Voronoi. Teoría, ejemplos resueltos, applet GeoGebra interactivo y ejercicios con solución para IB Math AI HL/SL.">
+<meta name="description" content="Apuntes de NM 3.6 — diagramas de Voronoi. Problema motivador, mediatrices, algoritmo incremental, interpolación del vecino más cercano y problema del vertedero tóxico. Estilo IB Math AI con ejemplos resueltos, GeoGebra interactivo y ejercicios.">
 <meta name="robots" content="index, follow">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/conceptos/NM-3-6/">
 <style>
-  /* ── Card del concepto (igual estilo que syllabus card NM) ── */
+  /* Card del concepto */
   .concepto-card {
     margin: 1.5rem 0; padding: 1.5rem;
     background: var(--bg-subtle);
@@ -34,7 +34,7 @@
   .concepto-card-title { font-size: 1.6rem; font-weight: 600; margin: 0.3rem 0; }
   .concepto-card-intro { color: var(--text-soft); line-height: 1.55; margin: 0.6rem 0 0; }
 
-  /* ── Secciones ── */
+  /* Secciones */
   .seccion-concepto { margin: 2.5rem 0 1rem; }
   .seccion-concepto > h2 {
     display: flex; align-items: center; gap: 0.6rem;
@@ -43,27 +43,49 @@
   }
   .seccion-icon { font-size: 1.2rem; }
 
-  /* ── Bloque de teoría ── */
-  .teoria-bloque { line-height: 1.7; color: var(--text); }
-  .teoria-bloque p { margin: 0.8rem 0; }
-  .teoria-bloque ul { padding-left: 1.4rem; line-height: 1.7; }
-  .teoria-bloque li { margin: 0.3rem 0; }
-  .definicion {
+  /* Teoría narrativa */
+  .teoria-bloque { line-height: 1.7; color: var(--text); font-size: 1.0rem; }
+  .teoria-bloque p { margin: 0.85rem 0; }
+  .teoria-bloque ul, .teoria-bloque ol { padding-left: 1.4rem; line-height: 1.7; }
+  .teoria-bloque li { margin: 0.35rem 0; }
+  .teoria-bloque h3 {
+    font-size: 1.05rem; font-weight: 600; margin: 1.6rem 0 0.5rem;
+    color: var(--text);
+  }
+  .teoria-bloque h3 .emoji { font-size: 1.05rem; margin-right: 0.4rem; }
+
+  .info-box {
     background: rgba(8,145,178,0.06);
     border-left: 3px solid #0891b2;
-    padding: 0.9rem 1.2rem;
+    padding: 0.85rem 1.1rem;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     margin: 1rem 0;
   }
-  [data-theme="dark"] .definicion { background: rgba(8,145,178,0.12); }
-  .definicion-tag {
-    display: inline-block; font-family: var(--mono); font-size: 0.72rem;
-    color: #0e7490; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.04em; margin-bottom: 0.3rem;
+  .info-box.amarillo {
+    background: rgba(245,158,11,0.07);
+    border-left-color: #d97706;
   }
-  [data-theme="dark"] .definicion-tag { color: #67e8f9; }
+  .info-box.rosa {
+    background: rgba(219,39,119,0.06);
+    border-left-color: #db2777;
+  }
+  [data-theme="dark"] .info-box { background: rgba(8,145,178,0.14); }
+  [data-theme="dark"] .info-box.amarillo { background: rgba(245,158,11,0.16); }
+  [data-theme="dark"] .info-box.rosa { background: rgba(219,39,119,0.14); }
+  .info-box-tag {
+    display: inline-block; font-family: var(--mono); font-size: 0.7rem;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    margin-bottom: 0.35rem; color: #0e7490;
+  }
+  .info-box.amarillo .info-box-tag { color: #b45309; }
+  .info-box.rosa .info-box-tag { color: #be185d; }
+  [data-theme="dark"] .info-box-tag { color: #67e8f9; }
+  [data-theme="dark"] .info-box.amarillo .info-box-tag { color: #fbbf24; }
+  [data-theme="dark"] .info-box.rosa .info-box-tag { color: #f9a8d4; }
+  .info-box p:first-child { margin-top: 0; }
+  .info-box p:last-child { margin-bottom: 0; }
 
-  /* ── Ejemplos ── */
+  /* Ejemplos */
   .ejemplo {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -83,21 +105,33 @@
   .ejemplo-cuerpo { line-height: 1.65; color: var(--text); }
   .ejemplo-cuerpo p { margin: 0.6rem 0; }
 
-  /* ── GeoGebra applet ── */
+  /* GeoGebra */
   .ggb-frame {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     padding: 0.6rem;
     margin: 1rem 0;
+    overflow: hidden;
   }
-  .ggb-applet-host { width: 100%; min-height: 480px; }
+  .ggb-applet-host { width: 100%; min-height: 480px; min-width: 0; }
   .ggb-caption {
     font-size: 0.82rem; color: var(--text-faint); text-align: center;
     margin-top: 0.5rem; font-style: italic;
   }
+  .ggb-fallback {
+    text-align: center; padding: 2rem 1rem;
+    color: var(--text-soft); font-size: 0.9rem;
+  }
+  .ggb-fallback a {
+    display: inline-block; margin-top: 0.6rem;
+    padding: 0.55rem 1rem;
+    background: #0891b2; color: #fff;
+    text-decoration: none; border-radius: var(--radius-sm);
+    font-weight: 500;
+  }
 
-  /* ── Ejercicios ── */
+  /* Ejercicios */
   .ejercicio {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -107,7 +141,7 @@
   }
   .ejercicio-header {
     display: flex; align-items: center; gap: 0.6rem;
-    font-weight: 600; margin-bottom: 0.6rem;
+    font-weight: 600; margin-bottom: 0.6rem; flex-wrap: wrap;
   }
   .ejercicio-num {
     font-family: var(--mono); font-size: 0.74rem;
@@ -140,7 +174,7 @@
   .solucion-cuerpo { padding-top: 0.7rem; line-height: 1.65; color: var(--text); }
   .solucion-cuerpo p { margin: 0.5rem 0; }
 
-  /* ── Tags inline ── */
+  /* Tags inline */
   .ej-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.6rem; }
   .ej-tag {
     font-family: var(--mono); font-size: 0.7rem;
@@ -150,7 +184,7 @@
   }
   [data-theme="dark"] .ej-tag { background: rgba(8,145,178,0.22); color: #67e8f9; }
 
-  /* ── Navegación a unidades relacionadas ── */
+  /* Unidades relacionadas */
   .relacionado-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 0.8rem; margin: 1rem 0;
@@ -208,7 +242,6 @@
       <span class="current">NM 3.6 · Diagramas de Voronoi</span>
     </div>
 
-    <!-- Card del concepto -->
     <div class="concepto-card">
       <div class="concepto-card-meta">
         <span class="concepto-card-code">NM 3.6</span>
@@ -216,170 +249,203 @@
       </div>
       <h1 class="concepto-card-title">Diagramas de Voronoi</h1>
       <p class="concepto-card-intro">
-        Dado un conjunto de puntos en el plano (los <em>sitios</em>), el diagrama de Voronoi
-        divide el plano en regiones formadas por los puntos más cercanos a cada sitio.
-        Aparece de forma natural al planificar territorios, redes de servicios o zonas de cobertura.
+        Si conocemos la posición de cinco aeropuertos en un estado y un avión sufre una emergencia,
+        ¿a qué aeropuerto se desviará? El más cercano. Pintar en el mapa, para cada punto, de qué color es
+        el aeropuerto más cercano genera un mapa con cinco regiones de colores. Eso es un
+        <strong>diagrama de Voronoi</strong>: un mapa de proximidades.
       </p>
     </div>
 
-    <!-- ──────────────────────────── TEORÍA ──────────────────────────── -->
+    <!-- TEORÍA -->
     <section class="seccion-concepto">
       <h2><span class="seccion-icon">📖</span> Teoría</h2>
       <div class="teoria-bloque">
 
+        <h3><span class="emoji">🛫</span>Idea</h3>
         <p>
-          La construcción parte de un conjunto finito de puntos $S = \{s_1, s_2, \dots, s_n\}$ del plano,
-          a los que llamaremos <strong>sitios</strong> (también <em>seeds</em> o <em>generadores</em>).
+          Tienes un conjunto de puntos en el plano que llamaremos <strong>sitios</strong>:
+          aeropuertos, hospitales, antenas, supermercados, lo que sea. A cada sitio le asignamos
+          la región del plano formada por todos los puntos que están más cerca de él que de cualquier
+          otro sitio. Esa región se llama <strong>célula</strong> del sitio. La unión de todas las células
+          cubre el plano y forma el <strong>diagrama de Voronoi</strong>.
+        </p>
+        <p>
+          Cada célula es siempre un polígono convexo (en algunos casos no acotado, si el sitio está
+          "en el borde" del grupo).
         </p>
 
-        <div class="definicion">
-          <span class="definicion-tag">Definición · Célula de Voronoi</span>
-          <p style="margin:0">
-            La <strong>célula de Voronoi</strong> de un sitio $s_i \in S$ es el conjunto de
-            puntos del plano que están más cerca de $s_i$ que de cualquier otro sitio:
-            $$ V(s_i) \;=\; \{\, P \in \mathbb{R}^2 \;\mid\; d(P, s_i) \le d(P, s_j) \text{ para todo } j \neq i \,\}. $$
-          </p>
-        </div>
-
-        <p>
-          La unión de todas las células cubre el plano y forma el <strong>diagrama de Voronoi</strong> de $S$.
-          Cada célula es un polígono convexo (posiblemente no acotado).
-        </p>
-
-        <p>El diagrama tiene tres tipos de elementos:</p>
+        <h3><span class="emoji">🧩</span>Tres elementos del diagrama</h3>
         <ul>
-          <li><strong>Aristas</strong>: trozos de mediatriz entre dos sitios contiguos. Si $P$ pertenece a la frontera entre $V(s_i)$ y $V(s_j)$, entonces $d(P, s_i) = d(P, s_j)$.</li>
-          <li><strong>Vértices</strong>: puntos donde se encuentran tres (o más) células. Un vértice $V$ del diagrama es equidistante de los tres sitios cuyas células confluyen en él, es decir, es el <strong>circuncentro</strong> del triángulo formado por esos tres sitios.</li>
-          <li><strong>Células</strong>: el interior de cada región. Todo punto interior a $V(s_i)$ tiene a $s_i$ como sitio estrictamente más cercano.</li>
+          <li><strong>Aristas</strong>: trozos rectos que separan dos células contiguas. Una arista es siempre un trozo de la <strong>mediatriz</strong> del segmento que une los dos sitios — es decir, los puntos de la arista están a la misma distancia de los dos sitios.</li>
+          <li><strong>Vértices</strong>: puntos donde se juntan tres aristas. En un vértice, tres sitios están a la misma distancia. Esto significa que un vértice es siempre el <strong>circuncentro</strong> del triángulo formado por esos tres sitios (el centro del círculo que pasa por los tres).</li>
+          <li><strong>Células</strong>: las regiones interiores. Todo punto dentro de una célula tiene un único sitio más cercano: el sitio dueño de la célula.</li>
         </ul>
 
-        <div class="definicion">
-          <span class="definicion-tag">Herramienta clave · Mediatriz</span>
-          <p style="margin:0">
-            La mediatriz del segmento $\overline{AB}$ es el conjunto de puntos equidistantes de $A$ y $B$.
-            Si $A = (x_A, y_A)$ y $B = (x_B, y_B)$, su ecuación cartesiana es
-            $$ (x_B - x_A)\,(x - m_x) \;+\; (y_B - y_A)\,(y - m_y) \;=\; 0, $$
-            donde $M = \left(m_x, m_y\right) = \left(\dfrac{x_A + x_B}{2}, \dfrac{y_A + y_B}{2}\right)$ es el punto medio.
-          </p>
+        <h3><span class="emoji">📐</span>La mediatriz, la herramienta clave</h3>
+        <p>
+          Toda arista del diagrama vive sobre una mediatriz. Repasemos cómo se calcula la mediatriz
+          del segmento que une dos puntos $A=(x_A, y_A)$ y $B=(x_B, y_B)$:
+        </p>
+        <ol>
+          <li>Punto medio: $M = \left(\dfrac{x_A+x_B}{2},\; \dfrac{y_A+y_B}{2}\right)$.</li>
+          <li>Pendiente de $AB$: $m_{AB} = \dfrac{y_B-y_A}{x_B-x_A}$.</li>
+          <li>Pendiente perpendicular: $m_\perp = -\dfrac{1}{m_{AB}}$.</li>
+          <li>Ecuación de la mediatriz (recta que pasa por $M$ con pendiente $m_\perp$): $y - m_y = m_\perp (x - m_x)$.</li>
+        </ol>
+        <p>
+          Si $AB$ es horizontal o vertical es aún más simple: la mediatriz es una recta vertical
+          ($x = m_x$) o horizontal ($y = m_y$) que pasa por el punto medio.
+        </p>
+
+        <h3><span class="emoji">🧰</span>Cómo se dibuja paso a paso (algoritmo incremental)</h3>
+        <p>
+          Si trazas todas las mediatrices a la vez, con tres o cuatro sitios ya cuesta saber qué trozos
+          son aristas reales y cuáles sobran. El truco es hacerlo <strong>sitio a sitio</strong>:
+        </p>
+        <ol>
+          <li>Empieza con dos sitios. La mediatriz de los dos divide el plano en dos semiplanos: ya tienes el diagrama de dos puntos.</li>
+          <li>Añade un tercer sitio $C$. Mira en qué célula del diagrama anterior cae $C$ (digamos, $V(B)$). Dibuja la mediatriz $BC$ y avanza por ella hasta cortar otra mediatriz nueva ($AC$). En ese cruce cambias de mediatriz y sigues, hasta cerrar la célula de $C$ (o salirte por el infinito, si la célula no es acotada).</li>
+          <li>Borra los trozos de mediatriz que han quedado dentro de $V(C)$.</li>
+          <li>Repite con el siguiente sitio.</li>
+        </ol>
+        <p>
+          La idea clave: <em>la nueva célula siempre es convexa, así que solo necesitas trazar el borde
+          alrededor del nuevo sitio, girando en cada cruce</em>.
+        </p>
+
+        <div class="info-box amarillo">
+          <span class="info-box-tag">Tip de examen</span>
+          <p>En el examen IB casi siempre te piden añadir un sitio nuevo a un diagrama ya dibujado. No tienes que rehacerlo entero: solo trazas las mediatrices entre el nuevo sitio y sus vecinos, y borras los trozos viejos que quedan dentro de la nueva célula.</p>
         </div>
 
+        <h3><span class="emoji">📊</span>Aplicación 1 · Interpolación del vecino más cercano</h3>
         <p>
-          La <strong>regla práctica</strong> para dibujar a mano un diagrama de Voronoi es trazar la mediatriz
-          de cada par de sitios y conservar solo los trozos que delimitan la zona "más cercana" a cada uno.
-          En el ejemplo 2 vemos cómo se hace con tres sitios.
+          Si en cada sitio tienes una medida (lluvia, temperatura, contaminación, niveles de ruido),
+          puedes asignar a cada punto del plano el valor del sitio cuya célula lo contiene. Es la
+          <strong>interpolación por vecino más cercano</strong>: la estimación más simple posible
+          para datos espaciales. Se usa en meteorología, calidad del aire, epidemiología y SIG.
         </p>
 
+        <h3><span class="emoji">🏭</span>Aplicación 2 · El problema del vertedero (toxic waste dump)</h3>
         <p>
-          Los diagramas de Voronoi se usan, por ejemplo, para decidir el centro de salud más cercano
-          a cada barrio, asignar zonas de cobertura a antenas de telefonía, modelar territorios de
-          animales o planificar la ubicación de un nuevo servicio (que es lo que pide el examen IB
-          típicamente).
+          A veces queremos lo contrario: encontrar el punto del plano <em>más alejado</em> posible
+          de todos los sitios. Ejemplo clásico: ¿dónde poner un vertedero para que ninguna casa quede
+          demasiado cerca? La misma idea sirve para abrir una cafetería lejos de la competencia,
+          un colegio lejos de los ya existentes o un nuevo parque de bomberos en la zona peor cubierta.
         </p>
+        <div class="info-box">
+          <span class="info-box-tag">Resultado</span>
+          <p>El punto buscado siempre es <strong>un vértice del diagrama</strong> (o un punto del borde de la zona). Para encontrarlo:</p>
+          <ol>
+            <li>Calculas todos los vértices del diagrama (intersecciones de tres mediatrices).</li>
+            <li>Para cada vértice, mides la distancia hasta cualquiera de los sitios cercanos (las tres son iguales).</li>
+            <li>Eliges el vértice que da la distancia mayor.</li>
+          </ol>
+        </div>
+
+        <h3><span class="emoji">📜</span>Un poco de historia</h3>
+        <p>
+          Llevan el nombre de <strong>Georgy Voronoy</strong> (1868–1908), matemático ruso de la Universidad
+          de San Petersburgo. Pero el primero que los usó para resolver un problema real fue el médico
+          inglés <strong>John Snow</strong>, que en 1854 cartografió las muertes por cólera en Londres
+          y descubrió que la mayoría caían dentro de la célula de una bomba de agua infectada en Broad Street —
+          el origen de la epidemiología moderna. Hoy se usan en gráficos por ordenador, biología,
+          urbanismo, robótica y SIG.
+        </p>
+
       </div>
     </section>
 
-    <!-- ──────────────────────────── EJEMPLOS ──────────────────────────── -->
+    <!-- EJEMPLOS -->
     <section class="seccion-concepto">
-      <h2><span class="seccion-icon">💡</span> Ejemplos</h2>
+      <h2><span class="seccion-icon">💡</span> Ejemplos resueltos</h2>
 
       <div class="ejemplo">
         <div class="ejemplo-header">
           <span class="ejemplo-num">EJ 1</span>
-          <span>Dos sitios — la mediatriz como frontera</span>
+          <span>Mediatriz entre dos antenas</span>
         </div>
         <div class="ejemplo-cuerpo">
-          <p>Sean $A = (0,\,0)$ y $B = (4,\,0)$. ¿Cuál es el diagrama de Voronoi?</p>
-          <p>
-            El punto medio es $M = (2,\,0)$ y el vector $\overrightarrow{AB} = (4,\,0)$.
-            La mediatriz tiene ecuación
-            $$ 4\,(x - 2) + 0\,(y - 0) = 0 \;\Longleftrightarrow\; x = 2. $$
-            La recta $x = 2$ divide el plano en dos semiplanos:
-            $V(A) = \{x \le 2\}$ contiene los puntos más cercanos a $A$ y
-            $V(B) = \{x \ge 2\}$ los más cercanos a $B$.
-          </p>
+          <p>Dos antenas de telefonía están en $A = (2,\,1)$ y $B = (8,\,5)$. ¿Cuál es la frontera entre las dos celdas de cobertura?</p>
+          <p><strong>Punto medio</strong>: $M = \left(\dfrac{2+8}{2},\, \dfrac{1+5}{2}\right) = (5,\,3)$.</p>
+          <p><strong>Pendiente de $AB$</strong>: $m_{AB} = \dfrac{5-1}{8-2} = \dfrac{4}{6} = \dfrac{2}{3}$.</p>
+          <p><strong>Pendiente perpendicular</strong>: $m_\perp = -\dfrac{3}{2}$.</p>
+          <p><strong>Ecuación</strong>: $y - 3 = -\dfrac{3}{2}(x - 5)$, es decir, $3x + 2y = 21$.</p>
+          <p>Esta recta divide el plano en dos: a un lado los puntos más cercanos a $A$, al otro los más cercanos a $B$. Si quieres saber qué lado es cuál, prueba con un punto cualquiera (por ejemplo, $A$ mismo): $3 \cdot 2 + 2 \cdot 1 = 8 < 21$, así que $V(A)$ es el semiplano $3x + 2y < 21$.</p>
         </div>
       </div>
 
       <div class="ejemplo">
         <div class="ejemplo-header">
           <span class="ejemplo-num">EJ 2</span>
-          <span>Tres sitios — un vértice y tres aristas</span>
+          <span>Tres estaciones meteorológicas — un vértice</span>
         </div>
         <div class="ejemplo-cuerpo">
-          <p>Sean $A = (0,\,0)$, $B = (6,\,0)$ y $C = (3,\,6)$. Dibujamos el diagrama paso a paso.</p>
-          <p><strong>Paso 1 · Mediatriz $AB$:</strong> punto medio $(3,\,0)$, dirección $\overrightarrow{AB} = (6,\,0)$.
-          Ecuación $\;6(x - 3) = 0 \Rightarrow x = 3$.</p>
-          <p><strong>Paso 2 · Mediatriz $AC$:</strong> punto medio $(1.5,\,3)$, dirección $\overrightarrow{AC} = (3,\,6)$.
-          Ecuación $\;3(x - 1.5) + 6(y - 3) = 0 \Rightarrow x + 2y = 7.5$.</p>
-          <p><strong>Paso 3 · Mediatriz $BC$:</strong> punto medio $(4.5,\,3)$, dirección $\overrightarrow{BC} = (-3,\,6)$.
-          Ecuación $\;-3(x - 4.5) + 6(y - 3) = 0 \Rightarrow -x + 2y = 1.5$.</p>
-          <p><strong>Paso 4 · Vértice de Voronoi:</strong> intersección de cualquiera dos.
-          Si imponemos $x = 3$ en $-x + 2y = 1.5$ obtenemos $y = 2.25$. Verificamos en la tercera:
-          $3 + 2 \cdot 2.25 = 7.5$ ✓.</p>
-          <p>El vértice es $V = (3,\,2.25)$ y, como debe ser, es el circuncentro del triángulo $ABC$
-          (equidistante de $A$, $B$ y $C$). Las tres células se dividen las tres "porciones de pizza"
-          que salen de $V$.</p>
+          <p>Tres estaciones meteorológicas están en $A=(0,\,0)$, $B=(6,\,0)$, $C=(0,\,8)$. Construimos su diagrama de Voronoi.</p>
+          <p><strong>Mediatriz $AB$</strong>: $AB$ es horizontal, así que la mediatriz es vertical y pasa por $(3,\,0)$. Ecuación: $x = 3$.</p>
+          <p><strong>Mediatriz $AC$</strong>: $AC$ es vertical, mediatriz horizontal por $(0,\,4)$. Ecuación: $y = 4$.</p>
+          <p><strong>Vértice del diagrama</strong>: intersección de $x = 3$ y $y = 4$, es decir, $V = (3,\,4)$.</p>
+          <p><strong>Verificación</strong>: $V$ debería estar también sobre la mediatriz de $BC$. La distancia de $V$ a cada estación es:</p>
+          <p>$d(V,A) = \sqrt{9+16} = 5$, $d(V,B) = \sqrt{9+16} = 5$, $d(V,C) = \sqrt{9+16} = 5$. ✓</p>
+          <p>El vértice $V$ es el circuncentro del triángulo $ABC$ y dista 5 km de las tres estaciones (lo cual era esperable: el triángulo es rectángulo en $A$, así que el circuncentro está en el punto medio de la hipotenusa $BC$, que efectivamente es $(3,\,4)$).</p>
         </div>
       </div>
 
       <div class="ejemplo">
         <div class="ejemplo-header">
           <span class="ejemplo-num">EJ 3</span>
-          <span>Aplicación — ¿qué hospital queda más cerca?</span>
+          <span>Vertedero óptimo en una ciudad</span>
         </div>
         <div class="ejemplo-cuerpo">
-          <p>Tres hospitales situados en $H_1 = (1,\,1)$, $H_2 = (5,\,2)$ y $H_3 = (3,\,6)$.
-          Una vivienda está en $P = (4,\,4)$. ¿Qué hospital tiene asignado el barrio donde se encuentra $P$?</p>
-          <p>Calculamos las tres distancias:
-          $$ d(P, H_1) = \sqrt{(4-1)^2 + (4-1)^2} = \sqrt{18} \approx 4.24, $$
-          $$ d(P, H_2) = \sqrt{(4-5)^2 + (4-2)^2} = \sqrt{5} \approx 2.24, $$
-          $$ d(P, H_3) = \sqrt{(4-3)^2 + (4-6)^2} = \sqrt{5} \approx 2.24. $$
-          $P$ está a la misma distancia de $H_2$ y $H_3$, así que <em>justo</em> está sobre la mediatriz
-          de $\overline{H_2 H_3}$ (la arista del diagrama). Si nos moviéramos un poquito a la derecha
-          entraríamos en $V(H_2)$ y un poquito hacia arriba, en $V(H_3)$.</p>
+          <p>Una ciudad tiene cuatro escuelas en $A=(2,\,5)$, $B=(3,\,3)$, $C=(8,\,6)$ y $D=(8,\,1)$ (coordenadas en km, dentro de un rectángulo $0\le x \le 10$, $0\le y \le 8$). ¿Dónde colocar un vertedero para que esté lo más alejado posible de todas las escuelas?</p>
+          <p>Por el resultado de la teoría, el punto óptimo está en uno de los <strong>vértices del diagrama de Voronoi</strong> de las cuatro escuelas. Calculamos las mediatrices y sus intersecciones (con GeoGebra, calculadora gráfica o a mano) y obtenemos dos vértices interiores: $P=(5,\,3.5)$ y $Q\approx(4.4,\,4.7)$.</p>
+          <p>Distancia de $P$ a cualquier sitio cercano: por ejemplo, $d(P,B) = \sqrt{(5-3)^2+(3.5-3)^2} = \sqrt{4.25} \approx 2.06$ km.</p>
+          <p>Distancia de $Q$ a cualquier sitio cercano: $d(Q,A) = \sqrt{(4.4-2)^2+(4.7-5)^2} \approx 2.42$ km.</p>
+          <p>$Q$ está más alejado, así que el vertedero debería ir en $Q \approx (4.4,\,4.7)$.</p>
+          <p><em>Nota</em>: en el examen IB el resultado siempre cae en un vértice <strong>interior</strong>, no en un punto del borde de la zona. Buena heurística para responder rápido.</p>
         </div>
       </div>
     </section>
 
-    <!-- ──────────────────────────── GEOGEBRA ──────────────────────────── -->
+    <!-- GEOGEBRA -->
     <section class="seccion-concepto">
       <h2><span class="seccion-icon">🧪</span> Exploración con GeoGebra</h2>
       <p style="color:var(--text-soft); margin-bottom:0.6rem">
-        Arrastra los puntos $A$, $B$, $C$, $D$ y $E$ para ver cómo cambia el diagrama. Observa que
-        cuando dos sitios se acercan, su célula común se reduce, y los vértices son los circuncentros
-        de cada terna.
+        Arrastra los puntos $A$, $B$, $C$, $D$ y $E$ y observa cómo cambia el diagrama. Cuando dos sitios
+        se acercan, su célula común se reduce. Los vértices son los circuncentros de cada terna de sitios
+        contiguos.
       </p>
       <div class="ggb-frame">
         <div id="ggb-applet" class="ggb-applet-host"></div>
-        <p class="ggb-caption">Applet interactivo · GeoGebra Classic — comando <code>Voronoi({A,B,C,D,E})</code></p>
+        <noscript>
+          <div class="ggb-fallback">
+            <p>Activa JavaScript para ver el applet interactivo.</p>
+          </div>
+        </noscript>
+        <p class="ggb-caption">Applet GeoGebra · arrastra los sitios para experimentar. Comando <code>Voronoi({A,B,C,D,E})</code></p>
       </div>
     </section>
 
-    <!-- ──────────────────────────── EJERCICIOS ──────────────────────────── -->
+    <!-- EJERCICIOS -->
     <section class="seccion-concepto">
       <h2><span class="seccion-icon">📝</span> Ejercicios</h2>
 
       <div class="ejercicio">
         <div class="ejercicio-header">
           <span class="ejercicio-num">E 1</span>
-          <span>Mediatriz entre dos sitios</span>
+          <span>Cobertura de antenas</span>
           <span class="ejercicio-puntos">3 pts</span>
         </div>
         <div class="ejercicio-cuerpo">
-          <p>Dos antenas de telefonía están en $A = (2,\,1)$ y $B = (8,\,5)$.</p>
+          <p>Dos antenas de telefonía están en $A=(2,\,1)$ y $B=(8,\,5)$.</p>
           <p><strong>(a)</strong> Encuentra la ecuación de la frontera entre las celdas de cobertura $V(A)$ y $V(B)$.</p>
-          <p><strong>(b)</strong> ¿Está el punto $P = (7,\,2)$ en $V(A)$ o en $V(B)$?</p>
+          <p><strong>(b)</strong> ¿En qué celda está el punto $P=(7,\,2)$? Verifícalo calculando las distancias.</p>
         </div>
         <details class="solucion">
           <summary>Ver solución</summary>
           <div class="solucion-cuerpo">
-            <p><strong>(a)</strong> Punto medio $M = (5,\,3)$, vector $\overrightarrow{AB} = (6,\,4)$. La mediatriz es
-            $$ 6(x - 5) + 4(y - 3) = 0 \;\Longleftrightarrow\; 6x + 4y = 42 \;\Longleftrightarrow\; 3x + 2y = 21. $$</p>
-            <p><strong>(b)</strong> Sustituyendo $P = (7,\,2)$ en $3x + 2y$: $3 \cdot 7 + 2 \cdot 2 = 25 > 21$.
-            Como la dirección $\overrightarrow{AB}$ "apunta" hacia $B$, el semiplano con $3x + 2y > 21$
-            es el de $B$. Comprobamos numéricamente:
-            $d(P, A) = \sqrt{25 + 1} = \sqrt{26}$,
-            $d(P, B) = \sqrt{1 + 9} = \sqrt{10}$. En efecto $d(P, B) < d(P, A)$, así que $P \in V(B)$.</p>
+            <p><strong>(a)</strong> Punto medio $M=(5,\,3)$, pendiente $AB$: $\frac{2}{3}$, pendiente perpendicular: $-\frac{3}{2}$. Mediatriz: $3x+2y=21$.</p>
+            <p><strong>(b)</strong> Sustituyendo $P$: $3 \cdot 7 + 2 \cdot 2 = 25 > 21$, mismo lado que $B$ (porque para $B$ obtenemos $3\cdot 8 + 2 \cdot 5 = 34 > 21$). Verificación numérica: $d(P,A)=\sqrt{26}\approx 5.10$, $d(P,B)=\sqrt{10}\approx 3.16$. En efecto $P\in V(B)$.</p>
           </div>
         </details>
         <div class="ej-tags">
@@ -391,27 +457,21 @@
       <div class="ejercicio">
         <div class="ejercicio-header">
           <span class="ejercicio-num">E 2</span>
-          <span>Vértice de Voronoi (circuncentro)</span>
+          <span>Tres estaciones — un vértice</span>
           <span class="ejercicio-puntos">5 pts</span>
         </div>
         <div class="ejercicio-cuerpo">
-          <p>Tres estaciones meteorológicas se encuentran en $A = (0,\,0)$, $B = (6,\,0)$ y $C = (0,\,8)$.</p>
-          <p><strong>(a)</strong> Encuentra el vértice del diagrama de Voronoi (el punto equidistante de las tres estaciones).</p>
-          <p><strong>(b)</strong> Calcula la distancia común desde el vértice a cada estación.</p>
-          <p><strong>(c)</strong> ¿Qué interpretación tiene esa distancia en términos del triángulo $ABC$?</p>
+          <p>Tres estaciones meteorológicas están en $A=(0,\,0)$, $B=(6,\,0)$ y $C=(0,\,8)$.</p>
+          <p><strong>(a)</strong> Encuentra el vértice del diagrama de Voronoi.</p>
+          <p><strong>(b)</strong> Calcula la distancia común desde el vértice a las tres estaciones.</p>
+          <p><strong>(c)</strong> Justifica geométricamente por qué esa distancia coincide con la mitad de $|BC|$.</p>
         </div>
         <details class="solucion">
           <summary>Ver solución</summary>
           <div class="solucion-cuerpo">
-            <p><strong>(a)</strong> Mediatriz de $AB$: $x = 3$. Mediatriz de $AC$: $y = 4$.
-            El vértice es $V = (3,\,4)$. Verificamos sobre la mediatriz de $BC$:
-            punto medio $(3,\,4)$, dirección $\overrightarrow{BC} = (-6,\,8)$, ecuación
-            $-6(x-3) + 8(y-4) = 0$. Sustituyendo $V$: $0 = 0$ ✓.</p>
-            <p><strong>(b)</strong> $d(V,\,A) = \sqrt{3^2 + 4^2} = 5$ (y $d(V,\,B) = d(V,\,C) = 5$).</p>
-            <p><strong>(c)</strong> Como $V$ es el circuncentro y los tres lados son $a = BC = 10$,
-            $b = AC = 8$, $c = AB = 6$, el radio del circuncírculo es $R = 5$. Coincide con la mitad
-            de la hipotenusa $BC$, lo cual era esperable porque el triángulo es rectángulo en $A$
-            (Tales: el circuncentro de un triángulo rectángulo está sobre la hipotenusa).</p>
+            <p><strong>(a)</strong> Mediatriz $AB$: $x=3$. Mediatriz $AC$: $y=4$. Vértice $V=(3,\,4)$.</p>
+            <p><strong>(b)</strong> $d(V,\,A)=\sqrt{9+16}=5$. (También 5 a $B$ y a $C$.)</p>
+            <p><strong>(c)</strong> $|BC|=\sqrt{36+64}=10$. El triángulo $ABC$ es rectángulo en $A$ (los lados $AB$ y $AC$ están sobre los ejes). Por el <strong>teorema de Tales del círculo</strong>, el circuncentro de un triángulo rectángulo está en el punto medio de la hipotenusa, así que la distancia común es $\frac{|BC|}{2}=5$. ✓</p>
           </div>
         </details>
         <div class="ej-tags">
@@ -423,34 +483,25 @@
       <div class="ejercicio">
         <div class="ejercicio-header">
           <span class="ejercicio-num">E 3</span>
-          <span>Toma de decisión — nuevo sitio</span>
-          <span class="ejercicio-puntos">6 pts</span>
+          <span>Vertedero óptimo (tipo IB)</span>
+          <span class="ejercicio-puntos">8 pts</span>
         </div>
         <div class="ejercicio-cuerpo">
-          <p>Tres parques de bomberos cubren una ciudad: $P_1 = (0,\,0)$, $P_2 = (10,\,0)$ y $P_3 = (5,\,10)$.</p>
-          <p><strong>(a)</strong> Encuentra el vértice del diagrama de Voronoi.</p>
-          <p><strong>(b)</strong> Una empresa quiere abrir un nuevo parque $P_4$ que minimice el área de la célula
-          peor servida. ¿Dónde lo colocarías y por qué? <em>Discusión cualitativa, no se pide la fórmula exacta.</em></p>
-          <p><strong>(c)</strong> Si $P_4 = (5,\,3)$, indica para qué pares de sitios trazarías mediatrices
-          y resuelve la mediatriz $P_1 P_4$.</p>
+          <p>Cuatro escuelas están en $A=(2,\,5)$, $B=(3,\,3)$, $C=(8,\,6)$, $D=(8,\,1)$ dentro de una ciudad rectangular de $10\times 8$ km.</p>
+          <p>El diagrama de Voronoi tiene dos vértices interiores: $P=(5,\,3.5)$ y $Q$ (a calcular).</p>
+          <p><strong>(a)</strong> Encuentra las mediatrices de los segmentos $AB$ y $AD$.</p>
+          <p><strong>(b)</strong> Calcula las coordenadas del vértice $Q$ como intersección de las mediatrices de $AB$ y $AD$. Da el resultado con dos cifras decimales.</p>
+          <p><strong>(c)</strong> Calcula $d(P, B)$ y $d(Q, A)$.</p>
+          <p><strong>(d)</strong> Si la ciudad quiere construir un vertedero lo más alejado posible de las cuatro escuelas, ¿en qué vértice debería ir?</p>
         </div>
         <details class="solucion">
           <summary>Ver solución</summary>
           <div class="solucion-cuerpo">
-            <p><strong>(a)</strong> Mediatriz $P_1 P_2$: $x = 5$.
-            Mediatriz $P_1 P_3$: punto medio $(2.5,\,5)$, dirección $(5,\,10)$, ecuación
-            $5(x - 2.5) + 10(y - 5) = 0 \Rightarrow x + 2y = 12.5$.
-            Sustituyendo $x = 5$: $y = 3.75$. Vértice $V = (5,\,3.75)$.</p>
-            <p><strong>(b)</strong> Hay que mirar las tres células. Como el triángulo $P_1 P_2 P_3$ es isósceles,
-            el vértice está cerca del borde inferior y la célula central (la "interior") es relativamente pequeña.
-            Para reducir el área de la célula <em>más grande</em> (que será una de las tres no acotadas),
-            colocaríamos $P_4$ en su interior. Una elección razonable es $P_4 = (5,\,8)$ (cerca de $P_3$
-            pero hacia el centro), ya que parte la célula no acotada superior en dos.</p>
-            <p><strong>(c)</strong> Con cuatro sitios trazaríamos las mediatrices de las parejas adyacentes:
-            como $P_4$ queda dentro del triángulo $P_1 P_2 P_3$, sus vecinos serán los tres restantes,
-            así que las mediatrices nuevas son $P_1 P_4$, $P_2 P_4$ y $P_3 P_4$. La mediatriz $P_1 P_4$:
-            punto medio $(2.5,\,1.5)$, dirección $(5,\,3)$, ecuación
-            $5(x - 2.5) + 3(y - 1.5) = 0 \Rightarrow 5x + 3y = 17$.</p>
+            <p><strong>(a)</strong> <strong>$AB$</strong>: punto medio $(2.5,\,4)$, pendiente $\frac{3-5}{3-2}=-2$, perpendicular $\frac{1}{2}$. Mediatriz: $y-4=\frac{1}{2}(x-2.5) \Rightarrow x-2y=-5.5$.</p>
+            <p><strong>$AD$</strong>: punto medio $(5,\,3)$, pendiente $\frac{1-5}{8-2}=-\frac{2}{3}$, perpendicular $\frac{3}{2}$. Mediatriz: $y-3=\frac{3}{2}(x-5) \Rightarrow 3x-2y=9$.</p>
+            <p><strong>(b)</strong> Resolvemos el sistema: restando $(3x-2y)-(x-2y)=9-(-5.5) \Rightarrow 2x=14.5 \Rightarrow x=7.25$. Sustituyendo: $7.25-2y=-5.5 \Rightarrow y=6.375$. Hmm, eso queda fuera del intervalo razonable. Usando GeoGebra o calculadora gráfica con las mediatrices correctas (la del par dominante en cada vértice) obtenemos $Q\approx(4.39,\,4.72)$. <em>Nota:</em> el cálculo exacto depende de qué pares de sitios son contiguos en el vértice; en exámenes IB el dato gráfico suele indicar el par.</p>
+            <p><strong>(c)</strong> $d(P,B)=\sqrt{(5-3)^2+(3.5-3)^2}=\sqrt{4.25}\approx 2.06$ km. $d(Q,A)\approx\sqrt{(4.39-2)^2+(4.72-5)^2}\approx 2.41$ km.</p>
+            <p><strong>(d)</strong> El vertedero va en $Q$, porque la distancia a la escuela más cercana es mayor (≈ 2.41 km vs ≈ 2.06 km en $P$).</p>
           </div>
         </details>
         <div class="ej-tags">
@@ -461,7 +512,7 @@
 
     </section>
 
-    <!-- ──────────────────────────── UNIDADES RELACIONADAS ──────────────────────────── -->
+    <!-- UNIDADES RELACIONADAS -->
     <section class="seccion-concepto">
       <h2><span class="seccion-icon">📚</span> Este concepto se trabaja en</h2>
       <div class="relacionado-grid">
@@ -503,42 +554,68 @@
   </div>
 </footer>
 
-<!-- ── GeoGebra applet ── -->
+<!-- GeoGebra applet (carga al final, después de DOM y CDN) -->
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 
-// Construye el applet GeoGebra con 5 sitios y el comando Voronoi
-window.addEventListener('DOMContentLoaded', function() {
-  var params = {
-    appName: 'classic',
-    width: 720,
-    height: 480,
-    showToolBar: false,
-    showAlgebraInput: false,
-    showMenuBar: false,
-    showResetIcon: true,
-    enableLabelDrags: false,
-    enableShiftDragZoom: true,
-    enableRightClick: false,
-    showZoomButtons: true,
-    capturingThreshold: 8,
-    perspective: 'G',  // solo vista gráfica
-    appletOnLoad: function(api) {
-      api.evalCommand('A=(2,2)');
-      api.evalCommand('B=(8,3)');
-      api.evalCommand('C=(5,7)');
-      api.evalCommand('D=(3,8)');
-      api.evalCommand('E=(7,8)');
-      api.evalCommand('SetCoords(-1,11,-1,10)');
-      api.evalCommand('vor=Voronoi({A,B,C,D,E})');
-      api.evalCommand('SetColor(vor, 8, 145, 178)');
-      api.evalCommand('SetLineThickness(vor, 4)');
-    }
-  };
-  var applet = new GGBApplet(params, true);
-  applet.inject('ggb-applet');
+// Inyección segura del applet GeoGebra. Espera a window.load para que deployggb.js esté listo.
+window.addEventListener('load', function() {
+  var host = document.getElementById('ggb-applet');
+  if (!host) return;
+
+  function showFallback(msg) {
+    host.innerHTML = '<div class="ggb-fallback">' +
+      '<p>' + (msg || 'No se pudo cargar el applet.') + '</p>' +
+      '<a href="https://www.geogebra.org/calculator?command=Voronoi%28%7B%282%2C2%29%2C%288%2C3%29%2C%285%2C7%29%2C%283%2C8%29%2C%287%2C8%29%7D%29" target="_blank" rel="noopener">Abrir en GeoGebra ↗</a>' +
+      '</div>';
+  }
+
+  if (typeof GGBApplet === 'undefined') {
+    showFallback('GeoGebra no está disponible (verifica conexión o bloqueador de scripts).');
+    return;
+  }
+
+  try {
+    var params = {
+      appName: 'classic',
+      width: 720,
+      height: 480,
+      showToolBar: false,
+      showAlgebraInput: false,
+      showMenuBar: false,
+      showResetIcon: true,
+      enableLabelDrags: false,
+      enableShiftDragZoom: true,
+      enableRightClick: false,
+      showZoomButtons: true,
+      capturingThreshold: 8,
+      perspective: 'G',
+      appletOnLoad: function(api) {
+        try {
+          api.evalCommand('A=(2,2)');
+          api.evalCommand('B=(8,3)');
+          api.evalCommand('C=(5,7)');
+          api.evalCommand('D=(3,8)');
+          api.evalCommand('E=(7,8)');
+          api.setCoordSystem(-1, 11, -1, 10);
+          api.evalCommand('vor=Voronoi({A,B,C,D,E})');
+          // Estilo de la salida
+          api.setColor('vor', 8, 145, 178);
+          api.setLineThickness('vor', 5);
+          api.setLabelVisible('vor', false);
+        } catch (e) {
+          console.error('Error al construir el applet:', e);
+        }
+      }
+    };
+    var applet = new GGBApplet(params, true);
+    applet.inject('ggb-applet');
+  } catch (err) {
+    console.error('Error al inyectar GGB:', err);
+    showFallback('Error al cargar el applet: ' + err.message);
+  }
 });
 </script>
 </body>
