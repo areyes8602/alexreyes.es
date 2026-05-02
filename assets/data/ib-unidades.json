@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "_doc": "Unidades didácticas propias para IB Math AI HL/SL — eje pedagógico. Cada unidad agrupa contenido (apuntes, ejercicios, materiales) en el orden y nivel de detalle con que tú lo enseñas. NO mirroriza el orden de los capítulos del libro de Oxford. El campo 'tags_iba' lista los códigos NM/TANS del syllabus que la unidad cubre — esto se usa para auto-listar la unidad bajo cada página de subtema en /syllabus/. La distribución por trimestre es: T1, T2, T3 en IB1; T4, T5 en IB2.",
   "_campos": {
     "id": "Identificador único, en kebab-case. Se usa como slug de URL.",
@@ -11,7 +11,9 @@
     "promo": "Promoción a la que aplica: 'all', '2024-2026', '2025-2027'.",
     "tier": "Acceso: 'free' o 'premium'. Por defecto 'free'.",
     "level": "Nivel: 'hl' (solo HL), 'sl' (solo SL), 'both' (ambos).",
-    "trimestre_sl": "Trimestre SL: T1-SL a T4-SL. null o ausente si la unidad es HL only."
+    "trimestre_sl": "Trimestre SL: T1-SL a T4-SL. null o ausente si la unidad es HL only.",
+    "title_sl": "Título específico para SL si difiere del HL. Opcional. Dict es/ca/en.",
+    "intro_sl": "Intro específica para SL si difiere del HL. Opcional. Dict es/ca/en."
   },
   "trimestres": {
     "T1": {
@@ -206,7 +208,17 @@
       "promo": "all",
       "tier": "free",
       "level": "both",
-      "trimestre_sl": "T2-SL"
+      "trimestre_sl": "T2-SL",
+      "title_sl": {
+        "es": "Funciones polinómicas: lineales, cuadráticas y cúbicas",
+        "ca": "Funcions polinòmiques: lineals, quadràtiques i cúbiques",
+        "en": "Polynomial functions: linear, quadratic and cubic"
+      },
+      "intro_sl": {
+        "es": "Concepto de función, dominio y recorrido. Modelos lineales, cuadráticos y cúbicos. Aplicaciones básicas de modelización.",
+        "ca": "Concepte de funció, domini i recorregut. Models lineals, quadràtics i cúbics. Aplicacions bàsiques de modelització.",
+        "en": "Function concept, domain and range. Linear, quadratic and cubic models. Basic modelling applications."
+      }
     },
     {
       "id": "u06-probabilidad",
@@ -256,7 +268,17 @@
       "promo": "all",
       "tier": "free",
       "level": "both",
-      "trimestre_sl": "T3-SL"
+      "trimestre_sl": "T3-SL",
+      "title_sl": {
+        "es": "Modelos no lineales: exponencial, sinusoidal y logarítmico",
+        "ca": "Models no lineals: exponencial, sinusoïdal i logarítmic",
+        "en": "Non-linear models: exponential, sinusoidal and logarithmic"
+      },
+      "intro_sl": {
+        "es": "Potencias con exponente entero. Modelos exponencial, sinusoidal, logarítmico y otros no lineales. Habilidades básicas de modelización.",
+        "ca": "Potències amb exponent enter. Models exponencial, sinusoïdal, logarítmic i altres no lineals. Habilitats bàsiques de modelització.",
+        "en": "Integer-exponent powers. Exponential, sinusoidal, logarithmic and other non-linear models. Basic modelling skills."
+      }
     },
     {
       "id": "u08-ondas-fasores-complejos",
@@ -335,7 +357,17 @@
       "promo": "all",
       "tier": "free",
       "level": "both",
-      "trimestre_sl": "T3-SL"
+      "trimestre_sl": "T3-SL",
+      "title_sl": {
+        "es": "Sistemas lineales con tecnología",
+        "ca": "Sistemes lineals amb tecnologia",
+        "en": "Linear systems with technology"
+      },
+      "intro_sl": {
+        "es": "Resolución de sistemas de ecuaciones lineales utilizando la calculadora gráfica. Aplicaciones a contextos sencillos.",
+        "ca": "Resolució de sistemes d'equacions lineals utilitzant la calculadora gràfica. Aplicacions a contextos senzills.",
+        "en": "Solving systems of linear equations using the graphic calculator. Applications to simple contexts."
+      }
     },
     {
       "id": "u11-distribuciones-probabilidad",
@@ -364,7 +396,17 @@
       "promo": "all",
       "tier": "free",
       "level": "both",
-      "trimestre_sl": "T4-SL"
+      "trimestre_sl": "T4-SL",
+      "title_sl": {
+        "es": "Variables aleatorias y distribuciones binomial y normal",
+        "ca": "Variables aleatòries i distribucions binomial i normal",
+        "en": "Random variables and binomial and normal distributions"
+      },
+      "intro_sl": {
+        "es": "Variables aleatorias discretas y esperanza. Distribución binomial. Distribución normal estándar y aplicaciones.",
+        "ca": "Variables aleatòries discretes i esperança. Distribució binomial. Distribució normal estàndard i aplicacions.",
+        "en": "Discrete random variables and expectation. Binomial distribution. Standard normal distribution and applications."
+      }
     },
     {
       "id": "u12-tests-estadisticos",
@@ -390,7 +432,17 @@
       "promo": "all",
       "tier": "free",
       "level": "both",
-      "trimestre_sl": "T4-SL"
+      "trimestre_sl": "T4-SL",
+      "title_sl": {
+        "es": "Correlación de Spearman y tests χ²",
+        "ca": "Correlació de Spearman i tests χ²",
+        "en": "Spearman correlation and χ² tests"
+      },
+      "intro_sl": {
+        "es": "Coeficiente de correlación de rangos de Spearman. Test χ² de bondad de ajuste y de independencia. Test t para la media de una muestra.",
+        "ca": "Coeficient de correlació de rangs de Spearman. Test χ² de bondat d'ajust i d'independència. Test t per a la mitjana d'una mostra.",
+        "en": "Spearman rank correlation coefficient. χ² goodness-of-fit and independence tests. One-sample t-test."
+      }
     },
     {
       "id": "u13-cinematica-vectorial",
@@ -445,7 +497,17 @@
       "promo": "all",
       "tier": "free",
       "level": "both",
-      "trimestre_sl": "T4-SL"
+      "trimestre_sl": "T4-SL",
+      "title_sl": {
+        "es": "Introducción a la integración",
+        "ca": "Introducció a la integració",
+        "en": "Introduction to integration"
+      },
+      "intro_sl": {
+        "es": "Concepto de antiderivada (primitiva). Integral indefinida de potencias y suma de potencias. Cálculo de áreas mediante integral definida en contextos sencillos.",
+        "ca": "Concepte d'antiderivada (primitiva). Integral indefinida de potències i suma de potències. Càlcul d'àrees mitjançant integral definida en contextos senzills.",
+        "en": "Antiderivative concept (primitive). Indefinite integral of powers and sums of powers. Computing areas via definite integral in simple contexts."
+      }
     },
     {
       "id": "u15-redes-grafos",

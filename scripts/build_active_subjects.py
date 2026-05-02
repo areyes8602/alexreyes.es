@@ -766,10 +766,14 @@ def render_ib_hub(s, lang):
     for u in IB_UNIDADES:
         if u.get("promo", "all") not in ("all", promo):
             continue
+        title_sl = u.get("title_sl", {}).get(lang) if u.get("title_sl") else None
+        intro_sl = u.get("intro_sl", {}).get(lang) if u.get("intro_sl") else None
         unidades_for_js.append({
             "id": u["id"],
             "title": u["title"].get(lang, u["title"]["es"]),
+            "title_sl": title_sl or "",
             "intro": u.get("intro", {}).get(lang, u.get("intro", {}).get("es", "")),
+            "intro_sl": intro_sl or "",
             "tags_iba": u.get("tags_iba", []),
             "orden": u.get("orden", 999),
             "trimestre": u.get("trimestre", ""),
@@ -917,7 +921,7 @@ function buildSubtema(sub, conceptosConContenido) {{
 }}
 
 // Unidad didáctica (eje pedagógico) — chapter-item plegable con sus 4 secciones
-// nivel: 'hl' o 'sl'. En SL, los tags TANS se omiten (no aplican).
+// nivel: 'hl' o 'sl'. En SL, los tags TANS se omiten y se usa title_sl/intro_sl si existen.
 function buildUnidad(u, nivel) {{
   const isSL = nivel === 'sl';
   const url = `/aula/ib-ai-hl/unidades/#${{u.id}}`;
@@ -935,7 +939,10 @@ function buildUnidad(u, nivel) {{
     const slug = t.replace(/\\s|\\./g, '-');
     return `<a href="/aula/ib-ai-hl/syllabus/#${{slug}}" class="unidad-tag ${{cls}}">${{escHtml(t)}}</a>`;
   }}).join(' ');
-  const intro = u.intro ? `<p class="unidad-intro">${{escHtml(u.intro)}}</p>` : '';
+  // Selección de título/intro según nivel: si existe título_sl propio en SL, usarlo
+  const displayTitle = (isSL && u.title_sl) ? u.title_sl : u.title;
+  const displayIntro = (isSL && u.intro_sl) ? u.intro_sl : u.intro;
+  const intro = displayIntro ? `<p class="unidad-intro">${{escHtml(displayIntro)}}</p>` : '';
   const tagsBox = tagsBadges
     ? `<div class="unidad-tags"><span class="unidad-tags-label">${{LABELS_JS.unidad_covers}}:</span> ${{tagsBadges}}</div>`
     : '';
@@ -943,7 +950,7 @@ function buildUnidad(u, nivel) {{
   const numero = u.orden ? `<span class="chapter-num unidad-num">U${{String(u.orden).padStart(2,'0')}}</span>` : '';
   const hlBadge = u.level === 'hl' ? `<span class="tag tag-purple" style="font-size:0.62rem;margin-left:auto">HL only</span>` : '';
   const verCompleta = `<p style="margin-top:1rem"><a href="${{url}}" style="font-size:0.86rem;color:var(--text);text-decoration:underline">→ Ver unidad detallada</a></p>`;
-  return `<div class="chapter-item unidad-item ${{levelClass}}"><div class="chapter-header" onclick="toggleChapter(this)">${{numero}}<span class="chapter-title">${{escHtml(u.title)}}</span>${{hlBadge}}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div>${{verCompleta}}</div></div>`;
+  return `<div class="chapter-item unidad-item ${{levelClass}}"><div class="chapter-header" onclick="toggleChapter(this)">${{numero}}<span class="chapter-title">${{escHtml(displayTitle)}}</span>${{hlBadge}}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div>${{verCompleta}}</div></div>`;
 }}
 
 // Bloque (T1-T5) — chapter-item plegable que contiene los subtemas dentro
