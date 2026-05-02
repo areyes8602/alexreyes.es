@@ -319,7 +319,82 @@ details.solucion > summary::-webkit-details-marker { display: none; }
 }
 .footer-nav a:hover { border-color: var(--border-strong); opacity: 1; }
 
-/* ── 12. Sumario / TOC ───────────────────────────────────────────────── */
+/* ── 12. Lista plana de items de la unidad (.ej-list) ─────────────────
+   Patrón unificado heredado de CCSS-1BTL: una lista de enlaces a apuntes,
+   fichas, ejercicios o sub-páginas dentro de una unidad. Cada item tiene:
+     <span class="num"> número/etiqueta + <span class="ttl"> título + <span class="arr"> flecha
+   ─────────────────────────────────────────────────────────────────── */
+.ej-list {
+  display: flex; flex-direction: column;
+  gap: 0.6rem; margin-top: 1rem;
+}
+.ej-list a {
+  display: flex; align-items: baseline; gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none; color: var(--text);
+  transition: all 0.15s;
+}
+.ej-list a:hover {
+  border-color: #6366f1;
+  transform: translateX(2px);
+}
+.ej-list .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 2.4rem; height: 1.7rem;
+  padding: 0 0.55rem;
+  background: #10b981; color: #fff;
+  border-radius: 99px;
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 600;
+  flex: 0 0 auto;
+}
+/* Variantes de color del num por tipo de contenido */
+.ej-list a.tipo-apuntes  .num { background: #0891b2; }
+.ej-list a.tipo-ficha    .num { background: #059669; }
+.ej-list a.tipo-examen   .num { background: #d97706; }
+.ej-list a.tipo-syllabus .num { background: #6366f1; }
+.ej-list .ttl { font-weight: 500; flex: 1; min-width: 0; }
+.ej-list .meta {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--text-faint);
+  flex: 0 0 auto;
+}
+.ej-list .arr { margin-left: auto; color: var(--text-soft); font-size: 0.85rem; flex: 0 0 auto; }
+
+/* Cabecera tipo CCSS para una unidad (sustituye al grid de cards) */
+.unidad-header {
+  padding-top: 0; border-bottom: none; margin-bottom: 1.2rem;
+}
+.unidad-header-meta {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.unidad-header-titulo { margin: 0; }
+.unidad-header-intro {
+  color: var(--text-soft);
+  margin: 0.4rem 0 0; font-size: 0.95rem;
+}
+
+/* ── 13. Tags del syllabus dentro de una unidad ──────────────────────── */
+.syllabus-cubierto {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin: 0.8rem 0 0;
+}
+.syllabus-tag {
+  display: inline-flex; align-items: center;
+  font-family: var(--mono); font-size: 0.74rem;
+  padding: 0.25rem 0.55rem; border-radius: 4px;
+  text-decoration: none; transition: background 0.12s;
+}
+.syllabus-tag.nm   { background: rgba(8,145,178,0.12); color: #0e7490; }
+.syllabus-tag.tans { background: rgba(217,119,6,0.15); color: #b45309; }
+.syllabus-tag:hover { opacity: 0.85; }
+[data-theme="dark"] .syllabus-tag.nm   { background: rgba(8,145,178,0.22); color: #67e8f9; }
+[data-theme="dark"] .syllabus-tag.tans { background: rgba(217,119,6,0.22); color: #fbbf24; }
+
+/* ── 14. Sumario / TOC ───────────────────────────────────────────────── */
 .aula-toc {
   margin: 2rem 0;
   padding: 1rem 1.2rem;

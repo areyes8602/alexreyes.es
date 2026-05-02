@@ -11,75 +11,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/aula.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<style>
-  .unidad-card {
-    margin: 1.5rem 0; padding: 1.5rem;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border);
-    border-left: 4px solid #059669;
-    border-radius: var(--radius);
-  }
-  .unidad-card.hl { border-left-color: #d97706; }
-  .unidad-card-meta { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; flex-wrap:wrap; }
-  .unidad-card-num {
-    font-family: var(--mono); font-size: 0.78rem; font-weight: 600;
-    padding: 0.25rem 0.6rem; border-radius: 4px; color: #fff; background: #059669;
-  }
-  .unidad-card.hl .unidad-card-num { background: #d97706; }
-  .unidad-card-trim { font-size: 0.78rem; color: var(--text-soft); font-family: var(--mono); }
-  .unidad-card-title { font-size: 1.4rem; font-weight: 600; margin: 0.3rem 0; }
-  .unidad-card-intro { color: var(--text-soft); line-height: 1.55; margin: 0.6rem 0 0; }
-
-  .related-section { margin: 2rem 0; }
-  .related-section h2 { font-size: 1rem; margin: 0 0 0.6rem; color: var(--text); }
-  .related-empty { color: var(--text-faint); font-size: 0.9rem; padding: 0.8rem 0; font-style: italic; }
-
-  .syllabus-cubierto {
-    display: flex; flex-wrap: wrap; gap: 0.4rem;
-    margin: 0.8rem 0 0;
-  }
-  .syllabus-tag {
-    display: inline-flex; align-items: center;
-    font-family: var(--mono); font-size: 0.74rem;
-    padding: 0.25rem 0.55rem; border-radius: 4px;
-    text-decoration: none; transition: background 0.12s;
-  }
-  .syllabus-tag.nm { background: rgba(8,145,178,0.12); color: #0e7490; }
-  .syllabus-tag.tans { background: rgba(217,119,6,0.15); color: #b45309; }
-  .syllabus-tag:hover { opacity: 0.85; }
-  [data-theme="dark"] .syllabus-tag.nm { background: rgba(8,145,178,0.22); color: #67e8f9; }
-  [data-theme="dark"] .syllabus-tag.tans { background: rgba(217,119,6,0.22); color: #fbbf24; }
-
-  .secciones-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0.8rem; margin: 1rem 0;
-  }
-  .seccion-card {
-    padding: 1rem 1.2rem;
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    text-align: center;
-    text-decoration: none; color: var(--text);
-    transition: border-color 0.15s, transform 0.15s;
-    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-  }
-  .seccion-card:hover { border-color: var(--border-strong); transform: translateY(-1px); opacity: 1; }
-  .seccion-card.empty { color: var(--text-faint); cursor: default; }
-  .seccion-card.empty:hover { transform: none; border-color: var(--border); }
-  .seccion-card-icon { font-size: 1.6rem; }
-  .seccion-card-label { font-weight: 500; font-size: 0.92rem; }
-  .seccion-card-status { font-size: 0.72rem; color: var(--text-faint); }
-
-  .ejercicio-card {
-    padding: 0.7rem 1rem; margin-bottom: 0.4rem;
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    font-size: 0.88rem;
-  }
-  .ejercicio-card-title { font-weight: 500; margin-bottom: 0.2rem; }
-  .ejercicio-card-meta { font-size: 0.75rem; color: var(--text-faint); }
-</style>
 </head>
 <body>
 <nav>
@@ -115,37 +49,17 @@
     <div id="loading" style="padding:3rem 0;text-align:center;color:var(--text-soft)">Cargando…</div>
 
     <div id="content" style="display:none">
-      <div class="unidad-card" id="unidad-card">
-        <div class="unidad-card-meta">
-          <span class="unidad-card-num" id="card-num"></span>
-          <span class="unidad-card-trim" id="card-trim"></span>
+      <header class="exam-header unidad-header">
+        <div class="unidad-header-meta">
+          <span class="section-label" id="card-trim"></span>
+          <span class="tag tag-orange" id="card-tipo">IB Math AI HL · Unidad</span>
         </div>
-        <h1 class="unidad-card-title" id="card-title"></h1>
-        <p class="unidad-card-intro" id="card-intro"></p>
-        <div class="syllabus-cubierto" id="syllabus-cubierto"></div>
-      </div>
+        <h1 class="unidad-header-titulo" id="card-title"></h1>
+        <p class="unidad-header-intro" id="card-intro"></p>
+        <div class="syllabus-cubierto" id="syllabus-cubierto" style="margin-top:0.7rem"></div>
+      </header>
 
-      <div class="related-section">
-        <h2>📂 Material de la unidad</h2>
-        <div class="secciones-grid" id="secciones-grid"></div>
-      </div>
-
-      <div class="related-section" id="apuntes-conceptos-section" style="display:none">
-        <h2>📖 Apuntes por concepto</h2>
-        <p style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem">Cada subtema enlaza a sus apuntes con teoría, ejemplos resueltos, GeoGebra y ejercicios.</p>
-        <div id="apuntes-conceptos-list"></div>
-      </div>
-
-      <div class="related-section" id="fichas-section" style="display:none">
-        <h2>📋 Fichas de ejercicios</h2>
-        <p style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem">Recopilaciones temáticas con problemas de aplicación y soluciones desplegables.</p>
-        <div id="fichas-list"></div>
-      </div>
-
-      <div class="related-section">
-        <h2>📝 Ejercicios etiquetados</h2>
-        <div id="ejercicios-list"></div>
-      </div>
+      <div class="ej-list" id="items-list"></div>
 
       <p style="margin-top:2.5rem;font-size:0.85rem;color:var(--text-soft)">
         ← <a href="javascript:history.back()" style="color:var(--text)">Volver</a>
@@ -210,14 +124,17 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
     const trimestres = unidadesRaw.trimestres || {};
     const trimLabel = trimestres[u.trimestre]?.label?.es || u.trimestre || '';
 
-    // Pintar la card
-    document.getElementById('card-num').textContent = `U${String(u.orden).padStart(2,'0')}`;
-    document.getElementById('card-trim').textContent = trimLabel;
+    // Pintar el header de la unidad
+    const isSL = unidadId.startsWith('us');
+    const prefix = isSL ? 'US' : 'U';
+    const numLabel = `${prefix}${String(u.orden).padStart(2,'0')}`;
+    const nivelLabel = isSL ? 'IB Math AI SL' : 'IB Math AI HL';
+    document.getElementById('card-trim').textContent = `${nivelLabel} · ${trimLabel}`;
+    document.getElementById('card-tipo').textContent = `${numLabel} · Unidad`;
     document.getElementById('card-title').textContent = u.title.es;
     document.getElementById('card-intro').textContent = u.intro?.es || '';
     document.getElementById('bc-current').textContent = u.title.es;
-    document.title = `U${String(u.orden).padStart(2,'0')} · ${u.title.es} · IB Math AI — alexreyes.es`;
-    if (u.level === 'hl') document.getElementById('unidad-card').classList.add('hl');
+    document.title = `${numLabel} · ${u.title.es} · ${nivelLabel} — alexreyes.es`;
 
     // Tags del syllabus que cubre, linkables al syllabus
     const tagsEl = document.getElementById('syllabus-cubierto');
@@ -246,8 +163,23 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       return { code, slug: entry.slug, titulo, secciones: entry.secciones || [] };
     }).filter(Boolean);
 
-    // ─── Fichas de ejercicios asociadas (con tags solapados con la unidad) ───
+    // ─── Construir items de la unidad: una sola lista plana ───
+    // Tipos de items en orden de prioridad: apuntes → fichas → exámenes
+    const items = [];
     const allEjs = ejerciciosRaw.ejercicios || [];
+
+    // Apuntes por concepto
+    conceptosConApuntes.forEach(c => {
+      items.push({
+        tipo: 'apuntes',
+        num: c.code,
+        ttl: c.titulo,
+        meta: 'Apuntes',
+        href: `/aula/ib-ai-hl/conceptos/${c.slug}/?from=${encodeURIComponent(u.id)}`,
+      });
+    });
+
+    // Fichas (agrupadas por colección)
     const fichasMap = {};
     allEjs.forEach(e => {
       if (e.coleccion?.tipo !== 'ficha') return;
@@ -255,105 +187,57 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       if (!unidadTags.some(t => ejTags.includes(t))) return;
       const id = e.coleccion.id;
       if (!fichasMap[id]) {
-        fichasMap[id] = {
-          id, titulo: e.coleccion.titulo, url: e.coleccion.url_index, count: 0
-        };
+        fichasMap[id] = { id, titulo: e.coleccion.titulo, url: e.coleccion.url_index, count: 0 };
       }
       fichasMap[id].count++;
     });
-    const fichas = Object.values(fichasMap);
-    const primeraFicha = fichas[0] || null;
-
-    // ─── 4 cards de material: activos si hay contenido ───
-    const sectionsEl = document.getElementById('secciones-grid');
-    const apuntesCount = conceptosConApuntes.length;
-    const fichaCount = fichas.reduce((acc, f) => acc + f.count, 0);
-    const primerApunte = conceptosConApuntes[0] || null;
-
-    const sections = [
-      {
-        icon: '📄', label: 'Apuntes',
-        href: primerApunte ? `/aula/ib-ai-hl/conceptos/${primerApunte.slug}/?from=${encodeURIComponent(u.id)}` : null,
-        status: apuntesCount > 0 ? `${apuntesCount} ${apuntesCount === 1 ? 'concepto' : 'conceptos'}` : 'Sin contenido',
-      },
-      {
-        icon: '📝', label: 'Ejercicios',
-        href: primeraFicha ? primeraFicha.url : null,
-        status: fichaCount > 0 ? `${fichaCount} ${fichaCount === 1 ? 'ejercicio' : 'ejercicios'}` : 'Sin contenido',
-      },
-      {
-        icon: '✅', label: 'Soluciones',
-        href: null,
-        status: 'En cada apartado',
-      },
-      {
-        icon: '🔗', label: 'Materiales',
-        href: null,
-        status: 'Sin contenido',
-      },
-    ];
-
-    sectionsEl.innerHTML = sections.map(s => {
-      if (s.href) {
-        return `<a href="${escHtml(s.href)}" class="seccion-card" title="${escHtml(s.label)}">
-          <span class="seccion-card-icon">${s.icon}</span>
-          <span class="seccion-card-label">${s.label}</span>
-          <span class="seccion-card-status">${escHtml(s.status)}</span>
-        </a>`;
-      }
-      return `<div class="seccion-card empty" title="${escHtml(s.label)}">
-        <span class="seccion-card-icon">${s.icon}</span>
-        <span class="seccion-card-label">${s.label}</span>
-        <span class="seccion-card-status">${escHtml(s.status)}</span>
-      </div>`;
-    }).join('');
-
-    // ─── Sub-listado expandido de los conceptos con apuntes ───
-    if (conceptosConApuntes.length > 0) {
-      document.getElementById('apuntes-conceptos-section').style.display = 'block';
-      const totalCaps = conceptosConApuntes.length;
-      document.getElementById('apuntes-conceptos-list').innerHTML = conceptosConApuntes.map((c, i) => `
-        <a href="/aula/ib-ai-hl/conceptos/${c.slug}/?from=${encodeURIComponent(u.id)}" class="unidad-link" style="border-left:3px solid #0891b2">
-          <span class="unidad-link-num" style="background:#0891b2">${escHtml(c.code)}</span>
-          <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-faint)">Cap. ${i+1}/${totalCaps}</span>
-          <span class="unidad-link-title">${escHtml(c.titulo)}</span>
-          <span class="unidad-link-arrow">→</span>
-        </a>`).join('');
-    }
-
-    // ─── Sub-listado expandido de las fichas asociadas ───
-    if (fichas.length > 0) {
-      let fichasSection = document.getElementById('fichas-section');
-      if (fichasSection) {
-        fichasSection.style.display = 'block';
-        document.getElementById('fichas-list').innerHTML = fichas.map(f => `
-          <a href="${escHtml(f.url)}" class="unidad-link" style="border-left:3px solid #059669">
-            <span class="unidad-link-num" style="background:#059669">FICHA</span>
-            <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-faint)">${f.count} ${f.count === 1 ? 'ej.' : 'ejs.'}</span>
-            <span class="unidad-link-title">${escHtml(f.titulo)}</span>
-            <span class="unidad-link-arrow">→</span>
-          </a>`).join('');
-      }
-    }
-
-    // Ejercicios etiquetados con cualquiera de los tags de la unidad
-    const ejs = (ejerciciosRaw.ejercicios || []).filter(e => {
-      const cs = e.tags?.concepto_iba || [];
-      const arr = Array.isArray(cs) ? cs : [cs];
-      return arr.some(t => unidadTags.includes(t));
+    Object.values(fichasMap).forEach(f => {
+      items.push({
+        tipo: 'ficha',
+        num: 'Ficha',
+        ttl: f.titulo,
+        meta: `${f.count} ${f.count === 1 ? 'ej.' : 'ejs.'}`,
+        href: f.url,
+      });
     });
-    const ejsEl = document.getElementById('ejercicios-list');
-    if (ejs.length === 0) {
-      ejsEl.innerHTML = '<p class="related-empty">Aún no hay ejercicios publicados con los subtemas de esta unidad.</p>';
+
+    // Exámenes (agrupados por colección)
+    const examenesMap = {};
+    allEjs.forEach(e => {
+      if (e.coleccion?.tipo !== 'examen') return;
+      const ejTags = e.tags?.concepto_iba || [];
+      if (!unidadTags.some(t => ejTags.includes(t))) return;
+      const id = e.coleccion.id;
+      if (!examenesMap[id]) {
+        examenesMap[id] = {
+          id, titulo: e.coleccion.titulo, url: e.coleccion.url_index,
+          fecha: e.coleccion.fecha || '', count: 0
+        };
+      }
+      examenesMap[id].count++;
+    });
+    Object.values(examenesMap).forEach(ex => {
+      items.push({
+        tipo: 'examen',
+        num: 'Exam',
+        ttl: ex.titulo,
+        meta: `${ex.count} preg. · ${ex.fecha}`,
+        href: ex.url,
+      });
+    });
+
+    // Pintar lista plana
+    const listEl = document.getElementById('items-list');
+    if (items.length === 0) {
+      listEl.innerHTML = '<p style="color:var(--text-faint);font-style:italic;padding:1rem 0">Aún no hay material publicado para esta unidad.</p>';
     } else {
-      ejsEl.innerHTML = ejs.map(e => {
-        const colTitulo = e.coleccion?.titulo || '';
-        const fecha = e.coleccion?.fecha || '';
-        return `<div class="ejercicio-card">
-          <div class="ejercicio-card-title"><a href="${escHtml(e.url_enunciado || '#')}">${escHtml(e.titulo || e.id)}</a></div>
-          <div class="ejercicio-card-meta">${escHtml(colTitulo)}${fecha ? ' · ' + escHtml(fecha) : ''}${e.puntuacion ? ' · ' + e.puntuacion + ' pts' : ''}</div>
-        </div>`;
-      }).join('');
+      listEl.innerHTML = items.map(it => `
+        <a href="${escHtml(it.href)}" class="tipo-${escHtml(it.tipo)}">
+          <span class="num">${escHtml(it.num)}</span>
+          <span class="ttl">${escHtml(it.ttl)}</span>
+          <span class="meta">${escHtml(it.meta)}</span>
+          <span class="arr">→</span>
+        </a>`).join('');
     }
 
     document.getElementById('loading').style.display = 'none';
