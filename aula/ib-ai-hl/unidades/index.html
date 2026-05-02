@@ -185,7 +185,13 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       fetch('/assets/data/ib-unidades.json').then(r => r.json()),
       fetch('/assets/data/ejercicios-index.json').then(r => r.json()).catch(() => ({ejercicios:[]})),
     ]);
-    const u = (unidadesRaw.unidades || []).find(x => x.id === unidadId);
+    // Buscar primero en unidades_hl, luego en unidades_sl, fallback a unidades (legacy)
+    const allUnidades = [
+      ...(unidadesRaw.unidades_hl || []),
+      ...(unidadesRaw.unidades_sl || []),
+      ...(unidadesRaw.unidades || []),
+    ];
+    const u = allUnidades.find(x => x.id === unidadId);
     if (!u) { showNotFound(unidadId); return; }
     const trimestres = unidadesRaw.trimestres || {};
     const trimLabel = trimestres[u.trimestre]?.label?.es || u.trimestre || '';

@@ -193,17 +193,27 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
     document.getElementById('bc-current').textContent = code;
     document.title = `${code} · ${title} · IB Math AI — alexreyes.es`;
 
-    // Unidades didácticas que tienen este subtema en sus tags_iba
-    const unidades = (unidadesRaw.unidades || []).filter(u => (u.tags_iba || []).includes(code));
+    // Unidades didácticas que tienen este subtema — buscar en HL y SL (etiquetadas para distinguir)
+    const allUnidades = [
+      ...(unidadesRaw.unidades_hl || []).map(u => ({ ...u, _level: 'HL' })),
+      ...(unidadesRaw.unidades_sl || []).map(u => ({ ...u, _level: 'SL' })),
+      ...(unidadesRaw.unidades || []).map(u => ({ ...u, _level: '' })),
+    ];
+    const unidades = allUnidades.filter(u => (u.tags_iba || []).includes(code));
     const trimestres = unidadesRaw.trimestres || {};
     const unidadesEl = document.getElementById('unidades-list');
     if (unidades.length === 0) {
       unidadesEl.innerHTML = '<p class="related-empty">Aún no se ha asignado este subtema a ninguna unidad didáctica.</p>';
     } else {
-      unidadesEl.innerHTML = unidades.sort((a,b) => (a.orden||0)-(b.orden||0)).map(u => {
-        const trimLabel = (trimestres[u.trimestre]?.label?.es) || u.trimestre || '';
+      unidadesEl.innerHTML = unidades.sort((a,b) => {
+        if (a._level !== b._level) return a._level === 'HL' ? -1 : 1;
+        return (a.orden||0)-(b.orden||0);
+      }).map(u => {
+        const prefix = u._level === 'SL' ? 'US' : 'U';
+        const levelTag = u._level ? `<span class="unidad-link-trim">${u._level}</span>` : '';
         return `<a href="/aula/ib-ai-hl/unidades/#${u.id}" class="unidad-link">
-          <span class="unidad-link-num">U${String(u.orden).padStart(2,'0')}</span>
+          <span class="unidad-link-num">${prefix}${String(u.orden).padStart(2,'0')}</span>
+          ${levelTag}
           <span class="unidad-link-trim">${escHtml(u.trimestre || '')}</span>
           <span class="unidad-link-title">${escHtml(u.title.es)}</span>
           <span class="unidad-link-arrow">→</span>

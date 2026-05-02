@@ -374,14 +374,17 @@ IB_TEMAS = load_ib_temas()
 
 
 def load_ib_unidades():
-    """Lee assets/data/ib-unidades.json: lista de unidades didácticas propias."""
+    """Lee assets/data/ib-unidades.json: dos listas (HL y SL) de unidades didácticas propias."""
     fp = REPO / "assets/data/ib-unidades.json"
     if not fp.exists():
-        return []
+        return [], []
     data = json.loads(fp.read_text(encoding="utf-8"))
-    return data.get("unidades", [])
+    # Compatibilidad con schema anterior (unidades única) si todavía existe
+    if "unidades" in data and "unidades_hl" not in data:
+        return data.get("unidades", []), []
+    return data.get("unidades_hl", []), data.get("unidades_sl", [])
 
-IB_UNIDADES = load_ib_unidades()
+IB_UNIDADES_HL, IB_UNIDADES_SL = load_ib_unidades()
 
 def make_ib_subject(promo, anyo_examen):
     return {
@@ -761,28 +764,28 @@ def render_ib_hub(s, lang):
         })
     temas_json = json.dumps(temas_for_js, ensure_ascii=False)
 
-    # Unidades didácticas propias para esta promoción
-    unidades_for_js = []
-    for u in IB_UNIDADES:
-        if u.get("promo", "all") not in ("all", promo):
-            continue
-        title_sl = u.get("title_sl", {}).get(lang) if u.get("title_sl") else None
-        intro_sl = u.get("intro_sl", {}).get(lang) if u.get("intro_sl") else None
-        unidades_for_js.append({
-            "id": u["id"],
-            "title": u["title"].get(lang, u["title"]["es"]),
-            "title_sl": title_sl or "",
-            "intro": u.get("intro", {}).get(lang, u.get("intro", {}).get("es", "")),
-            "intro_sl": intro_sl or "",
-            "tags_iba": u.get("tags_iba", []),
-            "orden": u.get("orden", 999),
-            "trimestre": u.get("trimestre", ""),
-            "trimestre_sl": u.get("trimestre_sl") or "",
-            "tier": u.get("tier", "free"),
-            "level": u.get("level", "both"),
-        })
-    unidades_for_js.sort(key=lambda u: u["orden"])
-    unidades_json = json.dumps(unidades_for_js, ensure_ascii=False)
+    # Unidades didácticas propias — dos listas independientes (HL y SL)
+    def serialize_unidades(unidades_src):
+        out = []
+        for u in unidades_src:
+            if u.get("promo", "all") not in ("all", promo):
+                continue
+            out.append({
+                "id": u["id"],
+                "title": u["title"].get(lang, u["title"]["es"]),
+                "intro": u.get("intro", {}).get(lang, u.get("intro", {}).get("es", "")),
+                "tags_iba": u.get("tags_iba", []),
+                "orden": u.get("orden", 999),
+                "trimestre": u.get("trimestre", ""),
+                "tier": u.get("tier", "free"),
+            })
+        out.sort(key=lambda u: u["orden"])
+        return out
+
+    unidades_hl_for_js = serialize_unidades(IB_UNIDADES_HL)
+    unidades_sl_for_js = serialize_unidades(IB_UNIDADES_SL)
+    unidades_hl_json = json.dumps(unidades_hl_for_js, ensure_ascii=False)
+    unidades_sl_json = json.dumps(unidades_sl_for_js, ensure_ascii=False)
 
     # Etiquetas de trimestre (de ib-unidades.json)
     trimestres_data = {}
@@ -887,7 +890,8 @@ def render_ib_hub(s, lang):
 
 <script>
 const TEMAS = {temas_json};
-const UNIDADES = {unidades_json};
+const UNIDADES_HL = {unidades_hl_json};
+const UNIDADES_SL = {unidades_sl_json};
 const TRIMESTRES = {trimestres_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
@@ -921,7 +925,7 @@ function buildSubtema(sub, conceptosConContenido) {{
 }}
 
 // Unidad didáctica (eje pedagógico) — chapter-item plegable con sus 4 secciones
-// nivel: 'hl' o 'sl'. En SL, los tags TANS se omiten y se usa title_sl/intro_sl si existen.
+// nivel: 'hl' o 'sl'. Las listas son independientes (HL y SL son currículos distintos).
 function buildUnidad(u, nivel) {{
   const isSL = nivel === 'sl';
   const url = `/aula/ib-ai-hl/unidades/#${{u.id}}`;
@@ -931,26 +935,19 @@ function buildUnidad(u, nivel) {{
     buildSectionCard(null, '✅', LABELS_JS.section_card_solucions),
     buildSectionCard(null, '🔗', LABELS_JS.section_card_extra),
   ].join('');
-  const tagsToShow = isSL
-    ? (u.tags_iba || []).filter(t => !t.startsWith('TANS'))
-    : (u.tags_iba || []);
-  const tagsBadges = tagsToShow.map(t => {{
+  const tagsBadges = (u.tags_iba || []).map(t => {{
     const cls = t.startsWith('TANS') ? 'subtema-nivel-hl' : 'subtema-nivel-nm';
     const slug = t.replace(/\\s|\\./g, '-');
     return `<a href="/aula/ib-ai-hl/syllabus/#${{slug}}" class="unidad-tag ${{cls}}">${{escHtml(t)}}</a>`;
   }}).join(' ');
-  // Selección de título/intro según nivel: si existe título_sl propio en SL, usarlo
-  const displayTitle = (isSL && u.title_sl) ? u.title_sl : u.title;
-  const displayIntro = (isSL && u.intro_sl) ? u.intro_sl : u.intro;
-  const intro = displayIntro ? `<p class="unidad-intro">${{escHtml(displayIntro)}}</p>` : '';
+  const intro = u.intro ? `<p class="unidad-intro">${{escHtml(u.intro)}}</p>` : '';
   const tagsBox = tagsBadges
     ? `<div class="unidad-tags"><span class="unidad-tags-label">${{LABELS_JS.unidad_covers}}:</span> ${{tagsBadges}}</div>`
     : '';
-  const levelClass = u.level === 'hl' ? 'unidad-hl-only' : '';
-  const numero = u.orden ? `<span class="chapter-num unidad-num">U${{String(u.orden).padStart(2,'0')}}</span>` : '';
-  const hlBadge = u.level === 'hl' ? `<span class="tag tag-purple" style="font-size:0.62rem;margin-left:auto">HL only</span>` : '';
+  const prefix = isSL ? 'US' : 'U';
+  const numero = u.orden ? `<span class="chapter-num unidad-num">${{prefix}}${{String(u.orden).padStart(2,'0')}}</span>` : '';
   const verCompleta = `<p style="margin-top:1rem"><a href="${{url}}" style="font-size:0.86rem;color:var(--text);text-decoration:underline">→ Ver unidad detallada</a></p>`;
-  return `<div class="chapter-item unidad-item ${{levelClass}}"><div class="chapter-header" onclick="toggleChapter(this)">${{numero}}<span class="chapter-title">${{escHtml(displayTitle)}}</span>${{hlBadge}}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div>${{verCompleta}}</div></div>`;
+  return `<div class="chapter-item unidad-item"><div class="chapter-header" onclick="toggleChapter(this)">${{numero}}<span class="chapter-title">${{escHtml(u.title)}}</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div>${{verCompleta}}</div></div>`;
 }}
 
 // Bloque (T1-T5) — chapter-item plegable que contiene los subtemas dentro
@@ -968,29 +965,22 @@ function renderBloques(nivel, conceptosConContenido) {{
   if (el) el.innerHTML = TEMAS.map(t => buildBloque(t, nivel, conceptosConContenido)).join('');
 }}
 function renderUnidades(nivel) {{
-  // En SL se filtran las unidades HL-only y se agrupa por trimestre_sl.
-  // En HL se muestran todas y se agrupa por trimestre (HL).
-  const isSL = nivel === 'sl';
-  const trimField = isSL ? 'trimestre_sl' : 'trimestre';
-  const filtered = UNIDADES.filter(u => {{
-    if (isSL) return u.level !== 'hl' && u.trimestre_sl;
-    return true;
-  }});
+  // HL y SL son currículos independientes con sus propias listas.
+  const lista = nivel === 'sl' ? UNIDADES_SL : UNIDADES_HL;
   const el = document.getElementById('unidades-' + nivel);
   if (!el) return;
-  if (filtered.length === 0) {{
+  if (lista.length === 0) {{
     el.innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${{LABELS_JS.unidad_empty}}</p>`;
     return;
   }}
   // Agrupar por trimestre — insertar header cuando cambia
   let lastT = null;
   const parts = [];
-  for (const u of filtered) {{
-    const t = u[trimField];
-    if (t && t !== lastT) {{
-      const label = TRIMESTRES[t] || t;
+  for (const u of lista) {{
+    if (u.trimestre && u.trimestre !== lastT) {{
+      const label = TRIMESTRES[u.trimestre] || u.trimestre;
       parts.push(`<h3 class="trimestre-header">${{escHtml(label)}}</h3>`);
-      lastT = t;
+      lastT = u.trimestre;
     }}
     parts.push(buildUnidad(u, nivel));
   }}

@@ -1,19 +1,15 @@
 {
-  "schema_version": 4,
-  "_doc": "Unidades didácticas propias para IB Math AI HL/SL — eje pedagógico. Cada unidad agrupa contenido (apuntes, ejercicios, materiales) en el orden y nivel de detalle con que tú lo enseñas. NO mirroriza el orden de los capítulos del libro de Oxford. El campo 'tags_iba' lista los códigos NM/TANS del syllabus que la unidad cubre — esto se usa para auto-listar la unidad bajo cada página de subtema en /syllabus/. La distribución por trimestre es: T1, T2, T3 en IB1; T4, T5 en IB2.",
+  "schema_version": 5,
+  "_doc": "Unidades didácticas propias para IB Math AI HL/SL — eje pedagógico. HL y SL son currículos distintos con unidades independientes: las 15 unidades HL viven en 'unidades_hl' y las 12 unidades SL viven en 'unidades_sl'. NO mirroriza el orden de los capítulos del libro de Oxford. Los códigos NM/TANS pueden repetirse en varias unidades si tiene sentido pedagógico (ej. NM 2.5 'modelado' aparece en US8 y US9 de SL con foques distintos). Los trimestres son T1-T5 para HL y T1-SL a T4-SL para SL.",
   "_campos": {
     "id": "Identificador único, en kebab-case. Se usa como slug de URL.",
     "title": "Título mostrado al usuario. Dict con es/ca/en.",
     "intro": "Breve descripción (1-2 frases) de qué cubre la unidad. Dict con es/ca/en.",
-    "tags_iba": "Lista de códigos NM/TANS del syllabus que la unidad cubre.",
-    "orden": "Entero secuencial 1-15. Define el orden de aparición.",
-    "trimestre": "Trimestre HL: T1-T5. Solo aplica si la unidad es 'hl' o 'both'.",
+    "tags_iba": "Lista de códigos NM/TANS del syllabus que la unidad cubre. Pueden solaparse entre unidades.",
+    "orden": "Entero secuencial. Define el orden de aparición.",
+    "trimestre": "Trimestre: T1-T5 (HL) o T1-SL a T4-SL (SL).",
     "promo": "Promoción a la que aplica: 'all', '2024-2026', '2025-2027'.",
-    "tier": "Acceso: 'free' o 'premium'. Por defecto 'free'.",
-    "level": "Nivel: 'hl' (solo HL), 'sl' (solo SL), 'both' (ambos).",
-    "trimestre_sl": "Trimestre SL: T1-SL a T4-SL. null o ausente si la unidad es HL only.",
-    "title_sl": "Título específico para SL si difiere del HL. Opcional. Dict es/ca/en.",
-    "intro_sl": "Intro específica para SL si difiere del HL. Opcional. Dict es/ca/en."
+    "tier": "Acceso: 'free' o 'premium'. Por defecto 'free'."
   },
   "trimestres": {
     "T1": {
@@ -80,7 +76,7 @@
       }
     }
   },
-  "unidades": [
+  "unidades_hl": [
     {
       "id": "u01-geometria-aplicada",
       "title": {
@@ -104,9 +100,7 @@
       "orden": 1,
       "trimestre": "T1",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T1-SL"
+      "tier": "free"
     },
     {
       "id": "u02-geometria-coordenada-voronoi",
@@ -127,9 +121,7 @@
       "orden": 2,
       "trimestre": "T1",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T1-SL"
+      "tier": "free"
     },
     {
       "id": "u03-analisis-exploratorio",
@@ -152,9 +144,7 @@
       "orden": 3,
       "trimestre": "T1",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T1-SL"
+      "tier": "free"
     },
     {
       "id": "u04-patrones-numericos-finanzas",
@@ -179,9 +169,7 @@
       "orden": 4,
       "trimestre": "T2",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T2-SL"
+      "tier": "free"
     },
     {
       "id": "u05-funciones-polinomicas-regresion",
@@ -206,19 +194,7 @@
       "orden": 5,
       "trimestre": "T2",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T2-SL",
-      "title_sl": {
-        "es": "Funciones polinómicas: lineales, cuadráticas y cúbicas",
-        "ca": "Funcions polinòmiques: lineals, quadràtiques i cúbiques",
-        "en": "Polynomial functions: linear, quadratic and cubic"
-      },
-      "intro_sl": {
-        "es": "Concepto de función, dominio y recorrido. Modelos lineales, cuadráticos y cúbicos. Aplicaciones básicas de modelización.",
-        "ca": "Concepte de funció, domini i recorregut. Models lineals, quadràtics i cúbics. Aplicacions bàsiques de modelització.",
-        "en": "Function concept, domain and range. Linear, quadratic and cubic models. Basic modelling applications."
-      }
+      "tier": "free"
     },
     {
       "id": "u06-probabilidad",
@@ -239,9 +215,7 @@
       "orden": 6,
       "trimestre": "T2",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T2-SL"
+      "tier": "free"
     },
     {
       "id": "u07-exponencial-logaritmico",
@@ -266,19 +240,7 @@
       "orden": 7,
       "trimestre": "T3",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T3-SL",
-      "title_sl": {
-        "es": "Modelos no lineales: exponencial, sinusoidal y logarítmico",
-        "ca": "Models no lineals: exponencial, sinusoïdal i logarítmic",
-        "en": "Non-linear models: exponential, sinusoidal and logarithmic"
-      },
-      "intro_sl": {
-        "es": "Potencias con exponente entero. Modelos exponencial, sinusoidal, logarítmico y otros no lineales. Habilidades básicas de modelización.",
-        "ca": "Potències amb exponent enter. Models exponencial, sinusoïdal, logarítmic i altres no lineals. Habilitats bàsiques de modelització.",
-        "en": "Integer-exponent powers. Exponential, sinusoidal, logarithmic and other non-linear models. Basic modelling skills."
-      }
+      "tier": "free"
     },
     {
       "id": "u08-ondas-fasores-complejos",
@@ -302,9 +264,7 @@
       "orden": 8,
       "trimestre": "T3",
       "promo": "all",
-      "tier": "free",
-      "level": "hl",
-      "trimestre_sl": null
+      "tier": "free"
     },
     {
       "id": "u09-derivadas-optimizacion",
@@ -331,9 +291,7 @@
       "orden": 9,
       "trimestre": "T4",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T3-SL"
+      "tier": "free"
     },
     {
       "id": "u10-algebra-lineal-matrices",
@@ -355,19 +313,7 @@
       "orden": 10,
       "trimestre": "T4",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T3-SL",
-      "title_sl": {
-        "es": "Sistemas lineales con tecnología",
-        "ca": "Sistemes lineals amb tecnologia",
-        "en": "Linear systems with technology"
-      },
-      "intro_sl": {
-        "es": "Resolución de sistemas de ecuaciones lineales utilizando la calculadora gráfica. Aplicaciones a contextos sencillos.",
-        "ca": "Resolució de sistemes d'equacions lineals utilitzant la calculadora gràfica. Aplicacions a contextos senzills.",
-        "en": "Solving systems of linear equations using the graphic calculator. Applications to simple contexts."
-      }
+      "tier": "free"
     },
     {
       "id": "u11-distribuciones-probabilidad",
@@ -394,19 +340,7 @@
       "orden": 11,
       "trimestre": "T4",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T4-SL",
-      "title_sl": {
-        "es": "Variables aleatorias y distribuciones binomial y normal",
-        "ca": "Variables aleatòries i distribucions binomial i normal",
-        "en": "Random variables and binomial and normal distributions"
-      },
-      "intro_sl": {
-        "es": "Variables aleatorias discretas y esperanza. Distribución binomial. Distribución normal estándar y aplicaciones.",
-        "ca": "Variables aleatòries discretes i esperança. Distribució binomial. Distribució normal estàndard i aplicacions.",
-        "en": "Discrete random variables and expectation. Binomial distribution. Standard normal distribution and applications."
-      }
+      "tier": "free"
     },
     {
       "id": "u12-tests-estadisticos",
@@ -430,19 +364,7 @@
       "orden": 12,
       "trimestre": "T4",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T4-SL",
-      "title_sl": {
-        "es": "Correlación de Spearman y tests χ²",
-        "ca": "Correlació de Spearman i tests χ²",
-        "en": "Spearman correlation and χ² tests"
-      },
-      "intro_sl": {
-        "es": "Coeficiente de correlación de rangos de Spearman. Test χ² de bondad de ajuste y de independencia. Test t para la media de una muestra.",
-        "ca": "Coeficient de correlació de rangs de Spearman. Test χ² de bondat d'ajust i d'independència. Test t per a la mitjana d'una mostra.",
-        "en": "Spearman rank correlation coefficient. χ² goodness-of-fit and independence tests. One-sample t-test."
-      }
+      "tier": "free"
     },
     {
       "id": "u13-cinematica-vectorial",
@@ -466,9 +388,7 @@
       "orden": 13,
       "trimestre": "T5",
       "promo": "all",
-      "tier": "free",
-      "level": "hl",
-      "trimestre_sl": null
+      "tier": "free"
     },
     {
       "id": "u14-integracion-edos",
@@ -495,19 +415,7 @@
       "orden": 14,
       "trimestre": "T5",
       "promo": "all",
-      "tier": "free",
-      "level": "both",
-      "trimestre_sl": "T4-SL",
-      "title_sl": {
-        "es": "Introducción a la integración",
-        "ca": "Introducció a la integració",
-        "en": "Introduction to integration"
-      },
-      "intro_sl": {
-        "es": "Concepto de antiderivada (primitiva). Integral indefinida de potencias y suma de potencias. Cálculo de áreas mediante integral definida en contextos sencillos.",
-        "ca": "Concepte d'antiderivada (primitiva). Integral indefinida de potències i suma de potències. Càlcul d'àrees mitjançant integral definida en contextos senzills.",
-        "en": "Antiderivative concept (primitive). Indefinite integral of powers and sums of powers. Computing areas via definite integral in simple contexts."
-      }
+      "tier": "free"
     },
     {
       "id": "u15-redes-grafos",
@@ -529,9 +437,277 @@
       "orden": 15,
       "trimestre": "T5",
       "promo": "all",
-      "tier": "free",
-      "level": "hl",
-      "trimestre_sl": null
+      "tier": "free"
+    }
+  ],
+  "unidades_sl": [
+    {
+      "id": "us01-medicion-trigonometria-rectos",
+      "title": {
+        "es": "Medición y trigonometría de triángulos rectángulos",
+        "ca": "Mesura i trigonometria de triangles rectangles",
+        "en": "Measurement and right-triangle trigonometry"
+      },
+      "intro": {
+        "es": "Notación científica, cifras significativas y aproximación. Trigonometría de triángulos rectángulos: razones, ángulos de elevación y depresión.",
+        "ca": "Notació científica, xifres significatives i aproximació. Trigonometria de triangles rectangles: raons, angles d'elevació i depressió.",
+        "en": "Scientific notation, significant figures and approximation. Right-triangle trigonometry: ratios, angles of elevation and depression."
+      },
+      "tags_iba": [
+        "NM 1.1",
+        "NM 1.6",
+        "NM 3.2"
+      ],
+      "orden": 1,
+      "trimestre": "T1-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us02-trigonometria-no-recta-3d",
+      "title": {
+        "es": "Trigonometría no rectángula y geometría 3D",
+        "ca": "Trigonometria no rectangular i geometria 3D",
+        "en": "Non-right triangle trigonometry and 3D geometry"
+      },
+      "intro": {
+        "es": "Distancia y punto medio en 2D y 3D. Volúmenes y superficies. Ley del seno, del coseno y área de un triángulo. Longitud de arco y área de sector.",
+        "ca": "Distància i punt mitjà en 2D i 3D. Volums i superfícies. Llei del sinus, del cosinus i àrea d'un triangle. Longitud d'arc i àrea de sector.",
+        "en": "Distance and midpoint in 2D and 3D. Volumes and surfaces. Sine and cosine rules, triangle area. Arc length and sector area."
+      },
+      "tags_iba": [
+        "NM 3.1",
+        "NM 3.3",
+        "NM 3.4"
+      ],
+      "orden": 2,
+      "trimestre": "T1-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us03-estadistica-univariante",
+      "title": {
+        "es": "Estadística descriptiva univariante",
+        "ca": "Estadística descriptiva univariant",
+        "en": "Univariate descriptive statistics"
+      },
+      "intro": {
+        "es": "Conceptos de población y muestra. Métodos de muestreo. Medidas de centralización (media, mediana, moda) y dispersión (rango, desviación típica, cuartiles).",
+        "ca": "Conceptes de població i mostra. Mètodes de mostreig. Mesures de centralització (mitjana, mediana, moda) i dispersió (rang, desviació típica, quartils).",
+        "en": "Population and sample concepts. Sampling methods. Measures of central tendency (mean, median, mode) and dispersion (range, standard deviation, quartiles)."
+      },
+      "tags_iba": [
+        "NM 4.1",
+        "NM 4.2",
+        "NM 4.3"
+      ],
+      "orden": 3,
+      "trimestre": "T1-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us04-geometria-coordenada-voronoi",
+      "title": {
+        "es": "Geometría coordenada y diagramas de Voronoi",
+        "ca": "Geometria coordenada i diagrames de Voronoi",
+        "en": "Coordinate geometry and Voronoi diagrams"
+      },
+      "intro": {
+        "es": "Mediatrices, ecuaciones de circunferencias. Diagramas de Voronoi y aplicaciones a problemas de proximidad y distribución óptima.",
+        "ca": "Mediatrius, equacions de circumferències. Diagrames de Voronoi i aplicacions a problemes de proximitat i distribució òptima.",
+        "en": "Perpendicular bisectors, circle equations. Voronoi diagrams and applications to proximity and optimal distribution problems."
+      },
+      "tags_iba": [
+        "NM 3.5",
+        "NM 3.6"
+      ],
+      "orden": 4,
+      "trimestre": "T1-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us05-funciones-lineales-sistemas",
+      "title": {
+        "es": "Funciones lineales y sistemas con tecnología",
+        "ca": "Funcions lineals i sistemes amb tecnologia",
+        "en": "Linear functions and systems with technology"
+      },
+      "intro": {
+        "es": "Concepto de función, dominio y recorrido. Diferentes formas de la ecuación de una recta. Modelos lineales y otros modelos básicos. Sistemas de ecuaciones lineales con calculadora gráfica.",
+        "ca": "Concepte de funció, domini i recorregut. Diferents formes de l'equació d'una recta. Models lineals i altres models bàsics. Sistemes d'equacions lineals amb calculadora gràfica.",
+        "en": "Function concept, domain and range. Forms of the equation of a line. Linear and other basic models. Systems of linear equations with graphic calculator."
+      },
+      "tags_iba": [
+        "NM 2.1",
+        "NM 2.2",
+        "NM 2.3",
+        "NM 2.4",
+        "NM 1.8"
+      ],
+      "orden": 5,
+      "trimestre": "T2-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us06-correlacion-regresion",
+      "title": {
+        "es": "Correlación y regresión lineal",
+        "ca": "Correlació i regressió lineal",
+        "en": "Linear correlation and regression"
+      },
+      "intro": {
+        "es": "Datos bivariados. Coeficiente de correlación de Pearson. Recta de regresión y predicción. Interpretación crítica del modelo.",
+        "ca": "Dades bivariades. Coeficient de correlació de Pearson. Recta de regressió i predicció. Interpretació crítica del model.",
+        "en": "Bivariate data. Pearson correlation coefficient. Regression line and prediction. Critical interpretation of the model."
+      },
+      "tags_iba": [
+        "NM 4.4"
+      ],
+      "orden": 6,
+      "trimestre": "T2-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us07-sucesiones-finanzas",
+      "title": {
+        "es": "Sucesiones, series y aplicaciones financieras",
+        "ca": "Successions, sèries i aplicacions financeres",
+        "en": "Sequences, series and financial applications"
+      },
+      "intro": {
+        "es": "Progresiones aritméticas y geométricas. Suma de una progresión finita. Aplicaciones financieras: interés compuesto, anualidades y amortización con tecnología.",
+        "ca": "Progressions aritmètiques i geomètriques. Suma d'una progressió finita. Aplicacions financeres: interès compost, anualitats i amortització amb tecnologia.",
+        "en": "Arithmetic and geometric progressions. Sum of a finite progression. Financial applications: compound interest, annuities and amortisation with technology."
+      },
+      "tags_iba": [
+        "NM 1.2",
+        "NM 1.3",
+        "NM 1.4",
+        "NM 1.7"
+      ],
+      "orden": 7,
+      "trimestre": "T2-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us08-modelos-polinomicos",
+      "title": {
+        "es": "Modelos polinómicos: cuadrático, cúbico y potencia",
+        "ca": "Models polinòmics: quadràtic, cúbic i potència",
+        "en": "Polynomial models: quadratic, cubic and power"
+      },
+      "intro": {
+        "es": "Modelos cuadráticos, cúbicos, de potencia y otros polinómicos. Habilidades de modelización: elección del modelo, parámetros, ajuste e interpretación.",
+        "ca": "Models quadràtics, cúbics, de potència i altres polinòmics. Habilitats de modelització: elecció del model, paràmetres, ajust i interpretació.",
+        "en": "Quadratic, cubic, power and other polynomial models. Modelling skills: model choice, parameters, fitting and interpretation."
+      },
+      "tags_iba": [
+        "NM 2.5",
+        "NM 2.6"
+      ],
+      "orden": 8,
+      "trimestre": "T3-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us09-modelos-exp-log-sin",
+      "title": {
+        "es": "Modelos exponencial, logarítmico y sinusoidal",
+        "ca": "Models exponencial, logarítmic i sinusoïdal",
+        "en": "Exponential, logarithmic and sinusoidal models"
+      },
+      "intro": {
+        "es": "Potencias con exponente entero y forma exponencial. Modelos exponenciales, logarítmicos y sinusoidales (revisita las habilidades de modelización del bloque anterior con foques nuevos).",
+        "ca": "Potències amb exponent enter i forma exponencial. Models exponencials, logarítmics i sinusoïdals (revisita les habilitats de modelització del bloc anterior amb enfocaments nous).",
+        "en": "Integer-exponent powers and exponential form. Exponential, logarithmic and sinusoidal models (revisits modelling skills with new focuses)."
+      },
+      "tags_iba": [
+        "NM 1.5",
+        "NM 2.5",
+        "NM 2.6"
+      ],
+      "orden": 9,
+      "trimestre": "T3-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us10-analisis-derivadas-integral",
+      "title": {
+        "es": "Análisis: derivadas e introducción a la integral",
+        "ca": "Anàlisi: derivades i introducció a la integral",
+        "en": "Analysis: derivatives and introduction to integration"
+      },
+      "intro": {
+        "es": "Concepto de límite y derivada. Derivada de funciones potencia y suma de potencias. Recta tangente y normal. Máximos, mínimos y optimización. Antiderivada y cálculo elemental de áreas con integral definida.",
+        "ca": "Concepte de límit i derivada. Derivada de funcions potència i suma de potències. Recta tangent i normal. Màxims, mínims i optimització. Antiderivada i càlcul elemental d'àrees amb integral definida.",
+        "en": "Limits and derivatives. Derivatives of power functions and sums of powers. Tangent and normal lines. Maxima, minima and optimisation. Antiderivative and elementary area calculation with definite integral."
+      },
+      "tags_iba": [
+        "NM 5.1",
+        "NM 5.2",
+        "NM 5.3",
+        "NM 5.4",
+        "NM 5.5",
+        "NM 5.6",
+        "NM 5.7"
+      ],
+      "orden": 10,
+      "trimestre": "T3-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us11-probabilidad-binomial-normal",
+      "title": {
+        "es": "Probabilidad, binomial y normal",
+        "ca": "Probabilitat, binomial i normal",
+        "en": "Probability, binomial and normal"
+      },
+      "intro": {
+        "es": "Espacio muestral, eventos compuestos y probabilidad condicionada. Diagramas de Venn, árboles y tablas de contingencia. Variables aleatorias discretas. Distribución binomial y distribución normal estándar.",
+        "ca": "Espai mostral, esdeveniments compostos i probabilitat condicionada. Diagrames de Venn, arbres i taules de contingència. Variables aleatòries discretes. Distribució binomial i distribució normal estàndard.",
+        "en": "Sample space, compound events and conditional probability. Venn diagrams, trees and contingency tables. Discrete random variables. Binomial and standard normal distributions."
+      },
+      "tags_iba": [
+        "NM 4.5",
+        "NM 4.6",
+        "NM 4.7",
+        "NM 4.8",
+        "NM 4.9"
+      ],
+      "orden": 11,
+      "trimestre": "T4-SL",
+      "promo": "all",
+      "tier": "free"
+    },
+    {
+      "id": "us12-tests-spearman-chi2",
+      "title": {
+        "es": "Correlación de Spearman y tests χ²",
+        "ca": "Correlació de Spearman i tests χ²",
+        "en": "Spearman correlation and χ² tests"
+      },
+      "intro": {
+        "es": "Coeficiente de correlación de rangos de Spearman. Test χ² de bondad de ajuste y de independencia. Test t para la media de una muestra. Interpretación de resultados.",
+        "ca": "Coeficient de correlació de rangs de Spearman. Test χ² de bondat d'ajust i d'independència. Test t per a la mitjana d'una mostra. Interpretació de resultats.",
+        "en": "Spearman rank correlation coefficient. χ² goodness-of-fit and independence tests. One-sample t-test. Interpreting results."
+      },
+      "tags_iba": [
+        "NM 4.10",
+        "NM 4.11"
+      ],
+      "orden": 12,
+      "trimestre": "T4-SL",
+      "promo": "all",
+      "tier": "free"
     }
   ]
 }
