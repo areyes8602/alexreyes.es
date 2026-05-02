@@ -11,7 +11,7 @@
   "puntuacion_total": 10,
   "baremo": null,
   "tags_coleccion": {
-    "materia": "bach-ccss-1",
+    "materia": "ccss-1btl",
     "curso_academico": "2025-2026",
     "idioma": "ca",
     "fuente": "propia",
@@ -24,22 +24,47 @@
       "titulo": "Operacions amb potències i arrels",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p1.html",
       "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original-enunciados.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 4,
       "contexto": "Simplifica i/o expressa en forma de potència en base 2.",
       "apartados": [
-        { "letra": "a", "puntos": 1, "tarea": "Simplifica $\\left(\\dfrac{2^{4}\\,x^{-2}\\,y^{3}}{2\\,x^{2}\\,y^{-2}}\\right)^{3}$" },
-        { "letra": "b", "puntos": 1, "tarea": "Expressa en forma de potència en base 2: $\\sqrt[5]{16} \\cdot 2^{3/2} \\cdot \\dfrac{1}{\\sqrt[3]{4}}$" },
-        { "letra": "c", "puntos": 1, "tarea": "Racionalitza i simplifica $\\dfrac{\\sqrt{5}}{\\sqrt[3]{25}}$" },
-        { "letra": "d", "puntos": 1, "tarea": "Expressa com una potència de base 2: $\\sqrt[3]{\\,2\\,\\sqrt{8\\,\\sqrt[5]{16}}\\,}$" }
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Simplifica $\\left(\\dfrac{2^{4}\\,x^{-2}\\,y^{3}}{2\\,x^{2}\\,y^{-2}}\\right)^{3}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Expressa en forma de potència en base 2: $\\sqrt[5]{16} \\cdot 2^{3/2} \\cdot \\dfrac{1}{\\sqrt[3]{4}}$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Racionalitza i simplifica $\\dfrac{\\sqrt{5}}{\\sqrt[3]{25}}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "Expressa com una potència de base 2: $\\sqrt[3]{\\,2\\,\\sqrt{8\\,\\sqrt[5]{16}}\\,}$"
+        }
       ],
       "tags": {
         "ambito_bach": "BACH-A",
-        "concepto_bach": ["BACH-numeros-reales", "BACH-potencias"],
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -48,19 +73,35 @@
       "titulo": "Càlcul i simplificació amb logaritmes",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p2.html",
       "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original-enunciados.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 2,
       "apartados": [
-        { "letra": "a", "puntos": 1, "tarea": "Simplifica $\\log_{3}(9x^{4}) - 2\\log_{3} x$" },
-        { "letra": "b", "puntos": 1, "tarea": "Calcula $\\log(1000) - \\log(0{,}01)$" }
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Simplifica $\\log_{3}(9x^{4}) - 2\\log_{3} x$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Calcula $\\log(1000) - \\log(0{,}01)$"
+        }
       ],
       "tags": {
         "ambito_bach": "BACH-A",
-        "concepto_bach": ["BACH-potencias"],
+        "concepto_bach": [
+          "BACH-potencias"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -69,22 +110,48 @@
       "titulo": "Equacions logarítmiques",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/p3.html",
       "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/original-enunciados.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 4,
       "contexto": "Resol les equacions logarítmiques següents (cadascuna val 1 punt).",
       "apartados": [
-        { "letra": "a", "puntos": 1, "tarea": "$\\log_{5}(2x-1) = 1$" },
-        { "letra": "b", "puntos": 1, "tarea": "$\\log(x^{2} - 5x + 6) = \\log(x - 2)$" },
-        { "letra": "c", "puntos": 1, "tarea": "$\\log_{2}(x^{2} - 5) = 2$" },
-        { "letra": "d", "puntos": 1, "tarea": "$\\log(x^{2} - 9) - \\log(x - 3) = 1$" }
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "$\\log_{5}(2x-1) = 1$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "$\\log(x^{2} - 5x + 6) = \\log(x - 2)$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "$\\log_{2}(x^{2} - 5) = 2$"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "$\\log(x^{2} - 9) - \\log(x - 3) = 1$"
+        }
       ],
       "tags": {
         "ambito_bach": "BACH-D",
-        "concepto_bach": ["BACH-ecuaciones", "BACH-potencias"],
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-potencias"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     }
   ]

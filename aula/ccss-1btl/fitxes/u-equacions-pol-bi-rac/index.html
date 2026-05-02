@@ -12,32 +12,21 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/aula.css">
 <link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/fitxes/u-equacions-pol-bi-rac/">
 <style>
-.fitxa-section { margin: 2.2rem 0; }
-.fitxa-section > h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 0.4rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; }
-.fitxa-section > h2 .num { display:inline-flex; align-items:center; justify-content:center; min-width:1.8rem; height:1.5rem; padding:0 0.5rem; background:#6366f1; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
-.fitxa-section > p.section-intro { font-size:0.88rem; color:var(--text-soft); margin:0 0 0.8rem; }
-.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.8rem 1rem; margin: 0.8rem 0; }
-.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
-.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
-.exercise-statement { margin:0.2rem 0 0.4rem; font-size:0.95rem; }
-.exercise details { margin-top:0.4rem; border-top:1px dashed var(--border); padding-top:0.5rem; }
-.exercise details summary { cursor:pointer; font-size:0.84rem; font-weight:600; color:#6366f1; list-style:none; user-select:none; padding:0.15rem 0; }
-.exercise details summary::-webkit-details-marker { display:none; }
-.exercise details summary::before { content:"▶ "; font-size:0.7em; transition: transform 0.15s; display:inline-block; margin-right:0.2rem; }
-.exercise details[open] summary::before { transform: rotate(90deg); }
-.exercise details .solution { padding:0.3rem 0 0; font-size:0.92rem; color:var(--text); }
-.exercise details .solution p { margin:0.4rem 0; }
-.exercise details .solution .final { background: rgba(16,185,129,0.10); border-left:3px solid #10b981; padding:0.4rem 0.7rem; border-radius:4px; margin-top:0.5rem; font-weight:500; }
-[data-theme="dark"] .exercise { background: var(--bg-subtle); }
 .fitxa-toolbar { display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center; margin: 1rem 0 1.6rem; padding: 0.8rem 1rem; background: var(--bg-subtle); border:1px solid var(--border); border-radius:10px; }
+
 .fitxa-toolbar .label { font-size:0.86rem; color:var(--text-soft); margin-right:0.4rem; }
+
 .fitxa-btn { display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 0.9rem; background:#6366f1; color:#fff; text-decoration:none; border-radius:6px; font-size:0.86rem; font-weight:500; border:none; cursor:pointer; transition:background 0.15s; }
+
 .fitxa-btn:hover { background:#4f46e5; }
+
 .fitxa-btn.secondary { background: var(--bg); color:var(--text); border:1px solid var(--border); }
+
 .fitxa-btn.secondary:hover { border-color:#6366f1; color:#6366f1; }
 </style>
 </head>
@@ -99,14 +88,14 @@
     <article class="question-block" style="border:none;padding:0;background:none">
 
       <!-- ── Equacions polinòmiques ── -->
-      <div class="fitxa-section">
+      <div class="seccion-aula">
         <h2><span class="num">1</span> Equacions polinòmiques</h2>
         <p class="section-intro">Resol les següents equacions polinòmiques. Recorda factoritzar (treure factor comú, productes notables, Ruffini) abans de buscar les arrels.</p>
 
-        <div class="exercise" id="ex-1a">
-          <div class="exercise-head"><span class="num">1a</span></div>
-          <div class="exercise-statement"><p>$3x^{3} + 2x - 1 = 2 \cdot (x^{3} - 2x^{2}) + 6$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1a">
+          <div class="ejercicio-header"><span class="num">1a</span></div>
+          <div class="ejercicio-cuerpo"><p>$3x^{3} + 2x - 1 = 2 \cdot (x^{3} - 2x^{2}) + 6$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Desenvolupem el RHS i passem tot a un costat:</p>
             <p>$3x^{3} + 2x - 1 = 2x^{3} - 4x^{2} + 6 \;\Longrightarrow\; x^{3} + 4x^{2} + 2x - 7 = 0$.</p>
             <p>Provem $x = 1$: $1 + 4 + 2 - 7 = 0$ ✓. Per Ruffini: $(x-1)(x^{2} + 5x + 7) = 0$.</p>
@@ -115,20 +104,20 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1b">
-          <div class="exercise-head"><span class="num">1b</span></div>
-          <div class="exercise-statement"><p>$x^{3} - 2x^{2} = 3x - 6$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1b">
+          <div class="ejercicio-header"><span class="num">1b</span></div>
+          <div class="ejercicio-cuerpo"><p>$x^{3} - 2x^{2} = 3x - 6$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Reagrupem: $x^{3} - 2x^{2} - 3x + 6 = 0$. Factoritzem per agrupació:</p>
             <p>$x^{2}(x - 2) - 3(x - 2) = (x-2)(x^{2} - 3) = 0$.</p>
             <div class="final">$x = 2$, &nbsp; $x = \sqrt{3}$, &nbsp; $x = -\sqrt{3}$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1c">
-          <div class="exercise-head"><span class="num">1c</span></div>
-          <div class="exercise-statement"><p>$(x+1)^{2} - (x-2)^{2} = (x+3)^{2} + x^{2} - 20$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1c">
+          <div class="ejercicio-header"><span class="num">1c</span></div>
+          <div class="ejercicio-cuerpo"><p>$(x+1)^{2} - (x-2)^{2} = (x+3)^{2} + x^{2} - 20$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Desenvolupem cada costat:</p>
             <p>LHS: $(x^{2}+2x+1) - (x^{2}-4x+4) = 6x - 3$.</p>
             <p>RHS: $(x^{2}+6x+9) + x^{2} - 20 = 2x^{2} + 6x - 11$.</p>
@@ -137,30 +126,30 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1d">
-          <div class="exercise-head"><span class="num">1d</span></div>
-          <div class="exercise-statement"><p>$x^{4} + x^{2} = 2x^{3}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1d">
+          <div class="ejercicio-header"><span class="num">1d</span></div>
+          <div class="ejercicio-cuerpo"><p>$x^{4} + x^{2} = 2x^{3}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Passem tot a un costat: $x^{4} - 2x^{3} + x^{2} = 0$. Factoritzem:</p>
             <p>$x^{2}(x^{2} - 2x + 1) = x^{2}(x-1)^{2} = 0$.</p>
             <div class="final">$x = 0$ (doble) &nbsp; i &nbsp; $x = 1$ (doble).</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1e">
-          <div class="exercise-head"><span class="num">1e</span></div>
-          <div class="exercise-statement"><p>$x^{3} - 5x^{2} + 7x - 3 = 0$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1e">
+          <div class="ejercicio-header"><span class="num">1e</span></div>
+          <div class="ejercicio-cuerpo"><p>$x^{3} - 5x^{2} + 7x - 3 = 0$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Provem $x = 1$: $1 - 5 + 7 - 3 = 0$ ✓. Per Ruffini: $(x-1)(x^{2} - 4x + 3) = 0$.</p>
             <p>I $x^{2} - 4x + 3 = (x-1)(x-3)$, així $x^{3} - 5x^{2} + 7x - 3 = (x-1)^{2}(x-3)$.</p>
             <div class="final">$x = 1$ (doble) &nbsp; i &nbsp; $x = 3$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1f">
-          <div class="exercise-head"><span class="num">1f</span></div>
-          <div class="exercise-statement"><p>$x^{3} = 2 \cdot (2x + 4 - x^{2})$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1f">
+          <div class="ejercicio-header"><span class="num">1f</span></div>
+          <div class="ejercicio-cuerpo"><p>$x^{3} = 2 \cdot (2x + 4 - x^{2})$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Desenvolupem: $x^{3} = 4x + 8 - 2x^{2} \;\Longrightarrow\; x^{3} + 2x^{2} - 4x - 8 = 0$.</p>
             <p>Factoritzem per agrupació: $x^{2}(x+2) - 4(x+2) = (x+2)(x^{2}-4) = (x+2)^{2}(x-2)$.</p>
             <div class="final">$x = -2$ (doble) &nbsp; i &nbsp; $x = 2$.</div>
@@ -169,35 +158,35 @@
       </div>
 
       <!-- ── Equacions biquadrades ── -->
-      <div class="fitxa-section">
+      <div class="seccion-aula">
         <h2><span class="num">2</span> Equacions biquadrades</h2>
         <p class="section-intro">Resol per canvi de variable $y = x^{2}$ (o, en algun cas, $z = x^{3}$).</p>
 
-        <div class="exercise" id="ex-2a">
-          <div class="exercise-head"><span class="num">2a</span></div>
-          <div class="exercise-statement"><p>$x^{4} + 4x^{2} = 0$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2a">
+          <div class="ejercicio-header"><span class="num">2a</span></div>
+          <div class="ejercicio-cuerpo"><p>$x^{4} + 4x^{2} = 0$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$x^{2}(x^{2}+4) = 0$. El factor $x^{2}+4$ no té arrels reals (sempre $> 0$).</p>
             <div class="final">$x = 0$ (doble).</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2b">
-          <div class="exercise-head"><span class="num">2b</span></div>
-          <div class="exercise-statement"><p>$x^{4} - 8x^{2} = 9$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2b">
+          <div class="ejercicio-header"><span class="num">2b</span></div>
+          <div class="ejercicio-cuerpo"><p>$x^{4} - 8x^{2} = 9$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Sigui $y = x^{2}$: $y^{2} - 8y - 9 = 0 \Rightarrow y = \dfrac{8 \pm 10}{2} = 9$ o $-1$.</p>
             <p>$y = 9 \Rightarrow x = \pm 3$. $y = -1$ es descarta (negatiu).</p>
             <div class="final">$x = \pm 3$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2c">
-          <div class="exercise-head"><span class="num">2c</span></div>
-          <div class="exercise-statement"><p>$x^{6} + x^{2} + 216 = x^{2} \cdot (1 + 35x)$</p>
+        <div class="ejercicio" id="ex-2c">
+          <div class="ejercicio-header"><span class="num">2c</span></div>
+          <div class="ejercicio-cuerpo"><p>$x^{6} + x^{2} + 216 = x^{2} \cdot (1 + 35x)$</p>
             <p style="font-size:0.8rem;color:var(--text-soft);font-style:italic;margin-top:0.3rem">(Interpretació amb $35x$ per obtenir solucions enteres; si l'enunciat porta $35x^{4}$ la solució no és racional.)</p>
           </div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Desenvolupem: $x^{6} + x^{2} + 216 = x^{2} + 35x^{3} \Rightarrow x^{6} - 35x^{3} + 216 = 0$.</p>
             <p>Sigui $z = x^{3}$: $z^{2} - 35z + 216 = 0 \Rightarrow z = \dfrac{35 \pm \sqrt{1225 - 864}}{2} = \dfrac{35 \pm 19}{2} = 27$ o $8$.</p>
             <p>$z = 27 \Rightarrow x = 3$, &nbsp; $z = 8 \Rightarrow x = 2$.</p>
@@ -205,10 +194,10 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2d">
-          <div class="exercise-head"><span class="num">2d</span></div>
-          <div class="exercise-statement"><p>$36 = x^{2} \cdot (13 - x^{2})$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2d">
+          <div class="ejercicio-header"><span class="num">2d</span></div>
+          <div class="ejercicio-cuerpo"><p>$36 = x^{2} \cdot (13 - x^{2})$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$36 = 13x^{2} - x^{4} \Rightarrow x^{4} - 13x^{2} + 36 = 0$.</p>
             <p>Sigui $y = x^{2}$: $y^{2} - 13y + 36 = 0 \Rightarrow y = \dfrac{13 \pm 5}{2} = 9$ o $4$.</p>
             <div class="final">$x = \pm 2$ &nbsp; i &nbsp; $x = \pm 3$.</div>
@@ -217,14 +206,14 @@
       </div>
 
       <!-- ── Equacions racionals ── -->
-      <div class="fitxa-section">
+      <div class="seccion-aula">
         <h2><span class="num">3</span> Equacions racionals</h2>
         <p class="section-intro">Multiplica pel mínim comú múltiple dels denominadors i comprova sempre que les solucions estiguin dins del domini.</p>
 
-        <div class="exercise" id="ex-3a">
-          <div class="exercise-head"><span class="num">3a</span></div>
-          <div class="exercise-statement"><p>$\dfrac{1}{x} + \dfrac{1}{x+3} = \dfrac{1}{10}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3a">
+          <div class="ejercicio-header"><span class="num">3a</span></div>
+          <div class="ejercicio-cuerpo"><p>$\dfrac{1}{x} + \dfrac{1}{x+3} = \dfrac{1}{10}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Multipliquem per $10x(x+3)$: $10(x+3) + 10x = x(x+3) \Rightarrow 20x + 30 = x^{2} + 3x$.</p>
             <p>$x^{2} - 17x - 30 = 0 \Rightarrow x = \dfrac{17 \pm \sqrt{289 + 120}}{2} = \dfrac{17 \pm \sqrt{409}}{2}$.</p>
             <p class="note" style="color:var(--text-soft);font-size:0.86rem">Numèricament: $x \approx 18{,}61$ &nbsp;o&nbsp; $x \approx -1{,}61$. Tots dos del domini ($x \neq 0, -3$).</p>
@@ -232,10 +221,10 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3b">
-          <div class="exercise-head"><span class="num">3b</span></div>
-          <div class="exercise-statement"><p>$\dfrac{4}{x} + \dfrac{2x+2}{3x-6} = 4$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3b">
+          <div class="ejercicio-header"><span class="num">3b</span></div>
+          <div class="ejercicio-cuerpo"><p>$\dfrac{4}{x} + \dfrac{2x+2}{3x-6} = 4$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Domini: $x \neq 0$, $x \neq 2$. Multipliquem per $3x(x-2)$ (notem $3x-6 = 3(x-2)$):</p>
             <p>$12(x-2) + x(2x+2) = 12x(x-2) \Rightarrow 2x^{2} + 14x - 24 = 12x^{2} - 24x$.</p>
             <p>$10x^{2} - 38x + 24 = 0 \Rightarrow 5x^{2} - 19x + 12 = 0 \Rightarrow x = \dfrac{19 \pm 11}{10} = 3$ o $\tfrac{4}{5}$.</p>
@@ -243,10 +232,10 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3c">
-          <div class="exercise-head"><span class="num">3c</span></div>
-          <div class="exercise-statement"><p>$\dfrac{8 - x}{2} - \dfrac{2x - 11}{x - 3} = \dfrac{x + 6}{2}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3c">
+          <div class="ejercicio-header"><span class="num">3c</span></div>
+          <div class="ejercicio-cuerpo"><p>$\dfrac{8 - x}{2} - \dfrac{2x - 11}{x - 3} = \dfrac{x + 6}{2}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Domini: $x \neq 3$. Multipliquem per $2(x-3)$:</p>
             <p>$(8-x)(x-3) - 2(2x - 11) = (x+6)(x-3)$.</p>
             <p>Desenvolupant: $-x^{2} + 7x - 2 = x^{2} + 3x - 18 \Rightarrow 2x^{2} - 4x - 16 = 0 \Rightarrow x^{2} - 2x - 8 = 0$.</p>
@@ -255,10 +244,10 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3d">
-          <div class="exercise-head"><span class="num">3d</span></div>
-          <div class="exercise-statement"><p>$\dfrac{2x}{x-3} - \dfrac{6}{x} = \dfrac{18}{x^{2} - 3x}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3d">
+          <div class="ejercicio-header"><span class="num">3d</span></div>
+          <div class="ejercicio-cuerpo"><p>$\dfrac{2x}{x-3} - \dfrac{6}{x} = \dfrac{18}{x^{2} - 3x}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Domini: $x \neq 0$, $x \neq 3$. Notem $x^{2} - 3x = x(x-3)$, així que multipliquem per $x(x-3)$:</p>
             <p>$2x \cdot x - 6(x-3) = 18 \Rightarrow 2x^{2} - 6x + 18 = 18 \Rightarrow 2x^{2} - 6x = 0 \Rightarrow 2x(x-3) = 0$.</p>
             <p>Les "solucions" candidates serien $x = 0$ i $x = 3$, però <strong>cap d'elles està al domini</strong> (anul·len denominadors).</p>
@@ -266,10 +255,10 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3e">
-          <div class="exercise-head"><span class="num">3e</span></div>
-          <div class="exercise-statement"><p>$\dfrac{x-1}{x-2} - \dfrac{2x - 2}{x^{2} + 3x} = \dfrac{5x - 5}{x^{2} + x - 6}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3e">
+          <div class="ejercicio-header"><span class="num">3e</span></div>
+          <div class="ejercicio-cuerpo"><p>$\dfrac{x-1}{x-2} - \dfrac{2x - 2}{x^{2} + 3x} = \dfrac{5x - 5}{x^{2} + x - 6}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Factoritzem denominadors: $x^{2}+3x = x(x+3)$, $x^{2}+x-6 = (x+3)(x-2)$. Domini: $x \neq 0, -3, 2$.</p>
             <p>Multipliquem per $x(x+3)(x-2)$:</p>
             <p>$(x-1) \cdot x(x+3) - 2(x-1)(x-2) = 5(x-1) \cdot x$.</p>
@@ -279,10 +268,10 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3f">
-          <div class="exercise-head"><span class="num">3f</span></div>
-          <div class="exercise-statement"><p>$\dfrac{x+4}{x-3} - \dfrac{1 - 2x}{x^{2} - x - 6} = 0$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3f">
+          <div class="ejercicio-header"><span class="num">3f</span></div>
+          <div class="ejercicio-cuerpo"><p>$\dfrac{x+4}{x-3} - \dfrac{1 - 2x}{x^{2} - x - 6} = 0$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$x^{2} - x - 6 = (x-3)(x+2)$. Domini: $x \neq 3$, $x \neq -2$. Multipliquem per $(x-3)(x+2)$:</p>
             <p>$(x+4)(x+2) - (1 - 2x) = 0 \Rightarrow x^{2} + 6x + 8 - 1 + 2x = 0 \Rightarrow x^{2} + 8x + 7 = 0$.</p>
             <p>$(x+1)(x+7) = 0$.</p>
@@ -290,10 +279,10 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3g">
-          <div class="exercise-head"><span class="num">3g</span></div>
-          <div class="exercise-statement"><p>$\dfrac{3}{x} + \dfrac{4}{2x^{2} - 4x} = \dfrac{1}{2x - 4}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3g">
+          <div class="ejercicio-header"><span class="num">3g</span></div>
+          <div class="ejercicio-cuerpo"><p>$\dfrac{3}{x} + \dfrac{4}{2x^{2} - 4x} = \dfrac{1}{2x - 4}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Factoritzem: $2x^{2} - 4x = 2x(x-2)$ i $2x - 4 = 2(x-2)$. Domini: $x \neq 0$, $x \neq 2$. Multipliquem per $2x(x-2)$:</p>
             <p>$6(x-2) + 4 = x \Rightarrow 6x - 8 = x \Rightarrow 5x = 8$.</p>
             <div class="final">$x = \dfrac{8}{5}$.</div>

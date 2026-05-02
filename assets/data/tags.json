@@ -29,28 +29,21 @@
             "en": "IB Math AI SL"
           }
         },
-        "bach-ccss-1": {
-          "label": {
-            "es": "Bachillerato — Mat. CCSS 1º",
-            "ca": "Batxillerat — Mat. CCSS 1r",
-            "en": "Bachillerato — Applied Maths Year 1"
-          }
-        },
-        "bach-ccss-2": {
+        "ccss-2btl": {
           "label": {
             "es": "Bachillerato — Mat. CCSS 2º",
             "ca": "Batxillerat — Mat. CCSS 2n",
             "en": "Bachillerato — Applied Maths Year 2"
           }
         },
-        "bach-cient-1": {
+        "cient-1btl": {
           "label": {
             "es": "Bachillerato — Matemáticas 1º",
             "ca": "Batxillerat — Matemàtiques 1r",
             "en": "Bachillerato — Mathematics Year 1"
           }
         },
-        "bach-cient-2": {
+        "cient-2btl": {
           "label": {
             "es": "Bachillerato — Matemáticas 2º",
             "ca": "Batxillerat — Matemàtiques 2n",
@@ -90,6 +83,13 @@
             "es": "Cangur (olimpiada SCM)",
             "ca": "Cangur (olimpíada SCM)",
             "en": "Cangur (SCM olympiad)"
+          }
+        },
+        "ccss-1btl": {
+          "label": {
+            "es": "Bachillerato — Mat. CCSS 1º",
+            "ca": "Batxillerat — Mat. CCSS 1r",
+            "en": "Bachillerato — Applied Maths Year 1"
           }
         }
       }
@@ -646,10 +646,10 @@
       },
       "aplica_si": {
         "materia": [
-          "bach-ccss-1",
-          "bach-ccss-2",
-          "bach-cient-1",
-          "bach-cient-2"
+          "ccss-1btl",
+          "ccss-2btl",
+          "cient-1btl",
+          "cient-2btl"
         ]
       },
       "multi": false,
@@ -706,10 +706,10 @@
       },
       "aplica_si": {
         "materia": [
-          "bach-ccss-1",
-          "bach-ccss-2",
-          "bach-cient-1",
-          "bach-cient-2"
+          "ccss-1btl",
+          "ccss-2btl",
+          "cient-1btl",
+          "cient-2btl"
         ]
       },
       "multi": true,

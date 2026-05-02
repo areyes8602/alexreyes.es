@@ -11,7 +11,7 @@
   "puntuacion_total": 10,
   "baremo": null,
   "tags_coleccion": {
-    "materia": "bach-ccss-1",
+    "materia": "ccss-1btl",
     "curso_academico": "2025-2026",
     "idioma": "ca",
     "fuente": "propia",
@@ -24,24 +24,57 @@
       "titulo": "Operacions amb radicals, potències i logaritmes",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p1.html",
       "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original-enunciados.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 3,
       "contexto": "Expressa el resultat, operant pas a pas, de les operacions següents simplificant i/o racionalitzant.",
       "apartados": [
-        { "letra": "a", "puntos": 0.5, "tarea": "$\\dfrac{9\\sqrt{8} - 3\\sqrt{72}}{\\sqrt{2}} + \\sqrt{49} - \\left(27^{1/3}\\right)\\!\\left(8^{2/3}\\right)$" },
-        { "letra": "b", "puntos": 0.5, "tarea": "$\\log\\!\\left(\\dfrac{100\\sqrt{10}}{0{,}01}\\right) - \\log(10^{3})$" },
-        { "letra": "c", "puntos": 0.5, "tarea": "$\\log_{2} 32 - \\log_{2}\\!\\left(\\dfrac{1}{8}\\right) + \\log_{2}\\!\\left(\\sqrt{2}\\right)$" },
-        { "letra": "d", "puntos": 0.5, "tarea": "$\\dfrac{5^{-2} \\cdot \\sqrt{125}}{\\,(1/25)^{1{,}5}\\,}$" },
-        { "letra": "e", "puntos": 0.5, "tarea": "$\\log_{3}\\!\\left(\\sqrt[3]{3} \\cdot \\sqrt{27}\\right)$" },
-        { "letra": "f", "puntos": 0.5, "tarea": "$\\dfrac{4}{2 - \\sqrt{3}}$ (racionalitza el denominador)" }
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "$\\dfrac{9\\sqrt{8} - 3\\sqrt{72}}{\\sqrt{2}} + \\sqrt{49} - \\left(27^{1/3}\\right)\\!\\left(8^{2/3}\\right)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "$\\log\\!\\left(\\dfrac{100\\sqrt{10}}{0{,}01}\\right) - \\log(10^{3})$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "$\\log_{2} 32 - \\log_{2}\\!\\left(\\dfrac{1}{8}\\right) + \\log_{2}\\!\\left(\\sqrt{2}\\right)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "$\\dfrac{5^{-2} \\cdot \\sqrt{125}}{\\,(1/25)^{1{,}5}\\,}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0.5,
+          "tarea": "$\\log_{3}\\!\\left(\\sqrt[3]{3} \\cdot \\sqrt{27}\\right)$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0.5,
+          "tarea": "$\\dfrac{4}{2 - \\sqrt{3}}$ (racionalitza el denominador)"
+        }
       ],
       "tags": {
         "ambito_bach": "BACH-A",
-        "concepto_bach": ["BACH-numeros-reales", "BACH-potencias"],
+        "concepto_bach": [
+          "BACH-numeros-reales",
+          "BACH-potencias"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico"],
-        "formato": ["pregunta_corta"]
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
       }
     },
     {
@@ -50,21 +83,42 @@
       "titulo": "Polinomis: factorització, MCD i MCM",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p2.html",
       "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original-enunciados.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 2,
       "contexto": "Donats els polinomis $p(x) = 3x^{3} - 27x$ i $q(x) = 2x^{2} - 10x + 12$.",
       "apartados": [
-        { "letra": "a", "puntos": 0.5, "tarea": "Factoritza els polinomis $p(x)$ i $q(x)$." },
-        { "letra": "b", "puntos": 0.5, "tarea": "Calcula el MCD i el MCM de $p(x)$ i $q(x)$." },
-        { "letra": "c", "puntos": 1, "tarea": "Calcula i simplifica $\\dfrac{p(x)}{q(x)} - \\dfrac{x^{2} + 2x}{x^{2} - 4}$." }
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Factoritza els polinomis $p(x)$ i $q(x)$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula el MCD i el MCM de $p(x)$ i $q(x)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Calcula i simplifica $\\dfrac{p(x)}{q(x)} - \\dfrac{x^{2} + 2x}{x^{2} - 4}$."
+        }
       ],
       "tags": {
         "ambito_bach": "BACH-D",
-        "concepto_bach": ["BACH-polinomios"],
+        "concepto_bach": [
+          "BACH-polinomios"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     },
     {
@@ -73,26 +127,68 @@
       "titulo": "Equacions i sistemes — escollir 5 de 8",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/p3.html",
       "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/original-enunciados.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 5,
       "contexto": "Resol, verificant les solucions, 5 de les equacions o sistemes següents (cadascun val 1 punt; aquí ho deixem tot resolt). Les puntuacions per apartat es reparteixen igualment ($5/8$ punts cadascun) per quadrar amb la suma total.",
       "apartados": [
-        { "letra": "a", "puntos": 0.625, "tarea": "$\\sqrt{x+5} + \\sqrt{x-4} = 9$" },
-        { "letra": "b", "puntos": 0.625, "tarea": "$3^{2x} - 10 \\cdot 3^{x} + 9 = 0$" },
-        { "letra": "c", "puntos": 0.625, "tarea": "$2\\log_{5}(x+2) - \\log_{5}(2x-1) = 1 - \\log_{5}(x-2)$" },
-        { "letra": "d", "puntos": 0.625, "tarea": "$|3x-9| + 1 = |x|$" },
-        { "letra": "e", "puntos": 0.625, "tarea": "$x^{4} + 36 = 13x^{2}$" },
-        { "letra": "f", "puntos": 0.625, "tarea": "$\\dfrac{x}{x-2} + \\dfrac{1}{x+2} = 1 - \\dfrac{2}{x^{2}-4}$" },
-        { "letra": "g", "puntos": 0.625, "tarea": "Sistema: $\\begin{cases} x^{2} + y^{2} = 25 \\\\ y = x + 1 \\end{cases}$" },
-        { "letra": "h", "puntos": 0.625, "tarea": "Sistema: $\\begin{cases} \\log(x) + \\log(y^{2}) = 4 \\\\ \\log(x/y) = 1 \\end{cases}$" }
+        {
+          "letra": "a",
+          "puntos": 0.625,
+          "tarea": "$\\sqrt{x+5} + \\sqrt{x-4} = 9$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.625,
+          "tarea": "$3^{2x} - 10 \\cdot 3^{x} + 9 = 0$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.625,
+          "tarea": "$2\\log_{5}(x+2) - \\log_{5}(2x-1) = 1 - \\log_{5}(x-2)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0.625,
+          "tarea": "$|3x-9| + 1 = |x|$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0.625,
+          "tarea": "$x^{4} + 36 = 13x^{2}$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0.625,
+          "tarea": "$\\dfrac{x}{x-2} + \\dfrac{1}{x+2} = 1 - \\dfrac{2}{x^{2}-4}$"
+        },
+        {
+          "letra": "g",
+          "puntos": 0.625,
+          "tarea": "Sistema: $\\begin{cases} x^{2} + y^{2} = 25 \\\\ y = x + 1 \\end{cases}$"
+        },
+        {
+          "letra": "h",
+          "puntos": 0.625,
+          "tarea": "Sistema: $\\begin{cases} \\log(x) + \\log(y^{2}) = 4 \\\\ \\log(x/y) = 1 \\end{cases}$"
+        }
       ],
       "tags": {
         "ambito_bach": "BACH-D",
-        "concepto_bach": ["BACH-ecuaciones", "BACH-sistemas"],
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-sistemas"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     }
   ]

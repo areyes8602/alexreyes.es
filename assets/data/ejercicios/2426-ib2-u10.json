@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "id": "2426-ib2-u10",
   "tipo_coleccion": "examen",
   "titulo": "Unidad 10 — Cálculo diferencial",
@@ -47,12 +47,12 @@
     }
   ],
   "tags_coleccion": {
-    "asignatura": "ib-ai-hl",
-    "nivel": "ib2",
+    "materia": "ib-ai-hl",
     "curso_academico": "2025-2026",
     "idioma": "es",
     "fuente": "propia",
-    "origen": "examen"
+    "origen": "examen",
+    "ambito_iba": "T5"
   },
   "ejercicios": [
     {
@@ -90,24 +90,19 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.1",
-          "TANS 5.2",
-          "TANS 5.5",
-          "TANS 5.6"
+        "concepto_iba": [
+          "NM 5.1",
+          "NM 5.2",
+          "NM 5.5",
+          "NM 5.6"
         ],
-        "tema": [
-          "derivadas",
-          "optimizacion",
-          "funciones"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion",
           "interpretacion",
           "visualizacion"
         ],
-        "dificultad": "media",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -149,19 +144,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.1",
-          "TANS 5.2"
+        "concepto_iba": [
+          "NM 5.1",
+          "NM 5.2"
         ],
-        "tema": [
-          "derivadas",
-          "cinematica"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion"
         ],
-        "dificultad": "media",
         "formato": [
           "pregunta_larga"
         ]
@@ -202,23 +193,17 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.1",
-          "TANS 5.2",
-          "TANS 5.3",
-          "TANS 5.6"
+        "concepto_iba": [
+          "NM 5.1",
+          "NM 5.2",
+          "NM 5.3",
+          "NM 5.6"
         ],
-        "tema": [
-          "derivadas",
-          "funciones",
-          "tangente_normal",
-          "monotonia_extremos"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_simbolico",
           "razonamiento"
         ],
-        "dificultad": "media",
         "formato": [
           "pregunta_larga"
         ]
@@ -259,22 +244,17 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.5",
-          "TANS 5.6"
+        "concepto_iba": [
+          "NM 5.5",
+          "NM 5.6"
         ],
-        "tema": [
-          "derivadas",
-          "optimizacion",
-          "geometria"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion",
           "visualizacion",
           "razonamiento"
         ],
-        "dificultad": "media",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -296,21 +276,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.4"
+        "concepto_iba": [
+          "NM 5.4"
         ],
-        "tema": [
-          "derivadas",
-          "related_rates",
-          "geometria",
-          "trigonometria"
-        ],
+        "dificultad": "dificil",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion",
           "razonamiento"
         ],
-        "dificultad": "dificil",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"

@@ -14,149 +14,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/aula.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/fichas/voronoi/">
-<style>
-  .ficha-card {
-    margin: 1.5rem 0; padding: 1.5rem;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border);
-    border-left: 4px solid #059669;
-    border-radius: var(--radius);
-  }
-  .ficha-card-meta { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; flex-wrap:wrap; }
-  .ficha-card-tag {
-    font-family: var(--mono); font-size: 0.78rem; font-weight: 600;
-    padding: 0.22rem 0.55rem; border-radius: 4px; color: #fff; background: #059669;
-  }
-  .ficha-card-bloque { font-size: 0.78rem; color: var(--text-soft); }
-  .ficha-card-stats {
-    font-family: var(--mono); font-size: 0.72rem;
-    color: var(--text-faint);
-    padding: 0.15rem 0.5rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-  }
-  .ficha-card-title { font-size: 1.55rem; font-weight: 600; margin: 0.3rem 0; line-height: 1.2; }
-  .ficha-card-intro { color: var(--text-soft); line-height: 1.55; margin: 0.6rem 0 0; }
-
-  .ficha-toc {
-    margin: 2rem 0;
-    padding: 1rem 1.2rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-  }
-  .ficha-toc h2 {
-    font-size: 0.85rem; font-weight: 600; margin: 0 0 0.6rem;
-    color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.05em;
-  }
-  .ficha-toc ol {
-    margin: 0; padding-left: 1.4rem;
-    line-height: 1.85;
-  }
-  .ficha-toc a { color: var(--text); }
-  .ficha-toc-puntos {
-    font-family: var(--mono); font-size: 0.78rem;
-    color: var(--text-faint); margin-left: 0.4rem;
-  }
-
-  .ejercicio {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 1.2rem 1.4rem;
-    margin: 1.2rem 0;
-  }
-  .ejercicio-header {
-    display: flex; align-items: baseline; gap: 0.6rem;
-    margin-bottom: 0.8rem; flex-wrap: wrap;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .ejercicio-num {
-    font-family: var(--mono); font-size: 0.78rem; font-weight: 700;
-    background: #059669; color: #fff;
-    padding: 0.22rem 0.6rem; border-radius: 4px;
-  }
-  .ejercicio-titulo {
-    font-size: 1.05rem; font-weight: 600; flex: 1; min-width: 0;
-  }
-  .ejercicio-puntos {
-    font-family: var(--mono); font-size: 0.75rem;
-    color: var(--text-faint);
-  }
-  .ejercicio-cuerpo { line-height: 1.7; color: var(--text); }
-  .ejercicio-cuerpo > p:first-child {
-    color: var(--text); font-style: italic;
-    border-left: 3px solid var(--border);
-    padding-left: 0.85rem;
-    margin: 0 0 1rem;
-  }
-  .ejercicio-cuerpo p { margin: 0.7rem 0; }
-  .apartado {
-    margin: 0.5rem 0;
-    padding-left: 0.4rem;
-  }
-  .apartado-letra {
-    font-weight: 700; color: #059669; margin-right: 0.3rem;
-  }
-  [data-theme="dark"] .apartado-letra { color: #34d399; }
-  .apartado-pts {
-    font-family: var(--mono); font-size: 0.72rem;
-    color: var(--text-faint); margin-left: 0.4rem;
-  }
-  details.solucion {
-    margin-top: 1rem; padding: 0.7rem 1rem;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-  }
-  details.solucion > summary {
-    cursor: pointer; font-weight: 600; font-size: 0.9rem;
-    color: var(--text); user-select: none;
-    list-style: none;
-    display: flex; align-items: center; gap: 0.4rem;
-  }
-  details.solucion > summary::before {
-    content: "▶"; font-size: 0.7rem; color: var(--text-faint);
-    transition: transform 0.15s;
-  }
-  details.solucion[open] > summary::before { transform: rotate(90deg); }
-  details.solucion > summary::-webkit-details-marker { display: none; }
-  .solucion-cuerpo { padding-top: 0.7rem; line-height: 1.7; color: var(--text); }
-  .solucion-cuerpo p { margin: 0.55rem 0; }
-
-  .ej-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.7rem; }
-  .ej-tag {
-    font-family: var(--mono); font-size: 0.7rem;
-    background: rgba(8,145,178,0.12); color: #0e7490;
-    padding: 0.18rem 0.45rem; border-radius: 4px;
-  }
-  [data-theme="dark"] .ej-tag { background: rgba(8,145,178,0.22); color: #67e8f9; }
-  .ej-tag.dif {
-    background: rgba(217,119,6,0.12); color: #b45309;
-  }
-  [data-theme="dark"] .ej-tag.dif { background: rgba(217,119,6,0.22); color: #fbbf24; }
-
-  .footer-nav {
-    display: flex; flex-wrap: wrap; gap: 0.6rem;
-    margin: 3rem 0 1rem;
-    padding: 1rem 0;
-    border-top: 1px solid var(--border);
-  }
-  .footer-nav a {
-    padding: 0.55rem 1rem;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.88rem;
-  }
-  .footer-nav a:hover { border-color: var(--border-strong); opacity: 1; }
-</style>
 </head>
 <body>
 <nav>
@@ -189,14 +49,14 @@
       <span class="current">Ficha · Voronoi</span>
     </div>
 
-    <div class="ficha-card">
-      <div class="ficha-card-meta">
-        <span class="ficha-card-tag">FICHA</span>
-        <span class="ficha-card-bloque">NM 3.5 · NM 3.6 · T3 Geometría</span>
-        <span class="ficha-card-stats">5 ejercicios · 44 pts</span>
+    <div class="card-cabecera ficha">
+      <div class="card-meta">
+        <span class="card-tag">FICHA</span>
+        <span class="card-bloque">NM 3.5 · NM 3.6 · T3 Geometría</span>
+        <span class="card-stats">5 ejercicios · 44 pts</span>
       </div>
-      <h1 class="ficha-card-title">Diagramas de Voronoi — Ejercicios de aplicación</h1>
-      <p class="ficha-card-intro">
+      <h1 class="card-titulo">Diagramas de Voronoi — Ejercicios de aplicación</h1>
+      <p class="card-intro">
         Cinco problemas para practicar la construcción de diagramas de Voronoi y sus aplicaciones más típicas
         en exámenes IB Math AI: interpolación del vecino más cercano, algoritmo incremental, catchment areas,
         problema del vertedero (toxic waste dump) y diseño de áreas comerciales. Cada ejercicio tiene su solución
@@ -204,14 +64,14 @@
       </p>
     </div>
 
-    <nav class="ficha-toc">
+    <nav class="aula-toc">
       <h2>Contenido</h2>
       <ol>
-        <li><a href="#f1">Web del tiempo con tres estaciones meteorológicas</a><span class="ficha-toc-puntos">6 pts</span></li>
-        <li><a href="#f2">Parques de bomberos y algoritmo incremental</a><span class="ficha-toc-puntos">8 pts</span></li>
-        <li><a href="#f3">Catchment areas escolares</a><span class="ficha-toc-puntos">10 pts</span></li>
-        <li><a href="#f4">Nueva cafetería en una localidad</a><span class="ficha-toc-puntos">10 pts</span></li>
-        <li><a href="#f5">Hamburgueserías en una feria</a><span class="ficha-toc-puntos">10 pts</span></li>
+        <li><a href="#f1">Web del tiempo con tres estaciones meteorológicas</a><span class="aula-toc-puntos">6 pts</span></li>
+        <li><a href="#f2">Parques de bomberos y algoritmo incremental</a><span class="aula-toc-puntos">8 pts</span></li>
+        <li><a href="#f3">Catchment areas escolares</a><span class="aula-toc-puntos">10 pts</span></li>
+        <li><a href="#f4">Nueva cafetería en una localidad</a><span class="aula-toc-puntos">10 pts</span></li>
+        <li><a href="#f5">Hamburgueserías en una feria</a><span class="aula-toc-puntos">10 pts</span></li>
       </ol>
     </nav>
 

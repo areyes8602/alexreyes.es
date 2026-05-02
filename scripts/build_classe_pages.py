@@ -27,8 +27,8 @@ EJ_DIR = REPO / "assets" / "data" / "ejercicios"
 
 # Idiomes per materia
 LANG = {
-    "bach-ccss-1": "ca",
-    "bach-ccss-2": "ca",
+    "ccss-1btl": "ca",
+    "ccss-2btl": "ca",
     "eso-1": "ca", "eso-2": "ca", "eso-3": "ca", "eso-4": "ca",
     "ib-ai-hl": "es", "ib-ai-sl": "es",
 }
@@ -59,8 +59,8 @@ UI = {
 
 # Breadcrumb per materia
 MATERIA_HUB = {
-    "bach-ccss-1": ("/docencia/ccss-1btl/", "Mat. Aplicades CCSS 1r BTL"),
-    "bach-ccss-2": ("/docencia/ccss-2btl/", "Mat. Aplicades CCSS 2n BTL"),
+    "ccss-1btl": ("/docencia/ccss-1btl/", "Mat. Aplicades CCSS 1r BTL"),
+    "ccss-2btl": ("/docencia/ccss-2btl/", "Mat. Aplicades CCSS 2n BTL"),
     "eso-2": ("/docencia/2eso/", "2n ESO"),
     "ib-ai-hl": ("/docencia/ib-ai/2024-2026/", "IB Mathematics AI HL"),
     "ib-ai-sl": ("/docencia/ib-ai/2024-2026/", "IB Mathematics AI SL"),

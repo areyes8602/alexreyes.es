@@ -270,7 +270,7 @@ SUBJ_1BTL = {
         {"label": {"es":"Unidades","ca":"Unitats","en":"Units"}, "value":"10"},
     ],
     "year_current": "2025–26",
-    "materia_filter": "bach-ccss-1",
+    "materia_filter": "ccss-1btl",
     # Avís temporal (es mostra mentre `new Date() < expire_iso`).
     # `expire_iso` és en hora local del navegador (sense Z), així que l'avís
     # desapareix automàticament a les 00:00 del dia indicat (hora de Barcelona).

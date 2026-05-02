@@ -12,33 +12,23 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/aula.css">
 <link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/">
 <style>
-.fitxa-section { margin: 2.2rem 0; }
-.fitxa-section > h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 0.4rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; }
-.fitxa-section > h2 .num { display:inline-flex; align-items:center; justify-content:center; min-width:1.8rem; height:1.5rem; padding:0 0.5rem; background:#6366f1; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
-.fitxa-section > p.section-intro { font-size:0.88rem; color:var(--text-soft); margin:0 0 0.8rem; }
-.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.8rem 1rem; margin: 0.8rem 0; }
-.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
-.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
-.exercise-statement { margin:0.2rem 0 0.4rem; font-size:0.95rem; }
-.exercise details { margin-top:0.4rem; border-top:1px dashed var(--border); padding-top:0.5rem; }
-.exercise details summary { cursor:pointer; font-size:0.84rem; font-weight:600; color:#6366f1; list-style:none; user-select:none; padding:0.15rem 0; }
-.exercise details summary::-webkit-details-marker { display:none; }
-.exercise details summary::before { content:"▶ "; font-size:0.7em; transition: transform 0.15s; display:inline-block; margin-right:0.2rem; }
-.exercise details[open] summary::before { transform: rotate(90deg); }
-.exercise details .solution { padding:0.3rem 0 0; font-size:0.92rem; color:var(--text); }
-.exercise details .solution p { margin:0.4rem 0; }
-.exercise details .solution .final { background: rgba(16,185,129,0.10); border-left:3px solid #10b981; padding:0.4rem 0.7rem; border-radius:4px; margin-top:0.5rem; font-weight:500; }
-[data-theme="dark"] .exercise { background: var(--bg-subtle); }
 .fitxa-toolbar { display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center; margin: 1rem 0 1.6rem; padding: 0.8rem 1rem; background: var(--bg-subtle); border:1px solid var(--border); border-radius:10px; }
+
 .fitxa-toolbar .label { font-size:0.86rem; color:var(--text-soft); margin-right:0.4rem; }
+
 .fitxa-btn { display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 0.9rem; background:#6366f1; color:#fff; text-decoration:none; border-radius:6px; font-size:0.86rem; font-weight:500; border:none; cursor:pointer; transition:background 0.15s; }
+
 .fitxa-btn:hover { background:#4f46e5; }
+
 .fitxa-btn.secondary { background: var(--bg); color:var(--text); border:1px solid var(--border); }
+
 .fitxa-btn.secondary:hover { border-color:#6366f1; color:#6366f1; }
+
 .errata-note { font-size:0.78rem;color:var(--text-soft);font-style:italic;margin-top:0.3rem;background:rgba(244,63,94,0.06);border-left:2px solid #f43f5e;padding:0.3rem 0.6rem;border-radius:3px; }
 </style>
 </head>
@@ -102,44 +92,44 @@
       <!-- ============================================================ -->
       <!-- ── 1. Equacions exponencials (a–x) ── -->
       <!-- ============================================================ -->
-      <div class="fitxa-section">
+      <div class="seccion-aula">
         <h2><span class="num">1</span> Equacions exponencials</h2>
         <p class="section-intro">Resol les següents equacions exponencials. Recorda els quatre tipus: igualtat directa $a^{f(x)}=a^{g(x)}$, productes/quocients amb base comuna, sumes/restes amb factor comú, i les "amagades" de 2n grau (canvi de variable $t = a^x$).</p>
 
-        <div class="exercise" id="ex-1a">
-          <div class="exercise-head"><span class="num">1a</span></div>
-          <div class="exercise-statement"><p>$5^{3x+1} = 1$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1a">
+          <div class="ejercicio-header"><span class="num">1a</span></div>
+          <div class="ejercicio-cuerpo"><p>$5^{3x+1} = 1$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$1 = 5^{0}$, així que $3x+1 = 0$.</p>
             <div class="final">$x = -\dfrac{1}{3}$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1b">
-          <div class="exercise-head"><span class="num">1b</span></div>
-          <div class="exercise-statement"><p>$5^{x+3} \cdot 5^{x} \cdot 5^{x-1} \cdot 5^{-x} = 25$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1b">
+          <div class="ejercicio-header"><span class="num">1b</span></div>
+          <div class="ejercicio-cuerpo"><p>$5^{x+3} \cdot 5^{x} \cdot 5^{x-1} \cdot 5^{-x} = 25$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Sumem els exponents al costat esquerre: $(x+3)+x+(x-1)+(-x) = 2x+2$. Així $5^{2x+2}=5^{2}$, d'on $2x+2 = 2$.</p>
             <div class="final">$x = 0$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1c">
-          <div class="exercise-head"><span class="num">1c</span></div>
-          <div class="exercise-statement"><p>$5^{x+3} + 5^{x} + 5^{x-1} = 131$</p>
+        <div class="ejercicio" id="ex-1c">
+          <div class="ejercicio-header"><span class="num">1c</span></div>
+          <div class="ejercicio-cuerpo"><p>$5^{x+3} + 5^{x} + 5^{x-1} = 131$</p>
             <p class="errata-note">Interpretació: l'enunciat literal dóna $5^{x}\cdot\tfrac{631}{5}=131$ i una solució no entera. Tot apunta a una errata: amb $5^{x+2}$ surt el resultat net $x=1$ (mateix exercici que <em>1n</em>).</p>
           </div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Amb la versió interpretada $5^{x+2} + 5^{x} + 5^{x-1} = 131$, factor comú:</p>
             <p>$5^{x}(25 + 1 + \tfrac{1}{5}) = 5^{x}\cdot \tfrac{131}{5} = 131 \;\Rightarrow\; 5^{x} = 5$.</p>
             <div class="final">$x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1d">
-          <div class="exercise-head"><span class="num">1d</span></div>
-          <div class="exercise-statement"><p>$25^{x} + 5^{x+1} = 14$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1d">
+          <div class="ejercicio-header"><span class="num">1d</span></div>
+          <div class="ejercicio-cuerpo"><p>$25^{x} + 5^{x+1} = 14$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$25^{x} = (5^{x})^{2}$ i $5^{x+1} = 5\cdot 5^{x}$. Canvi $t = 5^{x}$:</p>
             <p>$t^{2} + 5t - 14 = 0 \;\Rightarrow\; t = \dfrac{-5 \pm 9}{2} = 2$ o $-7$.</p>
             <p>Descartem $t = -7$ (no pot ser negatiu). $5^{x} = 2$.</p>
@@ -147,10 +137,10 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1e">
-          <div class="exercise-head"><span class="num">1e</span></div>
-          <div class="exercise-statement"><p>$4^{2x+1} - 3 \cdot 4^{x} - 10 = 0$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1e">
+          <div class="ejercicio-header"><span class="num">1e</span></div>
+          <div class="ejercicio-cuerpo"><p>$4^{2x+1} - 3 \cdot 4^{x} - 10 = 0$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$4^{2x+1} = 4\cdot (4^{x})^{2}$. Canvi $t = 4^{x}$:</p>
             <p>$4t^{2} - 3t - 10 = 0 \;\Rightarrow\; t = \dfrac{3 \pm 13}{8} = 2$ o $-\tfrac{5}{4}$.</p>
             <p>Descartem $-\tfrac{5}{4}$. $4^{x} = 2 \;\Leftrightarrow\; 2^{2x} = 2$.</p>
@@ -158,124 +148,124 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1f">
-          <div class="exercise-head"><span class="num">1f</span></div>
-          <div class="exercise-statement"><p>$3^{x-1} + 3^{x} + 3^{x+1} = 13$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1f">
+          <div class="ejercicio-header"><span class="num">1f</span></div>
+          <div class="ejercicio-cuerpo"><p>$3^{x-1} + 3^{x} + 3^{x+1} = 13$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Factor comú $3^{x}$: $\;3^{x}(\tfrac{1}{3} + 1 + 3) = 3^{x}\cdot \tfrac{13}{3} = 13$.</p>
             <p>$3^{x} = 3$.</p>
             <div class="final">$x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1g">
-          <div class="exercise-head"><span class="num">1g</span></div>
-          <div class="exercise-statement"><p>$3^{x-1} \cdot 3^{x} \cdot 3^{x+1} = 243$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1g">
+          <div class="ejercicio-header"><span class="num">1g</span></div>
+          <div class="ejercicio-cuerpo"><p>$3^{x-1} \cdot 3^{x} \cdot 3^{x+1} = 243$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Sumem exponents: $\;3^{(x-1)+x+(x+1)} = 3^{3x} = 243 = 3^{5}$.</p>
             <div class="final">$x = \dfrac{5}{3}$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1h">
-          <div class="exercise-head"><span class="num">1h</span></div>
-          <div class="exercise-statement"><p>$4^{x} - 5 \cdot 2^{x+1} + 16 = 0$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1h">
+          <div class="ejercicio-header"><span class="num">1h</span></div>
+          <div class="ejercicio-cuerpo"><p>$4^{x} - 5 \cdot 2^{x+1} + 16 = 0$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$4^{x} = (2^{x})^{2}$ i $2^{x+1} = 2 \cdot 2^{x}$. Canvi $t = 2^{x}$:</p>
             <p>$t^{2} - 10t + 16 = 0 \;\Rightarrow\; t = \dfrac{10 \pm 6}{2} = 8$ o $2$.</p>
             <div class="final">$x = 3$ &nbsp; o &nbsp; $x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1i">
-          <div class="exercise-head"><span class="num">1i</span></div>
-          <div class="exercise-statement"><p>$4^{x+1} = \left(\dfrac{1}{2}\right)^{x}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1i">
+          <div class="ejercicio-header"><span class="num">1i</span></div>
+          <div class="ejercicio-cuerpo"><p>$4^{x+1} = \left(\dfrac{1}{2}\right)^{x}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Posem-ho tot en base 2: $\;2^{2(x+1)} = 2^{-x} \;\Rightarrow\; 2x+2 = -x$.</p>
             <div class="final">$x = -\dfrac{2}{3}$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1j">
-          <div class="exercise-head"><span class="num">1j</span></div>
-          <div class="exercise-statement"><p>$9^{x+1} - 2 \cdot 3^{x+3} + 81 = 0$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1j">
+          <div class="ejercicio-header"><span class="num">1j</span></div>
+          <div class="ejercicio-cuerpo"><p>$9^{x+1} - 2 \cdot 3^{x+3} + 81 = 0$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$9^{x+1} = 9\cdot (3^{x})^{2}$ i $3^{x+3} = 27 \cdot 3^{x}$. Canvi $t = 3^{x}$:</p>
             <p>$9t^{2} - 54t + 81 = 0 \;\Leftrightarrow\; t^{2} - 6t + 9 = (t-3)^{2} = 0 \;\Rightarrow\; t = 3$.</p>
             <div class="final">$x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1k">
-          <div class="exercise-head"><span class="num">1k</span></div>
-          <div class="exercise-statement"><p>$4^{x-1} + 4^{x-2} - 4^{x} = -11$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1k">
+          <div class="ejercicio-header"><span class="num">1k</span></div>
+          <div class="ejercicio-cuerpo"><p>$4^{x-1} + 4^{x-2} - 4^{x} = -11$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Factor comú $4^{x}$: $\;4^{x}\bigl(\tfrac{1}{4} + \tfrac{1}{16} - 1\bigr) = 4^{x}\cdot \bigl(-\tfrac{11}{16}\bigr) = -11$.</p>
             <p>$4^{x} = 16 = 4^{2}$.</p>
             <div class="final">$x = 2$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1l">
-          <div class="exercise-head"><span class="num">1l</span></div>
-          <div class="exercise-statement"><p>$7^{2x} - 35 \cdot 7^{x-1} + 6 = 0$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1l">
+          <div class="ejercicio-header"><span class="num">1l</span></div>
+          <div class="ejercicio-cuerpo"><p>$7^{2x} - 35 \cdot 7^{x-1} + 6 = 0$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$35 \cdot 7^{x-1} = 5 \cdot 7^{x}$. Canvi $t = 7^{x}$:</p>
             <p>$t^{2} - 5t + 6 = 0 \;\Rightarrow\; t = 2$ o $t = 3$.</p>
             <div class="final">$x = \log_{7} 2$ &nbsp; o &nbsp; $x = \log_{7} 3$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1m">
-          <div class="exercise-head"><span class="num">1m</span></div>
-          <div class="exercise-statement"><p>$5^{x+2} \cdot 5^{x-1} \cdot 5^{x} = 625$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1m">
+          <div class="ejercicio-header"><span class="num">1m</span></div>
+          <div class="ejercicio-cuerpo"><p>$5^{x+2} \cdot 5^{x-1} \cdot 5^{x} = 625$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$5^{(x+2)+(x-1)+x} = 5^{3x+1} = 625 = 5^{4} \;\Rightarrow\; 3x+1 = 4$.</p>
             <div class="final">$x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1n">
-          <div class="exercise-head"><span class="num">1n</span></div>
-          <div class="exercise-statement"><p>$5^{x+2} + 5^{x-1} + 5^{x} = 131$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1n">
+          <div class="ejercicio-header"><span class="num">1n</span></div>
+          <div class="ejercicio-cuerpo"><p>$5^{x+2} + 5^{x-1} + 5^{x} = 131$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Factor comú $5^{x}$: $\;5^{x}\bigl(25 + \tfrac{1}{5} + 1\bigr) = 5^{x}\cdot \tfrac{131}{5} = 131 \;\Rightarrow\; 5^{x} = 5$.</p>
             <div class="final">$x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1o">
-          <div class="exercise-head"><span class="num">1o</span></div>
-          <div class="exercise-statement"><p>$25^{x} - 2 \cdot 5^{x+1} = -21$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1o">
+          <div class="ejercicio-header"><span class="num">1o</span></div>
+          <div class="ejercicio-cuerpo"><p>$25^{x} - 2 \cdot 5^{x+1} = -21$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$25^{x} = (5^{x})^{2}$ i $2\cdot 5^{x+1} = 10\cdot 5^{x}$. Canvi $t = 5^{x}$:</p>
             <p>$t^{2} - 10t + 21 = 0 \;\Rightarrow\; t = \dfrac{10 \pm 4}{2} = 7$ o $3$.</p>
             <div class="final">$x = \log_{5} 7$ &nbsp; o &nbsp; $x = \log_{5} 3$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1p">
-          <div class="exercise-head"><span class="num">1p</span></div>
-          <div class="exercise-statement"><p>$2^{x^{2} - 2x} = 0{,}5$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1p">
+          <div class="ejercicio-header"><span class="num">1p</span></div>
+          <div class="ejercicio-cuerpo"><p>$2^{x^{2} - 2x} = 0{,}5$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$0{,}5 = 2^{-1}$, així que $x^{2} - 2x = -1 \;\Leftrightarrow\; (x-1)^{2} = 0$.</p>
             <div class="final">$x = 1$ (doble).</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1q">
-          <div class="exercise-head"><span class="num">1q</span></div>
-          <div class="exercise-statement"><p>$3^{x} + 2 \cdot 3^{x-1} + 5 \cdot 3^{x+2} = 140$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1q">
+          <div class="ejercicio-header"><span class="num">1q</span></div>
+          <div class="ejercicio-cuerpo"><p>$3^{x} + 2 \cdot 3^{x-1} + 5 \cdot 3^{x+2} = 140$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Factor comú $3^{x}$: $\;3^{x}\bigl(1 + \tfrac{2}{3} + 45\bigr) = 3^{x}\cdot \tfrac{140}{3} = 140 \;\Rightarrow\; 3^{x} = 3$.</p>
             <div class="final">$x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1r">
-          <div class="exercise-head"><span class="num">1r</span></div>
-          <div class="exercise-statement"><p>$5^{2x} + 3 \cdot 5^{x+1} - 400 = 600$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1r">
+          <div class="ejercicio-header"><span class="num">1r</span></div>
+          <div class="ejercicio-cuerpo"><p>$5^{2x} + 3 \cdot 5^{x+1} - 400 = 600$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$3\cdot 5^{x+1} = 15\cdot 5^{x}$ i agrupem: $5^{2x} + 15\cdot 5^{x} = 1000$. Canvi $t = 5^{x}$:</p>
             <p>$t^{2} + 15t - 1000 = 0 \;\Rightarrow\; t = \dfrac{-15 \pm 65}{2} = 25$ o $-40$.</p>
             <p>Descartem $-40$. $5^{x} = 25 = 5^{2}$.</p>
@@ -283,59 +273,59 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1s">
-          <div class="exercise-head"><span class="num">1s</span></div>
-          <div class="exercise-statement"><p>$2^{x-1} + 3 \cdot 2^{x} + 2^{x+1} = 44$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1s">
+          <div class="ejercicio-header"><span class="num">1s</span></div>
+          <div class="ejercicio-cuerpo"><p>$2^{x-1} + 3 \cdot 2^{x} + 2^{x+1} = 44$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Factor comú $2^{x}$: $\;2^{x}\bigl(\tfrac{1}{2} + 3 + 2\bigr) = 2^{x}\cdot \tfrac{11}{2} = 44 \;\Rightarrow\; 2^{x} = 8 = 2^{3}$.</p>
             <div class="final">$x = 3$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1t">
-          <div class="exercise-head"><span class="num">1t</span></div>
-          <div class="exercise-statement"><p>$2^{x} + 2^{x+1} + 2^{x-2} + 2^{x-3} = 960$</p>
+        <div class="ejercicio" id="ex-1t">
+          <div class="ejercicio-header"><span class="num">1t</span></div>
+          <div class="ejercicio-cuerpo"><p>$2^{x} + 2^{x+1} + 2^{x-2} + 2^{x-3} = 960$</p>
             <p class="errata-note">Interpretació: amb els exponents tal com surten al PDF, $2^{x}\cdot \tfrac{27}{8} = 960 \Rightarrow 2^{x} = \tfrac{2560}{9}$, no entera. Probable typo: amb $2^{x} + 2^{x+1} + 2^{x+2} + 2^{x+3} = 960$ surt $x = 6$.</p>
           </div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Amb la versió interpretada $2^{x} + 2^{x+1} + 2^{x+2} + 2^{x+3} = 960$, factor comú:</p>
             <p>$2^{x}(1 + 2 + 4 + 8) = 15 \cdot 2^{x} = 960 \;\Rightarrow\; 2^{x} = 64 = 2^{6}$.</p>
             <div class="final">$x = 6$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1u">
-          <div class="exercise-head"><span class="num">1u</span></div>
-          <div class="exercise-statement"><p>$3^{x+1} = 9^{x-3}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1u">
+          <div class="ejercicio-header"><span class="num">1u</span></div>
+          <div class="ejercicio-cuerpo"><p>$3^{x+1} = 9^{x-3}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$9^{x-3} = 3^{2(x-3)} = 3^{2x-6}$. Igualant exponents: $x+1 = 2x - 6$.</p>
             <div class="final">$x = 7$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1v">
-          <div class="exercise-head"><span class="num">1v</span></div>
-          <div class="exercise-statement"><p>$5^{x} + 5^{x+1} + 5^{x+2} = \dfrac{31}{5}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1v">
+          <div class="ejercicio-header"><span class="num">1v</span></div>
+          <div class="ejercicio-cuerpo"><p>$5^{x} + 5^{x+1} + 5^{x+2} = \dfrac{31}{5}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Factor comú $5^{x}$: $\;5^{x}(1 + 5 + 25) = 31\cdot 5^{x} = \tfrac{31}{5} \;\Rightarrow\; 5^{x} = \tfrac{1}{5} = 5^{-1}$.</p>
             <div class="final">$x = -1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1w">
-          <div class="exercise-head"><span class="num">1w</span></div>
-          <div class="exercise-statement"><p>$1 - 7^{x+1} + 49^{x} = -9$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1w">
+          <div class="ejercicio-header"><span class="num">1w</span></div>
+          <div class="ejercicio-cuerpo"><p>$1 - 7^{x+1} + 49^{x} = -9$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$49^{x} = (7^{x})^{2}$ i $7^{x+1} = 7\cdot 7^{x}$. Canvi $t = 7^{x}$:</p>
             <p>$t^{2} - 7t + 1 = -9 \;\Leftrightarrow\; t^{2} - 7t + 10 = 0 \;\Rightarrow\; t = 5$ o $t = 2$.</p>
             <div class="final">$x = \log_{7} 5$ &nbsp; o &nbsp; $x = \log_{7} 2$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-1x">
-          <div class="exercise-head"><span class="num">1x</span></div>
-          <div class="exercise-statement"><p>$2^{x} \cdot 5^{x} = 100$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-1x">
+          <div class="ejercicio-header"><span class="num">1x</span></div>
+          <div class="ejercicio-cuerpo"><p>$2^{x} \cdot 5^{x} = 100$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$2^{x}\cdot 5^{x} = (2\cdot 5)^{x} = 10^{x} = 100 = 10^{2}$.</p>
             <div class="final">$x = 2$.</div>
           </div></details>
@@ -345,208 +335,208 @@
       <!-- ============================================================ -->
       <!-- ── 2. Equacions amb logaritmes (a–u) ── -->
       <!-- ============================================================ -->
-      <div class="fitxa-section">
+      <div class="seccion-aula">
         <h2><span class="num">2</span> Equacions amb logaritmes</h2>
         <p class="section-intro">Resol les següents equacions amb logaritmes. La idea sempre és arribar a $\log_a B = \log_a C \Rightarrow B = C$ (mateixa base als dos costats) o a $\log_a B = C \Rightarrow a^{C} = B$ (definició inversa). Cal verificar al final que cap argument quedi $\leq 0$.</p>
 
-        <div class="exercise" id="ex-2a">
-          <div class="exercise-head"><span class="num">2a</span></div>
-          <div class="exercise-statement"><p>$\log_{x} 64 = 3$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2a">
+          <div class="ejercicio-header"><span class="num">2a</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log_{x} 64 = 3$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Per definició inversa: $x^{3} = 64 \Rightarrow x = \sqrt[3]{64}$.</p>
             <div class="final">$x = 4$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2b">
-          <div class="exercise-head"><span class="num">2b</span></div>
-          <div class="exercise-statement"><p>$\log_{2} x + \log_{2}(x+3) = 2$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2b">
+          <div class="ejercicio-header"><span class="num">2b</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log_{2} x + \log_{2}(x+3) = 2$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log_{2}[x(x+3)] = 2 \Rightarrow x(x+3) = 4 \Rightarrow x^{2} + 3x - 4 = (x+4)(x-1) = 0$.</p>
             <p>Descartem $x = -4$ ($\log_{2}(-4)$ no definit).</p>
             <div class="final">$x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2c">
-          <div class="exercise-head"><span class="num">2c</span></div>
-          <div class="exercise-statement"><p>$\log(2x-4) - \log(x+2) = 1$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2c">
+          <div class="ejercicio-header"><span class="num">2c</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log(2x-4) - \log(x+2) = 1$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log\dfrac{2x-4}{x+2} = 1 \Rightarrow 2x-4 = 10(x+2) \Rightarrow x = -3$.</p>
             <p>Però $2(-3) - 4 = -10 < 0$ → $\log$ no definit.</p>
             <div class="final">No té solució.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2d">
-          <div class="exercise-head"><span class="num">2d</span></div>
-          <div class="exercise-statement"><p>$\log x + \log 50 = \log 1000$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2d">
+          <div class="ejercicio-header"><span class="num">2d</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log x + \log 50 = \log 1000$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log(50x) = \log 1000 \Rightarrow 50x = 1000$.</p>
             <div class="final">$x = 20$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2e">
-          <div class="exercise-head"><span class="num">2e</span></div>
-          <div class="exercise-statement"><p>$\log x = 1 + \log(22 - x)$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2e">
+          <div class="ejercicio-header"><span class="num">2e</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log x = 1 + \log(22 - x)$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log x - \log(22-x) = 1 \Rightarrow \dfrac{x}{22-x} = 10 \Rightarrow x = 220 - 10x \Rightarrow 11x = 220$.</p>
             <div class="final">$x = 20$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2f">
-          <div class="exercise-head"><span class="num">2f</span></div>
-          <div class="exercise-statement"><p>$2\log(x+1) - \log 2 = \log(x^{2} - 1)$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2f">
+          <div class="ejercicio-header"><span class="num">2f</span></div>
+          <div class="ejercicio-cuerpo"><p>$2\log(x+1) - \log 2 = \log(x^{2} - 1)$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log\dfrac{(x+1)^{2}}{2} = \log[(x-1)(x+1)] \Rightarrow \dfrac{(x+1)^{2}}{2} = (x-1)(x+1)$.</p>
             <p>Si $x+1 \neq 0$, simplifiquem: $\dfrac{x+1}{2} = x-1 \Rightarrow x+1 = 2x-2$.</p>
             <div class="final">$x = 3$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2g">
-          <div class="exercise-head"><span class="num">2g</span></div>
-          <div class="exercise-statement"><p>$\log(3x+1) - \log(2x-3) = 1 - \log 5$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2g">
+          <div class="ejercicio-header"><span class="num">2g</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log(3x+1) - \log(2x-3) = 1 - \log 5$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log\dfrac{5(3x+1)}{2x-3} = 1 \Rightarrow 5(3x+1) = 10(2x-3) \Rightarrow 15x+5 = 20x-30$.</p>
             <div class="final">$x = 7$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2h">
-          <div class="exercise-head"><span class="num">2h</span></div>
-          <div class="exercise-statement"><p>$2\log(2x+1) + 2\log(3x-4) = 2$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2h">
+          <div class="ejercicio-header"><span class="num">2h</span></div>
+          <div class="ejercicio-cuerpo"><p>$2\log(2x+1) + 2\log(3x-4) = 2$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log[(2x+1)(3x-4)] = 1 \Rightarrow (2x+1)(3x-4) = 10 \Rightarrow 6x^{2} - 5x - 14 = 0$.</p>
             <p>$x = \dfrac{5 \pm 19}{12} = 2$ o $-\tfrac{7}{6}$. Descartem $-\tfrac{7}{6}$ ($2x+1 < 0$).</p>
             <div class="final">$x = 2$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2i">
-          <div class="exercise-head"><span class="num">2i</span></div>
-          <div class="exercise-statement"><p>$\log(40x) - \log(5x-1) = 1$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2i">
+          <div class="ejercicio-header"><span class="num">2i</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log(40x) - \log(5x-1) = 1$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\dfrac{40x}{5x-1} = 10 \Rightarrow 40x = 50x - 10$.</p>
             <div class="final">$x = 1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2j">
-          <div class="exercise-head"><span class="num">2j</span></div>
-          <div class="exercise-statement"><p>$\log x + \log(x+5) = \log(9 + x)$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2j">
+          <div class="ejercicio-header"><span class="num">2j</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log x + \log(x+5) = \log(9 + x)$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$x(x+5) = 9 + x \Rightarrow x^{2} + 4x - 9 = 0 \Rightarrow x = -2 \pm \sqrt{13}$.</p>
             <p>Descartem $-2 - \sqrt{13} < 0$.</p>
             <div class="final">$x = -2 + \sqrt{13}$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2k">
-          <div class="exercise-head"><span class="num">2k</span></div>
-          <div class="exercise-statement"><p>$2\log_{2} x = -\log_{2} 3 + \log_{2}(x+10)$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2k">
+          <div class="ejercicio-header"><span class="num">2k</span></div>
+          <div class="ejercicio-cuerpo"><p>$2\log_{2} x = -\log_{2} 3 + \log_{2}(x+10)$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log_{2}(3x^{2}) = \log_{2}(x+10) \Rightarrow 3x^{2} - x - 10 = 0 \Rightarrow x = \dfrac{1 \pm 11}{6} = 2$ o $-\tfrac{5}{3}$.</p>
             <p>Descartem $-\tfrac{5}{3}$.</p>
             <div class="final">$x = 2$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2l">
-          <div class="exercise-head"><span class="num">2l</span></div>
-          <div class="exercise-statement"><p>$\log_{x+3}(6x) = 2$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2l">
+          <div class="ejercicio-header"><span class="num">2l</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log_{x+3}(6x) = 2$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Per definició inversa: $(x+3)^{2} = 6x \Rightarrow x^{2} + 6x + 9 = 6x \Rightarrow x^{2} + 9 = 0$.</p>
             <p>Discriminant negatiu — cap arrel real.</p>
             <div class="final">No té solució real.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2m">
-          <div class="exercise-head"><span class="num">2m</span></div>
-          <div class="exercise-statement"><p>$\log(x+1) + \log(x-1) = \log 3$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2m">
+          <div class="ejercicio-header"><span class="num">2m</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log(x+1) + \log(x-1) = \log 3$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log[(x+1)(x-1)] = \log 3 \Rightarrow x^{2} - 1 = 3 \Rightarrow x = \pm 2$.</p>
             <p>Descartem $x = -2$ ($\log(-1)$ no definit).</p>
             <div class="final">$x = 2$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2n">
-          <div class="exercise-head"><span class="num">2n</span></div>
-          <div class="exercise-statement"><p>$\log_{x}(5x - 6) = 2$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2n">
+          <div class="ejercicio-header"><span class="num">2n</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log_{x}(5x - 6) = 2$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Per definició inversa: $x^{2} = 5x - 6 \Rightarrow x^{2} - 5x + 6 = (x-2)(x-3) = 0$.</p>
             <p>Tots dos compleixen $x > 0$ i $x \neq 1$. Verifiquem: $\log_{2} 4 = 2$ ✓, $\log_{3} 9 = 2$ ✓.</p>
             <div class="final">$x = 2$ &nbsp; o &nbsp; $x = 3$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2o">
-          <div class="exercise-head"><span class="num">2o</span></div>
-          <div class="exercise-statement"><p>$\log x^{2} + \log 10 = 1 + \log(10x + 11)$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2o">
+          <div class="ejercicio-header"><span class="num">2o</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log x^{2} + \log 10 = 1 + \log(10x + 11)$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log(10 x^{2}) = \log[10(10x+11)] \Rightarrow 10x^{2} = 100x + 110 \Rightarrow x^{2} - 10x - 11 = (x-11)(x+1) = 0$.</p>
             <p>$x = 11$: tots els arguments positius ✓. &nbsp;$x = -1$: $\log(1) = 0$ i $\log(1) = 0$, ambdós definits. Verifiquem: $0 + 1 = 1 + 0$ ✓.</p>
             <div class="final">$x = 11$ &nbsp; o &nbsp; $x = -1$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2p">
-          <div class="exercise-head"><span class="num">2p</span></div>
-          <div class="exercise-statement"><p>$\log\sqrt{3x+10} - \log\sqrt{x+2} = 1 - \log 5$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2p">
+          <div class="ejercicio-header"><span class="num">2p</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log\sqrt{3x+10} - \log\sqrt{x+2} = 1 - \log 5$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log\sqrt{\dfrac{3x+10}{x+2}} = \log 10 - \log 5 = \log 2 \Rightarrow \sqrt{\dfrac{3x+10}{x+2}} = 2 \Rightarrow \dfrac{3x+10}{x+2} = 4$.</p>
             <p>$3x+10 = 4x+8$.</p>
             <div class="final">$x = 2$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2q">
-          <div class="exercise-head"><span class="num">2q</span></div>
-          <div class="exercise-statement"><p>$1 + \log_{2}(x-2) = \log_{2} x - \log_{2} 6$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2q">
+          <div class="ejercicio-header"><span class="num">2q</span></div>
+          <div class="ejercicio-cuerpo"><p>$1 + \log_{2}(x-2) = \log_{2} x - \log_{2} 6$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log_{2}[2(x-2)] = \log_{2}\dfrac{x}{6} \Rightarrow 12(x-2) = x \Rightarrow 11x = 24$.</p>
             <p>Verifiquem: $x = \tfrac{24}{11} > 2$, així $x-2 = \tfrac{2}{11} > 0$ ✓.</p>
             <div class="final">$x = \dfrac{24}{11}$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2r">
-          <div class="exercise-head"><span class="num">2r</span></div>
-          <div class="exercise-statement"><p>$\log_{x+5} 25 = 2$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2r">
+          <div class="ejercicio-header"><span class="num">2r</span></div>
+          <div class="ejercicio-cuerpo"><p>$\log_{x+5} 25 = 2$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$(x+5)^{2} = 25 \Rightarrow x+5 = \pm 5 \Rightarrow x = 0$ o $x = -10$.</p>
             <p>$x = -10$: $x+5 = -5$ no és base vàlida. $x = 0$: $x+5 = 5$ ✓.</p>
             <div class="final">$x = 0$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2s">
-          <div class="exercise-head"><span class="num">2s</span></div>
-          <div class="exercise-statement"><p>$\dfrac{\log_{3} 9^{x+1}}{x} = 1$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2s">
+          <div class="ejercicio-header"><span class="num">2s</span></div>
+          <div class="ejercicio-cuerpo"><p>$\dfrac{\log_{3} 9^{x+1}}{x} = 1$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log_{3}(9^{x+1}) = \log_{3}(3^{2(x+1)}) = 2(x+1)$, així $\dfrac{2(x+1)}{x} = 1 \Rightarrow 2x+2 = x$.</p>
             <div class="final">$x = -2$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2t">
-          <div class="exercise-head"><span class="num">2t</span></div>
-          <div class="exercise-statement"><p>$3\log x - \log 32 = \log\dfrac{x}{2}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2t">
+          <div class="ejercicio-header"><span class="num">2t</span></div>
+          <div class="ejercicio-cuerpo"><p>$3\log x - \log 32 = \log\dfrac{x}{2}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log\dfrac{x^{3}}{32} = \log\dfrac{x}{2} \Rightarrow \dfrac{x^{3}}{32} = \dfrac{x}{2} \Rightarrow x^{3} = 16x \Rightarrow x(x^{2}-16) = 0$.</p>
             <p>$x = 0$ no vàlid; $x = -4$ no vàlid ($\log$ negatiu).</p>
             <div class="final">$x = 4$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-2u">
-          <div class="exercise-head"><span class="num">2u</span></div>
-          <div class="exercise-statement"><p>$2\log x + 1 = \log\dfrac{x}{2}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-2u">
+          <div class="ejercicio-header"><span class="num">2u</span></div>
+          <div class="ejercicio-cuerpo"><p>$2\log x + 1 = \log\dfrac{x}{2}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>$\log(10 x^{2}) = \log\dfrac{x}{2} \Rightarrow 10 x^{2} = \dfrac{x}{2} \Rightarrow 20 x^{2} - x = x(20x - 1) = 0$.</p>
             <p>Descartem $x = 0$.</p>
             <div class="final">$x = \dfrac{1}{20}$.</div>
@@ -557,83 +547,83 @@
       <!-- ============================================================ -->
       <!-- ── 3. Sistemes d'exponencials i logaritmes (a–n) ── -->
       <!-- ============================================================ -->
-      <div class="fitxa-section">
+      <div class="seccion-aula">
         <h2><span class="num">3</span> Sistemes d'exponencials i logaritmes</h2>
         <p class="section-intro">Resol els següents sistemes. El motor principal és la <strong>substitució</strong>; en els sistemes on totes dues equacions són logarítmiques, el canvi $\,t = \log x,\; z = \log y\,$ converteix el sistema en lineal.</p>
 
-        <div class="exercise" id="ex-3a">
-          <div class="exercise-head"><span class="num">3a</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} \log x + \log y = 7 \\ \log x - \log y = 3 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3a">
+          <div class="ejercicio-header"><span class="num">3a</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} \log x + \log y = 7 \\ \log x - \log y = 3 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Sumant: $2\log x = 10 \Rightarrow \log x = 5$. Restant: $2\log y = 4 \Rightarrow \log y = 2$.</p>
             <div class="final">$x = 10^{5} = 100\,000$, &nbsp; $y = 100$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3b">
-          <div class="exercise-head"><span class="num">3b</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} 2\log x + \log y = 5 \\ \log(xy) = 4 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3b">
+          <div class="ejercicio-header"><span class="num">3b</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} 2\log x + \log y = 5 \\ \log(xy) = 4 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>La 2a és $\log x + \log y = 4$. Canvi $t = \log x$, $z = \log y$:</p>
             <p>$\begin{cases} 2t + z = 5 \\ t + z = 4 \end{cases} \Rightarrow t = 1,\; z = 3.$</p>
             <div class="final">$x = 10$, &nbsp; $y = 1000$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3c">
-          <div class="exercise-head"><span class="num">3c</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} y - 4x = 0 \\ \log x + \log y = 4 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3c">
+          <div class="ejercicio-header"><span class="num">3c</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} y - 4x = 0 \\ \log x + \log y = 4 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>De la 1a: $y = 4x$. A la 2a: $\log(4x^{2}) = 4 \Rightarrow 4x^{2} = 10\,000 \Rightarrow x^{2} = 2500$.</p>
             <p>$x = \pm 50$. Descartem $x = -50$.</p>
             <div class="final">$x = 50$, &nbsp; $y = 200$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3d">
-          <div class="exercise-head"><span class="num">3d</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} \log_{2} x + \log_{2} y = 7 \\ \log_{2} x^{2} - \log_{2} y = 2 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3d">
+          <div class="ejercicio-header"><span class="num">3d</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} \log_{2} x + \log_{2} y = 7 \\ \log_{2} x^{2} - \log_{2} y = 2 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Canvi $t = \log_{2} x$, $z = \log_{2} y$:</p>
             <p>$\begin{cases} t + z = 7 \\ 2t - z = 2 \end{cases} \Rightarrow 3t = 9,\; t = 3,\; z = 4.$</p>
             <div class="final">$x = 2^{3} = 8$, &nbsp; $y = 2^{4} = 16$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3e">
-          <div class="exercise-head"><span class="num">3e</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} \log x + 2\log y = 5 \\ 2\log x - 3\log y = -4 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3e">
+          <div class="ejercicio-header"><span class="num">3e</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} \log x + 2\log y = 5 \\ 2\log x - 3\log y = -4 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Canvi $t = \log x$, $z = \log y$:</p>
             <p>$\begin{cases} t + 2z = 5 \\ 2t - 3z = -4 \end{cases}$. Multipliquem la 1a per 2 i restem: $7z = 14$, $z = 2$, $t = 1$.</p>
             <div class="final">$x = 10$, &nbsp; $y = 100$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3f">
-          <div class="exercise-head"><span class="num">3f</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} \log(xy) = 4 \\ \log\!\dfrac{x}{y^{2}} = -2 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3f">
+          <div class="ejercicio-header"><span class="num">3f</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} \log(xy) = 4 \\ \log\!\dfrac{x}{y^{2}} = -2 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Canvi $t = \log x$, $z = \log y$:</p>
             <p>$\begin{cases} t + z = 4 \\ t - 2z = -2 \end{cases} \Rightarrow 3z = 6,\; z = 2,\; t = 2.$</p>
             <div class="final">$x = 100$, &nbsp; $y = 100$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3g">
-          <div class="exercise-head"><span class="num">3g</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} x - 5y = -5 \\ \log x + \log y = 1 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3g">
+          <div class="ejercicio-header"><span class="num">3g</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} x - 5y = -5 \\ \log x + \log y = 1 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>De la lineal: $x = 5y - 5$. A la log: $\log[(5y-5)y] = 1 \Rightarrow 5y^{2} - 5y - 10 = 0 \Rightarrow y^{2} - y - 2 = (y-2)(y+1) = 0$.</p>
             <p>Descartem $y = -1$. $y = 2 \Rightarrow x = 5$.</p>
             <div class="final">$x = 5$, &nbsp; $y = 2$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3h">
-          <div class="exercise-head"><span class="num">3h</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} \log x = \log(y - 1) + 1 \\ \log_{x}(2y + 6) = 1 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3h">
+          <div class="ejercicio-header"><span class="num">3h</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} \log x = \log(y - 1) + 1 \\ \log_{x}(2y + 6) = 1 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>1a: $\log x = \log[10(y-1)] \Rightarrow x = 10(y-1)$.</p>
             <p>2a (definició inversa): $x^{1} = 2y + 6 \Rightarrow x = 2y + 6$.</p>
             <p>Igualant: $10(y-1) = 2y + 6 \Rightarrow 8y = 16 \Rightarrow y = 2$, $x = 10$.</p>
@@ -641,59 +631,59 @@
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3i">
-          <div class="exercise-head"><span class="num">3i</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} 2\log x - 3\log y = 5 \\ \log x^{3} + \log y = 2 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3i">
+          <div class="ejercicio-header"><span class="num">3i</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} 2\log x - 3\log y = 5 \\ \log x^{3} + \log y = 2 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Canvi $t = \log x$, $z = \log y$:</p>
             <p>$\begin{cases} 2t - 3z = 5 \\ 3t + z = 2 \end{cases}$. Multipliquem la 2a per 3 i sumem amb la 1a: $11t = 11$, $t = 1$, $z = -1$.</p>
             <div class="final">$x = 10$, &nbsp; $y = \dfrac{1}{10}$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3j">
-          <div class="exercise-head"><span class="num">3j</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} \log x - 3\log y = -1 \\ 2\log x + \log y = 5 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3j">
+          <div class="ejercicio-header"><span class="num">3j</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} \log x - 3\log y = -1 \\ 2\log x + \log y = 5 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Canvi $t = \log x$, $z = \log y$:</p>
             <p>$\begin{cases} t - 3z = -1 \\ 2t + z = 5 \end{cases}$. Multipliquem la 2a per 3 i sumem: $7t = 14$, $t = 2$, $z = 1$.</p>
             <div class="final">$x = 100$, &nbsp; $y = 10$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3k">
-          <div class="exercise-head"><span class="num">3k</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} 3\log x + \log y^{3} = 6 \\ \log x - \log y^{2} = -1 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3k">
+          <div class="ejercicio-header"><span class="num">3k</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} 3\log x + \log y^{3} = 6 \\ \log x - \log y^{2} = -1 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>1a: $3t + 3z = 6 \Rightarrow t + z = 2$. &nbsp;2a: $t - 2z = -1$. Restant: $3z = 3$, $z = 1$, $t = 1$.</p>
             <div class="final">$x = 10$, &nbsp; $y = 10$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3l">
-          <div class="exercise-head"><span class="num">3l</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} 2\log x - 3\log y = 7 \\ \log x + \log y = 1 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3l">
+          <div class="ejercicio-header"><span class="num">3l</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} 2\log x - 3\log y = 7 \\ \log x + \log y = 1 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Canvi $t = \log x$, $z = \log y$:</p>
             <p>$\begin{cases} 2t - 3z = 7 \\ t + z = 1 \end{cases}$. Multipliquem la 2a per 3 i sumem: $5t = 10$, $t = 2$, $z = -1$.</p>
             <div class="final">$x = 100$, &nbsp; $y = \dfrac{1}{10}$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3m">
-          <div class="exercise-head"><span class="num">3m</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} \log x + 3\log y = 5 \\ \log\!\dfrac{x^{2}}{y} = 3 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3m">
+          <div class="ejercicio-header"><span class="num">3m</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} \log x + 3\log y = 5 \\ \log\!\dfrac{x^{2}}{y} = 3 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>2a: $2\log x - \log y = 3$. Canvi $t = \log x$, $z = \log y$:</p>
             <p>$\begin{cases} t + 3z = 5 \\ 2t - z = 3 \end{cases} \Rightarrow z = 2t-3$. Substituint: $t + 3(2t-3) = 5 \Rightarrow 7t = 14$, $t = 2$, $z = 1$.</p>
             <div class="final">$x = 100$, &nbsp; $y = 10$.</div>
           </div></details>
         </div>
 
-        <div class="exercise" id="ex-3n">
-          <div class="exercise-head"><span class="num">3n</span></div>
-          <div class="exercise-statement"><p>$\begin{cases} 2^{x} + 2^{y} = 12 \\ 2^{x} \cdot 2^{y} = 32 \end{cases}$</p></div>
-          <details><summary>Mostrar solució</summary><div class="solution">
+        <div class="ejercicio" id="ex-3n">
+          <div class="ejercicio-header"><span class="num">3n</span></div>
+          <div class="ejercicio-cuerpo"><p>$\begin{cases} 2^{x} + 2^{y} = 12 \\ 2^{x} \cdot 2^{y} = 32 \end{cases}$</p></div>
+          <details><summary>Mostrar solució</summary><div class="solucion-cuerpo">
             <p>Tenim suma i producte de $\,t = 2^{x}\,$ i $\,z = 2^{y}$. Per Vieta, $t$ i $z$ són les arrels de $w^{2} - 12w + 32 = 0$:</p>
             <p>$w = \dfrac{12 \pm 4}{2} = 8$ o $4 \Rightarrow \{t, z\} = \{8, 4\}$.</p>
             <p>$2^{x} = 8 \Rightarrow x = 3,\; 2^{y} = 4 \Rightarrow y = 2$ — o a l'inrevés.</p>

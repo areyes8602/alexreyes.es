@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "id": "2426-ib2-u12",
   "tipo_coleccion": "examen",
   "titulo": "Unidad 12 — Cálculo integral",
@@ -47,12 +47,12 @@
     }
   ],
   "tags_coleccion": {
-    "asignatura": "ib-ai-hl",
-    "nivel": "ib2",
+    "materia": "ib-ai-hl",
     "curso_academico": "2025-2026",
     "idioma": "es",
     "fuente": "propia",
-    "origen": "examen"
+    "origen": "examen",
+    "ambito_iba": "T5"
   },
   "ejercicios": [
     {
@@ -85,22 +85,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 5.13",
           "TANS 5.14"
         ],
-        "tema": [
-          "integrales",
-          "integral_definida",
-          "area_bajo_curva",
-          "area_entre_curvas",
-          "funciones"
-        ],
+        "dificultad": "facil",
         "habilidad": [
           "calculo_simbolico",
           "visualizacion"
         ],
-        "dificultad": "facil",
         "formato": [
           "pregunta_larga"
         ]
@@ -141,26 +134,18 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 5.13",
           "TANS 5.14",
-          "TANS 5.15",
-          "TANS 5.19"
+          "TANS 5.15"
         ],
-        "tema": [
-          "integrales",
-          "integral_definida",
-          "area_bajo_curva",
-          "regla_trapecio",
-          "solidos_revolucion"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_simbolico",
           "calculo_numerico",
           "visualizacion",
           "uso_calculadora"
         ],
-        "dificultad": "media",
         "formato": [
           "pregunta_larga"
         ]
@@ -181,20 +166,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.15",
-          "TANS 5.19"
+        "concepto_iba": [
+          "TANS 5.15"
         ],
-        "tema": [
-          "regla_trapecio",
-          "solidos_revolucion"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_numerico",
           "modelizacion",
           "uso_calculadora"
         ],
-        "dificultad": "media",
         "formato": [
           "problema_aplicado",
           "pregunta_corta"
@@ -221,22 +201,17 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 5.11",
           "TANS 5.13"
         ],
-        "tema": [
-          "integrales",
-          "integral_indefinida",
-          "funciones"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion",
           "interpretacion",
           "razonamiento"
         ],
-        "dificultad": "media",
         "formato": [
           "problema_aplicado"
         ]
@@ -282,17 +257,11 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 5.16",
-          "TANS 5.20",
-          "TANS 5.21"
+          "TANS 5.17"
         ],
-        "tema": [
-          "edos",
-          "metodo_euler",
-          "campo_pendientes",
-          "modelizacion_crecimiento"
-        ],
+        "dificultad": "dificil",
         "habilidad": [
           "modelizacion",
           "calculo_simbolico",
@@ -301,7 +270,6 @@
           "razonamiento",
           "uso_calculadora"
         ],
-        "dificultad": "dificil",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -338,20 +306,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 5.11",
           "TANS 5.12",
           "TANS 5.13"
         ],
-        "tema": [
-          "integrales",
-          "integral_definida",
-          "integral_indefinida"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_simbolico"
         ],
-        "dificultad": "media",
         "formato": [
           "pregunta_corta"
         ]
@@ -392,23 +355,17 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 5.16",
-          "TANS 5.20"
+          "TANS 5.17"
         ],
-        "tema": [
-          "edos",
-          "separacion_variables",
-          "metodo_euler",
-          "modelizacion_crecimiento"
-        ],
+        "dificultad": "dificil",
         "habilidad": [
           "calculo_simbolico",
           "calculo_numerico",
           "razonamiento",
           "interpretacion"
         ],
-        "dificultad": "dificil",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
