@@ -686,159 +686,62 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
   }
 })();
 
-// ────────── GeoGebra applet con botón Mostrar/Ocultar Voronoi ──────────
+// ────────── GeoGebra Classic via iframe (sustituye a deployggb.js) ──────────
+//
+// El embed JS deployggb.js tenía problemas — el comando Voronoi no se reconocía
+// en la build empotrada. La solución fiable: iframe directo a geogebra.org/classic
+// con los comandos pre-cargados via parámetro ?command=.
+//
+// Trade-off: cada toggle recarga el iframe (cambia el src), perdemos la
+// posición arrastrada de los puntos. Es el precio a pagar por fiabilidad.
 (function() {
-  var ggbApi = null;
+  // Comandos que se ejecutan al cargar el iframe (separados por punto y coma)
+  var CMD_PUNTOS = 'A=(2,2);B=(8,3);C=(5,7);D=(3,8);E=(7,8);ZoomIn(-1,-1,11,10)';
+  var CMD_VORONOI = CMD_PUNTOS + ';voronoiCells=Voronoi({A,B,C,D,E});SetLineThickness(voronoiCells,5);SetColor(voronoiCells,"#0891b2");ShowLabel(voronoiCells,false)';
+
+  function urlClassic(commandString) {
+    return 'https://www.geogebra.org/classic'
+      + '?lang=es'
+      + '&command=' + encodeURIComponent(commandString);
+  }
+
   var voronoiVisible = false;
-  var voronoiCreado = false;
 
-  function setStatus(msg) {
-    var el = document.getElementById('ggb-status');
-    if (el) el.textContent = msg;
-  }
-
-  function showFallback(msg) {
-    var host = document.getElementById('ggb-applet');
-    if (!host) return;
-    host.innerHTML = '<div class="ggb-fallback">' +
-      '<p>' + escHtml(msg || 'No se pudo cargar el applet.') + '</p>' +
-      '<a href="https://www.geogebra.org/classic?command=A%3D(2%2C2)%3BB%3D(8%2C3)%3BC%3D(5%2C7)%3BD%3D(3%2C8)%3BE%3D(7%2C8)%3Bvor%3DVoronoi(%7BA%2CB%2CC%2CD%2CE%7D)" target="_blank" rel="noopener">Abrir en GeoGebra ↗</a>' +
-      '</div>';
-  }
-
-  function inicializaPuntos(api) {
-    api.evalCommand('A=(2,2)');
-    api.evalCommand('B=(8,3)');
-    api.evalCommand('C=(5,7)');
-    api.evalCommand('D=(3,8)');
-    api.evalCommand('E=(7,8)');
-    api.setCoordSystem(-1, 11, -1, 10);
-    api.evalCommand('sites={A,B,C,D,E}');
-  }
-
-  function creaVoronoi(api) {
-    // Sintaxis moderna con paréntesis
-    var ok = api.evalCommand('voronoiCells=Voronoi(sites)');
-    console.log('[ggb] Voronoi(sites) evalCommand returned:', ok);
-    var existsAfter = api.exists('voronoiCells');
-    console.log('[ggb] voronoiCells exists?', existsAfter);
-
-    // Fallback 1: sintaxis legacy con corchetes
-    if (!existsAfter) {
-      ok = api.evalCommand('voronoiCells=Voronoi[sites]');
-      console.log('[ggb] Voronoi[sites] evalCommand returned:', ok);
-      existsAfter = api.exists('voronoiCells');
-      console.log('[ggb] after [sites] voronoiCells exists?', existsAfter);
-    }
-
-    // Fallback 2: pasar la lista en línea sin variable intermedia
-    if (!existsAfter) {
-      ok = api.evalCommand('voronoiCells=Voronoi({A,B,C,D,E})');
-      console.log('[ggb] Voronoi({...}) inline evalCommand returned:', ok);
-      existsAfter = api.exists('voronoiCells');
-      console.log('[ggb] after inline voronoiCells exists?', existsAfter);
-    }
-
-    if (!existsAfter) {
-      console.error('[ggb] El comando Voronoi no está disponible en esta build.');
-      return false;
-    }
-
-    // Estilo del Voronoi
-    api.evalCommand('SetColor(voronoiCells, 8, 145, 178)');
-    api.evalCommand('SetLineThickness(voronoiCells, 5)');
-    api.evalCommand('ShowLabel(voronoiCells, false)');
-    api.setVisible('voronoiCells', true);
-    return true;
-  }
-
-  function toggleVoronoi() {
-    if (!ggbApi) return;
-    var btn = document.getElementById('btn-toggle-voronoi');
-    if (!voronoiCreado) {
-      var ok = creaVoronoi(ggbApi);
-      if (!ok) {
-        setStatus('El comando Voronoi no está disponible en esta versión.');
-        return;
+  function setIframeSrc(showVoronoi) {
+    var iframe = document.getElementById('ggb-iframe');
+    if (!iframe) return;
+    iframe.src = urlClassic(showVoronoi ? CMD_VORONOI : CMD_PUNTOS);
+    voronoiVisible = !!showVoronoi;
+    // Botón "Abrir en GeoGebra ↗" apunta al mismo estado actual
+    var openBtn = document.getElementById('btn-open-ggb');
+    if (openBtn) openBtn.href = urlClassic(showVoronoi ? CMD_VORONOI : CMD_PUNTOS);
+    var toggleBtn = document.getElementById('btn-toggle-voronoi');
+    if (toggleBtn) {
+      if (showVoronoi) {
+        toggleBtn.textContent = 'Ocultar diagrama de Voronoi';
+        toggleBtn.classList.add('active');
+      } else {
+        toggleBtn.textContent = 'Mostrar diagrama de Voronoi';
+        toggleBtn.classList.remove('active');
       }
-      voronoiCreado = true;
-      voronoiVisible = true;
-      btn.textContent = 'Ocultar diagrama de Voronoi';
-      btn.classList.add('active');
-      setStatus('Diagrama visible.');
-    } else if (voronoiVisible) {
-      ggbApi.setVisible('voronoiCells', false);
-      voronoiVisible = false;
-      btn.textContent = 'Mostrar diagrama de Voronoi';
-      btn.classList.remove('active');
-      setStatus('Diagrama oculto.');
-    } else {
-      ggbApi.setVisible('voronoiCells', true);
-      voronoiVisible = true;
-      btn.textContent = 'Ocultar diagrama de Voronoi';
-      btn.classList.add('active');
-      setStatus('Diagrama visible.');
     }
-  }
-
-  function resetPuntos() {
-    if (!ggbApi) return;
-    ggbApi.evalCommand('SetValue(A, (2,2))');
-    ggbApi.evalCommand('SetValue(B, (8,3))');
-    ggbApi.evalCommand('SetValue(C, (5,7))');
-    ggbApi.evalCommand('SetValue(D, (3,8))');
-    ggbApi.evalCommand('SetValue(E, (7,8))');
-    setStatus('Puntos restablecidos.');
   }
 
   window.addEventListener('load', function() {
-    var host = document.getElementById('ggb-applet');
-    if (!host) return;
-    if (typeof GGBApplet === 'undefined') {
-      showFallback('GeoGebra no está disponible (verifica conexión o bloqueador de scripts).');
-      return;
-    }
-    try {
-      var ggbParams = {
-        // 'suite' (Calculator Suite) trae todos los módulos incluido el comando Voronoi.
-        // 'classic' web a veces tiene un subset limitado y Voronoi no se reconoce.
-        appName: 'suite',
-        width: 720,
-        height: 480,
-        showToolBar: false,
-        showAlgebraInput: false,
-        showMenuBar: false,
-        showResetIcon: false,
-        enableLabelDrags: false,
-        enableShiftDragZoom: true,
-        enableRightClick: false,
-        showZoomButtons: true,
-        capturingThreshold: 8,
-        perspective: 'G',
-        language: 'en',
-        appletOnLoad: function(api) {
-          ggbApi = api;
-          try {
-            inicializaPuntos(api);
-            setStatus('Listo. Pulsa el botón para ver el diagrama.');
-          } catch (e) {
-            console.error('[ggb] error en appletOnLoad:', e);
-            setStatus('Error al inicializar.');
-          }
-        }
-      };
-      var applet = new GGBApplet(ggbParams, true);
-      applet.inject('ggb-applet');
-    } catch (err) {
-      console.error('[ggb] error al inyectar:', err);
-      showFallback('Error al cargar el applet: ' + err.message);
-    }
+    // Carga inicial: solo los 5 puntos
+    setIframeSrc(false);
 
-    // Bind de los controles
     var btnToggle = document.getElementById('btn-toggle-voronoi');
     var btnReset = document.getElementById('btn-reset-voronoi');
-    if (btnToggle) btnToggle.addEventListener('click', toggleVoronoi);
-    if (btnReset) btnReset.addEventListener('click', resetPuntos);
+
+    if (btnToggle) btnToggle.addEventListener('click', function() {
+      setIframeSrc(!voronoiVisible);
+    });
+
+    if (btnReset) btnReset.addEventListener('click', function() {
+      // Recarga al estado actual (puntos en posición original)
+      setIframeSrc(voronoiVisible);
+    });
   });
 })();
 </script>
