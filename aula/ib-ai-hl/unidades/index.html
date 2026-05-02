@@ -187,7 +187,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
   }
 
   try {
-    const [unidadesRaw, ejerciciosRaw, conceptosApuntes, tags] = await Promise.all([
+    const [unidadesRaw, ejerciciosRaw, conceptosApuntes, tagsData] = await Promise.all([
       fetch('/assets/data/ib-unidades.json').then(r => r.json()),
       fetch('/assets/data/ejercicios-index.json').then(r => r.json()).catch(() => ({ejercicios:[]})),
       fetch('/assets/data/conceptos-apuntes.json').then(r => r.json()).catch(() => ({conceptos:[]})),
@@ -215,11 +215,11 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
 
     // Tags del syllabus que cubre, linkables al syllabus
     const tagsEl = document.getElementById('syllabus-cubierto');
-    const tags = u.tags_iba || [];
-    if (tags.length === 0) {
+    const unidadTags = u.tags_iba || [];
+    if (unidadTags.length === 0) {
       tagsEl.innerHTML = '';
     } else {
-      tagsEl.innerHTML = '<strong style="font-size:0.78rem;color:var(--text-faint);font-weight:600;margin-right:0.3rem">Cubre:</strong> ' + tags.map(t => {
+      tagsEl.innerHTML = '<strong style="font-size:0.78rem;color:var(--text-faint);font-weight:600;margin-right:0.3rem">Cubre:</strong> ' + unidadTags.map(t => {
         const cls = t.startsWith('TANS') ? 'tans' : 'nm';
         const slug = t.replace(/\s|\./g, '-').replace(/--/, '-');
         return `<a href="/aula/ib-ai-hl/syllabus/#${slug}" class="syllabus-tag ${cls}">${escHtml(t)}</a>`;
@@ -243,8 +243,8 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
 
     // Conceptos de la unidad que tienen página de apuntes propia
     const conceptosDisponibles = conceptosApuntes.conceptos || [];
-    const apuntesEnUnidad = tags
-      ? tags.namespaces?.concepto_iba?.valores || {}
+    const apuntesEnUnidad = (tagsData && tagsData.namespaces && tagsData.namespaces.concepto_iba)
+      ? (tagsData.namespaces.concepto_iba.valores || {})
       : {};
     const conceptosConApuntes = (u.tags_iba || []).map(code => {
       const entry = conceptosDisponibles.find(c => c.code === code);
@@ -270,7 +270,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
     const ejs = (ejerciciosRaw.ejercicios || []).filter(e => {
       const cs = e.tags?.concepto_iba || [];
       const arr = Array.isArray(cs) ? cs : [cs];
-      return arr.some(t => tags.includes(t));
+      return arr.some(t => unidadTags.includes(t));
     });
     const ejsEl = document.getElementById('ejercicios-list');
     if (ejs.length === 0) {

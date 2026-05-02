@@ -560,7 +560,9 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 
-// Inyección segura del applet GeoGebra. Espera a window.load para que deployggb.js esté listo.
+// Inyección segura del applet GeoGebra. Forzamos idioma 'en' para que el comando
+// Voronoi se reconozca y todo el styling se aplica vía comandos GeoGebra (no la JS-API,
+// que tenía problemas de timing).
 window.addEventListener('load', function() {
   var host = document.getElementById('ggb-applet');
   if (!host) return;
@@ -568,7 +570,7 @@ window.addEventListener('load', function() {
   function showFallback(msg) {
     host.innerHTML = '<div class="ggb-fallback">' +
       '<p>' + (msg || 'No se pudo cargar el applet.') + '</p>' +
-      '<a href="https://www.geogebra.org/calculator?command=Voronoi%28%7B%282%2C2%29%2C%288%2C3%29%2C%285%2C7%29%2C%283%2C8%29%2C%287%2C8%29%7D%29" target="_blank" rel="noopener">Abrir en GeoGebra ↗</a>' +
+      '<a href="https://www.geogebra.org/classic?command=A%3D(2%2C2)%3BB%3D(8%2C3)%3BC%3D(5%2C7)%3BD%3D(3%2C8)%3BE%3D(7%2C8)%3Bvor%3DVoronoi(%7BA%2CB%2CC%2CD%2CE%7D)" target="_blank" rel="noopener">Abrir en GeoGebra ↗</a>' +
       '</div>';
   }
 
@@ -592,28 +594,48 @@ window.addEventListener('load', function() {
       showZoomButtons: true,
       capturingThreshold: 8,
       perspective: 'G',
+      language: 'en',  // fuerza inglés para que el comando Voronoi se reconozca
       appletOnLoad: function(api) {
         try {
+          // Puntos
           api.evalCommand('A=(2,2)');
           api.evalCommand('B=(8,3)');
           api.evalCommand('C=(5,7)');
           api.evalCommand('D=(3,8)');
           api.evalCommand('E=(7,8)');
           api.setCoordSystem(-1, 11, -1, 10);
-          api.evalCommand('vor=Voronoi({A,B,C,D,E})');
-          // Estilo de la salida
-          api.setColor('vor', 8, 145, 178);
-          api.setLineThickness('vor', 5);
-          api.setLabelVisible('vor', false);
+
+          // Lista intermedia para que el comando Voronoi reciba un objeto Lista bien tipado
+          var listOk = api.evalCommand('sites={A,B,C,D,E}');
+          console.log('[ggb] lista creada:', listOk);
+
+          // Comando Voronoi — primero la sintaxis moderna con paréntesis
+          var voronoiOk = api.evalCommand('voronoiCells=Voronoi(sites)');
+          console.log('[ggb] Voronoi(...) ok:', voronoiOk);
+
+          // Si la sintaxis con paréntesis falla, intentamos la legacy con corchetes
+          if (!voronoiOk) {
+            voronoiOk = api.evalCommand('voronoiCells=Voronoi[sites]');
+            console.log('[ggb] Voronoi[...] ok:', voronoiOk);
+          }
+
+          // Estilo del Voronoi vía comandos GeoGebra (no JS-API)
+          if (voronoiOk) {
+            api.evalCommand('SetColor(voronoiCells, 0, 100, 180)');
+            api.evalCommand('SetLineThickness(voronoiCells, 5)');
+            api.evalCommand('ShowLabel(voronoiCells, false)');
+          } else {
+            console.warn('[ggb] Voronoi command failed — el comando puede no estar disponible en esta versión.');
+          }
         } catch (e) {
-          console.error('Error al construir el applet:', e);
+          console.error('[ggb] error en appletOnLoad:', e);
         }
       }
     };
     var applet = new GGBApplet(params, true);
     applet.inject('ggb-applet');
   } catch (err) {
-    console.error('Error al inyectar GGB:', err);
+    console.error('[ggb] error al inyectar:', err);
     showFallback('Error al cargar el applet: ' + err.message);
   }
 });
