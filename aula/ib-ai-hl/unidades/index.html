@@ -130,6 +130,12 @@
         <div class="secciones-grid" id="secciones-grid"></div>
       </div>
 
+      <div class="related-section" id="apuntes-conceptos-section" style="display:none">
+        <h2>📖 Apuntes por concepto</h2>
+        <p style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem">Cada subtema enlaza a sus apuntes con teoría, ejemplos resueltos, GeoGebra y ejercicios.</p>
+        <div id="apuntes-conceptos-list"></div>
+      </div>
+
       <div class="related-section">
         <h2>📝 Ejercicios etiquetados</h2>
         <div id="ejercicios-list"></div>
@@ -181,9 +187,11 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
   }
 
   try {
-    const [unidadesRaw, ejerciciosRaw] = await Promise.all([
+    const [unidadesRaw, ejerciciosRaw, conceptosApuntes, tags] = await Promise.all([
       fetch('/assets/data/ib-unidades.json').then(r => r.json()),
       fetch('/assets/data/ejercicios-index.json').then(r => r.json()).catch(() => ({ejercicios:[]})),
+      fetch('/assets/data/conceptos-apuntes.json').then(r => r.json()).catch(() => ({conceptos:[]})),
+      fetch('/assets/data/tags.json').then(r => r.json()).catch(() => ({namespaces:{}})),
     ]);
     // Buscar primero en unidades_hl, luego en unidades_sl, fallback a unidades (legacy)
     const allUnidades = [
@@ -232,6 +240,31 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
         <span class="seccion-card-label">${s.label}</span>
         <span class="seccion-card-status">Sin contenido</span>
       </div>`).join('');
+
+    // Conceptos de la unidad que tienen página de apuntes propia
+    const conceptosDisponibles = conceptosApuntes.conceptos || [];
+    const apuntesEnUnidad = tags
+      ? tags.namespaces?.concepto_iba?.valores || {}
+      : {};
+    const conceptosConApuntes = (u.tags_iba || []).map(code => {
+      const entry = conceptosDisponibles.find(c => c.code === code);
+      if (!entry) return null;
+      const subtemaInfo = apuntesEnUnidad[code];
+      const tituloRaw = subtemaInfo?.label?.es || code;
+      const titulo = tituloRaw.includes(' — ') ? tituloRaw.split(' — ')[1] : tituloRaw;
+      return { code, slug: entry.slug, titulo, secciones: entry.secciones || [] };
+    }).filter(Boolean);
+
+    if (conceptosConApuntes.length > 0) {
+      document.getElementById('apuntes-conceptos-section').style.display = 'block';
+      document.getElementById('apuntes-conceptos-list').innerHTML = conceptosConApuntes.map(c => `
+        <a href="/aula/ib-ai-hl/conceptos/${c.slug}/" class="unidad-link" style="border-left:3px solid #0891b2">
+          <span class="unidad-link-num" style="background:#0891b2">${escHtml(c.code)}</span>
+          <span class="unidad-link-title">${escHtml(c.titulo)}</span>
+          <span style="font-size:0.72rem;color:var(--text-faint);font-family:var(--mono)">${c.secciones.join(' · ')}</span>
+          <span class="unidad-link-arrow">→</span>
+        </a>`).join('');
+    }
 
     // Ejercicios etiquetados con cualquiera de los tags de la unidad
     const ejs = (ejerciciosRaw.ejercicios || []).filter(e => {
