@@ -136,6 +136,12 @@
         <div id="apuntes-conceptos-list"></div>
       </div>
 
+      <div class="related-section" id="fichas-section" style="display:none">
+        <h2>📋 Fichas de ejercicios</h2>
+        <p style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem">Recopilaciones temáticas con problemas de aplicación y soluciones desplegables.</p>
+        <div id="fichas-list"></div>
+      </div>
+
       <div class="related-section">
         <h2>📝 Ejercicios etiquetados</h2>
         <div id="ejercicios-list"></div>
@@ -226,22 +232,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       }).join('');
     }
 
-    // 4 secciones (placeholders por ahora)
-    const sectionsEl = document.getElementById('secciones-grid');
-    const sections = [
-      { icon: '📄', label: 'Apuntes',      slug: 'apuntes' },
-      { icon: '📝', label: 'Ejercicios',   slug: 'ejercicios' },
-      { icon: '✅', label: 'Soluciones',   slug: 'soluciones' },
-      { icon: '🔗', label: 'Materiales',   slug: 'materiales' },
-    ];
-    sectionsEl.innerHTML = sections.map(s => `
-      <div class="seccion-card empty" title="Aún sin contenido publicado">
-        <span class="seccion-card-icon">${s.icon}</span>
-        <span class="seccion-card-label">${s.label}</span>
-        <span class="seccion-card-status">Sin contenido</span>
-      </div>`).join('');
-
-    // Conceptos de la unidad que tienen página de apuntes propia
+    // ─── Conceptos con apuntes propios cubiertos por la unidad ───
     const conceptosDisponibles = conceptosApuntes.conceptos || [];
     const apuntesEnUnidad = (tagsData && tagsData.namespaces && tagsData.namespaces.concepto_iba)
       ? (tagsData.namespaces.concepto_iba.valores || {})
@@ -255,6 +246,69 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       return { code, slug: entry.slug, titulo, secciones: entry.secciones || [] };
     }).filter(Boolean);
 
+    // ─── Fichas de ejercicios asociadas (con tags solapados con la unidad) ───
+    const allEjs = ejerciciosRaw.ejercicios || [];
+    const fichasMap = {};
+    allEjs.forEach(e => {
+      if (e.coleccion?.tipo !== 'ficha') return;
+      const ejTags = e.tags?.concepto_iba || [];
+      if (!unidadTags.some(t => ejTags.includes(t))) return;
+      const id = e.coleccion.id;
+      if (!fichasMap[id]) {
+        fichasMap[id] = {
+          id, titulo: e.coleccion.titulo, url: e.coleccion.url_index, count: 0
+        };
+      }
+      fichasMap[id].count++;
+    });
+    const fichas = Object.values(fichasMap);
+    const primeraFicha = fichas[0] || null;
+
+    // ─── 4 cards de material: activos si hay contenido ───
+    const sectionsEl = document.getElementById('secciones-grid');
+    const apuntesCount = conceptosConApuntes.length;
+    const fichaCount = fichas.reduce((acc, f) => acc + f.count, 0);
+    const primerApunte = conceptosConApuntes[0] || null;
+
+    const sections = [
+      {
+        icon: '📄', label: 'Apuntes',
+        href: primerApunte ? `/aula/ib-ai-hl/conceptos/${primerApunte.slug}/?from=${encodeURIComponent(u.id)}` : null,
+        status: apuntesCount > 0 ? `${apuntesCount} ${apuntesCount === 1 ? 'concepto' : 'conceptos'}` : 'Sin contenido',
+      },
+      {
+        icon: '📝', label: 'Ejercicios',
+        href: primeraFicha ? primeraFicha.url : null,
+        status: fichaCount > 0 ? `${fichaCount} ${fichaCount === 1 ? 'ejercicio' : 'ejercicios'}` : 'Sin contenido',
+      },
+      {
+        icon: '✅', label: 'Soluciones',
+        href: null,
+        status: 'En cada apartado',
+      },
+      {
+        icon: '🔗', label: 'Materiales',
+        href: null,
+        status: 'Sin contenido',
+      },
+    ];
+
+    sectionsEl.innerHTML = sections.map(s => {
+      if (s.href) {
+        return `<a href="${escHtml(s.href)}" class="seccion-card" title="${escHtml(s.label)}">
+          <span class="seccion-card-icon">${s.icon}</span>
+          <span class="seccion-card-label">${s.label}</span>
+          <span class="seccion-card-status">${escHtml(s.status)}</span>
+        </a>`;
+      }
+      return `<div class="seccion-card empty" title="${escHtml(s.label)}">
+        <span class="seccion-card-icon">${s.icon}</span>
+        <span class="seccion-card-label">${s.label}</span>
+        <span class="seccion-card-status">${escHtml(s.status)}</span>
+      </div>`;
+    }).join('');
+
+    // ─── Sub-listado expandido de los conceptos con apuntes ───
     if (conceptosConApuntes.length > 0) {
       document.getElementById('apuntes-conceptos-section').style.display = 'block';
       const totalCaps = conceptosConApuntes.length;
@@ -265,6 +319,21 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
           <span class="unidad-link-title">${escHtml(c.titulo)}</span>
           <span class="unidad-link-arrow">→</span>
         </a>`).join('');
+    }
+
+    // ─── Sub-listado expandido de las fichas asociadas ───
+    if (fichas.length > 0) {
+      let fichasSection = document.getElementById('fichas-section');
+      if (fichasSection) {
+        fichasSection.style.display = 'block';
+        document.getElementById('fichas-list').innerHTML = fichas.map(f => `
+          <a href="${escHtml(f.url)}" class="unidad-link" style="border-left:3px solid #059669">
+            <span class="unidad-link-num" style="background:#059669">FICHA</span>
+            <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-faint)">${f.count} ${f.count === 1 ? 'ej.' : 'ejs.'}</span>
+            <span class="unidad-link-title">${escHtml(f.titulo)}</span>
+            <span class="unidad-link-arrow">→</span>
+          </a>`).join('');
+      }
     }
 
     // Ejercicios etiquetados con cualquiera de los tags de la unidad
