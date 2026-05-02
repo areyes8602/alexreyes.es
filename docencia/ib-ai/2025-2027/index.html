@@ -164,30 +164,23 @@ function buildSubtema(sub, conceptosConContenido) {
   return `<a href="${url}" class="subtema-link ${nivelClass}"><span class="chapter-num subtema-num">${escHtml(sub.code)}</span><span class="chapter-title">${escHtml(sub.title)}</span>${statusBadge}<span class="chapter-arrow">→</span></a>`;
 }
 
-// Construye la lista plana de items (apuntes + fichas + exámenes) que corresponden
-// a una unidad por solapamiento de tags. Devuelve HTML con .ej-list o '' si está vacía.
-function buildItemsList(u, ctx) {
+// Calcula apuntes, fichas y exámenes asociados a una unidad por solapamiento
+// de tags concepto_iba. Devuelve URLs y conteos por tipo.
+function getUnidadResources(u, ctx) {
   const unidadTags = u.tags_iba || [];
-  const items = [];
-
-  // Apuntes por concepto
+  // Apuntes: primer concepto con apuntes en la unidad (con ?from para libro digital)
+  let apuntesHref = null;
+  let apuntesCount = 0;
   for (const c of (ctx.conceptosApuntes || [])) {
     if (!unidadTags.includes(c.code)) continue;
-    const subtemaInfo = ctx.subtemasInfo[c.code];
-    const tituloRaw = (subtemaInfo && subtemaInfo.label && subtemaInfo.label.es) || c.code;
-    const titulo = tituloRaw.includes(' — ') ? tituloRaw.split(' — ')[1] : tituloRaw;
-    items.push({
-      tipo: 'apuntes',
-      num: c.code,
-      ttl: titulo,
-      meta: 'Apuntes',
-      href: `/aula/ib-ai-hl/conceptos/${c.slug}/?from=${encodeURIComponent(u.id)}`,
-    });
+    apuntesCount++;
+    if (!apuntesHref) {
+      apuntesHref = `/aula/ib-ai-hl/conceptos/${c.slug}/?from=${encodeURIComponent(u.id)}`;
+    }
   }
-
-  // Fichas y exámenes (agrupados por colección)
+  // Ejercicios (fichas) y exámenes
   const fichasMap = {};
-  const examenesMap = {};
+  const examenesArr = [];
   for (const e of (ctx.allEjs || [])) {
     const ejTags = (e.tags && e.tags.concepto_iba) || [];
     if (!unidadTags.some(t => ejTags.includes(t))) continue;
@@ -196,41 +189,29 @@ function buildItemsList(u, ctx) {
       const id = e.coleccion.id;
       if (!fichasMap[id]) fichasMap[id] = { id, titulo: e.coleccion.titulo, url: e.coleccion.url_index, count: 0 };
       fichasMap[id].count++;
-    } else if (tipo === 'examen') {
-      const id = e.coleccion.id;
-      if (!examenesMap[id]) examenesMap[id] = { id, titulo: e.coleccion.titulo, url: e.coleccion.url_index, fecha: e.coleccion.fecha || '', count: 0 };
-      examenesMap[id].count++;
     }
   }
-  for (const f of Object.values(fichasMap)) {
-    items.push({
-      tipo: 'ficha',
-      num: 'Ficha',
-      ttl: f.titulo,
-      meta: `${f.count} ${f.count === 1 ? 'ej.' : 'ejs.'}`,
-      href: f.url,
-    });
-  }
-  for (const ex of Object.values(examenesMap)) {
-    items.push({
-      tipo: 'examen',
-      num: 'Exam',
-      ttl: ex.titulo,
-      meta: `${ex.count} preg.${ex.fecha ? ' · ' + fmtFecha(ex.fecha) : ''}`,
-      href: ex.url,
-    });
-  }
-
-  if (items.length === 0) return '';
-  return `<div class="ej-list" style="margin-top:1rem">` + items.map(it =>
-    `<a href="${escHtml(it.href)}" class="tipo-${escHtml(it.tipo)}"><span class="num">${escHtml(it.num)}</span><span class="ttl">${escHtml(it.ttl)}</span><span class="meta">${escHtml(it.meta)}</span><span class="arr">→</span></a>`
-  ).join('') + `</div>`;
+  const fichas = Object.values(fichasMap);
+  const ejerciciosHref = fichas[0] ? fichas[0].url : null;
+  const ejerciciosCount = fichas.reduce((acc, f) => acc + f.count, 0);
+  return {
+    apuntesHref, apuntesCount,
+    ejerciciosHref, ejerciciosCount,
+  };
 }
 
-// Unidad didáctica (eje pedagógico) — chapter-item plegable con su lista plana de items
+// Section card con icono + label + opcionalmente meta. Igual al patrón CCSS.
+function buildIBSectionCard(href, icon, label, meta) {
+  const metaHtml = meta ? `<span class="chapter-section-meta">${escHtml(meta)}</span>` : '';
+  if (href) return `<a href="${escHtml(href)}" class="chapter-section available" style="text-decoration:none"><span>${icon}</span><span>${escHtml(label)}</span>${metaHtml}</a>`;
+  return `<div class="chapter-section empty"><span>${icon}</span><span>${escHtml(label)}</span></div>`;
+}
+
+// Unidad didáctica (eje pedagógico) — chapter-item plegable con sus 3 section cards
 // nivel: 'hl' o 'sl'. Las listas son independientes (HL y SL son currículos distintos).
 function buildUnidad(u, nivel, ctx) {
   const isSL = nivel === 'sl';
+  const res = getUnidadResources(u, ctx || {conceptosApuntes:[], allEjs:[]});
   const tagsBadges = (u.tags_iba || []).map(t => {
     const cls = t.startsWith('TANS') ? 'subtema-nivel-hl' : 'subtema-nivel-nm';
     const slug = t.replace(/\s|\./g, '-');
@@ -242,9 +223,17 @@ function buildUnidad(u, nivel, ctx) {
     : '';
   const prefix = isSL ? 'US' : 'U';
   const numero = u.orden ? `<span class="chapter-num unidad-num">${prefix}${String(u.orden).padStart(2,'0')}</span>` : '';
-  const itemsList = buildItemsList(u, ctx || {}) ||
-    `<p style="font-size:0.85rem;color:var(--text-faint);font-style:italic;margin-top:0.8rem">${LABELS_JS.unidad_empty}</p>`;
-  return `<div class="chapter-item unidad-item"><div class="chapter-header" onclick="toggleChapter(this)">${numero}<span class="chapter-title">${escHtml(u.title)}</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${intro}${tagsBox}${itemsList}</div></div>`;
+
+  // 3 section cards igual que CCSS: Apuntes / Ejercicios / Material extra
+  const apuntesMeta = res.apuntesCount > 0 ? `${res.apuntesCount} ${res.apuntesCount === 1 ? 'concepto' : 'conceptos'}` : '';
+  const ejerciciosMeta = res.ejerciciosCount > 0 ? `${res.ejerciciosCount} ${res.ejerciciosCount === 1 ? 'ejercicio' : 'ejercicios'}` : '';
+  const sections = [
+    buildIBSectionCard(res.apuntesHref, '📄', LABELS_JS.section_card_apunts, apuntesMeta),
+    buildIBSectionCard(res.ejerciciosHref, '📝', LABELS_JS.section_card_fitxes, ejerciciosMeta),
+    buildIBSectionCard(null, '🔗', LABELS_JS.section_card_extra, ''),
+  ].join('');
+
+  return `<div class="chapter-item unidad-item"><div class="chapter-header" onclick="toggleChapter(this)">${numero}<span class="chapter-title">${escHtml(u.title)}</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${intro}${tagsBox}<div class="chapter-sections">${sections}</div></div></div>`;
 }
 
 // Bloque (T1-T5) — chapter-item plegable que contiene los subtemas dentro
