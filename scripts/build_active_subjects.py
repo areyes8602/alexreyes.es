@@ -772,11 +772,22 @@ def render_ib_hub(s, lang):
             "intro": u.get("intro", {}).get(lang, u.get("intro", {}).get("es", "")),
             "tags_iba": u.get("tags_iba", []),
             "orden": u.get("orden", 999),
+            "trimestre": u.get("trimestre", ""),
             "tier": u.get("tier", "free"),
             "level": u.get("level", "both"),
         })
     unidades_for_js.sort(key=lambda u: u["orden"])
     unidades_json = json.dumps(unidades_for_js, ensure_ascii=False)
+
+    # Etiquetas de trimestre (de ib-unidades.json)
+    trimestres_data = {}
+    try:
+        ibu = json.loads((REPO / "assets/data/ib-unidades.json").read_text(encoding="utf-8"))
+        for tcode, tinfo in ibu.get("trimestres", {}).items():
+            trimestres_data[tcode] = tinfo["label"].get(lang, tinfo["label"]["es"])
+    except Exception:
+        pass
+    trimestres_json = json.dumps(trimestres_data, ensure_ascii=False)
 
     breadcrumb = (
         f'<a href="{lang_prefix(lang)}/">{L["home"]}</a>'
@@ -872,6 +883,7 @@ def render_ib_hub(s, lang):
 <script>
 const TEMAS = {temas_json};
 const UNIDADES = {unidades_json};
+const TRIMESTRES = {trimestres_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
 const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','unidad_empty','unidad_covers']}, ensure_ascii=False)};
@@ -921,7 +933,9 @@ function buildUnidad(u) {{
     ? `<div class="unidad-tags"><span class="unidad-tags-label">${{LABELS_JS.unidad_covers}}:</span> ${{tagsBadges}}</div>`
     : '';
   const levelClass = u.level === 'hl' ? 'unidad-hl-only' : '';
-  return `<div class="chapter-item unidad-item ${{levelClass}}"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-title">${{escHtml(u.title)}}</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div></div></div>`;
+  const numero = u.orden ? `<span class="chapter-num unidad-num">U${{String(u.orden).padStart(2,'0')}}</span>` : '';
+  const hlBadge = u.level === 'hl' ? `<span class="tag tag-purple" style="font-size:0.62rem;margin-left:auto">HL only</span>` : '';
+  return `<div class="chapter-item unidad-item ${{levelClass}}"><div class="chapter-header" onclick="toggleChapter(this)">${{numero}}<span class="chapter-title">${{escHtml(u.title)}}</span>${{hlBadge}}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div></div></div>`;
 }}
 
 // Bloque (T1-T5) — chapter-item plegable que contiene los subtemas dentro
@@ -940,11 +954,24 @@ function renderBloques(nivel, conceptosConContenido) {{
 }}
 function renderUnidades(nivel) {{
   const filtered = UNIDADES.filter(u => nivel === 'hl' || u.level !== 'hl');
-  const html = filtered.length === 0
-    ? `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${{LABELS_JS.unidad_empty}}</p>`
-    : filtered.map(buildUnidad).join('');
   const el = document.getElementById('unidades-' + nivel);
-  if (el) el.innerHTML = html;
+  if (!el) return;
+  if (filtered.length === 0) {{
+    el.innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${{LABELS_JS.unidad_empty}}</p>`;
+    return;
+  }}
+  // Agrupar por trimestre — insertar header cuando cambia
+  let lastT = null;
+  const parts = [];
+  for (const u of filtered) {{
+    if (u.trimestre && u.trimestre !== lastT) {{
+      const label = TRIMESTRES[u.trimestre] || u.trimestre;
+      parts.push(`<h3 class="trimestre-header">${{escHtml(label)}}</h3>`);
+      lastT = u.trimestre;
+    }}
+    parts.push(buildUnidad(u));
+  }}
+  el.innerHTML = parts.join('');
 }}
 function toggleChapter(h) {{ h.parentElement.classList.toggle('open'); }}
 function showNivel(id, btn) {{

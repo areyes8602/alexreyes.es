@@ -800,3 +800,30 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
   color: var(--text-faint); transition: transform 0.15s; display: inline-block;
 }
 .syllabus-section[open] > summary::before { transform: rotate(90deg); }
+
+
+/* ─── IB · Headers de trimestre dentro del eje pedagógico ───────── */
+.trimestre-header {
+  margin: 1.6rem 0 0.6rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-soft);
+  background: linear-gradient(to right, rgba(99,102,241,0.08), transparent 70%);
+  border-left: 3px solid #6366f1;
+  border-radius: var(--radius-sm);
+}
+.trimestre-header:first-child { margin-top: 0.5rem; }
+
+/* Numeración de unidades pedagógicas */
+.chapter-item.unidad-item .chapter-num.unidad-num {
+  background: #059669; color: #fff;
+  font-family: var(--mono); font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  letter-spacing: 0.02em;
+}
+.chapter-item.unidad-item.unidad-hl-only .chapter-num.unidad-num {
+  background: #d97706;
+}
