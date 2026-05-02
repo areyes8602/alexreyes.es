@@ -924,17 +924,73 @@ function buildSubtema(sub, conceptosConContenido) {{
   return `<a href="${{url}}" class="subtema-link ${{nivelClass}}"><span class="chapter-num subtema-num">${{escHtml(sub.code)}}</span><span class="chapter-title">${{escHtml(sub.title)}}</span>${{statusBadge}}<span class="chapter-arrow">→</span></a>`;
 }}
 
-// Unidad didáctica (eje pedagógico) — chapter-item plegable con sus 4 secciones
+// Construye la lista plana de items (apuntes + fichas + exámenes) que corresponden
+// a una unidad por solapamiento de tags. Devuelve HTML con .ej-list o '' si está vacía.
+function buildItemsList(u, ctx) {{
+  const unidadTags = u.tags_iba || [];
+  const items = [];
+
+  // Apuntes por concepto
+  for (const c of (ctx.conceptosApuntes || [])) {{
+    if (!unidadTags.includes(c.code)) continue;
+    const subtemaInfo = ctx.subtemasInfo[c.code];
+    const tituloRaw = (subtemaInfo && subtemaInfo.label && subtemaInfo.label.es) || c.code;
+    const titulo = tituloRaw.includes(' — ') ? tituloRaw.split(' — ')[1] : tituloRaw;
+    items.push({{
+      tipo: 'apuntes',
+      num: c.code,
+      ttl: titulo,
+      meta: 'Apuntes',
+      href: `/aula/ib-ai-hl/conceptos/${{c.slug}}/?from=${{encodeURIComponent(u.id)}}`,
+    }});
+  }}
+
+  // Fichas y exámenes (agrupados por colección)
+  const fichasMap = {{}};
+  const examenesMap = {{}};
+  for (const e of (ctx.allEjs || [])) {{
+    const ejTags = (e.tags && e.tags.concepto_iba) || [];
+    if (!unidadTags.some(t => ejTags.includes(t))) continue;
+    const tipo = e.coleccion && e.coleccion.tipo;
+    if (tipo === 'ficha') {{
+      const id = e.coleccion.id;
+      if (!fichasMap[id]) fichasMap[id] = {{ id, titulo: e.coleccion.titulo, url: e.coleccion.url_index, count: 0 }};
+      fichasMap[id].count++;
+    }} else if (tipo === 'examen') {{
+      const id = e.coleccion.id;
+      if (!examenesMap[id]) examenesMap[id] = {{ id, titulo: e.coleccion.titulo, url: e.coleccion.url_index, fecha: e.coleccion.fecha || '', count: 0 }};
+      examenesMap[id].count++;
+    }}
+  }}
+  for (const f of Object.values(fichasMap)) {{
+    items.push({{
+      tipo: 'ficha',
+      num: 'Ficha',
+      ttl: f.titulo,
+      meta: `${{f.count}} ${{f.count === 1 ? 'ej.' : 'ejs.'}}`,
+      href: f.url,
+    }});
+  }}
+  for (const ex of Object.values(examenesMap)) {{
+    items.push({{
+      tipo: 'examen',
+      num: 'Exam',
+      ttl: ex.titulo,
+      meta: `${{ex.count}} preg.${{ex.fecha ? ' · ' + fmtFecha(ex.fecha) : ''}}`,
+      href: ex.url,
+    }});
+  }}
+
+  if (items.length === 0) return '';
+  return `<div class="ej-list" style="margin-top:1rem">` + items.map(it =>
+    `<a href="${{escHtml(it.href)}}" class="tipo-${{escHtml(it.tipo)}}"><span class="num">${{escHtml(it.num)}}</span><span class="ttl">${{escHtml(it.ttl)}}</span><span class="meta">${{escHtml(it.meta)}}</span><span class="arr">→</span></a>`
+  ).join('') + `</div>`;
+}}
+
+// Unidad didáctica (eje pedagógico) — chapter-item plegable con su lista plana de items
 // nivel: 'hl' o 'sl'. Las listas son independientes (HL y SL son currículos distintos).
-function buildUnidad(u, nivel) {{
+function buildUnidad(u, nivel, ctx) {{
   const isSL = nivel === 'sl';
-  const url = `/aula/ib-ai-hl/unidades/#${{u.id}}`;
-  const sections = [
-    buildSectionCard(null, '📄', LABELS_JS.section_card_apunts),
-    buildSectionCard(null, '📝', LABELS_JS.section_card_fitxes),
-    buildSectionCard(null, '✅', LABELS_JS.section_card_solucions),
-    buildSectionCard(null, '🔗', LABELS_JS.section_card_extra),
-  ].join('');
   const tagsBadges = (u.tags_iba || []).map(t => {{
     const cls = t.startsWith('TANS') ? 'subtema-nivel-hl' : 'subtema-nivel-nm';
     const slug = t.replace(/\\s|\\./g, '-');
@@ -946,8 +1002,9 @@ function buildUnidad(u, nivel) {{
     : '';
   const prefix = isSL ? 'US' : 'U';
   const numero = u.orden ? `<span class="chapter-num unidad-num">${{prefix}}${{String(u.orden).padStart(2,'0')}}</span>` : '';
-  const verCompleta = `<p style="margin-top:1rem"><a href="${{url}}" style="font-size:0.86rem;color:var(--text);text-decoration:underline">→ Ver unidad detallada</a></p>`;
-  return `<div class="chapter-item unidad-item"><div class="chapter-header" onclick="toggleChapter(this)">${{numero}}<span class="chapter-title">${{escHtml(u.title)}}</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div>${{verCompleta}}</div></div>`;
+  const itemsList = buildItemsList(u, ctx || {{}}) ||
+    `<p style="font-size:0.85rem;color:var(--text-faint);font-style:italic;margin-top:0.8rem">${{LABELS_JS.unidad_empty}}</p>`;
+  return `<div class="chapter-item unidad-item"><div class="chapter-header" onclick="toggleChapter(this)">${{numero}}<span class="chapter-title">${{escHtml(u.title)}}</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}${{itemsList}}</div></div>`;
 }}
 
 // Bloque (T1-T5) — chapter-item plegable que contiene los subtemas dentro
@@ -964,7 +1021,7 @@ function renderBloques(nivel, conceptosConContenido) {{
   const el = document.getElementById('bloques-' + nivel);
   if (el) el.innerHTML = TEMAS.map(t => buildBloque(t, nivel, conceptosConContenido)).join('');
 }}
-function renderUnidades(nivel) {{
+function renderUnidades(nivel, ctx) {{
   // HL y SL son currículos independientes con sus propias listas.
   const lista = nivel === 'sl' ? UNIDADES_SL : UNIDADES_HL;
   const el = document.getElementById('unidades-' + nivel);
@@ -982,7 +1039,7 @@ function renderUnidades(nivel) {{
       parts.push(`<h3 class="trimestre-header">${{escHtml(label)}}</h3>`);
       lastT = u.trimestre;
     }}
-    parts.push(buildUnidad(u, nivel));
+    parts.push(buildUnidad(u, nivel, ctx));
   }}
   el.innerHTML = parts.join('');
 }}
@@ -996,26 +1053,43 @@ function showNivel(id, btn) {{
 function toggleMenu(){{document.querySelector("nav").classList.toggle("open");}}
 function toggleTheme(){{var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}}
 
-fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
-  .then(r => r.ok ? r.json() : Promise.reject(r.status))
-  .then(idx => {{
+Promise.all([
+  fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }}).then(r => r.ok ? r.json() : Promise.reject(r.status)),
+  fetch('/assets/data/conceptos-apuntes.json', {{ cache: 'no-cache' }}).then(r => r.ok ? r.json() : {{conceptos:[]}}).catch(() => ({{conceptos:[]}})),
+  fetch('/assets/data/tags.json', {{ cache: 'no-cache' }}).then(r => r.ok ? r.json() : {{namespaces:{{}}}}).catch(() => ({{namespaces:{{}}}})),
+])
+  .then(([idx, conceptosApuntesRaw, tagsData]) => {{
     const cols = new Map();
     const conceptosConContenido = new Set();
+    // Filtrar ejercicios IB (todos, no solo exámenes) para la lista plana de las unidades
+    const allEjsIB = [];
     for (const e of (idx.ejercicios || [])) {{
       const c = e.coleccion || {{}};
       const m = e.tags && e.tags.materia;
       if (m !== 'ib-ai-hl' && m !== 'ib-ai-sl') continue;
-      if (c.promocion !== PROMO) continue;
-      if (c.tipo && c.tipo !== 'examen') continue;
-      if (!cols.has(c.id)) cols.set(c.id, {{ col: c, ejs: [] }});
-      cols.get(c.id).ejs.push(e);
+      // Filtrar por promoción solo cuando aplica (las fichas y apuntes_concepto suelen ser promo='all')
+      const promoMatch = (c.promocion === PROMO || c.promocion === 'all' || !c.promocion);
+      if (!promoMatch) continue;
+      // Para la lista de exámenes globales (más abajo), seguimos solo con tipo=examen + promo específica
+      if (c.tipo === 'examen' && c.promocion === PROMO) {{
+        if (!cols.has(c.id)) cols.set(c.id, {{ col: c, ejs: [] }});
+        cols.get(c.id).ejs.push(e);
+      }}
+      allEjsIB.push(e);
       // Marcar conceptos IB que tienen al menos un ejercicio
       const cs = (e.tags && e.tags.concepto_iba) || [];
       cs.forEach(x => conceptosConContenido.add(x));
     }}
+    // Construir contexto que necesita buildItemsList
+    const subtemasInfo = (tagsData && tagsData.namespaces && tagsData.namespaces.concepto_iba && tagsData.namespaces.concepto_iba.valores) || {{}};
+    const ctx = {{
+      conceptosApuntes: conceptosApuntesRaw.conceptos || [],
+      allEjs: allEjsIB,
+      subtemasInfo: subtemasInfo,
+    }};
     renderBloques('hl', conceptosConContenido);
-    renderUnidades('hl');
-    renderUnidades('sl');
+    renderUnidades('hl', ctx);
+    renderUnidades('sl', ctx);
     const params = new URLSearchParams(window.location.search);
     if (params.get('nivel') === 'sl') document.querySelectorAll('.promo-tab')[1].click();
 
@@ -1044,6 +1118,29 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
 """
 
 
+def write_with_retry(path, content, max_retries=20, delay=1.5):
+    """Escribe con reintentos. Usa write→tmp + os.replace para evitar deadlocks
+    del sandbox cuando el archivo destino está siendo accedido por el host."""
+    import time, os, tempfile
+    for attempt in range(max_retries):
+        try:
+            # Escribir a un tmp en el mismo directorio (mismo filesystem para os.replace atómico)
+            tmp_fd, tmp_path = tempfile.mkstemp(dir=str(path.parent), suffix='.tmp')
+            with os.fdopen(tmp_fd, 'w', encoding='utf-8') as f:
+                f.write(content)
+            os.replace(tmp_path, str(path))
+            return
+        except OSError as e:
+            if attempt == max_retries - 1:
+                raise
+            try:
+                if 'tmp_path' in dir() and os.path.exists(tmp_path):
+                    os.unlink(tmp_path)
+            except Exception:
+                pass
+            time.sleep(delay)
+
+
 def main():
     for s in SUBJECTS:
         for lang in LANGS:
@@ -1052,10 +1149,8 @@ def main():
             else:
                 out = REPO / lang / "docencia" / s["code"] / "index.html"
             out.parent.mkdir(parents=True, exist_ok=True)
-            if s["type"] == "ib":
-                out.write_text(render_ib_hub(s, lang), encoding="utf-8")
-            else:
-                out.write_text(render_regular_hub(s, lang), encoding="utf-8")
+            content = render_ib_hub(s, lang) if s["type"] == "ib" else render_regular_hub(s, lang)
+            write_with_retry(out, content)
             print(f"  ✓ {out.relative_to(REPO)}")
 
 
