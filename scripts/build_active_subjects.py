@@ -773,6 +773,7 @@ def render_ib_hub(s, lang):
             "tags_iba": u.get("tags_iba", []),
             "orden": u.get("orden", 999),
             "trimestre": u.get("trimestre", ""),
+            "trimestre_sl": u.get("trimestre_sl") or "",
             "tier": u.get("tier", "free"),
             "level": u.get("level", "both"),
         })
@@ -916,7 +917,9 @@ function buildSubtema(sub, conceptosConContenido) {{
 }}
 
 // Unidad didáctica (eje pedagógico) — chapter-item plegable con sus 4 secciones
-function buildUnidad(u) {{
+// nivel: 'hl' o 'sl'. En SL, los tags TANS se omiten (no aplican).
+function buildUnidad(u, nivel) {{
+  const isSL = nivel === 'sl';
   const url = `/aula/ib-ai-hl/unidades/#${{u.id}}`;
   const sections = [
     buildSectionCard(null, '📄', LABELS_JS.section_card_apunts),
@@ -924,7 +927,10 @@ function buildUnidad(u) {{
     buildSectionCard(null, '✅', LABELS_JS.section_card_solucions),
     buildSectionCard(null, '🔗', LABELS_JS.section_card_extra),
   ].join('');
-  const tagsBadges = (u.tags_iba || []).map(t => {{
+  const tagsToShow = isSL
+    ? (u.tags_iba || []).filter(t => !t.startsWith('TANS'))
+    : (u.tags_iba || []);
+  const tagsBadges = tagsToShow.map(t => {{
     const cls = t.startsWith('TANS') ? 'subtema-nivel-hl' : 'subtema-nivel-nm';
     const slug = t.replace(/\\s|\\./g, '-');
     return `<a href="/aula/ib-ai-hl/syllabus/#${{slug}}" class="unidad-tag ${{cls}}">${{escHtml(t)}}</a>`;
@@ -955,7 +961,14 @@ function renderBloques(nivel, conceptosConContenido) {{
   if (el) el.innerHTML = TEMAS.map(t => buildBloque(t, nivel, conceptosConContenido)).join('');
 }}
 function renderUnidades(nivel) {{
-  const filtered = UNIDADES.filter(u => nivel === 'hl' || u.level !== 'hl');
+  // En SL se filtran las unidades HL-only y se agrupa por trimestre_sl.
+  // En HL se muestran todas y se agrupa por trimestre (HL).
+  const isSL = nivel === 'sl';
+  const trimField = isSL ? 'trimestre_sl' : 'trimestre';
+  const filtered = UNIDADES.filter(u => {{
+    if (isSL) return u.level !== 'hl' && u.trimestre_sl;
+    return true;
+  }});
   const el = document.getElementById('unidades-' + nivel);
   if (!el) return;
   if (filtered.length === 0) {{
@@ -966,12 +979,13 @@ function renderUnidades(nivel) {{
   let lastT = null;
   const parts = [];
   for (const u of filtered) {{
-    if (u.trimestre && u.trimestre !== lastT) {{
-      const label = TRIMESTRES[u.trimestre] || u.trimestre;
+    const t = u[trimField];
+    if (t && t !== lastT) {{
+      const label = TRIMESTRES[t] || t;
       parts.push(`<h3 class="trimestre-header">${{escHtml(label)}}</h3>`);
-      lastT = u.trimestre;
+      lastT = t;
     }}
-    parts.push(buildUnidad(u));
+    parts.push(buildUnidad(u, nivel));
   }}
   el.innerHTML = parts.join('');
 }}

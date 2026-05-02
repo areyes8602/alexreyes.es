@@ -1,27 +1,83 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "_doc": "Unidades didácticas propias para IB Math AI HL/SL — eje pedagógico. Cada unidad agrupa contenido (apuntes, ejercicios, materiales) en el orden y nivel de detalle con que tú lo enseñas. NO mirroriza el orden de los capítulos del libro de Oxford. El campo 'tags_iba' lista los códigos NM/TANS del syllabus que la unidad cubre — esto se usa para auto-listar la unidad bajo cada página de subtema en /syllabus/. La distribución por trimestre es: T1, T2, T3 en IB1; T4, T5 en IB2.",
-
   "_campos": {
-    "id":         "Identificador único, en kebab-case. Se usa como slug de URL.",
-    "title":      "Título mostrado al usuario. Dict con es/ca/en.",
-    "intro":      "Breve descripción (1-2 frases) de qué cubre la unidad. Dict con es/ca/en.",
-    "tags_iba":   "Lista de códigos NM/TANS del syllabus que la unidad cubre.",
-    "orden":      "Entero secuencial 1-15. Define el orden de aparición.",
-    "trimestre":  "T1 / T2 / T3 / T4 / T5. T1-T3 = IB1, T4-T5 = IB2.",
-    "promo":      "Promoción a la que aplica: 'all', '2024-2026', '2025-2027'.",
-    "tier":       "Acceso: 'free' o 'premium'. Por defecto 'free'.",
-    "level":      "Nivel: 'hl' (solo HL), 'sl' (solo SL), 'both' (ambos)."
+    "id": "Identificador único, en kebab-case. Se usa como slug de URL.",
+    "title": "Título mostrado al usuario. Dict con es/ca/en.",
+    "intro": "Breve descripción (1-2 frases) de qué cubre la unidad. Dict con es/ca/en.",
+    "tags_iba": "Lista de códigos NM/TANS del syllabus que la unidad cubre.",
+    "orden": "Entero secuencial 1-15. Define el orden de aparición.",
+    "trimestre": "Trimestre HL: T1-T5. Solo aplica si la unidad es 'hl' o 'both'.",
+    "promo": "Promoción a la que aplica: 'all', '2024-2026', '2025-2027'.",
+    "tier": "Acceso: 'free' o 'premium'. Por defecto 'free'.",
+    "level": "Nivel: 'hl' (solo HL), 'sl' (solo SL), 'both' (ambos).",
+    "trimestre_sl": "Trimestre SL: T1-SL a T4-SL. null o ausente si la unidad es HL only."
   },
-
   "trimestres": {
-    "T1": { "label": { "es": "T1 · IB1 (sept–dic)", "ca": "T1 · IB1 (set–des)", "en": "T1 · IB1 (Sep–Dec)" } },
-    "T2": { "label": { "es": "T2 · IB1 (ene–mar)", "ca": "T2 · IB1 (gen–març)", "en": "T2 · IB1 (Jan–Mar)" } },
-    "T3": { "label": { "es": "T3 · IB1 (abr–jun)", "ca": "T3 · IB1 (abr–juny)", "en": "T3 · IB1 (Apr–Jun)" } },
-    "T4": { "label": { "es": "T4 · IB2 (sept–dic)", "ca": "T4 · IB2 (set–des)", "en": "T4 · IB2 (Sep–Dec)" } },
-    "T5": { "label": { "es": "T5 · IB2 (ene–may)", "ca": "T5 · IB2 (gen–maig)", "en": "T5 · IB2 (Jan–May)" } }
+    "T1": {
+      "label": {
+        "es": "T1 · IB1 (sept–dic)",
+        "ca": "T1 · IB1 (set–des)",
+        "en": "T1 · IB1 (Sep–Dec)"
+      }
+    },
+    "T2": {
+      "label": {
+        "es": "T2 · IB1 (ene–mar)",
+        "ca": "T2 · IB1 (gen–març)",
+        "en": "T2 · IB1 (Jan–Mar)"
+      }
+    },
+    "T3": {
+      "label": {
+        "es": "T3 · IB1 (abr–jun)",
+        "ca": "T3 · IB1 (abr–juny)",
+        "en": "T3 · IB1 (Apr–Jun)"
+      }
+    },
+    "T4": {
+      "label": {
+        "es": "T4 · IB2 (sept–dic)",
+        "ca": "T4 · IB2 (set–des)",
+        "en": "T4 · IB2 (Sep–Dec)"
+      }
+    },
+    "T5": {
+      "label": {
+        "es": "T5 · IB2 (ene–may)",
+        "ca": "T5 · IB2 (gen–maig)",
+        "en": "T5 · IB2 (Jan–May)"
+      }
+    },
+    "T1-SL": {
+      "label": {
+        "es": "T1 · IB1 (sept–dic)",
+        "ca": "T1 · IB1 (set–des)",
+        "en": "T1 · IB1 (Sep–Dec)"
+      }
+    },
+    "T2-SL": {
+      "label": {
+        "es": "T2 · IB1 (ene–mar)",
+        "ca": "T2 · IB1 (gen–març)",
+        "en": "T2 · IB1 (Jan–Mar)"
+      }
+    },
+    "T3-SL": {
+      "label": {
+        "es": "T3 · IB1-IB2 (abr–dic, bloque largo)",
+        "ca": "T3 · IB1-IB2 (abr–des, bloc llarg)",
+        "en": "T3 · IB1-IB2 (Apr–Dec, extended block)"
+      }
+    },
+    "T4-SL": {
+      "label": {
+        "es": "T4 · IB2 (ene–may)",
+        "ca": "T4 · IB2 (gen–maig)",
+        "en": "T4 · IB2 (Jan–May)"
+      }
+    }
   },
-
   "unidades": [
     {
       "id": "u01-geometria-aplicada",
@@ -35,8 +91,20 @@
         "ca": "Punt de partida: precisió, estimació d'error, trigonometria de triangles rectes i obliqus, longitud d'arc i àrea de sector, volums i superfícies en 3D.",
         "en": "Starting point: accuracy, error estimation, right and oblique triangle trigonometry, arc length and sector area, 3D volumes and surfaces."
       },
-      "tags_iba": ["NM 1.1", "NM 1.6", "NM 3.1", "NM 3.2", "NM 3.3", "NM 3.4"],
-      "orden": 1, "trimestre": "T1", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 1.1",
+        "NM 1.6",
+        "NM 3.1",
+        "NM 3.2",
+        "NM 3.3",
+        "NM 3.4"
+      ],
+      "orden": 1,
+      "trimestre": "T1",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T1-SL"
     },
     {
       "id": "u02-geometria-coordenada-voronoi",
@@ -50,8 +118,16 @@
         "ca": "Mediatrius, equacions de circumferències i diagrames de Voronoi. Aplicacions a problemes de proximitat i distribució òptima.",
         "en": "Perpendicular bisectors, equations of circles and Voronoi diagrams. Applications to proximity and optimal distribution problems."
       },
-      "tags_iba": ["NM 3.5", "NM 3.6"],
-      "orden": 2, "trimestre": "T1", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 3.5",
+        "NM 3.6"
+      ],
+      "orden": 2,
+      "trimestre": "T1",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T1-SL"
     },
     {
       "id": "u03-analisis-exploratorio",
@@ -65,8 +141,18 @@
         "ca": "Recollida de dades, mètodes de mostreig, mesures de centralització i dispersió. Dades bivariades: correlació lineal i regressió.",
         "en": "Data collection, sampling methods, measures of central tendency and dispersion. Bivariate data: linear correlation and regression."
       },
-      "tags_iba": ["NM 4.1", "NM 4.2", "NM 4.3", "NM 4.4"],
-      "orden": 3, "trimestre": "T1", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 4.1",
+        "NM 4.2",
+        "NM 4.3",
+        "NM 4.4"
+      ],
+      "orden": 3,
+      "trimestre": "T1",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T1-SL"
     },
     {
       "id": "u04-patrones-numericos-finanzas",
@@ -80,8 +166,20 @@
         "ca": "Progressions aritmètiques i geomètriques, sumes amb notació sigma, sèries infinites convergents. Interès compost, anualitats i amortització amb tecnologia.",
         "en": "Arithmetic and geometric progressions, sigma notation, convergent infinite series. Compound interest, annuities and amortisation with technology."
       },
-      "tags_iba": ["NM 1.2", "NM 1.3", "NM 1.4", "NM 1.7", "TANS 1.10", "TANS 1.11"],
-      "orden": 4, "trimestre": "T2", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 1.2",
+        "NM 1.3",
+        "NM 1.4",
+        "NM 1.7",
+        "TANS 1.10",
+        "TANS 1.11"
+      ],
+      "orden": 4,
+      "trimestre": "T2",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T2-SL"
     },
     {
       "id": "u05-funciones-polinomicas-regresion",
@@ -95,8 +193,20 @@
         "ca": "Concepte de funció, domini i recorregut. Models lineals, quadràtics, cúbics i altres polinòmics. Composició i inversa. Transformacions de gràfics.",
         "en": "Function concept, domain and range. Linear, quadratic, cubic and other polynomial models. Composition and inverse. Graph transformations."
       },
-      "tags_iba": ["NM 2.1", "NM 2.2", "NM 2.3", "NM 2.4", "TANS 2.7", "TANS 2.8"],
-      "orden": 5, "trimestre": "T2", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 2.1",
+        "NM 2.2",
+        "NM 2.3",
+        "NM 2.4",
+        "TANS 2.7",
+        "TANS 2.8"
+      ],
+      "orden": 5,
+      "trimestre": "T2",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T2-SL"
     },
     {
       "id": "u06-probabilidad",
@@ -110,8 +220,16 @@
         "ca": "Espai mostral, esdeveniments compostos, probabilitat condicionada. Diagrames de Venn, arbres i taules de contingència. Bayes intuïtiu.",
         "en": "Sample space, compound events, conditional probability. Venn diagrams, trees and contingency tables. Intuitive Bayes."
       },
-      "tags_iba": ["NM 4.5", "NM 4.6"],
-      "orden": 6, "trimestre": "T2", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 4.5",
+        "NM 4.6"
+      ],
+      "orden": 6,
+      "trimestre": "T2",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T2-SL"
     },
     {
       "id": "u07-exponencial-logaritmico",
@@ -125,8 +243,20 @@
         "ca": "Potències i radicals, lleis de logaritmes. Models exponencials, logarítmics i logístics. Habilitats de modelització avançades: ajust i comparació.",
         "en": "Powers and radicals, logarithm laws. Exponential, logarithmic and logistic models. Advanced modelling skills: fitting and comparing."
       },
-      "tags_iba": ["NM 1.5", "NM 2.5", "NM 2.6", "TANS 1.9", "TANS 2.9", "TANS 2.10"],
-      "orden": 7, "trimestre": "T3", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 1.5",
+        "NM 2.5",
+        "NM 2.6",
+        "TANS 1.9",
+        "TANS 2.9",
+        "TANS 2.10"
+      ],
+      "orden": 7,
+      "trimestre": "T3",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T3-SL"
     },
     {
       "id": "u08-ondas-fasores-complejos",
@@ -140,8 +270,19 @@
         "ca": "Funcions trigonomètriques com a models periòdics. Aplicacions: fasors, oscil·lacions. Nombres complexos en forma cartesiana, polar i exponencial.",
         "en": "Trigonometric functions as periodic models. Applications: phasors, oscillations. Complex numbers in Cartesian, polar and exponential form."
       },
-      "tags_iba": ["TANS 1.12", "TANS 1.13", "TANS 3.7", "TANS 3.8", "TANS 3.9"],
-      "orden": 8, "trimestre": "T3", "promo": "all", "tier": "free", "level": "hl"
+      "tags_iba": [
+        "TANS 1.12",
+        "TANS 1.13",
+        "TANS 3.7",
+        "TANS 3.8",
+        "TANS 3.9"
+      ],
+      "orden": 8,
+      "trimestre": "T3",
+      "promo": "all",
+      "tier": "free",
+      "level": "hl",
+      "trimestre_sl": null
     },
     {
       "id": "u09-derivadas-optimizacion",
@@ -155,8 +296,22 @@
         "ca": "Concepte de límit i derivada. Derivada de funcions estàndard. Regles del producte, quocient i cadena. Recta tangent i normal. Segona derivada, concavitat i punts d'inflexió. Optimització en contextos aplicats.",
         "en": "Limits and derivatives. Derivatives of standard functions. Product, quotient and chain rules. Tangent and normal lines. Second derivative, concavity and inflection points. Optimisation in applied contexts."
       },
-      "tags_iba": ["NM 5.1", "NM 5.2", "NM 5.3", "NM 5.4", "NM 5.6", "NM 5.7", "TANS 5.8", "TANS 5.9"],
-      "orden": 9, "trimestre": "T4", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 5.1",
+        "NM 5.2",
+        "NM 5.3",
+        "NM 5.4",
+        "NM 5.6",
+        "NM 5.7",
+        "TANS 5.8",
+        "TANS 5.9"
+      ],
+      "orden": 9,
+      "trimestre": "T4",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T3-SL"
     },
     {
       "id": "u10-algebra-lineal-matrices",
@@ -170,8 +325,17 @@
         "ca": "Operacions amb matrius, determinant i inversa. Sistemes lineals en forma matricial. Valors i vectors propis. Cadenes de Markov i sistemes dinàmics.",
         "en": "Matrix operations, determinant and inverse. Linear systems in matrix form. Eigenvalues and eigenvectors. Markov chains and dynamic systems."
       },
-      "tags_iba": ["NM 1.8", "TANS 1.14", "TANS 1.15"],
-      "orden": 10, "trimestre": "T4", "promo": "all", "tier": "free", "level": "hl"
+      "tags_iba": [
+        "NM 1.8",
+        "TANS 1.14",
+        "TANS 1.15"
+      ],
+      "orden": 10,
+      "trimestre": "T4",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T3-SL"
     },
     {
       "id": "u11-distribuciones-probabilidad",
@@ -185,8 +349,22 @@
         "ca": "Variables aleatòries discretes i esperança. Distribució binomial, normal i de Poisson. Transformació lineal, combinació de variables. Teorema central del límit, intervals de confiança per a la mitjana.",
         "en": "Discrete random variables and expectation. Binomial, normal and Poisson distributions. Linear transformation, combining variables. Central limit theorem, confidence intervals for the mean."
       },
-      "tags_iba": ["NM 4.7", "NM 4.8", "NM 4.9", "TANS 4.13", "TANS 4.14", "TANS 4.15", "TANS 4.16", "TANS 4.17"],
-      "orden": 11, "trimestre": "T4", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 4.7",
+        "NM 4.8",
+        "NM 4.9",
+        "TANS 4.13",
+        "TANS 4.14",
+        "TANS 4.15",
+        "TANS 4.16",
+        "TANS 4.17"
+      ],
+      "orden": 11,
+      "trimestre": "T4",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T4-SL"
     },
     {
       "id": "u12-tests-estadisticos",
@@ -200,8 +378,19 @@
         "ca": "Coeficient de correlació de Spearman. Test χ² de bondat d'ajust i d'independència, test t d'una i dues mostres. Disseny experimental, regressió no lineal, errors tipus I i II.",
         "en": "Spearman's correlation coefficient. χ² goodness-of-fit and independence tests, one and two-sample t-tests. Experimental design, nonlinear regression, type I and II errors."
       },
-      "tags_iba": ["NM 4.10", "NM 4.11", "TANS 4.12", "TANS 4.18", "TANS 4.19"],
-      "orden": 12, "trimestre": "T4", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 4.10",
+        "NM 4.11",
+        "TANS 4.12",
+        "TANS 4.18",
+        "TANS 4.19"
+      ],
+      "orden": 12,
+      "trimestre": "T4",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T4-SL"
     },
     {
       "id": "u13-cinematica-vectorial",
@@ -215,8 +404,19 @@
         "ca": "Vectors en 2D i 3D, mòdul, equació vectorial de la recta. Producte escalar i vectorial, angles i àrees. Aplicació a cinemàtica: posició, velocitat i acceleració com a derivades.",
         "en": "Vectors in 2D and 3D, magnitude, vector equation of a line. Dot and cross product, angles and areas. Application to kinematics: position, velocity and acceleration as derivatives."
       },
-      "tags_iba": ["TANS 3.10", "TANS 3.11", "TANS 3.12", "TANS 3.13", "TANS 5.10"],
-      "orden": 13, "trimestre": "T5", "promo": "all", "tier": "free", "level": "hl"
+      "tags_iba": [
+        "TANS 3.10",
+        "TANS 3.11",
+        "TANS 3.12",
+        "TANS 3.13",
+        "TANS 5.10"
+      ],
+      "orden": 13,
+      "trimestre": "T5",
+      "promo": "all",
+      "tier": "free",
+      "level": "hl",
+      "trimestre_sl": null
     },
     {
       "id": "u14-integracion-edos",
@@ -230,8 +430,22 @@
         "ca": "Primitives i integral indefinida. Integració per substitució i per parts. Integral definida: àrees i volums de revolució. Mètodes numèrics (trapezi, Simpson). EDOs de primer ordre, sistemes acoblats i EDO lineal de segon ordre.",
         "en": "Antiderivatives and indefinite integral. Integration by substitution and by parts. Definite integral: areas and volumes of revolution. Numerical methods (trapezoid, Simpson). First-order ODEs, coupled systems and linear second-order ODE."
       },
-      "tags_iba": ["NM 5.5", "TANS 5.11", "TANS 5.12", "TANS 5.13", "TANS 5.14", "TANS 5.15", "TANS 5.16", "TANS 5.17"],
-      "orden": 14, "trimestre": "T5", "promo": "all", "tier": "free", "level": "both"
+      "tags_iba": [
+        "NM 5.5",
+        "TANS 5.11",
+        "TANS 5.12",
+        "TANS 5.13",
+        "TANS 5.14",
+        "TANS 5.15",
+        "TANS 5.16",
+        "TANS 5.17"
+      ],
+      "orden": 14,
+      "trimestre": "T5",
+      "promo": "all",
+      "tier": "free",
+      "level": "both",
+      "trimestre_sl": "T4-SL"
     },
     {
       "id": "u15-redes-grafos",
@@ -245,8 +459,17 @@
         "ca": "Construcció de grafs, vèrtexs, arestes, grau, connexió. Matriu d'adjacència i recorreguts. Algorismes: arbre d'expansió mínima (Kruskal/Prim), problema del viatjant (TSP) i camins més curts.",
         "en": "Building graphs, vertices, edges, degree, connectivity. Adjacency matrix and walks. Algorithms: minimum spanning tree (Kruskal/Prim), travelling salesman problem (TSP) and shortest paths."
       },
-      "tags_iba": ["TANS 3.14", "TANS 3.15", "TANS 3.16"],
-      "orden": 15, "trimestre": "T5", "promo": "all", "tier": "free", "level": "hl"
+      "tags_iba": [
+        "TANS 3.14",
+        "TANS 3.15",
+        "TANS 3.16"
+      ],
+      "orden": 15,
+      "trimestre": "T5",
+      "promo": "all",
+      "tier": "free",
+      "level": "hl",
+      "trimestre_sl": null
     }
   ]
 }
