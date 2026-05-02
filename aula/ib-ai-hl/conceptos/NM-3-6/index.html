@@ -140,34 +140,18 @@
     background: #0891b2; color: #fff; border-color: #0891b2;
   }
 
-  /* ── Toggle (interruptor) ── */
-  .ggb-toggle {
-    display: inline-flex; align-items: center; gap: 0.6rem;
+  /* ── Checkbox sobrio para mostrar/ocultar Voronoi ── */
+  .ggb-checkbox {
+    display: inline-flex; align-items: center; gap: 0.55rem;
     cursor: pointer; user-select: none;
-    font-size: 0.88rem; font-weight: 500;
-    color: var(--text);
+    font-size: 0.9rem; color: var(--text);
   }
-  .ggb-toggle input { position: absolute; opacity: 0; pointer-events: none; }
-  .ggb-toggle-track {
-    position: relative;
-    display: inline-block;
-    width: 38px; height: 22px;
-    background: var(--border);
-    border-radius: 11px;
-    transition: background 0.18s;
-    flex: 0 0 auto;
+  .ggb-checkbox input[type="checkbox"] {
+    width: 16px; height: 16px;
+    cursor: pointer;
+    accent-color: #0891b2;
+    margin: 0;
   }
-  .ggb-toggle-knob {
-    position: absolute; top: 2px; left: 2px;
-    width: 18px; height: 18px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.18);
-    transition: transform 0.18s;
-  }
-  .ggb-toggle input:checked + .ggb-toggle-track { background: #0891b2; }
-  .ggb-toggle input:checked + .ggb-toggle-track .ggb-toggle-knob { transform: translateX(16px); }
-  .ggb-toggle input:focus-visible + .ggb-toggle-track { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px #0891b2; }
 
   .ggb-applet-host { width: 100%; min-height: 480px; min-width: 0; }
   .ggb-caption {
@@ -501,27 +485,20 @@
       </p>
       <div class="ggb-frame">
         <div class="ggb-controls">
-          <label class="ggb-toggle">
+          <label class="ggb-checkbox">
             <input type="checkbox" id="chk-voronoi">
-            <span class="ggb-toggle-track" aria-hidden="true">
-              <span class="ggb-toggle-knob"></span>
-            </span>
-            <span class="ggb-toggle-label">Mostrar diagrama de Voronoi</span>
+            <span>Mostrar diagrama de Voronoi</span>
           </label>
-          <button id="btn-reset-voronoi" class="ggb-btn" type="button">Reset puntos</button>
+          <button id="btn-reset-voronoi" class="ggb-btn" type="button" style="margin-left:auto">Reset puntos</button>
         </div>
-        <div id="ggb-frame-host" style="position:relative">
-          <iframe id="ggb-iframe" class="ggb-applet-host" frameborder="0" allowfullscreen
-                  src="about:blank"
-                  style="border:none;display:block;width:100%;height:480px"></iframe>
-        </div>
+        <div id="ggb-applet" class="ggb-applet-host"></div>
         <noscript>
           <div class="ggb-fallback">
             <p>Activa JavaScript para ver el applet interactivo.</p>
           </div>
         </noscript>
         <p class="ggb-caption">
-          Arrastra cualquiera de los cinco puntos. Activa el selector para revelar las células de Voronoi.
+          Arrastra cualquiera de los cinco puntos. Activa la casilla para revelar las células de Voronoi.
         </p>
       </div>
     </section>
@@ -644,6 +621,7 @@
 </footer>
 
 <!-- ────────────────────────────── SCRIPTS ────────────────────────────── -->
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
@@ -721,62 +699,111 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
   }
 })();
 
-// ────────── GeoGebra Classic via iframe — vista limpia ──────────
+// ────────── GeoGebra Classic via deployggb.js — vista limpia ──────────
 //
-// Solo gráfica visible. Sin algebra view, sin barra de entrada, sin toolbar,
-// sin menubar, sin reset button. Los parámetros van directos en la URL.
+// appName 'classic' + perspective 'G' + todos los paneles ocultos =
+// solo se ve la vista gráfica con los 5 puntos. Sin álgebra, sin entrada,
+// sin toolbar, sin menubar.
 //
-// Toggle de Voronoi y reset de puntos cambian el src del iframe (recarga).
-// Es el precio por fiabilidad: el embed JS no soportaba Voronoi.
+// La casilla controla setVisible('voronoiCells', ...) sin recargar nada.
+// El botón reset usa SetValue() para devolver los puntos a posición inicial.
 (function() {
-  // Comandos que se ejecutan al cargar el iframe (separados por punto y coma)
-  var CMD_PUNTOS = 'A=(2,2);B=(8,3);C=(5,7);D=(3,8);E=(7,8);ZoomIn(-1,-1,11,10)';
-  var CMD_VORONOI = CMD_PUNTOS + ';voronoiCells=Voronoi({A,B,C,D,E});SetLineThickness(voronoiCells,5);SetColor(voronoiCells,"#0891b2");ShowLabel(voronoiCells,false)';
+  var ggbApi = null;
+  var voronoiCreado = false;
 
-  // Parámetros para ocultar todos los paneles → solo gráfica
-  var UI_PARAMS = [
-    'lang=es',
-    'perspective=G',           // solo Graphics view
-    'showalgebrainput=false',  // sin barra de entrada
-    'showalgebra=false',       // sin algebra view
-    'showmenubar=false',       // sin menú
-    'showtoolbar=false',       // sin toolbar
-    'showresetbutton=false',   // sin botón reset propio
-    'showzoombuttons=false',   // sin botones zoom
-    'showfullscreenbutton=false',
-    'enableshiftdragzoom=true',
-    'enablerightclick=false',
-  ].join('&');
+  function ensureVoronoi() {
+    if (!ggbApi) return false;
+    if (voronoiCreado) return true;
 
-  function urlClassic(commandString) {
-    return 'https://www.geogebra.org/classic?'
-      + UI_PARAMS
-      + '&command=' + encodeURIComponent(commandString);
+    // Probar sintaxis moderna con paréntesis
+    ggbApi.evalCommand('voronoiCells=Voronoi({A,B,C,D,E})');
+    if (ggbApi.exists('voronoiCells')) {
+      voronoiCreado = true;
+    } else {
+      // Fallback a sintaxis legacy con corchetes
+      ggbApi.evalCommand('voronoiCells=Voronoi[{A,B,C,D,E}]');
+      if (ggbApi.exists('voronoiCells')) voronoiCreado = true;
+    }
+
+    if (voronoiCreado) {
+      ggbApi.evalCommand('SetColor(voronoiCells, "#0891b2")');
+      ggbApi.evalCommand('SetLineThickness(voronoiCells, 5)');
+      ggbApi.evalCommand('ShowLabel(voronoiCells, false)');
+      return true;
+    }
+
+    console.warn('[ggb] El comando Voronoi no produjo ningún objeto.');
+    return false;
   }
 
-  var voronoiVisible = false;
+  function setVoronoiVisible(visible) {
+    if (!ggbApi) return false;
+    if (visible) {
+      if (!ensureVoronoi()) return false;
+      ggbApi.setVisible('voronoiCells', true);
+    } else if (voronoiCreado) {
+      ggbApi.setVisible('voronoiCells', false);
+    }
+    return true;
+  }
 
-  function applySrc() {
-    var iframe = document.getElementById('ggb-iframe');
-    if (!iframe) return;
-    iframe.src = urlClassic(voronoiVisible ? CMD_VORONOI : CMD_PUNTOS);
+  function resetPuntos() {
+    if (!ggbApi) return;
+    ggbApi.evalCommand('SetValue(A, (2,2))');
+    ggbApi.evalCommand('SetValue(B, (8,3))');
+    ggbApi.evalCommand('SetValue(C, (5,7))');
+    ggbApi.evalCommand('SetValue(D, (3,8))');
+    ggbApi.evalCommand('SetValue(E, (7,8))');
   }
 
   window.addEventListener('load', function() {
-    applySrc();  // carga inicial: solo puntos
+    if (typeof GGBApplet === 'undefined') {
+      var host = document.getElementById('ggb-applet');
+      if (host) host.innerHTML = '<div class="ggb-fallback"><p>GeoGebra no se ha podido cargar (verifica conexión o bloqueador).</p></div>';
+      return;
+    }
+
+    var params = {
+      appName: 'classic',
+      width: 720,
+      height: 480,
+      showToolBar: false,
+      showAlgebraInput: false,
+      showMenuBar: false,
+      showResetIcon: false,
+      showZoomButtons: false,
+      enableLabelDrags: false,
+      enableShiftDragZoom: true,
+      enableRightClick: false,
+      perspective: 'G',
+      appletOnLoad: function(api) {
+        ggbApi = api;
+        try {
+          api.evalCommand('A=(2,2)');
+          api.evalCommand('B=(8,3)');
+          api.evalCommand('C=(5,7)');
+          api.evalCommand('D=(3,8)');
+          api.evalCommand('E=(7,8)');
+          api.setCoordSystem(-1, 11, -1, 10);
+        } catch (e) {
+          console.error('[ggb] init error:', e);
+        }
+      }
+    };
+    new GGBApplet(params, true).inject('ggb-applet');
 
     var chk = document.getElementById('chk-voronoi');
     var btnReset = document.getElementById('btn-reset-voronoi');
 
     if (chk) chk.addEventListener('change', function() {
-      voronoiVisible = chk.checked;
-      applySrc();
+      var ok = setVoronoiVisible(chk.checked);
+      if (!ok && chk.checked) {
+        chk.checked = false;
+        alert('No se ha podido crear el diagrama. Comprueba la consola del navegador.');
+      }
     });
 
-    if (btnReset) btnReset.addEventListener('click', function() {
-      // Reset = recarga el iframe en su estado actual (puntos a posición original)
-      applySrc();
-    });
+    if (btnReset) btnReset.addEventListener('click', resetPuntos);
   });
 })();
 </script>
