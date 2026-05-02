@@ -257,11 +257,12 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
 
     if (conceptosConApuntes.length > 0) {
       document.getElementById('apuntes-conceptos-section').style.display = 'block';
-      document.getElementById('apuntes-conceptos-list').innerHTML = conceptosConApuntes.map(c => `
-        <a href="/aula/ib-ai-hl/conceptos/${c.slug}/" class="unidad-link" style="border-left:3px solid #0891b2">
+      const totalCaps = conceptosConApuntes.length;
+      document.getElementById('apuntes-conceptos-list').innerHTML = conceptosConApuntes.map((c, i) => `
+        <a href="/aula/ib-ai-hl/conceptos/${c.slug}/?from=${encodeURIComponent(u.id)}" class="unidad-link" style="border-left:3px solid #0891b2">
           <span class="unidad-link-num" style="background:#0891b2">${escHtml(c.code)}</span>
+          <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-faint)">Cap. ${i+1}/${totalCaps}</span>
           <span class="unidad-link-title">${escHtml(c.titulo)}</span>
-          <span style="font-size:0.72rem;color:var(--text-faint);font-family:var(--mono)">${c.secciones.join(' · ')}</span>
           <span class="unidad-link-arrow">→</span>
         </a>`).join('');
     }
