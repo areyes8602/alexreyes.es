@@ -473,15 +473,21 @@
         <div class="ggb-controls">
           <button id="btn-toggle-voronoi" class="ggb-btn primary" type="button">Mostrar diagrama de Voronoi</button>
           <button id="btn-reset-voronoi" class="ggb-btn" type="button">Reset puntos</button>
-          <span id="ggb-status" style="font-size:0.78rem;color:var(--text-faint);align-self:center;margin-left:auto"></span>
+          <a id="btn-open-ggb" class="ggb-btn" href="#" target="_blank" rel="noopener" style="text-decoration:none;margin-left:auto">Abrir en GeoGebra ↗</a>
         </div>
-        <div id="ggb-applet" class="ggb-applet-host"></div>
+        <div id="ggb-frame-host" style="position:relative">
+          <iframe id="ggb-iframe" class="ggb-applet-host" frameborder="0" allowfullscreen
+                  src="about:blank"
+                  style="border:none;display:block;width:100%;height:480px"></iframe>
+        </div>
         <noscript>
           <div class="ggb-fallback">
             <p>Activa JavaScript para ver el applet interactivo.</p>
           </div>
         </noscript>
-        <p class="ggb-caption">Applet GeoGebra · pulsa el botón para revelar las células de Voronoi sobre los cinco sitios.</p>
+        <p class="ggb-caption">
+          Applet GeoGebra Classic — los cinco sitios son arrastrables. Pulsa "Mostrar diagrama" para revelar las células.
+        </p>
       </div>
     </section>
 
@@ -603,7 +609,6 @@
 </footer>
 
 <!-- ────────────────────────────── SCRIPTS ────────────────────────────── -->
-<script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
