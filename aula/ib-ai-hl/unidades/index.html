@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidades didácticas IB Math AI HL — alexreyes.es</title>
+<meta name="description" content="Unidades didácticas IB Math AI HL: apuntes, ejercicios, soluciones y materiales. Estructura propia organizada en 5 trimestres.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .unidad-card {
+    margin: 1.5rem 0; padding: 1.5rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-left: 4px solid #059669;
+    border-radius: var(--radius);
+  }
+  .unidad-card.hl { border-left-color: #d97706; }
+  .unidad-card-meta { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; flex-wrap:wrap; }
+  .unidad-card-num {
+    font-family: var(--mono); font-size: 0.78rem; font-weight: 600;
+    padding: 0.25rem 0.6rem; border-radius: 4px; color: #fff; background: #059669;
+  }
+  .unidad-card.hl .unidad-card-num { background: #d97706; }
+  .unidad-card-trim { font-size: 0.78rem; color: var(--text-soft); font-family: var(--mono); }
+  .unidad-card-title { font-size: 1.4rem; font-weight: 600; margin: 0.3rem 0; }
+  .unidad-card-intro { color: var(--text-soft); line-height: 1.55; margin: 0.6rem 0 0; }
+
+  .related-section { margin: 2rem 0; }
+  .related-section h2 { font-size: 1rem; margin: 0 0 0.6rem; color: var(--text); }
+  .related-empty { color: var(--text-faint); font-size: 0.9rem; padding: 0.8rem 0; font-style: italic; }
+
+  .syllabus-cubierto {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin: 0.8rem 0 0;
+  }
+  .syllabus-tag {
+    display: inline-flex; align-items: center;
+    font-family: var(--mono); font-size: 0.74rem;
+    padding: 0.25rem 0.55rem; border-radius: 4px;
+    text-decoration: none; transition: background 0.12s;
+  }
+  .syllabus-tag.nm { background: rgba(8,145,178,0.12); color: #0e7490; }
+  .syllabus-tag.tans { background: rgba(217,119,6,0.15); color: #b45309; }
+  .syllabus-tag:hover { opacity: 0.85; }
+  [data-theme="dark"] .syllabus-tag.nm { background: rgba(8,145,178,0.22); color: #67e8f9; }
+  [data-theme="dark"] .syllabus-tag.tans { background: rgba(217,119,6,0.22); color: #fbbf24; }
+
+  .secciones-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.8rem; margin: 1rem 0;
+  }
+  .seccion-card {
+    padding: 1rem 1.2rem;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    text-decoration: none; color: var(--text);
+    transition: border-color 0.15s, transform 0.15s;
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  }
+  .seccion-card:hover { border-color: var(--border-strong); transform: translateY(-1px); opacity: 1; }
+  .seccion-card.empty { color: var(--text-faint); cursor: default; }
+  .seccion-card.empty:hover { transform: none; border-color: var(--border); }
+  .seccion-card-icon { font-size: 1.6rem; }
+  .seccion-card-label { font-weight: 500; font-size: 0.92rem; }
+  .seccion-card-status { font-size: 0.72rem; color: var(--text-faint); }
+
+  .ejercicio-card {
+    padding: 0.7rem 1rem; margin-bottom: 0.4rem;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+  }
+  .ejercicio-card-title { font-weight: 500; margin-bottom: 0.2rem; }
+  .ejercicio-card-meta { font-size: 0.75rem; color: var(--text-faint); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:2rem;padding-bottom:5rem">
+
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <span class="current" id="bc-current">Unidades</span>
+    </div>
+
+    <div id="loading" style="padding:3rem 0;text-align:center;color:var(--text-soft)">Cargando…</div>
+
+    <div id="content" style="display:none">
+      <div class="unidad-card" id="unidad-card">
+        <div class="unidad-card-meta">
+          <span class="unidad-card-num" id="card-num"></span>
+          <span class="unidad-card-trim" id="card-trim"></span>
+        </div>
+        <h1 class="unidad-card-title" id="card-title"></h1>
+        <p class="unidad-card-intro" id="card-intro"></p>
+        <div class="syllabus-cubierto" id="syllabus-cubierto"></div>
+      </div>
+
+      <div class="related-section">
+        <h2>📂 Material de la unidad</h2>
+        <div class="secciones-grid" id="secciones-grid"></div>
+      </div>
+
+      <div class="related-section">
+        <h2>📝 Ejercicios etiquetados</h2>
+        <div id="ejercicios-list"></div>
+      </div>
+
+      <p style="margin-top:2.5rem;font-size:0.85rem;color:var(--text-soft)">
+        ← <a href="javascript:history.back()" style="color:var(--text)">Volver</a>
+        · <a href="/docencia/ib-ai/2024-2026/" style="color:var(--text)">Hub IB 2024-2026</a>
+        · <a href="/docencia/ib-ai/2025-2027/" style="color:var(--text)">Hub IB 2025-2027</a>
+      </p>
+    </div>
+
+    <div id="not-found" style="display:none;padding:3rem 0;text-align:center;color:var(--text-soft)">
+      <h1 style="font-size:1.5rem;margin-bottom:0.6rem">Unidad no encontrada</h1>
+      <p>No existe ninguna unidad con identificador <code id="not-found-id"></code>.</p>
+      <p style="margin-top:1.5rem"><a href="/docencia/ib-ai/2024-2026/">← Volver al hub IB</a></p>
+    </div>
+
+  </div>
+  <aside class="ibo-disclaimer">
+    <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+    <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+  </aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+(async function() {
+  let unidadId = (location.hash || '').replace(/^#/, '');
+  if (!unidadId) {
+    const params = new URLSearchParams(location.search);
+    unidadId = params.get('id') || '';
+  }
+  if (!unidadId) {
+    document.getElementById('loading').textContent = 'Falta el identificador de unidad en la URL (ej. #u01-geometria-aplicada)';
+    return;
+  }
+
+  try {
+    const [unidadesRaw, ejerciciosRaw] = await Promise.all([
+      fetch('/assets/data/ib-unidades.json').then(r => r.json()),
+      fetch('/assets/data/ejercicios-index.json').then(r => r.json()).catch(() => ({ejercicios:[]})),
+    ]);
+    const u = (unidadesRaw.unidades || []).find(x => x.id === unidadId);
+    if (!u) { showNotFound(unidadId); return; }
+    const trimestres = unidadesRaw.trimestres || {};
+    const trimLabel = trimestres[u.trimestre]?.label?.es || u.trimestre || '';
+
+    // Pintar la card
+    document.getElementById('card-num').textContent = `U${String(u.orden).padStart(2,'0')}`;
+    document.getElementById('card-trim').textContent = trimLabel;
+    document.getElementById('card-title').textContent = u.title.es;
+    document.getElementById('card-intro').textContent = u.intro?.es || '';
+    document.getElementById('bc-current').textContent = u.title.es;
+    document.title = `U${String(u.orden).padStart(2,'0')} · ${u.title.es} · IB Math AI — alexreyes.es`;
+    if (u.level === 'hl') document.getElementById('unidad-card').classList.add('hl');
+
+    // Tags del syllabus que cubre, linkables al syllabus
+    const tagsEl = document.getElementById('syllabus-cubierto');
+    const tags = u.tags_iba || [];
+    if (tags.length === 0) {
+      tagsEl.innerHTML = '';
+    } else {
+      tagsEl.innerHTML = '<strong style="font-size:0.78rem;color:var(--text-faint);font-weight:600;margin-right:0.3rem">Cubre:</strong> ' + tags.map(t => {
+        const cls = t.startsWith('TANS') ? 'tans' : 'nm';
+        const slug = t.replace(/\s|\./g, '-').replace(/--/, '-');
+        return `<a href="/aula/ib-ai-hl/syllabus/#${slug}" class="syllabus-tag ${cls}">${escHtml(t)}</a>`;
+      }).join('');
+    }
+
+    // 4 secciones (placeholders por ahora)
+    const sectionsEl = document.getElementById('secciones-grid');
+    const sections = [
+      { icon: '📄', label: 'Apuntes',      slug: 'apuntes' },
+      { icon: '📝', label: 'Ejercicios',   slug: 'ejercicios' },
+      { icon: '✅', label: 'Soluciones',   slug: 'soluciones' },
+      { icon: '🔗', label: 'Materiales',   slug: 'materiales' },
+    ];
+    sectionsEl.innerHTML = sections.map(s => `
+      <div class="seccion-card empty" title="Aún sin contenido publicado">
+        <span class="seccion-card-icon">${s.icon}</span>
+        <span class="seccion-card-label">${s.label}</span>
+        <span class="seccion-card-status">Sin contenido</span>
+      </div>`).join('');
+
+    // Ejercicios etiquetados con cualquiera de los tags de la unidad
+    const ejs = (ejerciciosRaw.ejercicios || []).filter(e => {
+      const cs = e.tags?.concepto_iba || [];
+      const arr = Array.isArray(cs) ? cs : [cs];
+      return arr.some(t => tags.includes(t));
+    });
+    const ejsEl = document.getElementById('ejercicios-list');
+    if (ejs.length === 0) {
+      ejsEl.innerHTML = '<p class="related-empty">Aún no hay ejercicios publicados con los subtemas de esta unidad.</p>';
+    } else {
+      ejsEl.innerHTML = ejs.map(e => {
+        const colTitulo = e.coleccion?.titulo || '';
+        const fecha = e.coleccion?.fecha || '';
+        return `<div class="ejercicio-card">
+          <div class="ejercicio-card-title"><a href="${escHtml(e.url_enunciado || '#')}">${escHtml(e.titulo || e.id)}</a></div>
+          <div class="ejercicio-card-meta">${escHtml(colTitulo)}${fecha ? ' · ' + escHtml(fecha) : ''}${e.puntuacion ? ' · ' + e.puntuacion + ' pts' : ''}</div>
+        </div>`;
+      }).join('');
+    }
+
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } catch (err) {
+    console.error(err);
+    document.getElementById('loading').textContent = 'Error al cargar los datos. ' + err.message;
+  }
+
+  function showNotFound(id) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('not-found-id').textContent = id;
+    document.getElementById('not-found').style.display = 'block';
+  }
+})();
+
+window.addEventListener('hashchange', () => location.reload());
+</script>
+</body>
+</html>
