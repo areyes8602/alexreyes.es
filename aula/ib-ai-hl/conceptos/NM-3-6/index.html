@@ -712,16 +712,38 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
   }
 
   function creaVoronoi(api) {
+    // Sintaxis moderna con paréntesis
     var ok = api.evalCommand('voronoiCells=Voronoi(sites)');
-    console.log('[ggb] Voronoi(sites) ok:', ok);
-    if (!ok) {
+    console.log('[ggb] Voronoi(sites) evalCommand returned:', ok);
+    var existsAfter = api.exists('voronoiCells');
+    console.log('[ggb] voronoiCells exists?', existsAfter);
+
+    // Fallback 1: sintaxis legacy con corchetes
+    if (!existsAfter) {
       ok = api.evalCommand('voronoiCells=Voronoi[sites]');
-      console.log('[ggb] Voronoi[sites] ok:', ok);
+      console.log('[ggb] Voronoi[sites] evalCommand returned:', ok);
+      existsAfter = api.exists('voronoiCells');
+      console.log('[ggb] after [sites] voronoiCells exists?', existsAfter);
     }
-    if (!ok) return false;
+
+    // Fallback 2: pasar la lista en línea sin variable intermedia
+    if (!existsAfter) {
+      ok = api.evalCommand('voronoiCells=Voronoi({A,B,C,D,E})');
+      console.log('[ggb] Voronoi({...}) inline evalCommand returned:', ok);
+      existsAfter = api.exists('voronoiCells');
+      console.log('[ggb] after inline voronoiCells exists?', existsAfter);
+    }
+
+    if (!existsAfter) {
+      console.error('[ggb] El comando Voronoi no está disponible en esta build.');
+      return false;
+    }
+
+    // Estilo del Voronoi
     api.evalCommand('SetColor(voronoiCells, 8, 145, 178)');
     api.evalCommand('SetLineThickness(voronoiCells, 5)');
     api.evalCommand('ShowLabel(voronoiCells, false)');
+    api.setVisible('voronoiCells', true);
     return true;
   }
 
@@ -773,7 +795,9 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
     }
     try {
       var ggbParams = {
-        appName: 'classic',
+        // 'suite' (Calculator Suite) trae todos los módulos incluido el comando Voronoi.
+        // 'classic' web a veces tiene un subset limitado y Voronoi no se reconoce.
+        appName: 'suite',
         width: 720,
         height: 480,
         showToolBar: false,
