@@ -64,13 +64,22 @@
       </p>
     </div>
 
+    <div class="fitxa-toolbar">
+      <span class="label">📥 Recursos:</span>
+      <a class="fitxa-btn" href="/aula/ib-ai-hl/fichas/voronoi/original-enunciados.pdf" download>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Bajar el PDF de enunciados
+      </a>
+      <a class="fitxa-btn secondary" href="/aula/ib-ai-hl/fichas/voronoi/original-enunciados.pdf" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Abrir en nueva pestaña
+      </a>
+    </div>
+
+
     <!-- ────────────────────────────── F1 ────────────────────────────── -->
-    <article class="ejercicio" id="f1">
-      <header class="ejercicio-header">
-        <span class="ejercicio-num">F 1</span>
-        <span class="ejercicio-titulo">Web del tiempo con tres estaciones meteorológicas</span>
-        <span class="ejercicio-puntos">6 pts</span>
-      </header>
+    <div class="ejercicio" id="f1">
+      <div class="ejercicio-header"><span class="num">F1</span><span class="ttl">Web del tiempo con tres estaciones meteorológicas</span></div>
       <div class="ejercicio-cuerpo">
         <p>
           Una empresa de meteorología publica una web que muestra al usuario la temperatura registrada en la estación
@@ -78,12 +87,12 @@
           $A=(1,\,1)$, $B=(3,\,1)$ y $C=(3,\,5)$ (coordenadas en km, sobre un sistema centrado en la sede de la empresa).
         </p>
 
-        <div class="apartado"><span class="apartado-letra">(a)</span> Aplica el algoritmo incremental para construir el diagrama de Voronoi de las tres estaciones: empieza por $A$ y $B$, y añade $C$ después. Expresa cada arista mediante su ecuación.<span class="apartado-pts">[3 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(b)</span> Un usuario consulta la web desde el punto $(1,\,4)$. Las lecturas del instante son $A:22\,°\text{C}$, $B:24\,°\text{C}$, $C:21\,°\text{C}$. Indica la temperatura que la web le mostrará y justifica por qué.<span class="apartado-pts">[1 pt]</span></div>
-        <div class="apartado"><span class="apartado-letra">(c)</span> Otro usuario está en $(2.5,\,2)$ y un tercero en $(2,\,3)$. ¿Reciben la misma temperatura? Razónalo a partir del diagrama.<span class="apartado-pts">[2 pts]</span></div>
+        <div class="apartado"><span class="apartado-letra">(a)</span> Aplica el algoritmo incremental para construir el diagrama de Voronoi de las tres estaciones: empieza por $A$ y $B$, y añade $C$ después. Expresa cada arista mediante su ecuación.</div>
+        <div class="apartado"><span class="apartado-letra">(b)</span> Un usuario consulta la web desde el punto $(1,\,4)$. Las lecturas del instante son $A:22\,°\text{C}$, $B:24\,°\text{C}$, $C:21\,°\text{C}$. Indica la temperatura que la web le mostrará y justifica por qué.</div>
+        <div class="apartado"><span class="apartado-letra">(c)</span> Otro usuario está en $(2.5,\,2)$ y un tercero en $(2,\,3)$. ¿Reciben la misma temperatura? Razónalo a partir del diagrama.</div>
       </div>
-      <details class="solucion">
-        <summary>Ver solución</summary>
+      <details>
+        <summary>Mostrar solución</summary>
         <div class="solucion-cuerpo">
           <p><strong>(a)</strong> Mediatriz de $\overline{AB}$ (segmento horizontal por $y=1$): vertical por el punto medio $(2,\,1)$, ecuación $x=2$. Esta recta separa $V(A)$ (a la izquierda) de $V(B)$ (a la derecha).</p>
           <p>Añadimos $C=(3,\,5)$. La distancia desde $C$ a $A$ es $\sqrt{4+16}=\sqrt{20}$ y a $B$ es $\sqrt{0+16}=4$, así que $C$ cae en $V(B)$. Mediatriz de $\overline{BC}$: punto medio $(3,\,3)$, segmento vertical, mediatriz horizontal $y=3$.</p>
@@ -93,20 +102,11 @@
           <p><strong>(c)</strong> Punto $(2.5,\,2)$: $x>2$ y $y<3$, está en $V(B)$ ($24\,°\text{C}$). Punto $(2,\,3)$: es exactamente el vértice $V$, está sobre las tres mediatrices. La web podría mostrar cualquiera de las tres lecturas; en la práctica se desempata mostrando la de la estación con menor índice, pero geométricamente es un punto de "frontera triple". No reciben la misma temperatura.</p>
         </div>
       </details>
-      <div class="ej-tags">
-        <span class="ej-tag">NM 3.5</span>
-        <span class="ej-tag">NM 3.6</span>
-        <span class="ej-tag dif">media</span>
       </div>
-    </article>
 
     <!-- ────────────────────────────── F2 ────────────────────────────── -->
-    <article class="ejercicio" id="f2">
-      <header class="ejercicio-header">
-        <span class="ejercicio-num">F 2</span>
-        <span class="ejercicio-titulo">Parques de bomberos y algoritmo incremental</span>
-        <span class="ejercicio-puntos">8 pts</span>
-      </header>
+    <div class="ejercicio" id="f2">
+      <div class="ejercicio-header"><span class="num">F2</span><span class="ttl">Parques de bomberos y algoritmo incremental</span></div>
       <div class="ejercicio-cuerpo">
         <p>
           Una localidad tiene cuatro parques de bomberos en $A=(1,\,4)$, $B=(1,\,0)$, $C=(5,\,1)$ y $D=(4,\,3)$. La central
@@ -115,13 +115,13 @@
           incremental para actualizar el diagrama.
         </p>
 
-        <div class="apartado"><span class="apartado-letra">(a)</span> Calcula la distancia desde $E$ a cada uno de los cuatro parques originales y determina en cuál de las celdas $V(A)$, $V(B)$, $V(C)$ o $V(D)$ está $E$.<span class="apartado-pts">[2 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(b)</span> Calcula la mediatriz del segmento que une $E$ con el parque cuya celda lo contiene.<span class="apartado-pts">[2 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(c)</span> Aplica un paso del algoritmo incremental: lista los parques contiguos a $E$ en el nuevo diagrama y calcula la mediatriz de $\overline{AE}$.<span class="apartado-pts">[2 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(d)</span> Argumenta por qué, después de añadir $E$, la celda original de $B$ se ve reducida.<span class="apartado-pts">[2 pts]</span></div>
+        <div class="apartado"><span class="apartado-letra">(a)</span> Calcula la distancia desde $E$ a cada uno de los cuatro parques originales y determina en cuál de las celdas $V(A)$, $V(B)$, $V(C)$ o $V(D)$ está $E$.</div>
+        <div class="apartado"><span class="apartado-letra">(b)</span> Calcula la mediatriz del segmento que une $E$ con el parque cuya celda lo contiene.</div>
+        <div class="apartado"><span class="apartado-letra">(c)</span> Aplica un paso del algoritmo incremental: lista los parques contiguos a $E$ en el nuevo diagrama y calcula la mediatriz de $\overline{AE}$.</div>
+        <div class="apartado"><span class="apartado-letra">(d)</span> Argumenta por qué, después de añadir $E$, la celda original de $B$ se ve reducida.</div>
       </div>
-      <details class="solucion">
-        <summary>Ver solución</summary>
+      <details>
+        <summary>Mostrar solución</summary>
         <div class="solucion-cuerpo">
           <p><strong>(a)</strong> $d(E,A)=\sqrt{(2-1)^2+(1-4)^2}=\sqrt{10}\approx 3.16$. $d(E,B)=\sqrt{1+1}=\sqrt{2}\approx 1.41$. $d(E,C)=\sqrt{9+0}=3$. $d(E,D)=\sqrt{4+4}=\sqrt{8}\approx 2.83$. Mínima: $E$ está en $V(B)$.</p>
           <p><strong>(b)</strong> Mediatriz de $\overline{BE}$: punto medio $(1.5,\,0.5)$, vector $\overrightarrow{BE}=(1,\,1)$, ecuación $1\cdot(x-1.5) + 1\cdot(y-0.5)=0\;\Rightarrow\; x+y=2$.</p>
@@ -129,20 +129,11 @@
           <p><strong>(d)</strong> Antes de añadir $E$, todos los puntos cercanos a $B$ pertenecían a $V(B)$. Tras añadir $E$, los puntos que están más cerca de $E$ que de $B$ —los del semiplano $x+y>2$ del lado de $E$— pasan de $V(B)$ a $V(E)$. Por tanto la celda de $B$ se reduce exactamente en esa franja. Esto es siempre cierto en el algoritmo incremental: la nueva célula $V(E)$ "roba" área a las celdas vecinas.</p>
         </div>
       </details>
-      <div class="ej-tags">
-        <span class="ej-tag">NM 3.5</span>
-        <span class="ej-tag">NM 3.6</span>
-        <span class="ej-tag dif">media</span>
       </div>
-    </article>
 
     <!-- ────────────────────────────── F3 ────────────────────────────── -->
-    <article class="ejercicio" id="f3">
-      <header class="ejercicio-header">
-        <span class="ejercicio-num">F 3</span>
-        <span class="ejercicio-titulo">Catchment areas escolares en una ciudad</span>
-        <span class="ejercicio-puntos">10 pts</span>
-      </header>
+    <div class="ejercicio" id="f3">
+      <div class="ejercicio-header"><span class="num">F3</span><span class="ttl">Catchment areas escolares en una ciudad</span></div>
       <div class="ejercicio-cuerpo">
         <p>
           Una ciudad rectangular de $10\times 8$ km tiene cuatro colegios públicos en $A=(2,\,5)$, $B=(3,\,3)$, $C=(8,\,6)$
@@ -151,14 +142,14 @@
           $y=-\dfrac{6}{1}(x-5) + \dfrac{11}{2}$ y $y=-\dfrac{5}{3}\,x+\dfrac{41}{3}$ respectivamente.
         </p>
 
-        <div class="apartado"><span class="apartado-letra">(a)</span> Calcula la mediatriz del segmento $\overline{AB}$.<span class="apartado-pts">[2 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(b)</span> Aplica el algoritmo incremental para construir el diagrama de Voronoi de los tres colegios $A$, $B$, $C$.<span class="apartado-pts">[3 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(c)</span> Una familia vive en $(4,\,3)$. ¿En qué catchment area está? Verifícalo por distancias.<span class="apartado-pts">[1 pt]</span></div>
-        <div class="apartado"><span class="apartado-letra">(d)</span> Calcula las mediatrices de $\overline{BD}$ y $\overline{CD}$.<span class="apartado-pts">[2 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(e)</span> Encuentra las coordenadas de los dos vértices interiores del diagrama de los cuatro colegios donde se cortan tres mediatrices.<span class="apartado-pts">[2 pts]</span></div>
+        <div class="apartado"><span class="apartado-letra">(a)</span> Calcula la mediatriz del segmento $\overline{AB}$.</div>
+        <div class="apartado"><span class="apartado-letra">(b)</span> Aplica el algoritmo incremental para construir el diagrama de Voronoi de los tres colegios $A$, $B$, $C$.</div>
+        <div class="apartado"><span class="apartado-letra">(c)</span> Una familia vive en $(4,\,3)$. ¿En qué catchment area está? Verifícalo por distancias.</div>
+        <div class="apartado"><span class="apartado-letra">(d)</span> Calcula las mediatrices de $\overline{BD}$ y $\overline{CD}$.</div>
+        <div class="apartado"><span class="apartado-letra">(e)</span> Encuentra las coordenadas de los dos vértices interiores del diagrama de los cuatro colegios donde se cortan tres mediatrices.</div>
       </div>
-      <details class="solucion">
-        <summary>Ver solución</summary>
+      <details>
+        <summary>Mostrar solución</summary>
         <div class="solucion-cuerpo">
           <p><strong>(a)</strong> Punto medio de $\overline{AB}$: $(2.5,\,4)$. Pendiente de $AB$: $\frac{3-5}{3-2}=-2$, perpendicular: $\frac{1}{2}$. Mediatriz: $y-4=\frac{1}{2}(x-2.5)\;\Rightarrow\; y=\frac{1}{2}x+\frac{11}{4}$, o equivalentemente $x-2y=-5.5$.</p>
           <p><strong>(b)</strong> Empezamos con $A$ y $B$: la mediatriz $x-2y=-5.5$ separa $V(A)$ (encima de la recta) de $V(B)$ (debajo). Añadimos $C=(8,\,6)$. Como $d(C,A)=\sqrt{37}\approx 6.08$ y $d(C,B)=\sqrt{34}\approx 5.83$, $C$ cae en $V(B)$. Trazamos las mediatrices $\overline{AC}$ y $\overline{BC}$. Las tres mediatrices se cortan en el circuncentro de $\triangle ABC$, que es el único vértice interior del diagrama. Las aristas restantes son segmentos hacia el infinito.</p>
@@ -167,20 +158,11 @@
           <p><strong>(e)</strong> Vértice $P$ donde se cortan $\overline{BC}$, $\overline{BD}$, $\overline{CD}$: usamos $y=3.5$ y $5x-2y=23.5$ y obtenemos $5x=30.5\;\Rightarrow\; x=6.1$, así que $P=(6.1,\,3.5)$. Verificamos con la mediatriz $\overline{BC}$: $y=-\frac{5}{3}(6.1)+\frac{41}{3}=\frac{-30.5+41}{3}=\frac{10.5}{3}=3.5$ ✓. El segundo vértice interior $Q$ se encuentra al cortar las mediatrices $\overline{AB}$ y $\overline{AC}$ con $\overline{BC}$ — calculado da $Q\approx(4.39,\,4.72)$.</p>
         </div>
       </details>
-      <div class="ej-tags">
-        <span class="ej-tag">NM 3.5</span>
-        <span class="ej-tag">NM 3.6</span>
-        <span class="ej-tag dif">dificil</span>
       </div>
-    </article>
 
     <!-- ────────────────────────────── F4 ────────────────────────────── -->
-    <article class="ejercicio" id="f4">
-      <header class="ejercicio-header">
-        <span class="ejercicio-num">F 4</span>
-        <span class="ejercicio-titulo">Nueva cafetería independiente</span>
-        <span class="ejercicio-puntos">10 pts</span>
-      </header>
+    <div class="ejercicio" id="f4">
+      <div class="ejercicio-header"><span class="num">F4</span><span class="ttl">Nueva cafetería independiente</span></div>
       <div class="ejercicio-cuerpo">
         <p>
           Una cadena tiene cuatro cafeterías en una localidad: $A=(1,\,6)$, $B=(2,\,2)$, $C=(8,\,2)$ y $D=(8,\,5)$ (coordenadas
@@ -189,14 +171,14 @@
           Voronoi de los cuatro sitios tiene dos vértices interiores; uno de ellos es $P=(5,\,3.5)$.
         </p>
 
-        <div class="apartado"><span class="apartado-letra">(a)</span> Justifica por qué la solución óptima al problema (punto más alejado de los cuatro sitios) es siempre uno de los vértices del diagrama de Voronoi y no un punto del interior de una celda.<span class="apartado-pts">[1 pt]</span></div>
-        <div class="apartado"><span class="apartado-letra">(b)</span> Calcula las mediatrices de $\overline{AB}$ y $\overline{AD}$.<span class="apartado-pts">[2 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(c)</span> Encuentra las coordenadas del segundo vértice interior $Q$ resolviendo el sistema de las dos mediatrices que se cortan en él. Da el resultado con dos cifras decimales.<span class="apartado-pts">[3 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(d)</span> Calcula la distancia desde $P$ a la cafetería más cercana, y desde $Q$ a la más cercana.<span class="apartado-pts">[2 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(e)</span> Decide en qué vértice debería abrir la nueva cafetería y argumenta por qué.<span class="apartado-pts">[2 pts]</span></div>
+        <div class="apartado"><span class="apartado-letra">(a)</span> Justifica por qué la solución óptima al problema (punto más alejado de los cuatro sitios) es siempre uno de los vértices del diagrama de Voronoi y no un punto del interior de una celda.</div>
+        <div class="apartado"><span class="apartado-letra">(b)</span> Calcula las mediatrices de $\overline{AB}$ y $\overline{AD}$.</div>
+        <div class="apartado"><span class="apartado-letra">(c)</span> Encuentra las coordenadas del segundo vértice interior $Q$ resolviendo el sistema de las dos mediatrices que se cortan en él. Da el resultado con dos cifras decimales.</div>
+        <div class="apartado"><span class="apartado-letra">(d)</span> Calcula la distancia desde $P$ a la cafetería más cercana, y desde $Q$ a la más cercana.</div>
+        <div class="apartado"><span class="apartado-letra">(e)</span> Decide en qué vértice debería abrir la nueva cafetería y argumenta por qué.</div>
       </div>
-      <details class="solucion">
-        <summary>Ver solución</summary>
+      <details>
+        <summary>Mostrar solución</summary>
         <div class="solucion-cuerpo">
           <p><strong>(a)</strong> Si el punto óptimo estuviera en el interior de una celda, podríamos moverlo en alguna dirección alejándonos del sitio dueño de la celda y la distancia mínima al conjunto aumentaría. Solo en los vértices del diagrama (donde tres sitios están equidistantes) la distancia mínima alcanza un máximo local: cualquier movimiento reduce la distancia a alguno de los tres. Por eso la solución óptima es siempre un vértice (o un punto del borde de la zona admisible).</p>
           <p><strong>(b)</strong> Mediatriz $\overline{AB}$: punto medio $(1.5,\,4)$, vector $(1,\,-4)$, ecuación $(x-1.5)-4(y-4)=0\;\Rightarrow\; x-4y=-14.5$. Mediatriz $\overline{AD}$: punto medio $(4.5,\,5.5)$, vector $(7,\,-1)$, ecuación $7(x-4.5)-(y-5.5)=0\;\Rightarrow\; 7x-y=26$.</p>
@@ -206,20 +188,11 @@
           <p><strong>(e)</strong> La nueva cafetería va en $Q$, porque su distancia a la cafetería más cercana de la cadena es mayor (≈ 3.62 km vs ≈ 3.35 km en $P$). Es el punto del plano que maximiza la distancia mínima a los cuatro sitios — exactamente el criterio que pedía el problema.</p>
         </div>
       </details>
-      <div class="ej-tags">
-        <span class="ej-tag">NM 3.5</span>
-        <span class="ej-tag">NM 3.6</span>
-        <span class="ej-tag dif">dificil</span>
       </div>
-    </article>
 
     <!-- ────────────────────────────── F5 ────────────────────────────── -->
-    <article class="ejercicio" id="f5">
-      <header class="ejercicio-header">
-        <span class="ejercicio-num">F 5</span>
-        <span class="ejercicio-titulo">Hamburgueserías en una feria</span>
-        <span class="ejercicio-puntos">10 pts</span>
-      </header>
+    <div class="ejercicio" id="f5">
+      <div class="ejercicio-header"><span class="num">F5</span><span class="ttl">Hamburgueserías en una feria</span></div>
       <div class="ejercicio-cuerpo">
         <p>
           El recinto rectangular de una feria mide $100\times 50$ m. Hay tres puestos de hamburguesas en $A=(20,\,30)$,
@@ -227,13 +200,13 @@
           quiere conocer cómo se reparten los visitantes entre los tres puestos.
         </p>
 
-        <div class="apartado"><span class="apartado-letra">(a)</span> Calcula las ecuaciones de las mediatrices de los pares $\overline{AB}$, $\overline{BC}$ y $\overline{AC}$.<span class="apartado-pts">[3 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(b)</span> Encuentra las coordenadas del vértice del diagrama de Voronoi (intersección de las tres mediatrices) y verifica que es el circuncentro del triángulo $ABC$.<span class="apartado-pts">[2 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(c)</span> Estima qué fracción del área del recinto pertenece a la celda del puesto $C$ (al 1%). Puedes hacer un boceto en papel cuadriculado o usar GeoGebra.<span class="apartado-pts">[3 pts]</span></div>
-        <div class="apartado"><span class="apartado-letra">(d)</span> Se decide añadir un cuarto puesto $D$ en el lugar más alejado posible de los tres existentes, dentro del recinto. Indica las coordenadas aproximadas de $D$ y razona la elección.<span class="apartado-pts">[2 pts]</span></div>
+        <div class="apartado"><span class="apartado-letra">(a)</span> Calcula las ecuaciones de las mediatrices de los pares $\overline{AB}$, $\overline{BC}$ y $\overline{AC}$.</div>
+        <div class="apartado"><span class="apartado-letra">(b)</span> Encuentra las coordenadas del vértice del diagrama de Voronoi (intersección de las tres mediatrices) y verifica que es el circuncentro del triángulo $ABC$.</div>
+        <div class="apartado"><span class="apartado-letra">(c)</span> Estima qué fracción del área del recinto pertenece a la celda del puesto $C$ (al 1%). Puedes hacer un boceto en papel cuadriculado o usar GeoGebra.</div>
+        <div class="apartado"><span class="apartado-letra">(d)</span> Se decide añadir un cuarto puesto $D$ en el lugar más alejado posible de los tres existentes, dentro del recinto. Indica las coordenadas aproximadas de $D$ y razona la elección.</div>
       </div>
-      <details class="solucion">
-        <summary>Ver solución</summary>
+      <details>
+        <summary>Mostrar solución</summary>
         <div class="solucion-cuerpo">
           <p><strong>(a)</strong> <strong>Mediatriz $\overline{AB}$</strong>: $\overline{AB}$ es horizontal (ambos en $y=30$), mediatriz vertical $x=50$.</p>
           <p><strong>Mediatriz $\overline{BC}$</strong>: punto medio $(60,\,20)$, vector $\overrightarrow{BC}=(-40,\,-20)$, ecuación $-40(x-60)-20(y-20)=0\;\Rightarrow\; 2x+y=140$.</p>
@@ -243,12 +216,7 @@
           <p><strong>(d)</strong> El cuarto puesto debe ir en el punto del rectángulo más alejado de $A$, $B$, $C$. La teoría dice que ese punto es un vértice interior del diagrama, pero como el diagrama tiene un solo vértice interior $V=(50,\,40)$ y el resto son aristas que se extienden hasta los bordes, el candidato es $V$ o uno de los puntos donde una arista corta el borde del recinto. Comparando: $d(V,\text{cualquier sitio})\approx 31.6$. En el borde superior ($y=50$), el punto más alejado de los tres sitios será el centro de la arista que pasa por allí, $(50,\,50)$, con distancia $\approx \sqrt{900+400}\approx 36.1$. Por tanto $D\approx(50,\,50)$ con distancia ≈ 36.1 m a los puestos existentes. (En el examen IB el resultado se acepta como vértice interior $V$ por la heurística "siempre es interior"; aquí el rectángulo ata la solución al borde.)</p>
         </div>
       </details>
-      <div class="ej-tags">
-        <span class="ej-tag">NM 3.5</span>
-        <span class="ej-tag">NM 3.6</span>
-        <span class="ej-tag dif">dificil</span>
       </div>
-    </article>
 
     <!-- ────────────────────────────── FOOTER NAV ────────────────────────────── -->
     <nav class="footer-nav">

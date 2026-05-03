@@ -363,3 +363,81 @@ details.solucion > summary::-webkit-details-marker { display: none; }
 
 /* (.aula-toc eliminada — el sitio no usa TOC en ninguna página, todas las
     fichas y apuntes muestran los ítems directamente en el orden pedagógico) */
+
+/* ── 14. Toolbar de ficha (descarga PDF, etc.) — patrón CCSS ──────────── */
+.fitxa-toolbar {
+  display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;
+  margin: 1rem 0 1.6rem;
+  padding: 0.8rem 1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.fitxa-toolbar .label {
+  font-size: 0.86rem; color: var(--text-soft); margin-right: 0.4rem;
+}
+.fitxa-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  background: #6366f1; color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.86rem; font-weight: 500;
+  border: none; cursor: pointer;
+  transition: background 0.15s;
+}
+.fitxa-btn:hover { background: #4f46e5; }
+.fitxa-btn.secondary {
+  background: var(--bg); color: var(--text);
+  border: 1px solid var(--border);
+}
+.fitxa-btn.secondary:hover {
+  border-color: #6366f1; color: #6366f1;
+}
+
+/* ── 15. Detalle de solución sin clase (patrón CCSS) ──────────────────
+   En las fichas/fitxes el patrón usa <details> directo dentro de .ejercicio,
+   sin necesidad de class="solucion". Los estilos están aquí.
+   ─────────────────────────────────────────────────────────────────── */
+.ejercicio details {
+  margin-top: 0.7rem;
+  padding: 0.6rem 0.85rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.ejercicio details > summary {
+  cursor: pointer; user-select: none;
+  font-weight: 600; font-size: 0.88rem;
+  color: var(--text);
+  list-style: none;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.ejercicio details > summary::-webkit-details-marker { display: none; }
+.ejercicio details > summary::before {
+  content: "▶"; font-size: 0.7rem; color: var(--text-faint);
+  transition: transform 0.15s;
+}
+.ejercicio details[open] > summary::before { transform: rotate(90deg); }
+.ejercicio details .solucion-cuerpo,
+.ejercicio details > div {
+  padding-top: 0.6rem; line-height: 1.65; color: var(--text);
+}
+.ejercicio details > div p { margin: 0.5rem 0; }
+
+/* Caja destacada para la respuesta final dentro de una solución */
+.ejercicio details .final {
+  margin-top: 0.7rem; padding: 0.55rem 0.85rem;
+  background: rgba(16,185,129,0.08);
+  border-left: 3px solid #10b981;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-weight: 500;
+}
+[data-theme="dark"] .ejercicio details .final { background: rgba(16,185,129,0.15); }
+
+/* ── 16. Título sutil dentro de ejercicio-header (.ttl) ──────────────── */
+.ejercicio-header .ttl {
+  font-size: 0.92rem; font-weight: 600;
+  color: var(--text);
+  flex: 1; min-width: 0;
+}
