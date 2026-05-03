@@ -20,49 +20,16 @@
    sus clases específicas: .question-block, .statement, .solution-toggle, etc.).
    ───────────────────────────────────────────────────────────────────── */
 
-/* ── 1. Card de cabecera ────────────────────────────────────────────── */
-.card-cabecera {
-  margin: 1.5rem 0; padding: 1.5rem;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
-  border-left: 4px solid #0891b2;
-  border-radius: var(--radius);
-}
-.card-cabecera.concepto { border-left-color: #0891b2; }
-.card-cabecera.ficha    { border-left-color: #059669; }
-.card-cabecera.unidad   { border-left-color: #059669; }
-.card-cabecera.unidad.hl { border-left-color: #d97706; }
-.card-cabecera.syllabus  { border-left-color: #6366f1; }
-.card-cabecera.syllabus.tans { border-left-color: #d97706; }
-.card-cabecera.syllabus.nm   { border-left-color: #0891b2; }
-
-.card-meta {
-  display: flex; align-items: center; gap: 0.6rem;
-  margin-bottom: 0.6rem; flex-wrap: wrap;
-}
-.card-tag {
-  font-family: var(--mono); font-size: 0.78rem; font-weight: 600;
-  padding: 0.22rem 0.55rem; border-radius: 4px; color: #fff;
-  background: #0891b2;
-}
-.card-cabecera.ficha    .card-tag { background: #059669; }
-.card-cabecera.unidad   .card-tag { background: #059669; }
-.card-cabecera.unidad.hl .card-tag { background: #d97706; }
-.card-cabecera.syllabus.tans .card-tag { background: #d97706; }
-.card-cabecera.syllabus.nm   .card-tag { background: #0891b2; }
-.card-bloque  { font-size: 0.78rem; color: var(--text-soft); }
-.card-stats   {
+/* ── 1. Card de cabecera (patrón CCSS exam-header) ────────────────────
+   Las cabeceras de páginas (apuntes, fichas, unidades) usan .exam-header
+   de examenes.css con .section-label + .tag tag-orange.
+   Los modificadores específicos (.card-cap para "Cap. X de Y") quedan aquí.
+   ─────────────────────────────────────────────────────────────────── */
+.card-cap {
   font-family: var(--mono); font-size: 0.72rem; color: var(--text-faint);
   padding: 0.15rem 0.5rem; background: var(--bg);
   border: 1px solid var(--border); border-radius: 4px;
 }
-.card-cap     {
-  font-family: var(--mono); font-size: 0.72rem; color: var(--text-faint);
-  padding: 0.15rem 0.5rem; background: var(--bg);
-  border: 1px solid var(--border); border-radius: 4px;
-}
-.card-titulo  { font-size: 1.55rem; font-weight: 600; margin: 0.3rem 0; line-height: 1.2; }
-.card-intro   { color: var(--text-soft); line-height: 1.55; margin: 0.6rem 0 0; }
 
 /* ── 2. Sección genérica ────────────────────────────────────────────── */
 .seccion-aula { margin: 2.5rem 0 1rem; }
@@ -394,24 +361,5 @@ details.solucion > summary::-webkit-details-marker { display: none; }
 [data-theme="dark"] .syllabus-tag.nm   { background: rgba(8,145,178,0.22); color: #67e8f9; }
 [data-theme="dark"] .syllabus-tag.tans { background: rgba(217,119,6,0.22); color: #fbbf24; }
 
-/* ── 14. Sumario / TOC ───────────────────────────────────────────────── */
-.aula-toc {
-  margin: 2rem 0;
-  padding: 1rem 1.2rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-}
-.aula-toc h2 {
-  font-size: 0.85rem; font-weight: 600; margin: 0 0 0.6rem;
-  color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.05em;
-}
-.aula-toc ol {
-  margin: 0; padding-left: 1.4rem;
-  line-height: 1.85;
-}
-.aula-toc a { color: var(--text); }
-.aula-toc-puntos {
-  font-family: var(--mono); font-size: 0.78rem;
-  color: var(--text-faint); margin-left: 0.4rem;
-}
+/* (.aula-toc eliminada — el sitio no usa TOC en ninguna página, todas las
+    fichas y apuntes muestran los ítems directamente en el orden pedagógico) */
