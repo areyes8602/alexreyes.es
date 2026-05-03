@@ -27,6 +27,9 @@
       ns_idioma: 'Idioma',
       ns_unidad: 'Unidad',
       ns_tipo_apunte: 'Tipo',
+      ns_concepto_iba: 'Concepto IB',
+      ns_concepto_bach: 'Concepto Bachillerato',
+      ns_concepto_eso: 'Concepto ESO',
       val_seccion: 'Sección',
       val_index_unidad: 'Índice de unidad',
       val_concepto: 'Concepto IB',
@@ -47,6 +50,9 @@
       ns_idioma: 'Idioma',
       ns_unidad: 'Unitat',
       ns_tipo_apunte: 'Tipus',
+      ns_concepto_iba: 'Concepte IB',
+      ns_concepto_bach: 'Concepte Batxillerat',
+      ns_concepto_eso: 'Concepte ESO',
       val_seccion: 'Apartat',
       val_index_unidad: 'Índex d\'unitat',
       val_concepto: 'Concepte IB',
@@ -67,6 +73,9 @@
       ns_idioma: 'Language',
       ns_unidad: 'Unit',
       ns_tipo_apunte: 'Type',
+      ns_concepto_iba: 'IB concept',
+      ns_concepto_bach: 'Bachillerato concept',
+      ns_concepto_eso: 'ESO concept',
       val_seccion: 'Section',
       val_index_unidad: 'Unit index',
       val_concepto: 'IB concept',
@@ -318,10 +327,27 @@
       const materiaTag = `<span class="apunte-tag apunte-tag-materia">${escapeHtml(materiaLabel)}</span>`;
       const unidadBit = a.unidad ? ` <span class="apunte-meta-unidad">${escapeHtml(a.unidad)}</span>` : '';
 
+      // Conceptos curriculares (concepto_iba/bach/eso) como tags adicionales,
+      // visibles bajo el bloque principal — así el alumno ve de un vistazo
+      // qué descriptor LOMLOE / IBA cubre el apunte.
+      const conceptTags = [];
+      for (const ns of ['concepto_iba', 'concepto_bach', 'concepto_eso']) {
+        const vals = (a.tags || {})[ns];
+        if (!vals) continue;
+        const arr = Array.isArray(vals) ? vals : [vals];
+        for (const v of arr) {
+          conceptTags.push(`<span class="apunte-tag apunte-tag-concept" data-ns="${escapeAttr(ns)}">${escapeHtml(v)}</span>`);
+        }
+      }
+      const conceptsBlock = conceptTags.length
+        ? `<div class="apunte-card-concepts">${conceptTags.join('')}</div>`
+        : '';
+
       card.innerHTML = `
         <div class="apunte-card-tags">${materiaTag}${tipoTag}${langTag}</div>
         <h3 class="apunte-card-title">${escapeHtml(a.titulo)}</h3>
         <p class="apunte-card-desc">${escapeHtml(a.descripcion || '')}</p>
+        ${conceptsBlock}
         <div class="apunte-card-foot">
           <span class="apunte-meta">${escapeHtml(a.materia)}${unidadBit}</span>
           <span class="apunte-link">${t('btn_abrir')}</span>

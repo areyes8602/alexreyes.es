@@ -262,7 +262,110 @@ def process_html(html_path: Path):
     return record
 
 
+def build_concept_inheritance() -> dict:
+    """Cruza con los JSON de ejercicios para inferir qué conceptos curriculares
+    aplican a cada apunte/unidad. Estrategia:
+
+    1. Recorrer todos los assets/data/ejercicios/*.json (excepto _TEMPLATE).
+    2. Para cada ejercicio: extraer concepto_iba/bach/eso de tags Y la URL del
+       apunte de origen (campos `source_apunt` o `url_index` de la colección).
+    3. Construir dos mapas:
+         por_unidad[(materia, unidad)] = set(conceptos)
+         por_url[apunte_url_normalizada] = set(conceptos)
+
+    Devuelve {'por_unidad': {...}, 'por_url': {...}} con sets dict por
+    namespace ('concepto_iba', 'concepto_bach', 'concepto_eso').
+    """
+    ejercicios_dir = REPO / "assets" / "data" / "ejercicios"
+    if not ejercicios_dir.exists():
+        return {"por_unidad": {}, "por_url": {}}
+
+    por_unidad = {}  # (materia, unidad) -> {ns: set(values)}
+    por_url = {}     # url -> {ns: set(values)}
+
+    def add(target: dict, ns: str, value):
+        if value is None:
+            return
+        vals = value if isinstance(value, list) else [value]
+        target.setdefault(ns, set()).update(str(v) for v in vals if v)
+
+    def url_to_key(url: str):
+        """De /aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html#anchor →
+        ('ccss-1btl', 'u-probabilitat', '/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html')"""
+        if not url:
+            return None, None, None
+        clean = url.split("#")[0]
+        parts = clean.split("/")
+        if len(parts) >= 6 and parts[1] == "aula" and parts[3] == "apuntes":
+            return parts[2], parts[4], clean
+        return None, None, clean
+
+    for jpath in sorted(ejercicios_dir.glob("*.json")):
+        if jpath.name.startswith("_") or jpath.stem == "ejercicios-index":
+            continue
+        try:
+            data = json.loads(jpath.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+
+        coleccion_url = data.get("url_index", "")
+        col_mat, col_uni, col_clean = url_to_key(coleccion_url)
+
+        # Recorre los ejercicios
+        for ej in data.get("ejercicios", []) or []:
+            ns_concepts = {}
+            tags = ej.get("tags", {}) or {}
+            for ns in ("concepto_iba", "concepto_bach", "concepto_eso"):
+                if tags.get(ns):
+                    add(ns_concepts, ns, tags[ns])
+
+            # Si el ejercicio no tiene concepto, intentamos heredar del de
+            # tags_coleccion (todo el JSON) — algunos JSON tienen concepto
+            # general en tags_coleccion.
+            if not ns_concepts:
+                col_tags = data.get("tags_coleccion", {}) or {}
+                for ns in ("concepto_iba", "concepto_bach", "concepto_eso"):
+                    if col_tags.get(ns):
+                        add(ns_concepts, ns, col_tags[ns])
+
+            if not ns_concepts:
+                continue
+
+            # Atribuir al apunte específico (source_apunt o url_enunciado del ej)
+            for url_field in ("source_apunt", "url_enunciado"):
+                u = ej.get(url_field)
+                m, ud, clean = url_to_key(u)
+                if clean and "/apuntes/" in clean:
+                    target = por_url.setdefault(clean, {})
+                    for ns, vs in ns_concepts.items():
+                        add(target, ns, list(vs))
+                    if m and ud:
+                        ut = por_unidad.setdefault((m, ud), {})
+                        for ns, vs in ns_concepts.items():
+                            add(ut, ns, list(vs))
+                    break  # un apunte por ejercicio basta
+
+            # También al apunte coleccion entera (si el JSON apunta a un apunte)
+            if col_clean and "/apuntes/" in col_clean:
+                target = por_url.setdefault(col_clean, {})
+                for ns, vs in ns_concepts.items():
+                    add(target, ns, list(vs))
+            if col_mat and col_uni:
+                ut = por_unidad.setdefault((col_mat, col_uni), {})
+                for ns, vs in ns_concepts.items():
+                    add(ut, ns, list(vs))
+
+    # Convertir sets a listas ordenadas para serialización limpia
+    def freeze(d):
+        return {k: sorted(v) for k, v in d.items()}
+    return {
+        "por_unidad": {k: freeze(v) for k, v in por_unidad.items()},
+        "por_url": {k: freeze(v) for k, v in por_url.items()},
+    }
+
+
 def main():
+    inheritance = build_concept_inheritance()
     apuntes = []
     for root in ROOTS:
         if not root.exists():
@@ -273,6 +376,30 @@ def main():
                 continue
             rec = process_html(html_path)
             if rec:
+                # Aplicar conceptos heredados de ejercicios. Los conceptos
+                # específicos del apunte (por url) tienen preferencia sobre
+                # los de la unidad, pero ambos se mergean.
+                inherited = {}
+                # Por unidad
+                key = (rec.get("materia"), rec.get("unidad"))
+                if key in inheritance["por_unidad"]:
+                    for ns, vs in inheritance["por_unidad"][key].items():
+                        inherited.setdefault(ns, set()).update(vs)
+                # Por URL específica
+                if rec["url"] in inheritance["por_url"]:
+                    for ns, vs in inheritance["por_url"][rec["url"]].items():
+                        inherited.setdefault(ns, set()).update(vs)
+                # Mergear con tags existentes (sidecar tiene prioridad si
+                # ya hay valor; aquí solo añadimos si no estaba)
+                for ns, vs in inherited.items():
+                    existing = rec["tags"].get(ns)
+                    if existing is None:
+                        rec["tags"][ns] = sorted(vs)
+                    else:
+                        ex_list = existing if isinstance(existing, list) else [existing]
+                        rec["tags"][ns] = sorted(set(ex_list) | vs)
+                # Recalcular search_text con los nuevos tags
+                rec["search_text"] = build_search_text(rec)
                 apuntes.append(rec)
 
     # Deduplicación: si dos entries comparten (materia, unidad, section, lang),
