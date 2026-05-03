@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>6. Probabilitat composta · Probabilitat · 1r BTL CCSS</title>
-<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: probabilitat composta — regla del producte ampliada per a esdeveniments encadenats. Taula amb les 4 situacions (1 vs 2 experiments × independents vs dependents), exemple del llançament d'una moneda i un dau ($P=\tfrac{1}{12}$), del mateix dau dues vegades ($P(5,5)=\tfrac{1}{36}$, $P(\text{iguals})=\tfrac{1}{6}$) i de l'urna amb i sense reposició. 5 exercicis amb solució amagada.">
+<title>6. Probabilidad compuesta · Probabilidad · 1º BTL CCSS</title>
+<meta name="description" content="Apuntes de Mat. Aplicadas CCSS 1º BTL: probabilidad compuesta — la regla del producto aplicada a eventos encadenados. Tabla con las 4 situaciones (1 vs 2 experimentos × independientes vs dependientes), ejemplo del lanzamiento de una moneda y un dado ($P=\tfrac{1}{12}$), del mismo dado dos veces ($P(5,5)=\tfrac{1}{36}$, $P(\text{iguales})=\tfrac{1}{6}$) y de la urna con y sin reposición. 5 ejercicios con solución oculta.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605031827">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
-<link rel="alternate" hreflang="ca" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
 <style>
@@ -39,21 +40,21 @@
 [data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
 [data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
 
-/* Taula de situacions */
+/* Tabla de situaciones */
 .sit-table { width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
 .sit-table th, .sit-table td { border: 1px solid var(--border); padding: 0.55rem 0.7rem; text-align: left; vertical-align: top; }
 .sit-table th { background: var(--bg-subtle); font-weight: 600; font-size: 0.85rem; }
 .sit-table .col-tag { font-family: var(--mono); font-size: 0.78rem; color: var(--text-soft); }
 .sit-table caption { caption-side: top; font-size: 0.82rem; color: var(--text-soft); padding-bottom: 0.4rem; text-align: left; }
 
-/* Diagrama d'arbre SVG */
+/* Diagrama de árbol SVG */
 .tree { display:block; margin: 0.8rem auto 0.4rem; width:100%; max-width: 560px; height:auto; }
 .tree .branch { fill:none; stroke:var(--border); stroke-width:1.4; }
 .tree .lbl { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 12px; fill: var(--text); }
 .tree .node { font-family: var(--mono); font-size: 13px; fill: var(--text); font-weight: 600; }
 .tree .prob { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 11px; fill: #6366f1; }
 
-/* Exercicis APART-STYLE */
+/* Ejercicios APART-STYLE */
 .exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
 .exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
 .exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
@@ -80,7 +81,7 @@
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
       <a href="/doctorado/">Doctorado</a>
       <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
@@ -107,214 +108,208 @@
       <span class="sep">/</span>
       <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
-      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicadas CCSS 1º BTL</a>
       <span class="sep">/</span>
-      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/">Probabilitat</a>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/">Probabilidad</a>
       <span class="sep">/</span>
-      <span class="current">06 · Probabilitat composta</span>
+      <span class="current">06 · Probabilidad compuesta</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
-        <span class="section-label">1r BTL CCSS · Probabilitat</span>
-        <span class="tag tag-orange">Apunts</span>
-        <span class="tag tag-gray" style="font-size:0.7rem">3 maig 2026</span>
+        <span class="section-label">1º BTL CCSS · Probabilidad</span>
+        <span class="tag tag-orange">Apuntes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">3 may 2026</span>
       </div>
-      <h1 style="margin:0">6. Probabilitat composta</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Quan ens interessen <strong>dos esdeveniments encadenats</strong> — d'experiments diferents o del mateix repetit — la probabilitat conjunta és el <strong>producte</strong> de les probabilitats individuals. Aquesta és l'aplicació pràctica de la <em>regla del producte</em>: amb el matís clau de si els esdeveniments són <strong>independents</strong> (la probabilitat del segon no depèn del primer) o <strong>dependents</strong> (sí que en depèn — típicament, extraccions <em>sense reposició</em>).</p>
+      <h1 style="margin:0">6. Probabilidad compuesta</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Cuando nos interesan <strong>dos eventos encadenados</strong> — de experimentos distintos o del mismo experimento repetido — la probabilidad conjunta es el <strong>producto</strong> de las probabilidades individuales. Esta es la aplicación práctica de la <em>regla del producto</em>: con el matiz clave de si los eventos son <strong>independientes</strong> (la probabilidad del segundo no depende del primero) o <strong>dependientes</strong> (sí depende — típicamente, extracciones <em>sin reposición</em>).</p>
     </div>
 
     <article class="question-block" style="border:none;padding:0;background:none">
 
-      <!-- ============ DEFINICIÓ + REGLA DEL PRODUCTE COMPOSTA ============ -->
+      <!-- ============ DEFINICIÓN + REGLA DEL PRODUCTO COMPUESTA ============ -->
       <div class="apunt-section">
-        <h2>Definició</h2>
+        <h2>Definición</h2>
 
         <div class="def-box">
-          <h3>Probabilitat composta</h3>
-          <p>Parlem de <strong>probabilitat composta</strong> quan cal determinar la probabilitat que es produeixin <em>dos o més esdeveniments</em>, que poden correspondre a experiments diferents o al mateix experiment repetit diverses vegades. És a dir, esdeveniments que <em>se succeeixen en el temps</em>.</p>
-          <p>La idea clau és:</p>
+          <h3>Probabilidad compuesta</h3>
+          <p>Hablamos de <strong>probabilidad compuesta</strong> cuando hay que determinar la probabilidad de que se produzcan <em>dos o más eventos</em>, que pueden corresponder a experimentos distintos o al mismo experimento repetido varias veces. Es decir, eventos que <em>se suceden en el tiempo</em>.</p>
+          <p>La idea clave es:</p>
           <div class="math-block">
-            $$\boxed{\;\text{En probabilitat composta, es }\textbf{multipliquen}\text{ les probabilitats individuals.}\;}$$
+            $$\boxed{\;\text{En probabilidad compuesta, se }\textbf{multiplican}\text{ las probabilidades individuales.}\;}$$
           </div>
-          <p>Formalment, si $A$ és el primer esdeveniment i $B$ el segon:</p>
+          <p>Formalmente, si $A$ es el primer evento y $B$ el segundo:</p>
           <div class="math-block">
             $$P(A \cap B) \;=\; P(A) \cdot P(B \mid A).$$
           </div>
-          <p>I si <strong>$A$ i $B$ són independents</strong> ($P(B \mid A) = P(B)$), la fórmula es <em>simplifica</em> a:</p>
+          <p>Y si <strong>$A$ y $B$ son independientes</strong> ($P(B \mid A) = P(B)$), la fórmula se <em>simplifica</em> a:</p>
           <div class="math-block">
             $$P(A \cap B) \;=\; P(A) \cdot P(B).$$
           </div>
         </div>
 
-        <p class="note">Aquesta és la mateixa regla del producte de la <a href="/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html">Secció 5</a>, vista ara des de l'angle d'esdeveniments <em>encadenats en el temps</em>: primer passa $A$, després passa $B$.</p>
+        <p class="note">Es la misma regla del producto de la <a href="/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html">Sección 5</a>, vista ahora desde el ángulo de eventos <em>encadenados en el tiempo</em>: primero ocurre $A$, después ocurre $B$.</p>
       </div>
 
-      <!-- ============ TAULA DE SITUACIONS ============ -->
+      <!-- ============ TABLA DE SITUACIONES ============ -->
       <div class="apunt-section">
-        <h2>Les 4 situacions possibles</h2>
-        <p>Per calcular bé una probabilitat composta, cal identificar primer <em>quina</em> situació tenim. Hi ha dos eixos que defineixen 4 escenaris:</p>
+        <h2>Las 4 situaciones posibles</h2>
+        <p>Para calcular bien una probabilidad compuesta, primero hay que identificar <em>qué</em> situación tenemos. Hay dos ejes que definen 4 escenarios:</p>
 
         <table class="sit-table">
-          <caption>Quina fórmula s'aplica segons l'experiment i la dependència entre esdeveniments.</caption>
+          <caption>Qué fórmula se aplica según el experimento y la dependencia entre eventos.</caption>
           <thead>
             <tr>
               <th></th>
-              <th>Independents <span class="col-tag">$P(B\mid A)=P(B)$</span></th>
-              <th>Dependents <span class="col-tag">$P(B\mid A)\neq P(B)$</span></th>
+              <th>Independientes <span class="col-tag">$P(B\mid A)=P(B)$</span></th>
+              <th>Dependientes <span class="col-tag">$P(B\mid A)\neq P(B)$</span></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th>Dos experiments <em>diferents</em></th>
-              <td>$P(A\cap B) = P(A)\cdot P(B)$.<br>Ex. Llançar una moneda <em>i</em> un dau.</td>
-              <td>Poc habitual a 1r BTL. En general s'evita, perquè els experiments diferents acostumen a ser independents.</td>
+              <th>Dos experimentos <em>distintos</em></th>
+              <td>$P(A\cap B) = P(A)\cdot P(B)$.<br>Ej. Lanzar una moneda <em>y</em> un dado.</td>
+              <td>Poco habitual a nivel de 1º BTL. En general se evita, porque experimentos distintos suelen ser independientes.</td>
             </tr>
             <tr>
-              <th>El <em>mateix</em> experiment repetit</th>
-              <td>$P(A\cap B) = P(A)\cdot P(B)$.<br>Ex. Llançar el mateix dau dues vegades; <strong>amb reposició</strong> (urna, baralla).</td>
-              <td>$P(A\cap B) = P(A)\cdot P(B\mid A)$.<br>Ex. Treure dues boles d'una urna <strong>sense reposició</strong>.</td>
+              <th>El <em>mismo</em> experimento repetido</th>
+              <td>$P(A\cap B) = P(A)\cdot P(B)$.<br>Ej. Lanzar el mismo dado dos veces; <strong>con reposición</strong> (urna, baraja).</td>
+              <td>$P(A\cap B) = P(A)\cdot P(B\mid A)$.<br>Ej. Sacar dos bolas de una urna <strong>sin reposición</strong>.</td>
             </tr>
           </tbody>
         </table>
 
         <div class="warn-box">
-          <h3>La pregunta clau: «hi ha reposició?»</h3>
-          <p>Quan extraiem objectes (boles, cartes, peces…) de manera consecutiva, la pregunta crítica és <strong>si els retornem o no</strong> a l'origen abans de la propera extracció:</p>
-          <p><strong>·</strong> <em>Amb reposició</em> → l'experiment torna a començar igual → <strong>independents</strong>.</p>
-          <p><strong>·</strong> <em>Sense reposició</em> → l'urna canvia entre extraccions → <strong>dependents</strong>.</p>
-          <p>Si la situació no diu explícitament «amb» o «sense», el context ho aclareix: «treu dues boles» (sense), «llança una moneda dues vegades» (amb, per construcció).</p>
+          <h3>La pregunta clave: «¿hay reposición?»</h3>
+          <p>Cuando extraemos objetos (bolas, cartas, piezas…) de forma consecutiva, la pregunta crítica es <strong>si los devolvemos o no</strong> al origen antes de la siguiente extracción:</p>
+          <p><strong>·</strong> <em>Con reposición</em> → el experimento vuelve a empezar igual → <strong>independientes</strong>.</p>
+          <p><strong>·</strong> <em>Sin reposición</em> → la urna cambia entre extracciones → <strong>dependientes</strong>.</p>
+          <p>Si el enunciado no dice explícitamente «con» o «sin», el contexto lo aclara: «saca dos bolas» (sin), «lanza una moneda dos veces» (con, por construcción).</p>
         </div>
       </div>
 
-      <!-- ============ EXEMPLES ============ -->
+      <!-- ============ EJEMPLOS ============ -->
       <div class="apunt-section">
-        <h2>Exemples</h2>
+        <h2>Ejemplos</h2>
 
-        <!-- Exemple 1: moneda + dau (experiments diferents, independents) -->
+        <!-- Ejemplo 1: moneda + dado (experimentos distintos, independientes) -->
         <div class="example-box">
-          <h3>Exemple 1 — Moneda i dau (experiments diferents, independents)</h3>
-          <p>Es llança una moneda i un dau correcte de 6 cares. Quina és la probabilitat de treure <em>cara</em> i un <em>5</em>?</p>
-          <p>Els dos experiments són independents (el resultat d'un no influeix l'altre), així que:</p>
+          <h3>Ejemplo 1 — Moneda y dado (experimentos distintos, independientes)</h3>
+          <p>Se lanza una moneda y un dado correcto de 6 caras. ¿Cuál es la probabilidad de obtener <em>cara</em> y un <em>5</em>?</p>
+          <p>Los dos experimentos son independientes (el resultado de uno no influye en el otro), así que:</p>
           <div class="math-block">
             $$P(\text{cara},\,5) \;=\; P(\text{cara}) \cdot P(5) \;=\; \frac{1}{2} \cdot \frac{1}{6} \;=\; \boxed{\;\frac{1}{12}\;\approx\;0{,}083.\;}$$
           </div>
         </div>
 
-        <!-- Exemple 2: dau dues vegades (mateix experiment repetit, independents) -->
+        <!-- Ejemplo 2: dado dos veces (mismo experimento repetido, independientes) -->
         <div class="example-box">
-          <h3>Exemple 2 — Dau dues vegades (mateix experiment, independents)</h3>
-          <p>Es llança un dau correcte dues vegades. Calcula:</p>
+          <h3>Ejemplo 2 — Dado dos veces (mismo experimento, independientes)</h3>
+          <p>Se lanza un dado correcto dos veces. Calcula:</p>
 
-          <p><strong>a)</strong> Probabilitat de treure $5$ a la primera tirada <em>i</em> $5$ a la segona:</p>
+          <p><strong>a)</strong> Probabilidad de sacar $5$ en la primera tirada <em>y</em> $5$ en la segunda:</p>
           <div class="math-block">
             $$P(5,5) \;=\; \frac{1}{6} \cdot \frac{1}{6} \;=\; \boxed{\;\frac{1}{36}.\;}$$
           </div>
 
-          <p><strong>b)</strong> Probabilitat de treure el <em>mateix</em> nombre les dues vegades (sigui quin sigui):</p>
-          <p>Hi ha 6 maneres de "fer parella" (1,1), (2,2), …, (6,6), totes amb probabilitat $\tfrac{1}{36}$. Com que són esdeveniments incompatibles entre ells, sumem:</p>
+          <p><strong>b)</strong> Probabilidad de sacar el <em>mismo</em> número las dos veces (sea cual sea):</p>
+          <p>Hay 6 maneras de "hacer pareja" (1,1), (2,2), …, (6,6), todas con probabilidad $\tfrac{1}{36}$. Como son eventos incompatibles entre sí, sumamos:</p>
           <div class="math-block">
-            $$P(\text{2 iguals}) \;=\; P(1,1) + P(2,2) + \cdots + P(6,6) \;=\; 6 \cdot \frac{1}{36} \;=\; \boxed{\;\frac{1}{6}.\;}$$
+            $$P(\text{2 iguales}) \;=\; P(1,1) + P(2,2) + \cdots + P(6,6) \;=\; 6 \cdot \frac{1}{36} \;=\; \boxed{\;\frac{1}{6}.\;}$$
           </div>
-          <p class="note">Idea: hi ha 36 parelles ordenades $(i,j)$ possibles i 6 d'elles són "diagonals" $(i,i)$.</p>
+          <p class="note">Idea: hay 36 parejas ordenadas $(i,j)$ posibles y 6 de ellas son "diagonales" $(i,i)$.</p>
         </div>
 
-        <!-- Exemple 3: urna amb reposició vs sense reposició -->
+        <!-- Ejemplo 3: urna con reposición vs sin reposición -->
         <div class="example-box">
-          <h3>Exemple 3 — Urna amb 5 boles (3 vermelles, 2 negres)</h3>
-          <p>Una urna conté <strong>3 boles vermelles</strong> i <strong>2 boles negres</strong>. Treiem 2 boles, una rere l'altra. Comparem les dues situacions clau:</p>
+          <h3>Ejemplo 3 — Urna con 5 bolas (3 rojas, 2 negras)</h3>
+          <p>Una urna contiene <strong>3 bolas rojas</strong> y <strong>2 bolas negras</strong>. Sacamos 2 bolas, una tras otra. Comparamos las dos situaciones clave:</p>
 
-          <p><strong>a) Amb reposició</strong> (després de la primera bola, la tornem a l'urna i remenem):</p>
-          <p>L'urna torna a tenir 5 boles abans de la 2a extracció. Per tant les dues extraccions són <em>independents</em>:</p>
+          <p><strong>a) Con reposición</strong> (después de la primera bola, la devolvemos a la urna y removemos):</p>
+          <p>La urna vuelve a tener 5 bolas antes de la 2ª extracción. Por tanto las dos extracciones son <em>independientes</em>:</p>
           <div class="math-block">
-            $$P(\text{vermella, vermella}) \;=\; \frac{3}{5} \cdot \frac{3}{5} \;=\; \frac{9}{25} \;=\; 0{,}36.$$
+            $$P(\text{roja, roja}) \;=\; \frac{3}{5} \cdot \frac{3}{5} \;=\; \frac{9}{25} \;=\; 0{,}36.$$
           </div>
 
-          <p><strong>b) Sense reposició</strong> (no la tornem):</p>
-          <p>Després de treure la 1a vermella, queden 4 boles a l'urna i només 2 vermelles. La probabilitat condicionada $P(B\mid A)$ canvia:</p>
+          <p><strong>b) Sin reposición</strong> (no la devolvemos):</p>
+          <p>Después de sacar la 1ª roja, quedan 4 bolas en la urna y solo 2 rojas. La probabilidad condicionada $P(B\mid A)$ cambia:</p>
           <div class="math-block">
-            $$P(\text{vermella, vermella}) \;=\; \underbrace{\frac{3}{5}}_{P(A)} \cdot \underbrace{\frac{2}{4}}_{P(B\mid A)} \;=\; \frac{6}{20} \;=\; \boxed{\;\frac{3}{10} \;=\; 0{,}3.\;}$$
+            $$P(\text{roja, roja}) \;=\; \underbrace{\frac{3}{5}}_{P(A)} \cdot \underbrace{\frac{2}{4}}_{P(B\mid A)} \;=\; \frac{6}{20} \;=\; \boxed{\;\frac{3}{10} \;=\; 0{,}3.\;}$$
           </div>
 
-          <p class="note">La probabilitat <em>baixa</em> sense reposició perquè la primera extracció ha "consumit" una vermella — l'urna queda menys favorable a la segona.</p>
+          <p class="note">La probabilidad <em>baja</em> sin reposición porque la primera extracción ha "consumido" una roja — la urna queda menos favorable a la segunda.</p>
 
-          <!-- Diagrama d'arbre per al cas SENSE REPOSICIÓ -->
-          <svg class="tree" viewBox="0 0 540 240" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama d'arbre: dues extraccions sense reposició d'una urna amb 3V i 2N">
-            <!-- Tronc inicial -->
-            <text class="lbl" x="20" y="125" text-anchor="start">inici</text>
-            <!-- Branca a V (1a) -->
+          <!-- Diagrama de árbol para el caso SIN REPOSICIÓN -->
+          <svg class="tree" viewBox="0 0 540 240" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de árbol: dos extracciones sin reposición de una urna con 3R y 2N">
+            <text class="lbl" x="20" y="125" text-anchor="start">inicio</text>
             <line class="branch" x1="60" y1="120" x2="200" y2="65"/>
             <text class="prob" x="115" y="85" text-anchor="middle">3/5</text>
-            <text class="node" x="210" y="70">V₁</text>
-            <!-- Branca a N (1a) -->
+            <text class="node" x="210" y="70">R₁</text>
             <line class="branch" x1="60" y1="120" x2="200" y2="175"/>
             <text class="prob" x="115" y="160" text-anchor="middle">2/5</text>
             <text class="node" x="210" y="180">N₁</text>
 
-            <!-- Des de V₁ -->
             <line class="branch" x1="240" y1="65" x2="380" y2="35"/>
             <text class="prob" x="305" y="42" text-anchor="middle">2/4</text>
-            <text class="node" x="390" y="40">V₂</text>
+            <text class="node" x="390" y="40">R₂</text>
             <line class="branch" x1="240" y1="65" x2="380" y2="95"/>
             <text class="prob" x="305" y="92" text-anchor="middle">2/4</text>
             <text class="node" x="390" y="100">N₂</text>
 
-            <!-- Des de N₁ -->
             <line class="branch" x1="240" y1="175" x2="380" y2="145"/>
             <text class="prob" x="305" y="152" text-anchor="middle">3/4</text>
-            <text class="node" x="390" y="150">V₂</text>
+            <text class="node" x="390" y="150">R₂</text>
             <line class="branch" x1="240" y1="175" x2="380" y2="205"/>
             <text class="prob" x="305" y="202" text-anchor="middle">1/4</text>
             <text class="node" x="390" y="210">N₂</text>
 
-            <!-- Productes finals -->
-            <text class="lbl" x="425" y="40">P(VV) = 3/5 · 2/4 = 3/10</text>
-            <text class="lbl" x="425" y="100">P(VN) = 3/5 · 2/4 = 3/10</text>
-            <text class="lbl" x="425" y="150">P(NV) = 2/5 · 3/4 = 3/10</text>
+            <text class="lbl" x="425" y="40">P(RR) = 3/5 · 2/4 = 3/10</text>
+            <text class="lbl" x="425" y="100">P(RN) = 3/5 · 2/4 = 3/10</text>
+            <text class="lbl" x="425" y="150">P(NR) = 2/5 · 3/4 = 3/10</text>
             <text class="lbl" x="425" y="210">P(NN) = 2/5 · 1/4 = 1/10</text>
           </svg>
-          <p class="note">Comprovació: $\tfrac{3}{10} + \tfrac{3}{10} + \tfrac{3}{10} + \tfrac{1}{10} = 1$ ✓.</p>
+          <p class="note">Comprobación: $\tfrac{3}{10} + \tfrac{3}{10} + \tfrac{3}{10} + \tfrac{1}{10} = 1$ ✓.</p>
         </div>
       </div>
 
-      <!-- ============ CONNEXIÓ AMB ARBRE ============ -->
+      <!-- ============ ESTRATEGIA: ÁRBOL ============ -->
       <div class="apunt-section">
-        <h2>Estratègia: el diagrama d'arbre</h2>
+        <h2>Estrategia: el diagrama de árbol</h2>
 
         <div class="prop-box">
-          <h3>Mètode</h3>
-          <p>Per a problemes de probabilitat composta amb 2 o 3 etapes, dibuixa un <strong>diagrama d'arbre</strong>:</p>
-          <p><strong>1.</strong> Cada nivell de l'arbre representa una etapa (1a extracció, 2a extracció, …).</p>
-          <p><strong>2.</strong> A cada branca, escriu la probabilitat <em>condicionada</em> al camí recorregut fins ara.</p>
-          <p><strong>3.</strong> La probabilitat d'un <em>camí complet</em> és el <strong>producte</strong> de les probabilitats de les seves branques.</p>
-          <p><strong>4.</strong> Per a una pregunta del tipus "quina és la probabilitat de…", localitza tots els camins que la satisfan i <strong>suma</strong> els seus productes (perquè camins diferents són esdeveniments incompatibles).</p>
+          <h3>Método</h3>
+          <p>Para problemas de probabilidad compuesta con 2 o 3 etapas, dibuja un <strong>diagrama de árbol</strong>:</p>
+          <p><strong>1.</strong> Cada nivel del árbol representa una etapa (1ª extracción, 2ª extracción, …).</p>
+          <p><strong>2.</strong> En cada rama, escribe la probabilidad <em>condicionada</em> al camino recorrido hasta ahora.</p>
+          <p><strong>3.</strong> La probabilidad de un <em>camino completo</em> es el <strong>producto</strong> de las probabilidades de sus ramas.</p>
+          <p><strong>4.</strong> Para una pregunta del tipo "¿cuál es la probabilidad de…?", localiza todos los caminos que la satisfacen y <strong>suma</strong> sus productos (porque caminos distintos son eventos incompatibles).</p>
         </div>
 
-        <p class="note">L'arbre és la manera natural de combinar la <em>regla del producte</em> (al llarg de cada camí) amb la <em>regla de la suma</em> (entre camins). Connecta directament amb el <a href="/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html">teorema de la probabilitat total</a>.</p>
+        <p class="note">El árbol es la manera natural de combinar la <em>regla del producto</em> (a lo largo de cada camino) con la <em>regla de la suma</em> (entre caminos). Conecta directamente con el <a href="/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html">teorema de la probabilidad total</a>.</p>
       </div>
 
-      <!-- ============ EXERCICIS ============ -->
+      <!-- ============ EJERCICIOS ============ -->
       <div class="apunt-section">
-        <h2>Exercicis</h2>
+        <h2>Ejercicios</h2>
 
-        <!-- Ex 1: moneda + dau ampliat -->
+        <!-- Ej 1: moneda + dado ampliado -->
         <div class="exercise" id="ex-1">
           <div class="exercise-head">
             <span class="num">1</span>
-            <span class="ttl">Moneda i dau — variants</span>
+            <span class="ttl">Moneda y dado — variantes</span>
           </div>
-          <p class="exercise-intro">Es llança una moneda correcta i un dau correcte de 6 cares. Calcula la probabilitat de:</p>
+          <p class="exercise-intro">Se lanza una moneda correcta y un dado correcto de 6 caras. Calcula la probabilidad de:</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">Treure <em>creu</em> i un nombre parell.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt">Sacar <em>cruz</em> y un número par.</span></summary>
             <div class="apart-solution">
-              <p>Independents: $P(\text{creu}) = \tfrac{1}{2}$, $P(\text{parell}) = \tfrac{3}{6} = \tfrac{1}{2}$.</p>
-              <div class="math-block">$$P(\text{creu},\text{parell}) = \tfrac{1}{2}\cdot\tfrac{1}{2} = \boxed{\;\tfrac{1}{4}.\;}$$</div>
+              <p>Independientes: $P(\text{cruz}) = \tfrac{1}{2}$, $P(\text{par}) = \tfrac{3}{6} = \tfrac{1}{2}$.</p>
+              <div class="math-block">$$P(\text{cruz},\text{par}) = \tfrac{1}{2}\cdot\tfrac{1}{2} = \boxed{\;\tfrac{1}{4}.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt">Treure <em>cara</em> i un nombre <em>més gran que 4</em>.</span></summary>
+            <summary><span class="letter">b)</span> <span class="stmt">Sacar <em>cara</em> y un número <em>mayor que 4</em>.</span></summary>
             <div class="apart-solution">
               <p>$P(\text{cara}) = \tfrac{1}{2}$, $P(>\!4) = P(\{5,6\}) = \tfrac{2}{6} = \tfrac{1}{3}$.</p>
               <div class="math-block">$$P = \tfrac{1}{2}\cdot\tfrac{1}{3} = \boxed{\;\tfrac{1}{6}.\;}$$</div>
@@ -322,24 +317,24 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">No treure ni cara ni un 1.</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt">No sacar ni cara ni un 1.</span></summary>
             <div class="apart-solution">
-              <p>"Ni cara ni 1" = (creu) i (no 1). Tots dos són independents:</p>
-              <div class="math-block">$$P(\text{creu}, \neq\!1) = \tfrac{1}{2}\cdot\tfrac{5}{6} = \boxed{\;\tfrac{5}{12} \approx 0{,}417.\;}$$</div>
+              <p>"Ni cara ni 1" = (cruz) y (no 1). Ambos son independientes:</p>
+              <div class="math-block">$$P(\text{cruz}, \neq\!1) = \tfrac{1}{2}\cdot\tfrac{5}{6} = \boxed{\;\tfrac{5}{12} \approx 0{,}417.\;}$$</div>
             </div>
           </details></div>
         </div>
 
-        <!-- Ex 2: dau dues vegades, més preguntes -->
+        <!-- Ej 2: dado dos veces, más preguntas -->
         <div class="exercise" id="ex-2">
           <div class="exercise-head">
             <span class="num">2</span>
-            <span class="ttl">Dau dues vegades</span>
+            <span class="ttl">Dado dos veces</span>
           </div>
-          <p class="exercise-intro">Es llança un dau correcte dues vegades. Calcula:</p>
+          <p class="exercise-intro">Se lanza un dado correcto dos veces. Calcula:</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">$P(3,4)$ — exactament un 3 a la primera i un 4 a la segona.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(3,4)$ — exactamente un 3 en la primera y un 4 en la segunda.</span></summary>
             <div class="apart-solution">
               <div class="math-block">$$P(3,4) = \tfrac{1}{6}\cdot\tfrac{1}{6} = \boxed{\;\tfrac{1}{36}.\;}$$</div>
             </div>
@@ -348,141 +343,141 @@
           <div class="apart"><details>
             <summary><span class="letter">b)</span> <span class="stmt">$P(\text{suma} = 7)$.</span></summary>
             <div class="apart-solution">
-              <p>Parelles ordenades amb suma 7: $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$ — són 6 parelles, totes amb probabilitat $\tfrac{1}{36}$:</p>
+              <p>Parejas ordenadas con suma 7: $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$ — son 6 parejas, todas con probabilidad $\tfrac{1}{36}$:</p>
               <div class="math-block">$$P(\text{suma}=7) = 6\cdot\tfrac{1}{36} = \boxed{\;\tfrac{1}{6}.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{el primer és senar i el segon és parell})$.</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{el primero es impar y el segundo es par})$.</span></summary>
             <div class="apart-solution">
-              <p>Independents: $P(\text{senar}) = \tfrac{3}{6}=\tfrac{1}{2}$, $P(\text{parell}) = \tfrac{1}{2}$.</p>
+              <p>Independientes: $P(\text{impar}) = \tfrac{3}{6}=\tfrac{1}{2}$, $P(\text{par}) = \tfrac{1}{2}$.</p>
               <div class="math-block">$$P = \tfrac{1}{2}\cdot\tfrac{1}{2} = \boxed{\;\tfrac{1}{4}.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{cap dos sigui un 6})$.</span></summary>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{ninguno de los dos sea un 6})$.</span></summary>
             <div class="apart-solution">
-              <p>"Cap" = "no surt 6 a la 1a" <em>i</em> "no surt 6 a la 2a". Independents:</p>
+              <p>"Ninguno" = "no sale 6 en la 1ª" <em>y</em> "no sale 6 en la 2ª". Independientes:</p>
               <div class="math-block">$$P = \tfrac{5}{6}\cdot\tfrac{5}{6} = \boxed{\;\tfrac{25}{36}\approx 0{,}694.\;}$$</div>
             </div>
           </details></div>
         </div>
 
-        <!-- Ex 3: urna amb/sense reposició -->
+        <!-- Ej 3: urna con/sin reposición -->
         <div class="exercise" id="ex-3">
           <div class="exercise-head">
             <span class="num">3</span>
-            <span class="ttl">Urna — amb i sense reposició</span>
+            <span class="ttl">Urna — con y sin reposición</span>
           </div>
-          <p class="exercise-intro">Una urna conté <strong>4 boles blanques</strong> i <strong>3 boles negres</strong>. Treiem 2 boles consecutivament.</p>
+          <p class="exercise-intro">Una urna contiene <strong>4 bolas blancas</strong> y <strong>3 bolas negras</strong>. Sacamos 2 bolas consecutivamente.</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt"><strong>Amb reposició</strong>: $P(\text{ambdues blanques})$.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt"><strong>Con reposición</strong>: $P(\text{ambas blancas})$.</span></summary>
             <div class="apart-solution">
-              <p>Cada extracció és independent, i a cada cop la urna té 4 blanques entre 7 boles:</p>
+              <p>Cada extracción es independiente, y en cada momento la urna tiene 4 blancas entre 7 bolas:</p>
               <div class="math-block">$$P = \tfrac{4}{7}\cdot\tfrac{4}{7} = \boxed{\;\tfrac{16}{49}\approx 0{,}327.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt"><strong>Sense reposició</strong>: $P(\text{ambdues blanques})$.</span></summary>
+            <summary><span class="letter">b)</span> <span class="stmt"><strong>Sin reposición</strong>: $P(\text{ambas blancas})$.</span></summary>
             <div class="apart-solution">
-              <p>Després de la 1a blanca, queden 3 blanques entre 6 boles:</p>
+              <p>Después de la 1ª blanca, quedan 3 blancas entre 6 bolas:</p>
               <div class="math-block">$$P = \tfrac{4}{7}\cdot\tfrac{3}{6} = \tfrac{12}{42} = \boxed{\;\tfrac{2}{7}\approx 0{,}286.\;}$$</div>
-              <p class="note">Sense reposició dóna <em>menys</em> probabilitat: la primera extracció ha "consumit" una blanca.</p>
+              <p class="note">Sin reposición da <em>menos</em> probabilidad: la primera extracción ha "consumido" una blanca.</p>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt"><strong>Sense reposició</strong>: $P(\text{una blanca i una negra, en qualsevol ordre})$.</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt"><strong>Sin reposición</strong>: $P(\text{una blanca y una negra, en cualquier orden})$.</span></summary>
             <div class="apart-solution">
-              <p>Hi ha dos camins compatibles: BN i NB. Per la regla del producte i de la suma:</p>
+              <p>Hay dos caminos compatibles: BN y NB. Por la regla del producto y de la suma:</p>
               <div class="math-block">$$P(\text{BN}) = \tfrac{4}{7}\cdot\tfrac{3}{6} = \tfrac{12}{42}, \qquad P(\text{NB}) = \tfrac{3}{7}\cdot\tfrac{4}{6} = \tfrac{12}{42}.$$</div>
               <div class="math-block">$$P(\text{una de cada}) = \tfrac{12}{42} + \tfrac{12}{42} = \tfrac{24}{42} = \boxed{\;\tfrac{4}{7}\approx 0{,}571.\;}$$</div>
             </div>
           </details></div>
         </div>
 
-        <!-- Ex 4: baralla espanyola sense reposició -->
+        <!-- Ej 4: baraja española sin reposición -->
         <div class="exercise" id="ex-4">
           <div class="exercise-head">
             <span class="num">4</span>
-            <span class="ttl">Baralla espanyola — dues cartes seguides</span>
+            <span class="ttl">Baraja española — dos cartas seguidas</span>
           </div>
-          <p class="exercise-intro">D'una baralla espanyola de <strong>40 cartes</strong> (10 ors, 10 copes, 10 espases, 10 bastos), traiem 2 cartes seguides <strong>sense reposició</strong>.</p>
+          <p class="exercise-intro">De una baraja española de <strong>40 cartas</strong> (10 oros, 10 copas, 10 espadas, 10 bastos), sacamos 2 cartas seguidas <strong>sin reposición</strong>.</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">$P(\text{les dues són ors})$.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(\text{las dos son oros})$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">$$P = \tfrac{10}{40}\cdot\tfrac{9}{39} = \tfrac{90}{1560} = \boxed{\;\tfrac{3}{52}\approx 0{,}058.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{la 1a és or i la 2a és copa})$.</span></summary>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{la 1ª es oro y la 2ª es copa})$.</span></summary>
             <div class="apart-solution">
-              <p>Després de treure or, queden 39 cartes amb les 10 copes intactes:</p>
+              <p>Después de sacar oro, quedan 39 cartas con las 10 copas intactas:</p>
               <div class="math-block">$$P = \tfrac{10}{40}\cdot\tfrac{10}{39} = \tfrac{100}{1560} = \boxed{\;\tfrac{5}{78}\approx 0{,}064.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{cap és or})$.</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{ninguna es oro})$.</span></summary>
             <div class="apart-solution">
-              <p>"Cap or" = no or a la 1a i no or a la 2a. Hi ha 30 no-ors:</p>
+              <p>"Ningún oro" = no oro en la 1ª y no oro en la 2ª. Hay 30 no-oros:</p>
               <div class="math-block">$$P = \tfrac{30}{40}\cdot\tfrac{29}{39} = \tfrac{870}{1560} = \boxed{\;\tfrac{29}{52}\approx 0{,}558.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{almenys una és or})$.</span></summary>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{al menos una es oro})$.</span></summary>
             <div class="apart-solution">
-              <p>Pel complementari de l'apartat (c):</p>
-              <div class="math-block">$$P(\text{almenys una or}) = 1 - P(\text{cap or}) = 1 - \tfrac{29}{52} = \boxed{\;\tfrac{23}{52}\approx 0{,}442.\;}$$</div>
-              <p class="note">Truc: «almenys un» sovint surt més fàcil pel complementari «cap».</p>
+              <p>Por el complementario del apartado (c):</p>
+              <div class="math-block">$$P(\text{al menos un oro}) = 1 - P(\text{ningún oro}) = 1 - \tfrac{29}{52} = \boxed{\;\tfrac{23}{52}\approx 0{,}442.\;}$$</div>
+              <p class="note">Truco: «al menos uno» suele salir más fácil por el complementario «ninguno».</p>
             </div>
           </details></div>
         </div>
 
-        <!-- Ex 5: tres llançaments / cadena de 3 etapes -->
+        <!-- Ej 5: tres lanzamientos / cadena de 3 etapas -->
         <div class="exercise" id="ex-5">
           <div class="exercise-head">
             <span class="num">5</span>
-            <span class="ttl">Tres etapes — moneda 3 vegades</span>
+            <span class="ttl">Tres etapas — moneda 3 veces</span>
           </div>
-          <p class="exercise-intro">Es llança una moneda correcta <strong>tres vegades</strong>. Cada llançament és independent dels altres.</p>
+          <p class="exercise-intro">Se lanza una moneda correcta <strong>tres veces</strong>. Cada lanzamiento es independiente de los demás.</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">$P(\text{tres cares seguides})$.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(\text{tres caras seguidas})$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">$$P = \tfrac{1}{2}\cdot\tfrac{1}{2}\cdot\tfrac{1}{2} = \boxed{\;\tfrac{1}{8}=0{,}125.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{exactament dues cares})$.</span></summary>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{exactamente dos caras})$.</span></summary>
             <div class="apart-solution">
-              <p>Les 8 seqüències possibles són equiprobables ($\tfrac{1}{8}$ cadascuna). Les que tenen exactament 2 cares: CCX, CXC, XCC — són 3.</p>
-              <div class="math-block">$$P(\text{2 cares}) = 3 \cdot \tfrac{1}{8} = \boxed{\;\tfrac{3}{8}=0{,}375.\;}$$</div>
+              <p>Las 8 secuencias posibles son equiprobables ($\tfrac{1}{8}$ cada una). Las que tienen exactamente 2 caras: CCX, CXC, XCC — son 3.</p>
+              <div class="math-block">$$P(\text{2 caras}) = 3 \cdot \tfrac{1}{8} = \boxed{\;\tfrac{3}{8}=0{,}375.\;}$$</div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{almenys una cara})$.</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{al menos una cara})$.</span></summary>
             <div class="apart-solution">
-              <p>Pel complementari "cap cara" (= 3 creus seguides):</p>
-              <div class="math-block">$$P(\text{almenys 1 cara}) = 1 - \left(\tfrac{1}{2}\right)^3 = 1 - \tfrac{1}{8} = \boxed{\;\tfrac{7}{8}=0{,}875.\;}$$</div>
+              <p>Por el complementario "ninguna cara" (= 3 cruces seguidas):</p>
+              <div class="math-block">$$P(\text{al menos 1 cara}) = 1 - \left(\tfrac{1}{2}\right)^3 = 1 - \tfrac{1}{8} = \boxed{\;\tfrac{7}{8}=0{,}875.\;}$$</div>
             </div>
           </details></div>
         </div>
       </div>
 
-      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+      <nav class="exam-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem">
         <a class="prev" href="/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html">&larr; 05 · Tipus d'esdeveniments</a>
-        <a class="index" href="/aula/ccss-1btl/apuntes/u-probabilitat/">Índex de la unitat</a>
-        <span class="disabled next">Apartat següent &rarr;</span>
+        <a class="index" href="/aula/ccss-1btl/apuntes/u-probabilitat/">Índice de la unidad</a>
+        <span class="disabled next">Apartado siguiente &rarr;</span>
       </nav>
 
     </article>
