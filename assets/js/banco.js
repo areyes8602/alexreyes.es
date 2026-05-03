@@ -32,6 +32,18 @@
   const STRINGS = I18N[LANG] || I18N.es;
   const t = (k) => STRINGS[k] || k;
 
+  // KaTeX auto-render NO inclou `$...$` als delimitadors per defecte. El nostre
+  // contingut sí l'usa, així que cal passar la llista completa cada cop.
+  const KATEX_OPTS = {
+    delimiters: [
+      { left: '$$', right: '$$', display: true },
+      { left: '\\[', right: '\\]', display: true },
+      { left: '$', right: '$', display: false },
+      { left: '\\(', right: '\\)', display: false },
+    ],
+    throwOnError: false,
+  };
+
   // ---- Cart (localStorage) ----
   const CART_KEY = 'mi-examen';
   function loadCart() {
@@ -311,7 +323,7 @@
     }
     // KaTeX in titles if present
     if (window.renderMathInElement) {
-      try { window.renderMathInElement(els.results, { throwOnError: false }); } catch (e) {}
+      try { window.renderMathInElement(els.results, KATEX_OPTS); } catch (e) {}
     }
   }
 

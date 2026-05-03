@@ -103,6 +103,19 @@
   const FILTERS_KEY = 'mi-examen-filtros';
   const $ = (id) => document.getElementById(id);
 
+  // IMPORTANT: KaTeX auto-render NO inclou per defecte el delimitador `$...$`
+  // (single dollar). El nostre contingut sí l'utilitza, així que cada cop que
+  // cridem renderMathInElement cal passar la llista completa.
+  const KATEX_OPTS = {
+    delimiters: [
+      { left: '$$', right: '$$', display: true },
+      { left: '\\[', right: '\\]', display: true },
+      { left: '$', right: '$', display: false },
+      { left: '\\(', right: '\\)', display: false },
+    ],
+    throwOnError: false,
+  };
+
   let allIndex = null;
   let taxonomy = null;
 
@@ -205,7 +218,7 @@
     });
 
     if (window.renderMathInElement) {
-      try { window.renderMathInElement(wrapper, { throwOnError: false }); } catch (e) {}
+      try { window.renderMathInElement(wrapper, KATEX_OPTS); } catch (e) {}
     }
   }
 
@@ -481,7 +494,7 @@
     // KaTeX render (amb auto-render carregat al head). Es renderitza ara mateix
     // perquè quan s'obri el diàleg d'impressió ja estigui llest.
     if (window.renderMathInElement) {
-      try { window.renderMathInElement(area, { throwOnError: false }); } catch (e) {}
+      try { window.renderMathInElement(area, KATEX_OPTS); } catch (e) {}
     }
 
     return area;
