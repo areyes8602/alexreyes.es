@@ -14,7 +14,12 @@
     es: {
       apunte: 'apunte', apuntes: 'apuntes',
       error_carga: 'Error al cargar los datos',
-      btn_abrir: 'Abrir apunte →',
+      btn_abrir: 'Abrir →',
+      btn_add: '+ Apuntes',
+      btn_added: '✓ Añadido',
+      mis_apuntes: 'Mis apuntes',
+      mis_apuntes_intro: 'Selecciona apuntes con',
+      mis_apuntes_intro2: 'para componer un PDF.',
       todos_filtros: 'Borrar todos los filtros',
       cargando: 'Cargando…',
       ordenar: 'Ordenar por:',
@@ -38,7 +43,12 @@
     ca: {
       apunte: 'apunt', apuntes: 'apunts',
       error_carga: 'Error en carregar les dades',
-      btn_abrir: 'Obrir apunt →',
+      btn_abrir: 'Obrir →',
+      btn_add: '+ Apunts',
+      btn_added: '✓ Afegit',
+      mis_apuntes: 'Els meus apunts',
+      mis_apuntes_intro: 'Selecciona apunts amb',
+      mis_apuntes_intro2: 'per compondre un PDF.',
       todos_filtros: 'Esborrar tots els filtres',
       cargando: 'Carregant…',
       ordenar: 'Ordenar per:',
@@ -61,7 +71,12 @@
     en: {
       apunte: 'note', apuntes: 'notes',
       error_carga: 'Error loading data',
-      btn_abrir: 'Open note →',
+      btn_abrir: 'Open →',
+      btn_add: '+ Notes',
+      btn_added: '✓ Added',
+      mis_apuntes: 'My notes',
+      mis_apuntes_intro: 'Select notes with',
+      mis_apuntes_intro2: 'to build a PDF.',
       todos_filtros: 'Clear all filters',
       cargando: 'Loading…',
       ordenar: 'Sort by:',
@@ -84,6 +99,35 @@
   };
   const STRINGS = I18N[LANG] || I18N.es;
   const t = (k) => STRINGS[k] || k;
+
+  // ---- Cart (localStorage) — per construir un PDF compilat d'apunts a /docencia/mis-apuntes/ ----
+  const CART_KEY = 'mis-apuntes';
+  function loadCart() {
+    try {
+      const raw = localStorage.getItem(CART_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) { return []; }
+  }
+  function saveCart(ids) {
+    try { localStorage.setItem(CART_KEY, JSON.stringify(ids)); } catch (e) {}
+    updateCartBadge();
+  }
+  function inCart(id) { return loadCart().includes(id); }
+  function toggleCart(id) {
+    const c = loadCart();
+    const idx = c.indexOf(id);
+    if (idx >= 0) c.splice(idx, 1); else c.push(id);
+    saveCart(c);
+  }
+  function updateCartBadge() {
+    const c = loadCart();
+    const badge = document.getElementById('cart-badge-apuntes');
+    if (badge) {
+      badge.textContent = c.length;
+      badge.style.display = c.length ? 'inline-flex' : 'none';
+    }
+  }
 
   // KaTeX auto-render NO inclou `$...$` per defecte. Cal passar la llista.
   const KATEX_OPTS = {
@@ -312,13 +356,17 @@
     const list = filtered();
     els.count.innerHTML = `<strong>${list.length}</strong> ${list.length === 1 ? t('apunte') : t('apuntes')}`;
     els.results.innerHTML = '';
+    // Asegurar layout grid (en lugar de flex column) para las cards de apuntes
+    if (!els.results.classList.contains('apuntes-grid')) {
+      els.results.classList.add('apuntes-grid');
+    }
     if (!list.length) { els.empty.hidden = false; return; }
     els.empty.hidden = true;
 
     for (const a of list) {
-      const card = document.createElement('a');
+      const card = document.createElement('div');
       card.className = 'apunte-card';
-      card.href = a.url;
+      if (inCart(a.id)) card.classList.add('in-cart');
 
       const tipoLabel = getValLabel('tipo_apunte', a.tipo);
       const materiaLabel = getValLabel('materia', a.materia);
@@ -327,9 +375,7 @@
       const materiaTag = `<span class="apunte-tag apunte-tag-materia">${escapeHtml(materiaLabel)}</span>`;
       const unidadBit = a.unidad ? ` <span class="apunte-meta-unidad">${escapeHtml(a.unidad)}</span>` : '';
 
-      // Conceptos curriculares (concepto_iba/bach/eso) como tags adicionales,
-      // visibles bajo el bloque principal — así el alumno ve de un vistazo
-      // qué descriptor LOMLOE / IBA cubre el apunte.
+      // Conceptos curriculares (concepto_iba/bach/eso) como tags adicionales.
       const conceptTags = [];
       for (const ns of ['concepto_iba', 'concepto_bach', 'concepto_eso']) {
         const vals = (a.tags || {})[ns];
@@ -343,6 +389,8 @@
         ? `<div class="apunte-card-concepts">${conceptTags.join('')}</div>`
         : '';
 
+      const added = inCart(a.id);
+
       card.innerHTML = `
         <div class="apunte-card-tags">${materiaTag}${tipoTag}${langTag}</div>
         <h3 class="apunte-card-title">${escapeHtml(a.titulo)}</h3>
@@ -350,9 +398,26 @@
         ${conceptsBlock}
         <div class="apunte-card-foot">
           <span class="apunte-meta">${escapeHtml(a.materia)}${unidadBit}</span>
-          <span class="apunte-link">${t('btn_abrir')}</span>
+          <div class="apunte-card-actions">
+            <a class="apunte-btn apunte-btn-primary" href="${escapeAttr(a.url)}">${t('btn_abrir')}</a>
+            <button class="apunte-btn apunte-btn-cart ${added ? 'is-added' : ''}" data-cart-id="${escapeAttr(a.id)}">${added ? t('btn_added') : t('btn_add')}</button>
+          </div>
         </div>
       `;
+
+      // Wire cart button
+      const cartBtn = card.querySelector('[data-cart-id]');
+      if (cartBtn) {
+        cartBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          toggleCart(a.id);
+          const nowAdded = inCart(a.id);
+          cartBtn.textContent = nowAdded ? t('btn_added') : t('btn_add');
+          cartBtn.classList.toggle('is-added', nowAdded);
+          card.classList.toggle('in-cart', nowAdded);
+        });
+      }
+
       els.results.appendChild(card);
     }
 
@@ -457,6 +522,7 @@
     renderFacets();
     renderResults();
     renderActiveFilters();
+    updateCartBadge();
   }
 
   document.addEventListener('DOMContentLoaded', init);
