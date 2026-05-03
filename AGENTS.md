@@ -18,6 +18,8 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
 /scripts/
   sync-aula-chrome.py    ← sincroniza nav/footer/ibo en todos los HTML
   bump-css-version.py    ← cache-busting: actualiza ?v={timestamp} en CSS refs
+  add-seo-to-hubs.py     ← inyecta canonical + hreflang + OG + Twitter en hubs
+  build_sitemap.py       ← regenera sitemap.xml con todas las páginas vivas
   build_ejercicios.py    ← reconstruye índice del banco
   build_exam_pages.py    ← genera páginas de exámenes desde JSON
 
@@ -71,6 +73,29 @@ ejecuta `python3 scripts/build_ejercicios.py` para refrescar el índice.
    python3 scripts/sync-aula-chrome.py
    ```
 4. Idempotente: correrlo dos veces seguidas no rompe nada.
+
+## Workflow: añadir un hub nuevo (página índice de materia o sección)
+
+1. Crea el `index.html` del hub en `/{path}/` (raíz), `/ca/{path}/` y `/en/{path}/`.
+2. Añade el path a la lista `HUBS` en `scripts/add-seo-to-hubs.py`.
+3. Ejecuta `python3 scripts/add-seo-to-hubs.py` — inyecta canonical + hreflang
+   + OG + Twitter en las 3 versiones (lee title y description del propio archivo).
+4. Ejecuta `python3 scripts/build_sitemap.py` para incluir el nuevo hub en el
+   sitemap (si es trilingual, añádelo también a `trilingual_paths` en el script).
+5. Idempotente: re-correr el SEO script no duplica nada.
+
+## Workflow: regenerar sitemap
+
+Después de cualquier cambio estructural (añadir/quitar páginas, renombrar
+carpetas), ejecuta:
+
+```
+python3 scripts/build_sitemap.py
+```
+
+El script auto-detecta exámenes, apuntes y ejercicios escaneando `aula/*/`.
+Las URLs trilingües se mantienen en la lista `trilingual_paths` arriba del
+script — añade ahí los hubs nuevos.
 
 ## Workflow: bump cache-busting cuando edites CSS
 
