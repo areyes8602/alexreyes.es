@@ -356,56 +356,60 @@
     const list = filtered();
     els.count.innerHTML = `<strong>${list.length}</strong> ${list.length === 1 ? t('apunte') : t('apuntes')}`;
     els.results.innerHTML = '';
-    // Asegurar layout grid (en lugar de flex column) para las cards de apuntes
-    if (!els.results.classList.contains('apuntes-grid')) {
-      els.results.classList.add('apuntes-grid');
-    }
     if (!list.length) { els.empty.hidden = false; return; }
     els.empty.hidden = true;
 
+    // REUSAMOS LAS CLASES DEL BANCO DE EJERCICIOS (.ej-card, .ej-card-*, .ej-btn*)
+    // que ya están en banco.css y verificadas. Así garantizamos coherencia
+    // visual con el banco de ejercicios y aprovechamos CSS ya estable.
     for (const a of list) {
       const card = document.createElement('div');
-      card.className = 'apunte-card';
+      card.className = 'ej-card';
       if (inCart(a.id)) card.classList.add('in-cart');
 
       const tipoLabel = getValLabel('tipo_apunte', a.tipo);
       const materiaLabel = getValLabel('materia', a.materia);
-      const langTag = `<span class="apunte-tag apunte-tag-lang">${escapeHtml(a.lang.toUpperCase())}</span>`;
-      const tipoTag = `<span class="apunte-tag apunte-tag-tipo">${escapeHtml(tipoLabel)}</span>`;
-      const materiaTag = `<span class="apunte-tag apunte-tag-materia">${escapeHtml(materiaLabel)}</span>`;
-      const unidadBit = a.unidad ? ` <span class="apunte-meta-unidad">${escapeHtml(a.unidad)}</span>` : '';
 
-      // Conceptos curriculares (concepto_iba/bach/eso) como tags adicionales.
-      const conceptTags = [];
+      // Tags: materia, tipo, idioma + conceptos curriculares (concepto_iba/bach/eso)
+      const tagsParts = [
+        `<span class="ej-tag" data-ns="materia">${escapeHtml(materiaLabel)}</span>`,
+        `<span class="ej-tag" data-ns="tipo_apunte">${escapeHtml(tipoLabel)}</span>`,
+        `<span class="ej-tag" data-ns="idioma">${escapeHtml(a.lang.toUpperCase())}</span>`,
+      ];
+      if (a.unidad) {
+        tagsParts.push(`<span class="ej-tag" data-ns="unidad">${escapeHtml(a.unidad)}</span>`);
+      }
       for (const ns of ['concepto_iba', 'concepto_bach', 'concepto_eso']) {
         const vals = (a.tags || {})[ns];
         if (!vals) continue;
         const arr = Array.isArray(vals) ? vals : [vals];
         for (const v of arr) {
-          conceptTags.push(`<span class="apunte-tag apunte-tag-concept" data-ns="${escapeAttr(ns)}">${escapeHtml(v)}</span>`);
+          tagsParts.push(`<span class="ej-tag" data-ns="${escapeAttr(ns)}">${escapeHtml(v)}</span>`);
         }
       }
-      const conceptsBlock = conceptTags.length
-        ? `<div class="apunte-card-concepts">${conceptTags.join('')}</div>`
-        : '';
+
+      const colMeta = [
+        a.materia,
+        a.unidad,
+        a.section_num ? 'sección ' + a.section_num : '',
+      ].filter(Boolean).map(escapeHtml).join('<span class="sep"></span>');
 
       const added = inCart(a.id);
+      const actions = [
+        `<a class="ej-btn ej-btn-primary" href="${escapeAttr(a.url)}">${t('btn_abrir')}</a>`,
+        `<button class="ej-btn ej-btn-cart ${added ? 'is-added' : ''}" data-cart-id="${escapeAttr(a.id)}">${added ? t('btn_added') : t('btn_add')}</button>`,
+      ];
 
       card.innerHTML = `
-        <div class="apunte-card-tags">${materiaTag}${tipoTag}${langTag}</div>
-        <h3 class="apunte-card-title">${escapeHtml(a.titulo)}</h3>
-        <p class="apunte-card-desc">${escapeHtml(a.descripcion || '')}</p>
-        ${conceptsBlock}
-        <div class="apunte-card-foot">
-          <span class="apunte-meta">${escapeHtml(a.materia)}${unidadBit}</span>
-          <div class="apunte-card-actions">
-            <a class="apunte-btn apunte-btn-primary" href="${escapeAttr(a.url)}">${t('btn_abrir')}</a>
-            <button class="apunte-btn apunte-btn-cart ${added ? 'is-added' : ''}" data-cart-id="${escapeAttr(a.id)}">${added ? t('btn_added') : t('btn_add')}</button>
-          </div>
+        <div class="ej-card-top">
+          <div class="ej-card-title">${escapeHtml(a.titulo)}</div>
         </div>
+        <div class="ej-card-meta">${colMeta}</div>
+        ${a.descripcion ? `<p style="font-size:0.86rem;color:var(--text-soft);margin:0.4rem 0 0.6rem;line-height:1.5">${escapeHtml(a.descripcion)}</p>` : ''}
+        <div class="ej-card-tags">${tagsParts.join('')}</div>
+        <div class="ej-card-actions">${actions.join('')}</div>
       `;
 
-      // Wire cart button
       const cartBtn = card.querySelector('[data-cart-id]');
       if (cartBtn) {
         cartBtn.addEventListener('click', (e) => {
