@@ -41,7 +41,7 @@
 /* Numerador en el h2 de una sección (ej. "1. Equacions exponencials") */
 .seccion-aula > h2 .num {
   display: inline-block; min-width: 1.6rem;
-  font-family: var(--mono); color: #059669; font-weight: 700;
+  font-family: var(--mono); color: #10b981; font-weight: 700;
   margin-right: 0.4rem;
 }
 [data-theme="dark"] .seccion-aula > h2 .num { color: #34d399; }
@@ -50,13 +50,7 @@
   color: var(--text-soft); line-height: 1.6;
   margin: 0 0 1rem; font-size: 0.95rem;
 }
-/* Numerador genérico dentro de un ejercicio (variante de .ejercicio-num) */
-.ejercicio-header .num {
-  font-family: var(--mono); font-size: 0.78rem; font-weight: 600;
-  background: #059669; color: #fff;
-  padding: 0.2rem 0.55rem; border-radius: 4px;
-  align-self: center;
-}
+/* (.ejercicio-header .num definido arriba con .ejercicio-num — pill verde esmeralda) */
 
 /* ── 3. Bloque de teoría ────────────────────────────────────────────── */
 .teoria-bloque { line-height: 1.7; color: var(--text); font-size: 1.0rem; }
@@ -134,11 +128,16 @@
   display: flex; align-items: baseline; gap: 0.6rem;
   margin-bottom: 0.6rem; flex-wrap: wrap;
 }
-.ejercicio-num {
-  font-family: var(--mono); font-size: 0.74rem;
-  background: #059669; color: #fff;
-  padding: 0.2rem 0.55rem; border-radius: 4px;
-  align-self: center;
+/* Pill verde esmeralda — patrón CCSS */
+.ejercicio-num,
+.ejercicio-header .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 2rem; height: 1.7rem;
+  padding: 0 0.55rem;
+  background: #10b981; color: #fff;
+  border-radius: 99px;
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 600;
+  flex: 0 0 auto;
 }
 .ejercicio-titulo {
   font-size: 1.02rem; font-weight: 600; flex: 1; min-width: 0;
@@ -171,7 +170,7 @@
   padding-left: 0.4rem;
 }
 .apartado-letra {
-  font-weight: 700; color: #059669; margin-right: 0.3rem;
+  font-weight: 700; color: #10b981; margin-right: 0.3rem;
 }
 [data-theme="dark"] .apartado-letra { color: #34d399; }
 .apartado-pts {
@@ -319,7 +318,7 @@ details.solucion > summary::-webkit-details-marker { display: none; }
 }
 /* Variantes de color del num por tipo de contenido */
 .ej-list a.tipo-apuntes  .num { background: #0891b2; }
-.ej-list a.tipo-ficha    .num { background: #059669; }
+.ej-list a.tipo-ficha    .num { background: #10b981; }
 .ej-list a.tipo-examen   .num { background: #d97706; }
 .ej-list a.tipo-syllabus .num { background: #6366f1; }
 .ej-list .ttl { font-weight: 500; flex: 1; min-width: 0; }
