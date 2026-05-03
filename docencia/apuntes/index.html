@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banco de apuntes — Àlex Reyes</title>
+<meta name="description" content="Banco de apuntes filtrable por materia, unidad, idioma y tipo. Apuntes completos de Mat. ESO, Bachillerato e IB Math AI.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605032011">
+<link rel="stylesheet" href="/assets/css/banco.css?v=202605032011">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/docencia/apuntes/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/docencia/apuntes/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/docencia/apuntes/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/apuntes/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/apuntes/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/docencia/apuntes/">
+<meta property="og:title" content="Banco de apuntes — Àlex Reyes">
+<meta property="og:description" content="Banco de apuntes filtrable por materia, unidad, idioma y tipo.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="alexreyes.es">
+<script defer src="/assets/js/apuntes.js?v=202605031955"></script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/docencia/apuntes/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/docencia/apuntes/">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/apuntes/">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <div class="breadcrumb" style="padding-top:2rem">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <span class="current">Banco de apuntes</span>
+    </div>
+
+    <div class="banco-head">
+      <span class="section-label">Docencia</span>
+      <h1>Banco de apuntes</h1>
+      <p>Apuntes completos de mis asignaturas — definiciones, ejemplos, demostraciones y ejercicios resueltos. Filtra por materia, unidad, idioma o tipo. También puedes buscar por texto.</p>
+    </div>
+
+    <div class="banco-layout">
+      <aside class="banco-sidebar" aria-label="Filtros">
+        <div class="banco-search">
+          <input type="search" id="apuntes-search" placeholder="Buscar apuntes…" autocomplete="off" aria-label="Buscar apuntes">
+        </div>
+        <button class="banco-clear" id="apuntes-clear" disabled>Borrar todos los filtros</button>
+        <div id="apuntes-facets"></div>
+      </aside>
+
+      <section>
+        <div class="banco-results-head">
+          <div class="banco-count" id="apuntes-count">Cargando…</div>
+          <div class="banco-sort">
+            <label for="apuntes-sort">Ordenar por:</label>
+            <select id="apuntes-sort">
+              <option value="materia">Materia · Unidad</option>
+              <option value="titulo">Título (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="banco-active-filters" id="apuntes-active-filters"></div>
+
+        <div class="banco-empty" id="apuntes-empty" hidden role="status">No hay apuntes que coincidan con los filtros actuales.</div>
+        <div class="banco-results" id="apuntes-results"></div>
+      </section>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
