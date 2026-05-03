@@ -533,6 +533,13 @@
       const target = $('mx-print-area');
 
       // Configuració html2pdf — A4, marges còmodes, alta resolució.
+      // IMPORTANT (paginació): NO posem .mxp-question dins `avoid` perquè
+      // un exercici pot ser més llarg que una pàgina A4 i html2pdf el retallaria.
+      // En lloc d'això:
+      //   - `before: '.mxp-question + .mxp-question'` → cada exercici nou
+      //     comença en pàgina nova (excepte el primer).
+      //   - `avoid: [...]` només a sub-blocs de mida raonable que sí caben
+      //     dins una pàgina (def-box, exercici individual, apartat, fórmula).
       const opt = {
         margin:       [12, 12, 14, 12], // top, right, bottom, left (mm)
         filename:     filename,
@@ -545,7 +552,11 @@
           windowWidth: 900, // amplada de captura, equival a una columna A4 estable
         },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: ['css', 'legacy'], avoid: ['.mxp-question', '.exercise', '.apart', '.def-box', '.example-box', '.prop-box', '.warn-box', '.katex-display'] },
+        pagebreak:    {
+          mode: ['css', 'legacy'],
+          before: ['.mxp-question + .mxp-question'],
+          avoid: ['.exercise', '.apart', '.def-box', '.example-box', '.prop-box', '.warn-box', '.math-block', '.katex-display', 'svg', 'table'],
+        },
       };
 
       await window.html2pdf().set(opt).from(target).save();
