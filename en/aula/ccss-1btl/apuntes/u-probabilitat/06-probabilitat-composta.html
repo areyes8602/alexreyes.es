@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6. Compound probability · Probability · 1st BTL CCSS</title>
+<meta name="description" content="Notes for Applied Maths for Social Sciences (1st BTL): compound probability — the multiplication rule extended to chained events. Table with the 4 situations (1 vs 2 experiments × independent vs dependent), worked examples (coin and die $\tfrac{1}{12}$, same die twice $P(5,5)=\tfrac{1}{36}$, $P(\text{equal})=\tfrac{1}{6}$) and an urn with and without replacement. 5 exercises with hidden solutions.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605031827">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605031827">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+.sit-table { width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+.sit-table th, .sit-table td { border: 1px solid var(--border); padding: 0.55rem 0.7rem; text-align: left; vertical-align: top; }
+.sit-table th { background: var(--bg-subtle); font-weight: 600; font-size: 0.85rem; }
+.sit-table .col-tag { font-family: var(--mono); font-size: 0.78rem; color: var(--text-soft); }
+.sit-table caption { caption-side: top; font-size: 0.82rem; color: var(--text-soft); padding-bottom: 0.4rem; text-align: left; }
+
+.tree { display:block; margin: 0.8rem auto 0.4rem; width:100%; max-width: 560px; height:auto; }
+.tree .branch { fill:none; stroke:var(--border); stroke-width:1.4; }
+.tree .lbl { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 12px; fill: var(--text); }
+.tree .node { font-family: var(--mono); font-size: 13px; fill: var(--text); font-weight: 600; }
+.tree .prob { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 11px; fill: #6366f1; }
+
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/">Probability</a>
+      <span class="sep">/</span>
+      <span class="current">06 · Compound probability</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1st BTL CCSS · Probability</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">May 3, 2026</span>
+      </div>
+      <h1 style="margin:0">6. Compound probability</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">When two or more <strong>chained events</strong> are involved — from different experiments or from the same one repeated — the joint probability is the <strong>product</strong> of the individual probabilities. This is the practical use of the <em>multiplication rule</em>: with the key distinction of whether the events are <strong>independent</strong> (the second one's probability does not depend on the first) or <strong>dependent</strong> (it does — typically, drawing <em>without replacement</em>).</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ DEFINITION + COMPOUND PRODUCT RULE ============ -->
+      <div class="apunt-section">
+        <h2>Definition</h2>
+
+        <div class="def-box">
+          <h3>Compound probability</h3>
+          <p>We speak of <strong>compound probability</strong> when we need to compute the probability that <em>two or more events</em> happen, where the events may come from different experiments or from the same experiment repeated several times. That is, events that <em>follow one another in time</em>.</p>
+          <p>The key idea is:</p>
+          <div class="math-block">
+            $$\boxed{\;\text{In compound probability, you }\textbf{multiply}\text{ the individual probabilities.}\;}$$
+          </div>
+          <p>Formally, if $A$ is the first event and $B$ the second:</p>
+          <div class="math-block">
+            $$P(A \cap B) \;=\; P(A) \cdot P(B \mid A).$$
+          </div>
+          <p>And if <strong>$A$ and $B$ are independent</strong> ($P(B \mid A) = P(B)$), the formula <em>simplifies</em> to:</p>
+          <div class="math-block">
+            $$P(A \cap B) \;=\; P(A) \cdot P(B).$$
+          </div>
+        </div>
+
+        <p class="note">This is the same multiplication rule from <a href="/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html">Section 5</a>, viewed now from the angle of events <em>chained over time</em>: first $A$ happens, then $B$.</p>
+      </div>
+
+      <!-- ============ THE 4 SITUATIONS ============ -->
+      <div class="apunt-section">
+        <h2>The 4 possible situations</h2>
+        <p>To compute a compound probability correctly, you first need to identify <em>which</em> situation you have. Two axes define 4 scenarios:</p>
+
+        <table class="sit-table">
+          <caption>Which formula applies depending on the experiment and on the dependence between events.</caption>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Independent <span class="col-tag">$P(B\mid A)=P(B)$</span></th>
+              <th>Dependent <span class="col-tag">$P(B\mid A)\neq P(B)$</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Two <em>different</em> experiments</th>
+              <td>$P(A\cap B) = P(A)\cdot P(B)$.<br>E.g. tossing a coin <em>and</em> rolling a die.</td>
+              <td>Uncommon at 1st BTL level. Different experiments are typically independent.</td>
+            </tr>
+            <tr>
+              <th>The <em>same</em> experiment repeated</th>
+              <td>$P(A\cap B) = P(A)\cdot P(B)$.<br>E.g. rolling the same die twice; <strong>with replacement</strong> (urn, deck).</td>
+              <td>$P(A\cap B) = P(A)\cdot P(B\mid A)$.<br>E.g. drawing two balls from an urn <strong>without replacement</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warn-box">
+          <h3>The key question: "is there replacement?"</h3>
+          <p>When extracting objects (balls, cards, parts…) one after another, the critical question is <strong>whether you put them back</strong> before the next draw:</p>
+          <p><strong>·</strong> <em>With replacement</em> → the experiment restarts identical → <strong>independent</strong>.</p>
+          <p><strong>·</strong> <em>Without replacement</em> → the urn changes between draws → <strong>dependent</strong>.</p>
+          <p>If the wording is not explicit, the context usually clarifies: "draw two balls" (without), "toss a coin twice" (with, by construction).</p>
+        </div>
+      </div>
+
+      <!-- ============ EXAMPLES ============ -->
+      <div class="apunt-section">
+        <h2>Examples</h2>
+
+        <div class="example-box">
+          <h3>Example 1 — Coin and die (different experiments, independent)</h3>
+          <p>A fair coin is tossed and a fair 6-sided die is rolled. What is the probability of getting <em>heads</em> and a <em>5</em>?</p>
+          <p>The two experiments are independent (the result of one does not influence the other), so:</p>
+          <div class="math-block">
+            $$P(\text{heads},\,5) \;=\; P(\text{heads}) \cdot P(5) \;=\; \frac{1}{2} \cdot \frac{1}{6} \;=\; \boxed{\;\frac{1}{12}\;\approx\;0{,}083.\;}$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Example 2 — A die rolled twice (same experiment, independent)</h3>
+          <p>A fair die is rolled twice. Compute:</p>
+
+          <p><strong>a)</strong> Probability of rolling $5$ on the first toss <em>and</em> $5$ on the second:</p>
+          <div class="math-block">
+            $$P(5,5) \;=\; \frac{1}{6} \cdot \frac{1}{6} \;=\; \boxed{\;\frac{1}{36}.\;}$$
+          </div>
+
+          <p><strong>b)</strong> Probability of rolling the <em>same</em> number both times (whichever number):</p>
+          <p>There are 6 ways to "make a pair" (1,1), (2,2), …, (6,6), each with probability $\tfrac{1}{36}$. Since they are mutually exclusive, we add them:</p>
+          <div class="math-block">
+            $$P(\text{2 equal}) \;=\; P(1,1) + P(2,2) + \cdots + P(6,6) \;=\; 6 \cdot \frac{1}{36} \;=\; \boxed{\;\frac{1}{6}.\;}$$
+          </div>
+          <p class="note">Idea: there are 36 ordered pairs $(i,j)$ and 6 of them are "diagonal" $(i,i)$.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Example 3 — Urn with 5 balls (3 red, 2 black)</h3>
+          <p>An urn contains <strong>3 red balls</strong> and <strong>2 black balls</strong>. We draw 2 balls one after the other. We compare the two key situations:</p>
+
+          <p><strong>a) With replacement</strong> (after the first ball, we return it to the urn and shake):</p>
+          <p>The urn returns to 5 balls before the 2nd draw. Therefore the two draws are <em>independent</em>:</p>
+          <div class="math-block">
+            $$P(\text{red, red}) \;=\; \frac{3}{5} \cdot \frac{3}{5} \;=\; \frac{9}{25} \;=\; 0{,}36.$$
+          </div>
+
+          <p><strong>b) Without replacement</strong> (we don't return it):</p>
+          <p>After taking out the first red, the urn has 4 balls left and only 2 reds. The conditional probability $P(B\mid A)$ changes:</p>
+          <div class="math-block">
+            $$P(\text{red, red}) \;=\; \underbrace{\frac{3}{5}}_{P(A)} \cdot \underbrace{\frac{2}{4}}_{P(B\mid A)} \;=\; \frac{6}{20} \;=\; \boxed{\;\frac{3}{10} \;=\; 0{,}3.\;}$$
+          </div>
+
+          <p class="note">The probability <em>drops</em> without replacement because the first draw has "used up" one red — the urn becomes less favourable for the second.</p>
+
+          <svg class="tree" viewBox="0 0 540 240" xmlns="http://www.w3.org/2000/svg" aria-label="Tree diagram: two draws without replacement from an urn with 3R and 2B">
+            <text class="lbl" x="20" y="125" text-anchor="start">start</text>
+            <line class="branch" x1="60" y1="120" x2="200" y2="65"/>
+            <text class="prob" x="115" y="85" text-anchor="middle">3/5</text>
+            <text class="node" x="210" y="70">R₁</text>
+            <line class="branch" x1="60" y1="120" x2="200" y2="175"/>
+            <text class="prob" x="115" y="160" text-anchor="middle">2/5</text>
+            <text class="node" x="210" y="180">B₁</text>
+
+            <line class="branch" x1="240" y1="65" x2="380" y2="35"/>
+            <text class="prob" x="305" y="42" text-anchor="middle">2/4</text>
+            <text class="node" x="390" y="40">R₂</text>
+            <line class="branch" x1="240" y1="65" x2="380" y2="95"/>
+            <text class="prob" x="305" y="92" text-anchor="middle">2/4</text>
+            <text class="node" x="390" y="100">B₂</text>
+
+            <line class="branch" x1="240" y1="175" x2="380" y2="145"/>
+            <text class="prob" x="305" y="152" text-anchor="middle">3/4</text>
+            <text class="node" x="390" y="150">R₂</text>
+            <line class="branch" x1="240" y1="175" x2="380" y2="205"/>
+            <text class="prob" x="305" y="202" text-anchor="middle">1/4</text>
+            <text class="node" x="390" y="210">B₂</text>
+
+            <text class="lbl" x="425" y="40">P(RR) = 3/5 · 2/4 = 3/10</text>
+            <text class="lbl" x="425" y="100">P(RB) = 3/5 · 2/4 = 3/10</text>
+            <text class="lbl" x="425" y="150">P(BR) = 2/5 · 3/4 = 3/10</text>
+            <text class="lbl" x="425" y="210">P(BB) = 2/5 · 1/4 = 1/10</text>
+          </svg>
+          <p class="note">Check: $\tfrac{3}{10} + \tfrac{3}{10} + \tfrac{3}{10} + \tfrac{1}{10} = 1$ ✓.</p>
+        </div>
+      </div>
+
+      <!-- ============ TREE DIAGRAM STRATEGY ============ -->
+      <div class="apunt-section">
+        <h2>Strategy: the tree diagram</h2>
+
+        <div class="prop-box">
+          <h3>Method</h3>
+          <p>For compound probability problems with 2 or 3 stages, draw a <strong>tree diagram</strong>:</p>
+          <p><strong>1.</strong> Each level of the tree represents one stage (1st draw, 2nd draw, …).</p>
+          <p><strong>2.</strong> On each branch, write the probability <em>conditional</em> on the path so far.</p>
+          <p><strong>3.</strong> The probability of a <em>complete path</em> is the <strong>product</strong> of its branch probabilities.</p>
+          <p><strong>4.</strong> For a question like "what is the probability of…", locate every path that satisfies it and <strong>add</strong> their products (different paths are mutually exclusive events).</p>
+        </div>
+
+        <p class="note">The tree is the natural way to combine the <em>multiplication rule</em> (along each path) with the <em>addition rule</em> (between paths). It connects directly to the <a href="/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html">law of total probability</a>.</p>
+      </div>
+
+      <!-- ============ EXERCISES ============ -->
+      <div class="apunt-section">
+        <h2>Exercises</h2>
+
+        <div class="exercise" id="ex-1">
+          <div class="exercise-head">
+            <span class="num">1</span>
+            <span class="ttl">Coin and die — variants</span>
+          </div>
+          <p class="exercise-intro">A fair coin and a fair 6-sided die are tossed. Compute the probability of:</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Getting <em>tails</em> and an even number.</span></summary>
+            <div class="apart-solution">
+              <p>Independent: $P(\text{tails}) = \tfrac{1}{2}$, $P(\text{even}) = \tfrac{3}{6} = \tfrac{1}{2}$.</p>
+              <div class="math-block">$$P(\text{tails},\text{even}) = \tfrac{1}{2}\cdot\tfrac{1}{2} = \boxed{\;\tfrac{1}{4}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Getting <em>heads</em> and a number <em>greater than 4</em>.</span></summary>
+            <div class="apart-solution">
+              <p>$P(\text{heads}) = \tfrac{1}{2}$, $P(>\!4) = P(\{5,6\}) = \tfrac{2}{6} = \tfrac{1}{3}$.</p>
+              <div class="math-block">$$P = \tfrac{1}{2}\cdot\tfrac{1}{3} = \boxed{\;\tfrac{1}{6}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">Neither heads nor a 1.</span></summary>
+            <div class="apart-solution">
+              <p>"Neither heads nor 1" = (tails) and (not 1). Both independent:</p>
+              <div class="math-block">$$P(\text{tails}, \neq\!1) = \tfrac{1}{2}\cdot\tfrac{5}{6} = \boxed{\;\tfrac{5}{12} \approx 0{,}417.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <div class="exercise" id="ex-2">
+          <div class="exercise-head">
+            <span class="num">2</span>
+            <span class="ttl">A die rolled twice</span>
+          </div>
+          <p class="exercise-intro">A fair die is rolled twice. Compute:</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(3,4)$ — exactly a 3 first and a 4 second.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">$$P(3,4) = \tfrac{1}{6}\cdot\tfrac{1}{6} = \boxed{\;\tfrac{1}{36}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{sum} = 7)$.</span></summary>
+            <div class="apart-solution">
+              <p>Ordered pairs with sum 7: $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$ — 6 pairs, each with probability $\tfrac{1}{36}$:</p>
+              <div class="math-block">$$P(\text{sum}=7) = 6\cdot\tfrac{1}{36} = \boxed{\;\tfrac{1}{6}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{first is odd and second is even})$.</span></summary>
+            <div class="apart-solution">
+              <p>Independent: $P(\text{odd}) = \tfrac{3}{6}=\tfrac{1}{2}$, $P(\text{even}) = \tfrac{1}{2}$.</p>
+              <div class="math-block">$$P = \tfrac{1}{2}\cdot\tfrac{1}{2} = \boxed{\;\tfrac{1}{4}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{neither roll is a 6})$.</span></summary>
+            <div class="apart-solution">
+              <p>"Neither" = "no 6 on the 1st" <em>and</em> "no 6 on the 2nd". Independent:</p>
+              <div class="math-block">$$P = \tfrac{5}{6}\cdot\tfrac{5}{6} = \boxed{\;\tfrac{25}{36}\approx 0{,}694.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <div class="exercise" id="ex-3">
+          <div class="exercise-head">
+            <span class="num">3</span>
+            <span class="ttl">Urn — with and without replacement</span>
+          </div>
+          <p class="exercise-intro">An urn contains <strong>4 white balls</strong> and <strong>3 black balls</strong>. We draw 2 balls consecutively.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt"><strong>With replacement</strong>: $P(\text{both white})$.</span></summary>
+            <div class="apart-solution">
+              <p>Each draw is independent; the urn always has 4 whites among 7 balls:</p>
+              <div class="math-block">$$P = \tfrac{4}{7}\cdot\tfrac{4}{7} = \boxed{\;\tfrac{16}{49}\approx 0{,}327.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt"><strong>Without replacement</strong>: $P(\text{both white})$.</span></summary>
+            <div class="apart-solution">
+              <p>After the 1st white, there are 3 whites among 6 balls:</p>
+              <div class="math-block">$$P = \tfrac{4}{7}\cdot\tfrac{3}{6} = \tfrac{12}{42} = \boxed{\;\tfrac{2}{7}\approx 0{,}286.\;}$$</div>
+              <p class="note">Without replacement gives <em>lower</em> probability: the first draw "consumed" a white.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt"><strong>Without replacement</strong>: $P(\text{one white and one black, in any order})$.</span></summary>
+            <div class="apart-solution">
+              <p>There are two compatible paths: WB and BW. By the multiplication and addition rules:</p>
+              <div class="math-block">$$P(\text{WB}) = \tfrac{4}{7}\cdot\tfrac{3}{6} = \tfrac{12}{42}, \qquad P(\text{BW}) = \tfrac{3}{7}\cdot\tfrac{4}{6} = \tfrac{12}{42}.$$</div>
+              <div class="math-block">$$P(\text{one of each}) = \tfrac{12}{42} + \tfrac{12}{42} = \tfrac{24}{42} = \boxed{\;\tfrac{4}{7}\approx 0{,}571.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <div class="exercise" id="ex-4">
+          <div class="exercise-head">
+            <span class="num">4</span>
+            <span class="ttl">Spanish deck — two cards in a row</span>
+          </div>
+          <p class="exercise-intro">From a Spanish deck of <strong>40 cards</strong> (10 coins, 10 cups, 10 swords, 10 clubs), we draw 2 cards in a row <strong>without replacement</strong>.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(\text{both are coins})$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">$$P = \tfrac{10}{40}\cdot\tfrac{9}{39} = \tfrac{90}{1560} = \boxed{\;\tfrac{3}{52}\approx 0{,}058.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{1st is a coin and 2nd is a cup})$.</span></summary>
+            <div class="apart-solution">
+              <p>After drawing a coin, 39 cards remain with all 10 cups intact:</p>
+              <div class="math-block">$$P = \tfrac{10}{40}\cdot\tfrac{10}{39} = \tfrac{100}{1560} = \boxed{\;\tfrac{5}{78}\approx 0{,}064.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{neither card is a coin})$.</span></summary>
+            <div class="apart-solution">
+              <p>"No coins" = no coin on the 1st and no coin on the 2nd. There are 30 non-coins:</p>
+              <div class="math-block">$$P = \tfrac{30}{40}\cdot\tfrac{29}{39} = \tfrac{870}{1560} = \boxed{\;\tfrac{29}{52}\approx 0{,}558.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{at least one coin})$.</span></summary>
+            <div class="apart-solution">
+              <p>By the complement of (c):</p>
+              <div class="math-block">$$P(\text{at least one coin}) = 1 - P(\text{no coins}) = 1 - \tfrac{29}{52} = \boxed{\;\tfrac{23}{52}\approx 0{,}442.\;}$$</div>
+              <p class="note">Trick: "at least one" is often easier via the complement "none".</p>
+            </div>
+          </details></div>
+        </div>
+
+        <div class="exercise" id="ex-5">
+          <div class="exercise-head">
+            <span class="num">5</span>
+            <span class="ttl">Three stages — coin tossed 3 times</span>
+          </div>
+          <p class="exercise-intro">A fair coin is tossed <strong>three times</strong>. Each toss is independent of the others.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(\text{three heads in a row})$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">$$P = \tfrac{1}{2}\cdot\tfrac{1}{2}\cdot\tfrac{1}{2} = \boxed{\;\tfrac{1}{8}=0{,}125.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{exactly two heads})$.</span></summary>
+            <div class="apart-solution">
+              <p>The 8 sequences are equiprobable ($\tfrac{1}{8}$ each). Those with exactly 2 heads: HHT, HTH, THH — there are 3.</p>
+              <div class="math-block">$$P(\text{2 heads}) = 3 \cdot \tfrac{1}{8} = \boxed{\;\tfrac{3}{8}=0{,}375.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{at least one head})$.</span></summary>
+            <div class="apart-solution">
+              <p>By the complement "no heads" (= 3 tails in a row):</p>
+              <div class="math-block">$$P(\text{at least 1 head}) = 1 - \left(\tfrac{1}{2}\right)^3 = 1 - \tfrac{1}{8} = \boxed{\;\tfrac{7}{8}=0{,}875.\;}$$</div>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html">&larr; 05 · Types of events</a>
+        <a class="index" href="/en/aula/ccss-1btl/apuntes/u-probabilitat/">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

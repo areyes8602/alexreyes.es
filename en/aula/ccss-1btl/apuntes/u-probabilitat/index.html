@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes · Probability · 1st BTL CCSS</title>
+<meta name="description" content="Complete notes for the Probability unit of Applied Maths for Social Sciences (1st BTL): preliminary definitions, Laplace's rule, conditional and compound probability.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202605031827">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605031827">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/u-probabilitat/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/apuntes/u-probabilitat/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <span class="current">Notes · Probability</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1st BTL CCSS</span>
+        <span class="tag tag-orange">Notes</span>
+      </div>
+      <h1 style="margin:0">Probability</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Class notes (originally in Catalan; section 06 also available in English). Published section by section as the unit unfolds.</p>
+    </div>
+
+    <div class="exam-list" style="grid-template-columns:1fr">
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/01-definicions-previes.html" class="exam-card" style="text-decoration:none;color:inherit">
+        <div class="exam-card-head">
+          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">01</span>
+          <span class="tag tag-gray" style="font-size:0.7rem">Apr 17, 2026</span>
+        </div>
+        <h3 class="exam-card-title">Preliminary definitions <span class="tag tag-gray" style="font-size:0.62rem;margin-left:0.4rem">CA</span></h3>
+        <p class="exam-card-meta">Deterministic and random experiments, sample space, events, cardinality and Laplace's rule.</p>
+      </a>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/02-operacions-amb-conjunts.html" class="exam-card" style="text-decoration:none;color:inherit">
+        <div class="exam-card-head">
+          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">02</span>
+          <span class="tag tag-gray" style="font-size:0.7rem">Apr 17, 2026</span>
+        </div>
+        <h3 class="exam-card-title">Set operations <span class="tag tag-gray" style="font-size:0.62rem;margin-left:0.4rem">CA</span></h3>
+        <p class="exam-card-meta">Union, intersection, complement, difference and conditional probability.</p>
+      </a>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html" class="exam-card" style="text-decoration:none;color:inherit">
+        <div class="exam-card-head">
+          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">03</span>
+          <span class="tag tag-gray" style="font-size:0.7rem">Apr 24, 2026</span>
+        </div>
+        <h3 class="exam-card-title">Total probability and Bayes' theorem <span class="tag tag-gray" style="font-size:0.62rem;margin-left:0.4rem">CA</span></h3>
+        <p class="exam-card-meta">Sample-space partition, formulas of both theorems and a guided tree-diagram example.</p>
+      </a>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html" class="exam-card" style="text-decoration:none;color:inherit">
+        <div class="exam-card-head">
+          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">04</span>
+          <span class="tag tag-gray" style="font-size:0.7rem">Apr 24, 2026</span>
+        </div>
+        <h3 class="exam-card-title">Exercises <span class="tag tag-gray" style="font-size:0.62rem;margin-left:0.4rem">CA</span></h3>
+        <p class="exam-card-meta">Six worked exercises (urns, die, light bulbs, credit, Selectivitat) to practise total probability and Bayes.</p>
+      </a>
+      <a href="/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html" class="exam-card" style="text-decoration:none;color:inherit">
+        <div class="exam-card-head">
+          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">05</span>
+          <span class="tag tag-gray" style="font-size:0.7rem">Apr 28, 2026</span>
+        </div>
+        <h3 class="exam-card-title">Types of events <span class="tag tag-gray" style="font-size:0.62rem;margin-left:0.4rem">CA</span></h3>
+        <p class="exam-card-meta">Compatible vs incompatible ($A \cap B = \varnothing$) and dependent vs independent ($P(A \cap B) = P(A) \cdot P(B)$). Venn diagrams and 4 exercises.</p>
+      </a>
+      <a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html" class="exam-card" style="text-decoration:none;color:inherit">
+        <div class="exam-card-head">
+          <span class="exam-card-date" style="font-family:var(--mono);font-size:0.74rem">06</span>
+          <span class="tag tag-gray" style="font-size:0.7rem">May 3, 2026</span>
+        </div>
+        <h3 class="exam-card-title">Compound probability</h3>
+        <p class="exam-card-meta">Chained events — the multiplication rule: $P(A\cap B) = P(A)\cdot P(B\mid A)$. Table of the 4 situations, examples (coin+die, die rolled twice, urn with/without replacement) and 5 exercises with hidden solutions.</p>
+      </a>
+    </div>
+
+    <p style="margin-top:1.5rem;font-size:0.88rem;color:var(--text-soft)">Sections 01–05 are only available in Catalan (their canonical version).</p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

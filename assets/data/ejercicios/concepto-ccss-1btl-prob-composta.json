@@ -1,0 +1,122 @@
+{
+  "schema_version": 3,
+  "id": "concepto-ccss-1btl-prob-composta",
+  "tipo_coleccion": "apuntes_concepto",
+  "titulo": "Apunts CCSS 1r BTL — Probabilitat composta · Exercicis base",
+  "fecha": "2026-05-03",
+  "promocion": "all",
+  "url_index": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html",
+  "puntuacion_total": 0,
+  "tags_coleccion": {
+    "materia": "ccss-1btl",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "propia",
+    "origen": "classe",
+    "ambito_bach": "BACH-E"
+  },
+  "ejercicios": [
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e1",
+      "numero": 1,
+      "titulo": "Moneda i dau — variants",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-1",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-1",
+      "puntuacion": 0,
+      "contexto": "Es llança una moneda correcta i un dau correcte de 6 cares.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "Probabilitat de treure creu i un nombre parell"},
+        {"letra": "b", "puntos": 0, "tarea": "Probabilitat de treure cara i un nombre més gran que 4"},
+        {"letra": "c", "puntos": 0, "tarea": "Probabilitat de no treure ni cara ni un 1"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e2",
+      "numero": 2,
+      "titulo": "Dau dues vegades — parelles, suma 7 i complementari",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-2",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-2",
+      "puntuacion": 0,
+      "contexto": "Es llança un dau correcte dues vegades.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "$P(3,4)$ — exactament un 3 a la primera i un 4 a la segona"},
+        {"letra": "b", "puntos": 0, "tarea": "$P(\\text{suma} = 7)$"},
+        {"letra": "c", "puntos": 0, "tarea": "$P(\\text{el primer és senar i el segon és parell})$"},
+        {"letra": "d", "puntos": 0, "tarea": "$P(\\text{cap dos sigui un 6})$"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e3",
+      "numero": 3,
+      "titulo": "Urna 4B/3N — amb i sense reposició",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-3",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-3",
+      "puntuacion": 0,
+      "contexto": "Una urna conté 4 boles blanques i 3 boles negres. Treiem 2 boles consecutivament.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "Amb reposició: $P(\\text{ambdues blanques})$"},
+        {"letra": "b", "puntos": 0, "tarea": "Sense reposició: $P(\\text{ambdues blanques})$"},
+        {"letra": "c", "puntos": 0, "tarea": "Sense reposició: $P(\\text{una blanca i una negra, en qualsevol ordre})$"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "interpretacion", "modelizacion"],
+        "formato": ["pregunta_corta", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e4",
+      "numero": 4,
+      "titulo": "Baralla espanyola — dues cartes sense reposició",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-4",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-4",
+      "puntuacion": 0,
+      "contexto": "D'una baralla espanyola de 40 cartes (10 ors, 10 copes, 10 espases, 10 bastos), traiem 2 cartes seguides sense reposició.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "$P(\\text{les dues són ors})$"},
+        {"letra": "b", "puntos": 0, "tarea": "$P(\\text{la 1a és or i la 2a és copa})$"},
+        {"letra": "c", "puntos": 0, "tarea": "$P(\\text{cap és or})$"},
+        {"letra": "d", "puntos": 0, "tarea": "$P(\\text{almenys una és or})$ — pel complementari"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "interpretacion", "modelizacion"],
+        "formato": ["pregunta_corta", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e5",
+      "numero": 5,
+      "titulo": "Tres etapes — moneda 3 vegades",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-5",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-5",
+      "puntuacion": 0,
+      "contexto": "Es llança una moneda correcta tres vegades. Cada llançament és independent dels altres.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "$P(\\text{tres cares seguides})$"},
+        {"letra": "b", "puntos": 0, "tarea": "$P(\\text{exactament dues cares})$"},
+        {"letra": "c", "puntos": 0, "tarea": "$P(\\text{almenys una cara})$ — pel complementari"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_corta"]
+      }
+    }
+  ]
+}
