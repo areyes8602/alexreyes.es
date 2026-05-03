@@ -298,7 +298,7 @@ SUBJ_1BTL = {
          "desc_l":{"ca":"Equacions de 1r i 2n grau, exponencials, logarítmiques i sistemes lineals i no lineals.",
                    "es":"Ecuaciones de primer y segundo grado, exponenciales, logarítmicas y sistemas lineales y no lineales.",
                    "en":"First and second degree, exponential and logarithmic equations and linear/non-linear systems."},
-         "fitxes":"/aula/ccss-1btl/fitxes/u-equacions-pol-bi-rac/"},
+         "fitxes":"/aula/ccss-1btl/ejercicios/u-equacions-pol-bi-rac/"},
         {"num":"04","slug":"inequacions","title":"Inequacions i sistemes d'inequacions","llibre":"Baula 4","inici":"12 nov 2025","final":"19 nov 2025","trimestre":"1a",
          "desc_l":{"ca":"Inequacions lineals i quadràtiques, sistemes d'inequacions i resolució de problemes.",
                    "es":"Inecuaciones lineales y cuadráticas, sistemas de inecuaciones y resolución de problemas.",

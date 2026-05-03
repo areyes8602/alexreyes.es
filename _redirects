@@ -8,3 +8,19 @@
 # repo root, then open http://localhost:8000/editor/
 /editor/* /404.html 404
 /editor /404.html 404
+
+# ─────────────────────────────────────────────────────────────────────
+# Renombrados Fase 3 — carpetas unificadas a /apuntes/ y /ejercicios/
+# ─────────────────────────────────────────────────────────────────────
+
+# IB AI HL: /conceptos/ → /apuntes/ (los conceptos ahora son apuntes)
+/aula/ib-ai-hl/conceptos/* /aula/ib-ai-hl/apuntes/:splat 301
+
+# IB AI HL: /fichas/ → /ejercicios/ (todas las recopilaciones son ejercicios)
+/aula/ib-ai-hl/fichas/* /aula/ib-ai-hl/ejercicios/:splat 301
+
+# CCSS 1BTL: /fitxes/ → /ejercicios/ (nombre castellano neutral)
+/aula/ccss-1btl/fitxes/* /aula/ccss-1btl/ejercicios/:splat 301
+
+# CCSS 1BTL: /exercicis-classe/ → /ejercicios/ (fusión bajo nombre unificado)
+/aula/ccss-1btl/exercicis-classe/* /aula/ccss-1btl/ejercicios/:splat 301

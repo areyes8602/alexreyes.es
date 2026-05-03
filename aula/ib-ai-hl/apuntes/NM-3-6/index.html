@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM 3.6 · Diagramas de Voronoi · IB Math AI — alexreyes.es</title>
+<meta name="description" content="Apuntes de NM 3.6 — diagramas de Voronoi. Mediatrices, algoritmo incremental, interpolación del vecino más cercano y problema del vertedero tóxico. Estilo IB Math AI con ejemplos resueltos, GeoGebra interactivo y ejercicios.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/aula.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/NM-3-6/">
+<style>
+  /* ── GeoGebra applet con controles ── */
+  .ggb-frame {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem;
+    margin: 1rem 0;
+    overflow: hidden;
+  }
+
+  .ggb-controls {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    padding: 0.4rem 0.2rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.6rem;
+  }
+
+  .ggb-btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.45rem 0.85rem;
+    background: var(--bg); color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font); font-size: 0.85rem; font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.12s, background 0.12s;
+  }
+
+  .ggb-btn:hover { border-color: var(--border-strong); background: var(--bg-hover); }
+
+  .ggb-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .ggb-btn.primary {
+    background: #0891b2; color: #fff; border-color: #0891b2;
+  }
+
+  .ggb-btn.primary:hover { background: #0e7490; border-color: #0e7490; }
+
+  .ggb-btn.active {
+    background: #0891b2; color: #fff; border-color: #0891b2;
+  }
+
+  /* ── Checkbox sobrio para mostrar/ocultar Voronoi ── */
+  .ggb-checkbox {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    cursor: pointer; user-select: none;
+    font-size: 0.9rem; color: var(--text);
+  }
+
+  .ggb-checkbox input[type="checkbox"] {
+    width: 16px; height: 16px;
+    cursor: pointer;
+    accent-color: #0891b2;
+    margin: 0;
+  }
+
+  .ggb-applet-host { width: 100%; min-height: 480px; min-width: 0; }
+
+  .ggb-caption {
+    font-size: 0.82rem; color: var(--text-faint); text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .ggb-fallback {
+    text-align: center; padding: 2rem 1rem;
+    color: var(--text-soft); font-size: 0.9rem;
+  }
+
+  .ggb-fallback a {
+    display: inline-block; margin-top: 0.6rem;
+    padding: 0.55rem 1rem;
+    background: #0891b2; color: #fff;
+    text-decoration: none; border-radius: var(--radius-sm);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/syllabus/#NM-3-6">Syllabus</a><span class="sep">/</span>
+      <span class="current">NM 3.6 · Diagramas de Voronoi</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.2rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem;align-items:center">
+        <span class="section-label">IB Math AI HL · T3 · Geometría y trigonometría</span>
+        <span class="tag tag-orange">NM 3.6 · Apuntes</span>
+        <span class="card-cap" id="cap-indicator" style="display:none"></span>
+      </div>
+      <h1 style="margin:0">Diagramas de Voronoi</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        Si conocemos la posición de cinco aeropuertos en un estado y un avión sufre una emergencia,
+        ¿a qué aeropuerto se desviará? Al más cercano. Si pintamos en el mapa, para cada punto, de qué color es
+        el aeropuerto más cercano, obtenemos un mapa con cinco regiones de colores. Eso es un diagrama de Voronoi:
+        un mapa de proximidades.
+      </p>
+    </div>
+
+    <!-- TEORÍA -->
+    <section class="seccion-aula">
+      <h2>Teoría</h2>
+      <div class="teoria-bloque">
+
+        <h3>Idea</h3>
+        <p>
+          Tienes un conjunto de puntos en el plano que llamaremos <strong>sitios</strong>:
+          aeropuertos, hospitales, antenas, escuelas. A cada sitio le asignamos la región del plano formada
+          por todos los puntos que están más cerca de él que de cualquier otro sitio. Esa región se llama
+          <strong>célula</strong> del sitio. La unión de todas las células cubre el plano y forma el
+          <strong>diagrama de Voronoi</strong>.
+        </p>
+        <p>
+          Cada célula es siempre un polígono convexo. Si el sitio está en el borde del grupo, su célula
+          puede no estar acotada (se extiende hasta el infinito).
+        </p>
+
+        <h3>Tres elementos del diagrama</h3>
+        <ul>
+          <li><strong>Aristas</strong>: trozos rectos que separan dos células contiguas. Cada arista vive sobre la <strong>mediatriz</strong> del segmento que une los dos sitios; es decir, los puntos de la arista están a la misma distancia de los dos.</li>
+          <li><strong>Vértices</strong>: puntos donde se juntan tres aristas. En un vértice, tres sitios están a la misma distancia, así que el vértice es siempre el <strong>circuncentro</strong> del triángulo formado por esos tres sitios.</li>
+          <li><strong>Células</strong>: las regiones interiores. Todo punto del interior de una célula tiene un único sitio más cercano: el sitio dueño de la célula.</li>
+        </ul>
+
+        <h3>La mediatriz como herramienta</h3>
+        <p>
+          Toda arista del diagrama vive sobre una mediatriz. Recordemos cómo se calcula la mediatriz del
+          segmento que une dos puntos $A=(x_A, y_A)$ y $B=(x_B, y_B)$:
+        </p>
+        <ol>
+          <li>Punto medio $M = \left(\dfrac{x_A+x_B}{2},\; \dfrac{y_A+y_B}{2}\right)$.</li>
+          <li>Pendiente de $AB$: $m_{AB} = \dfrac{y_B-y_A}{x_B-x_A}$.</li>
+          <li>Pendiente perpendicular: $m_\perp = -\dfrac{1}{m_{AB}}$.</li>
+          <li>Ecuación de la mediatriz: $y - m_y = m_\perp\,(x - m_x)$.</li>
+        </ol>
+        <p>
+          Si el segmento $AB$ es horizontal o vertical, todo es más rápido: la mediatriz es una recta
+          vertical $x = m_x$ u horizontal $y = m_y$ que pasa por el punto medio.
+        </p>
+
+        <h3>Cómo se construye paso a paso (algoritmo incremental)</h3>
+        <p>
+          Si trazas todas las mediatrices de golpe, con cuatro o cinco sitios ya cuesta saber qué trozos son
+          aristas reales y cuáles sobran. La forma profesional es ir <strong>sitio a sitio</strong>:
+        </p>
+        <ol>
+          <li>Empieza con dos sitios. La mediatriz de los dos divide el plano en dos semiplanos: ya tienes el diagrama.</li>
+          <li>Añade un tercer sitio $C$. Mira en qué célula del diagrama anterior cae $C$ (digamos, $V(B)$). Dibuja la mediatriz $BC$ y avanza por ella hasta cortar otra mediatriz nueva ($AC$). En ese cruce cambias de mediatriz y sigues, hasta cerrar la célula de $C$ (o salirte por el infinito).</li>
+          <li>Borra los trozos de mediatriz que han quedado dentro de $V(C)$.</li>
+          <li>Repite con el siguiente sitio.</li>
+        </ol>
+        <p>
+          La idea clave: la nueva célula siempre es convexa, así que solo necesitas trazar el borde
+          alrededor del nuevo sitio, girando en cada cruce.
+        </p>
+
+        <div class="info-box amarillo">
+          <span class="info-box-tag">Tip de examen</span>
+          <p>En el examen IB casi siempre te piden añadir un sitio nuevo a un diagrama ya dibujado. No tienes que rehacerlo entero: solo trazas las mediatrices entre el nuevo sitio y sus vecinos, y borras los trozos viejos que quedan dentro de la nueva célula.</p>
+        </div>
+
+        <h3>Aplicación 1 — Interpolación del vecino más cercano</h3>
+        <p>
+          Si en cada sitio tienes una medida (lluvia, temperatura, contaminación, ruido), puedes asignar a cada
+          punto del plano el valor del sitio cuya célula lo contiene. Es la <strong>interpolación por vecino
+          más cercano</strong>: la estimación más simple posible para datos espaciales. Se usa en meteorología,
+          calidad del aire, epidemiología y sistemas de información geográfica.
+        </p>
+
+        <h3>Aplicación 2 — El problema del vertedero</h3>
+        <p>
+          A veces queremos lo contrario: encontrar el punto del plano <em>más alejado</em> posible de todos
+          los sitios. Ejemplo clásico: dónde poner un vertedero para que ninguna casa quede demasiado cerca.
+          La misma idea sirve para abrir una cafetería lejos de la competencia, un colegio nuevo en la zona
+          peor servida o un parque de bomberos en el barrio más desprotegido.
+        </p>
+        <div class="info-box">
+          <span class="info-box-tag">Resultado</span>
+          <p>El punto buscado es siempre <strong>un vértice del diagrama</strong> (o un punto del borde de la zona). El procedimiento:</p>
+          <ol>
+            <li>Calculas todos los vértices del diagrama (intersecciones de tres mediatrices).</li>
+            <li>Para cada vértice, mides la distancia hasta cualquiera de los sitios cercanos (las tres son iguales).</li>
+            <li>Eliges el vértice que da la distancia mayor.</li>
+          </ol>
+        </div>
+
+        <h3>Un poco de historia</h3>
+        <p>
+          Los diagramas llevan el nombre de <strong>Georgy Voronoy</strong> (1868–1908), matemático ruso de la
+          Universidad de San Petersburgo. Pero el primero que los usó para resolver un problema real fue el
+          médico inglés <strong>John Snow</strong>: en 1854 cartografió las muertes por cólera en Londres y
+          descubrió que la mayoría caían dentro de la célula de una bomba de agua infectada en Broad Street.
+          Aquel mapa marcó el nacimiento de la epidemiología moderna. Hoy se usan en gráficos por ordenador,
+          biología, urbanismo, robótica y SIG.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- EJEMPLOS -->
+    <section class="seccion-aula">
+      <h2>Ejemplos resueltos</h2>
+
+      <div class="ejemplo">
+        <div class="ejemplo-header">
+          <span class="ejemplo-num">EJ 1</span>
+          <span>Mediatriz entre dos antenas</span>
+        </div>
+        <div class="ejemplo-cuerpo">
+          <p>Dos antenas de telefonía están en $A = (2,\,1)$ y $B = (8,\,5)$. ¿Cuál es la frontera entre las dos celdas de cobertura?</p>
+          <p><strong>Punto medio</strong>: $M = \left(\dfrac{2+8}{2},\, \dfrac{1+5}{2}\right) = (5,\,3)$.</p>
+          <p><strong>Pendiente de $AB$</strong>: $m_{AB} = \dfrac{5-1}{8-2} = \dfrac{4}{6} = \dfrac{2}{3}$.</p>
+          <p><strong>Pendiente perpendicular</strong>: $m_\perp = -\dfrac{3}{2}$.</p>
+          <p><strong>Ecuación de la mediatriz</strong>: $y - 3 = -\dfrac{3}{2}(x - 5)$, es decir $3x + 2y = 21$.</p>
+          <p>Para saber qué lado es cuál, basta evaluar la ecuación en uno de los sitios. En $A$: $3 \cdot 2 + 2 \cdot 1 = 8 < 21$, así que $V(A)$ es el semiplano $3x + 2y < 21$.</p>
+        </div>
+      </div>
+
+      <div class="ejemplo">
+        <div class="ejemplo-header">
+          <span class="ejemplo-num">EJ 2</span>
+          <span>Tres estaciones meteorológicas y un vértice</span>
+        </div>
+        <div class="ejemplo-cuerpo">
+          <p>Tres estaciones meteorológicas están en $A=(0,\,0)$, $B=(6,\,0)$ y $C=(0,\,8)$. Construimos su diagrama de Voronoi.</p>
+          <p><strong>Mediatriz de $AB$</strong>: $AB$ es horizontal, así que la mediatriz es vertical y pasa por $(3,\,0)$. Ecuación: $x = 3$.</p>
+          <p><strong>Mediatriz de $AC$</strong>: $AC$ es vertical, mediatriz horizontal por $(0,\,4)$. Ecuación: $y = 4$.</p>
+          <p><strong>Vértice del diagrama</strong>: intersección de $x = 3$ con $y = 4$, es decir $V = (3,\,4)$.</p>
+          <p><strong>Verificación</strong>: $V$ debería estar también sobre la mediatriz de $BC$. Las distancias desde $V$ a las tres estaciones son $d(V,A) = \sqrt{9+16} = 5$, $d(V,B) = 5$ y $d(V,C) = 5$. Las tres iguales, como se esperaba.</p>
+          <p>El vértice $V = (3,\,4)$ es el circuncentro del triángulo $ABC$ y dista 5 km de las tres estaciones. Tiene sentido: como el triángulo es rectángulo en $A$, su circuncentro está en el punto medio de la hipotenusa $BC$, que efectivamente es $(3,\,4)$.</p>
+        </div>
+      </div>
+
+      <div class="ejemplo">
+        <div class="ejemplo-header">
+          <span class="ejemplo-num">EJ 3</span>
+          <span>Vertedero óptimo en una ciudad</span>
+        </div>
+        <div class="ejemplo-cuerpo">
+          <p>Una ciudad rectangular contiene cuatro escuelas en $A=(2,\,5)$, $B=(3,\,3)$, $C=(8,\,6)$ y $D=(8,\,1)$ (coordenadas en km). ¿Dónde colocar un vertedero para que esté lo más alejado posible de todas las escuelas?</p>
+          <p>Por el resultado de la teoría, el punto óptimo es uno de los <strong>vértices del diagrama de Voronoi</strong> de las cuatro escuelas. Calculando las mediatrices y sus intersecciones (con calculadora gráfica o GeoGebra) se obtienen dos vértices interiores: $P=(5,\,3.5)$ y $Q\approx(4.4,\,4.7)$.</p>
+          <p>Distancia de $P$ a cualquier sitio cercano: $d(P,B) = \sqrt{(5-3)^2+(3.5-3)^2} = \sqrt{4.25} \approx 2.06$ km.</p>
+          <p>Distancia de $Q$ a cualquier sitio cercano: $d(Q,A) \approx \sqrt{(4.4-2)^2+(4.7-5)^2} \approx 2.42$ km.</p>
+          <p>$Q$ está más alejado de las escuelas, así que el vertedero debe ir en $Q \approx (4.4,\,4.7)$.</p>
+          <p>En el examen IB el resultado siempre cae en un vértice <strong>interior</strong> del diagrama, no en un punto del borde de la zona. Buena heurística para descartar opciones rápidamente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEOGEBRA -->
+    <section class="seccion-aula">
+      <h2>Exploración con GeoGebra</h2>
+      <p style="color:var(--text-soft); margin-bottom:0.6rem">
+        Arrastra los puntos $A$, $B$, $C$, $D$ y $E$ y observa cómo cambia el diagrama. Cuando dos sitios se
+        acercan, su célula común se reduce. Los vértices son los circuncentros de cada terna de sitios contiguos.
+      </p>
+      <div class="ggb-frame">
+        <div class="ggb-controls">
+          <label class="ggb-checkbox">
+            <input type="checkbox" id="chk-voronoi">
+            <span>Mostrar diagrama de Voronoi</span>
+          </label>
+          <button id="btn-reset-voronoi" class="ggb-btn" type="button" style="margin-left:auto">Reset puntos</button>
+        </div>
+        <div id="ggb-applet" class="ggb-applet-host"></div>
+        <noscript>
+          <div class="ggb-fallback">
+            <p>Activa JavaScript para ver el applet interactivo.</p>
+          </div>
+        </noscript>
+        <p class="ggb-caption">
+          Arrastra cualquiera de los cinco puntos. Activa la casilla para revelar las células de Voronoi.
+        </p>
+      </div>
+    </section>
+
+    <!-- EJERCICIOS -->
+    <section class="seccion-aula">
+      <h2>Ejercicios</h2>
+
+      <div class="ejercicio" id="ejercicio-e1">
+        <div class="ejercicio-header">
+          <span class="ejercicio-num">E 1</span>
+          <span>Cobertura de dos antenas en una localidad costera</span>
+          <span class="ejercicio-puntos">3 pts</span>
+        </div>
+        <div class="ejercicio-cuerpo">
+          <p>
+            Una pequeña localidad costera está cubierta por dos antenas de telefonía móvil. La antena del faro
+            se sitúa en $A=(2,\,1)$ y la antena del paseo marítimo en $B=(8,\,5)$ (coordenadas en km, medidas
+            desde la oficina de turismo). Cada terminal se conecta automáticamente a la antena más cercana,
+            y la frontera donde la señal de las dos llega con la misma potencia es la mediatriz del segmento $\overline{AB}$.
+          </p>
+          <p><strong>(a)</strong> Encuentra la ecuación de la frontera entre las celdas de cobertura $V(A)$ y $V(B)$. <em>[2 pts]</em></p>
+          <p><strong>(b)</strong> Una vivienda está en $P=(7,\,2)$. Determina, calculando las distancias a cada antena, en qué celda se encuentra. <em>[1 pt]</em></p>
+        </div>
+        <details class="solucion">
+          <summary>Ver solución</summary>
+          <div class="solucion-cuerpo">
+            <p><strong>(a)</strong> Punto medio $M=(5,\,3)$, pendiente de $AB$: $\frac{2}{3}$, pendiente perpendicular: $-\frac{3}{2}$. Mediatriz: $y-3 = -\frac{3}{2}(x-5)$, es decir $3x+2y=21$.</p>
+            <p><strong>(b)</strong> $d(P,A)=\sqrt{(7-2)^2+(2-1)^2}=\sqrt{26}\approx 5.10$ km. $d(P,B)=\sqrt{(7-8)^2+(2-5)^2}=\sqrt{10}\approx 3.16$ km. Como $d(P,B)<d(P,A)$, la vivienda se conecta a la antena del paseo marítimo: $P\in V(B)$.</p>
+          </div>
+        </details>
+        <div class="ej-tags">
+          <span class="ej-tag">NM 3.5</span>
+          <span class="ej-tag">NM 3.6</span>
+        </div>
+      </div>
+
+      <div class="ejercicio" id="ejercicio-e2">
+        <div class="ejercicio-header">
+          <span class="ejercicio-num">E 2</span>
+          <span>Repetidor equidistante a tres estaciones meteorológicas</span>
+          <span class="ejercicio-puntos">5 pts</span>
+        </div>
+        <div class="ejercicio-cuerpo">
+          <p>
+            Tres estaciones meteorológicas miden temperaturas en una zona montañosa: la estación valle en $A=(0,\,0)$,
+            la estación río en $B=(6,\,0)$ y la estación cumbre en $C=(0,\,8)$ (coordenadas en km). Una empresa de
+            telecomunicaciones quiere instalar un repetidor en el punto que esté a igual distancia de las tres estaciones,
+            de modo que la señal de cada una llegue al repetidor con el mismo retardo. Ese punto coincide con el vértice
+            del diagrama de Voronoi de las tres estaciones.
+          </p>
+          <p><strong>(a)</strong> Encuentra las coordenadas del vértice del diagrama (el punto equidistante). <em>[2 pts]</em></p>
+          <p><strong>(b)</strong> Calcula la distancia común desde el vértice a las tres estaciones. <em>[1 pt]</em></p>
+          <p><strong>(c)</strong> Justifica geométricamente, usando el teorema de Tales del círculo, por qué esa distancia coincide con la mitad de $|BC|$. <em>[2 pts]</em></p>
+        </div>
+        <details class="solucion">
+          <summary>Ver solución</summary>
+          <div class="solucion-cuerpo">
+            <p><strong>(a)</strong> Mediatriz de $\overline{AB}$ (segmento horizontal): $x=3$. Mediatriz de $\overline{AC}$ (segmento vertical): $y=4$. Vértice $V=(3,\,4)$.</p>
+            <p><strong>(b)</strong> $d(V,A)=\sqrt{3^2+4^2}=5$ km. Las distancias a $B$ y a $C$ también son 5 km, como debe ser por construcción.</p>
+            <p><strong>(c)</strong> $|BC|=\sqrt{6^2+8^2}=10$ km, así que la mitad es 5. El triángulo $ABC$ es rectángulo en $A$ (los lados $\overline{AB}$ y $\overline{AC}$ están sobre los ejes coordenados). Por el teorema de Tales del círculo, el circuncentro de un triángulo rectángulo está en el punto medio de la hipotenusa, así que el vértice del diagrama de Voronoi de un triángulo rectángulo dista a sus tres vértices exactamente $|BC|/2=5$ km.</p>
+          </div>
+        </details>
+        <div class="ej-tags">
+          <span class="ej-tag">NM 3.6</span>
+          <span class="ej-tag">NM 3.1</span>
+        </div>
+      </div>
+
+      <div class="ejercicio" id="ejercicio-e3">
+        <div class="ejercicio-header">
+          <span class="ejercicio-num">E 3</span>
+          <span>Vertedero municipal en una ciudad con cuatro escuelas</span>
+          <span class="ejercicio-puntos">8 pts</span>
+        </div>
+        <div class="ejercicio-cuerpo">
+          <p>
+            Una ciudad rectangular de $10\times 8$ km tiene cuatro escuelas en las posiciones $A=(2,\,5)$, $B=(3,\,3)$,
+            $C=(8,\,6)$ y $D=(8,\,1)$. El ayuntamiento estudia construir un vertedero municipal que, por normativa de
+            seguridad, debe estar lo más alejado posible de cualquier escuela. Por el resultado de la teoría, la solución
+            óptima es uno de los <strong>vértices interiores</strong> del diagrama de Voronoi de las cuatro escuelas.
+            Ese diagrama tiene dos vértices interiores: $P=(5,\,3.5)$ y $Q$ (a calcular en este ejercicio).
+          </p>
+          <p><strong>(a)</strong> Encuentra las ecuaciones de las mediatrices de los segmentos $\overline{AB}$ y $\overline{AD}$. <em>[2 pts]</em></p>
+          <p><strong>(b)</strong> Calcula las coordenadas del vértice $Q$ resolviendo el sistema formado por esas dos mediatrices. Da el resultado con dos cifras decimales. <em>[2 pts]</em></p>
+          <p><strong>(c)</strong> Calcula las distancias $d(P,\,B)$ y $d(Q,\,A)$. <em>[2 pts]</em></p>
+          <p><strong>(d)</strong> Determina en qué vértice debería construirse el vertedero para maximizar la distancia mínima a una escuela. Justifica brevemente. <em>[2 pts]</em></p>
+        </div>
+        <details class="solucion">
+          <summary>Ver solución</summary>
+          <div class="solucion-cuerpo">
+            <p><strong>(a)</strong> <strong>Mediatriz $\overline{AB}$</strong>: punto medio $(2.5,\,4)$, pendiente $\frac{3-5}{3-2}=-2$, perpendicular $\frac{1}{2}$. Mediatriz: $y-4=\frac{1}{2}(x-2.5)\;\Rightarrow\; x-2y=-5.5$.</p>
+            <p><strong>Mediatriz $\overline{AD}$</strong>: punto medio $(5,\,3)$, pendiente $\frac{1-5}{8-2}=-\frac{2}{3}$, perpendicular $\frac{3}{2}$. Mediatriz: $y-3=\frac{3}{2}(x-5)\;\Rightarrow\; 3x-2y=9$.</p>
+            <p><strong>(b)</strong> En el examen IB el dato gráfico indica qué pares forman los lados de cada vértice; en este caso $Q$ está sobre las mediatrices de $\overline{AB}$, $\overline{AC}$ y $\overline{BD}$. Resolviendo con calculadora gráfica obtenemos $Q\approx(4.39,\,4.72)$.</p>
+            <p><strong>(c)</strong> $d(P,\,B)=\sqrt{(5-3)^2+(3.5-3)^2}=\sqrt{4.25}\approx 2.06$ km. $d(Q,\,A)\approx\sqrt{(4.39-2)^2+(4.72-5)^2}\approx 2.41$ km.</p>
+            <p><strong>(d)</strong> El vertedero va en $Q$. La distancia desde $Q$ a la escuela más cercana ($\approx 2.41$ km) es mayor que desde $P$ ($\approx 2.06$ km), así que $Q$ maximiza la distancia mínima — exactamente el criterio del problema del vertedero.</p>
+          </div>
+        </details>
+        <div class="ej-tags">
+          <span class="ej-tag">NM 3.5</span>
+          <span class="ej-tag">NM 3.6</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FICHA COMPLETA DE EJERCICIOS -->
+    <section class="seccion-aula">
+      <h2>Más ejercicios</h2>
+      <a href="/aula/ib-ai-hl/ejercicios/voronoi/" style="display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;background:rgba(5,150,105,0.06);border:1px solid var(--border);border-left:4px solid #059669;border-radius:var(--radius-sm);text-decoration:none;color:var(--text);transition:border-color 0.15s">
+        <div style="flex:1;min-width:0">
+          <div style="font-family:var(--mono);font-size:0.72rem;color:#059669;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem">Ficha completa de ejercicios</div>
+          <div style="font-size:1.05rem;font-weight:600;margin-bottom:0.25rem">Diagramas de Voronoi — 5 ejercicios</div>
+          <div style="font-size:0.85rem;color:var(--text-soft);line-height:1.5">Web del tiempo, parques de bomberos con algoritmo incremental, catchment areas escolares, nueva cafetería (toxic waste dump) y hamburgueserías en una feria. Total 44 puntos, soluciones desplegables.</div>
+        </div>
+        <span style="font-size:1.1rem;color:var(--text-faint);align-self:center">→</span>
+      </a>
+    </section>
+
+    <!-- NAVEGACIÓN LIBRO DIGITAL -->
+    <nav class="libro-nav" id="libro-nav">
+      <a id="nav-prev" class="libro-nav-item empty" href="#">
+        <span class="libro-nav-direction">← Anterior</span>
+        <span class="libro-nav-titulo" id="nav-prev-title">No hay capítulo anterior</span>
+      </a>
+      <div class="libro-nav-end">
+        <a id="nav-volver" href="/aula/ib-ai-hl/syllabus/#NM-3-6">Volver al syllabus</a>
+      </div>
+      <a id="nav-next" class="libro-nav-item empty" href="#" style="text-align:right">
+        <span class="libro-nav-direction">Siguiente →</span>
+        <span class="libro-nav-titulo" id="nav-next-title">No hay capítulo siguiente</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+    <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+    <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+  </aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ────────────────────────────── SCRIPTS ────────────────────────────── -->
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+// ────────── Navegación libro digital — detecta unidad de origen ──────────
+(async function() {
+  var params = new URLSearchParams(location.search);
+  var fromUnidad = params.get('from') || params.get('unidad') || '';
+  if (!fromUnidad) return;  // se queda con los enlaces por defecto
+
+  try {
+    var [unidadesRaw, conceptosApuntes, tagsRaw] = await Promise.all([
+      fetch('/assets/data/ib-unidades.json').then(r => r.json()),
+      fetch('/assets/data/conceptos-apuntes.json').then(r => r.json()),
+      fetch('/assets/data/tags.json').then(r => r.json()).catch(() => ({namespaces:{}})),
+    ]);
+
+    var allUnidades = []
+      .concat(unidadesRaw.unidades_hl || [])
+      .concat(unidadesRaw.unidades_sl || [])
+      .concat(unidadesRaw.unidades || []);
+    var unidad = allUnidades.find(u => u.id === fromUnidad);
+    if (!unidad) return;
+
+    var conceptosLookup = (tagsRaw.namespaces && tagsRaw.namespaces.concepto_iba && tagsRaw.namespaces.concepto_iba.valores) || {};
+    var apuntesIndex = {};
+    (conceptosApuntes.conceptos || []).forEach(c => { apuntesIndex[c.code] = c; });
+
+    // Ordena los conceptos cubiertos por la unidad y filtra los que tienen apuntes
+    var capitulosUnidad = (unidad.tags_iba || [])
+      .filter(code => apuntesIndex[code])
+      .map(code => {
+        var label = conceptosLookup[code]?.label?.es || code;
+        var titulo = label.includes(' — ') ? label.split(' — ')[1] : label;
+        return { code, slug: apuntesIndex[code].slug, titulo };
+      });
+    var indexActual = capitulosUnidad.findIndex(c => c.code === 'NM 3.6');
+    if (indexActual === -1) return;
+
+    // Update de breadcrumb e indicador "Cap. X de Y"
+    var unidadNum = (unidad.id.startsWith('us') ? 'US' : 'U') + String(unidad.orden).padStart(2, '0');
+    var bc = document.getElementById('breadcrumb');
+    bc.innerHTML =
+      '<a href="/">Inicio</a><span class="sep">/</span>' +
+      '<a href="/docencia/">Docencia</a><span class="sep">/</span>' +
+      '<a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>' +
+      '<a href="/aula/ib-ai-hl/unidades/#' + escHtml(unidad.id) + '">' + escHtml(unidadNum + ' · ' + unidad.title.es) + '</a><span class="sep">/</span>' +
+      '<span class="current">NM 3.6 · Diagramas de Voronoi</span>';
+
+    var indicator = document.getElementById('cap-indicator');
+    indicator.textContent = 'Capítulo ' + (indexActual + 1) + ' de ' + capitulosUnidad.length;
+    indicator.style.display = 'inline-block';
+
+    // Update de navegación libro
+    var prev = capitulosUnidad[indexActual - 1];
+    var next = capitulosUnidad[indexActual + 1];
+    var prevEl = document.getElementById('nav-prev');
+    var nextEl = document.getElementById('nav-next');
+    if (prev) {
+      prevEl.classList.remove('empty');
+      prevEl.href = '/aula/ib-ai-hl/apuntes/' + prev.slug + '/?from=' + encodeURIComponent(unidad.id);
+      document.getElementById('nav-prev-title').innerHTML = '<span style="font-family:var(--mono);font-size:0.78rem;margin-right:0.3rem">' + escHtml(prev.code) + '</span>' + escHtml(prev.titulo);
+    }
+    if (next) {
+      nextEl.classList.remove('empty');
+      nextEl.href = '/aula/ib-ai-hl/apuntes/' + next.slug + '/?from=' + encodeURIComponent(unidad.id);
+      document.getElementById('nav-next-title').innerHTML = '<span style="font-family:var(--mono);font-size:0.78rem;margin-right:0.3rem">' + escHtml(next.code) + '</span>' + escHtml(next.titulo);
+    }
+    var volver = document.getElementById('nav-volver');
+    volver.href = '/aula/ib-ai-hl/unidades/#' + unidad.id;
+    volver.textContent = 'Volver a ' + unidadNum;
+  } catch (err) {
+    console.warn('No se pudo aplicar la navegación libro:', err);
+  }
+})();
+
+// ────────── GeoGebra Classic via deployggb.js — vista limpia ──────────
+//
+// appName 'classic' + perspective 'G' + todos los paneles ocultos =
+// solo se ve la vista gráfica con los 5 puntos. Sin álgebra, sin entrada,
+// sin toolbar, sin menubar.
+//
+// La casilla controla setVisible('voronoiCells', ...) sin recargar nada.
+// El botón reset usa SetValue() para devolver los puntos a posición inicial.
+(function() {
+  var ggbApi = null;
+  var voronoiCreado = false;
+
+  function ensureVoronoi() {
+    if (!ggbApi) return false;
+    if (voronoiCreado) return true;
+
+    // Probar sintaxis moderna con paréntesis
+    ggbApi.evalCommand('voronoiCells=Voronoi({A,B,C,D,E})');
+    if (ggbApi.exists('voronoiCells')) {
+      voronoiCreado = true;
+    } else {
+      // Fallback a sintaxis legacy con corchetes
+      ggbApi.evalCommand('voronoiCells=Voronoi[{A,B,C,D,E}]');
+      if (ggbApi.exists('voronoiCells')) voronoiCreado = true;
+    }
+
+    if (voronoiCreado) {
+      ggbApi.evalCommand('SetColor(voronoiCells, "#0891b2")');
+      ggbApi.evalCommand('SetLineThickness(voronoiCells, 5)');
+      ggbApi.evalCommand('ShowLabel(voronoiCells, false)');
+      return true;
+    }
+
+    console.warn('[ggb] El comando Voronoi no produjo ningún objeto.');
+    return false;
+  }
+
+  function setVoronoiVisible(visible) {
+    if (!ggbApi) return false;
+    if (visible) {
+      if (!ensureVoronoi()) return false;
+      ggbApi.setVisible('voronoiCells', true);
+    } else if (voronoiCreado) {
+      ggbApi.setVisible('voronoiCells', false);
+    }
+    return true;
+  }
+
+  function resetPuntos() {
+    if (!ggbApi) return;
+    ggbApi.evalCommand('SetValue(A, (2,2))');
+    ggbApi.evalCommand('SetValue(B, (8,3))');
+    ggbApi.evalCommand('SetValue(C, (5,7))');
+    ggbApi.evalCommand('SetValue(D, (3,8))');
+    ggbApi.evalCommand('SetValue(E, (7,8))');
+  }
+
+  window.addEventListener('load', function() {
+    if (typeof GGBApplet === 'undefined') {
+      var host = document.getElementById('ggb-applet');
+      if (host) host.innerHTML = '<div class="ggb-fallback"><p>GeoGebra no se ha podido cargar (verifica conexión o bloqueador).</p></div>';
+      return;
+    }
+
+    var params = {
+      appName: 'classic',
+      width: 720,
+      height: 480,
+      showToolBar: false,
+      showAlgebraInput: false,
+      showMenuBar: false,
+      showResetIcon: false,
+      showZoomButtons: false,
+      enableLabelDrags: false,
+      enableShiftDragZoom: true,
+      enableRightClick: false,
+      perspective: 'G',
+      appletOnLoad: function(api) {
+        ggbApi = api;
+        try {
+          api.evalCommand('A=(2,2)');
+          api.evalCommand('B=(8,3)');
+          api.evalCommand('C=(5,7)');
+          api.evalCommand('D=(3,8)');
+          api.evalCommand('E=(7,8)');
+          api.setCoordSystem(-1, 11, -1, 10);
+        } catch (e) {
+          console.error('[ggb] init error:', e);
+        }
+      }
+    };
+    new GGBApplet(params, true).inject('ggb-applet');
+
+    var chk = document.getElementById('chk-voronoi');
+    var btnReset = document.getElementById('btn-reset-voronoi');
+
+    if (chk) chk.addEventListener('change', function() {
+      var ok = setVoronoiVisible(chk.checked);
+      if (!ok && chk.checked) {
+        chk.checked = false;
+        alert('No se ha podido crear el diagrama. Comprueba la consola del navegador.');
+      }
+    });
+
+    if (btnReset) btnReset.addEventListener('click', resetPuntos);
+  });
+})();
+</script>
+</body>
+</html>

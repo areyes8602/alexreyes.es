@@ -206,7 +206,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
     const apuntesEntry = (conceptosApuntes.conceptos || []).find(c => c.code === code);
     if (apuntesEntry) {
       const link = document.getElementById('apuntes-link');
-      link.href = `/aula/ib-ai-hl/conceptos/${apuntesEntry.slug}/`;
+      link.href = `/aula/ib-ai-hl/apuntes/${apuntesEntry.slug}/`;
       document.getElementById('apuntes-cta').style.display = 'block';
     }
 

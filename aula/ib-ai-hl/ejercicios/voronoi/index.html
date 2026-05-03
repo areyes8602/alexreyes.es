@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ficha de ejercicios — Diagramas de Voronoi · IB Math AI — alexreyes.es</title>
+<meta name="description" content="Ficha de 5 problemas con apartados sobre diagramas de Voronoi para IB Math AI HL/SL. Web del tiempo, parques de bomberos, catchment areas escolares, planificación urbana y diseño de ferias. Soluciones desplegables por apartado.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/aula.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/ejercicios/voronoi/">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:820px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <span class="current">Ficha · Voronoi</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.2rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">IB Math AI HL · NM 3.5 · NM 3.6 · T3 Geometría</span>
+        <span class="tag tag-orange">Ficha de ejercicios</span>
+      </div>
+      <h1 style="margin:0">Diagramas de Voronoi — Ejercicios de aplicación</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        Cinco problemas para practicar la construcción de diagramas de Voronoi y sus aplicaciones típicas
+        en exámenes IB Math AI: interpolación del vecino más cercano, algoritmo incremental, catchment areas,
+        problema del vertedero y diseño de áreas comerciales. Cada apartado tiene su solución desplegable.
+      </p>
+    </div>
+
+    <div class="fitxa-toolbar">
+      <span class="label">📥 Recursos:</span>
+      <a class="fitxa-btn" href="/aula/ib-ai-hl/ejercicios/voronoi/original-enunciados.pdf" download>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Bajar el PDF de enunciados
+      </a>
+      <a class="fitxa-btn secondary" href="/aula/ib-ai-hl/ejercicios/voronoi/original-enunciados.pdf" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Abrir en nueva pestaña
+      </a>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ── 1. Web del tiempo con tres estaciones meteorológicas ── -->
+      <div class="seccion-aula" id="problema-1">
+        <h2><span class="num">1</span> Web del tiempo con tres estaciones meteorológicas</h2>
+        <p class="section-intro">
+          Una empresa de meteorología publica una web que muestra al usuario la temperatura registrada en la estación
+          más cercana a su ubicación (interpolación del vecino más cercano). Las tres estaciones de la red están en
+          $A=(1,\,1)$, $B=(3,\,1)$ y $C=(3,\,5)$ (coordenadas en km, sobre un sistema centrado en la sede de la empresa).
+        </p>
+
+        <div class="ejercicio" id="ex-1a">
+          <div class="ejercicio-header"><span class="num">1a</span></div>
+          <div class="ejercicio-cuerpo"><p>Aplica el algoritmo incremental para construir el diagrama de Voronoi de las tres estaciones: empieza por $A$ y $B$, y añade $C$ después. Expresa cada arista mediante su ecuación.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Mediatriz de $\overline{AB}$ (segmento horizontal por $y=1$): vertical por el punto medio $(2,\,1)$, ecuación $x=2$. Esta recta separa $V(A)$ (a la izquierda) de $V(B)$ (a la derecha).</p>
+            <p>Añadimos $C=(3,\,5)$. La distancia desde $C$ a $A$ es $\sqrt{4+16}=\sqrt{20}$ y a $B$ es $\sqrt{0+16}=4$, así que $C$ cae en $V(B)$. Mediatriz de $\overline{BC}$: punto medio $(3,\,3)$, segmento vertical, mediatriz horizontal $y=3$.</p>
+            <p>Mediatriz de $\overline{AC}$: punto medio $(2,\,3)$, pendiente de $AC$: $\frac{5-1}{3-1}=2$, perpendicular $-\frac{1}{2}$. Ecuación $y-3=-\frac{1}{2}(x-2)\;\Rightarrow\; x+2y=8$.</p>
+            <div class="final">Vértice $V=(2,\,3)$ con tres aristas: $x=2$, $y=3$ y $x+2y=8$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-1b">
+          <div class="ejercicio-header"><span class="num">1b</span></div>
+          <div class="ejercicio-cuerpo"><p>Un usuario consulta la web desde el punto $(1,\,4)$. Las lecturas del instante son $A:22\,°\text{C}$, $B:24\,°\text{C}$, $C:21\,°\text{C}$. Indica la temperatura que la web le mostrará y justifica por qué.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>El punto $(1,\,4)$ está en $V(A)$: tiene $x<2$ y la mediatriz $\overline{AC}$ pasa por $(2,\,3)$ con pendiente $-\frac{1}{2}$, así que en $x=1$ separa con $y=3.5$, y $4>3.5$ pone el punto en el lado de $A$.</p>
+            <div class="final">La web muestra la temperatura de $A$: $22\,°\text{C}$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-1c">
+          <div class="ejercicio-header"><span class="num">1c</span></div>
+          <div class="ejercicio-cuerpo"><p>Otro usuario está en $(2.5,\,2)$ y un tercero en $(2,\,3)$. ¿Reciben la misma temperatura? Razónalo a partir del diagrama.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Punto $(2.5,\,2)$: $x>2$ y $y<3$, está en $V(B)$ ($24\,°\text{C}$). Punto $(2,\,3)$: es exactamente el vértice $V$, está sobre las tres mediatrices.</p>
+            <p>La web podría mostrar cualquiera de las tres lecturas; en la práctica se desempata mostrando la de la estación con menor índice, pero geométricamente es un punto de "frontera triple".</p>
+            <div class="final">No reciben la misma temperatura.</div>
+          </div></details>
+        </div>
+      </div>
+
+      <!-- ── 2. Parques de bomberos y algoritmo incremental ── -->
+      <div class="seccion-aula" id="problema-2">
+        <h2><span class="num">2</span> Parques de bomberos y algoritmo incremental</h2>
+        <p class="section-intro">
+          Una localidad tiene cuatro parques de bomberos en $A=(1,\,4)$, $B=(1,\,0)$, $C=(5,\,1)$ y $D=(4,\,3)$. La central
+          de despacho envía siempre el camión del parque más cercano. Tras analizar los tiempos de respuesta, el ayuntamiento
+          decide construir un quinto parque en $E=(2,\,1)$ y aplicar el algoritmo incremental para actualizar el diagrama.
+        </p>
+
+        <div class="ejercicio" id="ex-2a">
+          <div class="ejercicio-header"><span class="num">2a</span></div>
+          <div class="ejercicio-cuerpo"><p>Calcula la distancia desde $E$ a cada uno de los cuatro parques originales y determina en cuál de las celdas $V(A)$, $V(B)$, $V(C)$ o $V(D)$ está $E$.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>$d(E,A)=\sqrt{(2-1)^2+(1-4)^2}=\sqrt{10}\approx 3.16$. $d(E,B)=\sqrt{1+1}=\sqrt{2}\approx 1.41$. $d(E,C)=\sqrt{9+0}=3$. $d(E,D)=\sqrt{4+4}=\sqrt{8}\approx 2.83$.</p>
+            <div class="final">Mínima distancia a $B$, así que $E\in V(B)$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-2b">
+          <div class="ejercicio-header"><span class="num">2b</span></div>
+          <div class="ejercicio-cuerpo"><p>Calcula la mediatriz del segmento que une $E$ con el parque cuya celda lo contiene.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Mediatriz de $\overline{BE}$: punto medio $(1.5,\,0.5)$, vector $\overrightarrow{BE}=(1,\,1)$, ecuación $1\cdot(x-1.5) + 1\cdot(y-0.5)=0$.</p>
+            <div class="final">$x+y=2$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-2c">
+          <div class="ejercicio-header"><span class="num">2c</span></div>
+          <div class="ejercicio-cuerpo"><p>Aplica un paso del algoritmo incremental: lista los parques contiguos a $E$ en el nuevo diagrama y calcula la mediatriz de $\overline{AE}$.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Para identificar parques contiguos a $E$, recorremos la mediatriz $\overline{BE}$ desde $V(B)$ y vemos qué otras celdas atraviesa. La mediatriz $x+y=2$ entra desde $V(A)$ (al cruzar $x=1$) y sale hacia $V(D)$ o $V(C)$.</p>
+            <p>Mediatriz $\overline{AE}$: punto medio $(1.5,\,2.5)$, vector $\overrightarrow{AE}=(1,\,-3)$, ecuación $(x-1.5)-3(y-2.5)=0\;\Rightarrow\; x-3y=-6$.</p>
+            <div class="final">Parques contiguos a $E$: $A$, $B$ y $D$ (y posiblemente $C$). Mediatriz $\overline{AE}$: $x-3y=-6$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-2d">
+          <div class="ejercicio-header"><span class="num">2d</span></div>
+          <div class="ejercicio-cuerpo"><p>Argumenta por qué, después de añadir $E$, la celda original de $B$ se ve reducida.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Antes de añadir $E$, todos los puntos cercanos a $B$ pertenecían a $V(B)$. Tras añadir $E$, los puntos que están más cerca de $E$ que de $B$ —los del semiplano $x+y>2$ del lado de $E$— pasan de $V(B)$ a $V(E)$.</p>
+            <div class="final">La celda de $B$ se reduce exactamente en esa franja: la nueva célula $V(E)$ "roba" área a las celdas vecinas.</div>
+          </div></details>
+        </div>
+      </div>
+
+      <!-- ── 3. Catchment areas escolares en una ciudad ── -->
+      <div class="seccion-aula" id="problema-3">
+        <h2><span class="num">3</span> Catchment areas escolares en una ciudad</h2>
+        <p class="section-intro">
+          Una ciudad rectangular de $10\times 8$ km tiene cuatro colegios públicos en $A=(2,\,5)$, $B=(3,\,3)$, $C=(8,\,6)$
+          y $D=(8,\,1)$. El ayuntamiento asigna cada vivienda al colegio más cercano (catchment area). Datos: las mediatrices
+          de $\overline{AC}$ y $\overline{BC}$ son $y=-6x+35.5$ y $y=-\frac{5}{3}x+\frac{41}{3}$ respectivamente.
+        </p>
+
+        <div class="ejercicio" id="ex-3a">
+          <div class="ejercicio-header"><span class="num">3a</span></div>
+          <div class="ejercicio-cuerpo"><p>Calcula la mediatriz del segmento $\overline{AB}$.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Punto medio de $\overline{AB}$: $(2.5,\,4)$. Pendiente de $AB$: $\frac{3-5}{3-2}=-2$, perpendicular: $\frac{1}{2}$. Mediatriz: $y-4=\frac{1}{2}(x-2.5)$.</p>
+            <div class="final">$y=\frac{1}{2}x+\frac{11}{4}$, equivalentemente $x-2y=-5.5$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-3b">
+          <div class="ejercicio-header"><span class="num">3b</span></div>
+          <div class="ejercicio-cuerpo"><p>Aplica el algoritmo incremental para construir el diagrama de Voronoi de los tres colegios $A$, $B$, $C$.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Empezamos con $A$ y $B$: la mediatriz $x-2y=-5.5$ separa $V(A)$ (encima) de $V(B)$ (debajo). Añadimos $C=(8,\,6)$. Como $d(C,A)=\sqrt{37}\approx 6.08$ y $d(C,B)=\sqrt{34}\approx 5.83$, $C$ cae en $V(B)$. Trazamos las mediatrices $\overline{AC}$ y $\overline{BC}$.</p>
+            <div class="final">Las tres mediatrices se cortan en el circuncentro de $\triangle ABC$, que es el único vértice interior del diagrama.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-3c">
+          <div class="ejercicio-header"><span class="num">3c</span></div>
+          <div class="ejercicio-cuerpo"><p>Una familia vive en $(4,\,3)$. ¿En qué catchment area está?</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>$d(\cdot,A)=\sqrt{4+4}=\sqrt{8}\approx 2.83$, $d(\cdot,B)=\sqrt{1}=1$, $d(\cdot,C)=\sqrt{16+9}=5$.</p>
+            <div class="final">Mínima distancia a $B$: la familia está en $V(B)$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-3d">
+          <div class="ejercicio-header"><span class="num">3d</span></div>
+          <div class="ejercicio-cuerpo"><p>Calcula las mediatrices de $\overline{BD}$ y $\overline{CD}$.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Mediatriz $\overline{BD}$: punto medio $(5.5,\,2)$, vector $(5,\,-2)$, ecuación $5(x-5.5)-2(y-2)=0\;\Rightarrow\; 5x-2y=23.5$.</p>
+            <p>Mediatriz $\overline{CD}$: punto medio $(8,\,3.5)$, $\overline{CD}$ vertical, mediatriz horizontal.</p>
+            <div class="final">$\overline{BD}: 5x-2y=23.5$ y $\overline{CD}: y=3.5$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-3e">
+          <div class="ejercicio-header"><span class="num">3e</span></div>
+          <div class="ejercicio-cuerpo"><p>Encuentra las coordenadas de los dos vértices interiores del diagrama de los cuatro colegios donde se cortan tres mediatrices.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Vértice $P$ donde se cortan $\overline{BC}$, $\overline{BD}$, $\overline{CD}$: usamos $y=3.5$ y $5x-2y=23.5$ y obtenemos $5x=30.5\;\Rightarrow\; x=6.1$, así que $P=(6.1,\,3.5)$.</p>
+            <p>Verificamos con $\overline{BC}$: $y=-\frac{5}{3}(6.1)+\frac{41}{3}=\frac{-30.5+41}{3}=3.5$ ✓. El segundo vértice $Q$ se obtiene cortando las mediatrices de $\overline{AB}$ y $\overline{AC}$ con $\overline{BC}$.</p>
+            <div class="final">$P=(6.1,\,3.5)$ y $Q\approx(4.39,\,4.72)$.</div>
+          </div></details>
+        </div>
+      </div>
+
+      <!-- ── 4. Nueva cafetería independiente — toxic waste dump ── -->
+      <div class="seccion-aula" id="problema-4">
+        <h2><span class="num">4</span> Nueva cafetería independiente — problema del vertedero</h2>
+        <p class="section-intro">
+          Una cadena tiene cuatro cafeterías en una localidad: $A=(1,\,6)$, $B=(2,\,2)$, $C=(8,\,2)$ y $D=(8,\,5)$. Una
+          emprendedora quiere abrir una cafetería independiente y busca el punto que esté lo más alejado posible de las
+          cuatro existentes. El diagrama de Voronoi de los cuatro sitios tiene dos vértices interiores; uno es $P=(5,\,3.5)$.
+        </p>
+
+        <div class="ejercicio" id="ex-4a">
+          <div class="ejercicio-header"><span class="num">4a</span></div>
+          <div class="ejercicio-cuerpo"><p>Justifica por qué la solución óptima al problema (punto más alejado) es siempre uno de los vértices del diagrama de Voronoi y no un punto del interior de una celda.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>Si el punto óptimo estuviera en el interior de una celda, podríamos moverlo en alguna dirección alejándonos del sitio dueño y la distancia mínima al conjunto aumentaría. Solo en los vértices (donde tres sitios están equidistantes) la distancia mínima alcanza un máximo local: cualquier movimiento reduce la distancia a alguno de los tres.</p>
+            <div class="final">La solución óptima es siempre un vértice (o un punto del borde de la zona admisible).</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-4b">
+          <div class="ejercicio-header"><span class="num">4b</span></div>
+          <div class="ejercicio-cuerpo"><p>Calcula las mediatrices de $\overline{AB}$ y $\overline{AD}$.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>$\overline{AB}$: punto medio $(1.5,\,4)$, vector $(1,\,-4)$, ecuación $(x-1.5)-4(y-4)=0\;\Rightarrow\; x-4y=-14.5$.</p>
+            <p>$\overline{AD}$: punto medio $(4.5,\,5.5)$, vector $(7,\,-1)$, ecuación $7(x-4.5)-(y-5.5)=0\;\Rightarrow\; 7x-y=26$.</p>
+            <div class="final">$\overline{AB}: x-4y=-14.5$ y $\overline{AD}: 7x-y=26$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-4c">
+          <div class="ejercicio-header"><span class="num">4c</span></div>
+          <div class="ejercicio-cuerpo"><p>Encuentra las coordenadas del segundo vértice interior $Q$ resolviendo el sistema de las dos mediatrices apropiadas. Da el resultado con dos cifras decimales.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>De $x-4y=-14.5$: $x=4y-14.5$. Sustituyendo en $7x-y=26$: $7(4y-14.5)-y=26\;\Rightarrow\; 28y-101.5-y=26\;\Rightarrow\; 27y=127.5\;\Rightarrow\; y\approx 4.72$.</p>
+            <p>Y $x=4(4.72)-14.5\approx 4.39$.</p>
+            <div class="final">$Q\approx(4.39,\,4.72)$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-4d">
+          <div class="ejercicio-header"><span class="num">4d</span></div>
+          <div class="ejercicio-cuerpo"><p>Calcula la distancia desde $P$ a la cafetería más cercana, y desde $Q$ a la más cercana.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>$d(P,B)=\sqrt{(5-2)^2+(3.5-2)^2}=\sqrt{11.25}\approx 3.35$ km.</p>
+            <p>$d(Q,A)=\sqrt{(4.39-1)^2+(4.72-6)^2}\approx\sqrt{11.49+1.64}\approx 3.62$ km.</p>
+            <div class="final">$d(P,B)\approx 3.35$ km y $d(Q,A)\approx 3.62$ km.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-4e">
+          <div class="ejercicio-header"><span class="num">4e</span></div>
+          <div class="ejercicio-cuerpo"><p>Decide en qué vértice debería abrir la nueva cafetería y argumenta por qué.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>$Q$ tiene la distancia más grande a la cafetería más cercana (≈ 3.62 km vs ≈ 3.35 km en $P$). Es el punto del plano que maximiza la distancia mínima a los cuatro sitios — exactamente el criterio del problema.</p>
+            <div class="final">La nueva cafetería va en $Q\approx(4.39,\,4.72)$.</div>
+          </div></details>
+        </div>
+      </div>
+
+      <!-- ── 5. Hamburgueserías en una feria ── -->
+      <div class="seccion-aula" id="problema-5">
+        <h2><span class="num">5</span> Hamburgueserías en una feria — áreas y nuevo puesto</h2>
+        <p class="section-intro">
+          El recinto rectangular de una feria mide $100\times 50$ m. Hay tres puestos de hamburguesas en $A=(20,\,30)$,
+          $B=(80,\,30)$ y $C=(40,\,10)$, y se asume que cada visitante compra siempre en el puesto más cercano.
+        </p>
+
+        <div class="ejercicio" id="ex-5a">
+          <div class="ejercicio-header"><span class="num">5a</span></div>
+          <div class="ejercicio-cuerpo"><p>Calcula las ecuaciones de las mediatrices de los pares $\overline{AB}$, $\overline{BC}$ y $\overline{AC}$.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>$\overline{AB}$ horizontal (ambos en $y=30$), mediatriz vertical $x=50$.</p>
+            <p>$\overline{BC}$: punto medio $(60,\,20)$, vector $(-40,\,-20)$, ecuación $-40(x-60)-20(y-20)=0\;\Rightarrow\; 2x+y=140$.</p>
+            <p>$\overline{AC}$: punto medio $(30,\,20)$, vector $(20,\,-20)$, ecuación $20(x-30)-20(y-20)=0\;\Rightarrow\; x-y=10$.</p>
+            <div class="final">$x=50$, $\;2x+y=140$, $\;x-y=10$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-5b">
+          <div class="ejercicio-header"><span class="num">5b</span></div>
+          <div class="ejercicio-cuerpo"><p>Encuentra el vértice del diagrama de Voronoi (intersección de las tres mediatrices) y verifica que es el circuncentro del triángulo $ABC$.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>De $x=50$ y $x-y=10$: $y=40$. Verificación con $\overline{BC}$: $2(50)+40=140$ ✓.</p>
+            <p>Distancias: $d(V,A)=\sqrt{30^2+10^2}=\sqrt{1000}$, $d(V,B)=\sqrt{30^2+10^2}=\sqrt{1000}$, $d(V,C)=\sqrt{10^2+30^2}=\sqrt{1000}$. Las tres iguales — circuncentro confirmado.</p>
+            <div class="final">$V=(50,\,40)$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-5c">
+          <div class="ejercicio-header"><span class="num">5c</span></div>
+          <div class="ejercicio-cuerpo"><p>Estima qué fracción del área del recinto pertenece a la celda del puesto $C$ (al 1%). Puedes hacer un boceto en papel cuadriculado o usar GeoGebra.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>La celda de $C$ es el triángulo entre $V=(50,\,40)$ y los puntos donde $\overline{BC}$ y $\overline{AC}$ cortan $y=0$: $(70,\,0)$ y $(10,\,0)$ respectivamente.</p>
+            <p>Área del triángulo: $\frac{1}{2}|50(0-0)+70(0-40)+10(40-0)|=\frac{1}{2}|{-2800+400}|=1200\,\text{m}^2$.</p>
+            <p>Fracción: $1200/5000$.</p>
+            <div class="final">Aproximadamente el 24% del recinto pertenece a $V(C)$.</div>
+          </div></details>
+        </div>
+
+        <div class="ejercicio" id="ex-5d">
+          <div class="ejercicio-header"><span class="num">5d</span></div>
+          <div class="ejercicio-cuerpo"><p>Se decide añadir un cuarto puesto $D$ que esté lo más alejado posible de los tres existentes, dentro del recinto. Indica las coordenadas aproximadas de $D$ y razona la elección.</p></div>
+          <details><summary>Mostrar solución</summary><div class="solucion-cuerpo">
+            <p>El cuarto puesto debe ir en el punto del rectángulo más alejado de $A$, $B$, $C$. La teoría dice que ese punto es un vértice interior, pero como el diagrama tiene un solo vértice interior $V=(50,\,40)$, el candidato es $V$ o un punto del borde donde una arista del diagrama corta.</p>
+            <p>$d(V,\text{cualquier sitio})\approx 31.6$ m. En el borde superior $y=50$, el punto $(50,\,50)$ tiene distancia $\approx \sqrt{900+400}\approx 36.1$ m a los tres puestos.</p>
+            <div class="final">$D\approx(50,\,50)$ con distancia mínima $\approx 36.1$ m a los puestos existentes.</div>
+          </div></details>
+        </div>
+      </div>
+
+    </article>
+
+  </div>
+  <aside class="ibo-disclaimer">
+    <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+    <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+  </aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

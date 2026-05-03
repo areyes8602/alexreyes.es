@@ -152,7 +152,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       const seccionesText = c.secciones.length > 0
         ? `<span class="meta">${c.secciones.length} secciones · ${escHtml(c.secciones.join(' · '))}</span>`
         : '';
-      return `<a href="/aula/ib-ai-hl/conceptos/${c.slug}/?from=${encodeURIComponent(u.id)}" class="tipo-apuntes">
+      return `<a href="/aula/ib-ai-hl/apuntes/${c.slug}/?from=${encodeURIComponent(u.id)}" class="tipo-apuntes">
         <span class="num">${escHtml(c.code)}</span>
         <span class="ttl">${escHtml(c.titulo)}</span>
         <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-faint)">Cap. ${i+1}/${total}</span>
