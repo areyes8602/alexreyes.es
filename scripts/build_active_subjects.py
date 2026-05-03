@@ -928,15 +928,17 @@ function buildSubtema(sub, conceptosConContenido) {{
 // de tags concepto_iba. Devuelve URLs y conteos por tipo.
 function getUnidadResources(u, ctx) {{
   const unidadTags = u.tags_iba || [];
-  // Apuntes: primer concepto con apuntes en la unidad (con ?from para libro digital)
+  // Apuntes: enlace a la página intermedia /apuntes/#u02-... (índice de conceptos
+  // de la unidad, mismo patrón que CCSS donde Apuntes lleva a un índice y no al
+  // primer subapunte directo). Solo si hay ≥1 concepto con apuntes propios.
   let apuntesHref = null;
   let apuntesCount = 0;
   for (const c of (ctx.conceptosApuntes || [])) {{
     if (!unidadTags.includes(c.code)) continue;
     apuntesCount++;
-    if (!apuntesHref) {{
-      apuntesHref = `/aula/ib-ai-hl/conceptos/${{c.slug}}/?from=${{encodeURIComponent(u.id)}}`;
-    }}
+  }}
+  if (apuntesCount > 0) {{
+    apuntesHref = `/aula/ib-ai-hl/apuntes/#${{u.id}}`;
   }}
   // Ejercicios (fichas) y exámenes
   const fichasMap = {{}};
