@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1. Què és un cos de revolució · 2n ESO</title>
+<title>1. Què és un cos de revolució? · 2n ESO</title>
 <meta name="description" content="Apunts de cossos de revolució per a 2n d'ESO: definició, visualització interactiva amb GeoGebra de la rotació de figures planes i dels cossos resultants en 3D.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,7 @@
       <span class="sep">/</span>
       <a href="/aula/eso-2/apuntes/u-cossos-revolucio/">Cossos de revolució</a>
       <span class="sep">/</span>
-      <span class="current">01 · Què és un cos de revolució</span>
+      <span class="current">01 · Què és un cos de revolució?</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
@@ -82,7 +82,7 @@
         <span class="tag tag-orange">Apunts</span>
         <span class="tag tag-gray" style="font-size:0.7rem">3 mar 2026</span>
       </div>
-      <h1 style="margin:0">1. Què és un cos de revolució</h1>
+      <h1 style="margin:0">1. Què és un cos de revolució?</h1>
       <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Definició, els tres cossos clàssics i visualització interactiva amb GeoGebra.</p>
     </div>
 
@@ -135,21 +135,26 @@
 
       <div class="apunt-section">
         <h2>GeoGebra · Veure la revolució en directe</h2>
-        <p>Mou el control lliscant <strong>α</strong> per fer girar la figura plana al voltant de l'eix vertical. Pots triar la figura amb el menú desplegable per veure com es genera el cilindre, el con i l'esfera.</p>
+        <p>Tria el cos amb els botons i mou el control lliscant <strong>α</strong> per fer girar la figura plana al voltant de l'eix vertical (eix Z). Veuràs com el rectangle genera un <strong>cilindre</strong>, el triangle un <strong>con</strong>, i el semicercle una <strong>esfera</strong>.</p>
 
         <div class="ggb-frame">
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;padding:0.4rem 0.2rem 0.7rem;border-bottom:1px solid var(--border);margin-bottom:0.6rem">
+            <button type="button" class="ggb-btn-cos" data-cos="1" style="padding:0.4rem 0.85rem;background:#6366f1;color:#fff;border:1px solid #6366f1;border-radius:6px;font-family:var(--font);font-size:0.85rem;font-weight:500;cursor:pointer">Cilindre</button>
+            <button type="button" class="ggb-btn-cos" data-cos="2" style="padding:0.4rem 0.85rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font-family:var(--font);font-size:0.85rem;font-weight:500;cursor:pointer">Con</button>
+            <button type="button" class="ggb-btn-cos" data-cos="3" style="padding:0.4rem 0.85rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font-family:var(--font);font-size:0.85rem;font-weight:500;cursor:pointer">Esfera</button>
+          </div>
           <div id="ggb-revolucio" class="ggb-applet-host"></div>
-          <p class="ggb-caption">Applet GeoGebra · Mou α de 0° a 360°. Pots arrossegar la vista 3D amb el ratolí.</p>
+          <p class="ggb-caption">Applet GeoGebra · Tria el cos i mou α de 0° a 360°. Pots arrossegar la vista 3D amb el ratolí.</p>
         </div>
       </div>
 
       <div class="apunt-section">
         <h2>GeoGebra · Vista 3D dels tres cossos</h2>
-        <p>Aquí pots <strong>rotar lliurement</strong> els tres cossos i comparar-ne la mida. Activa o desactiva amb les caselles per veure'ls per separat.</p>
+        <p>Aquí pots <strong>rotar lliurement</strong> els tres cossos en 3D i comparar-ne la mida. Estan creats amb les eines geomètriques natives de GeoGebra (<code>Cilindre</code>, <code>Con</code>, <code>Esfera</code>).</p>
 
         <div class="ggb-frame">
           <div id="ggb-3d" class="ggb-applet-host"></div>
-          <p class="ggb-caption">Applet GeoGebra 3D · Arrossega per rotar. Marca/desmarca els cossos individualment.</p>
+          <p class="ggb-caption">Applet GeoGebra 3D · Arrossega amb el ratolí per rotar la vista.</p>
         </div>
       </div>
 
@@ -188,9 +193,32 @@ window.addEventListener('load', function() {
     return;
   }
 
-  // Applet 1: revolució interactiva amb selector de figura
+  var apiRev = null;
+  var cosActiu = 1; // 1 = cilindre, 2 = con, 3 = esfera
+
+  function setVisible(name, visible) {
+    if (!apiRev) return;
+    try { apiRev.setVisible(name, visible); } catch (e) {}
+  }
+
+  function aplicaCosActiu() {
+    if (!apiRev) return;
+    setVisible('rect', cosActiu === 1);
+    setVisible('cil', cosActiu === 1);
+    setVisible('basInfCil', cosActiu === 1);
+    setVisible('basSupCil', cosActiu === 1);
+
+    setVisible('triangle', cosActiu === 2);
+    setVisible('con', cosActiu === 2);
+    setVisible('basCon', cosActiu === 2);
+
+    setVisible('semicercle', cosActiu === 3);
+    setVisible('esf', cosActiu === 3);
+  }
+
+  // ── Applet 1: revolució interactiva ──
   var paramsRev = {
-    appName: 'classic',
+    appName: '3d',
     width: 720,
     height: 460,
     showToolBar: false,
@@ -201,37 +229,71 @@ window.addEventListener('load', function() {
     enableLabelDrags: false,
     enableShiftDragZoom: true,
     enableRightClick: false,
-    perspective: 'T',
     appletOnLoad: function(api) {
+      apiRev = api;
       try {
-        // Slider α: angle de rotació (0° → 360°)
-        api.evalCommand('alpha = Slider(0°, 360°, 1°)');
-        api.evalCommand('SetValue(alpha, 0°)');
-        api.evalCommand('SetCaption(alpha, "Angle de rotació")');
+        // Slider d'angle (visible a la pantalla)
+        api.evalCommand('alpha = Slider(0°, 360°, 1°, 1, 200, false, true, false, false)');
+        api.evalCommand('SetValue(alpha, 360°)');
+        api.evalCommand('SetCaption(alpha, "Angle α")');
+        api.evalCommand('ShowLabel(alpha, true)');
 
-        // Slider tipus: 1=cilindre, 2=con, 3=esfera
-        api.evalCommand('tipus = Slider(1, 3, 1)');
-        api.evalCommand('SetValue(tipus, 1)');
-        api.evalCommand('SetCaption(tipus, "1=cilindre 2=con 3=esfera")');
+        // ───── CILINDRE: rectangle r=2, h=4 girant sobre eix Z ─────
+        api.evalCommand('rect = Polygon((0,0,0), (2,0,0), (2,0,4), (0,0,4))');
+        api.evalCommand('SetColor(rect, "#1e293b")');
+        api.evalCommand('SetFilling(rect, 0.15)');
+        // Cara lateral: revolució de la generatriu vertical x=2 al pla xz
+        api.evalCommand('genCil = Curve((2, 0, t), t, 0, 4)');
+        api.evalCommand('cil = Surface(genCil, alpha, ZAxis)');
+        api.evalCommand('SetColor(cil, "#6366f1")');
+        api.evalCommand('SetFilling(cil, 0.5)');
+        // Bases: revolució del segment radial a z=0 i z=4
+        api.evalCommand('radInfCil = Curve((s, 0, 0), s, 0, 2)');
+        api.evalCommand('basInfCil = Surface(radInfCil, alpha, ZAxis)');
+        api.evalCommand('SetColor(basInfCil, "#6366f1")');
+        api.evalCommand('SetFilling(basInfCil, 0.5)');
+        api.evalCommand('radSupCil = Curve((s, 0, 4), s, 0, 2)');
+        api.evalCommand('basSupCil = Surface(radSupCil, alpha, ZAxis)');
+        api.evalCommand('SetColor(basSupCil, "#6366f1")');
+        api.evalCommand('SetFilling(basSupCil, 0.5)');
 
-        // Cilindre: rectangle de costats r=2 i h=4 girant sobre l'eix Z
-        api.evalCommand('cilindre = Surface(2 cos(v), 2 sin(v), u, u, 0, 4, v, 0, alpha)');
-        // Con: triangle rectangle (base 2, altura 4) girant sobre l'eix Z
-        api.evalCommand('con = Surface((1 - u/4) * 2 * cos(v), (1 - u/4) * 2 * sin(v), u, u, 0, 4, v, 0, alpha)');
-        // Esfera: semicercle de radi 2 girant pel diàmetre
-        api.evalCommand('esfera = Surface(2 cos(u) cos(v), 2 cos(u) sin(v), 2 sin(u), u, -π/2, π/2, v, 0, alpha)');
-
-        api.evalCommand('SetColor(cilindre, "#6366f1")');
+        // ───── CON: triangle rectangle (base 2, altura 4) girant sobre eix Z ─────
+        api.evalCommand('triangle = Polygon((0,0,0), (2,0,0), (0,0,4))');
+        api.evalCommand('SetColor(triangle, "#1e293b")');
+        api.evalCommand('SetFilling(triangle, 0.15)');
+        // Generatriu: línia inclinada de (2,0,0) a (0,0,4)
+        api.evalCommand('genCon = Curve(2 - s/2, 0, s, s, 0, 4)');
+        api.evalCommand('con = Surface(genCon, alpha, ZAxis)');
         api.evalCommand('SetColor(con, "#10b981")');
-        api.evalCommand('SetColor(esfera, "#ec4899")');
-        api.evalCommand('SetFilling(cilindre, 0.45)');
-        api.evalCommand('SetFilling(con, 0.45)');
-        api.evalCommand('SetFilling(esfera, 0.45)');
+        api.evalCommand('SetFilling(con, 0.5)');
+        // Base del con: revolució del radi a z=0
+        api.evalCommand('radCon = Curve((s, 0, 0), s, 0, 2)');
+        api.evalCommand('basCon = Surface(radCon, alpha, ZAxis)');
+        api.evalCommand('SetColor(basCon, "#10b981")');
+        api.evalCommand('SetFilling(basCon, 0.5)');
 
-        // Visibilitat lligada al slider tipus (es recalcula automàticament)
-        api.evalCommand('SetConditionToShowObject(cilindre, tipus == 1)');
-        api.evalCommand('SetConditionToShowObject(con, tipus == 2)');
-        api.evalCommand('SetConditionToShowObject(esfera, tipus == 3)');
+        // ───── ESFERA: semicercle de radi 2 girant pel diàmetre (eix Z) ─────
+        api.evalCommand('semicercle = Curve(2 sin(t), 0, 2 - 2 cos(t), t, 0, π)');
+        api.evalCommand('SetColor(semicercle, "#1e293b")');
+        api.evalCommand('SetLineThickness(semicercle, 4)');
+        api.evalCommand('esf = Surface(semicercle, alpha, ZAxis)');
+        api.evalCommand('SetColor(esf, "#ec4899")');
+        api.evalCommand('SetFilling(esf, 0.5)');
+
+        // Amaga totes les corbes generatrius (només per construcció)
+        api.evalCommand('SetVisibleInView(genCil, 1, false)');
+        api.evalCommand('SetVisibleInView(genCon, 1, false)');
+        api.evalCommand('SetVisibleInView(radInfCil, 1, false)');
+        api.evalCommand('SetVisibleInView(radSupCil, 1, false)');
+        api.evalCommand('SetVisibleInView(radCon, 1, false)');
+
+        // Etiquetes off
+        ['rect','cil','basInfCil','basSupCil','triangle','con','basCon','semicercle','esf',
+         'genCil','genCon','radInfCil','radSupCil','radCon'].forEach(function(n){
+          try { api.evalCommand('ShowLabel(' + n + ', false)'); } catch(e) {}
+        });
+
+        aplicaCosActiu();
       } catch (e) {
         console.error('[ggb-rev] init error:', e);
       }
@@ -239,7 +301,27 @@ window.addEventListener('load', function() {
   };
   new GGBApplet(paramsRev, true).inject('ggb-revolucio');
 
-  // Applet 2: vista 3D dels tres cossos amb caselles
+  // Botons de selecció de cos (cilindre / con / esfera)
+  document.querySelectorAll('.ggb-btn-cos').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cosActiu = parseInt(btn.getAttribute('data-cos'), 10);
+      // Estils dels botons
+      document.querySelectorAll('.ggb-btn-cos').forEach(function(b){
+        if (parseInt(b.getAttribute('data-cos'),10) === cosActiu) {
+          b.style.background = '#6366f1';
+          b.style.color = '#fff';
+          b.style.borderColor = '#6366f1';
+        } else {
+          b.style.background = 'var(--bg)';
+          b.style.color = 'var(--text)';
+          b.style.borderColor = 'var(--border)';
+        }
+      });
+      aplicaCosActiu();
+    });
+  });
+
+  // ── Applet 2: vista 3D amb les eines natives Cylinder/Cone/Sphere ──
   var params3D = {
     appName: '3d',
     width: 720,
@@ -254,23 +336,33 @@ window.addEventListener('load', function() {
     enableRightClick: false,
     appletOnLoad: function(api) {
       try {
-        // Cilindre: radi 1.5, altura 3, centrat a l'origen
-        api.evalCommand('cil = Surface(1.5 cos(t), 1.5 sin(t), s, s, 0, 3, t, 0, 2π)');
-        api.evalCommand('SetColor(cil, "#6366f1")');
-        api.evalCommand('SetFilling(cil, 0.45)');
-        api.evalCommand('ShowLabel(cil, false)');
+        // Cilindre: comanda nativa Cylinder(<centre base>, <centre tapa>, <radi>)
+        api.evalCommand('cilCentreBase = (0, 0, 0)');
+        api.evalCommand('cilCentreTapa = (0, 0, 3)');
+        api.evalCommand('cilindreNatiu = Cylinder(cilCentreBase, cilCentreTapa, 1.5)');
+        api.evalCommand('SetColor(cilindreNatiu, "#6366f1")');
+        api.evalCommand('SetFilling(cilindreNatiu, 0.55)');
+        api.evalCommand('ShowLabel(cilindreNatiu, false)');
 
-        // Con: radi 1.5 a la base, altura 3, desplaçat a x=5
-        api.evalCommand('con3 = Surface((1 - s/3) * 1.5 cos(t) + 5, (1 - s/3) * 1.5 sin(t), s, s, 0, 3, t, 0, 2π)');
-        api.evalCommand('SetColor(con3, "#10b981")');
-        api.evalCommand('SetFilling(con3, 0.45)');
-        api.evalCommand('ShowLabel(con3, false)');
+        // Con: Cone(<centre base>, <vèrtex>, <radi>) — desplaçat a x=5
+        api.evalCommand('conBase = (5, 0, 0)');
+        api.evalCommand('conVertex = (5, 0, 3)');
+        api.evalCommand('conNatiu = Cone(conBase, conVertex, 1.5)');
+        api.evalCommand('SetColor(conNatiu, "#10b981")');
+        api.evalCommand('SetFilling(conNatiu, 0.55)');
+        api.evalCommand('ShowLabel(conNatiu, false)');
 
-        // Esfera: radi 1.5, centre a x=10, z=1.5
-        api.evalCommand('esf = Surface(1.5 cos(s) cos(t) + 10, 1.5 cos(s) sin(t), 1.5 sin(s) + 1.5, s, -π/2, π/2, t, 0, 2π)');
-        api.evalCommand('SetColor(esf, "#ec4899")');
-        api.evalCommand('SetFilling(esf, 0.45)');
-        api.evalCommand('ShowLabel(esf, false)');
+        // Esfera: Sphere(<centre>, <radi>) — centre a x=10, z=1.5
+        api.evalCommand('esfCentre = (10, 0, 1.5)');
+        api.evalCommand('esferaNativa = Sphere(esfCentre, 1.5)');
+        api.evalCommand('SetColor(esferaNativa, "#ec4899")');
+        api.evalCommand('SetFilling(esferaNativa, 0.55)');
+        api.evalCommand('ShowLabel(esferaNativa, false)');
+
+        // Amaga els punts auxiliars
+        ['cilCentreBase','cilCentreTapa','conBase','conVertex','esfCentre'].forEach(function(p){
+          try { api.evalCommand('SetVisible(' + p + ', false)'); } catch(e){}
+        });
       } catch (e) {
         console.error('[ggb-3d] init error:', e);
       }
