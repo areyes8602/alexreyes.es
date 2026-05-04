@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1. Què és un cos de revolució? · 2n ESO</title>
-<meta name="description" content="Apunts de cossos de revolució per a 2n d'ESO: definició, visualització interactiva amb GeoGebra de la rotació de figures planes i dels cossos resultants en 3D.">
+<meta name="description" content="Apunts de cossos de revolució per a 2n d'ESO: definició, visualització 3D interactiva (Three.js) de la rotació de figures planes i dels cossos resultants.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -28,11 +28,20 @@
 .body-card .body-svg { display: block; margin: 0 auto 0.4rem; height: 70px; }
 .body-card h4 { margin: 0.3rem 0 0.2rem; font-size: 0.95rem; font-weight: 600; }
 .body-card p { margin: 0; font-size: 0.78rem; color: var(--text-soft); }
-.ggb-frame { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; margin: 1rem 0; overflow: hidden; }
-.ggb-applet-host { width: 100%; min-height: 460px; min-width: 0; }
-.ggb-caption { font-size: 0.82rem; color: var(--text-faint); text-align: center; margin-top: 0.5rem; }
-.ggb-fallback { text-align: center; padding: 2rem 1rem; color: var(--text-soft); font-size: 0.9rem; }
-.ggb-fallback a { display: inline-block; margin-top: 0.6rem; padding: 0.55rem 1rem; background: #0891b2; color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-weight: 500; }
+.viewer { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; margin: 1rem 0; overflow: hidden; }
+.viewer-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; padding: 0.4rem 0.2rem 0.7rem; border-bottom: 1px solid var(--border); margin-bottom: 0.6rem; }
+.viewer-btn { padding: 0.4rem 0.85rem; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; font-family: var(--font); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: border-color 0.12s, background 0.12s; }
+.viewer-btn:hover { border-color: var(--border-strong); }
+.viewer-btn.active { background: #6366f1; color: #fff; border-color: #6366f1; }
+.viewer-slider-row { display: flex; align-items: center; gap: 0.6rem; margin-left: auto; flex-wrap: wrap; }
+.viewer-slider-row label { font-size: 0.85rem; color: var(--text-soft); }
+.viewer-slider-row input[type=range] { width: 180px; accent-color: #6366f1; }
+.viewer-slider-row .alpha-val { font-family: var(--mono); font-size: 0.85rem; min-width: 3ch; color: var(--text); font-weight: 600; }
+.viewer-canvas { width: 100%; height: 460px; min-width: 0; display: block; touch-action: none; }
+.viewer-caption { font-size: 0.82rem; color: var(--text-faint); text-align: center; margin-top: 0.5rem; }
+.viewer-legend { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 0.5rem; font-size: 0.82rem; color: var(--text-soft); }
+.viewer-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.viewer-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; }
 [data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
 [data-theme="dark"] .tip-box { background: rgba(16,185,129,0.14); }
 @media (max-width: 600px) {
@@ -83,7 +92,7 @@
         <span class="tag tag-gray" style="font-size:0.7rem">3 mar 2026</span>
       </div>
       <h1 style="margin:0">1. Què és un cos de revolució?</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Definició, els tres cossos clàssics i visualització interactiva amb GeoGebra.</p>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Definició, els tres cossos clàssics i visualització 3D interactiva.</p>
     </div>
 
     <article class="question-block" style="border:none;padding:0;background:none">
@@ -134,27 +143,37 @@
       </div>
 
       <div class="apunt-section">
-        <h2>GeoGebra · Veure la revolució en directe</h2>
-        <p>Tria el cos amb els botons i mou el control lliscant <strong>α</strong> per fer girar la figura plana al voltant de l'eix vertical (eix Z). Veuràs com el rectangle genera un <strong>cilindre</strong>, el triangle un <strong>con</strong>, i el semicercle una <strong>esfera</strong>.</p>
+        <h2>Veure la revolució en directe</h2>
+        <p>Tria el cos amb els botons i mou el control lliscant <strong>α</strong> per fer girar la figura plana al voltant de l'eix vertical. Veuràs com el rectangle genera un <strong>cilindre</strong>, el triangle un <strong>con</strong>, i el semicercle una <strong>esfera</strong>.</p>
 
-        <div class="ggb-frame">
-          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;padding:0.4rem 0.2rem 0.7rem;border-bottom:1px solid var(--border);margin-bottom:0.6rem">
-            <button type="button" class="ggb-btn-cos" data-cos="1" style="padding:0.4rem 0.85rem;background:#6366f1;color:#fff;border:1px solid #6366f1;border-radius:6px;font-family:var(--font);font-size:0.85rem;font-weight:500;cursor:pointer">Cilindre</button>
-            <button type="button" class="ggb-btn-cos" data-cos="2" style="padding:0.4rem 0.85rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font-family:var(--font);font-size:0.85rem;font-weight:500;cursor:pointer">Con</button>
-            <button type="button" class="ggb-btn-cos" data-cos="3" style="padding:0.4rem 0.85rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font-family:var(--font);font-size:0.85rem;font-weight:500;cursor:pointer">Esfera</button>
+        <div class="viewer">
+          <div class="viewer-controls">
+            <button type="button" class="viewer-btn cos-btn active" data-cos="cilindre">Cilindre</button>
+            <button type="button" class="viewer-btn cos-btn" data-cos="con">Con</button>
+            <button type="button" class="viewer-btn cos-btn" data-cos="esfera">Esfera</button>
+            <div class="viewer-slider-row">
+              <label for="alpha-slider">Angle α:</label>
+              <input type="range" id="alpha-slider" min="0" max="360" value="360" step="1">
+              <span class="alpha-val" id="alpha-val">360°</span>
+            </div>
           </div>
-          <div id="ggb-revolucio" class="ggb-applet-host"></div>
-          <p class="ggb-caption">Applet GeoGebra · Tria el cos i mou α de 0° a 360°. Pots arrossegar la vista 3D amb el ratolí.</p>
+          <canvas id="canvas-revolucio" class="viewer-canvas"></canvas>
+          <p class="viewer-caption">Tria el cos i mou α de 0° a 360°. Arrossega per rotar la vista 3D · roda del ratolí per fer zoom.</p>
         </div>
       </div>
 
       <div class="apunt-section">
-        <h2>GeoGebra · Vista 3D dels tres cossos</h2>
-        <p>Aquí pots <strong>rotar lliurement</strong> els tres cossos en 3D i comparar-ne la mida. Estan creats amb les eines geomètriques natives de GeoGebra (<code>Cilindre</code>, <code>Con</code>, <code>Esfera</code>).</p>
+        <h2>Vista 3D dels tres cossos</h2>
+        <p>Aquí pots <strong>rotar lliurement</strong> els tres cossos i comparar-ne la mida. Construïts amb les primitives natives de Three.js (<code>CylinderGeometry</code>, <code>ConeGeometry</code>, <code>SphereGeometry</code>).</p>
 
-        <div class="ggb-frame">
-          <div id="ggb-3d" class="ggb-applet-host"></div>
-          <p class="ggb-caption">Applet GeoGebra 3D · Arrossega amb el ratolí per rotar la vista.</p>
+        <div class="viewer">
+          <canvas id="canvas-3d" class="viewer-canvas"></canvas>
+          <div class="viewer-legend">
+            <span><i style="background:#6366f1"></i>Cilindre</span>
+            <span><i style="background:#10b981"></i>Con</span>
+            <span><i style="background:#ec4899"></i>Esfera</span>
+          </div>
+          <p class="viewer-caption">Arrossega amb el ratolí o el dit per rotar · roda del ratolí o pessigada per fer zoom.</p>
         </div>
       </div>
 
@@ -178,197 +197,242 @@
   </div>
 </footer>
 
-<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 
-// ──── GeoGebra 1: Revolució d'una figura plana ────
+// ──── Three.js: visualitzadors 3D dels cossos de revolució ────
 window.addEventListener('load', function() {
-  if (typeof GGBApplet === 'undefined') {
-    var h1 = document.getElementById('ggb-revolucio');
-    if (h1) h1.innerHTML = '<div class="ggb-fallback"><p>GeoGebra no s\'ha pogut carregar.</p></div>';
-    var h2 = document.getElementById('ggb-3d');
-    if (h2) h2.innerHTML = '<div class="ggb-fallback"><p>GeoGebra no s\'ha pogut carregar.</p></div>';
+  if (typeof THREE === 'undefined') {
+    console.error('Three.js no s\'ha pogut carregar.');
     return;
   }
+  // ════ Utilitats compartides ════
+  var COLOR = { cilindre: 0x6366f1, con: 0x10b981, esfera: 0xec4899, axis: 0x64748b, profile: 0x1e293b };
 
-  var apiRev = null;
-  var cosActiu = 1; // 1 = cilindre, 2 = con, 3 = esfera
-
-  function setVisible(name, visible) {
-    if (!apiRev) return;
-    try { apiRev.setVisible(name, visible); } catch (e) {}
+  function getBgColor() {
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+    return v || '#ffffff';
   }
 
-  function aplicaCosActiu() {
-    if (!apiRev) return;
-    setVisible('rect', cosActiu === 1);
-    setVisible('cil', cosActiu === 1);
-    setVisible('basInfCil', cosActiu === 1);
-    setVisible('basSupCil', cosActiu === 1);
+  function makeScene(canvas) {
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    renderer.setSize(w, h, false);
 
-    setVisible('triangle', cosActiu === 2);
-    setVisible('con', cosActiu === 2);
-    setVisible('basCon', cosActiu === 2);
+    var scene = new THREE.Scene();
+    scene.background = null; // transparent → s'adapta al tema
 
-    setVisible('semicercle', cosActiu === 3);
-    setVisible('esf', cosActiu === 3);
-  }
+    var camera = new THREE.PerspectiveCamera(45, w / Math.max(h, 1), 0.1, 1000);
+    var controls = new THREE.OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.rotateSpeed = 0.85;
+    controls.zoomSpeed = 0.9;
 
-  // ── Applet 1: revolució interactiva ──
-  var paramsRev = {
-    appName: '3d',
-    width: 720,
-    height: 460,
-    showToolBar: false,
-    showAlgebraInput: false,
-    showMenuBar: false,
-    showResetIcon: true,
-    showZoomButtons: false,
-    enableLabelDrags: false,
-    enableShiftDragZoom: true,
-    enableRightClick: false,
-    appletOnLoad: function(api) {
-      apiRev = api;
-      try {
-        // Slider d'angle (visible a la pantalla)
-        api.evalCommand('alpha = Slider(0°, 360°, 1°, 1, 200, false, true, false, false)');
-        api.evalCommand('SetValue(alpha, 360°)');
-        api.evalCommand('SetCaption(alpha, "Angle α")');
-        api.evalCommand('ShowLabel(alpha, true)');
+    // Llums
+    var ambient = new THREE.AmbientLight(0xffffff, 0.55);
+    scene.add(ambient);
+    var key = new THREE.DirectionalLight(0xffffff, 0.7);
+    key.position.set(5, 8, 6);
+    scene.add(key);
+    var rim = new THREE.DirectionalLight(0xffffff, 0.35);
+    rim.position.set(-6, 4, -3);
+    scene.add(rim);
 
-        // ───── CILINDRE: rectangle r=2, h=4 girant sobre eix Z ─────
-        api.evalCommand('rect = Polygon((0,0,0), (2,0,0), (2,0,4), (0,0,4))');
-        api.evalCommand('SetColor(rect, "#1e293b")');
-        api.evalCommand('SetFilling(rect, 0.15)');
-        // Cara lateral: revolució de la generatriu vertical x=2 al pla xz
-        api.evalCommand('genCil = Curve((2, 0, t), t, 0, 4)');
-        api.evalCommand('cil = Surface(genCil, alpha, ZAxis)');
-        api.evalCommand('SetColor(cil, "#6366f1")');
-        api.evalCommand('SetFilling(cil, 0.5)');
-        // Bases: revolució del segment radial a z=0 i z=4
-        api.evalCommand('radInfCil = Curve((s, 0, 0), s, 0, 2)');
-        api.evalCommand('basInfCil = Surface(radInfCil, alpha, ZAxis)');
-        api.evalCommand('SetColor(basInfCil, "#6366f1")');
-        api.evalCommand('SetFilling(basInfCil, 0.5)');
-        api.evalCommand('radSupCil = Curve((s, 0, 4), s, 0, 2)');
-        api.evalCommand('basSupCil = Surface(radSupCil, alpha, ZAxis)');
-        api.evalCommand('SetColor(basSupCil, "#6366f1")');
-        api.evalCommand('SetFilling(basSupCil, 0.5)');
-
-        // ───── CON: triangle rectangle (base 2, altura 4) girant sobre eix Z ─────
-        api.evalCommand('triangle = Polygon((0,0,0), (2,0,0), (0,0,4))');
-        api.evalCommand('SetColor(triangle, "#1e293b")');
-        api.evalCommand('SetFilling(triangle, 0.15)');
-        // Generatriu: línia inclinada de (2,0,0) a (0,0,4)
-        api.evalCommand('genCon = Curve(2 - s/2, 0, s, s, 0, 4)');
-        api.evalCommand('con = Surface(genCon, alpha, ZAxis)');
-        api.evalCommand('SetColor(con, "#10b981")');
-        api.evalCommand('SetFilling(con, 0.5)');
-        // Base del con: revolució del radi a z=0
-        api.evalCommand('radCon = Curve((s, 0, 0), s, 0, 2)');
-        api.evalCommand('basCon = Surface(radCon, alpha, ZAxis)');
-        api.evalCommand('SetColor(basCon, "#10b981")');
-        api.evalCommand('SetFilling(basCon, 0.5)');
-
-        // ───── ESFERA: semicercle de radi 2 girant pel diàmetre (eix Z) ─────
-        api.evalCommand('semicercle = Curve(2 sin(t), 0, 2 - 2 cos(t), t, 0, π)');
-        api.evalCommand('SetColor(semicercle, "#1e293b")');
-        api.evalCommand('SetLineThickness(semicercle, 4)');
-        api.evalCommand('esf = Surface(semicercle, alpha, ZAxis)');
-        api.evalCommand('SetColor(esf, "#ec4899")');
-        api.evalCommand('SetFilling(esf, 0.5)');
-
-        // Amaga totes les corbes generatrius (només per construcció)
-        api.evalCommand('SetVisibleInView(genCil, 1, false)');
-        api.evalCommand('SetVisibleInView(genCon, 1, false)');
-        api.evalCommand('SetVisibleInView(radInfCil, 1, false)');
-        api.evalCommand('SetVisibleInView(radSupCil, 1, false)');
-        api.evalCommand('SetVisibleInView(radCon, 1, false)');
-
-        // Etiquetes off
-        ['rect','cil','basInfCil','basSupCil','triangle','con','basCon','semicercle','esf',
-         'genCil','genCon','radInfCil','radSupCil','radCon'].forEach(function(n){
-          try { api.evalCommand('ShowLabel(' + n + ', false)'); } catch(e) {}
-        });
-
-        aplicaCosActiu();
-      } catch (e) {
-        console.error('[ggb-rev] init error:', e);
-      }
+    // Resize
+    function onResize() {
+      var nw = canvas.clientWidth, nh = canvas.clientHeight;
+      if (nw === 0 || nh === 0) return;
+      renderer.setSize(nw, nh, false);
+      camera.aspect = nw / nh;
+      camera.updateProjectionMatrix();
     }
-  };
-  new GGBApplet(paramsRev, true).inject('ggb-revolucio');
+    window.addEventListener('resize', onResize);
 
-  // Botons de selecció de cos (cilindre / con / esfera)
-  document.querySelectorAll('.ggb-btn-cos').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      cosActiu = parseInt(btn.getAttribute('data-cos'), 10);
-      // Estils dels botons
-      document.querySelectorAll('.ggb-btn-cos').forEach(function(b){
-        if (parseInt(b.getAttribute('data-cos'),10) === cosActiu) {
-          b.style.background = '#6366f1';
-          b.style.color = '#fff';
-          b.style.borderColor = '#6366f1';
-        } else {
-          b.style.background = 'var(--bg)';
-          b.style.color = 'var(--text)';
-          b.style.borderColor = 'var(--border)';
+    return { renderer: renderer, scene: scene, camera: camera, controls: controls, onResize: onResize };
+  }
+
+  function makeAxis(length, color) {
+    var mat = new THREE.LineBasicMaterial({ color: color });
+    var pts = [new THREE.Vector3(0, -0.3, 0), new THREE.Vector3(0, length, 0)];
+    var geo = new THREE.BufferGeometry().setFromPoints(pts);
+    return new THREE.Line(geo, mat);
+  }
+
+  function makeProfileLine(points2D, color) {
+    var pts3 = points2D.map(function(p){ return new THREE.Vector3(p.x, p.y, 0); });
+    var geo = new THREE.BufferGeometry().setFromPoints(pts3);
+    var mat = new THREE.LineBasicMaterial({ color: color, linewidth: 2 });
+    return new THREE.Line(geo, mat);
+  }
+
+  function makeFloorGrid(size, divisions) {
+    var grid = new THREE.GridHelper(size, divisions, 0xcbd5e1, 0xe2e8f0);
+    grid.position.y = 0;
+    return grid;
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  //  VIEWER 1 — REVOLUCIÓ interactiva amb LatheGeometry
+  // ════════════════════════════════════════════════════════════════
+  (function initViewer1() {
+    var canvas = document.getElementById('canvas-revolucio');
+    if (!canvas) return;
+    var s = makeScene(canvas);
+    s.camera.position.set(7, 5.5, 7);
+    s.controls.target.set(0, 2, 0);
+    s.controls.update();
+
+    s.scene.add(makeAxis(5.5, COLOR.axis));
+    s.scene.add(makeFloorGrid(8, 8));
+
+    // Perfils 2D — cada Vector2 és (x = distància a l'eix, y = altura)
+    var PROFILES = {
+      cilindre: [
+        new THREE.Vector2(0, 0),
+        new THREE.Vector2(2, 0),
+        new THREE.Vector2(2, 4),
+        new THREE.Vector2(0, 4)
+      ],
+      con: [
+        new THREE.Vector2(0, 0),
+        new THREE.Vector2(2, 0),
+        new THREE.Vector2(0, 4)
+      ],
+      esfera: (function() {
+        var pts = [];
+        var R = 2, N = 32;
+        // Semicercle de radi R centrat a (0, R), des de (0,0) fins a (0,2R)
+        for (var i = 0; i <= N; i++) {
+          var t = (i / N) * Math.PI;
+          pts.push(new THREE.Vector2(Math.sin(t) * R, R - Math.cos(t) * R));
         }
+        return pts;
+      })()
+    };
+
+    var COSCOLOR = { cilindre: COLOR.cilindre, con: COLOR.con, esfera: COLOR.esfera };
+
+    var bodyMesh = null;
+    var profileLine = null;
+    var sweepLine = null; // còpia del perfil rotada α (mostra on és ara la generatriu)
+    var cosActiu = 'cilindre';
+    var alphaDeg = 360;
+
+    function buildBody() {
+      if (bodyMesh) { s.scene.remove(bodyMesh); bodyMesh.geometry.dispose(); bodyMesh.material.dispose(); }
+      if (profileLine) { s.scene.remove(profileLine); profileLine.geometry.dispose(); profileLine.material.dispose(); }
+      if (sweepLine) { s.scene.remove(sweepLine); sweepLine.geometry.dispose(); sweepLine.material.dispose(); }
+
+      var pts = PROFILES[cosActiu];
+      var phi = THREE.MathUtils.degToRad(alphaDeg);
+
+      // LatheGeometry: revoluciona el perfil al voltant de l'eix Y
+      var geo = new THREE.LatheGeometry(pts, 64, 0, Math.max(phi, 0.0001));
+      var mat = new THREE.MeshLambertMaterial({
+        color: COSCOLOR[cosActiu],
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.85,
+        flatShading: false
       });
-      aplicaCosActiu();
-    });
-  });
+      bodyMesh = new THREE.Mesh(geo, mat);
+      s.scene.add(bodyMesh);
 
-  // ── Applet 2: vista 3D amb les eines natives Cylinder/Cone/Sphere ──
-  var params3D = {
-    appName: '3d',
-    width: 720,
-    height: 460,
-    showToolBar: false,
-    showAlgebraInput: false,
-    showMenuBar: false,
-    showResetIcon: true,
-    showZoomButtons: false,
-    enableLabelDrags: false,
-    enableShiftDragZoom: true,
-    enableRightClick: false,
-    appletOnLoad: function(api) {
-      try {
-        // Cilindre: comanda nativa Cylinder(<centre base>, <centre tapa>, <radi>)
-        api.evalCommand('cilCentreBase = (0, 0, 0)');
-        api.evalCommand('cilCentreTapa = (0, 0, 3)');
-        api.evalCommand('cilindreNatiu = Cylinder(cilCentreBase, cilCentreTapa, 1.5)');
-        api.evalCommand('SetColor(cilindreNatiu, "#6366f1")');
-        api.evalCommand('SetFilling(cilindreNatiu, 0.55)');
-        api.evalCommand('ShowLabel(cilindreNatiu, false)');
+      // Perfil 2D original (en el pla xy, z=0) — la "figura plana" abans de rotar
+      profileLine = makeProfileLine(pts, COLOR.profile);
+      s.scene.add(profileLine);
 
-        // Con: Cone(<centre base>, <vèrtex>, <radi>) — desplaçat a x=5
-        api.evalCommand('conBase = (5, 0, 0)');
-        api.evalCommand('conVertex = (5, 0, 3)');
-        api.evalCommand('conNatiu = Cone(conBase, conVertex, 1.5)');
-        api.evalCommand('SetColor(conNatiu, "#10b981")');
-        api.evalCommand('SetFilling(conNatiu, 0.55)');
-        api.evalCommand('ShowLabel(conNatiu, false)');
-
-        // Esfera: Sphere(<centre>, <radi>) — centre a x=10, z=1.5
-        api.evalCommand('esfCentre = (10, 0, 1.5)');
-        api.evalCommand('esferaNativa = Sphere(esfCentre, 1.5)');
-        api.evalCommand('SetColor(esferaNativa, "#ec4899")');
-        api.evalCommand('SetFilling(esferaNativa, 0.55)');
-        api.evalCommand('ShowLabel(esferaNativa, false)');
-
-        // Amaga els punts auxiliars
-        ['cilCentreBase','cilCentreTapa','conBase','conVertex','esfCentre'].forEach(function(p){
-          try { api.evalCommand('SetVisible(' + p + ', false)'); } catch(e){}
-        });
-      } catch (e) {
-        console.error('[ggb-3d] init error:', e);
-      }
+      // Generatriu rotada per α — on és ara el "front" de la rotació
+      var ptsRot = pts.map(function(p){
+        return new THREE.Vector3(p.x * Math.cos(phi), p.y, -p.x * Math.sin(phi));
+      });
+      var geoRot = new THREE.BufferGeometry().setFromPoints(ptsRot);
+      var matRot = new THREE.LineBasicMaterial({ color: COSCOLOR[cosActiu] });
+      sweepLine = new THREE.Line(geoRot, matRot);
+      s.scene.add(sweepLine);
     }
-  };
-  new GGBApplet(params3D, true).inject('ggb-3d');
+
+    buildBody();
+
+    // Botons de selecció
+    document.querySelectorAll('.cos-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        cosActiu = btn.getAttribute('data-cos');
+        document.querySelectorAll('.cos-btn').forEach(function(b){
+          b.classList.toggle('active', b.getAttribute('data-cos') === cosActiu);
+        });
+        buildBody();
+      });
+    });
+
+    // Slider α
+    var slider = document.getElementById('alpha-slider');
+    var valDisp = document.getElementById('alpha-val');
+    if (slider) {
+      slider.addEventListener('input', function(){
+        alphaDeg = parseInt(slider.value, 10);
+        if (valDisp) valDisp.textContent = alphaDeg + '°';
+        buildBody();
+      });
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      s.controls.update();
+      s.renderer.render(s.scene, s.camera);
+    }
+    animate();
+  })();
+
+  // ════════════════════════════════════════════════════════════════
+  //  VIEWER 2 — Tres cossos amb primitives natives de Three.js
+  // ════════════════════════════════════════════════════════════════
+  (function initViewer2() {
+    var canvas = document.getElementById('canvas-3d');
+    if (!canvas) return;
+    var s = makeScene(canvas);
+    s.camera.position.set(8, 6, 12);
+    s.controls.target.set(5, 1.5, 0);
+    s.controls.update();
+
+    s.scene.add(makeFloorGrid(20, 20));
+
+    function lambert(color) {
+      return new THREE.MeshLambertMaterial({
+        color: color, transparent: true, opacity: 0.92, side: THREE.DoubleSide
+      });
+    }
+
+    // Cilindre: radi 1.5, altura 3 — primitiva CylinderGeometry
+    var cilGeo = new THREE.CylinderGeometry(1.5, 1.5, 3, 48);
+    var cilMesh = new THREE.Mesh(cilGeo, lambert(COLOR.cilindre));
+    cilMesh.position.set(0, 1.5, 0);
+    s.scene.add(cilMesh);
+
+    // Con: radi base 1.5, altura 3 — primitiva ConeGeometry
+    var conGeo = new THREE.ConeGeometry(1.5, 3, 48);
+    var conMesh = new THREE.Mesh(conGeo, lambert(COLOR.con));
+    conMesh.position.set(5, 1.5, 0);
+    s.scene.add(conMesh);
+
+    // Esfera: radi 1.5 — primitiva SphereGeometry
+    var esfGeo = new THREE.SphereGeometry(1.5, 48, 32);
+    var esfMesh = new THREE.Mesh(esfGeo, lambert(COLOR.esfera));
+    esfMesh.position.set(10, 1.5, 0);
+    s.scene.add(esfMesh);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      s.controls.update();
+      s.renderer.render(s.scene, s.camera);
+    }
+    animate();
+  })();
 });
 </script>
 </body>
