@@ -13,9 +13,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
-<link rel="stylesheet" href="/style.css?v=202605050737">
-<link rel="stylesheet" href="/assets/css/aula.css?v=202605050737">
-<link rel="stylesheet" href="/assets/css/examenes.css?v=202605050737">
+<link rel="stylesheet" href="/style.css?v=202605050759">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202605050759">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605050759">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
@@ -214,6 +214,285 @@
           Per integrar la fórmula al revés s'obté $\displaystyle\int a^x\,dx = \dfrac{a^x}{\ln(a)} + C$ (TANS 5.11),
           que apareix de manera recurrent en models exponencials sense base $e$ (interès compost amb bases $1{,}05^x$, decaïment radioactiu amb bases $\tfrac{1}{2}$, etc.).
         </p>
+      </section>
+
+      <!-- ============ APÈNDIX ESTÀTICA ============ -->
+      <section class="apunt-section" style="margin-top:3rem;border-top:2px dashed var(--border);padding-top:1.4rem">
+        <h2>Apèndix — Exercicis d'estàtica <span style="font-weight:400;color:var(--text-faint);font-size:0.85rem">(off-topic respecte a la derivada de $a^x$)</span></h2>
+
+        <p class="note">
+          Bloc afegit per petició; no té relació amb el tema de l'apunt. Exercicis d'equilibri d'un sòlid
+          rígid amb accionament per cilindre hidràulic.
+        </p>
+
+        <!-- ===== Exercici 5 (original) ===== -->
+        <div class="exercise" style="margin-top:1.2rem">
+          <div class="exercise-head">
+            <span class="num">E5</span>
+            <span class="ttl">Grua per a caixes de fruita — apartat (a)</span>
+          </div>
+          <p class="exercise-intro">
+            La figura mostra l'esquema simplificat d'una grua per elevar caixes de fruita. La barra
+            $OBC$, de longitud $2\ell = 4\text{ m}$ (essent $B$ el seu punt mitjà), es troba articulada al
+            terra al punt $O$. A l'extrem $C$ s'hi pengen 3 caixes de fruita de $25\text{ kg}$ cadascuna
+            ($m=75\text{ kg}$). La massa de la resta d'elements és negligible. La barra es mou mitjançant
+            un cilindre hidràulic de diàmetre interior $d_{\text{int}} = 40\text{ mm}$, articulat a $P$ i
+            a $B$. Els punts $O$ i $P$ es troben sobre la mateixa vertical, a una distància $\ell=2\text{ m}$.
+            El cilindre permet modificar la coordenada $\varphi$, amb $0° < \varphi < 65°$.
+          </p>
+
+          <figure style="margin:0.8rem 0;text-align:center">
+            <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;background:transparent;border:1px solid var(--border);border-radius:6px">
+              <line x1="370" y1="40" x2="370" y2="370" stroke="currentColor" stroke-width="2"/>
+              <g stroke="currentColor" stroke-width="1">
+                <line x1="370" y1="50" x2="386" y2="40"/><line x1="370" y1="80" x2="386" y2="70"/>
+                <line x1="370" y1="110" x2="386" y2="100"/><line x1="370" y1="140" x2="386" y2="130"/>
+                <line x1="370" y1="170" x2="386" y2="160"/><line x1="370" y1="200" x2="386" y2="190"/>
+                <line x1="370" y1="230" x2="386" y2="220"/><line x1="370" y1="260" x2="386" y2="250"/>
+                <line x1="370" y1="290" x2="386" y2="280"/><line x1="370" y1="320" x2="386" y2="310"/>
+                <line x1="370" y1="350" x2="386" y2="340"/>
+              </g>
+              <line x1="360" y1="280" x2="280" y2="135" stroke="#888" stroke-width="14" stroke-linecap="round"/>
+              <line x1="360" y1="280" x2="280" y2="135" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3,3"/>
+              <line x1="360" y1="170" x2="200" y2="60" stroke="currentColor" stroke-width="5"/>
+              <circle cx="360" cy="170" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+              <text x="368" y="166" font-family="serif" font-style="italic" font-size="14" fill="currentColor">O</text>
+              <circle cx="280" cy="115" r="4" fill="currentColor"/>
+              <text x="287" y="108" font-family="serif" font-style="italic" font-size="14" fill="currentColor">B</text>
+              <circle cx="200" cy="60" r="4" fill="currentColor"/>
+              <text x="184" y="56" font-family="serif" font-style="italic" font-size="14" fill="currentColor">C</text>
+              <circle cx="360" cy="280" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+              <text x="368" y="285" font-family="serif" font-style="italic" font-size="14" fill="currentColor">P</text>
+              <line x1="200" y1="60" x2="200" y2="80" stroke="currentColor" stroke-width="1"/>
+              <rect x="170" y="80" width="60" height="38" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <text x="200" y="105" text-anchor="middle" font-family="serif" font-style="italic" font-size="14" fill="currentColor">m</text>
+              <path d="M 360 130 A 40 40 0 0 0 332 144" stroke="currentColor" fill="none" stroke-width="1.2"/>
+              <text x="338" y="135" font-family="serif" font-style="italic" font-size="14" fill="currentColor">φ</text>
+              <line x1="360" y1="170" x2="360" y2="125" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3,3"/>
+              <text x="318" y="158" font-family="serif" font-style="italic" font-size="13" fill="currentColor">ℓ</text>
+              <text x="234" y="100" font-family="serif" font-style="italic" font-size="13" fill="currentColor">ℓ</text>
+              <text x="380" y="230" font-family="serif" font-style="italic" font-size="13" fill="currentColor">ℓ</text>
+              <text x="32" y="42" font-family="serif" font-style="italic" font-size="14" fill="currentColor">g</text>
+              <line x1="40" y1="48" x2="40" y2="78" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="36,72 44,72 40,82" fill="currentColor"/>
+            </svg>
+            <figcaption style="font-size:0.82rem;color:var(--text-faint);margin-top:0.3rem">
+              Esquema de la grua: barra $OBC$ articulada a $O$, cilindre $PB$, massa $m$ penjada de $C$.
+            </figcaption>
+          </figure>
+
+          <p><strong>(a)</strong> Dibuixa el diagrama de cos lliure de la barra $OBC$. <em>[0,5 punts]</em></p>
+
+          <details class="solucion" open>
+            <summary><strong>Solució (a)</strong></summary>
+            <div class="solucion-cuerpo">
+              <p>
+                Aïllem la barra $OBC$ i dibuixem totes les forces externes que hi actuen. Hi ha tres punts
+                on la barra interactua amb l'exterior: l'articulació $O$, el cilindre a $B$ i la càrrega
+                penjada a $C$.
+              </p>
+
+              <ul>
+                <li><strong>A $C$:</strong> pes de les caixes $W = m\,g = 75\cdot 9{,}81 \approx 736\text{ N}$, dirigit verticalment cap avall.</li>
+                <li><strong>A $B$:</strong> força $\vec{F}$ del cilindre hidràulic. Com que el cilindre està articulat als seus
+                    dos extrems (a $P$ i a $B$) i només suporta càrrega axial, és un <em>element de dues forces</em>:
+                    la seva acció sobre la barra va dirigida al llarg de la recta $\overline{PB}$. Per la geometria
+                    (la càrrega a $C$ tira de la barra cap a fora), el cilindre treballa a <strong>compressió</strong>
+                    i empeny $B$ en la direcció $\overrightarrow{PB}$.</li>
+                <li><strong>A $O$:</strong> reacció de l'articulació. És un suport doble (passador), per tant té
+                    dues components desconegudes: $O_x$ (horitzontal) i $O_y$ (vertical).</li>
+              </ul>
+
+              <p>El FBD queda així:</p>
+
+              <figure style="margin:0.8rem 0;text-align:center">
+                <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;background:transparent;border:1px solid var(--border);border-radius:6px">
+                  <defs>
+                    <marker id="arr-fbd-ca" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                    </marker>
+                    <marker id="arr-w-ca" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+                    </marker>
+                    <marker id="arr-r-ca" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+                    </marker>
+                    <marker id="arr-f-ca" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                    </marker>
+                  </defs>
+                  <line x1="360" y1="200" x2="200" y2="90" stroke="currentColor" stroke-width="5"/>
+                  <circle cx="360" cy="200" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="280" cy="145" r="4" fill="currentColor"/>
+                  <circle cx="200" cy="90" r="4" fill="currentColor"/>
+                  <text x="372" y="200" font-family="serif" font-style="italic" font-size="14" fill="currentColor">O</text>
+                  <text x="290" y="138" font-family="serif" font-style="italic" font-size="14" fill="currentColor">B</text>
+                  <text x="184" y="86" font-family="serif" font-style="italic" font-size="14" fill="currentColor">C</text>
+                  <line x1="200" y1="90" x2="200" y2="170" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-w-ca)"/>
+                  <text x="208" y="155" font-size="14" fill="#dc2626" font-weight="600">W = mg</text>
+                  <line x1="360" y1="200" x2="420" y2="200" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-r-ca)"/>
+                  <text x="395" y="218" font-size="14" fill="#2563eb" font-weight="600">O</text>
+                  <text x="409" y="223" font-size="11" fill="#2563eb" font-weight="600">x</text>
+                  <line x1="360" y1="200" x2="360" y2="260" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-r-ca)"/>
+                  <text x="335" y="248" font-size="14" fill="#2563eb" font-weight="600">O</text>
+                  <text x="349" y="253" font-size="11" fill="#2563eb" font-weight="600">y</text>
+                  <line x1="280" y1="145" x2="249" y2="82" stroke="#059669" stroke-width="2" marker-end="url(#arr-f-ca)"/>
+                  <text x="222" y="80" font-size="14" fill="#059669" font-weight="600">F</text>
+                  <line x1="360" y1="310" x2="280" y2="145" stroke="currentColor" stroke-width="0.6" stroke-dasharray="3,3"/>
+                  <circle cx="360" cy="310" r="3" fill="currentColor"/>
+                  <text x="368" y="316" font-family="serif" font-style="italic" font-size="13" fill="currentColor">P</text>
+                  <g transform="translate(20, 20)">
+                    <rect x="0" y="0" width="170" height="68" fill="white" fill-opacity="0.0" stroke="currentColor" stroke-width="0.5" rx="4"/>
+                    <line x1="8" y1="14" x2="28" y2="14" stroke="#dc2626" stroke-width="2"/>
+                    <text x="34" y="18" font-size="11" fill="currentColor">Pes de la càrrega</text>
+                    <line x1="8" y1="34" x2="28" y2="34" stroke="#2563eb" stroke-width="2"/>
+                    <text x="34" y="38" font-size="11" fill="currentColor">Reacció a O</text>
+                    <line x1="8" y1="54" x2="28" y2="54" stroke="#059669" stroke-width="2"/>
+                    <text x="34" y="58" font-size="11" fill="currentColor">Empenta del cilindre</text>
+                  </g>
+                </svg>
+                <figcaption style="font-size:0.82rem;color:var(--text-faint);margin-top:0.3rem">
+                  FBD de la barra $OBC$: pes a $C$, reacció articulada a $O$, força del cilindre al llarg de $\overline{PB}$ a $B$.
+                </figcaption>
+              </figure>
+
+              <p>
+                <strong>Numèricament.</strong> El mòdul del pes és $W = 75 \cdot 9{,}81 \approx 736\text{ N}$.
+                La força $F$ del cilindre i les components $O_x,\ O_y$ són tres incògnites, que es determinen
+                amb les tres equacions d'equilibri del sòlid rígid: $\sum F_x = 0$, $\sum F_y = 0$, $\sum M_O = 0$
+                (apartats (b) i (c) — fora de l'abast demanat).
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- ===== Exercici proposat similar ===== -->
+        <div class="exercise" style="margin-top:1.6rem">
+          <div class="exercise-head">
+            <span class="num" style="background:#0891b2">E·prop</span>
+            <span class="ttl">Plataforma de càrrega basculant — exercici proposat</span>
+          </div>
+          <p class="exercise-intro">
+            Una plataforma rígida $AB$ de longitud $L = 3\text{ m}$ i massa negligible està articulada al
+            terra a $A$. A l'extrem $B$ s'hi situa un sac de ciment de massa $m = 40\text{ kg}$. Un cilindre
+            hidràulic de diàmetre interior $d_{\text{int}} = 30\text{ mm}$, articulat entre els punts $B$ i $C$,
+            suporta la plataforma. El punt $C$ està fixat al terra, a una distància horitzontal $a = 2\text{ m}$
+            del punt $A$. La plataforma pot elevar-se formant un angle $\theta$ amb l'horitzontal, amb
+            $0° \leq \theta \leq 60°$. Considera $g=9{,}81\ \mathrm{m/s^2}$ i menysprea el fregament.
+          </p>
+
+          <figure style="margin:0.8rem 0;text-align:center">
+            <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;background:transparent;border:1px solid var(--border);border-radius:6px">
+              <line x1="40" y1="260" x2="440" y2="260" stroke="currentColor" stroke-width="2"/>
+              <g stroke="currentColor" stroke-width="1">
+                <line x1="50" y1="260" x2="40" y2="276"/><line x1="80" y1="260" x2="70" y2="276"/>
+                <line x1="110" y1="260" x2="100" y2="276"/><line x1="140" y1="260" x2="130" y2="276"/>
+                <line x1="170" y1="260" x2="160" y2="276"/><line x1="200" y1="260" x2="190" y2="276"/>
+                <line x1="230" y1="260" x2="220" y2="276"/><line x1="260" y1="260" x2="250" y2="276"/>
+                <line x1="290" y1="260" x2="280" y2="276"/><line x1="320" y1="260" x2="310" y2="276"/>
+                <line x1="350" y1="260" x2="340" y2="276"/><line x1="380" y1="260" x2="370" y2="276"/>
+                <line x1="410" y1="260" x2="400" y2="276"/><line x1="440" y1="260" x2="430" y2="276"/>
+              </g>
+              <line x1="180" y1="260" x2="270" y2="135" stroke="#888" stroke-width="14" stroke-linecap="round"/>
+              <line x1="180" y1="260" x2="270" y2="135" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3,3"/>
+              <line x1="80" y1="260" x2="270" y2="135" stroke="currentColor" stroke-width="5"/>
+              <circle cx="80" cy="260" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+              <text x="68" y="280" font-family="serif" font-style="italic" font-size="14" fill="currentColor">A</text>
+              <circle cx="180" cy="260" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+              <text x="172" y="280" font-family="serif" font-style="italic" font-size="14" fill="currentColor">C</text>
+              <circle cx="270" cy="135" r="4" fill="currentColor"/>
+              <text x="278" y="132" font-family="serif" font-style="italic" font-size="14" fill="currentColor">B</text>
+              <rect x="240" y="100" width="60" height="32" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <text x="270" y="121" text-anchor="middle" font-family="serif" font-style="italic" font-size="13" fill="currentColor">m</text>
+              <path d="M 130 260 A 50 50 0 0 0 113 235" stroke="currentColor" fill="none" stroke-width="1.2"/>
+              <text x="125" y="248" font-family="serif" font-style="italic" font-size="14" fill="currentColor">θ</text>
+              <line x1="80" y1="290" x2="180" y2="290" stroke="currentColor" stroke-width="0.8"/>
+              <line x1="80" y1="285" x2="80" y2="295" stroke="currentColor" stroke-width="0.8"/>
+              <line x1="180" y1="285" x2="180" y2="295" stroke="currentColor" stroke-width="0.8"/>
+              <text x="130" y="305" text-anchor="middle" font-family="serif" font-style="italic" font-size="12" fill="currentColor">a</text>
+              <text x="32" y="32" font-family="serif" font-style="italic" font-size="14" fill="currentColor">g</text>
+              <line x1="40" y1="38" x2="40" y2="68" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="36,62 44,62 40,72" fill="currentColor"/>
+            </svg>
+            <figcaption style="font-size:0.82rem;color:var(--text-faint);margin-top:0.3rem">
+              Plataforma $AB$ articulada a $A$, suportada pel cilindre $CB$ amb $C$ a distància $a$ de $A$.
+            </figcaption>
+          </figure>
+
+          <p><strong>(a)</strong> Dibuixa el FBD de la plataforma per a un angle genèric $\theta\in(0°,60°)$. <em>[0,5 punts]</em></p>
+          <p><strong>(b)</strong> Calcula la força $F$ del cilindre hidràulic quan $\theta = 30°$. <em>[1,5 punts]</em></p>
+          <p><strong>(c)</strong> Determina la pressió interior de l'oli $p_{\text{oli}}$ quan $\theta = 30°$. <em>[0,5 punts]</em></p>
+
+          <details class="solucion">
+            <summary><strong>Solució</strong></summary>
+            <div class="solucion-cuerpo">
+              <p><strong>(a) FBD.</strong> A $A$: reacció articulada amb dues components $A_x,\ A_y$.
+              A $B$: pes del sac $W=mg \approx 392{,}4\text{ N}$ vertical cap avall i empenta $\vec F$ del
+              cilindre al llarg de $\overline{CB}$ (element de dues forces, en compressió).</p>
+
+              <p><strong>(b) Força del cilindre.</strong> Sistema de referència amb origen a $A$ i eix $x$ horitzontal.</p>
+
+              <p>Coordenades:</p>
+              <p style="text-align:center">
+                $A=(0,0)$, &nbsp;
+                $B=(L\cos\theta,\,L\sin\theta)$, &nbsp;
+                $C=(a,\,0)$.
+              </p>
+
+              <p>Per a $\theta=30°$:</p>
+              <p style="text-align:center">
+                $B=(3\cos 30°,\,3\sin 30°)=(2{,}598,\,1{,}500)\text{ m}$.
+              </p>
+
+              <p>Vector $\overrightarrow{CB}=B-C=(0{,}598,\,1{,}500)\text{ m}$, amb mòdul</p>
+              <p style="text-align:center">
+                $|\overrightarrow{CB}|=\sqrt{0{,}598^{2}+1{,}500^{2}}=\sqrt{2{,}608}\approx 1{,}615\text{ m}.$
+              </p>
+
+              <p>Vector unitari en la direcció $C\to B$ (en la qual el cilindre empeny el punt $B$):</p>
+              <p style="text-align:center">
+                $\hat u = \dfrac{1}{1{,}615}(0{,}598,\,1{,}500) \approx (0{,}370,\,0{,}929).$
+              </p>
+
+              <p>La força del cilindre sobre la plataforma a $B$ és $\vec F = F\,\hat u = (0{,}370\,F,\,0{,}929\,F)$.</p>
+
+              <p>Apliquem $\sum M_A = 0$ (suma de moments respecte a $A$, sentit antihorari positiu).
+              Només contribueixen les forces a $B$ perquè la reacció a $A$ passa pel pol:</p>
+
+              <p style="text-align:center">
+                $\underbrace{x_B\cdot F_y - y_B\cdot F_x}_{\text{moment de }\vec F} + \underbrace{x_B\cdot(-W) - y_B\cdot 0}_{\text{moment del pes}} = 0.$
+              </p>
+
+              <p>Substituint:</p>
+              <p style="text-align:center">
+                $2{,}598\cdot 0{,}929\,F - 1{,}500\cdot 0{,}370\,F - 2{,}598\cdot 392{,}4 = 0$
+              </p>
+              <p style="text-align:center">
+                $(2{,}413 - 0{,}555)\,F = 1019{,}5$
+              </p>
+              <p style="text-align:center">
+                $1{,}858\,F = 1019{,}5 \quad\Longrightarrow\quad \boxed{F \approx 549\text{ N}}.$
+              </p>
+
+              <p><strong>(c) Pressió hidràulica.</strong> El cilindre té diàmetre interior $d_{\text{int}}=30\text{ mm}=0{,}030\text{ m}$, així que l'àrea del pistó és</p>
+              <p style="text-align:center">
+                $A_{\text{pistó}} = \dfrac{\pi\, d_{\text{int}}^{\,2}}{4} = \dfrac{\pi\,(0{,}030)^{2}}{4} \approx 7{,}07\cdot 10^{-4}\text{ m}^{2}.$
+              </p>
+              <p>De $F = p\cdot A_{\text{pistó}}$ s'aïlla</p>
+              <p style="text-align:center">
+                $p_{\text{oli}} = \dfrac{F}{A_{\text{pistó}}} = \dfrac{549}{7{,}07\cdot 10^{-4}} \approx 7{,}76\cdot 10^{5}\text{ Pa}\approx \boxed{0{,}78\text{ MPa}\;\;(\approx 7{,}8\text{ bar})}.$
+              </p>
+
+              <p class="note">
+                <strong>Comprovació d'ordre de magnitud.</strong> Les bombes hidràuliques industrials típiques
+                treballen entre 5 i 250 bar, així que 7,8 bar és realista per a un mecanisme domèstic de
+                càrrega baixa. Si la plataforma s'eleva més (major $\theta$), el braç de palanca del pes
+                augmenta i la pressió també — per això el rang operatiu es limita a $\theta\le 60°$.
+              </p>
+            </div>
+          </details>
+        </div>
+
       </section>
 
     </article>
