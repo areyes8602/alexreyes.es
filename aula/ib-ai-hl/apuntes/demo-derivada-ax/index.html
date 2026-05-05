@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demostración: derivada de a^x · TANS 5.8 · IB Math AI HL — alexreyes.es</title>
+<meta name="description" content="Demostración paso a paso de que la derivada de f(x)=a^x es a^x·ln(a), a partir de la definición por límite. Reescribe a como e^{ln(a)}, reconoce el límite fundamental lim_{u→0}(e^u−1)/u=1 y aplica un cambio de variable. Apunte breve para IB Math AI HL — TANS 5.8.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605050737">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202605050737">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605050737">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/apuntes/?id=u09-derivadas-optimizacion">Apuntes · Derivadas</a><span class="sep">/</span>
+      <span class="current">Demostración: derivada de $a^x$</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem;align-items:center">
+        <span class="section-label">IB Math AI HL · T4 · Derivadas y optimización</span>
+        <span class="tag tag-orange">TANS 5.8 · Apuntes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">5 may 2026</span>
+      </div>
+      <h1 style="margin:0">Demostración: derivada de $a^x$</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        Demostración paso a paso de que si $f(x)=a^x$ entonces $f'(x)=a^x\ln(a)$, a partir de
+        la definición por límite. La idea clave es reescribir $a=e^{\ln a}$ y reconocer el
+        límite fundamental $\lim_{u\to 0}\dfrac{e^u-1}{u}=1$.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ ENUNCIADO ============ -->
+      <section class="apunt-section">
+        <h2>Enunciado</h2>
+
+        <div class="prop-box">
+          <h3>Resultado a demostrar</h3>
+          <p>Para todo $a>0$, $a\neq 1$, la función $f(x)=a^x$ es derivable en todo $\mathbb{R}$ y</p>
+          <p style="text-align:center">$$\dfrac{d}{dx}\left(a^x\right) = a^x\,\ln(a).$$</p>
+        </div>
+
+        <p class="note">
+          Como caso particular se recupera la derivada de $e^x$: si $a=e$, entonces $\ln(a)=1$ y la fórmula
+          se reduce a $(e^x)' = e^x$.
+        </p>
+      </section>
+
+      <!-- ============ DEMOSTRACIÓN ============ -->
+      <section class="apunt-section">
+        <h2>Demostración</h2>
+
+        <p>
+          Partimos de la definición de derivada como límite:
+        </p>
+        <p style="text-align:center">$$f'(x) = \lim_{h\to 0}\,\frac{f(x+h)-f(x)}{h}.$$</p>
+
+        <p>Sustituyendo $f(x)=a^x$:</p>
+        <p style="text-align:center">$$f'(x) = \lim_{h\to 0}\,\frac{a^{x+h}-a^x}{h}.$$</p>
+
+        <div class="step">
+          <h3>Paso 1 — Sacar factor común $a^x$</h3>
+          <p>Como $a^{x+h}=a^x\cdot a^h$, el numerador admite factor común $a^x$:</p>
+          <p style="text-align:center">$$\lim_{h\to 0}\frac{a^{x+h}-a^x}{h} \;=\; \lim_{h\to 0}\frac{a^x\bigl(a^h-1\bigr)}{h} \;=\; a^x\cdot\lim_{h\to 0}\frac{a^h-1}{h}.$$</p>
+          <p>El factor $a^x$ no depende de $h$, así que sale del límite. Llamemos</p>
+          <p style="text-align:center">$$L \;=\; \lim_{h\to 0}\frac{a^h-1}{h}.$$</p>
+          <p>El problema se reduce a calcular $L$. Si lo conseguimos, habremos demostrado que $f'(x)=a^x\cdot L$.</p>
+        </div>
+
+        <div class="step">
+          <h3>Paso 2 — Reescribir $a$ como $e^{\ln(a)}$</h3>
+          <p>
+            Por definición del logaritmo natural, para cualquier $a>0$ se tiene
+            $a = e^{\ln(a)}$. Elevando ambos lados a la potencia $h$:
+          </p>
+          <p style="text-align:center">$$a^h \;=\; \bigl(e^{\ln(a)}\bigr)^h \;=\; e^{h\ln(a)}.$$</p>
+          <p>Sustituyendo en $L$:</p>
+          <p style="text-align:center">$$L \;=\; \lim_{h\to 0}\frac{a^h-1}{h} \;=\; \lim_{h\to 0}\frac{e^{h\ln(a)}-1}{h}.$$</p>
+        </div>
+
+        <div class="step">
+          <h3>Paso 3 — Multiplicar y dividir por $\ln(a)$</h3>
+          <p>
+            Queremos hacer aparecer en el denominador la misma expresión que en el exponente
+            (es decir, $h\ln(a)$) para reconocer un límite estándar. Multiplicamos numerador y
+            denominador por $\ln(a)$:
+          </p>
+          <p style="text-align:center">$$L \;=\; \lim_{h\to 0}\frac{\bigl(e^{h\ln(a)}-1\bigr)\cdot \ln(a)}{h\cdot \ln(a)} \;=\; \ln(a)\cdot\lim_{h\to 0}\frac{e^{h\ln(a)}-1}{h\ln(a)}.$$</p>
+          <p>El factor $\ln(a)$ es constante respecto a $h$, así que sale del límite.</p>
+        </div>
+
+        <div class="step">
+          <h3>Paso 4 — Cambio de variable y límite fundamental</h3>
+          <p>
+            Hacemos el cambio $u = h\ln(a)$. Como $\ln(a)$ es constante, cuando $h\to 0$ también
+            $u\to 0$. El límite se reescribe en términos de $u$:
+          </p>
+          <p style="text-align:center">$$L \;=\; \ln(a)\cdot\lim_{u\to 0}\frac{e^{u}-1}{u}.$$</p>
+          <p>
+            El límite $\displaystyle\lim_{u\to 0}\frac{e^u-1}{u}=1$ es uno de los <strong>límites fundamentales</strong>:
+            es justamente la propiedad que caracteriza al número $e$ como base "natural" de las exponenciales.
+            En la definición habitual de $e$, $e$ es el único número real positivo para el cual la pendiente
+            de $f(x)=e^x$ en $x=0$ vale $1$, y eso es precisamente este límite.
+          </p>
+          <p>Sustituyendo:</p>
+          <p style="text-align:center">$$L \;=\; \ln(a)\cdot 1 \;=\; \ln(a).$$</p>
+        </div>
+      </section>
+
+      <!-- ============ CONCLUSIÓN ============ -->
+      <section class="apunt-section">
+        <h2>Conclusión</h2>
+
+        <p>Volviendo a la expresión que dejamos en el Paso 1:</p>
+        <p style="text-align:center">$$f'(x) \;=\; a^x\cdot L \;=\; a^x\cdot\ln(a).$$</p>
+
+        <div class="prop-box">
+          <h3>Fórmula final</h3>
+          <p style="text-align:center">$$\boxed{\;\dfrac{d}{dx}\bigl(a^x\bigr) \;=\; a^x\,\ln(a)\;}$$</p>
+        </div>
+
+        <p class="note">
+          <strong>Comprobación rápida.</strong> Si $a=e$, $\ln(e)=1$ y la fórmula da $(e^x)'=e^x$, que es la propiedad que define a $e$.
+          Si $a=2$, la derivada es $2^x\ln(2)\approx 2^x\cdot 0{,}693$, así que la curva $y=2^x$ tiene pendiente $\ln(2)$ en $x=0$, no $1$.
+        </p>
+      </section>
+
+      <!-- ============ COMENTARIOS ============ -->
+      <section class="apunt-section">
+        <h2>Comentarios y conexiones</h2>
+
+        <div class="def-box">
+          <h3>Por qué se eligió esta vía</h3>
+          <p>
+            Tratar $a^h-1$ directamente es difícil porque no encaja con ningún límite estándar conocido.
+            Reescribir $a^h$ como $e^{h\ln(a)}$ traslada el problema al límite $\lim_{u\to 0}(e^u-1)/u=1$,
+            que sí conocemos. Esta es la utilidad principal de la identidad $a=e^{\ln(a)}$: convertir
+            cualquier exponencial en una exponencial de base $e$.
+          </p>
+        </div>
+
+        <div class="def-box">
+          <h3>Conexión con la regla de la cadena</h3>
+          <p>
+            Una vez aceptamos que $(e^x)'=e^x$, hay un atajo: como $a^x = e^{x\ln(a)}$, por la regla de la cadena
+            $$\bigl(a^x\bigr)' \;=\; e^{x\ln(a)}\cdot\ln(a) \;=\; a^x\,\ln(a).$$
+            La demostración de arriba es esencialmente la regla de la cadena <em>desplegada en versión $\varepsilon$–$\delta$</em>:
+            el cambio de variable $u=h\ln(a)$ es la regla de la cadena en lenguaje de límites.
+          </p>
+        </div>
+
+        <p class="note">
+          Para integrar la fórmula al revés se obtiene $\displaystyle\int a^x\,dx = \dfrac{a^x}{\ln(a)} + C$ (TANS 5.11),
+          que aparece de forma recurrente en modelos exponenciales sin base $e$ (interés compuesto con bases $1{,}05^x$, decaimiento radiactivo con bases $\tfrac{1}{2}$, etc.).
+        </p>
+      </section>
+
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
