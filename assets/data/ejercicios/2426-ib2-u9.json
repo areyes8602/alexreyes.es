@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 2,
   "id": "2426-ib2-u9",
   "tipo_coleccion": "examen",
   "titulo": "Unidad 9 — Matrices y transformaciones",
@@ -47,12 +47,12 @@
     }
   ],
   "tags_coleccion": {
-    "materia": "ib-ai-hl",
+    "asignatura": "ib-ai-hl",
+    "nivel": "ib2",
     "curso_academico": "2025-2026",
     "idioma": "es",
     "fuente": "propia",
-    "origen": "examen",
-    "ambito_iba": "T1"
+    "origen": "examen"
   },
   "ejercicios": [
     {
@@ -95,15 +95,23 @@
         }
       ],
       "tags": {
-        "concepto_iba": [
+        "descriptor_ib": [
           "TANS 1.12",
           "TANS 1.14"
         ],
-        "dificultad": "media",
+        "tema": [
+          "matrices",
+          "transformaciones_lineales",
+          "rotacion",
+          "simetria",
+          "homotecia",
+          "geometria"
+        ],
         "habilidad": [
           "calculo_simbolico",
           "visualizacion"
         ],
+        "dificultad": "media",
         "formato": [
           "pregunta_larga"
         ]
@@ -139,15 +147,19 @@
         }
       ],
       "tags": {
-        "concepto_iba": [
+        "descriptor_ib": [
           "TANS 1.14"
         ],
-        "dificultad": "media",
+        "tema": [
+          "matrices",
+          "cifrado_matricial"
+        ],
         "habilidad": [
           "calculo_simbolico",
           "razonamiento",
           "uso_calculadora"
         ],
+        "dificultad": "media",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -189,17 +201,23 @@
         }
       ],
       "tags": {
-        "concepto_iba": [
+        "descriptor_ib": [
           "TANS 1.13",
           "TANS 1.14"
         ],
-        "dificultad": "media",
+        "tema": [
+          "matrices",
+          "cadena_markov",
+          "matriz_transicion",
+          "estado_estacionario"
+        ],
         "habilidad": [
           "modelizacion",
           "calculo_numerico",
           "interpretacion",
           "uso_calculadora"
         ],
+        "dificultad": "media",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -226,15 +244,20 @@
         }
       ],
       "tags": {
-        "concepto_iba": [
+        "descriptor_ib": [
           "TANS 1.14",
           "TANS 1.15"
         ],
-        "dificultad": "facil",
+        "tema": [
+          "matrices",
+          "sistema_lineal",
+          "autovalores"
+        ],
         "habilidad": [
           "calculo_simbolico",
           "uso_calculadora"
         ],
+        "dificultad": "facil",
         "formato": [
           "pregunta_corta"
         ]
@@ -270,16 +293,23 @@
         }
       ],
       "tags": {
-        "concepto_iba": [
+        "descriptor_ib": [
           "TANS 1.13",
           "TANS 1.15"
         ],
-        "dificultad": "media",
+        "tema": [
+          "matrices",
+          "cadena_markov",
+          "autovalores",
+          "estado_estacionario",
+          "probabilidad"
+        ],
         "habilidad": [
           "calculo_simbolico",
           "interpretacion",
           "modelizacion"
         ],
+        "dificultad": "media",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
