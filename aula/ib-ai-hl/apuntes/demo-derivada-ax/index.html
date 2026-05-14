@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demostración: derivada de a^x · TANS 5.8 · IB Math AI HL — alexreyes.es</title>
+<meta name="description" content="Demostración paso a paso de que la derivada de f(x)=a^x es a^x·ln(a), a partir de la definición por límite. Reescribe a como e^{ln(a)}, reconoce el límite fundamental lim_{u→0}(e^u−1)/u=1 y aplica un cambio de variable. Apunte breve para IB Math AI HL — TANS 5.8.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141631">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202605141631">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141631">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/apuntes/?id=u09-derivadas-optimizacion">Apuntes · Derivadas</a><span class="sep">/</span>
+      <span class="current">Demostración: derivada de $a^x$</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem;align-items:center">
+        <span class="section-label">IB Math AI HL · T4 · Derivadas y optimización</span>
+        <span class="tag tag-orange">TANS 5.8 · Apuntes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">5 may 2026</span>
+      </div>
+      <h1 style="margin:0">Demostración: derivada de $a^x$</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        Demostración paso a paso de que si $f(x)=a^x$ entonces $f'(x)=a^x\ln(a)$, a partir de
+        la definición por límite. La idea clave es reescribir $a=e^{\ln a}$ y reconocer el
+        límite fundamental $\lim_{u\to 0}\dfrac{e^u-1}{u}=1$.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ ENUNCIADO ============ -->
+      <section class="apunt-section">
+        <h2>Enunciado</h2>
+
+        <div class="prop-box">
+          <h3>Resultado a demostrar</h3>
+          <p>Para todo $a>0$, $a\neq 1$, la función $f(x)=a^x$ es derivable en todo $\mathbb{R}$ y</p>
+          <p style="text-align:center">$$\dfrac{d}{dx}\left(a^x\right) = a^x\,\ln(a).$$</p>
+        </div>
+
+        <p class="note">
+          Como caso particular se recupera la derivada de $e^x$: si $a=e$, entonces $\ln(a)=1$ y la fórmula
+          se reduce a $(e^x)' = e^x$.
+        </p>
+      </section>
+
+      <!-- ============ DEMOSTRACIÓN ============ -->
+      <section class="apunt-section">
+        <h2>Demostración</h2>
+
+        <p>
+          Partimos de la definición de derivada como límite:
+        </p>
+        <p style="text-align:center">$$f'(x) = \lim_{h\to 0}\,\frac{f(x+h)-f(x)}{h}.$$</p>
+
+        <p>Sustituyendo $f(x)=a^x$:</p>
+        <p style="text-align:center">$$f'(x) = \lim_{h\to 0}\,\frac{a^{x+h}-a^x}{h}.$$</p>
+
+        <div class="step">
+          <h3>Paso 1 — Sacar factor común $a^x$</h3>
+          <p>Como $a^{x+h}=a^x\cdot a^h$, el numerador admite factor común $a^x$:</p>
+          <p style="text-align:center">$$\lim_{h\to 0}\frac{a^{x+h}-a^x}{h} \;=\; \lim_{h\to 0}\frac{a^x\bigl(a^h-1\bigr)}{h} \;=\; a^x\cdot\lim_{h\to 0}\frac{a^h-1}{h}.$$</p>
+          <p>El factor $a^x$ no depende de $h$, así que sale del límite. Llamemos</p>
+          <p style="text-align:center">$$L \;=\; \lim_{h\to 0}\frac{a^h-1}{h}.$$</p>
+          <p>El problema se reduce a calcular $L$. Si lo conseguimos, habremos demostrado que $f'(x)=a^x\cdot L$.</p>
+        </div>
+
+        <div class="step">
+          <h3>Paso 2 — Reescribir $a$ como $e^{\ln(a)}$</h3>
+          <p>
+            Por definición del logaritmo natural, para cualquier $a>0$ se tiene
+            $a = e^{\ln(a)}$. Elevando ambos lados a la potencia $h$:
+          </p>
+          <p style="text-align:center">$$a^h \;=\; \bigl(e^{\ln(a)}\bigr)^h \;=\; e^{h\ln(a)}.$$</p>
+          <p>Sustituyendo en $L$:</p>
+          <p style="text-align:center">$$L \;=\; \lim_{h\to 0}\frac{a^h-1}{h} \;=\; \lim_{h\to 0}\frac{e^{h\ln(a)}-1}{h}.$$</p>
+        </div>
+
+        <div class="step">
+          <h3>Paso 3 — Multiplicar y dividir por $\ln(a)$</h3>
+          <p>
+            Queremos hacer aparecer en el denominador la misma expresión que en el exponente
+            (es decir, $h\ln(a)$) para reconocer un límite estándar. Multiplicamos numerador y
+            denominador por $\ln(a)$:
+          </p>
+          <p style="text-align:center">$$L \;=\; \lim_{h\to 0}\frac{\bigl(e^{h\ln(a)}-1\bigr)\cdot \ln(a)}{h\cdot \ln(a)} \;=\; \ln(a)\cdot\lim_{h\to 0}\frac{e^{h\ln(a)}-1}{h\ln(a)}.$$</p>
+          <p>El factor $\ln(a)$ es constante respecto a $h$, así que sale del límite.</p>
+        </div>
+
+        <div class="step">
+          <h3>Paso 4 — Cambio de variable y límite fundamental</h3>
+          <p>
+            Hacemos el cambio $u = h\ln(a)$. Como $\ln(a)$ es constante, cuando $h\to 0$ también
+            $u\to 0$. El límite se reescribe en términos de $u$:
+          </p>
+          <p style="text-align:center">$$L \;=\; \ln(a)\cdot\lim_{u\to 0}\frac{e^{u}-1}{u}.$$</p>
+          <p>
+            El límite $\displaystyle\lim_{u\to 0}\frac{e^u-1}{u}=1$ es uno de los <strong>límites fundamentales</strong>:
+            es justamente la propiedad que caracteriza al número $e$ como base "natural" de las exponenciales.
+            En la definición habitual de $e$, $e$ es el único número real positivo para el cual la pendiente
+            de $f(x)=e^x$ en $x=0$ vale $1$, y eso es precisamente este límite.
+          </p>
+          <p>Sustituyendo:</p>
+          <p style="text-align:center">$$L \;=\; \ln(a)\cdot 1 \;=\; \ln(a).$$</p>
+        </div>
+      </section>
+
+      <!-- ============ CONCLUSIÓN ============ -->
+      <section class="apunt-section">
+        <h2>Conclusión</h2>
+
+        <p>Volviendo a la expresión que dejamos en el Paso 1:</p>
+        <p style="text-align:center">$$f'(x) \;=\; a^x\cdot L \;=\; a^x\cdot\ln(a).$$</p>
+
+        <div class="prop-box">
+          <h3>Fórmula final</h3>
+          <p style="text-align:center">$$\boxed{\;\dfrac{d}{dx}\bigl(a^x\bigr) \;=\; a^x\,\ln(a)\;}$$</p>
+        </div>
+
+        <p class="note">
+          <strong>Comprobación rápida.</strong> Si $a=e$, $\ln(e)=1$ y la fórmula da $(e^x)'=e^x$, que es la propiedad que define a $e$.
+          Si $a=2$, la derivada es $2^x\ln(2)\approx 2^x\cdot 0{,}693$, así que la curva $y=2^x$ tiene pendiente $\ln(2)$ en $x=0$, no $1$.
+        </p>
+      </section>
+
+      <!-- ============ COMENTARIOS ============ -->
+      <section class="apunt-section">
+        <h2>Comentarios y conexiones</h2>
+
+        <div class="def-box">
+          <h3>Por qué se eligió esta vía</h3>
+          <p>
+            Tratar $a^h-1$ directamente es difícil porque no encaja con ningún límite estándar conocido.
+            Reescribir $a^h$ como $e^{h\ln(a)}$ traslada el problema al límite $\lim_{u\to 0}(e^u-1)/u=1$,
+            que sí conocemos. Esta es la utilidad principal de la identidad $a=e^{\ln(a)}$: convertir
+            cualquier exponencial en una exponencial de base $e$.
+          </p>
+        </div>
+
+        <div class="def-box">
+          <h3>Conexión con la regla de la cadena</h3>
+          <p>
+            Una vez aceptamos que $(e^x)'=e^x$, hay un atajo: como $a^x = e^{x\ln(a)}$, por la regla de la cadena
+            $$\bigl(a^x\bigr)' \;=\; e^{x\ln(a)}\cdot\ln(a) \;=\; a^x\,\ln(a).$$
+            La demostración de arriba es esencialmente la regla de la cadena <em>desplegada en versión $\varepsilon$–$\delta$</em>:
+            el cambio de variable $u=h\ln(a)$ es la regla de la cadena en lenguaje de límites.
+          </p>
+        </div>
+
+        <p class="note">
+          Para integrar la fórmula al revés se obtiene $\displaystyle\int a^x\,dx = \dfrac{a^x}{\ln(a)} + C$ (TANS 5.11),
+          que aparece de forma recurrente en modelos exponenciales sin base $e$ (interés compuesto con bases $1{,}05^x$, decaimiento radiactivo con bases $\tfrac{1}{2}$, etc.).
+        </p>
+      </section>
+
+      <!-- ============ APÉNDICE ESTÁTICA ============ -->
+      <section class="apunt-section" style="margin-top:3rem;border-top:2px dashed var(--border);padding-top:1.4rem">
+        <h2>Apéndice — Ejercicios de estática <span style="font-weight:400;color:var(--text-faint);font-size:0.85rem">(off-topic respecto a la derivada de $a^x$)</span></h2>
+
+        <p class="note">
+          Bloque añadido por petición; no guarda relación con el tema del apunte. Ejercicios de equilibrio
+          de un sólido rígido con accionamiento por cilindro hidráulico.
+        </p>
+
+        <!-- ===== Ejercicio 5 (original) ===== -->
+        <div class="exercise" style="margin-top:1.2rem">
+          <div class="exercise-head">
+            <span class="num">E5</span>
+            <span class="ttl">Grúa para cajas de fruta — apartado (a)</span>
+          </div>
+          <p class="exercise-intro">
+            La figura muestra el esquema simplificado de una grúa para elevar cajas de fruta. La barra
+            $OBC$, de longitud $2\ell = 4\text{ m}$ (siendo $B$ su punto medio), está articulada al suelo
+            en el punto $O$. En el extremo $C$ se cuelgan 3 cajas de fruta de $25\text{ kg}$ cada una
+            ($m=75\text{ kg}$). La masa del resto de elementos es despreciable. La barra se mueve mediante
+            un cilindro hidráulico de diámetro interior $d_{\text{int}} = 40\text{ mm}$, articulado en
+            $P$ y en $B$. Los puntos $O$ y $P$ están sobre la misma vertical, a una distancia $\ell=2\text{ m}$.
+            El cilindro permite modificar la coordenada $\varphi$, con $0° < \varphi < 65°$.
+          </p>
+
+          <figure style="margin:0.8rem 0;text-align:center">
+            <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;background:transparent;border:1px solid var(--border);border-radius:6px">
+              <!-- Suelo (representado como pared vertical en el esquema original) -->
+              <line x1="370" y1="40" x2="370" y2="370" stroke="currentColor" stroke-width="2"/>
+              <g stroke="currentColor" stroke-width="1">
+                <line x1="370" y1="50" x2="386" y2="40"/><line x1="370" y1="80" x2="386" y2="70"/>
+                <line x1="370" y1="110" x2="386" y2="100"/><line x1="370" y1="140" x2="386" y2="130"/>
+                <line x1="370" y1="170" x2="386" y2="160"/><line x1="370" y1="200" x2="386" y2="190"/>
+                <line x1="370" y1="230" x2="386" y2="220"/><line x1="370" y1="260" x2="386" y2="250"/>
+                <line x1="370" y1="290" x2="386" y2="280"/><line x1="370" y1="320" x2="386" y2="310"/>
+                <line x1="370" y1="350" x2="386" y2="340"/>
+              </g>
+
+              <!-- Cilindro hidráulico de P a B (rectángulo grueso) -->
+              <line x1="360" y1="280" x2="280" y2="135" stroke="#888" stroke-width="14" stroke-linecap="round"/>
+              <line x1="360" y1="280" x2="280" y2="135" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3,3"/>
+
+              <!-- Barra OBC -->
+              <line x1="360" y1="170" x2="200" y2="60" stroke="currentColor" stroke-width="5"/>
+
+              <!-- Articulación O -->
+              <circle cx="360" cy="170" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+              <text x="368" y="166" font-family="serif" font-style="italic" font-size="14" fill="currentColor">O</text>
+
+              <!-- Punto medio B -->
+              <circle cx="280" cy="115" r="4" fill="currentColor"/>
+              <text x="287" y="108" font-family="serif" font-style="italic" font-size="14" fill="currentColor">B</text>
+
+              <!-- Extremo C -->
+              <circle cx="200" cy="60" r="4" fill="currentColor"/>
+              <text x="184" y="56" font-family="serif" font-style="italic" font-size="14" fill="currentColor">C</text>
+
+              <!-- Articulación P -->
+              <circle cx="360" cy="280" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+              <text x="368" y="285" font-family="serif" font-style="italic" font-size="14" fill="currentColor">P</text>
+
+              <!-- Masa colgante en C -->
+              <line x1="200" y1="60" x2="200" y2="80" stroke="currentColor" stroke-width="1"/>
+              <rect x="170" y="80" width="60" height="38" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <text x="200" y="105" text-anchor="middle" font-family="serif" font-style="italic" font-size="14" fill="currentColor">m</text>
+
+              <!-- Ángulo φ entre OBC y vertical -->
+              <path d="M 360 130 A 40 40 0 0 0 332 144" stroke="currentColor" fill="none" stroke-width="1.2"/>
+              <text x="338" y="135" font-family="serif" font-style="italic" font-size="14" fill="currentColor">φ</text>
+              <line x1="360" y1="170" x2="360" y2="125" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+              <!-- Etiquetas de longitud -->
+              <text x="332" y="148" font-family="serif" font-style="italic" font-size="12" fill="currentColor"></text>
+              <text x="318" y="158" font-family="serif" font-style="italic" font-size="13" fill="currentColor">ℓ</text>
+              <text x="234" y="100" font-family="serif" font-style="italic" font-size="13" fill="currentColor">ℓ</text>
+              <text x="380" y="230" font-family="serif" font-style="italic" font-size="13" fill="currentColor">ℓ</text>
+
+              <!-- Vector gravedad -->
+              <text x="32" y="42" font-family="serif" font-style="italic" font-size="14" fill="currentColor">g</text>
+              <line x1="40" y1="48" x2="40" y2="78" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="36,72 44,72 40,82" fill="currentColor"/>
+            </svg>
+            <figcaption style="font-size:0.82rem;color:var(--text-faint);margin-top:0.3rem">
+              Esquema de la grúa: barra $OBC$ articulada en $O$, cilindro $PB$, masa $m$ colgada de $C$.
+            </figcaption>
+          </figure>
+
+          <p><strong>(a)</strong> Dibuja el diagrama de cuerpo libre de la barra $OBC$. <em>[0,5 puntos]</em></p>
+
+          <details class="solucion" open>
+            <summary><strong>Solución (a)</strong></summary>
+            <div class="solucion-cuerpo">
+              <p>
+                Aislamos la barra $OBC$ y dibujamos todas las fuerzas externas que actúan sobre ella.
+                Hay tres puntos donde la barra interactúa con el exterior: la articulación $O$, el cilindro
+                en $B$ y la carga colgada en $C$.
+              </p>
+
+              <ul>
+                <li><strong>En $C$:</strong> peso de las cajas $W = m\,g = 75\cdot 9{,}81 \approx 736\text{ N}$, dirigido verticalmente hacia abajo.</li>
+                <li><strong>En $B$:</strong> fuerza $\vec{F}$ del cilindro hidráulico. Como el cilindro está articulado en sus dos extremos
+                    (en $P$ y en $B$) y soporta solo carga axial, es un <em>elemento de dos fuerzas</em>:
+                    su acción sobre la barra está dirigida a lo largo de la recta $\overline{PB}$. Por la
+                    geometría (carga en $C$ tira de la barra hacia el exterior), el cilindro trabaja en
+                    <strong>compresión</strong> y empuja $B$ en la dirección $\overrightarrow{PB}$.</li>
+                <li><strong>En $O$:</strong> reacción de la articulación. Es un apoyo doble (pasador), así que tiene
+                    dos componentes desconocidas: $O_x$ (horizontal) y $O_y$ (vertical).</li>
+              </ul>
+
+              <p>El FBD queda así:</p>
+
+              <figure style="margin:0.8rem 0;text-align:center">
+                <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;background:transparent;border:1px solid var(--border);border-radius:6px">
+                  <defs>
+                    <marker id="arr-fbd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                    </marker>
+                    <marker id="arr-w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+                    </marker>
+                    <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+                    </marker>
+                    <marker id="arr-f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                    </marker>
+                  </defs>
+
+                  <!-- Barra OBC aislada -->
+                  <line x1="360" y1="200" x2="200" y2="90" stroke="currentColor" stroke-width="5"/>
+
+                  <!-- Puntos -->
+                  <circle cx="360" cy="200" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="280" cy="145" r="4" fill="currentColor"/>
+                  <circle cx="200" cy="90" r="4" fill="currentColor"/>
+
+                  <!-- Etiquetas -->
+                  <text x="372" y="200" font-family="serif" font-style="italic" font-size="14" fill="currentColor">O</text>
+                  <text x="290" y="138" font-family="serif" font-style="italic" font-size="14" fill="currentColor">B</text>
+                  <text x="184" y="86" font-family="serif" font-style="italic" font-size="14" fill="currentColor">C</text>
+
+                  <!-- Peso W en C (rojo, hacia abajo) -->
+                  <line x1="200" y1="90" x2="200" y2="170" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-w)"/>
+                  <text x="208" y="155" font-size="14" fill="#dc2626" font-weight="600">W = mg</text>
+
+                  <!-- Reacción Ox en O (azul, horizontal) -->
+                  <line x1="360" y1="200" x2="420" y2="200" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-r)"/>
+                  <text x="395" y="218" font-size="14" fill="#2563eb" font-weight="600">O</text>
+                  <text x="409" y="223" font-size="11" fill="#2563eb" font-weight="600">x</text>
+
+                  <!-- Reacción Oy en O (azul, vertical hacia arriba) -->
+                  <line x1="360" y1="200" x2="360" y2="260" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-r)"/>
+                  <text x="335" y="248" font-size="14" fill="#2563eb" font-weight="600">O</text>
+                  <text x="349" y="253" font-size="11" fill="#2563eb" font-weight="600">y</text>
+
+                  <!-- Fuerza F del cilindro en B (verde, dirección PB) -->
+                  <!-- Vector PB (desde P=(360,310) a B=(280,145)): dx=-80, dy=-165, normalizado y escalado -->
+                  <!-- Pero F empuja B desde el cilindro, así que la fuerza ON B es en dirección PB, es decir desde P hacia B -->
+                  <!-- Vector: (-80, -165) → unitario (-0.436, -0.900) → escalado por 70: (-30.5, -63) -->
+                  <line x1="280" y1="145" x2="249" y2="82" stroke="#059669" stroke-width="2" marker-end="url(#arr-f)"/>
+                  <text x="222" y="80" font-size="14" fill="#059669" font-weight="600">F</text>
+
+                  <!-- Línea discontinua que indica dirección PB para referencia -->
+                  <line x1="360" y1="310" x2="280" y2="145" stroke="currentColor" stroke-width="0.6" stroke-dasharray="3,3"/>
+                  <circle cx="360" cy="310" r="3" fill="currentColor"/>
+                  <text x="368" y="316" font-family="serif" font-style="italic" font-size="13" fill="currentColor">P</text>
+
+                  <!-- Leyenda -->
+                  <g transform="translate(20, 20)">
+                    <rect x="0" y="0" width="170" height="68" fill="white" fill-opacity="0.0" stroke="currentColor" stroke-width="0.5" rx="4"/>
+                    <line x1="8" y1="14" x2="28" y2="14" stroke="#dc2626" stroke-width="2"/>
+                    <text x="34" y="18" font-size="11" fill="currentColor">Peso de la carga</text>
+                    <line x1="8" y1="34" x2="28" y2="34" stroke="#2563eb" stroke-width="2"/>
+                    <text x="34" y="38" font-size="11" fill="currentColor">Reacción en O</text>
+                    <line x1="8" y1="54" x2="28" y2="54" stroke="#059669" stroke-width="2"/>
+                    <text x="34" y="58" font-size="11" fill="currentColor">Empuje del cilindro</text>
+                  </g>
+                </svg>
+                <figcaption style="font-size:0.82rem;color:var(--text-faint);margin-top:0.3rem">
+                  FBD de la barra $OBC$: peso en $C$, reacción articulada en $O$, fuerza del cilindro a lo largo de $\overline{PB}$ en $B$.
+                </figcaption>
+              </figure>
+
+              <p>
+                <strong>Numéricamente.</strong> El módulo del peso es $W = 75 \cdot 9{,}81 \approx 736\text{ N}$.
+                La fuerza $F$ del cilindro y las componentes $O_x,\ O_y$ son tres incógnitas, que se determinan
+                con las tres ecuaciones de equilibrio del sólido rígido:
+                $\sum F_x = 0$, $\sum F_y = 0$, $\sum M_O = 0$ (apartados (b) y (c) — fuera del alcance pedido).
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- ===== Ejercicio propuesto similar ===== -->
+        <div class="exercise" style="margin-top:1.6rem">
+          <div class="exercise-head">
+            <span class="num" style="background:#0891b2">E·prop</span>
+            <span class="ttl">Plataforma de carga basculante — ejercicio propuesto</span>
+          </div>
+          <p class="exercise-intro">
+            Una plataforma rígida $AB$ de longitud $L = 3\text{ m}$ y masa despreciable está articulada al
+            suelo en $A$. En el extremo $B$ se sitúa un saco de cemento de masa $m = 40\text{ kg}$. Un cilindro
+            hidráulico de diámetro interior $d_{\text{int}} = 30\text{ mm}$, articulado entre los puntos $B$ y $C$,
+            soporta la plataforma. El punto $C$ está fijado al suelo, a una distancia horizontal $a = 2\text{ m}$
+            del punto $A$. La plataforma puede elevarse formando un ángulo $\theta$ con la horizontal,
+            con $0° \leq \theta \leq 60°$. Considera $g=9{,}81\ \mathrm{m/s^2}$ y desprecia la fricción.
+          </p>
+
+          <figure style="margin:0.8rem 0;text-align:center">
+            <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;background:transparent;border:1px solid var(--border);border-radius:6px">
+              <!-- Suelo horizontal -->
+              <line x1="40" y1="260" x2="440" y2="260" stroke="currentColor" stroke-width="2"/>
+              <g stroke="currentColor" stroke-width="1">
+                <line x1="50" y1="260" x2="40" y2="276"/><line x1="80" y1="260" x2="70" y2="276"/>
+                <line x1="110" y1="260" x2="100" y2="276"/><line x1="140" y1="260" x2="130" y2="276"/>
+                <line x1="170" y1="260" x2="160" y2="276"/><line x1="200" y1="260" x2="190" y2="276"/>
+                <line x1="230" y1="260" x2="220" y2="276"/><line x1="260" y1="260" x2="250" y2="276"/>
+                <line x1="290" y1="260" x2="280" y2="276"/><line x1="320" y1="260" x2="310" y2="276"/>
+                <line x1="350" y1="260" x2="340" y2="276"/><line x1="380" y1="260" x2="370" y2="276"/>
+                <line x1="410" y1="260" x2="400" y2="276"/><line x1="440" y1="260" x2="430" y2="276"/>
+              </g>
+
+              <!-- Cilindro hidráulico de C a B (rectángulo grueso) -->
+              <line x1="180" y1="260" x2="270" y2="135" stroke="#888" stroke-width="14" stroke-linecap="round"/>
+              <line x1="180" y1="260" x2="270" y2="135" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3,3"/>
+
+              <!-- Plataforma AB -->
+              <line x1="80" y1="260" x2="270" y2="135" stroke="currentColor" stroke-width="5"/>
+
+              <!-- Articulación A -->
+              <circle cx="80" cy="260" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+              <text x="68" y="280" font-family="serif" font-style="italic" font-size="14" fill="currentColor">A</text>
+
+              <!-- Articulación C -->
+              <circle cx="180" cy="260" r="5" fill="white" stroke="currentColor" stroke-width="2"/>
+              <text x="172" y="280" font-family="serif" font-style="italic" font-size="14" fill="currentColor">C</text>
+
+              <!-- Extremo B -->
+              <circle cx="270" cy="135" r="4" fill="currentColor"/>
+              <text x="278" y="132" font-family="serif" font-style="italic" font-size="14" fill="currentColor">B</text>
+
+              <!-- Saco en B -->
+              <rect x="240" y="100" width="60" height="32" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <text x="270" y="121" text-anchor="middle" font-family="serif" font-style="italic" font-size="13" fill="currentColor">m</text>
+
+              <!-- Ángulo θ -->
+              <path d="M 130 260 A 50 50 0 0 0 113 235" stroke="currentColor" fill="none" stroke-width="1.2"/>
+              <text x="125" y="248" font-family="serif" font-style="italic" font-size="14" fill="currentColor">θ</text>
+
+              <!-- Distancia a (de A a C, horizontal) -->
+              <line x1="80" y1="290" x2="180" y2="290" stroke="currentColor" stroke-width="0.8"/>
+              <line x1="80" y1="285" x2="80" y2="295" stroke="currentColor" stroke-width="0.8"/>
+              <line x1="180" y1="285" x2="180" y2="295" stroke="currentColor" stroke-width="0.8"/>
+              <text x="130" y="305" text-anchor="middle" font-family="serif" font-style="italic" font-size="12" fill="currentColor">a</text>
+
+              <!-- Vector gravedad -->
+              <text x="32" y="32" font-family="serif" font-style="italic" font-size="14" fill="currentColor">g</text>
+              <line x1="40" y1="38" x2="40" y2="68" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="36,62 44,62 40,72" fill="currentColor"/>
+            </svg>
+            <figcaption style="font-size:0.82rem;color:var(--text-faint);margin-top:0.3rem">
+              Plataforma $AB$ articulada en $A$, soportada por cilindro $CB$ con $C$ a distancia $a$ de $A$.
+            </figcaption>
+          </figure>
+
+          <p><strong>(a)</strong> Dibuja el FBD de la plataforma para un ángulo genérico $\theta\in(0°,60°)$. <em>[0,5 puntos]</em></p>
+          <p><strong>(b)</strong> Calcula la fuerza $F$ del cilindro hidráulico cuando $\theta = 30°$. <em>[1,5 puntos]</em></p>
+          <p><strong>(c)</strong> Determina la presión interior del aceite $p_{\text{aceite}}$ cuando $\theta = 30°$. <em>[0,5 puntos]</em></p>
+
+          <details class="solucion">
+            <summary><strong>Solución</strong></summary>
+            <div class="solucion-cuerpo">
+              <p><strong>(a) FBD.</strong> En $A$: reacción articulada con dos componentes $A_x,\ A_y$.
+              En $B$: peso del saco $W=mg \approx 392{,}4\text{ N}$ vertical hacia abajo y empuje $\vec F$ del
+              cilindro a lo largo de $\overline{CB}$ (elemento de dos fuerzas, en compresión).</p>
+
+              <p><strong>(b) Fuerza del cilindro.</strong> Tomamos sistema de referencia con origen en $A$ y eje $x$ horizontal.</p>
+
+              <p>Coordenadas:</p>
+              <p style="text-align:center">
+                $A=(0,0)$, &nbsp;
+                $B=(L\cos\theta,\,L\sin\theta)$, &nbsp;
+                $C=(a,\,0)$.
+              </p>
+
+              <p>Para $\theta=30°$:</p>
+              <p style="text-align:center">
+                $B=(3\cos 30°,\,3\sin 30°)=(2{,}598,\,1{,}500)\text{ m}$.
+              </p>
+
+              <p>Vector $\overrightarrow{CB}=B-C=(0{,}598,\,1{,}500)\text{ m}$, con módulo</p>
+              <p style="text-align:center">
+                $|\overrightarrow{CB}|=\sqrt{0{,}598^{2}+1{,}500^{2}}=\sqrt{2{,}608}\approx 1{,}615\text{ m}.$
+              </p>
+
+              <p>Vector unitario en la dirección $C\to B$ (en la que el cilindro empuja al punto $B$):</p>
+              <p style="text-align:center">
+                $\hat u = \dfrac{1}{1{,}615}(0{,}598,\,1{,}500) \approx (0{,}370,\,0{,}929).$
+              </p>
+
+              <p>La fuerza del cilindro sobre la plataforma en $B$ es $\vec F = F\,\hat u = (0{,}370\,F,\,0{,}929\,F)$.</p>
+
+              <p>Aplicamos $\sum M_A = 0$ (suma de momentos respecto a $A$, sentido antihorario positivo).
+              Solo contribuyen las fuerzas en $B$ porque la reacción en $A$ pasa por el polo:</p>
+
+              <p style="text-align:center">
+                $\underbrace{x_B\cdot F_y - y_B\cdot F_x}_{\text{momento de }\vec F} + \underbrace{x_B\cdot(-W) - y_B\cdot 0}_{\text{momento del peso}} = 0.$
+              </p>
+
+              <p>Sustituyendo:</p>
+              <p style="text-align:center">
+                $2{,}598\cdot 0{,}929\,F - 1{,}500\cdot 0{,}370\,F - 2{,}598\cdot 392{,}4 = 0$
+              </p>
+              <p style="text-align:center">
+                $(2{,}413 - 0{,}555)\,F = 1019{,}5$
+              </p>
+              <p style="text-align:center">
+                $1{,}858\,F = 1019{,}5 \quad\Longrightarrow\quad \boxed{F \approx 549\text{ N}}.$
+              </p>
+
+              <p><strong>(c) Presión hidráulica.</strong> El cilindro tiene diámetro interior $d_{\text{int}}=30\text{ mm}=0{,}030\text{ m}$, así que el área del émbolo es</p>
+              <p style="text-align:center">
+                $A_{\text{émbolo}} = \dfrac{\pi\, d_{\text{int}}^{\,2}}{4} = \dfrac{\pi\,(0{,}030)^{2}}{4} \approx 7{,}07\cdot 10^{-4}\text{ m}^{2}.$
+              </p>
+              <p>De $F = p\cdot A_{\text{émbolo}}$ se despeja</p>
+              <p style="text-align:center">
+                $p_{\text{aceite}} = \dfrac{F}{A_{\text{émbolo}}} = \dfrac{549}{7{,}07\cdot 10^{-4}} \approx 7{,}76\cdot 10^{5}\text{ Pa}\approx \boxed{0{,}78\text{ MPa}\;\;(\approx 7{,}8\text{ bar})}.$
+              </p>
+
+              <p class="note">
+                <strong>Comprobación de orden de magnitud.</strong> Las bombas hidráulicas industriales típicas
+                trabajan entre 5 y 250 bar, así que 7,8 bar es realista para un mecanismo doméstico de baja
+                carga. Si la plataforma se eleva más (mayor $\theta$), el brazo de palanca del peso aumenta
+                y la presión también — por eso el rango operativo se limita a $\theta\le 60°$.
+              </p>
+            </div>
+          </details>
+        </div>
+
+      </section>
+
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+{
+  "schema_version": 3,
+  "id": "concepto-ccss-1btl-distribucio-binomial",
+  "tipo_coleccion": "apuntes_concepto",
+  "titulo": "Apunts CCSS 1r BTL — Distribució binomial · Exercicis base",
+  "fecha": "2026-05-13",
+  "promocion": "all",
+  "url_index": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html",
+  "puntuacion_total": 0,
+  "tags_coleccion": {
+    "materia": "ccss-1btl",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "propia",
+    "origen": "classe",
+    "ambito_bach": "BACH-E"
+  },
+  "ejercicios": [
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e1",
+      "numero": 1,
+      "titulo": "Funció candidata — és funció de probabilitat?",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-1",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-1",
+      "puntuacion": 0,
+      "contexto": "Considera la funció $f(x) = \\dfrac{2x + 1}{6}$ amb $x \\in \\{1, 2, 3\\}$.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "Calcula $f(1)$, $f(2)$ i $f(3)$"},
+        {"letra": "b", "puntos": 0, "tarea": "Pot ser $f$ una funció de probabilitat? Per què?"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e2",
+      "numero": 2,
+      "titulo": "Taula d'una variable discreta — dada desconeguda",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-2",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-2",
+      "puntuacion": 0,
+      "contexto": "La taula següent ofereix la funció de probabilitat d'una variable aleatòria discreta $X$ amb $x_i \\in \\{0,1,2,3,4,5\\}$ i $P_i = \\{0{,}2;\\;0{,}2;\\;0{,}1;\\;?;\\;0{,}1;\\;0{,}1\\}$. Es desconeix $P(X{=}3)$.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "$P(X{=}3)$"},
+        {"letra": "b", "puntos": 0, "tarea": "$P(X &gt; 3)$"},
+        {"letra": "c", "puntos": 0, "tarea": "$P(X &lt; 2)$"},
+        {"letra": "d", "puntos": 0, "tarea": "$P(1 &lt; X \\le 5)$"},
+        {"letra": "e", "puntos": 0, "tarea": "La mitjana $E(X)$"},
+        {"letra": "f", "puntos": 0, "tarea": "La desviació típica $\\sigma$"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e3",
+      "numero": 3,
+      "titulo": "Aplicació directa de la fórmula — $X \\sim B(6,\\,0{,}4)$",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-3",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-3",
+      "puntuacion": 0,
+      "contexto": "Sigui $X \\sim B(6,\\,0{,}4)$.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "$P(X{=}2)$"},
+        {"letra": "b", "puntos": 0, "tarea": "$P(X{=}0)$"},
+        {"letra": "c", "puntos": 0, "tarea": "$P(X \\ge 1)$ — almenys 1 èxit"},
+        {"letra": "d", "puntos": 0, "tarea": "$E(X)$ i $\\sigma$"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_corta"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e4",
+      "numero": 4,
+      "titulo": "Filosofia — vuit estudiants triats a l'atzar",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-4",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-4",
+      "puntuacion": 0,
+      "contexto": "El 80 % de l'alumnat d'un institut va aprovar filosofia el curs passat. D'un grup de 8 estudiants triats a l'atzar, quina és la probabilitat que només dos hagin suspès aquesta assignatura?",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "Justifica que es tracta d'una distribució binomial"},
+        {"letra": "b", "puntos": 0, "tarea": "Identifica la probabilitat d'èxit i fracàs"},
+        {"letra": "c", "puntos": 0, "tarea": "Determina la funció de probabilitat"},
+        {"letra": "d", "puntos": 0, "tarea": "Calcula $P(\\text{només dos suspenguin})$"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_corta", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e5",
+      "numero": 5,
+      "titulo": "Línia de producció — peces defectuoses",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-5",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-5",
+      "puntuacion": 0,
+      "contexto": "Una línia de producció fabrica peces amb una probabilitat del 5 % que cadascuna sigui defectuosa. Es trien 10 peces a l'atzar i revisen.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "Identifica la distribució i els seus paràmetres"},
+        {"letra": "b", "puntos": 0, "tarea": "$P(\\text{cap defectuosa})$"},
+        {"letra": "c", "puntos": 0, "tarea": "$P(\\text{exactament 2 defectuoses})$"},
+        {"letra": "d", "puntos": 0, "tarea": "$P(\\text{almenys 1 defectuosa})$"},
+        {"letra": "e", "puntos": 0, "tarea": "$E(X)$ i $\\sigma$"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_simbolico", "interpretacion"],
+        "formato": ["pregunta_corta", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e6",
+      "numero": 6,
+      "titulo": "Test multiopció responent a l'atzar",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-6",
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html#ex-6",
+      "puntuacion": 0,
+      "contexto": "Un test té 20 preguntes amb 4 opcions cadascuna i una sola correcta. Un alumne respon a l'atzar, sense haver estudiat.",
+      "apartados": [
+        {"letra": "a", "puntos": 0, "tarea": "Identifica la distribució i els seus paràmetres"},
+        {"letra": "b", "puntos": 0, "tarea": "Quantes respostes encertarà de mitjana? ($E(X)$)"},
+        {"letra": "c", "puntos": 0, "tarea": "Quina és la desviació típica?"},
+        {"letra": "d", "puntos": 0, "tarea": "$P(X{=}10)$ — encerta exactament 10 (la meitat)"}
+      ],
+      "tags": {
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_simbolico"],
+        "formato": ["pregunta_corta", "problema_aplicado"]
+      }
+    }
+  ]
+}

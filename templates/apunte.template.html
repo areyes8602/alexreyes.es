@@ -1,0 +1,146 @@
+<!--
+  apunte.template.html — Esqueleto canónico para una página de apuntes (sección
+  individual de una unidad). Cópialo a /aula/{materia}/apuntes/{unidad}/{NN-slug}.html
+  y rellena los placeholders {{...}}.
+
+  Lang del documento:
+    - lang="es" para IB (cualquier nivel) y para páginas en castellano
+    - lang="ca" para CCSS, ESO, BTL, MACS y cualquier contenido en catalán
+  El script `scripts/sync-aula-chrome.py` selecciona el nav matching automáticamente.
+
+  Cache-busting:
+    - Las referencias a CSS llevan ?v={YYYYMMDDhhmm}. Usa el timestamp actual al
+      crear el archivo, o corre `python3 scripts/bump-css-version.py` después.
+
+  Estructura visual canónica (CCSS pattern):
+    - exam-header con section-label + tag tag-orange + h1 + intro
+    - secciones <div class="seccion-aula"> con h2 que lleva <span class="num">N</span>
+    - apartados <div class="ejercicio"> con pill verde para 1a, 1b, 2a...
+    - solución colapsable con <details><summary>Solución</summary>...</details>
+
+  IBO disclaimer: solo páginas de IB lo incluyen (mantén el <aside class="ibo-disclaimer">).
+  Para no-IB, elimínalo entero.
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITULO_SECCION}} — {{MATERIA}} — alexreyes.es</title>
+<meta name="description" content="{{DESCRIPCION}}">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v={{V}}">
+<link rel="stylesheet" href="/assets/css/aula.css?v={{V}}">
+<link rel="stylesheet" href="/assets/css/examenes.css?v={{V}}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<!-- nav: lo sobrescribe sync-aula-chrome.py según html lang. Pega cualquier nav placeholder, el sync lo reemplaza. -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:820px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/{{MATERIA_SLUG}}/">{{MATERIA}}</a><span class="sep">/</span>
+      <a href="/aula/{{MATERIA_SLUG}}/apuntes/{{UNIDAD_SLUG}}/">{{UNIDAD_TITULO}}</a><span class="sep">/</span>
+      <span class="current">{{TITULO_SECCION}}</span>
+    </div>
+
+    <header class="exam-header">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem">
+        <span class="section-label">{{MATERIA}} · {{UNIDAD_LABEL}}</span>
+        <span class="tag tag-orange">Apuntes</span>
+      </div>
+      <h1 style="margin:0">{{TITULO_SECCION}}</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">{{INTRO}}</p>
+    </header>
+
+    <!-- Sección 1 -->
+    <div class="seccion-aula">
+      <h2><span class="num">1</span> {{TITULO_SECCION_1}}</h2>
+      <p class="section-intro">{{INTRO_SECCION_1}}</p>
+
+      <div class="teoria-bloque">
+        <p>{{TEORIA}}</p>
+      </div>
+
+      <!-- Ejemplo opcional -->
+      <div class="ejemplo">
+        <div class="ejemplo-titulo">Ejemplo</div>
+        <p>{{ENUNCIADO_EJEMPLO}}</p>
+      </div>
+
+      <!-- Ejercicio con solución colapsable -->
+      <div class="ejercicio" id="ex-1a">
+        <div class="ejercicio-cabecera">
+          <span class="num">1a</span>
+          <h3 class="ejercicio-titulo-largo">{{ENUNCIADO_EJERCICIO}}</h3>
+        </div>
+        <div class="ejercicio-cuerpo">
+          <p>{{CONTEXTO_O_PISTA}}</p>
+          <details class="solucion">
+            <summary>Solución</summary>
+            <p>{{SOLUCION}}</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación entre páginas (libro digital) -->
+    <nav class="libro-nav" aria-label="Navegación de la unidad">
+      <a href="{{PREV_URL}}" class="libro-prev">← {{PREV_TITULO}}</a>
+      <a href="{{NEXT_URL}}" class="libro-next">{{NEXT_TITULO}} →</a>
+    </nav>
+
+  </div>
+
+  <!-- Solo en páginas IB. Eliminar para no-IB. -->
+  <aside class="ibo-disclaimer">
+    <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+    <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+  </aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

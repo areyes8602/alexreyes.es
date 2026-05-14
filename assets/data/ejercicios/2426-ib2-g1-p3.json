@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "id": "2426-ib2-g1-p3",
   "tipo_coleccion": "examen_practica",
   "titulo": "Global 1 HL — Paper 3 (números complejos, Poisson, Markov)",
@@ -47,12 +47,12 @@
     }
   ],
   "tags_coleccion": {
-    "asignatura": "ib-ai-hl",
-    "nivel": "ib2",
+    "materia": "ib-ai-hl",
     "curso_academico": "2025-2026",
     "idioma": "es",
     "fuente": "propia",
-    "origen": "examen"
+    "origen": "examen",
+    "ambito_iba": "T1"
   },
   "ejercicios": [
     {
@@ -100,21 +100,13 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 3.9",
           "TANS 3.14",
           "TANS 1.13",
           "TANS 1.14"
         ],
-        "tema": [
-          "numeros_complejos",
-          "fasores",
-          "funciones_trigonometricas",
-          "cadena_markov",
-          "matriz_transicion",
-          "estado_estacionario",
-          "matrices"
-        ],
+        "dificultad": "dificil",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion",
@@ -122,7 +114,6 @@
           "razonamiento",
           "uso_calculadora"
         ],
-        "dificultad": "dificil",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -169,22 +160,13 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 4.16",
           "TANS 4.17",
           "TANS 1.13",
           "TANS 1.15"
         ],
-        "tema": [
-          "estadistica",
-          "probabilidad",
-          "distribucion_poisson",
-          "distribucion_binomial",
-          "teorema_central_limite",
-          "cadena_markov",
-          "matriz_transicion",
-          "autovalores"
-        ],
+        "dificultad": "dificil",
         "habilidad": [
           "calculo_simbolico",
           "calculo_numerico",
@@ -192,7 +174,6 @@
           "interpretacion",
           "uso_calculadora"
         ],
-        "dificultad": "dificil",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"

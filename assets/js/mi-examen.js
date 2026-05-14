@@ -103,6 +103,19 @@
   const FILTERS_KEY = 'mi-examen-filtros';
   const $ = (id) => document.getElementById(id);
 
+  // IMPORTANT: KaTeX auto-render NO inclou per defecte el delimitador `$...$`
+  // (single dollar). El nostre contingut sí l'utilitza, així que cada cop que
+  // cridem renderMathInElement cal passar la llista completa.
+  const KATEX_OPTS = {
+    delimiters: [
+      { left: '$$', right: '$$', display: true },
+      { left: '\\[', right: '\\]', display: true },
+      { left: '$', right: '$', display: false },
+      { left: '\\(', right: '\\)', display: false },
+    ],
+    throwOnError: false,
+  };
+
   let allIndex = null;
   let taxonomy = null;
 
@@ -205,7 +218,7 @@
     });
 
     if (window.renderMathInElement) {
-      try { window.renderMathInElement(wrapper, { throwOnError: false }); } catch (e) {}
+      try { window.renderMathInElement(wrapper, KATEX_OPTS); } catch (e) {}
     }
   }
 
@@ -481,7 +494,7 @@
     // KaTeX render (amb auto-render carregat al head). Es renderitza ara mateix
     // perquè quan s'obri el diàleg d'impressió ja estigui llest.
     if (window.renderMathInElement) {
-      try { window.renderMathInElement(area, { throwOnError: false }); } catch (e) {}
+      try { window.renderMathInElement(area, KATEX_OPTS); } catch (e) {}
     }
 
     return area;
@@ -533,6 +546,13 @@
       const target = $('mx-print-area');
 
       // Configuració html2pdf — A4, marges còmodes, alta resolució.
+      // IMPORTANT (paginació): NO posem .mxp-question dins `avoid` perquè
+      // un exercici pot ser més llarg que una pàgina A4 i html2pdf el retallaria.
+      // En lloc d'això:
+      //   - `before: '.mxp-question + .mxp-question'` → cada exercici nou
+      //     comença en pàgina nova (excepte el primer).
+      //   - `avoid: [...]` només a sub-blocs de mida raonable que sí caben
+      //     dins una pàgina (def-box, exercici individual, apartat, fórmula).
       const opt = {
         margin:       [12, 12, 14, 12], // top, right, bottom, left (mm)
         filename:     filename,
@@ -545,7 +565,11 @@
           windowWidth: 900, // amplada de captura, equival a una columna A4 estable
         },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: ['css', 'legacy'], avoid: ['.mxp-question', '.exercise', '.apart', '.def-box', '.example-box', '.prop-box', '.warn-box', '.katex-display'] },
+        pagebreak:    {
+          mode: ['css', 'legacy'],
+          before: ['.mxp-question + .mxp-question'],
+          avoid: ['.exercise', '.apart', '.def-box', '.example-box', '.prop-box', '.warn-box', '.math-block', '.katex-display', 'svg', 'table'],
+        },
       };
 
       await window.html2pdf().set(opt).from(target).save();
@@ -559,26 +583,43 @@
     }
   }
 
-  // Imprimir natiu (window.print) — ara el deixem com a opció separada al botó
-  // "🖨 Vista / Imprimir": diàleg del navegador (qualitat vectorial KaTeX).
-  async function printPreview() {
-    const btn = $('mx-print');
-    const orig = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = t('generando');
+  // Imprimir natiu (window.print) — qualitat vectorial real (KaTeX vector, font
+  // del navegador, paginació respectant @page del CSS). L'usuari fa "Guardar
+  // com a PDF" al diàleg del navegador. Ara és l'únic camí: html2pdf el deixem
+  // descartat perquè el seu html2canvas → bitmap retallava i no renderitzava
+  // KaTeX a temps. Aquesta funció serveix per als 3 botons:
+  //   · #mx-print            (mode 'enunciados', etiqueta "Vista / Imprimir")
+  //   · #mx-dl-enun          (mode 'enunciados', etiqueta "⤓ PDF enunciados")
+  //   · #mx-dl-sol           (mode 'soluciones', etiqueta "⤓ PDF soluciones")
+  async function printPreview(mode, btnId) {
+    mode = mode || 'enunciados';
+    btnId = btnId || 'mx-print';
+    const btn = $(btnId);
+    const orig = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = t('generando'); }
+    const bodyClass = mode === 'enunciados' ? 'mx-printing-enunciados' : 'mx-printing-soluciones';
     const cleanup = () => {
-      document.body.classList.remove('mx-printing', 'mx-printing-enunciados');
-      btn.textContent = orig;
-      btn.disabled = false;
+      document.body.classList.remove('mx-printing', 'mx-printing-enunciados', 'mx-printing-soluciones');
+      if (btn) { btn.textContent = orig; btn.disabled = false; }
     };
     try {
-      await buildPrintArea('enunciados');
-      document.body.classList.add('mx-printing', 'mx-printing-enunciados');
-      await new Promise(r => setTimeout(r, 80));
+      await buildPrintArea(mode);
+      document.body.classList.add('mx-printing', bodyClass);
+      // Esperem un reflow + render de KaTeX abans d'obrir el diàleg.
+      // Amb window.print() podem permetre'ns una mica més (no hi ha cost: el
+      // diàleg el bloqueja l'usuari igualment).
+      await new Promise(r => setTimeout(r, 200));
       const onAfterPrint = () => { cleanup(); window.removeEventListener('afterprint', onAfterPrint); };
       window.addEventListener('afterprint', onAfterPrint);
       window.print();
-      setTimeout(() => { if (document.body.classList.contains('mx-printing')) { cleanup(); window.removeEventListener('afterprint', onAfterPrint); } }, 60_000);
+      // Salvavides: si afterprint no es dispara (Safari/edge case), restaurem
+      // l'estat al cap de 60 s perquè la UI no quedi bloquejada.
+      setTimeout(() => {
+        if (document.body.classList.contains('mx-printing')) {
+          cleanup();
+          window.removeEventListener('afterprint', onAfterPrint);
+        }
+      }, 60_000);
     } catch (e) {
       console.error(e);
       alert(t('error_pdflib') + ': ' + e.message);
@@ -615,13 +656,16 @@
       $('mx-container').innerHTML = `<div class="banco-empty">Error: ${escHtml(e.message)}</div>`;
       return;
     }
-    $('mx-print').addEventListener('click', printPreview);
+    $('mx-print').addEventListener('click', () => printPreview('enunciados', 'mx-print'));
     $('mx-clear').addEventListener('click', clearAll);
     $('mx-export').addEventListener('click', exportJSON);
+    // Els dos botons de descàrrega de PDF també passen per window.print() —
+    // qualitat vectorial real, KaTeX intacte, paginació estable. L'usuari
+    // tria "Guardar com a PDF" al diàleg del navegador.
     const enun = $('mx-dl-enun');
-    if (enun) enun.addEventListener('click', () => generatePDF('enunciados'));
+    if (enun) enun.addEventListener('click', () => printPreview('enunciados', 'mx-dl-enun'));
     const sol = $('mx-dl-sol');
-    if (sol) sol.addEventListener('click', () => generatePDF('soluciones'));
+    if (sol) sol.addEventListener('click', () => printPreview('soluciones', 'mx-dl-sol'));
     const titleInput = $('mx-title');
     const dateInput = $('mx-date');
     if (dateInput) dateInput.value = new Date().toISOString().slice(0, 10);

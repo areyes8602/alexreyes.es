@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7. Binomial distribution · Probability · 1st BTL CCSS</title>
+<meta name="description" content="Notes for Applied Maths for Social Sciences (1st BTL): discrete random variables, probability mass function, Bernoulli trials and the binomial distribution $X\sim B(n,p)$. Formula $P(X=k)=\binom{n}{k}p^k q^{n-k}$, binomial coefficients $C_{m,n}$, expectation $E(X)=np$ and standard deviation $\sigma=\sqrt{npq}$. Includes a worked penalty-kick example and 6 exercises with hidden solutions.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141631">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141631">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+.tbl-wrap { overflow-x: auto; margin: 0.8rem 0; }
+.binom-table { width:100%; border-collapse: collapse; font-size: 0.92rem; font-family: var(--mono); }
+.binom-table th, .binom-table td { border: 1px solid var(--border); padding: 0.45rem 0.7rem; text-align: center; vertical-align: middle; min-width: 2.6rem; }
+.binom-table th { background: var(--bg-subtle); font-weight: 600; }
+.binom-table .col-tag { font-family: var(--mono); font-size: 0.78rem; color: var(--text-soft); }
+.binom-table caption { caption-side: top; font-size: 0.82rem; color: var(--text-soft); padding-bottom: 0.4rem; text-align: left; }
+.binom-table .unknown { background: rgba(99,102,241,0.10); color: #6366f1; font-weight: 600; }
+
+.dist-svg { display:block; margin: 0.8rem auto 0.4rem; width:100%; max-width: 520px; height:auto; }
+.dist-svg .bar { fill:#6366f1; }
+.dist-svg .axis { stroke:var(--text-soft); stroke-width:1; }
+.dist-svg .tick { font-family: var(--mono); font-size: 11px; fill: var(--text-soft); }
+.dist-svg .lbl  { font-family: var(--mono); font-size: 12px; fill: var(--text); }
+[data-theme="dark"] .dist-svg .bar { fill:#818cf8; }
+
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/">Probability</a>
+      <span class="sep">/</span>
+      <span class="current">07 · Binomial distribution</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1st BTL CCSS · Probability</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">May 13, 2026</span>
+      </div>
+      <h1 style="margin:0">7. Binomial distribution</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">What happens when we repeat $n$ times a <em>success/failure</em> experiment and ask for the probability of getting exactly $k$ successes? The answer is the <strong>binomial distribution</strong> $X\sim B(n,p)$, one of the most useful discrete probability distributions at this level: footballers taking penalties, students passing an exam, defective items on a production line… Here we build the formula from scratch (starting from the <em>Bernoulli trial</em>), introduce the <em>binomial coefficients</em> and see how to compute expectation and standard deviation.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ 1) PRELIMINARY DEFINITIONS ============ -->
+      <div class="apunt-section">
+        <h2>Preliminary definitions</h2>
+
+        <div class="def-box">
+          <h3>Probability distribution</h3>
+          <p>A <strong>probability distribution</strong> is the function that assigns a probability to each event of the sample space. It can be <em>discrete</em> (the possible values are finite or countably infinite) or <em>continuous</em> (the values fill an interval).</p>
+        </div>
+
+        <div class="def-box">
+          <h3>Random variable</h3>
+          <p>A <strong>random variable</strong> $X$ is the function that assigns a real number to each element of the sample space. If the values it can take are finite or countably infinite, $X$ is <strong>discrete</strong>; if there are uncountably many (filling an interval), it is <strong>continuous</strong>.</p>
+          <p class="note">Discrete examples: number of heads when flipping 5 coins, number of aces when drawing 3 cards. Continuous examples: height of a student, lifetime of a light bulb.</p>
+        </div>
+
+        <div class="def-box">
+          <h3>Probability mass function</h3>
+          <p>When $X$ is discrete, the <strong>probability mass function</strong> $f$ assigns to each value $X$ can take its probability: $f(x) = P(X = x)$.</p>
+          <p>For $f$ to be a valid probability mass function, <strong>two conditions</strong> must hold:</p>
+          <div class="math-block">
+            $$0 \le f(x_i) \le 1 \quad \text{for all } i, \qquad \sum_{i} f(x_i) = 1.$$
+          </div>
+        </div>
+
+        <!-- Example: fair die -->
+        <div class="example-box">
+          <h3>Example — Rolling a die</h3>
+          <p>We roll a fair die. The sample space is $E = \{1, 2, 3, 4, 5, 6\}$ and $X$ is the variable "face shown".</p>
+          <div class="math-block">
+            $$f(1) = P(X{=}1) = \tfrac{1}{6}, \quad f(2) = \tfrac{1}{6}, \;\dots\; , f(6) = \tfrac{1}{6}.$$
+          </div>
+          <p>The graph of the probability mass function is <em>uniform</em>: 6 bars of the same height $\tfrac{1}{6}$.</p>
+
+          <svg class="dist-svg" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-label="Bar chart of the discrete uniform distribution of a 6-sided die">
+            <line class="axis" x1="40" y1="150" x2="340" y2="150"/>
+            <line class="axis" x1="40" y1="20"  x2="40"  y2="150"/>
+            <text class="tick" x="35" y="55" text-anchor="end">1/6</text>
+            <line class="axis" x1="38" y1="55" x2="40" y2="55"/>
+            <text class="lbl" x="36" y="16" text-anchor="end">P</text>
+            <text class="lbl" x="345" y="165">$x$</text>
+            <rect class="bar" x="60"  y="55" width="34" height="95"/>
+            <rect class="bar" x="105" y="55" width="34" height="95"/>
+            <rect class="bar" x="150" y="55" width="34" height="95"/>
+            <rect class="bar" x="195" y="55" width="34" height="95"/>
+            <rect class="bar" x="240" y="55" width="34" height="95"/>
+            <rect class="bar" x="285" y="55" width="34" height="95"/>
+            <text class="tick" x="77"  y="167" text-anchor="middle">1</text>
+            <text class="tick" x="122" y="167" text-anchor="middle">2</text>
+            <text class="tick" x="167" y="167" text-anchor="middle">3</text>
+            <text class="tick" x="212" y="167" text-anchor="middle">4</text>
+            <text class="tick" x="257" y="167" text-anchor="middle">5</text>
+            <text class="tick" x="302" y="167" text-anchor="middle">6</text>
+          </svg>
+          <p class="note">This is the so-called <strong>discrete uniform distribution</strong>: every value of $X$ has the same probability.</p>
+        </div>
+
+        <p class="note">Continuous random variables also have associated distributions — the most famous is the <em>normal distribution</em> (Gauss's bell curve) — but in this course we focus on discrete distributions, and in particular the <strong>binomial</strong>.</p>
+      </div>
+
+      <!-- ============ 2) BERNOULLI TRIAL ============ -->
+      <div class="apunt-section">
+        <h2>Bernoulli trial</h2>
+
+        <div class="def-box">
+          <h3>Bernoulli experiment</h3>
+          <p>A <strong>Bernoulli experiment</strong> is a random experiment with <em>only two possible outcomes</em>, which we label <strong>success</strong> and <strong>failure</strong>.</p>
+          <p>We denote:</p>
+          <div class="math-block">
+            $$p = P(\text{success}), \qquad q = P(\text{failure}) = 1 - p.$$
+          </div>
+          <p>By construction, $p + q = 1$.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Example — Penalty kick</h3>
+          <p>A footballer has probability $0{,}7$ of scoring a penalty. Taking the penalty is a Bernoulli experiment with:</p>
+          <div class="math-block">
+            $$p = 0{,}7, \qquad q = 1 - p = 0{,}3.$$
+          </div>
+          <p class="note">"Scoring" is the success and "missing" the failure (which outcome is success and which failure is a labelling we choose to match the question being asked).</p>
+        </div>
+      </div>
+
+      <!-- ============ 3) BINOMIAL DISTRIBUTION ============ -->
+      <div class="apunt-section">
+        <h2>Binomial distribution</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>The <strong>binomial distribution</strong> is the distribution followed by a random variable $X$ that counts <em>the number of successes</em> in $n$ independent repetitions of a Bernoulli experiment with success probability $p$.</p>
+          <p>We write:</p>
+          <div class="math-block">
+            $$X \sim B(n, p),$$
+          </div>
+          <p>where $n$ is the <em>number of trials</em> and $p$ the <em>individual success probability</em>.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>When to use the binomial</h3>
+          <p>A phenomenon is well modelled by $B(n,p)$ when it satisfies <strong>the 4 conditions</strong>:</p>
+          <p><strong>1.</strong> The same experiment is repeated $n$ times.</p>
+          <p><strong>2.</strong> Each experiment has only two possible outcomes (success / failure).</p>
+          <p><strong>3.</strong> The success probability $p$ is <em>constant</em> on each repetition.</p>
+          <p><strong>4.</strong> The repetitions are <em>independent</em> of each other.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Example — Five penalties</h3>
+          <p>The same footballer as in the previous example takes <strong>5 penalties</strong>. Let $X = $ "number of penalties scored". Then:</p>
+          <div class="math-block">
+            $$X \sim B(5,\;0{,}7).$$
+          </div>
+
+          <p><strong>a)</strong> What is the probability of scoring exactly 3 penalties?</p>
+          <div class="math-block">
+            $$P(X = 3) \approx 0{,}3087.$$
+          </div>
+          <p class="note">This value comes out either from the formula we'll derive next, or from a binomial table.</p>
+
+          <p><strong>b)</strong> What is the probability of scoring <em>at least</em> 3 penalties?</p>
+          <p>"At least 3" means $X \ge 3$. It can be obtained via the <em>complement</em>:</p>
+          <div class="math-block">
+            $$P(X \ge 3) \;=\; 1 - P(X \le 2) \;=\; 1 - 0{,}16308 \;=\; \boxed{\;0{,}83692.\;}$$
+          </div>
+          <p class="note">$P(X \le 2) = P(X{=}0) + P(X{=}1) + P(X{=}2)$ — the sum of the first three values.</p>
+        </div>
+      </div>
+
+      <!-- ============ 4) FORMULA ============ -->
+      <div class="apunt-section">
+        <h2>Binomial formula</h2>
+
+        <div class="def-box">
+          <h3>Probability mass function of $B(n,p)$</h3>
+          <p>If $X \sim B(n,p)$, the probability of getting <em>exactly $k$ successes</em> in $n$ trials is:</p>
+          <div class="math-block">
+            $$\boxed{\;P(X = k) \;=\; \binom{n}{k}\, p^{k}\, q^{\,n-k}\;}, \qquad k = 0, 1, 2, \dots, n.$$
+          </div>
+          <p>Where $\binom{n}{k}$ is the <em>binomial coefficient</em> (defined below) and $q = 1 - p$.</p>
+        </div>
+
+        <p>The formula has three ingredients:</p>
+        <p><strong>·</strong> $\binom{n}{k}$ — how many ways the $k$ successes can be placed among the $n$ positions.</p>
+        <p><strong>·</strong> $p^{k}$ — probability of a specific sequence with $k$ successes.</p>
+        <p><strong>·</strong> $q^{n-k}$ — probability of the $n - k$ failures.</p>
+
+        <div class="example-box">
+          <h3>Penalty kicks — detailed computation</h3>
+          <p>With $X \sim B(5,\;0{,}7)$, let's compute $P(X = 3)$ using the formula:</p>
+          <div class="math-block">
+            $$P(X = 3) \;=\; \binom{5}{3}\, 0{,}7^{3}\cdot 0{,}3^{2} \;=\; 10 \cdot 0{,}343 \cdot 0{,}09 \;=\; \boxed{\;0{,}3087.\;}$$
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 5) BINOMIAL COEFFICIENTS ============ -->
+      <div class="apunt-section">
+        <h2>Binomial coefficients</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>The <strong>binomial coefficient</strong> "$m$ choose $n$" is the number of $n$-element subsets that can be formed from a set with $m$ elements. We write and compute it as:</p>
+          <div class="math-block">
+            $$C_{m,n} \;=\; \binom{m}{n} \;=\; \frac{m!}{n!\,(m-n)!}.$$
+          </div>
+          <p>Where $m!$ is the <strong>factorial</strong> of $m$:</p>
+          <div class="math-block">
+            $$m! \;=\; m\cdot(m-1)\cdot(m-2)\cdots 2\cdot 1, \qquad 0! = 1.$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Examples</h3>
+          <p><strong>·</strong> $5! = 5\cdot 4\cdot 3\cdot 2\cdot 1 = 120$.</p>
+
+          <p><strong>·</strong> Compute $C_{8,3} = \binom{8}{3}$:</p>
+          <div class="math-block">
+            $$\binom{8}{3} \;=\; \frac{8!}{3!\,5!} \;=\; \frac{8\cdot 7\cdot 6\cdot \cancel{5!}}{3!\,\cancel{5!}} \;=\; \frac{8\cdot 7\cdot 6}{6} \;=\; 56.$$
+          </div>
+
+          <p><strong>·</strong> Compute $\binom{5}{3}$ (the one in the penalty example):</p>
+          <div class="math-block">
+            $$\binom{5}{3} \;=\; \frac{5!}{3!\,2!} \;=\; \frac{5\cdot 4}{2} \;=\; 10.$$
+          </div>
+        </div>
+
+        <div class="prop-box">
+          <h3>Calculation trick</h3>
+          <p>To compute $\binom{m}{n}$ quickly, write the $n$ decreasing factors from $m$ in the numerator and $n!$ in the denominator:</p>
+          <div class="math-block">
+            $$\binom{m}{n} = \frac{m\,(m{-}1)\,(m{-}2)\cdots(m{-}n{+}1)}{n!}.$$
+          </div>
+          <p>That way you don't have to compute the whole $m!$.</p>
+        </div>
+
+        <p class="note">On a scientific calculator they are entered as <code>nCr</code> (combination) and <code>!</code> (factorial). Always double-check on a calculator the binomial coefficients you get in an exam.</p>
+      </div>
+
+      <!-- ============ 6) CUMULATIVE PROBABILITIES ============ -->
+      <div class="apunt-section">
+        <h2>Cumulative probabilities</h2>
+
+        <p>With $X \sim B(5,\;0{,}7)$ we can compute any cumulative probability. Recall the formulas above:</p>
+
+        <div class="math-block">
+          $$P(X{=}0) = \tbinom{5}{0}\,0{,}7^{0}\,0{,}3^{5} = 0{,}00243,$$
+          $$P(X{=}1) = \tbinom{5}{1}\,0{,}7^{1}\,0{,}3^{4} = 0{,}02835,$$
+          $$P(X{=}2) = \tbinom{5}{2}\,0{,}7^{2}\,0{,}3^{3} = 0{,}13230,$$
+          $$P(X{=}3) = \tbinom{5}{3}\,0{,}7^{3}\,0{,}3^{2} = 0{,}30870,$$
+          $$P(X{=}4) = \tbinom{5}{4}\,0{,}7^{4}\,0{,}3^{1} = 0{,}36015,$$
+          $$P(X{=}5) = \tbinom{5}{5}\,0{,}7^{5}\,0{,}3^{0} = 0{,}16807.$$
+        </div>
+
+        <p class="note">Sanity check: the sum of all of them must equal exactly $1$. $0{,}00243 + 0{,}02835 + 0{,}13230 + 0{,}30870 + 0{,}36015 + 0{,}16807 = 1$ ✓.</p>
+
+        <div class="example-box">
+          <h3>Calculations with $X \sim B(5,\;0{,}7)$</h3>
+
+          <p><strong>a)</strong> $P(X &lt; 3) = P(X{=}0) + P(X{=}1) + P(X{=}2)$:</p>
+          <div class="math-block">
+            $$P(X &lt; 3) = 0{,}00243 + 0{,}02835 + 0{,}13230 = \boxed{\;0{,}16308.\;}$$
+          </div>
+
+          <p><strong>b)</strong> $P(X \ge 4) = P(X{=}4) + P(X{=}5)$:</p>
+          <div class="math-block">
+            $$P(X \ge 4) = 0{,}36015 + 0{,}16807 = \boxed{\;0{,}52822.\;}$$
+          </div>
+          <p>Or, via the complement: $P(X\ge 4) = 1 - P(X\le 3) = 1 - 0{,}47178 = 0{,}52822$.</p>
+
+          <p><strong>c)</strong> $P(X \le 2) = P(X{=}0) + P(X{=}1) + P(X{=}2) = 0{,}16308$ (same as a)).</p>
+        </div>
+
+        <div class="warn-box">
+          <h3>Watch out for the inequalities!</h3>
+          <p>$P(X &lt; 3)$ <em>does not include</em> the 3: it is $P(X{=}0) + P(X{=}1) + P(X{=}2)$.</p>
+          <p>$P(X \le 3)$ <em>does include</em> the 3: it is $P(X{=}0) + \cdots + P(X{=}3)$.</p>
+          <p>Always read the statement carefully to tell whether the inequality is strict or not.</p>
+        </div>
+      </div>
+
+      <!-- ============ 7) EXPECTATION AND STANDARD DEVIATION ============ -->
+      <div class="apunt-section">
+        <h2>Expectation and standard deviation</h2>
+
+        <div class="def-box">
+          <h3>Parameters of a binomial</h3>
+          <p>For a variable $X \sim B(n,p)$, the <strong>expectation</strong> (mean) and the <strong>variance</strong> have very simple formulas:</p>
+          <div class="math-block">
+            $$E(X) = n\cdot p, \qquad \mathrm{Var}(X) = n\cdot p\cdot q.$$
+          </div>
+          <p>And therefore the <strong>standard deviation</strong>:</p>
+          <div class="math-block">
+            $$\sigma \;=\; \sqrt{\mathrm{Var}(X)} \;=\; \sqrt{n\cdot p\cdot q}.$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Example — The 5 penalties</h3>
+          <p>With $X\sim B(5,\,0{,}7)$:</p>
+          <div class="math-block">
+            $$E(X) = 5 \cdot 0{,}7 = 3{,}5 \text{ penalties scored on average}.$$
+            $$\sigma = \sqrt{5\cdot 0{,}7\cdot 0{,}3} = \sqrt{1{,}05} \approx 1{,}02.$$
+          </div>
+          <p class="note">Interpretation: if the footballer took many series of 5 penalties, on average he would score 3,5 penalties, with a typical spread of about 1 penalty around that value.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>Intuition</h3>
+          <p><strong>·</strong> $E(X) = np$ — makes sense: if you run $n$ trials and each has probability $p$ of success, you expect $np$ successes in total.</p>
+          <p><strong>·</strong> $\mathrm{Var}(X) = npq$ — depends on the product $pq$, which is <em>maximal</em> when $p = 0{,}5$ (and $0$ when $p = 0$ or $p = 1$). In other words: the binomial is <em>less</em> unpredictable when $p$ is close to 0 or 1.</p>
+        </div>
+      </div>
+
+      <!-- ============ EXERCISES ============ -->
+      <div class="apunt-section">
+        <h2>Exercises</h2>
+
+        <!-- Ex 1: candidate p.m.f. -->
+        <div class="exercise" id="ex-1">
+          <div class="exercise-head">
+            <span class="num">1</span>
+            <span class="ttl">Candidate function — is it a p.m.f.?</span>
+          </div>
+          <p class="exercise-intro">Consider the function $f(x) = \dfrac{2x + 1}{6}$ with $x \in \{1, 2, 3\}$.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Compute $f(1)$, $f(2)$ and $f(3)$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$f(1) = \tfrac{2\cdot 1 + 1}{6} = \tfrac{3}{6} = \tfrac{1}{2} = 0{,}5.$$
+                $$f(2) = \tfrac{2\cdot 2 + 1}{6} = \tfrac{5}{6}.$$
+                $$f(3) = \tfrac{2\cdot 3 + 1}{6} = \tfrac{7}{6}.$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Can $f$ be a probability mass function? Why?</span></summary>
+            <div class="apart-solution">
+              <p>A probability mass function must satisfy two conditions: $0 \le f(x_i) \le 1$ for all $i$, and $\sum f(x_i) = 1$.</p>
+              <p><strong>·</strong> $f(3) = \tfrac{7}{6} &gt; 1$ → <em>violates the first condition</em>.</p>
+              <p><strong>·</strong> Also, the sum:</p>
+              <div class="math-block">
+                $$f(1) + f(2) + f(3) = \tfrac{1}{2} + \tfrac{5}{6} + \tfrac{7}{6} = \tfrac{3 + 5 + 7}{6} = \tfrac{15}{6} = \tfrac{5}{2} \neq 1.$$
+              </div>
+              <p>It also violates the second condition.</p>
+              <div class="math-block">
+                $$\boxed{\;f(x) = \tfrac{2x+1}{6} \text{ is NOT a probability mass function.}\;}$$
+              </div>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Ex 2: table with unknown -->
+        <div class="exercise" id="ex-2">
+          <div class="exercise-head">
+            <span class="num">2</span>
+            <span class="ttl">Table of a discrete variable — missing entry</span>
+          </div>
+          <p class="exercise-intro">The following table gives the probability mass function of a discrete random variable $X$. The value $P(X{=}3)$ is unknown.</p>
+
+          <div class="tbl-wrap">
+            <table class="binom-table">
+              <thead>
+                <tr><th>$x_i$</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>$P_i$</th><td>0,2</td><td>0,2</td><td>0,1</td><td class="unknown">?</td><td>0,1</td><td>0,1</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(X = 3)$.</span></summary>
+            <div class="apart-solution">
+              <p>Since all probabilities must sum to 1:</p>
+              <div class="math-block">
+                $$0{,}2 + 0{,}2 + 0{,}1 + P(X{=}3) + 0{,}1 + 0{,}1 = 1.$$
+                $$P(X{=}3) = 1 - 0{,}7 = \boxed{\;0{,}3.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(X &gt; 3)$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$P(X &gt; 3) = P(X{=}4) + P(X{=}5) = 0{,}1 + 0{,}1 = \boxed{\;0{,}2.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(X &lt; 2)$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$P(X &lt; 2) = P(X{=}0) + P(X{=}1) = 0{,}2 + 0{,}2 = \boxed{\;0{,}4.\;}$$
+              </div>
+              <p class="note">Cross-check via the complement: $P(X &lt; 2) = 1 - P(X\ge 2) = 1 - (0{,}1 + 0{,}3 + 0{,}1 + 0{,}1) = 1 - 0{,}6 = 0{,}4$. ✓</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(1 &lt; X \le 5)$.</span></summary>
+            <div class="apart-solution">
+              <p>Careful: the lower bound is strict ($X &gt; 1$), but the upper one includes the 5.</p>
+              <div class="math-block">
+                $$P(1 &lt; X \le 5) = P(X{=}2) + P(X{=}3) + P(X{=}4) + P(X{=}5)$$
+                $$= 0{,}1 + 0{,}3 + 0{,}1 + 0{,}1 = \boxed{\;0{,}6.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">e)</span> <span class="stmt">The mean, $E(X) = \sum x_i \cdot P_i$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$E(X) = 0\cdot 0{,}2 + 1\cdot 0{,}2 + 2\cdot 0{,}1 + 3\cdot 0{,}3 + 4\cdot 0{,}1 + 5\cdot 0{,}1$$
+                $$= 0 + 0{,}2 + 0{,}2 + 0{,}9 + 0{,}4 + 0{,}5 = \boxed{\;2{,}2.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">f)</span> <span class="stmt">The standard deviation.</span></summary>
+            <div class="apart-solution">
+              <p>First the variance $\mathrm{Var}(X) = \sum (x_i - E(X))^2 \cdot P_i$:</p>
+              <div class="math-block">
+                $$\mathrm{Var}(X) = (0{-}2{,}2)^2\cdot 0{,}2 + (1{-}2{,}2)^2\cdot 0{,}2 + (2{-}2{,}2)^2\cdot 0{,}1 + (3{-}2{,}2)^2\cdot 0{,}3 + (4{-}2{,}2)^2\cdot 0{,}1 + (5{-}2{,}2)^2\cdot 0{,}1$$
+                $$= 4{,}84\cdot 0{,}2 + 1{,}44\cdot 0{,}2 + 0{,}04\cdot 0{,}1 + 0{,}64\cdot 0{,}3 + 3{,}24\cdot 0{,}1 + 7{,}84\cdot 0{,}1$$
+                $$= 0{,}968 + 0{,}288 + 0{,}004 + 0{,}192 + 0{,}324 + 0{,}784 = 2{,}56.$$
+              </div>
+              <div class="math-block">
+                $$\sigma = \sqrt{\mathrm{Var}(X)} = \sqrt{2{,}56} = \boxed{\;1{,}6.\;}$$
+              </div>
+              <p class="note">Shortcut: $\mathrm{Var}(X) = E(X^2) - E(X)^2$. Here $E(X^2) = 0 + 0{,}2 + 0{,}4 + 2{,}7 + 1{,}6 + 2{,}5 = 7{,}4$, so $\mathrm{Var}(X) = 7{,}4 - 2{,}2^2 = 7{,}4 - 4{,}84 = 2{,}56$. ✓</p>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Ex 3: direct formula -->
+        <div class="exercise" id="ex-3">
+          <div class="exercise-head">
+            <span class="num">3</span>
+            <span class="ttl">Direct application of the formula</span>
+          </div>
+          <p class="exercise-intro">Let $X \sim B(6,\;0{,}4)$. Compute:</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$P(X = 2)$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$P(X{=}2) = \binom{6}{2}\, 0{,}4^{2}\, 0{,}6^{4} = 15\cdot 0{,}16\cdot 0{,}1296 \approx \boxed{\;0{,}3110.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(X = 0)$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$P(X{=}0) = \binom{6}{0}\, 0{,}4^{0}\, 0{,}6^{6} = 1\cdot 1\cdot 0{,}046656 \approx \boxed{\;0{,}0467.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(X \ge 1)$ — at least 1 success.</span></summary>
+            <div class="apart-solution">
+              <p>Via the complement, faster:</p>
+              <div class="math-block">
+                $$P(X \ge 1) = 1 - P(X{=}0) = 1 - 0{,}0467 = \boxed{\;0{,}9533.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$E(X)$ and $\sigma$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$E(X) = 6\cdot 0{,}4 = 2{,}4, \qquad \sigma = \sqrt{6\cdot 0{,}4\cdot 0{,}6} = \sqrt{1{,}44} = \boxed{\;1{,}2.\;}$$
+              </div>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Ex 4: philosophy -->
+        <div class="exercise" id="ex-4">
+          <div class="exercise-head">
+            <span class="num">4</span>
+            <span class="ttl">Philosophy — eight students drawn at random</span>
+          </div>
+          <p class="exercise-intro">80 % of the students of a secondary school passed Philosophy last year. From a group of 8 students chosen at random, what is the probability that <strong>only two have failed</strong>?</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Justify why this is a binomial distribution.</span></summary>
+            <div class="apart-solution">
+              <p>Each student: passed or failed → it's a Bernoulli trial. We repeat the same trial <em>8 times</em> (one per student), with constant success probability $p = 0{,}8$ (assuming independence) → it's a <strong>binomial</strong> $B(8,\,0{,}8)$.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">Identify the success and failure probabilities.</span></summary>
+            <div class="apart-solution">
+              <p>If "passing" is success: $p = 0{,}8$, $q = 0{,}2$.</p>
+              <p>But the question is about the number of <strong>failures</strong>; it is convenient to swap:</p>
+              <p>If "failing" is success: $p = 0{,}2$, $q = 0{,}8$.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">Write down the probability mass function.</span></summary>
+            <div class="apart-solution">
+              <p>We have two equivalent formulations:</p>
+              <p><strong>·</strong> $X_1 = $ "number of passes" $\sim B(8,\,0{,}8)$.</p>
+              <p><strong>·</strong> $X_2 = $ "number of failures" $\sim B(8,\,0{,}2)$.</p>
+              <p>If two students fail, six pass. Hence $X_2 = 2$ is equivalent to $X_1 = 6$. We'll work with $X_2$, which matches the question directly.</p>
+              <div class="math-block">
+                $$P(X_2 = k) = \binom{8}{k}\, 0{,}2^{k}\, 0{,}8^{\,8-k}, \quad k = 0, 1, \dots, 8.$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">Compute $P(\text{only two fail})$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$P(X_2 = 2) = \binom{8}{2}\, 0{,}2^{2}\, 0{,}8^{6} = 28\cdot 0{,}04\cdot 0{,}262144 \approx \boxed{\;0{,}2936.\;}$$
+              </div>
+              <p class="note">Cross-check: $P(X_1 = 6) = \binom{8}{6}\, 0{,}8^{6}\, 0{,}2^{2} = 28\cdot 0{,}262144\cdot 0{,}04 \approx 0{,}2936$. ✓ They match, as expected.</p>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Ex 5: defective parts -->
+        <div class="exercise" id="ex-5">
+          <div class="exercise-head">
+            <span class="num">5</span>
+            <span class="ttl">Production line — defective parts</span>
+          </div>
+          <p class="exercise-intro">A production line makes parts that have a 5 % probability of being defective. We pick <strong>10 parts</strong> at random and inspect them.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Identify the distribution and its parameters.</span></summary>
+            <div class="apart-solution">
+              <p>Let $X = $ "number of defective parts". Then $X \sim B(10,\,0{,}05)$.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{no defective parts})$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$P(X{=}0) = \binom{10}{0}\, 0{,}05^{0}\, 0{,}95^{10} = 0{,}95^{10} \approx \boxed{\;0{,}5987.\;}$$
+              </div>
+              <p class="note">Nearly 60 % of the lots of 10 parts have <em>no</em> defective part at all.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{exactly 2 defective parts})$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$P(X{=}2) = \binom{10}{2}\, 0{,}05^{2}\, 0{,}95^{8} = 45\cdot 0{,}0025\cdot 0{,}6634 \approx \boxed{\;0{,}0746.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{at least 1 defective})$.</span></summary>
+            <div class="apart-solution">
+              <p>Via the complement:</p>
+              <div class="math-block">
+                $$P(X \ge 1) = 1 - P(X{=}0) = 1 - 0{,}5987 = \boxed{\;0{,}4013.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">e)</span> <span class="stmt">$E(X)$ and $\sigma$.</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$E(X) = 10\cdot 0{,}05 = 0{,}5,\qquad \sigma = \sqrt{10\cdot 0{,}05\cdot 0{,}95} = \sqrt{0{,}475} \approx \boxed{\;0{,}689.\;}$$
+              </div>
+              <p class="note">On average there is <em>half</em> a defective part per lot of 10. The standard deviation is larger than the mean — quite normal when $p$ is small.</p>
+            </div>
+          </details></div>
+        </div>
+
+        <!-- Ex 6: multiple-choice test -->
+        <div class="exercise" id="ex-6">
+          <div class="exercise-head">
+            <span class="num">6</span>
+            <span class="ttl">Random guessing on a multiple-choice test</span>
+          </div>
+          <p class="exercise-intro">A test has <strong>20 questions</strong> with 4 options each, only one correct. A student answers at random, without having studied.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">Identify the distribution and its parameters.</span></summary>
+            <div class="apart-solution">
+              <p>Let $X = $ "number of correct answers". On each question, $p = \tfrac{1}{4} = 0{,}25$ (guessing) and $q = 0{,}75$. Hence $X \sim B(20,\,0{,}25)$.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">How many correct answers will the student get <em>on average</em>?</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$E(X) = 20\cdot 0{,}25 = \boxed{\;5 \text{ correct answers.}\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">What is the standard deviation?</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$\sigma = \sqrt{20\cdot 0{,}25\cdot 0{,}75} = \sqrt{3{,}75} \approx \boxed{\;1{,}936.\;}$$
+              </div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(X = 10)$ — exactly 10 correct (half).</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">
+                $$P(X{=}10) = \binom{20}{10}\, 0{,}25^{10}\, 0{,}75^{10}.$$
+                $$\binom{20}{10} = 184\,756, \qquad 0{,}25^{10}\approx 9{,}54\cdot 10^{-7}, \qquad 0{,}75^{10}\approx 0{,}0563.$$
+                $$P(X{=}10) \approx 184\,756\cdot 9{,}54\cdot 10^{-7}\cdot 0{,}0563 \approx \boxed{\;0{,}0099.\;}$$
+              </div>
+              <p class="note">Under 1 %: the probability of getting half the questions right by <em>pure guessing</em> is almost negligible — that's where the intuition "if I answer everything at random I'll definitely fail" comes from.</p>
+            </div>
+          </details></div>
+        </div>
+
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <a class="prev" href="/en/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">&larr; 06 · Compound probability</a>
+        <a class="index" href="/en/aula/ccss-1btl/apuntes/u-probabilitat/">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

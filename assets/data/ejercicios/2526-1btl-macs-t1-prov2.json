@@ -10,9 +10,11 @@
   "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/",
   "puntuacion_total": 10,
   "baremo": null,
-  "unidades_implicadas": ["03"],
+  "unidades_implicadas": [
+    "03"
+  ],
   "tags_coleccion": {
-    "materia": "bach-ccss-1",
+    "materia": "ccss-1btl",
     "curso_academico": "2025-2026",
     "idioma": "ca",
     "fuente": "propia",
@@ -25,24 +27,57 @@
       "titulo": "Equacions amb radicals, valor absolut, logaritmes i exponencials — escollir 5 de 6",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/p1.html",
       "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/original-enunciados.pdf#page=1",
-      "pages_enunciado": [1],
+      "pages_enunciado": [
+        1
+      ],
       "pages_solucion": null,
       "puntuacion": 10,
       "contexto": "Fes 5 de les següents 6 equacions. Cada equació val 2 punts a l'examen. Aquí estan totes resoltes; els punts per apartat al JSON es reparteixen com $1{,}5+1{,}5+1{,}5+1{,}5+2+2 = 10$ per quadrar amb la suma total (a l'examen real cadascuna val 2).",
       "apartados": [
-        { "letra": "a", "puntos": 1.5, "tarea": "$\\sqrt{x+1} + 2 = \\sqrt{2x+1}$" },
-        { "letra": "b", "puntos": 1.5, "tarea": "$|x+1| - |x-2| = x - 1$" },
-        { "letra": "c", "puntos": 1.5, "tarea": "$\\log_{2}(x+1) - \\log_{2}(x-1) = 1 - 4\\log_{2}\\sqrt{x-2}$" },
-        { "letra": "d", "puntos": 1.5, "tarea": "$3^{x-2} + 3^{x} - 2 \\cdot 3^{x-1} = 108$" },
-        { "letra": "e", "puntos": 2, "tarea": "$2 \\cdot 16^{x-1} - 5 \\cdot 4^{x} + 48 = 0$" },
-        { "letra": "f", "puntos": 2, "tarea": "$|x-1| = \\sqrt{x-1}$" }
+        {
+          "letra": "a",
+          "puntos": 1.5,
+          "tarea": "$\\sqrt{x+1} + 2 = \\sqrt{2x+1}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1.5,
+          "tarea": "$|x+1| - |x-2| = x - 1$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1.5,
+          "tarea": "$\\log_{2}(x+1) - \\log_{2}(x-1) = 1 - 4\\log_{2}\\sqrt{x-2}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 1.5,
+          "tarea": "$3^{x-2} + 3^{x} - 2 \\cdot 3^{x-1} = 108$"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "$2 \\cdot 16^{x-1} - 5 \\cdot 4^{x} + 48 = 0$"
+        },
+        {
+          "letra": "f",
+          "puntos": 2,
+          "tarea": "$|x-1| = \\sqrt{x-1}$"
+        }
       ],
       "tags": {
         "ambito_bach": "BACH-D",
-        "concepto_bach": ["BACH-ecuaciones"],
+        "concepto_bach": [
+          "BACH-ecuaciones"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
       }
     }
   ]

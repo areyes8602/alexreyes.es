@@ -288,14 +288,33 @@
   counter-reset: mxp-q;
 }
 .mx-print-area .mxp-question {
-  break-inside: avoid;
-  page-break-inside: avoid;
-  break-before: auto;
+  /* IMPORTANT: NO posem break-inside:avoid aquí — un exercici pot ser més
+     llarg que una pàgina A4 (apartats, solucions, fórmules). Si el bloquegem,
+     html2pdf el retalla. Permetem que parteixi entre pàgines i confiem en
+     que els sub-blocs (.exercise, .apart, .def-box, .math-block, .katex-display)
+     sí porten break-inside:avoid. */
+  break-inside: auto;
+  page-break-inside: auto;
+  /* Cada exercici comença en pàgina nova excepte el primer */
+  break-before: page;
+  page-break-before: always;
   margin: 0 0 1.6rem;
   padding: 0.8rem 0 1rem;
   border-bottom: 1px dashed #bbb;
 }
+.mx-print-area .mxp-question:first-child {
+  break-before: auto;
+  page-break-before: auto;
+}
 .mx-print-area .mxp-question:last-child { border-bottom: none; }
+/* La capçalera (número, títol, origen) no s'ha de quedar sola al final
+   de pàgina sense el cos de l'exercici al darrere. */
+.mx-print-area .mxp-q-num,
+.mx-print-area .mxp-q-title,
+.mx-print-area .mxp-q-origin {
+  break-after: avoid;
+  page-break-after: avoid;
+}
 .mx-print-area .mxp-q-num {
   font-family: var(--mono);
   font-size: 0.78rem;
@@ -398,10 +417,21 @@ body.mx-printing main > .container { padding-top: 0.6rem !important; padding-bot
   /* KaTeX: prevenim que la fórmula es talli al final de pàgina */
   .katex-display { break-inside: avoid; page-break-inside: avoid; }
 
-  /* Caixes d'apunt, exercicis, taules, etc. — break-inside avoid si caben */
+  /* Caixes petites (apunt, exercici individual, apartat, math-block) —
+     break-inside: avoid només per als blocs que CAPEN dins una pàgina. */
   .def-box, .example-box, .prop-box, .warn-box,
-  .mx-print-area .mxp-question,
   .mx-print-area .exercise,
   .mx-print-area .apart,
-  .mx-print-area .question-block { break-inside: avoid-page; page-break-inside: avoid; }
+  .mx-print-area .math-block,
+  .mx-print-area svg,
+  .mx-print-area table { break-inside: avoid-page; page-break-inside: avoid; }
+
+  /* Cada pregunta del compilat comença en pàgina nova (excepte la primera). */
+  .mx-print-area .mxp-question + .mxp-question {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* La pregunta NO porta break-inside:avoid — pot ser més llarga que una pàgina. */
+  .mx-print-area .mxp-question { break-inside: auto; page-break-inside: auto; }
 }

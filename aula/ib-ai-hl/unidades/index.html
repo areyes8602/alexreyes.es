@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidades didácticas IB Math AI HL — alexreyes.es</title>
+<meta name="description" content="Unidades didácticas IB Math AI HL: apuntes, ejercicios, soluciones y materiales. Estructura propia organizada en 5 trimestres.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202605141631">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202605141631">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141631">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:2rem;padding-bottom:5rem">
+
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <span class="current" id="bc-current">Unidades</span>
+    </div>
+
+    <div id="loading" style="padding:3rem 0;text-align:center;color:var(--text-soft)">Cargando…</div>
+
+    <div id="content" style="display:none">
+      <header class="exam-header unidad-header">
+        <div class="unidad-header-meta">
+          <span class="section-label" id="card-trim"></span>
+          <span class="tag tag-orange" id="card-tipo">IB Math AI HL · Unidad</span>
+        </div>
+        <h1 class="unidad-header-titulo" id="card-title"></h1>
+        <p class="unidad-header-intro" id="card-intro"></p>
+        <div class="syllabus-cubierto" id="syllabus-cubierto" style="margin-top:0.7rem"></div>
+      </header>
+
+      <div class="chapter-sections" id="sections-grid"></div>
+
+      <div id="examenes-section" style="display:none;margin-top:2rem">
+        <h2 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.8rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">Exámenes de esta unidad</h2>
+        <div class="exam-list" id="examenes-list"></div>
+      </div>
+
+      <p style="margin-top:2.5rem;font-size:0.85rem;color:var(--text-soft)">
+        ← <a href="javascript:history.back()" style="color:var(--text)">Volver</a>
+        · <a href="/docencia/ib-ai/2024-2026/" style="color:var(--text)">Hub IB 2024-2026</a>
+        · <a href="/docencia/ib-ai/2025-2027/" style="color:var(--text)">Hub IB 2025-2027</a>
+      </p>
+    </div>
+
+    <div id="not-found" style="display:none;padding:3rem 0;text-align:center;color:var(--text-soft)">
+      <h1 style="font-size:1.5rem;margin-bottom:0.6rem">Unidad no encontrada</h1>
+      <p>No existe ninguna unidad con identificador <code id="not-found-id"></code>.</p>
+      <p style="margin-top:1.5rem"><a href="/docencia/ib-ai/2024-2026/">← Volver al hub IB</a></p>
+    </div>
+
+  </div>
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+(async function() {
+  let unidadId = (location.hash || '').replace(/^#/, '');
+  if (!unidadId) {
+    const params = new URLSearchParams(location.search);
+    unidadId = params.get('id') || '';
+  }
+  if (!unidadId) {
+    document.getElementById('loading').textContent = 'Falta el identificador de unidad en la URL (ej. #u01-geometria-aplicada)';
+    return;
+  }
+
+  try {
+    const [unidadesRaw, ejerciciosRaw, conceptosApuntes, tagsData] = await Promise.all([
+      fetch('/assets/data/ib-unidades.json').then(r => r.json()),
+      fetch('/assets/data/ejercicios-index.json').then(r => r.json()).catch(() => ({ejercicios:[]})),
+      fetch('/assets/data/conceptos-apuntes.json').then(r => r.json()).catch(() => ({conceptos:[]})),
+      fetch('/assets/data/tags.json').then(r => r.json()).catch(() => ({namespaces:{}})),
+    ]);
+    // Buscar primero en unidades_hl, luego en unidades_sl, fallback a unidades (legacy)
+    const allUnidades = [
+      ...(unidadesRaw.unidades_hl || []),
+      ...(unidadesRaw.unidades_sl || []),
+      ...(unidadesRaw.unidades || []),
+    ];
+    const u = allUnidades.find(x => x.id === unidadId);
+    if (!u) { showNotFound(unidadId); return; }
+    const trimestres = unidadesRaw.trimestres || {};
+    const trimLabel = trimestres[u.trimestre]?.label?.es || u.trimestre || '';
+
+    // Pintar el header de la unidad
+    const isSL = unidadId.startsWith('us');
+    const prefix = isSL ? 'US' : 'U';
+    const numLabel = `${prefix}${String(u.orden).padStart(2,'0')}`;
+    const nivelLabel = isSL ? 'IB Math AI SL' : 'IB Math AI HL';
+    document.getElementById('card-trim').textContent = `${nivelLabel} · ${trimLabel}`;
+    document.getElementById('card-tipo').textContent = `${numLabel} · Unidad`;
+    document.getElementById('card-title').textContent = u.title.es;
+    document.getElementById('card-intro').textContent = u.intro?.es || '';
+    document.getElementById('bc-current').textContent = u.title.es;
+    document.title = `${numLabel} · ${u.title.es} · ${nivelLabel} — alexreyes.es`;
+
+    // Tags del syllabus que cubre, linkables al syllabus
+    const tagsEl = document.getElementById('syllabus-cubierto');
+    const unidadTags = u.tags_iba || [];
+    if (unidadTags.length === 0) {
+      tagsEl.innerHTML = '';
+    } else {
+      tagsEl.innerHTML = '<strong style="font-size:0.78rem;color:var(--text-faint);font-weight:600;margin-right:0.3rem">Cubre:</strong> ' + unidadTags.map(t => {
+        const cls = t.startsWith('TANS') ? 'tans' : 'nm';
+        const slug = t.replace(/\s|\./g, '-').replace(/--/, '-');
+        return `<a href="/aula/ib-ai-hl/syllabus/#${slug}" class="syllabus-tag ${cls}">${escHtml(t)}</a>`;
+      }).join('');
+    }
+
+    // ─── Conceptos con apuntes propios cubiertos por la unidad ───
+    const conceptosDisponibles = conceptosApuntes.conceptos || [];
+    const apuntesEnUnidad = (tagsData && tagsData.namespaces && tagsData.namespaces.concepto_iba)
+      ? (tagsData.namespaces.concepto_iba.valores || {})
+      : {};
+    const conceptosConApuntes = (u.tags_iba || []).map(code => {
+      const entry = conceptosDisponibles.find(c => c.code === code);
+      if (!entry) return null;
+      const subtemaInfo = apuntesEnUnidad[code];
+      const tituloRaw = subtemaInfo?.label?.es || code;
+      const titulo = tituloRaw.includes(' — ') ? tituloRaw.split(' — ')[1] : tituloRaw;
+      return { code, slug: entry.slug, titulo, secciones: entry.secciones || [] };
+    }).filter(Boolean);
+
+    // ─── Calcular recursos de la unidad ───
+    const allEjs = ejerciciosRaw.ejercicios || [];
+
+    // Apuntes: enlace a la página intermedia /apuntes/#u02-... (mismo patrón CCSS:
+    // Apuntes lleva a un índice de conceptos, no al primero directo).
+    let apuntesHref = null;
+    const apuntesCount = conceptosConApuntes.length;
+    if (apuntesCount > 0) {
+      apuntesHref = `/aula/ib-ai-hl/apuntes/#${encodeURIComponent(u.id)}`;
+    }
+
+    // Fichas (agrupadas por colección) y exámenes (lista de cards)
+    const fichasMap = {};
+    const examenes = [];
+    allEjs.forEach(e => {
+      const ejTags = e.tags?.concepto_iba || [];
+      if (!unidadTags.some(t => ejTags.includes(t))) return;
+      const tipo = e.coleccion?.tipo;
+      if (tipo === 'ficha') {
+        const id = e.coleccion.id;
+        if (!fichasMap[id]) fichasMap[id] = { id, titulo: e.coleccion.titulo, url: e.coleccion.url_index, count: 0 };
+        fichasMap[id].count++;
+      } else if (tipo === 'examen') {
+        let exam = examenes.find(x => x.id === e.coleccion.id);
+        if (!exam) {
+          exam = { id: e.coleccion.id, col: e.coleccion, ejs: [] };
+          examenes.push(exam);
+        }
+        exam.ejs.push(e);
+      }
+    });
+    const fichas = Object.values(fichasMap);
+    const ejerciciosHref = fichas[0] ? fichas[0].url : null;
+    const ejerciciosCount = fichas.reduce((acc, f) => acc + f.count, 0);
+
+    // ─── Pintar 3 section cards (mismo patrón que el hub IB y CCSS) ───
+    function buildCard(href, icon, label, meta) {
+      const metaHtml = meta ? `<span class="chapter-section-meta">${escHtml(meta)}</span>` : '';
+      if (href) {
+        return `<a href="${escHtml(href)}" class="chapter-section available" style="text-decoration:none">
+          <span>${icon}</span><span>${escHtml(label)}</span>${metaHtml}
+        </a>`;
+      }
+      return `<div class="chapter-section empty">
+        <span>${icon}</span><span>${escHtml(label)}</span>
+      </div>`;
+    }
+    const apuntesMeta = apuntesCount > 0 ? `${apuntesCount} ${apuntesCount === 1 ? 'concepto' : 'conceptos'}` : '';
+    const ejerciciosMeta = ejerciciosCount > 0 ? `${ejerciciosCount} ${ejerciciosCount === 1 ? 'ejercicio' : 'ejercicios'}` : '';
+    document.getElementById('sections-grid').innerHTML = [
+      buildCard(apuntesHref, '📄', 'Apuntes', apuntesMeta),
+      buildCard(ejerciciosHref, '📝', 'Lista de ejercicios', ejerciciosMeta),
+      buildCard(null, '🔗', 'Material extra', ''),
+    ].join('');
+
+    // ─── Lista de exámenes etiquetados ───
+    if (examenes.length > 0) {
+      document.getElementById('examenes-section').style.display = 'block';
+      examenes.sort((a, b) => (a.col.fecha || '').localeCompare(b.col.fecha || ''));
+      document.getElementById('examenes-list').innerHTML = examenes.map(({col, ejs}) => {
+        const ptos = ejs.reduce((s, e) => s + (e.puntuacion || 0), 0);
+        const pdfBtn = col.pdf_enunciados ? `<a class="exam-card-btn pdf" href="${escHtml(col.pdf_enunciados)}" target="_blank" rel="noopener">📄 PDF</a>` : '';
+        const idxBtn = col.url_index ? `<a class="exam-card-btn html" href="${escHtml(col.url_index)}">📋 Ver enunciados</a>` : '';
+        return `<article class="exam-card">
+          <div class="exam-card-head">
+            <span class="exam-card-date">${escHtml(col.fecha || '')}</span>
+            ${col.grupo ? `<span class="tag tag-orange" style="font-size:0.7rem">${escHtml(col.grupo)}</span>` : ''}
+          </div>
+          <h3 class="exam-card-title">${escHtml(col.titulo || col.id)}</h3>
+          <p class="exam-card-meta">${ejs.length} ${ejs.length === 1 ? 'pregunta' : 'preguntas'} · ${ptos} puntos</p>
+          <div class="exam-card-actions">${idxBtn}${pdfBtn}</div>
+        </article>`;
+      }).join('');
+    }
+
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } catch (err) {
+    console.error(err);
+    document.getElementById('loading').textContent = 'Error al cargar los datos. ' + err.message;
+  }
+
+  function showNotFound(id) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('not-found-id').textContent = id;
+    document.getElementById('not-found').style.display = 'block';
+  }
+})();
+
+window.addEventListener('hashchange', () => location.reload());
+</script>
+</body>
+</html>

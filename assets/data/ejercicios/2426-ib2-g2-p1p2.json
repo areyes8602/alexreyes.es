@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "id": "2426-ib2-g2-p1p2",
   "tipo_coleccion": "examen_practica",
   "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
@@ -47,12 +47,12 @@
     }
   ],
   "tags_coleccion": {
-    "asignatura": "ib-ai-hl",
-    "nivel": "ib2",
+    "materia": "ib-ai-hl",
     "curso_academico": "2025-2026",
     "idioma": "es",
     "fuente": "propia",
-    "origen": "examen"
+    "origen": "examen",
+    "ambito_iba": "T3"
   },
   "ejercicios": [
     {
@@ -85,20 +85,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.5"
+        "concepto_iba": [
+          "NM 5.5"
         ],
-        "tema": [
-          "funciones",
-          "cuadratica",
-          "modelizacion_crecimiento"
-        ],
+        "dificultad": "facil",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion",
           "interpretacion"
         ],
-        "dificultad": "facil",
         "formato": [
           "pregunta_corta",
           "problema_aplicado"
@@ -125,19 +120,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 3.1",
-          "TANS 3.2"
+        "concepto_iba": [
+          "NM 3.1",
+          "NM 3.2"
         ],
-        "tema": [
-          "grafos",
-          "matriz_adyacencia"
-        ],
+        "dificultad": "facil",
         "habilidad": [
           "calculo_numerico",
           "razonamiento"
         ],
-        "dificultad": "facil",
         "formato": [
           "pregunta_corta"
         ]
@@ -178,20 +169,16 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 4.18"
         ],
-        "tema": [
-          "estadistica",
-          "correlacion_spearman"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_numerico",
           "interpretacion",
           "razonamiento",
           "uso_calculadora"
         ],
-        "dificultad": "media",
         "formato": [
           "pregunta_larga"
         ]
@@ -217,21 +204,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 4.14"
         ],
-        "tema": [
-          "estadistica",
-          "chi_cuadrado",
-          "chi_bondad_ajuste",
-          "prueba_hipotesis"
-        ],
+        "dificultad": "facil",
         "habilidad": [
           "calculo_numerico",
           "uso_calculadora",
           "interpretacion"
         ],
-        "dificultad": "facil",
         "formato": [
           "pregunta_corta"
         ]
@@ -257,20 +238,15 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.4"
+        "concepto_iba": [
+          "NM 5.4"
         ],
-        "tema": [
-          "derivadas",
-          "related_rates",
-          "geometria"
-        ],
+        "dificultad": "media",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion",
           "razonamiento"
         ],
-        "dificultad": "media",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -312,22 +288,16 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 5.5",
-          "TANS 5.6"
+        "concepto_iba": [
+          "NM 5.5",
+          "NM 5.6"
         ],
-        "tema": [
-          "derivadas",
-          "optimizacion",
-          "funciones",
-          "geometria"
-        ],
+        "dificultad": "dificil",
         "habilidad": [
           "calculo_simbolico",
           "modelizacion",
           "razonamiento"
         ],
-        "dificultad": "dificil",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -379,27 +349,18 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
-          "TANS 3.3",
-          "TANS 3.4",
-          "TANS 3.5",
-          "TANS 3.6"
+        "concepto_iba": [
+          "NM 3.3",
+          "NM 3.4",
+          "NM 3.5",
+          "NM 3.6"
         ],
-        "tema": [
-          "grafos",
-          "arbol_generador_minimo",
-          "kruskal",
-          "tsp",
-          "vecino_mas_cercano",
-          "vertice_borrado",
-          "ciclo_hamiltoniano"
-        ],
+        "dificultad": "dificil",
         "habilidad": [
           "calculo_numerico",
           "razonamiento",
           "visualizacion"
         ],
-        "dificultad": "dificil",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"
@@ -466,27 +427,18 @@
         }
       ],
       "tags": {
-        "descriptor_ib": [
+        "concepto_iba": [
           "TANS 4.12",
           "TANS 4.14",
           "TANS 4.15"
         ],
-        "tema": [
-          "estadistica",
-          "prueba_hipotesis",
-          "test_t",
-          "test_t_dos_muestras",
-          "chi_cuadrado",
-          "chi_independencia",
-          "intervalo_confianza"
-        ],
+        "dificultad": "dificil",
         "habilidad": [
           "calculo_numerico",
           "razonamiento",
           "interpretacion",
           "uso_calculadora"
         ],
-        "dificultad": "dificil",
         "formato": [
           "pregunta_larga",
           "problema_aplicado"

@@ -1,9 +1,1759 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-04-28T08:58:36.304360+00:00",
+  "generated_at": "2026-05-05T07:36:42.540115+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 117,
+  "count": 157,
   "ejercicios": [
+    {
+      "id": "2426-ib2-g1-p3-p1",
+      "titulo": "Red eléctrica: voltaje sinusoidal, fasores complejos y cadena de Markov",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/p1.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/p1.html",
+      "numero": 1,
+      "puntuacion": 28,
+      "apartados": [
+        {
+          "letra": "a-c",
+          "puntos": 4,
+          "tarea": "(a) Significado de la amplitud A (b) Valor de A (c) Frecuencia angular ω en rad/ms"
+        },
+        {
+          "letra": "d-f",
+          "puntos": 6,
+          "tarea": "(d) Módulo de W (e) Ángulo principal de W (-π, π] (f) Valor de α que transforma Z en W"
+        },
+        {
+          "letra": "g",
+          "puntos": 3,
+          "tarea": "V_T(t) = V₁(t) + V₂(t) con V₁=6sin(ωt), V₂=4sin(ωt+π/3)"
+        },
+        {
+          "letra": "h-j",
+          "puntos": 4,
+          "tarea": "(h) V₁, V₂ en ωt=π/6 (i) Voltaje total (j) Comparar con la amplitud máxima de V₁ (6 V)"
+        },
+        {
+          "letra": "k-l",
+          "puntos": 3,
+          "tarea": "(k) Interpretar la entrada 0,15 de la matriz de transición P (l) Comprobar que cada fila suma 1"
+        },
+        {
+          "letra": "m",
+          "puntos": 5,
+          "tarea": "Porcentaje de tiempo en cada estado a largo plazo (distribución estacionaria)"
+        },
+        {
+          "letra": "o",
+          "puntos": 3,
+          "tarea": "Consumo medio esperado (kW) a largo plazo; comentar si estado cómodo o de riesgo"
+        }
+      ],
+      "apartados_count": 7,
+      "coleccion": {
+        "id": "2426-ib2-g1-p3",
+        "titulo": "Global 1 HL — Paper 3 (números complejos, Poisson, Markov)",
+        "tipo": "examen_practica",
+        "fecha": "2025-11-27",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T1",
+        "concepto_iba": [
+          "TANS 3.9",
+          "TANS 3.14",
+          "TANS 1.13",
+          "TANS 1.14"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion",
+          "razonamiento",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "red eléctrica: voltaje sinusoidal, fasores complejos y cadena de markov ib math ai hl 2025-2026 español propia examen tema 1 — número y álgebra tans 3.9 — aplicaciones de funciones sinusoidales (incl. fasores) tans 3.14 — teoría de grafos: vértices, aristas, grado, conexión tans 1.13 — forma polar y exponencial de complejos tans 1.14 — matrices; suma, producto, inversa; sistemas en forma matricial difícil cálculo simbólico modelización interpretación contextual razonamiento uso de calculadora gráfica pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "red eléctrica: voltaje sinusoidal, fasores complejos y cadena de markov ib math ai hl castellà examen tema 1 — nombre i àlgebra difícil",
+        "en": "red eléctrica: voltaje sinusoidal, fasores complejos y cadena de markov ib math ai hl spanish exam topic 1 — number and algebra hard"
+      }
+    },
+    {
+      "id": "2426-ib2-g1-p3-p2",
+      "titulo": "Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/p2.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original-enunciados.pdf#page=3",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/p2.html",
+      "numero": 2,
+      "puntuacion": 27,
+      "apartados": [
+        {
+          "letra": "a-b",
+          "puntos": 4,
+          "tarea": "(a) P(X=7) con X∼Poisson(9) (b) P(X≥10); 3 c.s."
+        },
+        {
+          "letra": "c-e",
+          "puntos": 4,
+          "tarea": "(c) Por qué Y∼Binomial (d) Distribución y parámetros (e) P(Y ≤ 2) en 12 llamadas con p=0,3"
+        },
+        {
+          "letra": "f-g",
+          "puntos": 5,
+          "tarea": "(f) Distribución de D (Poisson con λ=72) (g) Media y varianza de D"
+        },
+        {
+          "letra": "h-j",
+          "puntos": 5,
+          "tarea": "(h) Justificar TCL (i) Media y DE de D̄ (j) P(D̄ > 75) aproximada"
+        },
+        {
+          "letra": "k-l",
+          "puntos": 4,
+          "tarea": "(k) Interpretar entrada 0,30 de la matriz P de días T/C (l) Comprobar columnas como probabilidades"
+        },
+        {
+          "letra": "m-o",
+          "puntos": 5,
+          "tarea": "(m) Valores propios de P (n) Vectores propios (o) Interpretar λ=1"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2426-ib2-g1-p3",
+        "titulo": "Global 1 HL — Paper 3 (números complejos, Poisson, Markov)",
+        "tipo": "examen_practica",
+        "fecha": "2025-11-27",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T1",
+        "concepto_iba": [
+          "TANS 4.16",
+          "TANS 4.17",
+          "TANS 1.13",
+          "TANS 1.15"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "calculo_numerico",
+          "razonamiento",
+          "interpretacion",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "servicio de emergencias: poisson, binomial, tcl y markov 2×2 ib math ai hl 2025-2026 español propia examen tema 1 — número y álgebra tans 4.16 — intervalos de confianza para la media tans 4.17 — distribución de poisson; suma; aproximación a la normal tans 1.13 — forma polar y exponencial de complejos tans 1.15 — valores y vectores propios; potencias de matrices; cadenas de markov difícil cálculo simbólico cálculo numérico razonamiento interpretación contextual uso de calculadora gráfica pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "servicio de emergencias: poisson, binomial, tcl y markov 2×2 ib math ai hl castellà examen tema 1 — nombre i àlgebra difícil",
+        "en": "servicio de emergencias: poisson, binomial, tcl y markov 2×2 ib math ai hl spanish exam topic 1 — number and algebra hard"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p1",
+      "titulo": "Baloncesto: modelo cuadrático de la altura del balón",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p1.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p1.html",
+      "numero": 1,
+      "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Tiempo para alcanzar la altura máxima"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Tiempo en tocar el suelo"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Tiempo cuando h=1,2 m"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "Limitación del modelo h(t)"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 5.5"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "baloncesto: modelo cuadrático de la altura del balón ib math ai hl 2025-2026 español propia examen tema 3 — geometría y trigonometría nm 5.5 — introducción a la integración como primitiva; integrales definidas fácil cálculo simbólico modelización interpretación contextual pregunta corta problema aplicado / contexto real",
+        "ca": "baloncesto: modelo cuadrático de la altura del balón ib math ai hl castellà examen tema 3 — geometria i trigonometria fàcil",
+        "en": "baloncesto: modelo cuadrático de la altura del balón ib math ai hl spanish exam topic 3 — geometry and trigonometry easy"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p2",
+      "titulo": "Grafo de carreteras: matriz de adyacencia y recorridos",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p2.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p2.html",
+      "numero": 2,
+      "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Matriz de adyacencia M del grafo orientado A-E"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Número de rutas E→A de 7 pueblos y describir una"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.1",
+          "NM 3.2"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "grafo de carreteras: matriz de adyacencia y recorridos ib math ai hl 2025-2026 español propia examen tema 3 — geometría y trigonometría nm 3.1 — distancia y punto medio en 2d y 3d; volumen y superficie nm 3.2 — trigonometría de triángulos rectángulos fácil cálculo numérico razonamiento pregunta corta",
+        "ca": "grafo de carreteras: matriz de adyacencia y recorridos ib math ai hl castellà examen tema 3 — geometria i trigonometria fàcil",
+        "en": "grafo de carreteras: matriz de adyacencia y recorridos ib math ai hl spanish exam topic 3 — geometry and trigonometry easy"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p3",
+      "titulo": "Correlación de Spearman entre edad y tiempo de 100 m",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p3.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p3.html",
+      "numero": 3,
+      "puntuacion": 9,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Completar tabla de rangos de edades y tiempos"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Coeficiente r_s de Spearman"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Interpretar r_s en contexto"
+        },
+        {
+          "letra": "d",
+          "puntos": 1,
+          "tarea": "Razón matemática para no usar Pearson"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Coeficiente de determinación y su interpretación"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "TANS 4.18"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "interpretacion",
+          "razonamiento",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "correlación de spearman entre edad y tiempo de 100 m ib math ai hl 2025-2026 español propia examen tema 3 — geometría y trigonometría tans 4.18 — test de hipótesis: regiones críticas, valores críticos, errores tipo i/ii media cálculo numérico interpretación contextual razonamiento uso de calculadora gráfica pregunta larga (estructurada en apartados)",
+        "ca": "correlación de spearman entre edad y tiempo de 100 m ib math ai hl castellà examen tema 3 — geometria i trigonometria mitjana",
+        "en": "correlación de spearman entre edad y tiempo de 100 m ib math ai hl spanish exam topic 3 — geometry and trigonometry medium"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p4",
+      "titulo": "Chi-cuadrado de bondad de ajuste: preferencia de sabores",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p4.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf#page=3",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p4.html",
+      "numero": 4,
+      "puntuacion": 6,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Plantear H₀ y H₁"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Realizar la prueba y conclusión contextual (valor crítico 7,82)"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "TANS 4.14"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_numerico",
+          "uso_calculadora",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "chi-cuadrado de bondad de ajuste: preferencia de sabores ib math ai hl 2025-2026 español propia examen tema 3 — geometría y trigonometría tans 4.14 — transformación lineal de variables aleatorias fácil cálculo numérico uso de calculadora gráfica interpretación contextual pregunta corta",
+        "ca": "chi-cuadrado de bondad de ajuste: preferencia de sabores ib math ai hl castellà examen tema 3 — geometria i trigonometria fàcil",
+        "en": "chi-cuadrado de bondad de ajuste: preferencia de sabores ib math ai hl spanish exam topic 3 — geometry and trigonometry easy"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p5",
+      "titulo": "Related rates: llenado de un cono invertido",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p5.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf#page=3",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p5.html",
+      "numero": 5,
+      "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Relación V(h) entre volumen y altura del líquido"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "dh/dt cuando h=10 cm con dV/dt=10 cm³/min"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 5.4"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "related rates: llenado de un cono invertido ib math ai hl 2025-2026 español propia examen tema 3 — geometría y trigonometría nm 5.4 — recta tangente y normal media cálculo simbólico modelización razonamiento pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "related rates: llenado de un cono invertido ib math ai hl castellà examen tema 3 — geometria i trigonometria mitjana",
+        "en": "related rates: llenado de un cono invertido ib math ai hl spanish exam topic 3 — geometry and trigonometry medium"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p6",
+      "titulo": "Optimización: área máxima de un jardín rectangular dentro de un parque",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p6.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf#page=4",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        4
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p6.html",
+      "numero": 6,
+      "puntuacion": 16,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Demostrar A = 1212 − 4x − 3600/x"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Dimensiones posibles si el área del jardín fuera 800 m²"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Expresión de dA/dx"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Valor de x que maximiza A"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Área máxima posible del jardín"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 5.5",
+          "NM 5.6"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "optimización: área máxima de un jardín rectangular dentro de un parque ib math ai hl 2025-2026 español propia examen tema 3 — geometría y trigonometría nm 5.5 — introducción a la integración como primitiva; integrales definidas nm 5.6 — pendiente máxima/mínima; máximos y mínimos locales difícil cálculo simbólico modelización razonamiento pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "optimización: área máxima de un jardín rectangular dentro de un parque ib math ai hl castellà examen tema 3 — geometria i trigonometria difícil",
+        "en": "optimización: área máxima de un jardín rectangular dentro de un parque ib math ai hl spanish exam topic 3 — geometry and trigonometry hard"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p7",
+      "titulo": "Grafo ponderado de vuelos: MST (Kruskal), TSP, vecino y vértice borrado",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p7.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf#page=5",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        5
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p7.html",
+      "numero": 7,
+      "puntuacion": 19,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Justificar 'conexo' pero no 'completo'"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Árbol generador mínimo con Kruskal (orden de aristas + dibujo)"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Límite superior del TSP a partir del MST"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Vecino más cercano desde Los Ángeles con el vuelo LA-Dallas 26$"
+        },
+        {
+          "letra": "e",
+          "puntos": 5,
+          "tarea": "Dos límites inferiores del TSP borrando Chicago y borrando Seattle"
+        },
+        {
+          "letra": "f",
+          "puntos": 2,
+          "tarea": "Mejor desigualdad para el coste C del tour"
+        },
+        {
+          "letra": "g",
+          "puntos": 2,
+          "tarea": "Tour cuyo coste esté estrictamente entre los límites"
+        }
+      ],
+      "apartados_count": 7,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.3",
+          "NM 3.4",
+          "NM 3.5",
+          "NM 3.6"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "grafo ponderado de vuelos: mst (kruskal), tsp, vecino y vértice borrado ib math ai hl 2025-2026 español propia examen tema 3 — geometría y trigonometría nm 3.3 — aplicaciones de trigonometría; ley del seno, del coseno, área de un triángulo nm 3.4 — longitud de arco y área de sector circular nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi difícil cálculo numérico razonamiento visualización / gráficos pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "grafo ponderado de vuelos: mst (kruskal), tsp, vecino y vértice borrado ib math ai hl castellà examen tema 3 — geometria i trigonometria difícil",
+        "en": "grafo ponderado de vuelos: mst (kruskal), tsp, vecino y vértice borrado ib math ai hl spanish exam topic 3 — geometry and trigonometry hard"
+      }
+    },
+    {
+      "id": "2426-ib2-g2-p1p2-p8",
+      "titulo": "Efecto del uso de IA en los resultados: t-test dos muestras + chi² independencia",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p8.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf#page=6",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        6
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/p8.html",
+      "numero": 8,
+      "puntuacion": 20,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "IC 95% para la media del Grupo A (usa IA)"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "H₀ y H₁ del test unilateral"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "p-valor del t-test"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Decisión al 5%"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Interpretación contextual"
+        },
+        {
+          "letra": "f",
+          "puntos": 4,
+          "tarea": "Frecuencias esperadas de la tabla 2×2 aprueba/suspende × usa IA/no"
+        },
+        {
+          "letra": "g",
+          "puntos": 2,
+          "tarea": "Estadístico χ² y p-valor"
+        },
+        {
+          "letra": "h",
+          "puntos": 1,
+          "tarea": "Grados de libertad"
+        },
+        {
+          "letra": "i",
+          "puntos": 1,
+          "tarea": "Decisión al 5%"
+        },
+        {
+          "letra": "j",
+          "puntos": 2,
+          "tarea": "Interpretación contextual"
+        }
+      ],
+      "apartados_count": 10,
+      "coleccion": {
+        "id": "2426-ib2-g2-p1p2",
+        "titulo": "Global 2 HL — Papers 1 y 2 (examen global)",
+        "tipo": "examen_practica",
+        "fecha": "2026-02-23",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-g2-p1p2/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "TANS 4.12",
+          "TANS 4.14",
+          "TANS 4.15"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "interpretacion",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "efecto del uso de ia en los resultados: t-test dos muestras + chi² independencia ib math ai hl 2025-2026 español propia examen tema 3 — geometría y trigonometría tans 4.12 — diseño experimental y métodos de obtención de datos tans 4.14 — transformación lineal de variables aleatorias tans 4.15 — combinación lineal de variables; teorema central del límite difícil cálculo numérico razonamiento interpretación contextual uso de calculadora gráfica pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "efecto del uso de ia en los resultados: t-test dos muestras + chi² independencia ib math ai hl castellà examen tema 3 — geometria i trigonometria difícil",
+        "en": "efecto del uso de ia en los resultados: t-test dos muestras + chi² independencia ib math ai hl spanish exam topic 3 — geometry and trigonometry hard"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p1",
+      "titulo": "Optimización: beneficios de una cafetería en función del café preparado",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p1.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p1.html",
+      "numero": 1,
+      "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Expresión de dC/dx en función de k y x"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Valor máximo de C en forma p·k³"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Hallar k a partir de C=426$ con x=20; café óptimo"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Gráfica aproximada con máximo y cortes con el eje x"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Máxima cantidad de café sin pérdidas"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "NM 5.1",
+          "NM 5.2",
+          "NM 5.5",
+          "NM 5.6"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "optimización: beneficios de una cafetería en función del café preparado ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) nm 5.1 — introducción al concepto de límite nm 5.2 — funciones crecientes/decrecientes; interpretación gráfica de derivadas nm 5.5 — introducción a la integración como primitiva; integrales definidas nm 5.6 — pendiente máxima/mínima; máximos y mínimos locales media cálculo simbólico modelización interpretación contextual visualización / gráficos pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "optimización: beneficios de una cafetería en función del café preparado ib math ai hl castellà examen tema 5 — anàlisi (càlcul) mitjana",
+        "en": "optimización: beneficios de una cafetería en función del café preparado ib math ai hl spanish exam topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p2",
+      "titulo": "Cinemática de una partícula en 2D",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p2.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p2.html",
+      "numero": 2,
+      "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Velocidad en cada eje (vₓ(t), v_y(t))"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Módulo de la velocidad para t=1 s"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Velocidad en cada eje (continuación / posición)"
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "Aceleración en x cuando la velocidad en x es mínima"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Ratio dy/dx en x=1 (tasa de desplazamiento vertical vs horizontal)"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "NM 5.1",
+          "NM 5.2"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "cinemática de una partícula en 2d ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) nm 5.1 — introducción al concepto de límite nm 5.2 — funciones crecientes/decrecientes; interpretación gráfica de derivadas media cálculo simbólico modelización pregunta larga (estructurada en apartados)",
+        "ca": "cinemática de una partícula en 2d ib math ai hl castellà examen tema 5 — anàlisi (càlcul) mitjana",
+        "en": "cinemática de una partícula en 2d ib math ai hl spanish exam topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p3",
+      "titulo": "Análisis de la función f(x) = e^(2x)(1 − 2x − x²)",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p3.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p3.html",
+      "numero": 3,
+      "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Hallar f'(x)"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Intervalos de crecimiento y decrecimiento"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Extremos relativos (máximos y mínimos) de forma exacta"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Recta tangente en x=0"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Recta normal en x=0"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "NM 5.1",
+          "NM 5.2",
+          "NM 5.3",
+          "NM 5.6"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "análisis de la función f(x) = e^(2x)(1 − 2x − x²) ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) nm 5.1 — introducción al concepto de límite nm 5.2 — funciones crecientes/decrecientes; interpretación gráfica de derivadas nm 5.3 — derivada de f(x)=axⁿ; suma de potencias nm 5.6 — pendiente máxima/mínima; máximos y mínimos locales media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "análisis de la función f(x) = e^(2x)(1 − 2x − x²) ib math ai hl castellà examen tema 5 — anàlisi (càlcul) mitjana",
+        "en": "análisis de la función f(x) = e^(2x)(1 − 2x − x²) ib math ai hl spanish exam topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p4",
+      "titulo": "Optimización: cilindro de volumen máximo inscrito en un cono",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p4.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p4.html",
+      "numero": 4,
+      "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Bosquejo del cono con el cilindro inscrito"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Demostrar que h = 20 − 4r"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "V(r) = 20πr² − 4πr³"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Dimensiones del cilindro óptimo"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Volumen máximo del cilindro inscrito"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "NM 5.5",
+          "NM 5.6"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "visualizacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "optimización: cilindro de volumen máximo inscrito en un cono ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) nm 5.5 — introducción a la integración como primitiva; integrales definidas nm 5.6 — pendiente máxima/mínima; máximos y mínimos locales media cálculo simbólico modelización visualización / gráficos razonamiento pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "optimización: cilindro de volumen máximo inscrito en un cono ib math ai hl castellà examen tema 5 — anàlisi (càlcul) mitjana",
+        "en": "optimización: cilindro de volumen máximo inscrito en un cono ib math ai hl spanish exam topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u10-p5",
+      "titulo": "Related rates: área del segmento circular con ángulo variable",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p5.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u10/p5.html",
+      "numero": 5,
+      "puntuacion": 15,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 15,
+          "tarea": "Ratio de crecimiento del área sombreada (sector menos triángulo) cuando θ=1 rad, con dθ/dt=0,2 rad/s y r=5 cm"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2426-ib2-u10",
+        "titulo": "Unidad 10 — Cálculo diferencial",
+        "tipo": "examen",
+        "fecha": "2026-02-13",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u10/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u10/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "NM 5.4"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "related rates: área del segmento circular con ángulo variable ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) nm 5.4 — recta tangente y normal difícil cálculo simbólico modelización razonamiento pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "related rates: área del segmento circular con ángulo variable ib math ai hl castellà examen tema 5 — anàlisi (càlcul) difícil",
+        "en": "related rates: área del segmento circular con ángulo variable ib math ai hl spanish exam topic 5 — calculus hard"
+      }
+    },
+    {
+      "id": "2426-ib2-u12-p1",
+      "titulo": "Áreas delimitadas por una recta y una parábola",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p1.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p1.html",
+      "numero": 1,
+      "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Área bajo la recta y = 6 − x entre x = −1 y x = 2"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Escribir la integral del área bajo la parábola y = 1,5x² − 2,5x + 3"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Calcular el área bajo la parábola"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Área encerrada entre la recta y la parábola"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-u12",
+        "titulo": "Unidad 12 — Cálculo integral",
+        "tipo": "examen",
+        "fecha": "2026-04-07",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u12/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.13",
+          "TANS 5.14"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "áreas delimitadas por una recta y una parábola ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) tans 5.13 — integral definida; área bajo curva y entre curvas tans 5.14 — volúmenes de revolución fácil cálculo simbólico visualización / gráficos pregunta larga (estructurada en apartados)",
+        "ca": "áreas delimitadas por una recta y una parábola ib math ai hl castellà examen tema 5 — anàlisi (càlcul) fàcil",
+        "en": "áreas delimitadas por una recta y una parábola ib math ai hl spanish exam topic 5 — calculus easy"
+      }
+    },
+    {
+      "id": "2426-ib2-u12-p2",
+      "titulo": "Integral de 1 + eˣ, regla del trapecio y volumen de revolución",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p2.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p2.html",
+      "numero": 2,
+      "puntuacion": 16,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Dibujar f(x) = 1 + eˣ y sombrear la región delimitada por x=0, x=2 y el eje x"
+        },
+        {
+          "letra": "b",
+          "puntos": 4,
+          "tarea": "Integral definida del área (4 cifras significativas)"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Estimación por la regla del trapecio con 5 trapecios (4 cifras significativas)"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Porcentaje de error respecto al valor exacto"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Volumen del sólido de revolución respecto al eje y"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u12",
+        "titulo": "Unidad 12 — Cálculo integral",
+        "tipo": "examen",
+        "fecha": "2026-04-07",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u12/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.13",
+          "TANS 5.14",
+          "TANS 5.15"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "calculo_numerico",
+          "visualizacion",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "integral de 1 + eˣ, regla del trapecio y volumen de revolución ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) tans 5.13 — integral definida; área bajo curva y entre curvas tans 5.14 — volúmenes de revolución tans 5.15 — métodos numéricos: trapecio, simpson media cálculo simbólico cálculo numérico visualización / gráficos uso de calculadora gráfica pregunta larga (estructurada en apartados)",
+        "ca": "integral de 1 + eˣ, regla del trapecio y volumen de revolución ib math ai hl castellà examen tema 5 — anàlisi (càlcul) mitjana",
+        "en": "integral de 1 + eˣ, regla del trapecio y volumen de revolución ib math ai hl spanish exam topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u12-p3",
+      "titulo": "Volumen de un jarrón por regla del trapecio",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p3.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p3.html",
+      "numero": 3,
+      "puntuacion": 4,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Estimar el volumen interior del jarrón aplicando regla del trapecio sobre π·r² a lo largo de la altura"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2426-ib2-u12",
+        "titulo": "Unidad 12 — Cálculo integral",
+        "tipo": "examen",
+        "fecha": "2026-04-07",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u12/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.15"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "modelizacion",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "problema_aplicado",
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "volumen de un jarrón por regla del trapecio ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) tans 5.15 — métodos numéricos: trapecio, simpson media cálculo numérico modelización uso de calculadora gráfica problema aplicado / contexto real pregunta corta",
+        "ca": "volumen de un jarrón por regla del trapecio ib math ai hl castellà examen tema 5 — anàlisi (càlcul) mitjana",
+        "en": "volumen de un jarrón por regla del trapecio ib math ai hl spanish exam topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u12-p4",
+      "titulo": "Beneficios de una empresa: integración y análisis de monotonía",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p4.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf#page=3",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p4.html",
+      "numero": 4,
+      "puntuacion": 7,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Hallar P(x) integrando dP/dx = −1,6x + 48 con P(15) = 260"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Describir cómo cambian los beneficios entre 30 y 50 coches/mes y justificar"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-u12",
+        "titulo": "Unidad 12 — Cálculo integral",
+        "tipo": "examen",
+        "fecha": "2026-04-07",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u12/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.11",
+          "TANS 5.13"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "beneficios de una empresa: integración y análisis de monotonía ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) tans 5.11 — integral indefinida (incl. funciones trigonométricas, exp, log) tans 5.13 — integral definida; área bajo curva y entre curvas media cálculo simbólico modelización interpretación contextual razonamiento problema aplicado / contexto real",
+        "ca": "beneficios de una empresa: integración y análisis de monotonía ib math ai hl castellà examen tema 5 — anàlisi (càlcul) mitjana",
+        "en": "beneficios de una empresa: integración y análisis de monotonía ib math ai hl spanish exam topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u12-p5",
+      "titulo": "Población de suricatas: EDO, campo de pendientes y método de Euler",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p5.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf#page=3",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p5.html",
+      "numero": 5,
+      "puntuacion": 18,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Encontrar a, b ∈ ℝ tales que N = a + bt sea solución de dN/dt = 0,5N − t"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Representar la solución lineal N = a + bt sobre el campo de pendientes dado"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Representar la trayectoria de la población con condición inicial t=0, N=2"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Determinar la población máxima (máximo a los 3 años)"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Mínimo nº de suricatas que deben introducirse en t=3 para crecimiento continuo"
+        },
+        {
+          "letra": "f",
+          "puntos": 4,
+          "tarea": "Método de Euler con paso h=0,1 para estimar N(1) a partir de N(0)=120"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2426-ib2-u12",
+        "titulo": "Unidad 12 — Cálculo integral",
+        "tipo": "examen",
+        "fecha": "2026-04-07",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u12/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.16",
+          "TANS 5.17"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "calculo_numerico",
+          "visualizacion",
+          "razonamiento",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "población de suricatas: edo, campo de pendientes y método de euler ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) tans 5.16 — edos de 1er orden: separación de variables, método de euler tans 5.17 — sistemas de edos acopladas y edo de 2º orden lineal difícil modelización cálculo simbólico cálculo numérico visualización / gráficos razonamiento uso de calculadora gráfica pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "población de suricatas: edo, campo de pendientes y método de euler ib math ai hl castellà examen tema 5 — anàlisi (càlcul) difícil",
+        "en": "población de suricatas: edo, campo de pendientes y método de euler ib math ai hl spanish exam topic 5 — calculus hard"
+      }
+    },
+    {
+      "id": "2426-ib2-u12-p6",
+      "titulo": "Cuatro integrales (sustitución y regla de Barrow)",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p6.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf#page=4",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        4
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p6.html",
+      "numero": 6,
+      "puntuacion": 8,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "∫ (4x − 1)² dx (sustitución o desarrollo directo)"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "∫₁⁴ x/(x²+2) dx (sustitución)"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "∫₀⁵ x · cos(x²) dx (sustitución)"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "∫ (2x − 1)/(x² − x + 2) dx (logaritmo)"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-u12",
+        "titulo": "Unidad 12 — Cálculo integral",
+        "tipo": "examen",
+        "fecha": "2026-04-07",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u12/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.11",
+          "TANS 5.12",
+          "TANS 5.13"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "cuatro integrales (sustitución y regla de barrow) ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) tans 5.11 — integral indefinida (incl. funciones trigonométricas, exp, log) tans 5.12 — integración por sustitución y por partes tans 5.13 — integral definida; área bajo curva y entre curvas media cálculo simbólico pregunta corta",
+        "ca": "cuatro integrales (sustitución y regla de barrow) ib math ai hl castellà examen tema 5 — anàlisi (càlcul) mitjana",
+        "en": "cuatro integrales (sustitución y regla de barrow) ib math ai hl spanish exam topic 5 — calculus medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u12-p7",
+      "titulo": "Cultivo bacteriano: EDO por separación de variables y Euler",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p7.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf#page=4",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        4
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u12/p7.html",
+      "numero": 7,
+      "puntuacion": 13,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Resolver dN/dt = tN por separación de variables con N(0)=2"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Valor exacto de N(1)"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Euler con h=0,25 para aproximar N(1); presentar tabla"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Porcentaje de error del Euler respecto al valor exacto"
+        },
+        {
+          "letra": "e",
+          "puntos": 1,
+          "tarea": "¿Sobreestima o subestima Euler? Justificar por el comportamiento de la función"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u12",
+        "titulo": "Unidad 12 — Cálculo integral",
+        "tipo": "examen",
+        "fecha": "2026-04-07",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u12/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u12/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T5",
+        "concepto_iba": [
+          "TANS 5.16",
+          "TANS 5.17"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "calculo_numerico",
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "cultivo bacteriano: edo por separación de variables y euler ib math ai hl 2025-2026 español propia examen tema 5 — análisis (cálculo) tans 5.16 — edos de 1er orden: separación de variables, método de euler tans 5.17 — sistemas de edos acopladas y edo de 2º orden lineal difícil cálculo simbólico cálculo numérico razonamiento interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "cultivo bacteriano: edo por separación de variables y euler ib math ai hl castellà examen tema 5 — anàlisi (càlcul) difícil",
+        "en": "cultivo bacteriano: edo por separación de variables y euler ib math ai hl spanish exam topic 5 — calculus hard"
+      }
+    },
     {
       "id": "2426-ib2-u13-p1",
       "titulo": "Movimiento de proyectil en 2D",
@@ -335,6 +2085,392 @@
       }
     },
     {
+      "id": "2426-ib2-u9-p1",
+      "titulo": "Transformaciones geométricas de una imagen (simetría, homotecia, rotación)",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p1.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p1.html",
+      "numero": 1,
+      "puntuacion": 16,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Matriz con las coordenadas de los 4 vértices del rectángulo"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Matriz de la simetría respecto al eje y"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Matriz de la homotecia de razón 2"
+        },
+        {
+          "letra": "d",
+          "puntos": 3,
+          "tarea": "Matriz de la rotación de 60° antihoraria"
+        },
+        {
+          "letra": "e",
+          "puntos": 3,
+          "tarea": "Matriz de la composición de las 3 transformaciones (en orden)"
+        },
+        {
+          "letra": "f",
+          "puntos": 3,
+          "tarea": "Área del rectángulo imagen final"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T1",
+        "concepto_iba": [
+          "TANS 1.12",
+          "TANS 1.14"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "transformaciones geométricas de una imagen (simetría, homotecia, rotación) ib math ai hl 2025-2026 español propia examen tema 1 — número y álgebra tans 1.12 — números complejos: i, forma cartesiana tans 1.14 — matrices; suma, producto, inversa; sistemas en forma matricial media cálculo simbólico visualización / gráficos pregunta larga (estructurada en apartados)",
+        "ca": "transformaciones geométricas de una imagen (simetría, homotecia, rotación) ib math ai hl castellà examen tema 1 — nombre i àlgebra mitjana",
+        "en": "transformaciones geométricas de una imagen (simetría, homotecia, rotación) ib math ai hl spanish exam topic 1 — number and algebra medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p2",
+      "titulo": "Cifrado matricial del mensaje 'Hoy es día 24'",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p2.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p2.html",
+      "numero": 2,
+      "puntuacion": 16,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Matriz 3×5 con el código numérico del mensaje"
+        },
+        {
+          "letra": "b",
+          "puntos": 6,
+          "tarea": "Argumentar cuál de T₁, T₂, T₃ puede cifrar el mensaje y por qué las otras no"
+        },
+        {
+          "letra": "c",
+          "puntos": 4,
+          "tarea": "Cifrar el mensaje con la matriz elegida"
+        },
+        {
+          "letra": "d",
+          "puntos": 5,
+          "tarea": "Descifrar usando la inversa de la matriz de cifrado"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T1",
+        "concepto_iba": [
+          "TANS 1.14"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "cifrado matricial del mensaje 'hoy es día 24' ib math ai hl 2025-2026 español propia examen tema 1 — número y álgebra tans 1.14 — matrices; suma, producto, inversa; sistemas en forma matricial media cálculo simbólico razonamiento uso de calculadora gráfica pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "cifrado matricial del mensaje 'hoy es día 24' ib math ai hl castellà examen tema 1 — nombre i àlgebra mitjana",
+        "en": "cifrado matricial del mensaje 'hoy es día 24' ib math ai hl spanish exam topic 1 — number and algebra medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p3",
+      "titulo": "Cadena de Markov: clientes de tres peluquerías",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p3.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p3.html",
+      "numero": 3,
+      "puntuacion": 14,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Total de clientes en el pueblo"
+        },
+        {
+          "letra": "b",
+          "puntos": 6,
+          "tarea": "Construir la matriz de transición T (completar fila de C)"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Matriz de clientes iniciales P₀"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Clientes pasados 2 años (T²·P₀)"
+        },
+        {
+          "letra": "e",
+          "puntos": 4,
+          "tarea": "Clientes a largo plazo (estado estacionario)"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T1",
+        "concepto_iba": [
+          "TANS 1.13",
+          "TANS 1.14"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_numerico",
+          "interpretacion",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "cadena de markov: clientes de tres peluquerías ib math ai hl 2025-2026 español propia examen tema 1 — número y álgebra tans 1.13 — forma polar y exponencial de complejos tans 1.14 — matrices; suma, producto, inversa; sistemas en forma matricial media modelización cálculo numérico interpretación contextual uso de calculadora gráfica pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "cadena de markov: clientes de tres peluquerías ib math ai hl castellà examen tema 1 — nombre i àlgebra mitjana",
+        "en": "cadena de markov: clientes de tres peluquerías ib math ai hl spanish exam topic 1 — number and algebra medium"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p4",
+      "titulo": "Sistema lineal y cálculo de inversa / autovalores",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p4.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p4.html",
+      "numero": 4,
+      "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Reescribir el sistema 3×3 como ecuación matricial y resolver con calculadora"
+        },
+        {
+          "letra": "b",
+          "puntos": 5,
+          "tarea": "Inversa, valores y vectores propios de la matriz 2×2"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T1",
+        "concepto_iba": [
+          "TANS 1.14",
+          "TANS 1.15"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "uso_calculadora"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "sistema lineal y cálculo de inversa / autovalores ib math ai hl 2025-2026 español propia examen tema 1 — número y álgebra tans 1.14 — matrices; suma, producto, inversa; sistemas en forma matricial tans 1.15 — valores y vectores propios; potencias de matrices; cadenas de markov fácil cálculo simbólico uso de calculadora gráfica pregunta corta",
+        "ca": "sistema lineal y cálculo de inversa / autovalores ib math ai hl castellà examen tema 1 — nombre i àlgebra fàcil",
+        "en": "sistema lineal y cálculo de inversa / autovalores ib math ai hl spanish exam topic 1 — number and algebra easy"
+      }
+    },
+    {
+      "id": "2426-ib2-u9-p5",
+      "titulo": "Cadena de Markov de mutación de un gen (autovalores a largo plazo)",
+      "url_enunciado": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p5.html",
+      "url_pdf": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/examenes/2426-ib2-u9/p5.html",
+      "numero": 5,
+      "puntuacion": 12,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Valor de b y su significado contextual"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Valores propios de M"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Vectores propios de M"
+        },
+        {
+          "letra": "d",
+          "puntos": 4,
+          "tarea": "Probabilidad de estado normal en n=5 y a largo plazo"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2426-ib2-u9",
+        "titulo": "Unidad 9 — Matrices y transformaciones",
+        "tipo": "examen",
+        "fecha": "2025-10-24",
+        "url_index": "/aula/ib-ai-hl/examenes/2426-ib2-u9/",
+        "grupo": "IB2",
+        "promocion": "2024-2026",
+        "pdf_enunciados": "/aula/ib-ai-hl/examenes/2426-ib2-u9/original-enunciados.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_iba": "T1",
+        "concepto_iba": [
+          "TANS 1.13",
+          "TANS 1.15"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "cadena de markov de mutación de un gen (autovalores a largo plazo) ib math ai hl 2025-2026 español propia examen tema 1 — número y álgebra tans 1.13 — forma polar y exponencial de complejos tans 1.15 — valores y vectores propios; potencias de matrices; cadenas de markov media cálculo simbólico interpretación contextual modelización pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "cadena de markov de mutación de un gen (autovalores a largo plazo) ib math ai hl castellà examen tema 1 — nombre i àlgebra mitjana",
+        "en": "cadena de markov de mutación de un gen (autovalores a largo plazo) ib math ai hl spanish exam topic 1 — number and algebra medium"
+      }
+    },
+    {
       "id": "2526-1btl-macs-t1-prov2-bis-p1",
       "titulo": "Equacions, sistemes i inequacions — escollir 5 de 8",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2-bis/p1.html",
@@ -407,7 +2543,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -495,7 +2631,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -573,7 +2709,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -641,7 +2777,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -718,7 +2854,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -796,7 +2932,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -881,7 +3017,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -950,7 +3086,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1044,7 +3180,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1123,7 +3259,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1201,7 +3337,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1278,7 +3414,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1346,7 +3482,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1408,7 +3544,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1471,7 +3607,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1535,7 +3671,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1619,7 +3755,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1697,7 +3833,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1759,7 +3895,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1825,7 +3961,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1899,7 +4035,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -1970,7 +4106,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -2038,7 +4174,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -2104,7 +4240,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -2178,7 +4314,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -2243,7 +4379,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -2310,7 +4446,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -2337,13 +4473,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-1",
       "titulo": "Escriu en forma de potència de base $a$",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/1.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/1.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/1.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/1.html",
       "numero": 1,
       "puntuacion": 0,
       "apartados": [
@@ -2377,7 +4513,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2404,13 +4540,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-2",
       "titulo": "Simplifica les expressions",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/2.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/2.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/2.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/2.html",
       "numero": 2,
       "puntuacion": 0,
       "apartados": [
@@ -2444,7 +4580,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2471,13 +4607,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-3",
       "titulo": "Calcula el valor (aprox. amb 2 decimals si cal)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/3.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/3.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/3.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/3.html",
       "numero": 3,
       "puntuacion": 0,
       "apartados": [
@@ -2511,7 +4647,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2539,13 +4675,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-4",
       "titulo": "Expressa amb potències de base $10$",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/4.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/4.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/4.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/4.html",
       "numero": 4,
       "puntuacion": 0,
       "apartados": [
@@ -2579,7 +4715,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2606,13 +4742,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-5",
       "titulo": "Calcula el resultat (potències d'exponent fraccionari)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/5.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/5.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/5.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/5.html",
       "numero": 5,
       "puntuacion": 0,
       "apartados": [
@@ -2646,7 +4782,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2673,13 +4809,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-6",
       "titulo": "Escriu en forma de potència la definició de logaritme",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/6.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/6.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/6.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/6.html",
       "numero": 6,
       "puntuacion": 0,
       "apartados": [
@@ -2713,7 +4849,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2739,13 +4875,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-7",
       "titulo": "Resol per $x$ aplicant la definició de logaritme",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/7.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/7.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/7.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/7.html",
       "numero": 7,
       "puntuacion": 0,
       "apartados": [
@@ -2779,7 +4915,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2805,13 +4941,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-8",
       "titulo": "Troba el valor dels logaritmes senzills",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/8.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/8.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/8.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/8.html",
       "numero": 8,
       "puntuacion": 0,
       "apartados": [
@@ -2845,7 +4981,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2871,13 +5007,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-9",
       "titulo": "Equacions exponencials senzilles",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/9.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/9.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/9.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/9.html",
       "numero": 9,
       "puntuacion": 0,
       "apartados": [
@@ -2911,7 +5047,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -2938,13 +5074,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-10",
       "titulo": "Escriu en forma de logaritme les igualtats",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/10.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/10.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/10.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/10.html",
       "numero": 10,
       "puntuacion": 0,
       "apartados": [
@@ -2978,7 +5114,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3004,13 +5140,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-22",
       "titulo": "Operacions amb potències i arrels",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/22.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/22.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/22.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/22.html",
       "numero": 22,
       "puntuacion": 0,
       "apartados": [
@@ -3059,7 +5195,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3086,13 +5222,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-23",
       "titulo": "Nombre d'or: $\\varphi^{2} = \\varphi + 1$",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/23.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/23.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/23.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/23.html",
       "numero": 23,
       "puntuacion": 0,
       "apartados": [
@@ -3116,7 +5252,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3144,13 +5280,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-24",
       "titulo": "Sumes i restes amb radicals semblants",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/24.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/24.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/24.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/24.html",
       "numero": 24,
       "puntuacion": 0,
       "apartados": [
@@ -3199,7 +5335,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3226,13 +5362,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-25",
       "titulo": "Expressió amb arrels i variables",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/25.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/25.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/25.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/25.html",
       "numero": 25,
       "puntuacion": 0,
       "apartados": [
@@ -3256,7 +5392,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3284,13 +5420,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-26",
       "titulo": "Quocient amb molts radicals",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/26.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/26.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/26.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/26.html",
       "numero": 26,
       "puntuacion": 0,
       "apartados": [
@@ -3314,7 +5450,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3341,13 +5477,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-32",
       "titulo": "Racionalitza i simplifica",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/32.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/32.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/32.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/32.html",
       "numero": 32,
       "puntuacion": 0,
       "apartados": [
@@ -3386,7 +5522,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3413,13 +5549,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-36",
       "titulo": "Operacions amb racionalització",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/36.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/36.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/36.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/36.html",
       "numero": 36,
       "puntuacion": 0,
       "apartados": [
@@ -3448,7 +5584,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3476,13 +5612,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-44",
       "titulo": "Logaritmes amb propietats: cinc supòsits",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/44.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/44.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/44.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/44.html",
       "numero": 44,
       "puntuacion": 0,
       "apartados": [
@@ -3526,7 +5662,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3553,13 +5689,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-45",
       "titulo": "Desenvolupa les expressions en funció de $x$",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/45.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/45.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/45.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/45.html",
       "numero": 45,
       "puntuacion": 0,
       "apartados": [
@@ -3593,7 +5729,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3619,13 +5755,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-47",
       "titulo": "Logaritme d'una expressió amb arrels niades",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/47.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/47.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/47.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/47.html",
       "numero": 47,
       "puntuacion": 0,
       "apartados": [
@@ -3649,7 +5785,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3677,13 +5813,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-49",
       "titulo": "Equacions logarítmiques",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/49.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/49.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/49.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/49.html",
       "numero": 49,
       "puntuacion": 0,
       "apartados": [
@@ -3722,7 +5858,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3750,13 +5886,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-50",
       "titulo": "Equació logarítmica amb expressió desenvolupada",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/50.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/50.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/50.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/50.html",
       "numero": 50,
       "puntuacion": 0,
       "apartados": [
@@ -3780,7 +5916,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3808,13 +5944,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-51",
       "titulo": "Relació entre $a$ i $b$",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/51.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/51.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/51.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/51.html",
       "numero": 51,
       "puntuacion": 0,
       "apartados": [
@@ -3838,7 +5974,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3865,13 +6001,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-52",
       "titulo": "Operacions amb logaritmes i simplificació",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/52.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/52.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/52.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/52.html",
       "numero": 52,
       "puntuacion": 0,
       "apartados": [
@@ -3905,7 +6041,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3931,13 +6067,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-54",
       "titulo": "Aplica les propietats dels logaritmes i calcula",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/54.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/54.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/54.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/54.html",
       "numero": 54,
       "puntuacion": 0,
       "apartados": [
@@ -3966,7 +6102,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -3992,13 +6128,13 @@
     {
       "id": "2526-1btl-macs-u01-classe-28",
       "titulo": "Simplificacions amb radicals niats",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/28.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/28.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u01-classe/28.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/28.html",
       "numero": 28,
       "puntuacion": 0,
       "apartados": [
@@ -4057,7 +6193,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -4131,7 +6267,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -4195,7 +6331,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -4268,7 +6404,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -4333,7 +6469,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -4397,7 +6533,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -4456,7 +6592,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "propia",
@@ -4526,7 +6662,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -4589,7 +6725,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -4653,7 +6789,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -4712,7 +6848,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -4770,7 +6906,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -4844,7 +6980,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -4902,7 +7038,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5006,7 +7142,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5080,7 +7216,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5138,7 +7274,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5196,7 +7332,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5255,7 +7391,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5313,7 +7449,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5371,7 +7507,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5429,7 +7565,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5538,7 +7674,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5622,7 +7758,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5696,7 +7832,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5723,13 +7859,13 @@
     {
       "id": "2526-1btl-macs-u03-fitxa-exp-log-1",
       "titulo": "Resol les següents equacions exponencials",
-      "url_enunciado": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-1a",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/#ex-1a",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-1a",
+      "url": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/#ex-1a",
       "numero": 1,
       "puntuacion": 0,
       "apartados": [
@@ -5860,17 +7996,17 @@
         "titulo": "Fitxa — Equacions i sistemes exponencials i logarítmiques",
         "tipo": "practica",
         "fecha": "2025-11-12",
-        "url_index": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/",
+        "url_index": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/",
         "grupo": "1r BTL",
         "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/original-enunciados.pdf",
+        "pdf_enunciados": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/original-enunciados.pdf",
         "pdf_soluciones": null,
         "unidades_implicadas": [
           "03"
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -5897,13 +8033,13 @@
     {
       "id": "2526-1btl-macs-u03-fitxa-exp-log-2",
       "titulo": "Resol les següents equacions amb logaritmes",
-      "url_enunciado": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-2a",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/#ex-2a",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-2a",
+      "url": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/#ex-2a",
       "numero": 2,
       "puntuacion": 0,
       "apartados": [
@@ -6019,17 +8155,17 @@
         "titulo": "Fitxa — Equacions i sistemes exponencials i logarítmiques",
         "tipo": "practica",
         "fecha": "2025-11-12",
-        "url_index": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/",
+        "url_index": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/",
         "grupo": "1r BTL",
         "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/original-enunciados.pdf",
+        "pdf_enunciados": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/original-enunciados.pdf",
         "pdf_soluciones": null,
         "unidades_implicadas": [
           "03"
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6056,13 +8192,13 @@
     {
       "id": "2526-1btl-macs-u03-fitxa-exp-log-3",
       "titulo": "Resol els següents sistemes d'exponencials i logaritmes",
-      "url_enunciado": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-3a",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/#ex-3a",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/#ex-3a",
+      "url": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/#ex-3a",
       "numero": 3,
       "puntuacion": 0,
       "apartados": [
@@ -6143,17 +8279,17 @@
         "titulo": "Fitxa — Equacions i sistemes exponencials i logarítmiques",
         "tipo": "practica",
         "fecha": "2025-11-12",
-        "url_index": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/",
+        "url_index": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/",
         "grupo": "1r BTL",
         "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/fitxes/u-eq-exponencials-logaritmiques/original-enunciados.pdf",
+        "pdf_enunciados": "/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/original-enunciados.pdf",
         "pdf_soluciones": null,
         "unidades_implicadas": [
           "03"
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6238,7 +8374,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6312,7 +8448,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6400,7 +8536,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6474,7 +8610,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6547,7 +8683,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6617,7 +8753,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6692,7 +8828,7 @@
         ]
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6718,13 +8854,13 @@
     {
       "id": "2526-1btl-macs-u09-classe-7c-1",
       "titulo": "Smartphones i tauletes (cardinal i Venn)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/7c-1.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/7c-1.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/7c-1.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/7c-1.html",
       "numero": 1,
       "puntuacion": 0,
       "apartados": [
@@ -6750,7 +8886,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -6758,7 +8894,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6787,13 +8923,13 @@
     {
       "id": "2526-1btl-macs-u09-classe-7c-2",
       "titulo": "Biologia i història (probabilitat condicionada)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/7c-2.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/7c-2.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/7c-2.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/7c-2.html",
       "numero": 2,
       "puntuacion": 0,
       "apartados": [
@@ -6819,7 +8955,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -6827,7 +8963,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6855,13 +8991,13 @@
     {
       "id": "2526-1btl-macs-u09-classe-46",
       "titulo": "Dues caixes amb boles (probabilitat total)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/46.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/46.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/46.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/46.html",
       "numero": 46,
       "puntuacion": 0,
       "apartados": [
@@ -6887,7 +9023,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -6895,7 +9031,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6922,13 +9058,13 @@
     {
       "id": "2526-1btl-macs-u09-classe-47",
       "titulo": "Tres urnes (probabilitat total i Bayes)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/47.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/47.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/47.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/47.html",
       "numero": 47,
       "puntuacion": 0,
       "apartados": [
@@ -6949,7 +9085,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -6957,7 +9093,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -6984,13 +9120,13 @@
     {
       "id": "2526-1btl-macs-u09-classe-48",
       "titulo": "Dau i urna (probabilitat total)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/48.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/48.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/48.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/48.html",
       "numero": 48,
       "puntuacion": 0,
       "apartados": [
@@ -7011,7 +9147,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -7019,7 +9155,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -7046,13 +9182,13 @@
     {
       "id": "2526-1btl-macs-u09-classe-49",
       "titulo": "Bombetes halògenes vs baix consum (Bayes)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/49.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/49.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/49.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/49.html",
       "numero": 49,
       "puntuacion": 0,
       "apartados": [
@@ -7068,7 +9204,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -7076,7 +9212,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -7105,13 +9241,13 @@
     {
       "id": "2526-1btl-macs-u09-classe-50",
       "titulo": "Crèdits bancaris (probabilitat total i Bayes)",
-      "url_enunciado": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/50.html",
+      "url_enunciado": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/50.html",
       "url_pdf": null,
       "url_solucion_pdf": null,
       "url_solucion_html": null,
       "pages_enunciado": [],
       "pages_solucion": [],
-      "url": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/50.html",
+      "url": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/50.html",
       "numero": 50,
       "puntuacion": 0,
       "apartados": [
@@ -7132,7 +9268,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -7140,7 +9276,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -7206,7 +9342,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -7214,7 +9350,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -7267,7 +9403,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -7275,7 +9411,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -7339,7 +9475,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -7347,7 +9483,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -7411,7 +9547,7 @@
         "titulo": "Exercicis de classe — Probabilitat",
         "tipo": "practica",
         "fecha": "2026-04-24",
-        "url_index": "/aula/ccss-1btl/exercicis-classe/2526-1btl-macs-u09-classe/",
+        "url_index": "/aula/ccss-1btl/ejercicios/2526-1btl-macs-u09-classe/",
         "grupo": "1r BTL",
         "promocion": null,
         "pdf_enunciados": null,
@@ -7419,7 +9555,7 @@
         "unidades_implicadas": null
       },
       "tags": {
-        "materia": "bach-ccss-1",
+        "materia": "ccss-1btl",
         "curso_academico": "2025-2026",
         "idioma": "ca",
         "fuente": "libro_texto",
@@ -8377,6 +10513,947 @@
         "es": "trobar el valor de $k$ 2º eso 2025-2026 catalán propia examen sentido numérico fracciones y números racionales ecuaciones de 1r grado media cálculo simbólico modelización pregunta corta",
         "ca": "trobar el valor de $k$ 2n eso català examen sentit numèric mitjana",
         "en": "trobar el valor de $k$ year 8 (2º eso) catalan exam number sense medium"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e1",
+      "titulo": "Moneda i dau — variants",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-1",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-1",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Probabilitat de treure creu i un nombre parell"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Probabilitat de treure cara i un nombre més gran que 4"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Probabilitat de no treure ni cara ni un 1"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-prob-composta",
+        "titulo": "Apunts CCSS 1r BTL — Probabilitat composta · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-03",
+        "url_index": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "moneda i dau — variants bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil cálculo simbólico interpretación contextual pregunta corta",
+        "ca": "moneda i dau — variants batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) fàcil",
+        "en": "moneda i dau — variants bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) easy"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e2",
+      "titulo": "Dau dues vegades — parelles, suma 7 i complementari",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-2",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-2",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(3,4)$ — exactament un 3 a la primera i un 4 a la segona"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$P(\\text{suma} = 7)$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$P(\\text{el primer és senar i el segon és parell})$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$P(\\text{cap dos sigui un 6})$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-prob-composta",
+        "titulo": "Apunts CCSS 1r BTL — Probabilitat composta · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-03",
+        "url_index": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "dau dues vegades — parelles, suma 7 i complementari bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil cálculo simbólico interpretación contextual pregunta corta",
+        "ca": "dau dues vegades — parelles, suma 7 i complementari batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) fàcil",
+        "en": "dau dues vegades — parelles, suma 7 i complementari bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) easy"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e3",
+      "titulo": "Urna 4B/3N — amb i sense reposició",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-3",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-3",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Amb reposició: $P(\\text{ambdues blanques})$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Sense reposició: $P(\\text{ambdues blanques})$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Sense reposició: $P(\\text{una blanca i una negra, en qualsevol ordre})$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-prob-composta",
+        "titulo": "Apunts CCSS 1r BTL — Probabilitat composta · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-03",
+        "url_index": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "urna 4b/3n — amb i sense reposició bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo simbólico interpretación contextual modelización pregunta corta problema aplicado / contexto real",
+        "ca": "urna 4b/3n — amb i sense reposició batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "urna 4b/3n — amb i sense reposició bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e4",
+      "titulo": "Baralla espanyola — dues cartes sense reposició",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-4",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-4",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-4",
+      "numero": 4,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(\\text{les dues són ors})$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$P(\\text{la 1a és or i la 2a és copa})$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$P(\\text{cap és or})$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$P(\\text{almenys una és or})$ — pel complementari"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-prob-composta",
+        "titulo": "Apunts CCSS 1r BTL — Probabilitat composta · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-03",
+        "url_index": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "baralla espanyola — dues cartes sense reposició bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo simbólico interpretación contextual modelización pregunta corta problema aplicado / contexto real",
+        "ca": "baralla espanyola — dues cartes sense reposició batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "baralla espanyola — dues cartes sense reposició bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-prob-composta-e5",
+      "titulo": "Tres etapes — moneda 3 vegades",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-5",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-5",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-5",
+      "numero": 5,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(\\text{tres cares seguides})$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$P(\\text{exactament dues cares})$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$P(\\text{almenys una cara})$ — pel complementari"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-prob-composta",
+        "titulo": "Apunts CCSS 1r BTL — Probabilitat composta · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-03",
+        "url_index": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "tres etapes — moneda 3 vegades bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo simbólico interpretación contextual pregunta corta",
+        "ca": "tres etapes — moneda 3 vegades batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "tres etapes — moneda 3 vegades bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "concepto-nm-3-6-e1",
+      "titulo": "Cobertura de dos antenas en una localidad costera",
+      "url_enunciado": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e1",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e1",
+      "numero": 1,
+      "puntuacion": 3,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Ecuación de la frontera (mediatriz) entre las celdas $V(A)$ y $V(B)$ con $A=(2,1)$ antena del faro y $B=(8,5)$ antena del paseo"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Determinar si la vivienda $P=(7,2)$ se conecta a la antena del faro o del paseo, calculando las distancias"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "concepto-nm-3-6",
+        "titulo": "Apuntes NM 3.6 — Diagramas de Voronoi · Ejercicios base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-01",
+        "url_index": "/aula/ib-ai-hl/apuntes/NM-3-6/",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "cobertura de dos antenas en una localidad costera ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi fácil cálculo simbólico interpretación contextual pregunta corta problema aplicado / contexto real",
+        "ca": "cobertura de dos antenas en una localidad costera ib math ai hl castellà classe tema 3 — geometria i trigonometria fàcil",
+        "en": "cobertura de dos antenas en una localidad costera ib math ai hl spanish class topic 3 — geometry and trigonometry easy"
+      }
+    },
+    {
+      "id": "concepto-nm-3-6-e2",
+      "titulo": "Repetidor equidistante a tres estaciones meteorológicas",
+      "url_enunciado": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e2",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e2",
+      "numero": 2,
+      "puntuacion": 5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Coordenadas del vértice del diagrama de Voronoi (punto equidistante) de la estación valle $A=(0,0)$, río $B=(6,0)$ y cumbre $C=(0,8)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Distancia común desde el vértice a las tres estaciones"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Justificación geométrica vía teorema de Tales del círculo de que la distancia coincide con $|BC|/2$"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "concepto-nm-3-6",
+        "titulo": "Apuntes NM 3.6 — Diagramas de Voronoi · Ejercicios base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-01",
+        "url_index": "/aula/ib-ai-hl/apuntes/NM-3-6/",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.6",
+          "NM 3.1"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "repetidor equidistante a tres estaciones meteorológicas ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.6 — diagramas de voronoi nm 3.1 — distancia y punto medio en 2d y 3d; volumen y superficie media cálculo simbólico razonamiento visualización / gráficos pregunta larga (estructurada en apartados)",
+        "ca": "repetidor equidistante a tres estaciones meteorológicas ib math ai hl castellà classe tema 3 — geometria i trigonometria mitjana",
+        "en": "repetidor equidistante a tres estaciones meteorológicas ib math ai hl spanish class topic 3 — geometry and trigonometry medium"
+      }
+    },
+    {
+      "id": "concepto-nm-3-6-e3",
+      "titulo": "Vertedero municipal en una ciudad con cuatro escuelas",
+      "url_enunciado": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e3",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/apuntes/NM-3-6/#ejercicio-e3",
+      "numero": 3,
+      "puntuacion": 8,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Mediatrices de los segmentos $\\overline{AB}$ y $\\overline{AD}$ con $A=(2,5)$, $B=(3,3)$, $D=(8,1)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Vértice $Q$ del diagrama como intersección del par de mediatrices apropiadas, con dos cifras decimales"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Distancias $d(P,B)$ y $d(Q,A)$ con $P=(5,3.5)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Decidir en qué vértice se construye el vertedero para maximizar la distancia mínima a una escuela"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "concepto-nm-3-6",
+        "titulo": "Apuntes NM 3.6 — Diagramas de Voronoi · Ejercicios base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-01",
+        "url_index": "/aula/ib-ai-hl/apuntes/NM-3-6/",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "interpretacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "vertedero municipal en una ciudad con cuatro escuelas ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi difícil modelización cálculo simbólico interpretación contextual razonamiento pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "vertedero municipal en una ciudad con cuatro escuelas ib math ai hl castellà classe tema 3 — geometria i trigonometria difícil",
+        "en": "vertedero municipal en una ciudad con cuatro escuelas ib math ai hl spanish class topic 3 — geometry and trigonometry hard"
+      }
+    },
+    {
+      "id": "ficha-voronoi-f1",
+      "titulo": "Web del tiempo con tres estaciones meteorológicas",
+      "url_enunciado": "/aula/ib-ai-hl/ejercicios/voronoi/#f1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ib-ai-hl/ejercicios/voronoi/#f1",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/ejercicios/voronoi/#f1",
+      "numero": 1,
+      "puntuacion": 6,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Algoritmo incremental con tres estaciones $A=(1,1)$, $B=(3,1)$, $C=(3,5)$: ecuaciones de las tres mediatrices del diagrama"
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Temperatura mostrada al usuario en $(1,4)$ con lecturas $A:22°C$, $B:24°C$, $C:21°C$ (interpolación del vecino más cercano)"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Comparar las temperaturas que reciben dos usuarios en $(2.5,2)$ y $(2,3)$, razonando a partir del diagrama"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "ficha-voronoi",
+        "titulo": "Ficha de ejercicios — Diagramas de Voronoi",
+        "tipo": "ficha",
+        "fecha": "2026-05-01",
+        "url_index": "/aula/ib-ai-hl/ejercicios/voronoi/",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "web del tiempo con tres estaciones meteorológicas ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi media cálculo simbólico interpretación contextual razonamiento pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "web del tiempo con tres estaciones meteorológicas ib math ai hl castellà classe tema 3 — geometria i trigonometria mitjana",
+        "en": "web del tiempo con tres estaciones meteorológicas ib math ai hl spanish class topic 3 — geometry and trigonometry medium"
+      }
+    },
+    {
+      "id": "ficha-voronoi-f2",
+      "titulo": "Parques de bomberos y algoritmo incremental",
+      "url_enunciado": "/aula/ib-ai-hl/ejercicios/voronoi/#f2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ib-ai-hl/ejercicios/voronoi/#f2",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/ejercicios/voronoi/#f2",
+      "numero": 2,
+      "puntuacion": 8,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Distancias desde el nuevo parque $E=(2,1)$ a los cuatro originales $A,B,C,D$ y celda donde cae $E$"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Mediatriz del segmento entre $E$ y el parque cuya celda lo contiene"
+        },
+        {
+          "letra": "c",
+          "puntos": 2,
+          "tarea": "Lista de parques contiguos a $E$ tras el algoritmo incremental y mediatriz $\\overline{AE}$"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Razonar por qué la celda de $B$ se reduce al añadir $E$ en el algoritmo incremental"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "ficha-voronoi",
+        "titulo": "Ficha de ejercicios — Diagramas de Voronoi",
+        "tipo": "ficha",
+        "fecha": "2026-05-01",
+        "url_index": "/aula/ib-ai-hl/ejercicios/voronoi/",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "parques de bomberos y algoritmo incremental ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi media cálculo simbólico razonamiento visualización / gráficos pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "parques de bomberos y algoritmo incremental ib math ai hl castellà classe tema 3 — geometria i trigonometria mitjana",
+        "en": "parques de bomberos y algoritmo incremental ib math ai hl spanish class topic 3 — geometry and trigonometry medium"
+      }
+    },
+    {
+      "id": "ficha-voronoi-f3",
+      "titulo": "Catchment areas escolares en una ciudad",
+      "url_enunciado": "/aula/ib-ai-hl/ejercicios/voronoi/#f3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ib-ai-hl/ejercicios/voronoi/#f3",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/ejercicios/voronoi/#f3",
+      "numero": 3,
+      "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 2,
+          "tarea": "Mediatriz del segmento $\\overline{AB}$ con $A=(2,5)$ y $B=(3,3)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 3,
+          "tarea": "Algoritmo incremental para construir el diagrama de Voronoi de los tres colegios $A$, $B$, $C$"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "Catchment area de la familia que vive en $(4,3)$, verificada por distancias"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Mediatrices de $\\overline{BD}$ y $\\overline{CD}$"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Coordenadas de los dos vértices interiores del diagrama de los cuatro colegios"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "ficha-voronoi",
+        "titulo": "Ficha de ejercicios — Diagramas de Voronoi",
+        "tipo": "ficha",
+        "fecha": "2026-05-01",
+        "url_index": "/aula/ib-ai-hl/ejercicios/voronoi/",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "interpretacion",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "catchment areas escolares en una ciudad ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi difícil cálculo simbólico razonamiento interpretación contextual visualización / gráficos pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "catchment areas escolares en una ciudad ib math ai hl castellà classe tema 3 — geometria i trigonometria difícil",
+        "en": "catchment areas escolares en una ciudad ib math ai hl spanish class topic 3 — geometry and trigonometry hard"
+      }
+    },
+    {
+      "id": "ficha-voronoi-f4",
+      "titulo": "Nueva cafetería independiente — toxic waste dump",
+      "url_enunciado": "/aula/ib-ai-hl/ejercicios/voronoi/#f4",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ib-ai-hl/ejercicios/voronoi/#f4",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/ejercicios/voronoi/#f4",
+      "numero": 4,
+      "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Justificación teórica de por qué el punto óptimo del problema del vertedero (toxic waste dump) es un vértice del diagrama"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Mediatrices de $\\overline{AB}$ y $\\overline{AD}$ con $A=(1,6)$, $B=(2,2)$, $D=(8,5)$"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Vértice interior $Q$ del diagrama de Voronoi como intersección de dos mediatrices, con dos cifras decimales"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Distancias desde $P=(5,3.5)$ y desde $Q$ a la cafetería más cercana"
+        },
+        {
+          "letra": "e",
+          "puntos": 2,
+          "tarea": "Decisión razonada del vértice óptimo para la nueva cafetería"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "ficha-voronoi",
+        "titulo": "Ficha de ejercicios — Diagramas de Voronoi",
+        "tipo": "ficha",
+        "fecha": "2026-05-01",
+        "url_index": "/aula/ib-ai-hl/ejercicios/voronoi/",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "nueva cafetería independiente — toxic waste dump ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi difícil modelización cálculo simbólico razonamiento interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "nueva cafetería independiente — toxic waste dump ib math ai hl castellà classe tema 3 — geometria i trigonometria difícil",
+        "en": "nueva cafetería independiente — toxic waste dump ib math ai hl spanish class topic 3 — geometry and trigonometry hard"
+      }
+    },
+    {
+      "id": "ficha-voronoi-f5",
+      "titulo": "Hamburgueserías en una feria — áreas y nuevo puesto",
+      "url_enunciado": "/aula/ib-ai-hl/ejercicios/voronoi/#f5",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ib-ai-hl/ejercicios/voronoi/#f5",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ib-ai-hl/ejercicios/voronoi/#f5",
+      "numero": 5,
+      "puntuacion": 10,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Mediatrices de $\\overline{AB}$, $\\overline{BC}$ y $\\overline{AC}$ con $A=(20,30)$, $B=(80,30)$, $C=(40,10)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 2,
+          "tarea": "Vértice del diagrama de Voronoi de los tres puestos y verificación de que es el circuncentro de $\\triangle ABC$"
+        },
+        {
+          "letra": "c",
+          "puntos": 3,
+          "tarea": "Estimación de la fracción del recinto $100\\times 50$ m que pertenece a la celda del puesto $C$ (al 1%)"
+        },
+        {
+          "letra": "d",
+          "puntos": 2,
+          "tarea": "Coordenadas aproximadas del cuarto puesto $D$ situado lo más alejado posible de los tres anteriores, dentro del recinto"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "ficha-voronoi",
+        "titulo": "Ficha de ejercicios — Diagramas de Voronoi",
+        "tipo": "ficha",
+        "fecha": "2026-05-01",
+        "url_index": "/aula/ib-ai-hl/ejercicios/voronoi/",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ib-ai-hl",
+        "curso_academico": "2025-2026",
+        "idioma": "es",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_iba": "T3",
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "visualizacion",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "hamburgueserías en una feria — áreas y nuevo puesto ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi difícil cálculo simbólico razonamiento visualización / gráficos modelización pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "hamburgueserías en una feria — áreas y nuevo puesto ib math ai hl castellà classe tema 3 — geometria i trigonometria difícil",
+        "en": "hamburgueserías en una feria — áreas y nuevo puesto ib math ai hl spanish class topic 3 — geometry and trigonometry hard"
       }
     }
   ]
