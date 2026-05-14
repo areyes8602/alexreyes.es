@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2. Fraccions equivalents, amplificació i simplificació · Fraccions · 2n ESO</title>
+<meta name="description" content="Apunts de 2n d'ESO sobre fraccions equivalents: comprovació amb la multiplicació en creu, amplificació, simplificació i fracció irreductible.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/ca/aula/eso-2/apuntes/u-fraccions/02-fraccions-equivalents.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.6rem 0; }
+.example-row .frac-display { min-width: 3.5rem; text-align: center; font-size: 1.1rem; }
+.frac-svg { display: block; height: 38px; }
+.frac-svg .cell { fill: none; stroke: #1d4ed8; stroke-width: 2; }
+.frac-svg .cell.filled { fill: #ec4899; fill-opacity: 0.85; }
+.method-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 0.8rem 0; }
+.method-card h3 { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 600; color: var(--text); }
+.method-card p { margin: 0.3rem 0; }
+.cross-mult { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 1.1rem; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-2/apuntes/u-fraccions/02-fraccions-equivalents.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-2/apuntes/u-fraccions/02-fraccions-equivalents.html" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-2/apuntes/u-fraccions/02-fraccions-equivalents.html">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/2eso/">2n ESO</a>
+      <span class="sep">/</span>
+      <a href="/ca/aula/eso-2/apuntes/u-fraccions/">Fraccions</a>
+      <span class="sep">/</span>
+      <span class="current">02 · Equivalents, amplificació i simplificació</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">2n ESO · Fraccions</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">12 set 2025</span>
+      </div>
+      <h1 style="margin:0">2. Fraccions equivalents, amplificació i simplificació</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Què vol dir que dues fraccions són equivalents, com es comprova i com se'n troben de noves.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Fraccions equivalents</h2>
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Són fraccions amb <strong>nombres diferents</strong> que representen <strong>la mateixa quantitat</strong>.</p>
+        </div>
+
+        <p style="font-size:0.95rem;margin-bottom:0.4rem"><strong>Exemple.</strong> $\dfrac{3}{4}$ i $\dfrac{6}{8}$ són equivalents:</p>
+
+        <div class="example-row">
+          <span class="frac-display">$\dfrac{3}{4}$</span>
+          <svg class="frac-svg" viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg">
+            <rect class="cell filled" x="1" y="2" width="38" height="32"/>
+            <rect class="cell filled" x="40" y="2" width="38" height="32"/>
+            <rect class="cell filled" x="79" y="2" width="38" height="32"/>
+            <rect class="cell" x="118" y="2" width="38" height="32"/>
+          </svg>
+        </div>
+
+        <div class="example-row">
+          <span class="frac-display">$\dfrac{6}{8}$</span>
+          <svg class="frac-svg" viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg">
+            <rect class="cell filled" x="1" y="2" width="19" height="32"/>
+            <rect class="cell filled" x="20" y="2" width="19" height="32"/>
+            <rect class="cell filled" x="40" y="2" width="19" height="32"/>
+            <rect class="cell filled" x="60" y="2" width="19" height="32"/>
+            <rect class="cell filled" x="79" y="2" width="19" height="32"/>
+            <rect class="cell filled" x="99" y="2" width="19" height="32"/>
+            <rect class="cell" x="118" y="2" width="19" height="32"/>
+            <rect class="cell" x="138" y="2" width="19" height="32"/>
+          </svg>
+        </div>
+
+        <p class="note" style="margin-top:0.6rem">La porció pintada és <strong>la mateixa</strong> en les dues, així que representen la mateixa quantitat.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Per veure si dues fraccions són equivalents</h2>
+
+        <div class="method-card">
+          <h3>1. Multiplicació en creu</h3>
+          <p>Dues fraccions són equivalents si en multiplicar en creu obtenim el mateix resultat:</p>
+          <div class="math-block">
+            $$\dfrac{a}{b} = \dfrac{c}{d} \;\;\Longleftrightarrow\;\; a \cdot d = b \cdot c$$
+          </div>
+          <p><strong>Exemple.</strong> Comprovem que $\dfrac{3}{4} = \dfrac{6}{8}$:</p>
+          <div class="math-block">
+            $$3 \cdot 8 = 4 \cdot 6 \;\;\Longrightarrow\;\; 24 = 24 \;\;\checkmark$$
+          </div>
+          <p>Sí que són equivalents.</p>
+        </div>
+
+        <div class="method-card">
+          <h3>2. Simplificant</h3>
+          <p>Si en simplificar una fracció arribem a l'altra, també són equivalents:</p>
+          <div class="math-block">
+            $$\dfrac{6}{8} = \dfrac{3}{4}$$
+          </div>
+          <p>Per tant, $\dfrac{3}{4}$ i $\dfrac{6}{8}$ són equivalents. (En la secció següent veurem com simplificar pas a pas.)</p>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Amplificació</h2>
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p><strong>Amplificar</strong> és trobar una fracció equivalent amb nombres <strong>més grans</strong>. Per fer-ho, multipliquem el numerador i el denominador <strong>pel mateix nombre</strong>.</p>
+        </div>
+
+        <p style="font-size:0.95rem;margin-bottom:0.4rem"><strong>Exemple.</strong> A partir de $\dfrac{5}{3}$, podem trobar moltes fraccions equivalents:</p>
+
+        <div class="math-block" style="font-size:1.05rem">
+          $$\dfrac{5}{3} \;\xrightarrow{\,\times 2\,}\; \dfrac{10}{6} \;\xrightarrow{\,\times 3\,}\; \dfrac{15}{9} \;\xrightarrow{\,\times 4\,}\; \dfrac{20}{12} \;= \;\cdots$$
+        </div>
+
+        <p class="note">Cada pas multipliquem $N$ i $D$ pel mateix nombre. Així obtenim infinites fraccions equivalents.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Simplificació</h2>
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p><strong>Simplificar</strong> és trobar una fracció equivalent amb nombres <strong>més petits</strong>. Per fer-ho, dividim el numerador i el denominador <strong>per un divisor comú</strong>.</p>
+        </div>
+
+        <p style="font-size:0.95rem;margin-bottom:0.4rem"><strong>Exemple.</strong> Simplifiquem $\dfrac{24}{16}$ pas a pas:</p>
+
+        <div class="math-block" style="font-size:1.05rem">
+          $$\dfrac{24}{16} \;\xrightarrow{\,\div 2\,}\; \dfrac{12}{8} \;\xrightarrow{\,\div 2\,}\; \dfrac{6}{4} \;\xrightarrow{\,\div 2\,}\; \dfrac{3}{2}$$
+        </div>
+
+        <p class="note">Hem dividit numerador i denominador per $2$ tres vegades. Si haguéssim dividit els dos directament per $8$ (el divisor més gran possible), hauríem arribat a $\dfrac{3}{2}$ d'un sol cop.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Fracció irreductible</h2>
+        <div class="def-box">
+          <h3>Definició</h3>
+          <p>Si dividim numerador i denominador pel <strong>màxim comú divisor</strong> $\text{MCD}(N, D)$, el resultat <strong>no es pot simplificar més</strong>: és la <strong>fracció irreductible</strong>.</p>
+        </div>
+
+        <p style="font-size:0.95rem;margin-bottom:0.4rem"><strong>Exemple.</strong> En el cas anterior, $\text{MCD}(24, 16) = 8$. Dividint d'un sol cop:</p>
+
+        <div class="math-block" style="font-size:1.05rem">
+          $$\dfrac{24}{16} \;\xrightarrow{\,\div 8\,}\; \dfrac{3}{2}$$
+        </div>
+
+        <p class="note">$\dfrac{3}{2}$ és la fracció irreductible: $3$ i $2$ no tenen cap divisor comú més gran que $1$, així que ja no es pot simplificar més.</p>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/ca/aula/eso-2/apuntes/u-fraccions/01-definicions-inicials.html">&larr; Apartat anterior</a>
+        <a class="index" href="/ca/aula/eso-2/apuntes/u-fraccions/">Índex de la unitat</a>
+        <a class="next" href="/ca/aula/eso-2/apuntes/u-fraccions/03-ordenacio-i-representacio.html">Apartat següent &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
