@@ -545,15 +545,10 @@ def render_regular_hub(s, lang):
     for u in s["units"]:
         u2 = {k: v for k, v in u.items() if k != "desc_l"}
         u2["desc"] = u["desc_l"][lang]
-        # Para CA/EN, prefija las URLs internas con el prefijo de idioma
-        # (así los enlaces a apuntes/fichas/soluciones desde el hub catalán o inglés
-        # apuntan a la versión correspondiente del árbol)
-        if lang != "es":
-            prefix = f"/{lang}"
-            for url_key in ("apunts", "fitxes", "solucions"):
-                if url_key in u2 and isinstance(u2[url_key], str) and u2[url_key].startswith("/"):
-                    u2[url_key] = prefix + u2[url_key]
         units_for_js.append(u2)
+    # Las URLs (apunts, fitxes, solucions) se mantienen apuntando al raíz /aula/...
+    # El JS lang-persist.js se encarga de redirigir al idioma preferido si hace falta,
+    # comparando el lang del documento destino con la preferencia del usuario.
     units_json = json.dumps(units_for_js, ensure_ascii=False)
 
     # Year picker
