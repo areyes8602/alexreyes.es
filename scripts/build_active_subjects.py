@@ -545,6 +545,14 @@ def render_regular_hub(s, lang):
     for u in s["units"]:
         u2 = {k: v for k, v in u.items() if k != "desc_l"}
         u2["desc"] = u["desc_l"][lang]
+        # Para CA/EN, prefija las URLs internas con el prefijo de idioma
+        # (así los enlaces a apuntes/fichas/soluciones desde el hub catalán o inglés
+        # apuntan a la versión correspondiente del árbol)
+        if lang != "es":
+            prefix = f"/{lang}"
+            for url_key in ("apunts", "fitxes", "solucions"):
+                if url_key in u2 and isinstance(u2[url_key], str) and u2[url_key].startswith("/"):
+                    u2[url_key] = prefix + u2[url_key]
         units_for_js.append(u2)
     units_json = json.dumps(units_for_js, ensure_ascii=False)
 
@@ -1165,8 +1173,9 @@ def main():
             f'<link rel="canonical" href="https://alexreyes.es/docencia/{code}/">',
         )
         # nav links y rutas internas: /ca/... → /...
-        # (cuidado: no tocar URLs de /ca/aula/ o /ca/docencia/{otrocode}/ que apuntan a otras asignaturas
-        #  en este caso es seguro porque la página solo enlaza a su propio code en /ca/)
+        # OJO: NO reescribimos /ca/aula/ — esos deben apuntar a la versión catalana de los apuntes
+        # (los apuntes en /aula/ raíz están en castellano; en /ca/aula/ está la versión catalana).
+        # Como la página /docencia/{code}/ es catalán, los enlaces a apuntes deben mantener /ca/aula/.
         html = html.replace(f'href="/ca/docencia/{code}/', f'href="/docencia/{code}/')
         html = _re.sub(r'href="/ca/(docencia|notas|cv|contacto|doctorado)/"', r'href="/\1/"', html)
         html = html.replace('href="/ca/"', 'href="/"')
