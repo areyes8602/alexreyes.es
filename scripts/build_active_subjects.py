@@ -1145,6 +1145,49 @@ def main():
             write_with_retry(out, content)
             print(f"  ✓ {out.relative_to(REPO)}")
 
+    # Post-build: para asignaturas no-IB (CCSS, ESO), el árbol raíz /docencia/<code>/
+    # debe servir el contenido catalán (alumnado catalanoparlante). Tomamos el HTML
+    # generado en /ca/docencia/<code>/index.html, reescribimos los enlaces internos
+    # /ca/... → / (sin prefijo) y lo escribimos sobre /docencia/<code>/index.html.
+    import re as _re
+    for s in SUBJECTS:
+        if s["type"] == "ib":
+            continue
+        code = s["code"]
+        src = REPO / "ca" / "docencia" / code / "index.html"
+        dst = REPO / "docencia" / code / "index.html"
+        if not src.exists():
+            continue
+        html = src.read_text(encoding="utf-8")
+        # canonical → la URL raíz
+        html = html.replace(
+            f'<link rel="canonical" href="https://alexreyes.es/ca/docencia/{code}/">',
+            f'<link rel="canonical" href="https://alexreyes.es/docencia/{code}/">',
+        )
+        # nav links y rutas internas: /ca/... → /...
+        # (cuidado: no tocar URLs de /ca/aula/ o /ca/docencia/{otrocode}/ que apuntan a otras asignaturas
+        #  en este caso es seguro porque la página solo enlaza a su propio code en /ca/)
+        html = html.replace(f'href="/ca/docencia/{code}/', f'href="/docencia/{code}/')
+        html = _re.sub(r'href="/ca/(docencia|notas|cv|contacto|doctorado)/"', r'href="/\1/"', html)
+        html = html.replace('href="/ca/"', 'href="/"')
+        # Lang switcher: tras estos replaces, "CA" apunta ahora a la URL raíz.
+        # Eso es lo que queremos: ES → raíz (CA real), CA → /ca/, EN → /en/.
+        # Pero la clase lang-active debe estar en la primera opción del switcher (ES,
+        # que es la URL que el visitante está viendo). Reasignamos:
+        # Quitar lang-active de CA (si lo tenía) y ponerlo en ES (la primera).
+        html = _re.sub(
+            r'<a href="/docencia/' + code + r'/" class="lang-active">CA</a>',
+            f'<a href="/docencia/{code}/">CA</a>',
+            html,
+        )
+        html = _re.sub(
+            r'<a href="/docencia/' + code + r'/">ES</a>',
+            f'<a href="/docencia/{code}/" class="lang-active">ES</a>',
+            html,
+        )
+        dst.write_text(html, encoding="utf-8")
+        print(f"  ✓ {dst.relative_to(REPO)} (post-build: CA→raíz)")
+
 
 if __name__ == "__main__":
     main()
