@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4. Exercicis · Probabilitat · 1r BTL CCSS</title>
+<meta name="description" content="Exercicis resolts de probabilitat per a Mat. Aplicades CCSS 1r BTL: aplicació del teorema de la probabilitat total i del teorema de Bayes amb urnes, daus i casos d'empresa.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141838">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141838">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.5rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-statement { margin:0.4rem 0 0.6rem; }
+.exercise details { margin-top:0.6rem; border-top:1px dashed var(--border); padding-top:0.7rem; }
+.exercise details summary { cursor:pointer; font-size:0.85rem; font-weight:600; color:#6366f1; list-style:none; user-select:none; padding:0.2rem 0; }
+.exercise details summary::-webkit-details-marker { display:none; }
+.exercise details summary::before { content:"▶ "; font-size:0.7em; transition: transform 0.15s; display:inline-block; margin-right:0.2rem; }
+.exercise details[open] summary::before { transform: rotate(90deg); }
+.exercise details .solution { padding:0.4rem 0 0; font-size:0.94rem; }
+.exercise details .solution p { margin:0.5rem 0; }
+.exercise details .solution ul { margin:0.4rem 0 0.6rem 1.2rem; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/04-exercicis.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/">Probabilitat</a>
+      <span class="sep">/</span>
+      <span class="current">04 · Exercicis</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS · Probabilitat</span>
+        <span class="tag tag-orange">Exercicis</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">24 abr 2026</span>
+      </div>
+      <h1 style="margin:0">4. Exercicis</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Aplicació dels teoremes de la probabilitat total i de Bayes. Cada enunciat porta la solució amagada — intenta resoldre'l abans de desplegar-la.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ── Exercici 46 ── -->
+      <div class="exercise" id="ex-46">
+        <div class="exercise-head">
+          <span class="num">46</span>
+          <span class="ttl">Dues caixes</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Una capsa, $A$, conté 6 boles blanques i 4 boles blaves; mentre que una altra capsa, $B$, conté 5 boles blanques i 2 blaves. Es tria una capsa a l'atzar i se n'extreuen <strong>dues boles sense reemplaçament</strong>. Calcula la probabilitat que:</p>
+          <p style="margin-left:1rem">a) Les dues boles siguin blanques.<br>
+             b) Les dues boles siguin del mateix color.<br>
+             c) Les dues boles siguin de diferent color.</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>Tenim $P(A) = P(B) = \tfrac{1}{2}$. Sigui $W = \{\text{2 boles blanques}\}$ i $V = \{\text{2 boles blaves}\}$.</p>
+            <p><strong>(a)</strong> Probabilitats condicionades:</p>
+            <p style="text-align:center">$P(W \mid A) = \tfrac{6}{10} \cdot \tfrac{5}{9} = \tfrac{30}{90} = \tfrac{1}{3}$, &nbsp; $P(W \mid B) = \tfrac{5}{7} \cdot \tfrac{4}{6} = \tfrac{20}{42} = \tfrac{10}{21}$</p>
+            <p>Pel teorema de la probabilitat total:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(W) = \tfrac{1}{2} \cdot \tfrac{1}{3} + \tfrac{1}{2} \cdot \tfrac{10}{21} = \tfrac{1}{6} + \tfrac{5}{21} = \tfrac{7}{42} + \tfrac{10}{42} = \tfrac{17}{42} \approx 0{,}405$$
+            </div>
+            <p><strong>(b)</strong> Per al mateix color, sumem $P(W) + P(V)$:</p>
+            <p style="text-align:center">$P(V \mid A) = \tfrac{4}{10} \cdot \tfrac{3}{9} = \tfrac{12}{90} = \tfrac{2}{15}$, &nbsp; $P(V \mid B) = \tfrac{2}{7} \cdot \tfrac{1}{6} = \tfrac{2}{42} = \tfrac{1}{21}$</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(V) = \tfrac{1}{2} \cdot \tfrac{2}{15} + \tfrac{1}{2} \cdot \tfrac{1}{21} = \tfrac{1}{15} + \tfrac{1}{42} = \tfrac{14}{210} + \tfrac{5}{210} = \tfrac{19}{210}$$
+            </div>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{mateix color}) = \tfrac{17}{42} + \tfrac{19}{210} = \tfrac{85}{210} + \tfrac{19}{210} = \tfrac{104}{210} = \tfrac{52}{105} \approx 0{,}495$$
+            </div>
+            <p><strong>(c)</strong> Diferent color és el succés contrari:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{diferent color}) = 1 - \tfrac{52}{105} = \tfrac{53}{105} \approx 0{,}505$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 47 ── -->
+      <div class="exercise" id="ex-47">
+        <div class="exercise-head">
+          <span class="num">47</span>
+          <span class="ttl">Tres urnes</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Es disposa de tres urnes: l'urna $A$ conté 2 boles blanques i 4 boles vermelles; l'urna $B$, 3 boles blanques i 3 de vermelles, i la $C$, 1 de blanca i 5 de vermelles. Si es tria una urna a l'atzar i se n'extreu una bola, quina és la probabilitat que la bola sigui blanca? I si ho és, quina és la probabilitat que procedeixi de l'urna $B$?</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p><strong>Notació.</strong> Per evitar confusió entre el nom de l'urna i el color de la bola, fem servir:</p>
+            <p style="margin-left:1rem"><strong>·</strong> $U_A$, $U_B$, $U_C$ = "triar (a l'atzar) l'urna A, B o C".<br>
+               <strong>·</strong> $B$ = "treure una bola <em>blanca</em>", $V$ = "treure una bola <em>vermella</em>".</p>
+
+            <p><strong>Probabilitats inicials</strong> (l'urna es tria a l'atzar entre les tres):</p>
+            <p style="text-align:center">$P(U_A) = P(U_B) = P(U_C) = \tfrac{1}{3}$</p>
+
+            <p><strong>Probabilitats condicionades</strong> (cada urna té 6 boles):</p>
+            <table class="dom-table" style="max-width:520px;margin:0.4rem auto;font-size:0.9rem">
+              <thead><tr><th>Urna</th><th>Composició</th><th>$P(B \mid U_x)$</th><th>$P(V \mid U_x)$</th></tr></thead>
+              <tbody>
+                <tr><td>$U_A$</td><td>2 blanques + 4 vermelles</td><td>$\tfrac{2}{6} = \tfrac{1}{3}$</td><td>$\tfrac{4}{6} = \tfrac{2}{3}$</td></tr>
+                <tr><td>$U_B$</td><td>3 blanques + 3 vermelles</td><td>$\tfrac{3}{6} = \tfrac{1}{2}$</td><td>$\tfrac{3}{6} = \tfrac{1}{2}$</td></tr>
+                <tr><td>$U_C$</td><td>1 blanca + 5 vermelles</td><td>$\tfrac{1}{6}$</td><td>$\tfrac{5}{6}$</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Diagrama d'arbre.</strong> 3 branques principals (urna) × 2 branques (color) = 6 camins:</p>
+
+            <div class="tree-fig" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 0.5rem 0.6rem;margin:1rem 0;text-align:center">
+              <svg viewBox="0 0 660 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama d'arbre amb 3 urnes i 2 colors" style="display:block;margin:0 auto;max-width:100%;height:auto">
+                <!-- ===== Tronc (origen) ===== -->
+                <circle cx="40" cy="190" r="7" fill="#1d4ed8"/>
+                <text x="40" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#1d4ed8" font-weight="600">tria</text>
+
+                <!-- ===== Branques nivell 1 (cap a les 3 urnes) ===== -->
+                <line x1="48" y1="186" x2="180" y2="60" stroke="#1d4ed8" stroke-width="1.6"/>
+                <line x1="48" y1="190" x2="180" y2="190" stroke="#1d4ed8" stroke-width="1.6"/>
+                <line x1="48" y1="194" x2="180" y2="320" stroke="#1d4ed8" stroke-width="1.6"/>
+                <text x="105" y="115" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#475569">1/3</text>
+                <text x="105" y="184" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#475569">1/3</text>
+                <text x="105" y="265" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#475569">1/3</text>
+
+                <!-- ===== Nodes nivell 1 — les urnes ===== -->
+                <circle cx="200" cy="60" r="22" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+                <text x="200" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#475569">Urna</text>
+                <text x="200" y="73" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">A</text>
+                <text x="200" y="100" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#64748b">2 bl · 4 vm</text>
+
+                <circle cx="200" cy="190" r="22" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+                <text x="200" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#475569">Urna</text>
+                <text x="200" y="203" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">B</text>
+                <text x="200" y="230" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#64748b">3 bl · 3 vm</text>
+
+                <circle cx="200" cy="320" r="22" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+                <text x="200" y="318" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#475569">Urna</text>
+                <text x="200" y="333" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">C</text>
+                <text x="200" y="360" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#64748b">1 bl · 5 vm</text>
+
+                <!-- ===== Branques nivell 2 (cap als colors) ===== -->
+                <!-- des d'Urna A -->
+                <line x1="222" y1="50" x2="380" y2="20" stroke="#10b981" stroke-width="1.4"/>
+                <line x1="222" y1="70" x2="380" y2="100" stroke="#dc2626" stroke-width="1.4"/>
+                <text x="305" y="28" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">2/6 = 1/3</text>
+                <text x="305" y="98" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#b91c1c">4/6 = 2/3</text>
+                <!-- des d'Urna B -->
+                <line x1="222" y1="180" x2="380" y2="150" stroke="#10b981" stroke-width="1.4"/>
+                <line x1="222" y1="200" x2="380" y2="230" stroke="#dc2626" stroke-width="1.4"/>
+                <text x="305" y="158" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">3/6 = 1/2</text>
+                <text x="305" y="228" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#b91c1c">3/6 = 1/2</text>
+                <!-- des d'Urna C -->
+                <line x1="222" y1="310" x2="380" y2="280" stroke="#10b981" stroke-width="1.4"/>
+                <line x1="222" y1="330" x2="380" y2="360" stroke="#dc2626" stroke-width="1.4"/>
+                <text x="305" y="288" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">1/6</text>
+                <text x="305" y="358" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#b91c1c">5/6</text>
+
+                <!-- ===== Fulles (les 6 boles finals) ===== -->
+                <!-- Blanques (verd) -->
+                <circle cx="395" cy="20" r="14" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+                <text x="395" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#047857">B</text>
+                <circle cx="395" cy="150" r="14" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+                <text x="395" y="154" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#047857">B</text>
+                <circle cx="395" cy="280" r="14" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+                <text x="395" y="284" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#047857">B</text>
+                <!-- Vermelles (vermell) -->
+                <circle cx="395" cy="100" r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+                <text x="395" y="104" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#b91c1c">V</text>
+                <circle cx="395" cy="230" r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+                <text x="395" y="234" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#b91c1c">V</text>
+                <circle cx="395" cy="360" r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+                <text x="395" y="364" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#b91c1c">V</text>
+
+                <!-- ===== Probabilitats finals (intersecció) al costat dret ===== -->
+                <text x="425" y="24" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(A ∩ B) = 1/3 · 1/3 = </text>
+                <text x="595" y="24" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#047857">1/9</text>
+                <text x="425" y="104" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(A ∩ V) = 1/3 · 2/3 = </text>
+                <text x="595" y="104" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#b91c1c">2/9</text>
+                <text x="425" y="154" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(B ∩ B) = 1/3 · 1/2 = </text>
+                <text x="595" y="154" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#047857">1/6</text>
+                <text x="425" y="234" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(B ∩ V) = 1/3 · 1/2 = </text>
+                <text x="595" y="234" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#b91c1c">1/6</text>
+                <text x="425" y="284" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(C ∩ B) = 1/3 · 1/6 = </text>
+                <text x="595" y="284" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#047857">1/18</text>
+                <text x="425" y="364" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">P(C ∩ V) = 1/3 · 5/6 = </text>
+                <text x="595" y="364" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#b91c1c">5/18</text>
+              </svg>
+              <figcaption style="font-size:0.78rem;color:var(--text-faint);margin-top:0.4rem;font-style:italic">
+                Multiplica al llarg de cada branca per obtenir la probabilitat de cada camí. <span style="color:#047857;font-weight:600">B</span> = bola blanca, <span style="color:#b91c1c;font-weight:600">V</span> = bola vermella. Branques blau = tria d'urna, verd = bola blanca, vermell = bola vermella.
+              </figcaption>
+            </div>
+
+            <p><strong>Càlcul de les 6 interseccions</strong> (regla del producte $P(U_x \cap \text{color}) = P(U_x) \cdot P(\text{color} \mid U_x)$):</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$\begin{aligned}
+                P(U_A \cap B) &= \tfrac{1}{3} \cdot \tfrac{1}{3} = \tfrac{1}{9}, & \quad
+                P(U_A \cap V) &= \tfrac{1}{3} \cdot \tfrac{2}{3} = \tfrac{2}{9}, \\[0.2em]
+                P(U_B \cap B) &= \tfrac{1}{3} \cdot \tfrac{1}{2} = \tfrac{1}{6}, & \quad
+                P(U_B \cap V) &= \tfrac{1}{3} \cdot \tfrac{1}{2} = \tfrac{1}{6}, \\[0.2em]
+                P(U_C \cap B) &= \tfrac{1}{3} \cdot \tfrac{1}{6} = \tfrac{1}{18}, & \quad
+                P(U_C \cap V) &= \tfrac{1}{3} \cdot \tfrac{5}{6} = \tfrac{5}{18}.
+              \end{aligned}$$
+            </div>
+
+            <p><strong>① Probabilitat que la bola sigui blanca</strong> — teorema de la probabilitat total. Sumem els tres camins que acaben a $B$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(B) = P(U_A \cap B) + P(U_B \cap B) + P(U_C \cap B) = \tfrac{1}{9} + \tfrac{1}{6} + \tfrac{1}{18} = \tfrac{2 + 3 + 1}{18} = \tfrac{6}{18} = \tfrac{1}{3}.$$
+            </div>
+            <p style="text-align:center"><span style="background:rgba(16,185,129,0.10);border:1px solid rgba(16,185,129,0.3);padding:0.2rem 0.6rem;border-radius:4px"><strong>$P(B) = \tfrac{1}{3} \approx 0{,}333$</strong></span></p>
+
+            <p><strong>② Probabilitat que provingui de l'urna B</strong> sabent que la bola és blanca — teorema de Bayes:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(U_B \mid B) = \dfrac{P(U_B \cap B)}{P(B)} = \dfrac{\tfrac{1}{6}}{\tfrac{1}{3}} = \tfrac{1}{6} \cdot 3 = \tfrac{3}{6} = \tfrac{1}{2}.$$
+            </div>
+            <p style="text-align:center"><span style="background:rgba(16,185,129,0.10);border:1px solid rgba(16,185,129,0.3);padding:0.2rem 0.6rem;border-radius:4px"><strong>$P(U_B \mid B) = \tfrac{1}{2} = 50\%$</strong></span></p>
+
+            <p class="note"><strong>Verificació de coherència.</strong> Les tres probabilitats <em>a posteriori</em> han de sumar 1:</p>
+            <p style="text-align:center;font-size:0.9rem">
+              $P(U_A \mid B) = \dfrac{1/9}{1/3} = \tfrac{1}{3}, \quad P(U_B \mid B) = \tfrac{1}{2}, \quad P(U_C \mid B) = \dfrac{1/18}{1/3} = \tfrac{1}{6}.$
+            </p>
+            <p style="text-align:center;font-size:0.9rem">Suma: $\tfrac{1}{3} + \tfrac{1}{2} + \tfrac{1}{6} = \tfrac{2+3+1}{6} = \tfrac{6}{6} = 1$ ✓</p>
+            <p class="note">Té sentit: l'urna B és la que té més proporció de blanques (la meitat), per això quan veiem una blanca la "sospita" cap a B s'enforteix fins al 50 %, mentre que a la urna A (amb només 1/3 de blanques) baixa al 33,3 % i la urna C (amb 1/6 de blanques) baixa al 16,7 %.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 48 ── -->
+      <div class="exercise" id="ex-48">
+        <div class="exercise-head">
+          <span class="num">48</span>
+          <span class="ttl">Dau i urna</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Es llança un dau i se n'observa el resultat. Si el nombre obtingut és parell, s'introdueix una bola blanca en una urna que conté 2 boles blanques i 4 de negres; i si és imparell, s'hi introdueix una bola negra.</p>
+          <p style="margin-left:1rem">a) Calcula la probabilitat d'extreure de l'urna, sense reemplaçament, dues boles blanques si, en llançar el dau, s'ha obtingut un resultat parell.<br>
+             b) Quina és la probabilitat d'extreure de l'urna, sense reemplaçament, dues boles blanques una vegada llançat el dau?</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>Sigui $\Pi$ = "el dau dóna parell" i $I$ = "el dau dóna imparell". Tenim $P(\Pi) = P(I) = \tfrac{1}{2}$.</p>
+            <p><strong>Composició final de l'urna</strong> segons el resultat del dau:</p>
+            <ul>
+              <li>Si $\Pi$: 3 blanques + 4 negres = 7 boles</li>
+              <li>Si $I$: 2 blanques + 5 negres = 7 boles</li>
+            </ul>
+            <p><strong>(a)</strong> $P(\text{2 blanques} \mid \Pi)$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{2b} \mid \Pi) = \tfrac{3}{7} \cdot \tfrac{2}{6} = \tfrac{6}{42} = \tfrac{1}{7}$$
+            </div>
+            <p><strong>(b)</strong> Probabilitat total. També necessitem $P(\text{2b} \mid I)$:</p>
+            <p style="text-align:center">$P(\text{2b} \mid I) = \tfrac{2}{7} \cdot \tfrac{1}{6} = \tfrac{2}{42} = \tfrac{1}{21}$</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{2b}) = \tfrac{1}{2} \cdot \tfrac{1}{7} + \tfrac{1}{2} \cdot \tfrac{1}{21} = \tfrac{1}{14} + \tfrac{1}{42} = \tfrac{3}{42} + \tfrac{1}{42} = \tfrac{4}{42} = \tfrac{2}{21} \approx 0{,}095$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 49 ── -->
+      <div class="exercise" id="ex-49">
+        <div class="exercise-head">
+          <span class="num">49</span>
+          <span class="ttl">Bombetes</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Una empresa produeix bombetes halògenes i bombetes de baix consum. De cada 7 unitats produïdes, 3 són halògenes i 4 de baix consum. La probabilitat que una bombeta halògena sigui defectuosa és $0{,}02$, i la probabilitat que ho sigui una de baix consum és $0{,}09$. S'escull a l'atzar una bombeta i resulta que <strong>no és defectuosa</strong>; quina és la probabilitat que sigui halògena?</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>Sigui $H$ = halògena, $L$ = baix consum, $D$ = defectuosa. Dades:</p>
+            <p style="text-align:center">$P(H) = \tfrac{3}{7}$, &nbsp; $P(L) = \tfrac{4}{7}$, &nbsp; $P(D \mid H) = 0{,}02$, &nbsp; $P(D \mid L) = 0{,}09$</p>
+            <p>Per tant $P(\bar D \mid H) = 0{,}98$ i $P(\bar D \mid L) = 0{,}91$.</p>
+            <p><strong>Probabilitat que no sigui defectuosa</strong> (probabilitat total):</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\bar D) = \tfrac{3}{7} \cdot 0{,}98 + \tfrac{4}{7} \cdot 0{,}91 = \tfrac{2{,}94 + 3{,}64}{7} = \tfrac{6{,}58}{7} \approx 0{,}94$$
+            </div>
+            <p><strong>Aplicant Bayes:</strong></p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(H \mid \bar D) = \dfrac{P(\bar D \mid H) \cdot P(H)}{P(\bar D)} = \dfrac{0{,}98 \cdot \tfrac{3}{7}}{0{,}94} = \dfrac{0{,}42}{0{,}94} \approx 0{,}447$$
+            </div>
+            <p class="note">És a dir, hi ha un 44,7 % de probabilitat que sigui halògena.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 50 ── -->
+      <div class="exercise" id="ex-50">
+        <div class="exercise-head">
+          <span class="num">50</span>
+          <span class="ttl">Crèdits bancaris</span>
+        </div>
+        <div class="exercise-statement">
+          <p>En un banc, el 30 % dels crèdits concedits són per a l'habitatge; el 50 %, per a empreses, i el 20 % són crèdits al consum. Se sap, a més, que dels crèdits concedits per a l'habitatge, el 10 % acaben impagats; dels atorgats a les empreses, acaben impagats el 20 %, mentre que, dels crèdits al consum, l'impagament afecta el 10 %.</p>
+          <p style="margin-left:1rem">a) Calcula la probabilitat que un crèdit triat a l'atzar sigui pagat.<br>
+             b) Si un crèdit s'ha pagat, quina probabilitat hi ha que fos de consum?</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució</summary>
+          <div class="solution">
+            <p>Sigui $H$ = habitatge, $E$ = empreses, $C$ = consum, $D$ = impagat. Dades:</p>
+            <p style="text-align:center">$P(H) = 0{,}30$, &nbsp; $P(E) = 0{,}50$, &nbsp; $P(C) = 0{,}20$</p>
+            <p style="text-align:center">$P(D \mid H) = 0{,}10$, &nbsp; $P(D \mid E) = 0{,}20$, &nbsp; $P(D \mid C) = 0{,}10$</p>
+            <p><strong>(a)</strong> Probabilitat total de l'impagament:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(D) = 0{,}30 \cdot 0{,}10 + 0{,}50 \cdot 0{,}20 + 0{,}20 \cdot 0{,}10 = 0{,}03 + 0{,}10 + 0{,}02 = 0{,}15$$
+            </div>
+            <p>Per tant:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(\text{pagat}) = 1 - P(D) = 1 - 0{,}15 = 0{,}85$$
+            </div>
+            <p><strong>(b)</strong> Apliquem Bayes amb $\bar D$ = pagat. Necessitem $P(\bar D \mid C) = 0{,}90$:</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(C \mid \bar D) = \dfrac{P(\bar D \mid C) \cdot P(C)}{P(\bar D)} = \dfrac{0{,}90 \cdot 0{,}20}{0{,}85} = \dfrac{0{,}18}{0{,}85} \approx 0{,}212$$
+            </div>
+            <p class="note">Aproximadament un 21,2 % dels crèdits pagats són de consum.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ── Exercici 51 — Selectivitat ── -->
+      <div class="exercise" id="ex-51">
+        <div class="exercise-head">
+          <span class="num">51</span>
+          <span class="ttl">Selectivitat — bicicletes</span>
+        </div>
+        <div class="exercise-statement">
+          <p>Una empresa fabrica bicicletes convencionals i elèctriques. El responsable de qualitat de l'empresa ha mirat l'historial de vendes i ha calculat que el <strong>5 %</strong> de les bicicletes convencionals havien tingut algun tipus de problema que li havia requerit una revisió postvenda. En el cas de les bicicletes elèctriques, aquest percentatge era del <strong>15 %</strong>. Actualment, el <strong>25 %</strong> de la producció és de bicicletes convencionals i el <strong>75 %</strong> de bicicletes elèctriques.</p>
+          <p style="margin-left:1rem">a) Si escollim una bicicleta a l'atzar, quina és la probabilitat que tingui algun tipus de problema que requereixi una revisió postvenda? Si la bicicleta escollida a l'atzar presenta algun tipus de problema, quina és la probabilitat que sigui elèctrica?</p>
+          <p style="margin-left:1rem">b) <em>(Aquest apartat resol-lo a la unitat d'Estadística.)</em> El responsable de qualitat creu que la dada del 15 % ha quedat desfasada perquè la tecnologia ha millorat. Pren una mostra de 100 bicicletes elèctriques venudes en els darrers mesos i observa que només 8 han requerit una revisió postvenda. Troba un interval de confiança del 95 % per a la proporció real i discuteix si la proporció ha disminuït.</p>
+        </div>
+
+        <details>
+          <summary>Mostrar resolució (apartat a)</summary>
+          <div class="solution">
+            <p>Sigui $C$ = convencional, $E$ = elèctrica, $D$ = "té problema". Dades:</p>
+            <p style="text-align:center">$P(C) = 0{,}25$, &nbsp; $P(E) = 0{,}75$, &nbsp; $P(D \mid C) = 0{,}05$, &nbsp; $P(D \mid E) = 0{,}15$</p>
+
+            <p><strong>Diagrama d'arbre i probabilitats conjuntes:</strong></p>
+            <div class="tree-fig" style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:8px;padding:0.8rem 0.4rem 0.4rem;margin:0.6rem 0;text-align:center">
+              <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama d'arbre de l'exercici de bicicletes">
+                <!-- Tronc -->
+                <circle cx="40" cy="110" r="6" fill="#1d4ed8"/>
+                <text x="40" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#1d4ed8">E</text>
+                <!-- Branques nivell 1 -->
+                <line x1="46" y1="110" x2="150" y2="50" stroke="#1d4ed8" stroke-width="1.5"/>
+                <line x1="46" y1="110" x2="150" y2="170" stroke="#1d4ed8" stroke-width="1.5"/>
+                <text x="92" y="68" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">0,25</text>
+                <text x="92" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#475569">0,75</text>
+                <!-- Nodes nivell 1 -->
+                <circle cx="160" cy="50" r="14" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+                <text x="160" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1d4ed8">C</text>
+                <circle cx="160" cy="170" r="14" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+                <text x="160" y="175" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1d4ed8">E</text>
+                <!-- Branques nivell 2: D / no D des de C -->
+                <line x1="174" y1="50" x2="290" y2="25" stroke="#10b981" stroke-width="1.5"/>
+                <line x1="174" y1="50" x2="290" y2="80" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="232" y="29" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#047857">0,05</text>
+                <text x="232" y="78" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#475569">0,95</text>
+                <!-- Branques nivell 2: D / no D des de E -->
+                <line x1="174" y1="170" x2="290" y2="145" stroke="#10b981" stroke-width="1.5"/>
+                <line x1="174" y1="170" x2="290" y2="200" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="232" y="148" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#047857">0,15</text>
+                <text x="232" y="198" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#475569">0,85</text>
+                <!-- Nodes finals -->
+                <circle cx="305" cy="25" r="11" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+                <text x="305" y="29" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#047857">D</text>
+                <circle cx="305" cy="80" r="11" fill="#fff" stroke="#94a3b8" stroke-width="1.2"/>
+                <text x="305" y="84" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#475569">D̄</text>
+                <circle cx="305" cy="145" r="11" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+                <text x="305" y="149" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#047857">D</text>
+                <circle cx="305" cy="200" r="11" fill="#fff" stroke="#94a3b8" stroke-width="1.2"/>
+                <text x="305" y="204" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#475569">D̄</text>
+                <!-- Resultats: producte de probabilitats -->
+                <text x="325" y="29" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">P(C∩D) = 0,25·0,05 = 0,0125</text>
+                <text x="325" y="84" font-family="JetBrains Mono, monospace" font-size="10" fill="#475569">0,2375</text>
+                <text x="325" y="149" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">P(E∩D) = 0,75·0,15 = 0,1125</text>
+                <text x="325" y="204" font-family="JetBrains Mono, monospace" font-size="10" fill="#475569">0,6375</text>
+              </svg>
+            </div>
+
+            <p><strong>Probabilitat que tingui problema</strong> (probabilitat total):</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(D) = P(C \cap D) + P(E \cap D) = 0{,}0125 + 0{,}1125 = 0{,}125 = 12{,}5\,\%$$
+            </div>
+
+            <p><strong>Probabilitat que sigui elèctrica donat que té problema</strong> (Bayes):</p>
+            <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
+              $$P(E \mid D) = \dfrac{P(E \cap D)}{P(D)} = \dfrac{0{,}1125}{0{,}125} = 0{,}9 = 90\,\%$$
+            </div>
+            <p class="note">Tot i que les elèctriques només són el 75 % de la producció, el seu percentatge de problemes és tres vegades més alt — per això, vist un problema, la "sospita" cap a les elèctriques puja al 90 %.</p>
+
+            <p style="margin-top:1rem;font-size:0.88rem;color:var(--text-faint)"><strong>Apartat (b):</strong> requereix interval de confiança per a una proporció (distribució normal) — el resoldrem a la unitat <em>Distribucions discretes i contínues</em>.</p>
+          </div>
+        </details>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/03-bayes.html">&larr; 03 · Probabilitat total i Bayes</a>
+        <a class="index" href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/">Índex de la unitat</a>
+        <a class="next" href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html">05 · Tipus d'esdeveniments &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
