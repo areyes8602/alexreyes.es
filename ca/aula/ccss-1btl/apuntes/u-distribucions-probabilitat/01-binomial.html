@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>7. Binomial distribution · Probability · 1st BTL CCSS</title>
-<meta name="description" content="Notes for Applied Maths for Social Sciences (1st BTL): discrete random variables, probability mass function, Bernoulli trials and the binomial distribution $X\sim B(n,p)$. Formula $P(X=k)=\binom{n}{k}p^k q^{n-k}$, binomial coefficients $C_{m,n}$, expectation $E(X)=np$ and standard deviation $\sigma=\sqrt{npq}$. Includes a worked penalty-kick example and 6 exercises with hidden solutions.">
+<title>1. Distribució binomial · Distribucions de probabilitat · 1r BTL CCSS</title>
+<meta name="description" content="Apunts de Mat. Aplicades CCSS 1r BTL: variable aleatòria discreta, funció de probabilitat, problema de Bernoulli i distribució binomial $X\sim B(n,p)$. Fórmula $P(X=k)=\binom{n}{k}p^k q^{n-k}$, nombres combinatoris $C_{m,n}$, esperança $E(X)=np$ i desviació típica $\sigma=\sqrt{npq}$. Inclou l'exemple guiat del futbolista i 6 exercicis amb solució amagada.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
-<link rel="stylesheet" href="/style.css?v=202605141631">
-<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141631">
+<link rel="stylesheet" href="/style.css?v=202605141715">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141715">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">
-<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">
-<link rel="alternate" hreflang="ca" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">
-<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">
+<link rel="canonical" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html">
 <style>
 .apunt-section { margin: 2.2rem 0; }
 .apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
@@ -39,6 +39,7 @@
 [data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
 [data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
 
+/* Taula amb scroll en mòbil */
 .tbl-wrap { overflow-x: auto; margin: 0.8rem 0; }
 .binom-table { width:100%; border-collapse: collapse; font-size: 0.92rem; font-family: var(--mono); }
 .binom-table th, .binom-table td { border: 1px solid var(--border); padding: 0.45rem 0.7rem; text-align: center; vertical-align: middle; min-width: 2.6rem; }
@@ -47,6 +48,7 @@
 .binom-table caption { caption-side: top; font-size: 0.82rem; color: var(--text-soft); padding-bottom: 0.4rem; text-align: left; }
 .binom-table .unknown { background: rgba(99,102,241,0.10); color: #6366f1; font-weight: 600; }
 
+/* Gràfic distribució discreta SVG */
 .dist-svg { display:block; margin: 0.8rem auto 0.4rem; width:100%; max-width: 520px; height:auto; }
 .dist-svg .bar { fill:#6366f1; }
 .dist-svg .axis { stroke:var(--text-soft); stroke-width:1; }
@@ -54,6 +56,7 @@
 .dist-svg .lbl  { font-family: var(--mono); font-size: 12px; fill: var(--text); }
 [data-theme="dark"] .dist-svg .bar { fill:#818cf8; }
 
+/* Exercicis APART-STYLE */
 .exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
 .exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
 .exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
@@ -78,17 +81,17 @@
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/en/docencia/" class="nav-active">Teaching</a>
-      <a href="/en/doctorado/">PhD</a>
-      <a href="/en/notas/">Notes</a>
-      <a href="/en/cv/">CV</a>
-      <a href="/en/contacto/">Contact</a>
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
-        <a href="/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/07-distribucio-binomial.html" class="lang-active">EN</a>
+        <a href="/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html">EN</a>
       </div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -103,61 +106,61 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
 
     <div class="breadcrumb">
-      <a href="/en/">Home</a>
+      <a href="/ca/">Inici</a>
       <span class="sep">/</span>
-      <a href="/en/docencia/">Teaching</a>
+      <a href="/ca/docencia/">Docència</a>
       <span class="sep">/</span>
-      <a href="/en/aula/ccss-1btl/apuntes/u-probabilitat/">Probability</a>
+      <a href="/ca/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/">Distribucions de probabilitat</a>
       <span class="sep">/</span>
-      <span class="current">07 · Binomial distribution</span>
+      <span class="current">01 · Distribució binomial</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
-        <span class="section-label">1st BTL CCSS · Probability</span>
-        <span class="tag tag-orange">Notes</span>
-        <span class="tag tag-gray" style="font-size:0.7rem">May 13, 2026</span>
+        <span class="section-label">1r BTL CCSS · Distribucions de probabilitat</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">13 maig 2026</span>
       </div>
-      <h1 style="margin:0">7. Binomial distribution</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">What happens when we repeat $n$ times a <em>success/failure</em> experiment and ask for the probability of getting exactly $k$ successes? The answer is the <strong>binomial distribution</strong> $X\sim B(n,p)$, one of the most useful discrete probability distributions at this level: footballers taking penalties, students passing an exam, defective items on a production line… Here we build the formula from scratch (starting from the <em>Bernoulli trial</em>), introduce the <em>binomial coefficients</em> and see how to compute expectation and standard deviation.</p>
+      <h1 style="margin:0">1. Distribució binomial</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Què passa quan repetim $n$ vegades un experiment de tipus <em>èxit / fracàs</em> i ens preguntem amb quina probabilitat obtindrem exactament $k$ èxits? La resposta és la <strong>distribució binomial</strong> $X\sim B(n,p)$, una de les distribucions de probabilitat discretes més útils del batxillerat: futbolistes que xuten penals, alumnes que aproven, peces defectuoses en una línia de fabricació… Aquí construïm la fórmula des de zero (partint del <em>problema de Bernoulli</em>), introduïm els <em>nombres combinatoris</em> i veiem com calcular esperança i desviació típica.</p>
     </div>
 
     <article class="question-block" style="border:none;padding:0;background:none">
 
-      <!-- ============ 1) PRELIMINARY DEFINITIONS ============ -->
+      <!-- ============ 1) DEFINICIONS PRÈVIES ============ -->
       <div class="apunt-section">
-        <h2>Preliminary definitions</h2>
+        <h2>Definicions prèvies</h2>
 
         <div class="def-box">
-          <h3>Probability distribution</h3>
-          <p>A <strong>probability distribution</strong> is the function that assigns a probability to each event of the sample space. It can be <em>discrete</em> (the possible values are finite or countably infinite) or <em>continuous</em> (the values fill an interval).</p>
+          <h3>Distribució de probabilitat</h3>
+          <p>Una <strong>distribució de probabilitat</strong> és la funció que assigna una probabilitat a cada esdeveniment de l'espai mostral. Pot ser <em>discreta</em> (els valors possibles són finits o infinits numerables) o <em>contínua</em> (els valors omplen un interval).</p>
         </div>
 
         <div class="def-box">
-          <h3>Random variable</h3>
-          <p>A <strong>random variable</strong> $X$ is the function that assigns a real number to each element of the sample space. If the values it can take are finite or countably infinite, $X$ is <strong>discrete</strong>; if there are uncountably many (filling an interval), it is <strong>continuous</strong>.</p>
-          <p class="note">Discrete examples: number of heads when flipping 5 coins, number of aces when drawing 3 cards. Continuous examples: height of a student, lifetime of a light bulb.</p>
+          <h3>Variable aleatòria</h3>
+          <p>Una <strong>variable aleatòria</strong> $X$ és la funció que assigna un nombre real a cada element de l'espai mostral. Si els valors que pot prendre són finits o infinits numerables, $X$ es diu <strong>discreta</strong>; si són infinits no numerables (omplint un interval), es diu <strong>contínua</strong>.</p>
+          <p class="note">Exemples discrets: nombre de cares en llançar 5 monedes, nombre d'asos en treure 3 cartes. Exemples continus: alçada d'un estudiant, temps que dura una bombeta.</p>
         </div>
 
         <div class="def-box">
-          <h3>Probability mass function</h3>
-          <p>When $X$ is discrete, the <strong>probability mass function</strong> $f$ assigns to each value $X$ can take its probability: $f(x) = P(X = x)$.</p>
-          <p>For $f$ to be a valid probability mass function, <strong>two conditions</strong> must hold:</p>
+          <h3>Funció de probabilitat</h3>
+          <p>Quan $X$ és discreta, la <strong>funció de probabilitat</strong> $f$ assigna a cada valor que pot prendre $X$ la probabilitat d'obtenir-lo: $f(x) = P(X = x)$.</p>
+          <p>Perquè $f$ sigui una funció de probabilitat vàlida cal que es compleixin <strong>dues condicions</strong>:</p>
           <div class="math-block">
-            $$0 \le f(x_i) \le 1 \quad \text{for all } i, \qquad \sum_{i} f(x_i) = 1.$$
+            $$0 \le f(x_i) \le 1 \quad \text{per a tot } i, \qquad \sum_{i} f(x_i) = 1.$$
           </div>
         </div>
 
-        <!-- Example: fair die -->
+        <!-- Exemple: dau equilibrat -->
         <div class="example-box">
-          <h3>Example — Rolling a die</h3>
-          <p>We roll a fair die. The sample space is $E = \{1, 2, 3, 4, 5, 6\}$ and $X$ is the variable "face shown".</p>
+          <h3>Exemple — Llançar un dau</h3>
+          <p>Llancem un dau correcte. L'espai mostral és $E = \{1, 2, 3, 4, 5, 6\}$ i $X$ és la variable «cara obtinguda».</p>
           <div class="math-block">
             $$f(1) = P(X{=}1) = \tfrac{1}{6}, \quad f(2) = \tfrac{1}{6}, \;\dots\; , f(6) = \tfrac{1}{6}.$$
           </div>
-          <p>The graph of the probability mass function is <em>uniform</em>: 6 bars of the same height $\tfrac{1}{6}$.</p>
+          <p>La gràfica de la funció de probabilitat és <em>uniforme</em>: 6 barres de la mateixa alçada $\tfrac{1}{6}$.</p>
 
-          <svg class="dist-svg" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-label="Bar chart of the discrete uniform distribution of a 6-sided die">
+          <svg class="dist-svg" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-label="Gràfic de barres de la distribució uniforme d'un dau de 6 cares">
             <line class="axis" x1="40" y1="150" x2="340" y2="150"/>
             <line class="axis" x1="40" y1="20"  x2="40"  y2="150"/>
             <text class="tick" x="35" y="55" text-anchor="end">1/6</text>
@@ -177,156 +180,156 @@
             <text class="tick" x="257" y="167" text-anchor="middle">5</text>
             <text class="tick" x="302" y="167" text-anchor="middle">6</text>
           </svg>
-          <p class="note">This is the so-called <strong>discrete uniform distribution</strong>: every value of $X$ has the same probability.</p>
+          <p class="note">Aquest cas és l'anomenada <strong>distribució uniforme discreta</strong>: tots els valors de $X$ tenen la mateixa probabilitat.</p>
         </div>
 
-        <p class="note">Continuous random variables also have associated distributions — the most famous is the <em>normal distribution</em> (Gauss's bell curve) — but in this course we focus on discrete distributions, and in particular the <strong>binomial</strong>.</p>
+        <p class="note">Les variables contínues també tenen distribucions associades — la més coneguda és la <em>normal</em> (la campana de Gauss) — però en aquest curs ens centrem en distribucions discretes, i en particular la <strong>binomial</strong>.</p>
       </div>
 
-      <!-- ============ 2) BERNOULLI TRIAL ============ -->
+      <!-- ============ 2) PROBLEMA DE BERNOULLI ============ -->
       <div class="apunt-section">
-        <h2>Bernoulli trial</h2>
+        <h2>Problema de Bernoulli</h2>
 
         <div class="def-box">
-          <h3>Bernoulli experiment</h3>
-          <p>A <strong>Bernoulli experiment</strong> is a random experiment with <em>only two possible outcomes</em>, which we label <strong>success</strong> and <strong>failure</strong>.</p>
-          <p>We denote:</p>
+          <h3>Experiment de Bernoulli</h3>
+          <p>Un <strong>experiment de Bernoulli</strong> és un experiment aleatori amb <em>només dos resultats possibles</em>, que anomenem <strong>èxit</strong> i <strong>fracàs</strong>.</p>
+          <p>Denotem:</p>
           <div class="math-block">
-            $$p = P(\text{success}), \qquad q = P(\text{failure}) = 1 - p.$$
+            $$p = P(\text{èxit}), \qquad q = P(\text{fracàs}) = 1 - p.$$
           </div>
-          <p>By construction, $p + q = 1$.</p>
+          <p>Per construcció, $p + q = 1$.</p>
         </div>
 
         <div class="example-box">
-          <h3>Example — Penalty kick</h3>
-          <p>A footballer has probability $0{,}7$ of scoring a penalty. Taking the penalty is a Bernoulli experiment with:</p>
+          <h3>Exemple — Penal</h3>
+          <p>Un futbolista té probabilitat $0{,}7$ de marcar un penal. Tirar el penal és un experiment de Bernoulli amb:</p>
           <div class="math-block">
             $$p = 0{,}7, \qquad q = 1 - p = 0{,}3.$$
           </div>
-          <p class="note">"Scoring" is the success and "missing" the failure (which outcome is success and which failure is a labelling we choose to match the question being asked).</p>
+          <p class="note">«Marcar» és l'èxit i «fallar» el fracàs (la convenció de què és èxit i què és fracàs la triem nosaltres segons la pregunta).</p>
         </div>
       </div>
 
-      <!-- ============ 3) BINOMIAL DISTRIBUTION ============ -->
+      <!-- ============ 3) DISTRIBUCIÓ BINOMIAL ============ -->
       <div class="apunt-section">
-        <h2>Binomial distribution</h2>
+        <h2>Distribució binomial</h2>
 
         <div class="def-box">
-          <h3>Definition</h3>
-          <p>The <strong>binomial distribution</strong> is the distribution followed by a random variable $X$ that counts <em>the number of successes</em> in $n$ independent repetitions of a Bernoulli experiment with success probability $p$.</p>
-          <p>We write:</p>
+          <h3>Definició</h3>
+          <p>La <strong>distribució binomial</strong> és la distribució que segueix una variable aleatòria $X$ que compta <em>el nombre d'èxits</em> en $n$ repeticions independents d'un experiment de Bernoulli amb probabilitat d'èxit $p$.</p>
+          <p>Es nota:</p>
           <div class="math-block">
             $$X \sim B(n, p),$$
           </div>
-          <p>where $n$ is the <em>number of trials</em> and $p$ the <em>individual success probability</em>.</p>
+          <p>on $n$ és el <em>nombre d'experiments</em> i $p$ la <em>probabilitat d'èxit individual</em>.</p>
         </div>
 
         <div class="prop-box">
-          <h3>When to use the binomial</h3>
-          <p>A phenomenon is well modelled by $B(n,p)$ when it satisfies <strong>the 4 conditions</strong>:</p>
-          <p><strong>1.</strong> The same experiment is repeated $n$ times.</p>
-          <p><strong>2.</strong> Each experiment has only two possible outcomes (success / failure).</p>
-          <p><strong>3.</strong> The success probability $p$ is <em>constant</em> on each repetition.</p>
-          <p><strong>4.</strong> The repetitions are <em>independent</em> of each other.</p>
+          <h3>Quan utilitzar la binomial</h3>
+          <p>Un fenomen es modela bé amb $B(n,p)$ si compleix <strong>les 4 condicions</strong> següents:</p>
+          <p><strong>1.</strong> Es repeteix $n$ vegades un mateix experiment.</p>
+          <p><strong>2.</strong> Cada experiment només té dos resultats possibles (èxit / fracàs).</p>
+          <p><strong>3.</strong> La probabilitat d'èxit $p$ és <em>constant</em> en cada repetició.</p>
+          <p><strong>4.</strong> Les repeticions són <em>independents</em> entre elles.</p>
         </div>
 
         <div class="example-box">
-          <h3>Example — Five penalties</h3>
-          <p>The same footballer as in the previous example takes <strong>5 penalties</strong>. Let $X = $ "number of penalties scored". Then:</p>
+          <h3>Exemple — Cinc penals</h3>
+          <p>El mateix futbolista de l'exemple anterior llança <strong>5 penals</strong>. Diem $X = $ «nombre de penals marcats». Aleshores:</p>
           <div class="math-block">
             $$X \sim B(5,\;0{,}7).$$
           </div>
 
-          <p><strong>a)</strong> What is the probability of scoring exactly 3 penalties?</p>
+          <p><strong>a)</strong> Quina és la probabilitat de marcar exactament 3 penals?</p>
           <div class="math-block">
             $$P(X = 3) \approx 0{,}3087.$$
           </div>
-          <p class="note">This value comes out either from the formula we'll derive next, or from a binomial table.</p>
+          <p class="note">Aquest valor es treu amb la fórmula que veurem al següent apartat, o consultant la taula de la binomial.</p>
 
-          <p><strong>b)</strong> What is the probability of scoring <em>at least</em> 3 penalties?</p>
-          <p>"At least 3" means $X \ge 3$. It can be obtained via the <em>complement</em>:</p>
+          <p><strong>b)</strong> Quina és la probabilitat de marcar <em>com a mínim</em> 3 penals?</p>
+          <p>«Com a mínim 3» equival a $X \ge 3$. Es pot calcular pel <em>complementari</em>:</p>
           <div class="math-block">
             $$P(X \ge 3) \;=\; 1 - P(X \le 2) \;=\; 1 - 0{,}16308 \;=\; \boxed{\;0{,}83692.\;}$$
           </div>
-          <p class="note">$P(X \le 2) = P(X{=}0) + P(X{=}1) + P(X{=}2)$ — the sum of the first three values.</p>
+          <p class="note">$P(X \le 2) = P(X{=}0) + P(X{=}1) + P(X{=}2)$ — la suma dels 3 primers valors.</p>
         </div>
       </div>
 
-      <!-- ============ 4) FORMULA ============ -->
+      <!-- ============ 4) FÓRMULA ============ -->
       <div class="apunt-section">
-        <h2>Binomial formula</h2>
+        <h2>Fórmula de la binomial</h2>
 
         <div class="def-box">
-          <h3>Probability mass function of $B(n,p)$</h3>
-          <p>If $X \sim B(n,p)$, the probability of getting <em>exactly $k$ successes</em> in $n$ trials is:</p>
+          <h3>Funció de probabilitat de $B(n,p)$</h3>
+          <p>Si $X \sim B(n,p)$, la probabilitat d'obtenir <em>exactament $k$ èxits</em> en $n$ proves és:</p>
           <div class="math-block">
             $$\boxed{\;P(X = k) \;=\; \binom{n}{k}\, p^{k}\, q^{\,n-k}\;}, \qquad k = 0, 1, 2, \dots, n.$$
           </div>
-          <p>Where $\binom{n}{k}$ is the <em>binomial coefficient</em> (defined below) and $q = 1 - p$.</p>
+          <p>On $\binom{n}{k}$ és el <em>nombre combinatori</em> (que definim a sota) i $q = 1 - p$.</p>
         </div>
 
-        <p>The formula has three ingredients:</p>
-        <p><strong>·</strong> $\binom{n}{k}$ — how many ways the $k$ successes can be placed among the $n$ positions.</p>
-        <p><strong>·</strong> $p^{k}$ — probability of a specific sequence with $k$ successes.</p>
-        <p><strong>·</strong> $q^{n-k}$ — probability of the $n - k$ failures.</p>
+        <p>La fórmula té tres ingredients:</p>
+        <p><strong>·</strong> $\binom{n}{k}$ — de quantes maneres es poden col·locar els $k$ èxits entre les $n$ posicions.</p>
+        <p><strong>·</strong> $p^{k}$ — probabilitat d'una seqüència concreta amb $k$ èxits.</p>
+        <p><strong>·</strong> $q^{n-k}$ — probabilitat dels $n - k$ fracassos.</p>
 
         <div class="example-box">
-          <h3>Penalty kicks — detailed computation</h3>
-          <p>With $X \sim B(5,\;0{,}7)$, let's compute $P(X = 3)$ using the formula:</p>
+          <h3>Aplicació al penal — càlcul detallat</h3>
+          <p>Amb $X \sim B(5,\;0{,}7)$, calculem $P(X = 3)$ aplicant la fórmula:</p>
           <div class="math-block">
             $$P(X = 3) \;=\; \binom{5}{3}\, 0{,}7^{3}\cdot 0{,}3^{2} \;=\; 10 \cdot 0{,}343 \cdot 0{,}09 \;=\; \boxed{\;0{,}3087.\;}$$
           </div>
         </div>
       </div>
 
-      <!-- ============ 5) BINOMIAL COEFFICIENTS ============ -->
+      <!-- ============ 5) NOMBRES COMBINATORIS ============ -->
       <div class="apunt-section">
-        <h2>Binomial coefficients</h2>
+        <h2>Nombres combinatoris</h2>
 
         <div class="def-box">
-          <h3>Definition</h3>
-          <p>The <strong>binomial coefficient</strong> "$m$ choose $n$" is the number of $n$-element subsets that can be formed from a set with $m$ elements. We write and compute it as:</p>
+          <h3>Definició</h3>
+          <p>El <strong>nombre combinatori</strong> «$m$ sobre $n$» és el nombre de subconjunts de $n$ elements que es poden formar d'un conjunt de $m$ elements. Es nota i es calcula:</p>
           <div class="math-block">
             $$C_{m,n} \;=\; \binom{m}{n} \;=\; \frac{m!}{n!\,(m-n)!}.$$
           </div>
-          <p>Where $m!$ is the <strong>factorial</strong> of $m$:</p>
+          <p>On $m!$ és el <strong>factorial</strong> de $m$:</p>
           <div class="math-block">
             $$m! \;=\; m\cdot(m-1)\cdot(m-2)\cdots 2\cdot 1, \qquad 0! = 1.$$
           </div>
         </div>
 
         <div class="example-box">
-          <h3>Examples</h3>
+          <h3>Exemples</h3>
           <p><strong>·</strong> $5! = 5\cdot 4\cdot 3\cdot 2\cdot 1 = 120$.</p>
 
-          <p><strong>·</strong> Compute $C_{8,3} = \binom{8}{3}$:</p>
+          <p><strong>·</strong> Calcular $C_{8,3} = \binom{8}{3}$:</p>
           <div class="math-block">
             $$\binom{8}{3} \;=\; \frac{8!}{3!\,5!} \;=\; \frac{8\cdot 7\cdot 6\cdot \cancel{5!}}{3!\,\cancel{5!}} \;=\; \frac{8\cdot 7\cdot 6}{6} \;=\; 56.$$
           </div>
 
-          <p><strong>·</strong> Compute $\binom{5}{3}$ (the one in the penalty example):</p>
+          <p><strong>·</strong> Calcular $\binom{5}{3}$ (el del penal):</p>
           <div class="math-block">
             $$\binom{5}{3} \;=\; \frac{5!}{3!\,2!} \;=\; \frac{5\cdot 4}{2} \;=\; 10.$$
           </div>
         </div>
 
         <div class="prop-box">
-          <h3>Calculation trick</h3>
-          <p>To compute $\binom{m}{n}$ quickly, write the $n$ decreasing factors from $m$ in the numerator and $n!$ in the denominator:</p>
+          <h3>Truc de càlcul</h3>
+          <p>Per calcular $\binom{m}{n}$ ràpidament, escriu els $n$ factors decreixents des de $m$ al numerador i $n!$ al denominador:</p>
           <div class="math-block">
             $$\binom{m}{n} = \frac{m\,(m{-}1)\,(m{-}2)\cdots(m{-}n{+}1)}{n!}.$$
           </div>
-          <p>That way you don't have to compute the whole $m!$.</p>
+          <p>Així no cal calcular $m!$ sencer.</p>
         </div>
 
-        <p class="note">On a scientific calculator they are entered as <code>nCr</code> (combination) and <code>!</code> (factorial). Always double-check on a calculator the binomial coefficients you get in an exam.</p>
+        <p class="note">A la calculadora científica es teclegen com <code>nCr</code> (combinatori) i <code>!</code> (factorial). Verifica sempre amb una calculadora els nombres combinatoris que t'apareguin en un examen.</p>
       </div>
 
-      <!-- ============ 6) CUMULATIVE PROBABILITIES ============ -->
+      <!-- ============ 6) CONTINUACIÓ EXEMPLE: P(X<3), P(X>=4), P(X<=2) ============ -->
       <div class="apunt-section">
-        <h2>Cumulative probabilities</h2>
+        <h2>Probabilitats acumulades</h2>
 
-        <p>With $X \sim B(5,\;0{,}7)$ we can compute any cumulative probability. Recall the formulas above:</p>
+        <p>Amb $X \sim B(5,\;0{,}7)$ podem calcular qualsevol probabilitat acumulada. Recordem les fórmules anteriors:</p>
 
         <div class="math-block">
           $$P(X{=}0) = \tbinom{5}{0}\,0{,}7^{0}\,0{,}3^{5} = 0{,}00243,$$
@@ -337,10 +340,10 @@
           $$P(X{=}5) = \tbinom{5}{5}\,0{,}7^{5}\,0{,}3^{0} = 0{,}16807.$$
         </div>
 
-        <p class="note">Sanity check: the sum of all of them must equal exactly $1$. $0{,}00243 + 0{,}02835 + 0{,}13230 + 0{,}30870 + 0{,}36015 + 0{,}16807 = 1$ ✓.</p>
+        <p class="note">Comprovació: la suma de tots ha de donar exactament $1$. $0{,}00243 + 0{,}02835 + 0{,}13230 + 0{,}30870 + 0{,}36015 + 0{,}16807 = 1$ ✓.</p>
 
         <div class="example-box">
-          <h3>Calculations with $X \sim B(5,\;0{,}7)$</h3>
+          <h3>Càlculs amb $X \sim B(5,\;0{,}7)$</h3>
 
           <p><strong>a)</strong> $P(X &lt; 3) = P(X{=}0) + P(X{=}1) + P(X{=}2)$:</p>
           <div class="math-block">
@@ -351,66 +354,66 @@
           <div class="math-block">
             $$P(X \ge 4) = 0{,}36015 + 0{,}16807 = \boxed{\;0{,}52822.\;}$$
           </div>
-          <p>Or, via the complement: $P(X\ge 4) = 1 - P(X\le 3) = 1 - 0{,}47178 = 0{,}52822$.</p>
+          <p>O bé, pel complementari: $P(X\ge 4) = 1 - P(X\le 3) = 1 - 0{,}47178 = 0{,}52822$.</p>
 
-          <p><strong>c)</strong> $P(X \le 2) = P(X{=}0) + P(X{=}1) + P(X{=}2) = 0{,}16308$ (same as a)).</p>
+          <p><strong>c)</strong> $P(X \le 2) = P(X{=}0) + P(X{=}1) + P(X{=}2) = 0{,}16308$ (és el mateix que a)).</p>
         </div>
 
         <div class="warn-box">
-          <h3>Watch out for the inequalities!</h3>
-          <p>$P(X &lt; 3)$ <em>does not include</em> the 3: it is $P(X{=}0) + P(X{=}1) + P(X{=}2)$.</p>
-          <p>$P(X \le 3)$ <em>does include</em> the 3: it is $P(X{=}0) + \cdots + P(X{=}3)$.</p>
-          <p>Always read the statement carefully to tell whether the inequality is strict or not.</p>
+          <h3>Compte amb les desigualtats!</h3>
+          <p>$P(X &lt; 3)$ <em>no inclou</em> el 3: és $P(X{=}0) + P(X{=}1) + P(X{=}2)$.</p>
+          <p>$P(X \le 3)$ <em>sí que inclou</em> el 3: és $P(X{=}0) + \cdots + P(X{=}3)$.</p>
+          <p>Llegeix sempre l'enunciat amb deteniment per saber si la desigualtat és estricta o no.</p>
         </div>
       </div>
 
-      <!-- ============ 7) EXPECTATION AND STANDARD DEVIATION ============ -->
+      <!-- ============ 7) ESPERANÇA I DESVIACIÓ ============ -->
       <div class="apunt-section">
-        <h2>Expectation and standard deviation</h2>
+        <h2>Esperança i desviació típica</h2>
 
         <div class="def-box">
-          <h3>Parameters of a binomial</h3>
-          <p>For a variable $X \sim B(n,p)$, the <strong>expectation</strong> (mean) and the <strong>variance</strong> have very simple formulas:</p>
+          <h3>Paràmetres d'una binomial</h3>
+          <p>Per a una variable $X \sim B(n,p)$, l'<strong>esperança matemàtica</strong> (mitjana) i la <strong>variància</strong> tenen una fórmula molt simple:</p>
           <div class="math-block">
             $$E(X) = n\cdot p, \qquad \mathrm{Var}(X) = n\cdot p\cdot q.$$
           </div>
-          <p>And therefore the <strong>standard deviation</strong>:</p>
+          <p>I per tant la <strong>desviació típica</strong>:</p>
           <div class="math-block">
             $$\sigma \;=\; \sqrt{\mathrm{Var}(X)} \;=\; \sqrt{n\cdot p\cdot q}.$$
           </div>
         </div>
 
         <div class="example-box">
-          <h3>Example — The 5 penalties</h3>
-          <p>With $X\sim B(5,\,0{,}7)$:</p>
+          <h3>Exemple — Els 5 penals</h3>
+          <p>Amb $X\sim B(5,\,0{,}7)$:</p>
           <div class="math-block">
-            $$E(X) = 5 \cdot 0{,}7 = 3{,}5 \text{ penalties scored on average}.$$
+            $$E(X) = 5 \cdot 0{,}7 = 3{,}5 \text{ penals marcats de mitjana}.$$
             $$\sigma = \sqrt{5\cdot 0{,}7\cdot 0{,}3} = \sqrt{1{,}05} \approx 1{,}02.$$
           </div>
-          <p class="note">Interpretation: if the footballer took many series of 5 penalties, on average he would score 3,5 penalties, with a typical spread of about 1 penalty around that value.</p>
+          <p class="note">Lectura: si el futbolista tirés sèries de 5 penals moltes vegades, marcaria 3,5 penals <em>de mitjana</em>, amb una dispersió típica d'aproximadament 1 penal al voltant d'aquest valor.</p>
         </div>
 
         <div class="prop-box">
-          <h3>Intuition</h3>
-          <p><strong>·</strong> $E(X) = np$ — makes sense: if you run $n$ trials and each has probability $p$ of success, you expect $np$ successes in total.</p>
-          <p><strong>·</strong> $\mathrm{Var}(X) = npq$ — depends on the product $pq$, which is <em>maximal</em> when $p = 0{,}5$ (and $0$ when $p = 0$ or $p = 1$). In other words: the binomial is <em>less</em> unpredictable when $p$ is close to 0 or 1.</p>
+          <h3>Interpretació intuïtiva</h3>
+          <p><strong>·</strong> $E(X) = np$ — té sentit: si fas $n$ proves i a cada prova hi ha probabilitat $p$ d'èxit, esperes $np$ èxits en total.</p>
+          <p><strong>·</strong> $\mathrm{Var}(X) = npq$ — depèn del producte $pq$, que és <em>màxim</em> quan $p = 0{,}5$ (i és $0$ quan $p = 0$ o $p = 1$). És a dir: la binomial és <em>menys</em> imprevisible quan $p$ és molt proper a 0 o a 1.</p>
         </div>
       </div>
 
-      <!-- ============ EXERCISES ============ -->
+      <!-- ============ EJERCICIS ============ -->
       <div class="apunt-section">
-        <h2>Exercises</h2>
+        <h2>Exercicis</h2>
 
-        <!-- Ex 1: candidate p.m.f. -->
+        <!-- Ex 1: funció de probabilitat candidat (NO és) -->
         <div class="exercise" id="ex-1">
           <div class="exercise-head">
             <span class="num">1</span>
-            <span class="ttl">Candidate function — is it a p.m.f.?</span>
+            <span class="ttl">Funció candidata — és funció de probabilitat?</span>
           </div>
-          <p class="exercise-intro">Consider the function $f(x) = \dfrac{2x + 1}{6}$ with $x \in \{1, 2, 3\}$.</p>
+          <p class="exercise-intro">Considera la funció $f(x) = \dfrac{2x + 1}{6}$ amb $x \in \{1, 2, 3\}$.</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">Compute $f(1)$, $f(2)$ and $f(3)$.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt">Calcula $f(1)$, $f(2)$ i $f(3)$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$f(1) = \tfrac{2\cdot 1 + 1}{6} = \tfrac{3}{6} = \tfrac{1}{2} = 0{,}5.$$
@@ -421,29 +424,29 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt">Can $f$ be a probability mass function? Why?</span></summary>
+            <summary><span class="letter">b)</span> <span class="stmt">Pot ser $f$ una funció de probabilitat? Per què?</span></summary>
             <div class="apart-solution">
-              <p>A probability mass function must satisfy two conditions: $0 \le f(x_i) \le 1$ for all $i$, and $\sum f(x_i) = 1$.</p>
-              <p><strong>·</strong> $f(3) = \tfrac{7}{6} &gt; 1$ → <em>violates the first condition</em>.</p>
-              <p><strong>·</strong> Also, the sum:</p>
+              <p>Una funció de probabilitat ha de complir dues condicions: $0 \le f(x_i) \le 1$ per a tot $i$, i $\sum f(x_i) = 1$.</p>
+              <p><strong>·</strong> $f(3) = \tfrac{7}{6} &gt; 1$ → <em>incompleix la primera condició</em>.</p>
+              <p><strong>·</strong> A més, la suma:</p>
               <div class="math-block">
                 $$f(1) + f(2) + f(3) = \tfrac{1}{2} + \tfrac{5}{6} + \tfrac{7}{6} = \tfrac{3 + 5 + 7}{6} = \tfrac{15}{6} = \tfrac{5}{2} \neq 1.$$
               </div>
-              <p>It also violates the second condition.</p>
+              <p>També incompleix la segona condició.</p>
               <div class="math-block">
-                $$\boxed{\;f(x) = \tfrac{2x+1}{6} \text{ is NOT a probability mass function.}\;}$$
+                $$\boxed{\;f(x) = \tfrac{2x+1}{6} \text{ NO és una funció de probabilitat.}\;}$$
               </div>
             </div>
           </details></div>
         </div>
 
-        <!-- Ex 2: table with unknown -->
+        <!-- Ex 2: taula amb dada desconeguda -->
         <div class="exercise" id="ex-2">
           <div class="exercise-head">
             <span class="num">2</span>
-            <span class="ttl">Table of a discrete variable — missing entry</span>
+            <span class="ttl">Taula d'una variable discreta — dada desconeguda</span>
           </div>
-          <p class="exercise-intro">The following table gives the probability mass function of a discrete random variable $X$. The value $P(X{=}3)$ is unknown.</p>
+          <p class="exercise-intro">La taula següent ofereix la funció de probabilitat d'una variable aleatòria discreta $X$. Es desconeix $P(X{=}3)$.</p>
 
           <div class="tbl-wrap">
             <table class="binom-table">
@@ -459,7 +462,7 @@
           <div class="apart"><details>
             <summary><span class="letter">a)</span> <span class="stmt">$P(X = 3)$.</span></summary>
             <div class="apart-solution">
-              <p>Since all probabilities must sum to 1:</p>
+              <p>Com que la suma de totes les probabilitats ha de ser 1:</p>
               <div class="math-block">
                 $$0{,}2 + 0{,}2 + 0{,}1 + P(X{=}3) + 0{,}1 + 0{,}1 = 1.$$
                 $$P(X{=}3) = 1 - 0{,}7 = \boxed{\;0{,}3.\;}$$
@@ -482,14 +485,14 @@
               <div class="math-block">
                 $$P(X &lt; 2) = P(X{=}0) + P(X{=}1) = 0{,}2 + 0{,}2 = \boxed{\;0{,}4.\;}$$
               </div>
-              <p class="note">Cross-check via the complement: $P(X &lt; 2) = 1 - P(X\ge 2) = 1 - (0{,}1 + 0{,}3 + 0{,}1 + 0{,}1) = 1 - 0{,}6 = 0{,}4$. ✓</p>
+              <p class="note">Comprovació amb el complementari: $P(X &lt; 2) = 1 - P(X\ge 2) = 1 - (0{,}1 + 0{,}3 + 0{,}1 + 0{,}1) = 1 - 0{,}6 = 0{,}4$. ✓</p>
             </div>
           </details></div>
 
           <div class="apart"><details>
             <summary><span class="letter">d)</span> <span class="stmt">$P(1 &lt; X \le 5)$.</span></summary>
             <div class="apart-solution">
-              <p>Careful: the lower bound is strict ($X &gt; 1$), but the upper one includes the 5.</p>
+              <p>Atenció: el límit inferior és estricte ($X &gt; 1$), però el superior inclou el 5.</p>
               <div class="math-block">
                 $$P(1 &lt; X \le 5) = P(X{=}2) + P(X{=}3) + P(X{=}4) + P(X{=}5)$$
                 $$= 0{,}1 + 0{,}3 + 0{,}1 + 0{,}1 = \boxed{\;0{,}6.\;}$$
@@ -498,7 +501,7 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">e)</span> <span class="stmt">The mean, $E(X) = \sum x_i \cdot P_i$.</span></summary>
+            <summary><span class="letter">e)</span> <span class="stmt">La mitjana, $E(X) = \sum x_i \cdot P_i$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$E(X) = 0\cdot 0{,}2 + 1\cdot 0{,}2 + 2\cdot 0{,}1 + 3\cdot 0{,}3 + 4\cdot 0{,}1 + 5\cdot 0{,}1$$
@@ -508,9 +511,9 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">f)</span> <span class="stmt">The standard deviation.</span></summary>
+            <summary><span class="letter">f)</span> <span class="stmt">La desviació típica.</span></summary>
             <div class="apart-solution">
-              <p>First the variance $\mathrm{Var}(X) = \sum (x_i - E(X))^2 \cdot P_i$:</p>
+              <p>Calculem primer la variància $\mathrm{Var}(X) = \sum (x_i - E(X))^2 \cdot P_i$:</p>
               <div class="math-block">
                 $$\mathrm{Var}(X) = (0{-}2{,}2)^2\cdot 0{,}2 + (1{-}2{,}2)^2\cdot 0{,}2 + (2{-}2{,}2)^2\cdot 0{,}1 + (3{-}2{,}2)^2\cdot 0{,}3 + (4{-}2{,}2)^2\cdot 0{,}1 + (5{-}2{,}2)^2\cdot 0{,}1$$
                 $$= 4{,}84\cdot 0{,}2 + 1{,}44\cdot 0{,}2 + 0{,}04\cdot 0{,}1 + 0{,}64\cdot 0{,}3 + 3{,}24\cdot 0{,}1 + 7{,}84\cdot 0{,}1$$
@@ -519,18 +522,18 @@
               <div class="math-block">
                 $$\sigma = \sqrt{\mathrm{Var}(X)} = \sqrt{2{,}56} = \boxed{\;1{,}6.\;}$$
               </div>
-              <p class="note">Shortcut: $\mathrm{Var}(X) = E(X^2) - E(X)^2$. Here $E(X^2) = 0 + 0{,}2 + 0{,}4 + 2{,}7 + 1{,}6 + 2{,}5 = 7{,}4$, so $\mathrm{Var}(X) = 7{,}4 - 2{,}2^2 = 7{,}4 - 4{,}84 = 2{,}56$. ✓</p>
+              <p class="note">Recordatori: $\mathrm{Var}(X) = E(X^2) - E(X)^2$ — una drecera que pot estalviar feina. Aquí dóna $E(X^2) = 0 + 0{,}2 + 0{,}4 + 2{,}7 + 1{,}6 + 2{,}5 = 7{,}4$, així $\mathrm{Var}(X) = 7{,}4 - 2{,}2^2 = 7{,}4 - 4{,}84 = 2{,}56$. ✓</p>
             </div>
           </details></div>
         </div>
 
-        <!-- Ex 3: direct formula -->
+        <!-- Ex 3: directe amb la fórmula -->
         <div class="exercise" id="ex-3">
           <div class="exercise-head">
             <span class="num">3</span>
-            <span class="ttl">Direct application of the formula</span>
+            <span class="ttl">Aplicació directa de la fórmula</span>
           </div>
-          <p class="exercise-intro">Let $X \sim B(6,\;0{,}4)$. Compute:</p>
+          <p class="exercise-intro">Sigui $X \sim B(6,\;0{,}4)$. Calcula:</p>
 
           <div class="apart"><details>
             <summary><span class="letter">a)</span> <span class="stmt">$P(X = 2)$.</span></summary>
@@ -551,9 +554,9 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">$P(X \ge 1)$ — at least 1 success.</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(X \ge 1)$ — almenys 1 èxit.</span></summary>
             <div class="apart-solution">
-              <p>Via the complement, faster:</p>
+              <p>Pel complementari, més ràpid:</p>
               <div class="math-block">
                 $$P(X \ge 1) = 1 - P(X{=}0) = 1 - 0{,}0467 = \boxed{\;0{,}9533.\;}$$
               </div>
@@ -561,7 +564,7 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">d)</span> <span class="stmt">$E(X)$ and $\sigma$.</span></summary>
+            <summary><span class="letter">d)</span> <span class="stmt">$E(X)$ i $\sigma$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$E(X) = 6\cdot 0{,}4 = 2{,}4, \qquad \sigma = \sqrt{6\cdot 0{,}4\cdot 0{,}6} = \sqrt{1{,}44} = \boxed{\;1{,}2.\;}$$
@@ -570,37 +573,37 @@
           </details></div>
         </div>
 
-        <!-- Ex 4: philosophy -->
+        <!-- Ex 4: el problema de filosofia (era el 10 del PDF) -->
         <div class="exercise" id="ex-4">
           <div class="exercise-head">
             <span class="num">4</span>
-            <span class="ttl">Philosophy — eight students drawn at random</span>
+            <span class="ttl">Filosofia — vuit estudiants triats a l'atzar</span>
           </div>
-          <p class="exercise-intro">80 % of the students of a secondary school passed Philosophy last year. From a group of 8 students chosen at random, what is the probability that <strong>only two have failed</strong>?</p>
+          <p class="exercise-intro">El 80 % de l'alumnat d'un institut va aprovar filosofia el curs passat. D'un grup de 8 estudiants triats a l'atzar, quina és la probabilitat que <strong>només dos hagin suspès</strong> aquesta assignatura?</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">Justify why this is a binomial distribution.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt">Justifica que es tracta d'una distribució binomial.</span></summary>
             <div class="apart-solution">
-              <p>Each student: passed or failed → it's a Bernoulli trial. We repeat the same trial <em>8 times</em> (one per student), with constant success probability $p = 0{,}8$ (assuming independence) → it's a <strong>binomial</strong> $B(8,\,0{,}8)$.</p>
+              <p>Cada estudiant: aprovat o suspès → és un experiment de Bernoulli. Repetim el mateix experiment <em>8 vegades</em> (un per cada estudiant), amb probabilitat constant $p = 0{,}8$ (suposant independència) → és una <strong>binomial</strong> $B(8,\,0{,}8)$.</p>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt">Identify the success and failure probabilities.</span></summary>
+            <summary><span class="letter">b)</span> <span class="stmt">Identifica la probabilitat d'èxit i fracàs.</span></summary>
             <div class="apart-solution">
-              <p>If "passing" is success: $p = 0{,}8$, $q = 0{,}2$.</p>
-              <p>But the question is about the number of <strong>failures</strong>; it is convenient to swap:</p>
-              <p>If "failing" is success: $p = 0{,}2$, $q = 0{,}8$.</p>
+              <p>Si l'èxit és «aprovar»: $p = 0{,}8$, $q = 0{,}2$.</p>
+              <p>Però la pregunta és sobre el nombre de <strong>suspesos</strong>; convé canviar l'èxit:</p>
+              <p>Si l'èxit és «suspendre»: $p = 0{,}2$, $q = 0{,}8$.</p>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">Write down the probability mass function.</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt">Determina la funció de probabilitat.</span></summary>
             <div class="apart-solution">
-              <p>We have two equivalent formulations:</p>
-              <p><strong>·</strong> $X_1 = $ "number of passes" $\sim B(8,\,0{,}8)$.</p>
-              <p><strong>·</strong> $X_2 = $ "number of failures" $\sim B(8,\,0{,}2)$.</p>
-              <p>If two students fail, six pass. Hence $X_2 = 2$ is equivalent to $X_1 = 6$. We'll work with $X_2$, which matches the question directly.</p>
+              <p>Tenim dues formulacions equivalents:</p>
+              <p><strong>·</strong> $X_1 = $ «nombre d'aprovats» $\sim B(8,\,0{,}8)$.</p>
+              <p><strong>·</strong> $X_2 = $ «nombre de suspesos» $\sim B(8,\,0{,}2)$.</p>
+              <p>Si dos alumnes suspenen, en aproven sis. Per tant, $X_2 = 2$ equival a $X_1 = 6$. Treballarem amb $X_2$, que reflecteix directament la pregunta.</p>
               <div class="math-block">
                 $$P(X_2 = k) = \binom{8}{k}\, 0{,}2^{k}\, 0{,}8^{\,8-k}, \quad k = 0, 1, \dots, 8.$$
               </div>
@@ -608,43 +611,43 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">d)</span> <span class="stmt">Compute $P(\text{only two fail})$.</span></summary>
+            <summary><span class="letter">d)</span> <span class="stmt">Calcula $P(\text{només dos suspenguin})$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$P(X_2 = 2) = \binom{8}{2}\, 0{,}2^{2}\, 0{,}8^{6} = 28\cdot 0{,}04\cdot 0{,}262144 \approx \boxed{\;0{,}2936.\;}$$
               </div>
-              <p class="note">Cross-check: $P(X_1 = 6) = \binom{8}{6}\, 0{,}8^{6}\, 0{,}2^{2} = 28\cdot 0{,}262144\cdot 0{,}04 \approx 0{,}2936$. ✓ They match, as expected.</p>
+              <p class="note">Comprovació: $P(X_1 = 6) = \binom{8}{6}\, 0{,}8^{6}\, 0{,}2^{2} = 28\cdot 0{,}262144\cdot 0{,}04 \approx 0{,}2936$. ✓ Coincideix, com havíem dit.</p>
             </div>
           </details></div>
         </div>
 
-        <!-- Ex 5: defective parts -->
+        <!-- Ex 5: peces defectuoses -->
         <div class="exercise" id="ex-5">
           <div class="exercise-head">
             <span class="num">5</span>
-            <span class="ttl">Production line — defective parts</span>
+            <span class="ttl">Línia de producció — peces defectuoses</span>
           </div>
-          <p class="exercise-intro">A production line makes parts that have a 5 % probability of being defective. We pick <strong>10 parts</strong> at random and inspect them.</p>
+          <p class="exercise-intro">Una línia de producció fabrica peces amb una probabilitat del 5 % que cadascuna sigui defectuosa. Es trien <strong>10 peces</strong> a l'atzar i revisen.</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">Identify the distribution and its parameters.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt">Identifica la distribució i els seus paràmetres.</span></summary>
             <div class="apart-solution">
-              <p>Let $X = $ "number of defective parts". Then $X \sim B(10,\,0{,}05)$.</p>
+              <p>Sigui $X = $ «nombre de peces defectuoses». Aleshores $X \sim B(10,\,0{,}05)$.</p>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{no defective parts})$.</span></summary>
+            <summary><span class="letter">b)</span> <span class="stmt">$P(\text{cap defectuosa})$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$P(X{=}0) = \binom{10}{0}\, 0{,}05^{0}\, 0{,}95^{10} = 0{,}95^{10} \approx \boxed{\;0{,}5987.\;}$$
               </div>
-              <p class="note">Nearly 60 % of the lots of 10 parts have <em>no</em> defective part at all.</p>
+              <p class="note">Gairebé el 60% dels lots de 10 peces no tenen <em>cap</em> peça defectuosa.</p>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{exactly 2 defective parts})$.</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt">$P(\text{exactament 2 defectuoses})$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$P(X{=}2) = \binom{10}{2}\, 0{,}05^{2}\, 0{,}95^{8} = 45\cdot 0{,}0025\cdot 0{,}6634 \approx \boxed{\;0{,}0746.\;}$$
@@ -653,9 +656,9 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{at least 1 defective})$.</span></summary>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(\text{almenys 1 defectuosa})$.</span></summary>
             <div class="apart-solution">
-              <p>Via the complement:</p>
+              <p>Pel complementari:</p>
               <div class="math-block">
                 $$P(X \ge 1) = 1 - P(X{=}0) = 1 - 0{,}5987 = \boxed{\;0{,}4013.\;}$$
               </div>
@@ -663,42 +666,42 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">e)</span> <span class="stmt">$E(X)$ and $\sigma$.</span></summary>
+            <summary><span class="letter">e)</span> <span class="stmt">$E(X)$ i $\sigma$.</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$E(X) = 10\cdot 0{,}05 = 0{,}5,\qquad \sigma = \sqrt{10\cdot 0{,}05\cdot 0{,}95} = \sqrt{0{,}475} \approx \boxed{\;0{,}689.\;}$$
               </div>
-              <p class="note">On average there is <em>half</em> a defective part per lot of 10. The standard deviation is larger than the mean — quite normal when $p$ is small.</p>
+              <p class="note">De mitjana hi ha <em>mitja</em> peça defectuosa per lot de 10. La desviació típica és més gran que la mitjana — és normal quan $p$ és petita.</p>
             </div>
           </details></div>
         </div>
 
-        <!-- Ex 6: multiple-choice test -->
+        <!-- Ex 6: test multiopció a l'atzar -->
         <div class="exercise" id="ex-6">
           <div class="exercise-head">
             <span class="num">6</span>
-            <span class="ttl">Random guessing on a multiple-choice test</span>
+            <span class="ttl">Test multiopció responent a l'atzar</span>
           </div>
-          <p class="exercise-intro">A test has <strong>20 questions</strong> with 4 options each, only one correct. A student answers at random, without having studied.</p>
+          <p class="exercise-intro">Un test té <strong>20 preguntes</strong> amb 4 opcions cadascuna i una sola correcta. Un alumne respon a l'atzar, sense haver estudiat.</p>
 
           <div class="apart"><details>
-            <summary><span class="letter">a)</span> <span class="stmt">Identify the distribution and its parameters.</span></summary>
+            <summary><span class="letter">a)</span> <span class="stmt">Identifica la distribució i els seus paràmetres.</span></summary>
             <div class="apart-solution">
-              <p>Let $X = $ "number of correct answers". On each question, $p = \tfrac{1}{4} = 0{,}25$ (guessing) and $q = 0{,}75$. Hence $X \sim B(20,\,0{,}25)$.</p>
+              <p>Sigui $X = $ «nombre de respostes correctes». A cada pregunta, $p = \tfrac{1}{4} = 0{,}25$ (encertar a l'atzar) i $q = 0{,}75$. Per tant $X \sim B(20,\,0{,}25)$.</p>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">b)</span> <span class="stmt">How many correct answers will the student get <em>on average</em>?</span></summary>
+            <summary><span class="letter">b)</span> <span class="stmt">Quantes respostes encertarà <em>de mitjana</em>?</span></summary>
             <div class="apart-solution">
               <div class="math-block">
-                $$E(X) = 20\cdot 0{,}25 = \boxed{\;5 \text{ correct answers.}\;}$$
+                $$E(X) = 20\cdot 0{,}25 = \boxed{\;5 \text{ encerts.}\;}$$
               </div>
             </div>
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">c)</span> <span class="stmt">What is the standard deviation?</span></summary>
+            <summary><span class="letter">c)</span> <span class="stmt">Quina és la desviació típica?</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$\sigma = \sqrt{20\cdot 0{,}25\cdot 0{,}75} = \sqrt{3{,}75} \approx \boxed{\;1{,}936.\;}$$
@@ -707,24 +710,24 @@
           </details></div>
 
           <div class="apart"><details>
-            <summary><span class="letter">d)</span> <span class="stmt">$P(X = 10)$ — exactly 10 correct (half).</span></summary>
+            <summary><span class="letter">d)</span> <span class="stmt">$P(X = 10)$ — encerta exactament 10 (la meitat).</span></summary>
             <div class="apart-solution">
               <div class="math-block">
                 $$P(X{=}10) = \binom{20}{10}\, 0{,}25^{10}\, 0{,}75^{10}.$$
                 $$\binom{20}{10} = 184\,756, \qquad 0{,}25^{10}\approx 9{,}54\cdot 10^{-7}, \qquad 0{,}75^{10}\approx 0{,}0563.$$
                 $$P(X{=}10) \approx 184\,756\cdot 9{,}54\cdot 10^{-7}\cdot 0{,}0563 \approx \boxed{\;0{,}0099.\;}$$
               </div>
-              <p class="note">Under 1 %: the probability of getting half the questions right by <em>pure guessing</em> is almost negligible — that's where the intuition "if I answer everything at random I'll definitely fail" comes from.</p>
+              <p class="note">Menys d'un 1%: la probabilitat d'encertar la meitat de les preguntes <em>al pur atzar</em> és gairebé negligible — d'aquí ve la sensació que «si responc tot a sort, segur que suspenc».</p>
             </div>
           </details></div>
         </div>
 
       </div>
 
-      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
-        <a class="prev" href="/en/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html">&larr; 06 · Compound probability</a>
-        <a class="index" href="/en/aula/ccss-1btl/apuntes/u-probabilitat/">Unit index</a>
-        <span class="disabled next">Next section &rarr;</span>
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Apartat anterior</span>
+        <a class="index" href="/ca/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
       </nav>
 
     </article>
@@ -735,8 +738,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>
