@@ -8,28 +8,13 @@
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=202605141715">
+<link rel="stylesheet" href="/style.css?v=202605141725">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/docencia/2eso/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/docencia/2eso/">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/docencia/2eso/">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/2eso/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/2eso/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://alexreyes.es/docencia/2eso/">
-<meta property="og:title" content="Matemàtiques 2n ESO — Àlex Reyes">
-<meta property="og:description" content="Grupos A y E &middot; Currículum LOMLOE">
-<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="es_ES">
-<meta property="og:locale:alternate" content="ca_ES">
-<meta property="og:locale:alternate" content="en_US">
-<meta property="og:site_name" content="alexreyes.es">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Matemàtiques 2n ESO — Àlex Reyes">
-<meta name="twitter:description" content="Grupos A y E &middot; Currículum LOMLOE">
-<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <style>
   .info-cta { display:flex; align-items:center; gap:1.2rem; padding:1.2rem 1.5rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; margin-bottom:2rem; }
   .info-cta:hover { border-color:var(--border-strong); transform:translateY(-1px); }
@@ -47,14 +32,9 @@
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
-    <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
-      <a href="/doctorado/">Doctorado</a>
-      <a href="/notas/">Notas</a>
-      <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacto</a>
-    </div>
+    <div class="nav-links"><a href="/docencia/" class="nav-active">Docencia</a><a href="/doctorado/">Doctorado</a><a href="/notas/">Notas</a><a href="/cv/">CV</a><a href="/contacto/">Contacto</a></div>
     <div class="nav-right">
+      <div class="lang-sw"><a href="/docencia/2eso/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/docencia/2eso/">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/2eso/">EN</a></div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -131,7 +111,7 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
-const UNITS = [{"num": "01", "slug": "fraccions", "title": "Nombres fraccionaris", "llibre": "U3", "inici": "9 set", "final": "1 oct", "trimestre": "1a", "apunts": "/aula/eso-2/apuntes/u-fraccions/", "desc": "Fracciones equivalentes, ordenación, operaciones con fracciones, decimales y potencias."}, {"num": "02", "slug": "decimals", "title": "Nombres decimals", "llibre": "U4", "inici": "7 oct", "final": "17 oct", "trimestre": "1a", "desc": "Decimales exactos y periódicos, fracción generatriz, aproximaciones."}, {"num": "03", "slug": "probabilitat", "title": "Probabilitat", "llibre": "U15", "inici": "21 oct", "final": "7 nov", "trimestre": "1a", "desc": "Experimentos aleatorios, regla de Laplace y probabilidad."}, {"num": "04", "slug": "proporcionalitat", "title": "Proporcionalitat", "llibre": "U5", "inici": "11 nov", "final": "28 nov", "trimestre": "1a", "desc": "Magnitudes proporcionales, regla de tres y porcentajes."}, {"num": "05", "slug": "funcions", "title": "Funcions i funcions elementals", "llibre": "U8–U9", "inici": "5 des", "final": "23 gen", "trimestre": "2a", "desc": "Concepto de función, función lineal, afín, cuadrática y de proporcionalidad inversa."}, {"num": "06", "slug": "pitagores", "title": "Pitàgores", "llibre": "U10", "inici": "27 gen", "final": "30 gen", "trimestre": "2a", "desc": "Teorema de Pitágoras y sus aplicaciones."}, {"num": "07", "slug": "poliedres", "title": "Poliedres", "llibre": "U12", "inici": "3 feb", "final": "27 feb", "trimestre": "2a", "desc": "Prismas, pirámides, áreas y volúmenes."}, {"num": "08", "slug": "cossos-revolucio", "title": "Cossos de revolució", "llibre": "U13", "inici": "3 mar", "final": "10 mar", "trimestre": "2a", "apunts": "/aula/eso-2/apuntes/u-cossos-revolucio/", "desc": "Cilindro, cono y esfera. Áreas y volúmenes."}, {"num": "09", "slug": "algebra", "title": "Llenguatge algebraic", "llibre": "U6", "inici": "17 mar", "final": "28 abr", "trimestre": "3a", "desc": "Expresiones algebraicas, monomios y polinomios."}, {"num": "10", "slug": "equacions", "title": "Equacions i sistemes", "llibre": "U7", "inici": "29 abr", "final": "29 mai", "trimestre": "3a", "desc": "Ecuaciones de 1er grado, sistemas 2×2 y resolución de problemas."}];
+const UNITS = [{"num": "01", "slug": "fraccions", "title": "Nombres fraccionaris", "llibre": "U3", "inici": "9 set", "final": "1 oct", "trimestre": "1a", "apunts": "/aula/eso-2/apuntes/u-fraccions/", "desc": "Fracciones equivalentes, ordenación, operaciones con fracciones, decimales y potencias."}, {"num": "02", "slug": "decimals", "title": "Nombres decimals", "llibre": "U4", "inici": "7 oct", "final": "17 oct", "trimestre": "1a", "desc": "Decimales exactos y periódicos, fracción generatriz, aproximaciones."}, {"num": "03", "slug": "probabilitat", "title": "Probabilitat", "llibre": "U15", "inici": "21 oct", "final": "7 nov", "trimestre": "1a", "desc": "Experimentos aleatorios, regla de Laplace y probabilidad."}, {"num": "04", "slug": "proporcionalitat", "title": "Proporcionalitat", "llibre": "U5", "inici": "11 nov", "final": "28 nov", "trimestre": "1a", "desc": "Magnitudes proporcionales, regla de tres y porcentajes."}, {"num": "05", "slug": "funcions", "title": "Funcions i funcions elementals", "llibre": "U8–U9", "inici": "5 des", "final": "23 gen", "trimestre": "2a", "desc": "Concepto de función, función lineal, afín, cuadrática y de proporcionalidad inversa."}, {"num": "06", "slug": "pitagores", "title": "Pitàgores", "llibre": "U10", "inici": "27 gen", "final": "30 gen", "trimestre": "2a", "desc": "Teorema de Pitágoras y sus aplicaciones."}, {"num": "07", "slug": "poliedres", "title": "Poliedres", "llibre": "U12", "inici": "3 feb", "final": "27 feb", "trimestre": "2a", "desc": "Prismas, pirámides, áreas y volúmenes."}, {"num": "08", "slug": "cossos-revolucio", "title": "Cossos de revolució", "llibre": "U13", "inici": "3 mar", "final": "10 mar", "trimestre": "2a", "desc": "Cilindro, cono y esfera. Áreas y volúmenes."}, {"num": "09", "slug": "algebra", "title": "Llenguatge algebraic", "llibre": "U6", "inici": "17 mar", "final": "28 abr", "trimestre": "3a", "desc": "Expresiones algebraicas, monomios y polinomios."}, {"num": "10", "slug": "equacions", "title": "Equacions i sistemes", "llibre": "U7", "inici": "29 abr", "final": "29 mai", "trimestre": "3a", "desc": "Ecuaciones de 1er grado, sistemas 2×2 y resolución de problemas."}];
 const MATERIA = "eso-2";
 const MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
 const LABELS_JS = {"exam_questions": "preguntas", "exam_question": "pregunta", "exam_points": "puntos", "exam_btn_pdf": "PDF", "exam_btn_html": "Ver enunciados y correcciones", "no_exams_unit": "No hay exámenes publicados de esta unidad todavía.", "exams_unit_title": "Exámenes de esta unidad", "globals_empty": "No hay exámenes globales publicados todavía.", "globals_load_error": "No se ha podido cargar el listado de exámenes.", "section_card_apunts": "Apuntes", "section_card_fitxes": "Lista de ejercicios", "section_card_solucions": "Soluciones", "unit_meta_book": "Libro", "unit_meta_dates": "Fechas", "unit_meta_trim": "evaluación", "examens_count_one": "examen", "examens_count_many": "exámenes", "trimestre_tag": "evaluación", "summary_exams_label": "Exámenes", "summary_fitxes_label": "Listado", "summary_apunts_label": "Apuntes", "summary_yes": "Sí", "summary_no": "No"};

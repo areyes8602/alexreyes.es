@@ -327,7 +327,8 @@ SUBJ_1BTL = {
         {"num":"10","slug":"distribucions","title":"Distribucions discretes i contínues. Distribució binomial i normal","llibre":"Baula 11","inici":"19 may 2026","final":"29 may 2026","trimestre":"3a",
          "desc_l":{"ca":"Distribucions discretes i contínues. Binomial i normal.",
                    "es":"Distribuciones discretas y continuas. Binomial y normal.",
-                   "en":"Discrete and continuous distributions. Binomial and normal."}},
+                   "en":"Discrete and continuous distributions. Binomial and normal."},
+         "apunts":"/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/"},
     ],
 }
 
