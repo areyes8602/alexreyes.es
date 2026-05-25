@@ -97,43 +97,103 @@
       <section class="solution" id="sol-p1" hidden>
         <h3>Correcció pas a pas</h3>
 
-        <p class="note"><strong>Idea clau:</strong> en un diagrama d'arbre, les probabilitats de les branques que surten d'un mateix node han de sumar 1. La <em>probabilitat total</em> s'obté multiplicant les probabilitats al llarg de cada camí i sumant els camins que ens interessen. El <em>teorema de Bayes</em> permet "invertir" la condició: donat un resultat, calcular la probabilitat de la causa que l'ha produït.</p>
+        <p class="note"><strong>Idea clau:</strong> en un diagrama d'arbre, les probabilitats de les branques que surten d'un mateix node han de sumar 1. La <em>probabilitat total</em> s'obté multiplicant les probabilitats al llarg de cada camí. El <em>teorema de Bayes</em> permet "invertir" la condició: donat el resultat, calcular la probabilitat de la causa.</p>
 
         <div class="apartado-sol">
           <h4><span class="letra">a)</span> Diagrama d'arbre</h4>
-          <p>Definim els successos: $F$ = "falta sovint" ($P(F) = 0{,}30$) i $A$ = "assisteix regularment" ($P(A) = 0{,}70$). Per a cada grup, tenim tres possibles resultats: bona nota ($B$), nota normal ($N$) i suspès ($S$).</p>
-          <p>Les probabilitats condicionades són:</p>
-          <div class="math-block">
-            $$P(B|A) = 0{,}50 \quad P(N|A) = 0{,}35 \quad P(S|A) = 0{,}15$$
-            $$P(B|F) = 0{,}15 \quad P(N|F) = 0{,}30 \quad P(S|F) = 0{,}55$$
-          </div>
-          <p>El diagrama d'arbre té dos nivells. Primer nivell: $A$ (0,70) i $F$ (0,30). Segon nivell: des de $A$ surten $B$ (0,50), $N$ (0,35) i $S$ (0,15); des de $F$ surten $B$ (0,15), $N$ (0,30) i $S$ (0,55). Les sis probabilitats conjuntes (extrems de l'arbre) sumen 1.</p>
-          <div class="final">Arbre amb 6 fulles: $P(A \cap B) = 0{,}35$; $P(A \cap N) = 0{,}245$; $P(A \cap S) = 0{,}105$; $P(F \cap B) = 0{,}045$; $P(F \cap N) = 0{,}09$; $P(F \cap S) = 0{,}165$.</div>
+          <p>Definim: $A$ = "assisteix regularment" ($P(A)=0{,}70$), $F$ = "falta sovint" ($P(F)=0{,}30$). Resultats: bona nota ($B$), nota normal ($N$), suspès ($S$).</p>
+
+          <figure style="margin:1.4rem 0 1rem">
+            <svg viewBox="0 0 595 348" xmlns="http://www.w3.org/2000/svg"
+                 style="width:100%;max-width:620px;display:block;margin:0 auto;overflow:visible"
+                 role="img" aria-label="Diagrama d'arbre de probabilitat">
+              <style>
+                .pt-br{stroke:currentColor;stroke-width:1.4;fill:none;opacity:0.55}
+                .pt-nd{fill:var(--bg-card,#fff);stroke:currentColor;stroke-width:1.5}
+                .pt-rt{fill:currentColor}
+                .pt-bl{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:12px;opacity:0.78;text-anchor:middle}
+                .pt-nl{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:13px;font-weight:700;text-anchor:middle;dominant-baseline:middle}
+                .pt-ll{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:13px;font-weight:700;dominant-baseline:middle}
+                .pt-jp{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:11.5px;opacity:0.65;dominant-baseline:middle}
+              </style>
+              <!-- Root -->
+              <circle class="pt-rt" cx="45" cy="174" r="5"/>
+              <!-- Root → A -->
+              <line class="pt-br" x1="50" y1="170" x2="186" y2="88"/>
+              <text class="pt-bl" x="112" y="118">0,70</text>
+              <!-- Root → F -->
+              <line class="pt-br" x1="50" y1="178" x2="186" y2="260"/>
+              <text class="pt-bl" x="112" y="230">0,30</text>
+              <!-- Node A -->
+              <circle class="pt-nd" cx="200" cy="87" r="14"/>
+              <text class="pt-nl" x="200" y="87">A</text>
+              <!-- Node F -->
+              <circle class="pt-nd" cx="200" cy="261" r="14"/>
+              <text class="pt-nl" x="200" y="261">F</text>
+              <!-- A → B -->
+              <line class="pt-br" x1="214" y1="80" x2="408" y2="30"/>
+              <text class="pt-bl" x="311" y="44">0,50</text>
+              <!-- A → N -->
+              <line class="pt-br" x1="214" y1="87" x2="408" y2="87"/>
+              <text class="pt-bl" x="311" y="78">0,35</text>
+              <!-- A → S -->
+              <line class="pt-br" x1="214" y1="94" x2="408" y2="144"/>
+              <text class="pt-bl" x="311" y="130">0,15</text>
+              <!-- F → B -->
+              <line class="pt-br" x1="214" y1="254" x2="408" y2="204"/>
+              <text class="pt-bl" x="311" y="220">0,15</text>
+              <!-- F → N -->
+              <line class="pt-br" x1="214" y1="261" x2="408" y2="261"/>
+              <text class="pt-bl" x="311" y="252">0,30</text>
+              <!-- F → S -->
+              <line class="pt-br" x1="214" y1="268" x2="408" y2="318"/>
+              <text class="pt-bl" x="311" y="304">0,55</text>
+              <!-- Leaves A -->
+              <text class="pt-ll" x="416" y="30">B</text>
+              <text class="pt-jp" x="434" y="30">&#x2192; P(A&#x2229;B) = 0,70&#x00D7;0,50 = <tspan font-weight="600">0,350</tspan></text>
+              <text class="pt-ll" x="416" y="87">N</text>
+              <text class="pt-jp" x="434" y="87">&#x2192; P(A&#x2229;N) = 0,70&#x00D7;0,35 = <tspan font-weight="600">0,245</tspan></text>
+              <text class="pt-ll" x="416" y="144">S</text>
+              <text class="pt-jp" x="434" y="144">&#x2192; P(A&#x2229;S) = 0,70&#x00D7;0,15 = <tspan font-weight="600">0,105</tspan></text>
+              <!-- Leaves F -->
+              <text class="pt-ll" x="416" y="204">B</text>
+              <text class="pt-jp" x="434" y="204">&#x2192; P(F&#x2229;B) = 0,30&#x00D7;0,15 = <tspan font-weight="600">0,045</tspan></text>
+              <text class="pt-ll" x="416" y="261">N</text>
+              <text class="pt-jp" x="434" y="261">&#x2192; P(F&#x2229;N) = 0,30&#x00D7;0,30 = <tspan font-weight="600">0,090</tspan></text>
+              <text class="pt-ll" x="416" y="318">S</text>
+              <text class="pt-jp" x="434" y="318">&#x2192; P(F&#x2229;S) = 0,30&#x00D7;0,55 = <tspan font-weight="600">0,165</tspan></text>
+            </svg>
+            <figcaption style="text-align:center;font-size:0.8rem;opacity:0.6;margin-top:0.5rem">
+              Verificació: $0{,}350+0{,}245+0{,}105+0{,}045+0{,}090+0{,}165 = 1{,}000$ &#x2713;
+            </figcaption>
+          </figure>
+
+          <div class="final">Les sis probabilitats conjuntes: $P(A{\cap}B)=0{,}350$; $P(A{\cap}N)=0{,}245$; $P(A{\cap}S)=0{,}105$; $P(F{\cap}B)=0{,}045$; $P(F{\cap}N)=0{,}090$; $P(F{\cap}S)=0{,}165$.</div>
         </div>
 
         <div class="apartado-sol">
           <h4><span class="letra">b)</span> Probabilitat de suspendre</h4>
-          <p>Apliquem la regla de la probabilitat total. L'event "suspendre" es pot donar per dos camins: suspendre assistint ($A \cap S$) o suspendre faltant ($F \cap S$).</p>
+          <p>Apliquem la <strong>regla de la probabilitat total</strong>. "Suspendre" es pot donar per dos camins: $A \cap S$ o $F \cap S$.</p>
           <div class="math-block">
-            $$P(S) = P(S|A) \cdot P(A) + P(S|F) \cdot P(F)$$
+            $$P(S) = P(S|A)\cdot P(A) + P(S|F)\cdot P(F)$$
           </div>
           <div class="math-block">
             $$P(S) = 0{,}15 \times 0{,}70 + 0{,}55 \times 0{,}30 = 0{,}105 + 0{,}165 = 0{,}270$$
           </div>
-          <div class="final">$P(\text{suspendre}) = 0{,}27$, és a dir, el 27% dels alumnes suspèn.</div>
+          <div class="final">$P(\text{suspendre}) = 0{,}27$. El 27% dels alumnes suspèn.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">c)</span> Teorema de Bayes: P(falta sovint | bona nota)</h4>
-          <p>Primer calculem $P(B)$ (probabilitat total de treure bona nota):</p>
+          <h4><span class="letra">c)</span> Teorema de Bayes: $P(F \mid B)$</h4>
+          <p>Primer, probabilitat total de treure bona nota:</p>
           <div class="math-block">
-            $$P(B) = P(B|A) \cdot P(A) + P(B|F) \cdot P(F) = 0{,}50 \times 0{,}70 + 0{,}15 \times 0{,}30 = 0{,}35 + 0{,}045 = 0{,}395$$
+            $$P(B) = P(B|A)\cdot P(A) + P(B|F)\cdot P(F) = 0{,}50\times0{,}70 + 0{,}15\times0{,}30 = 0{,}350 + 0{,}045 = 0{,}395$$
           </div>
-          <p>Ara apliquem el teorema de Bayes:</p>
+          <p>Ara apliquem el <strong>teorema de Bayes</strong>:</p>
           <div class="math-block">
-            $$P(F|B) = \dfrac{P(B|F) \cdot P(F)}{P(B)} = \dfrac{0{,}15 \times 0{,}30}{0{,}395} = \dfrac{0{,}045}{0{,}395} \approx 0{,}1139$$
+            $$P(F|B) = \frac{P(B|F)\cdot P(F)}{P(B)} = \frac{0{,}15\times0{,}30}{0{,}395} = \frac{0{,}045}{0{,}395} \approx 0{,}1139$$
           </div>
-          <div class="final">$P(\text{falta} \mid \text{bona nota}) \approx 0{,}114$, és a dir, aproximadament un 11,4% dels alumnes amb bona nota faltava sovint.</div>
+          <div class="final">$P(\text{falta}\mid\text{bona nota}) \approx 0{,}114$. Aproximadament un 11,4% dels alumnes amb bona nota faltava sovint.</div>
         </div>
 
       </section>

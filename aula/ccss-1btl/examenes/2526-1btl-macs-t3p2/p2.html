@@ -98,46 +98,87 @@
       <section class="solution" id="sol-p2" hidden>
         <h3>Correcció pas a pas</h3>
 
-        <p class="note"><strong>Idea clau:</strong> en un diagrama de Venn, cal omplir primer la intersecció i deduir-ne les regions exclusives per diferència. La fórmula d'inclusió-exclusió és $P(N \cup A) = P(N) + P(A) - P(N \cap A)$.</p>
+        <p class="note"><strong>Idea clau:</strong> omple primer la intersecció i calcula les regions exclusives per diferència. La fórmula d'inclusió-exclusió és $P(N \cup A) = P(N) + P(A) - P(N \cap A)$.</p>
 
         <div class="apartado-sol">
           <h4><span class="letra">a)</span> Diagrama de Venn</h4>
-          <p>Definim $N$ = "llegeix novel·la" i $A$ = "llegeix assaig". Sabem que $|N| = 75$, $|A| = 50$, $|N \cap A| = 25$ i el total és 120.</p>
-          <p>Calculem cada regió:</p>
+          <p>Definim $N$ = "llegeix novel·la", $A$ = "llegeix assaig". Dades: $|N|=75$, $|A|=50$, $|N\cap A|=25$, total $=120$.</p>
+          <p>Calculem cada regió per diferència:</p>
           <div class="math-block">
-            $$|N \setminus A| = 75 - 25 = 50 \qquad (\text{només novel·la})$$
-            $$|A \setminus N| = 50 - 25 = 25 \qquad (\text{només assaig})$$
-            $$|\overline{N \cup A}| = 120 - 50 - 25 - 25 = 20 \qquad (\text{cap gènere})$$
+            $$|N \setminus A| = 75 - 25 = 50 \quad \text{(només novel·la)}$$
           </div>
-          <div class="final">Diagrama de Venn: zona esquerra (només novel·la) = <strong>50</strong>; intersecció = <strong>25</strong>; zona dreta (només assaig) = <strong>25</strong>; fora dels dos cercles = <strong>20</strong>.</div>
+          <div class="math-block">
+            $$|A \setminus N| = 50 - 25 = 25 \quad \text{(només assaig)}$$
+          </div>
+          <div class="math-block">
+            $$|\overline{N \cup A}| = 120 - 50 - 25 - 25 = 20 \quad \text{(cap gènere)}$$
+          </div>
+
+          <figure style="margin:1.4rem 0 1rem">
+            <svg viewBox="0 0 480 225" xmlns="http://www.w3.org/2000/svg"
+                 style="width:100%;max-width:480px;display:block;margin:0 auto"
+                 role="img" aria-label="Diagrama de Venn: novel·la i assaig">
+              <style>
+                .vd-rect{fill:none;stroke:currentColor;stroke-width:1.2;opacity:0.35}
+                .vd-c1{fill:#3b82f6;fill-opacity:0.13;stroke:#3b82f6;stroke-width:2}
+                .vd-c2{fill:#f97316;fill-opacity:0.13;stroke:#f97316;stroke-width:2}
+                .vd-num{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:26px;font-weight:700;text-anchor:middle;dominant-baseline:middle}
+                .vd-sub{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:11px;opacity:0.62;text-anchor:middle;dominant-baseline:middle}
+                .vd-lbl{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:15px;font-weight:700;text-anchor:middle}
+                .vd-out{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:22px;font-weight:700;text-anchor:end;dominant-baseline:middle;opacity:0.72}
+                .vd-u{font-family:Inter,system-ui,sans-serif;fill:currentColor;font-size:11px;opacity:0.5}
+              </style>
+              <rect class="vd-rect" x="10" y="10" width="460" height="205" rx="8"/>
+              <text class="vd-u" x="20" y="25">U = 120 clients</text>
+              <circle class="vd-c1" cx="193" cy="115" r="88"/>
+              <circle class="vd-c2" cx="300" cy="115" r="88"/>
+              <text class="vd-lbl" x="155" y="34">N</text>
+              <text class="vd-lbl" x="338" y="34">A</text>
+              <!-- N only -->
+              <text class="vd-num" x="147" y="110">50</text>
+              <text class="vd-sub" x="147" y="133">sols N</text>
+              <!-- N∩A -->
+              <text class="vd-num" x="247" y="110">25</text>
+              <text class="vd-sub" x="247" y="133">N&#x2229;A</text>
+              <!-- A only -->
+              <text class="vd-num" x="348" y="110">25</text>
+              <text class="vd-sub" x="348" y="133">sols A</text>
+              <!-- outside -->
+              <text class="vd-out" x="464" y="190">20</text>
+            </svg>
+            <figcaption style="text-align:center;font-size:0.8rem;opacity:0.6;margin-top:0.5rem">
+              Verificació: $50 + 25 + 25 + 20 = 120$ &#x2713;
+            </figcaption>
+          </figure>
+
+          <div class="final">Zona N sola = <strong>50</strong>; intersecció $N\cap A$ = <strong>25</strong>; zona A sola = <strong>25</strong>; fora dels cercles = <strong>20</strong>.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">b)</span> P(novel·la o assaig)</h4>
-          <p>Apliquem la fórmula d'inclusió-exclusió:</p>
+          <h4><span class="letra">b)</span> $P(N \cup A)$</h4>
+          <p>Apliquem la fórmula d'inclusió-exclusió (o directament del diagrama: $50+25+25=100$ clients):</p>
           <div class="math-block">
-            $$P(N \cup A) = \dfrac{|N \cup A|}{120} = \dfrac{75 + 50 - 25}{120} = \dfrac{100}{120} = \dfrac{5}{6} \approx 0{,}833$$
+            $$P(N \cup A) = \frac{75 + 50 - 25}{120} = \frac{100}{120} = \frac{5}{6} \approx 0{,}833$$
           </div>
-          <div class="final">$P(N \cup A) = \dfrac{5}{6} \approx 0{,}833$, és a dir, el 83,3% dels clients llegeix almenys un dels dos gèneres.</div>
+          <div class="final">$P(N \cup A) = \dfrac{5}{6} \approx 0{,}833$. El 83,3% dels clients llegeix almenys un gènere.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">c)</span> P(cap dels dos gèneres)</h4>
-          <p>Usem el complementari de l'apartat anterior:</p>
+          <h4><span class="letra">c)</span> $P(\text{cap gènere})$</h4>
+          <p>Usem el complementari (o directament: $\frac{20}{120}$):</p>
           <div class="math-block">
-            $$P\!\left(\overline{N \cup A}\right) = 1 - P(N \cup A) = 1 - \dfrac{5}{6} = \dfrac{1}{6} \approx 0{,}167$$
+            $$P\bigl(\overline{N \cup A}\bigr) = 1 - \frac{5}{6} = \frac{1}{6} \approx 0{,}167$$
           </div>
-          <p>Comprovació directa: $\tfrac{20}{120} = \tfrac{1}{6}$. ✓</p>
-          <div class="final">$P(\text{cap gènere}) = \dfrac{1}{6} \approx 0{,}167$, és a dir, el 16,7% dels clients no llegeix cap dels dos gèneres.</div>
+          <div class="final">$P(\text{cap gènere}) = \dfrac{1}{6} \approx 0{,}167$. El 16,7% dels clients no llegeix cap gènere.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">d)</span> P(assaig | novel·la)</h4>
-          <p>Apliquem la definició de probabilitat condicionada. El "univers" es redueix als 75 clients que llegeixen novel·la:</p>
+          <h4><span class="letra">d)</span> $P(A \mid N)$</h4>
+          <p>Reduïm l'univers als 75 lectors de novel·la. D'ells, 25 també llegeixen assaig:</p>
           <div class="math-block">
-            $$P(A|N) = \dfrac{P(A \cap N)}{P(N)} = \dfrac{25/120}{75/120} = \dfrac{25}{75} = \dfrac{1}{3} \approx 0{,}333$$
+            $$P(A|N) = \frac{P(A \cap N)}{P(N)} = \frac{25/120}{75/120} = \frac{25}{75} = \frac{1}{3} \approx 0{,}333$$
           </div>
-          <div class="final">$P(\text{assaig} \mid \text{novel·la}) = \dfrac{1}{3} \approx 0{,}333$. D'entre els lectors de novel·la, 1 de cada 3 també llegeix assaig.</div>
+          <div class="final">$P(\text{assaig}\mid\text{novel·la}) = \dfrac{1}{3} \approx 0{,}333$. 1 de cada 3 lectors de novel·la també llegeix assaig.</div>
         </div>
 
       </section>
