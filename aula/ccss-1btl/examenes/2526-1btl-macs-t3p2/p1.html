@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P1 · Probabilitat condicionada i Bayes — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 1 del Parcial 2 de la 3a avaluació de Mat. Aplicades CCSS de 1r BTL: diagrama d'arbre, probabilitat total i teorema de Bayes.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Parcial 2 · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P1</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">19/05/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <span class="disabled prev">&larr; Pregunta anterior</span>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p2.html">Pregunta següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 1 &middot; Probabilitat condicionada i teorema de Bayes</h1>
+      <p class="question-descriptor">Diagrama d'arbre, probabilitat total i teorema de Bayes aplicats a l'assistència i els resultats a classe.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>A la classe de Matemàtiques Aplicades a les CCSS de 1r de Batxillerat s'ha observat que el <strong>30%</strong> dels alumnes falten sovint a classe, mentre que la resta hi assisteixen regularment. Entre els alumnes que <strong>assisteixen regularment</strong>, el 50% treuen una bona nota, el 35% treuen una nota normal i la resta suspenen. En canvi, entre els alumnes que <strong>falten sovint</strong>, només el 15% treuen bona nota, el 30% treuen una nota normal i la resta suspenen.</p>
+        </div>
+        <ol class="apartados">
+          <li>Representa la situació mitjançant un diagrama d'arbre amb totes les probabilitats. <span class="apartado-puntos">0,75 p</span></li>
+          <li>Si triem un alumne a l'atzar, quina és la probabilitat que suspengui l'assignatura? <span class="apartado-puntos">0,5 p</span></li>
+          <li>Sabem que un alumne ha tret bona nota a l'assignatura. Quina és la probabilitat que sigui dels que falten sovint a classe? <span class="apartado-puntos">0,75 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc E</span>
+        <span class="ib-chip" data-descriptor="Probabilitat condicional, regla de la multiplicació i teorema de Bayes">Probabilitat condicionada</span>
+        <span class="ib-chip" data-descriptor="Diagrama d'arbre per representar experiments en etapes">Diagrama d'arbre</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p1')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p1" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> en un diagrama d'arbre, les probabilitats de les branques que surten d'un mateix node han de sumar 1. La <em>probabilitat total</em> s'obté multiplicant les probabilitats al llarg de cada camí i sumant els camins que ens interessen. El <em>teorema de Bayes</em> permet "invertir" la condició: donat un resultat, calcular la probabilitat de la causa que l'ha produït.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Diagrama d'arbre</h4>
+          <p>Definim els successos: $F$ = "falta sovint" ($P(F) = 0{,}30$) i $A$ = "assisteix regularment" ($P(A) = 0{,}70$). Per a cada grup, tenim tres possibles resultats: bona nota ($B$), nota normal ($N$) i suspès ($S$).</p>
+          <p>Les probabilitats condicionades són:</p>
+          <div class="math-block">
+            $$P(B|A) = 0{,}50 \quad P(N|A) = 0{,}35 \quad P(S|A) = 0{,}15$$
+            $$P(B|F) = 0{,}15 \quad P(N|F) = 0{,}30 \quad P(S|F) = 0{,}55$$
+          </div>
+          <p>El diagrama d'arbre té dos nivells. Primer nivell: $A$ (0,70) i $F$ (0,30). Segon nivell: des de $A$ surten $B$ (0,50), $N$ (0,35) i $S$ (0,15); des de $F$ surten $B$ (0,15), $N$ (0,30) i $S$ (0,55). Les sis probabilitats conjuntes (extrems de l'arbre) sumen 1.</p>
+          <div class="final">Arbre amb 6 fulles: $P(A \cap B) = 0{,}35$; $P(A \cap N) = 0{,}245$; $P(A \cap S) = 0{,}105$; $P(F \cap B) = 0{,}045$; $P(F \cap N) = 0{,}09$; $P(F \cap S) = 0{,}165$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Probabilitat de suspendre</h4>
+          <p>Apliquem la regla de la probabilitat total. L'event "suspendre" es pot donar per dos camins: suspendre assistint ($A \cap S$) o suspendre faltant ($F \cap S$).</p>
+          <div class="math-block">
+            $$P(S) = P(S|A) \cdot P(A) + P(S|F) \cdot P(F)$$
+          </div>
+          <div class="math-block">
+            $$P(S) = 0{,}15 \times 0{,}70 + 0{,}55 \times 0{,}30 = 0{,}105 + 0{,}165 = 0{,}270$$
+          </div>
+          <div class="final">$P(\text{suspendre}) = 0{,}27$, és a dir, el 27% dels alumnes suspèn.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Teorema de Bayes: P(falta sovint | bona nota)</h4>
+          <p>Primer calculem $P(B)$ (probabilitat total de treure bona nota):</p>
+          <div class="math-block">
+            $$P(B) = P(B|A) \cdot P(A) + P(B|F) \cdot P(F) = 0{,}50 \times 0{,}70 + 0{,}15 \times 0{,}30 = 0{,}35 + 0{,}045 = 0{,}395$$
+          </div>
+          <p>Ara apliquem el teorema de Bayes:</p>
+          <div class="math-block">
+            $$P(F|B) = \dfrac{P(B|F) \cdot P(F)}{P(B)} = \dfrac{0{,}15 \times 0{,}30}{0{,}395} = \dfrac{0{,}045}{0{,}395} \approx 0{,}1139$$
+          </div>
+          <div class="final">$P(\text{falta} \mid \text{bona nota}) \approx 0{,}114$, és a dir, aproximadament un 11,4% dels alumnes amb bona nota faltava sovint.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <span class="disabled prev">&larr; Pregunta anterior</span>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p2.html">Pregunta següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Urna sense reposició — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 4 del Parcial 2 de la 3a avaluació de Mat. Aplicades CCSS de 1r BTL: probabilitats en una urna de 3 colors sense reposició.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Parcial 2 · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P4</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">19/05/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html">Pregunta següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 4 &middot; Urna sense reposició — boles de tres colors</h1>
+      <p class="question-descriptor">Probabilitats d'extracció sense reposició: same color, almenys una groga i probabilitat condicionada.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Una urna conté <strong>5 boles vermelles</strong>, <strong>4 boles negres</strong> i <strong>3 boles grogues</strong> (12 boles en total). S'extreuen dues boles de l'urna, una darrere l'altra, <strong>sense reposició</strong>.</p>
+        </div>
+        <ol class="apartados">
+          <li>Calcula la probabilitat que les dues boles siguin vermelles. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Calcula la probabilitat que les dues boles siguin del mateix color. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Calcula la probabilitat que almenys una de les dues boles sigui groga. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Si sabem que la primera bola extreta ha estat vermella, quina és la probabilitat que la segona també sigui vermella? <span class="apartado-puntos">0,5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc E</span>
+        <span class="ib-chip" data-descriptor="Probabilitat en extraccions sense reposició, regla del producte">Urna sense reposició</span>
+        <span class="ib-chip" data-descriptor="Ús del complementari per calcular probabilitats d'unió">Complementari</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> sense reposició, la probabilitat de la segona extracció depèn del resultat de la primera. S'usa la regla del producte: $P(A \cap B) = P(A) \cdot P(B|A)$. Per a "almenys un", el complementari evita sumar múltiples casos.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> P(dues vermelles)</h4>
+          <p>Primer extracció: $\frac{5}{12}$ de probabilitat de treure vermella. Si la primera és vermella, queden 4 vermelles de 11 boles totals a la segona extracció.</p>
+          <div class="math-block">
+            $$P(V_1 \cap V_2) = P(V_1) \cdot P(V_2 | V_1) = \dfrac{5}{12} \cdot \dfrac{4}{11} = \dfrac{20}{132} = \dfrac{5}{33} \approx 0{,}1515$$
+          </div>
+          <div class="final">$P(\text{2 vermelles}) = \dfrac{5}{33} \approx 0{,}152$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> P(dues del mateix color)</h4>
+          <p>Sumem els tres casos possibles (V-V, N-N, G-G), que són mútuament excloents:</p>
+          <div class="math-block">
+            $$P(V_1 \cap V_2) = \dfrac{5}{12} \cdot \dfrac{4}{11} = \dfrac{20}{132}$$
+          </div>
+          <div class="math-block">
+            $$P(N_1 \cap N_2) = \dfrac{4}{12} \cdot \dfrac{3}{11} = \dfrac{12}{132}$$
+          </div>
+          <div class="math-block">
+            $$P(G_1 \cap G_2) = \dfrac{3}{12} \cdot \dfrac{2}{11} = \dfrac{6}{132}$$
+          </div>
+          <div class="math-block">
+            $$P(\text{mateix color}) = \dfrac{20 + 12 + 6}{132} = \dfrac{38}{132} = \dfrac{19}{66} \approx 0{,}2879$$
+          </div>
+          <div class="final">$P(\text{2 del mateix color}) = \dfrac{19}{66} \approx 0{,}288$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> P(almenys una groga)</h4>
+          <p>Usem el complementari: "almenys una groga" = 1 − "cap groga". Cap groga significa que les dues boles pertanyen a les $5 + 4 = 9$ boles no grogues.</p>
+          <div class="math-block">
+            $$P(\text{cap groga}) = \dfrac{9}{12} \cdot \dfrac{8}{11} = \dfrac{72}{132} = \dfrac{6}{11}$$
+          </div>
+          <div class="math-block">
+            $$P(\text{almenys 1 groga}) = 1 - \dfrac{6}{11} = \dfrac{5}{11} \approx 0{,}4545$$
+          </div>
+          <div class="final">$P(\text{almenys 1 groga}) = \dfrac{5}{11} \approx 0{,}455$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> P(2a vermella | 1a vermella)</h4>
+          <p>Si ja sabem que la primera bola és vermella, queden 11 boles a la urna, de les quals 4 són vermelles:</p>
+          <div class="math-block">
+            $$P(V_2 | V_1) = \dfrac{4}{11} \approx 0{,}3636$$
+          </div>
+          <p>Alternativament, per la definició: $P(V_2|V_1) = \dfrac{P(V_1 \cap V_2)}{P(V_1)} = \dfrac{20/132}{5/12} = \dfrac{20}{132} \cdot \dfrac{12}{5} = \dfrac{4}{11}$. ✓</p>
+          <div class="final">$P(V_2 \mid V_1) = \dfrac{4}{11} \approx 0{,}364$.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html">Pregunta següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

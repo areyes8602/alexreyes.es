@@ -1,0 +1,220 @@
+{
+  "schema_version": 3,
+  "id": "2526-1btl-macs-t3p2",
+  "tipo_coleccion": "examen",
+  "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
+  "fecha": "2026-05-19",
+  "grupo": "1r BTL",
+  "promocion": null,
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
+  "pdf_soluciones": null,
+  "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
+  "puntuacion_total": 10,
+  "baremo": null,
+  "unidades_implicadas": ["09", "10"],
+  "tags_coleccion": {
+    "materia": "ccss-1btl",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "propia",
+    "origen": "examen"
+  },
+  "ejercicios": [
+    {
+      "id": "2526-1btl-macs-t3p2-p1",
+      "numero": 1,
+      "titulo": "Probabilitat condicionada i teorema de Bayes",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "A la classe de Matemàtiques Aplicades a les CCSS de 1r de Batxillerat s'ha observat que el 30% dels alumnes falten sovint a classe, mentre que la resta hi assisteixen regularment. Entre els alumnes que assisteixen regularment, el 50% treuen una bona nota a l'assignatura, el 35% treuen una nota normal i la resta suspenen. En canvi, entre els alumnes que falten sovint, només el 15% treuen bona nota, el 30% treuen una nota normal i la resta suspenen.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.75,
+          "tarea": "Representa la situació mitjançant un diagrama d'arbre amb totes les probabilitats."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Si triem un alumne a l'atzar, quina és la probabilitat que suspengui l'assignatura?"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.75,
+          "tarea": "Sabem que un alumne ha tret bona nota a l'assignatura. Quina és la probabilitat que sigui dels que falten sovint a classe?"
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_numerico", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p2",
+      "numero": 2,
+      "titulo": "Diagrama de Venn — hàbits de lectura",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "En una enquesta feta a 120 clients d'una llibreria sobre els seus hàbits de lectura, s'han obtingut les dades següents: 75 persones llegeixen novel·la, 50 persones llegeixen assaig i 25 persones llegeixen tots dos gèneres.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Representa la situació amb un diagrama de Venn indicant el nombre de persones a cada regió."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que un client triat a l'atzar llegeixi novel·la o assaig."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que un client triat a l'atzar no llegeixi cap dels dos gèneres."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Si sabem que un client llegeix novel·la, quina és la probabilitat que també llegeixi assaig?"
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["interpretacion", "calculo_numerico", "modelizacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p3",
+      "numero": 3,
+      "titulo": "Distribució binomial — bombetes defectuoses",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "En una fàbrica de bombetes se sap, per experiència, que el 20% de les bombetes produïdes surten defectuoses. Es trien 10 bombetes a l'atzar de la producció diària.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Justifica que la variable aleatòria $X =$ \"nombre de bombetes defectuoses entre les 10 triades\" segueix una distribució binomial i escriu els seus paràmetres."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que exactament 3 bombetes siguin defectuoses. Escriu explícitament la fórmula de la binomial amb els valors substituïts abans de donar el resultat numèric."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que com a màxim 2 bombetes siguin defectuoses."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que almenys 4 bombetes siguin defectuoses."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-distribuciones"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_numerico", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p4",
+      "numero": 4,
+      "titulo": "Urna sense reposició — boles de tres colors",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Una urna conté 5 boles vermelles, 4 boles negres i 3 boles grogues. S'extreuen dues boles de l'urna, una darrere l'altra, sense reposició.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que les dues boles siguin vermelles."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que les dues boles siguin del mateix color."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que almenys una de les dues boles sigui groga."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Si sabem que la primera bola extreta ha estat vermella, quina és la probabilitat que la segona també sigui vermella?"
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["calculo_numerico", "interpretacion", "modelizacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p5",
+      "numero": 5,
+      "titulo": "Successos A i B — independència i probabilitat condicionada",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Siguin $A$ i $B$ dos successos d'un mateix espai mostral amb $P(A) = 0{,}4$; $P(B) = 0{,}5$ i $P(A \\cup B) = 0{,}7$.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula $P(A \\cap B)$. Són $A$ i $B$ successos incompatibles? Justifica la resposta."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Comprova si els successos $A$ i $B$ són independents. Justifica la resposta amb càlculs."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula $P(A|B)$ i $P(B|A)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que es compleixi $A$ però no $B$."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "facil",
+        "habilidad": ["calculo_simbolico", "calculo_numerico", "interpretacion"],
+        "formato": ["pregunta_corta"]
+      }
+    }
+  ]
+}

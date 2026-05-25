@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P5 · Successos A i B — independència — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 5 del Parcial 2 de la 3a avaluació de Mat. Aplicades CCSS de 1r BTL: probabilitat de la intersecció, independència, probabilitat condicionada i diferència.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Parcial 2 · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P5</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">19/05/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 5 &middot; Successos A i B — independència i probabilitat condicionada</h1>
+      <p class="question-descriptor">Intersecció per inclusió-exclusió; criteri d'incompatibilitat i independència; probabilitat condicionada; diferència de successos.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Siguin $A$ i $B$ dos successos d'un mateix espai mostral amb $P(A) = 0{,}4$; $P(B) = 0{,}5$ i $P(A \cup B) = 0{,}7$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Calcula $P(A \cap B)$. Són $A$ i $B$ successos incompatibles? Justifica la resposta. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Comprova si els successos $A$ i $B$ són independents. Justifica la resposta amb càlculs. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Calcula $P(A|B)$ i $P(B|A)$. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Calcula la probabilitat que es compleixi $A$ però no $B$. <span class="apartado-puntos">0,5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc E</span>
+        <span class="ib-chip" data-descriptor="Relació entre successos: incompatibles, independents, condicionats">Propietats de successos</span>
+        <span class="ib-chip" data-descriptor="Probabilitat condicional i criteris d'independència">Probabilitat condicionada</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p5')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p5" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> (1) Incompatibles $\Leftrightarrow P(A \cap B) = 0$. (2) Independents $\Leftrightarrow P(A \cap B) = P(A) \cdot P(B)$. Incompatibles i independents <em>no</em> vol dir el mateix — de fet, si $P(A), P(B) > 0$, ser incompatibles implica ser dependents.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> $P(A \cap B)$ i incompatibilitat</h4>
+          <p>Aïllem $P(A \cap B)$ de la fórmula d'inclusió-exclusió:</p>
+          <div class="math-block">
+            $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+          </div>
+          <div class="math-block">
+            $$P(A \cap B) = P(A) + P(B) - P(A \cup B) = 0{,}4 + 0{,}5 - 0{,}7 = 0{,}2$$
+          </div>
+          <p>Dos successos són incompatibles si $P(A \cap B) = 0$. Com que $P(A \cap B) = 0{,}2 \neq 0$, els successos <strong>no son incompatibles</strong>: és possible que els dos passin alhora.</p>
+          <div class="final">$P(A \cap B) = 0{,}2$. $A$ i $B$ <strong>no</strong> són incompatibles.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Independència</h4>
+          <p>Dos successos són independents si i només si $P(A \cap B) = P(A) \cdot P(B)$. Comprovem:</p>
+          <div class="math-block">
+            $$P(A) \cdot P(B) = 0{,}4 \times 0{,}5 = 0{,}20$$
+          </div>
+          <p>Com que $P(A \cap B) = 0{,}2 = P(A) \cdot P(B)$, els successos <strong>sí que són independents</strong>: conèixer que $B$ ha passat no canvia la probabilitat de $A$, i viceversa.</p>
+          <div class="final">$A$ i $B$ són <strong>independents</strong> perquè $P(A \cap B) = P(A) \cdot P(B) = 0{,}2$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> $P(A|B)$ i $P(B|A)$</h4>
+          <p>Apliquem la definició de probabilitat condicionada:</p>
+          <div class="math-block">
+            $$P(A|B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{0{,}2}{0{,}5} = 0{,}4$$
+          </div>
+          <div class="math-block">
+            $$P(B|A) = \dfrac{P(A \cap B)}{P(A)} = \dfrac{0{,}2}{0{,}4} = 0{,}5$$
+          </div>
+          <p>Observa que $P(A|B) = P(A) = 0{,}4$ i $P(B|A) = P(B) = 0{,}5$: saber que $B$ ha passat no altera la probabilitat de $A$, consistent amb la independència.</p>
+          <div class="final">$P(A|B) = 0{,}4 \quad$ i $\quad P(B|A) = 0{,}5$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Probabilitat que passi $A$ però no $B$</h4>
+          <p>El succés "$A$ però no $B$" és $A \cap \overline{B}$. Com que $A = (A \cap B) \cup (A \cap \overline{B})$ i els dos termes són disjunts:</p>
+          <div class="math-block">
+            $$P(A \cap \overline{B}) = P(A) - P(A \cap B) = 0{,}4 - 0{,}2 = 0{,}2$$
+          </div>
+          <p>Comprovació via Venn: la zona de $A$ fora de $B$ té probabilitat $0{,}4 - 0{,}2 = 0{,}2$. ✓</p>
+          <div class="final">$P(A \cap \overline{B}) = P(A \text{ però no } B) = 0{,}2$.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
