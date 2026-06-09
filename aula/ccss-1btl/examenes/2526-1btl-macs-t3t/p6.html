@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P6 · Probabilitat condicionada, independència i distribució binomial — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 6 de l'examen Global 3a Avaluació de Mat. Aplicades a CCSS de 1r BTL: probabilitat composta i condicionada, independència de successos i distribució binomial. Enunciat i correcció pas a pas.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/">Global 3a avaluació · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P6</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">28/05/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p5.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 6 &middot; Probabilitat condicionada, independència i distribució binomial</h1>
+      <p class="question-descriptor">Probabilitat composta i condicionada, comprovació numèrica de la independència de successos i modelització amb una distribució binomial.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>En una classe de 30 estudiants, 18 han aprovat matemàtiques i 15 han aprovat anglès. Dels que han aprovat matemàtiques, 10 també han aprovat anglès. S'escull un estudiant a l'atzar.</p>
+          <p><strong>Per a l'apartat d):</strong> en un examen tipus test de 10 preguntes, cada pregunta té 4 opcions i una sola és correcta. Un estudiant contesta totes les respostes a l'atzar.</p>
+        </div>
+        <ol class="apartados">
+          <li>Calcula la probabilitat que hagi aprovat matemàtiques i anglès. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Calcula la probabilitat que hagi aprovat anglès sabent que ha aprovat matemàtiques (probabilitat condicionada). <span class="apartado-puntos">0,5 p</span></li>
+          <li>Són independents els successos «aprovar matemàtiques» i «aprovar anglès»? Justifica-ho numèricament. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Modela la situació com una distribució binomial $B(n,p)$. Calcula la probabilitat d'encertar exactament 3 preguntes, la probabilitat d'encertar com a mínim 2, i el nombre esperat d'encerts. <span class="apartado-puntos">0,5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc E</span>
+        <span class="ib-chip" data-descriptor="Probabilitat composta, condicionada i independència">Probabilitat condicionada</span>
+        <span class="ib-chip" data-descriptor="Distribució binomial: P(X=k), P(X≥k) i esperança">Distribució binomial</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p6" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p6')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p6" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> dos successos són independents si $P(M\cap A)=P(M)\cdot P(A)$. La distribució binomial $B(n,p)$ modela $n$ proves independents amb probabilitat d'èxit $p$ constant; la seva esperança és $E(X)=np$.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Probabilitat composta</h4>
+          <div class="math-block">$$P(M\cap A)=\dfrac{10}{30}=\dfrac{1}{3}\approx 0{,}333$$</div>
+          <div class="final">$P(M\cap A)=\tfrac{1}{3}\approx 0{,}333$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Probabilitat condicionada</h4>
+          <div class="math-block">$$P(A\mid M)=\dfrac{P(M\cap A)}{P(M)}=\dfrac{10/30}{18/30}=\dfrac{10}{18}=\dfrac{5}{9}\approx 0{,}556$$</div>
+          <div class="final">$P(A\mid M)=\tfrac{5}{9}\approx 0{,}556$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Independència</h4>
+          <div class="math-block">$$P(M)\cdot P(A)=\dfrac{18}{30}\cdot\dfrac{15}{30}=\dfrac{270}{900}=0{,}300$$</div>
+          <p>Com que $P(M\cap A)=\tfrac{1}{3}\approx 0{,}333\neq 0{,}300=P(M)\cdot P(A)$:</p>
+          <div class="final">Els successos <strong>NO</strong> són independents.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Distribució binomial</h4>
+          <p>Model: $X\sim B\!\left(10,\tfrac{1}{4}\right)$, amb $n=10$ preguntes i $p=\tfrac{1}{4}$ (1 opció correcta de 4).</p>
+          <div class="math-block">$$P(X=3)=\binom{10}{3}\left(\tfrac{1}{4}\right)^{3}\left(\tfrac{3}{4}\right)^{7}\approx 0{,}2503$$</div>
+          <div class="math-block">$$P(X\ge 2)=1-P(X=0)-P(X=1)=1-0{,}0563-0{,}1877\approx 0{,}7560$$</div>
+          <div class="math-block">$$E(X)=n\cdot p=10\cdot\tfrac{1}{4}=2{,}5$$</div>
+          <div class="final">$P(X=3)\approx 0{,}2503$ (25,03 %), $P(X\ge 2)\approx 0{,}7560$ (75,60 %) i $E(X)=2{,}5$ encerts esperats.</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p5.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

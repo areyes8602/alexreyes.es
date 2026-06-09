@@ -1,0 +1,267 @@
+{
+  "schema_version": 3,
+  "id": "2526-1btl-macs-t3t",
+  "tipo_coleccion": "examen",
+  "titulo": "Global 3a avaluació — Tot el curs",
+  "fecha": "2026-05-28",
+  "grupo": "1r BTL",
+  "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
+  "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
+  "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
+  "puntuacion_total": 12,
+  "baremo": null,
+  "tags_coleccion": {
+    "materia": "ccss-1btl",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "propia",
+    "origen": "examen"
+  },
+  "ejercicios": [
+    {
+      "id": "2526-1btl-macs-t3t-p1",
+      "numero": 1,
+      "titulo": "Potències, radicals, logaritmes i polinomis",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Resol cadascun dels apartats. Simplifica al màxim i justifica tots els passos.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Simplifica: $\\dfrac{\\sqrt[3]{8}\\cdot 4^{3/2}\\cdot \\sqrt{27}}{6^{0}\\cdot 9^{1/2}\\cdot 2^{-1}}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula: $\\log_{a}(a^{3}) + \\log_{b}\\!\\left(\\dfrac{1}{b^{2}}\\right) - \\log_{c}\\!\\left(\\dfrac{\\sqrt{c}}{c}\\right) + \\ln(e^{2}) + \\log_{d} 1$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Factoritza completament el polinomi $P(x) = 2x^{4} - x^{3} - 8x^{2} + x + 6$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Simplifica la fracció algebraica següent: $\\dfrac{x^{3} + x^{2} - 4x - 4}{x^{2} + 3x + 2}$"
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-A",
+        "concepto_bach": ["BACH-potencias", "BACH-polinomios"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p2",
+      "numero": 2,
+      "titulo": "Equacions i sistemes (escollir 4 de 6)",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Resol 4 de les 6 equacions i sistemes. Verifica les solucions si és necessari. A l'examen cada equació val 0,5 punts (4 de 6 = 2 punts); aquí es deixen resoltes totes sis i el repartiment de punts per apartat és orientatiu.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.25,
+          "tarea": "$\\log(x+3) + \\log(x-1) = \\log(2x+6)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.25,
+          "tarea": "$\\sqrt{3x+4} - \\sqrt{x} = 2$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.25,
+          "tarea": "$4^{x+1} - 5\\cdot 2^{x+1} + 4 = 0$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0.25,
+          "tarea": "$|x-5| = |2x+2|$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0.5,
+          "tarea": "$x^{4} - 10x^{2} + 9 = 0$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0.5,
+          "tarea": "Sistema: $\\begin{cases} \\log x + \\log y = 3 \\\\ \\log x - \\log y = 1 \\end{cases}$"
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-ecuaciones", "BACH-sistemas"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p3",
+      "numero": 3,
+      "titulo": "Funcions: domini, composició, inversa i vèrtex",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
+      "pages_enunciado": [1],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Considera les funcions $f(x) = \\sqrt{x+3}$, $g(x) = \\dfrac{2x-1}{x+2}$ i $h(x) = x^{2} + x - 2$.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula el domini de $f$, de $g$ i de $(f \\circ g)$. Justifica tots els casos."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula $(f \\circ g)$ i $(g \\circ f)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula la funció inversa $f^{-1}(x)$ i $g^{-1}(x)$. Indica el domini de cada inversa."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Troba totes les antiimatges de $-2$ per la funció $h(x)$. Troba el vèrtex de $h(x)$."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-funciones-elementales"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "razonamiento"],
+        "formato": ["pregunta_larga"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p4",
+      "numero": 4,
+      "titulo": "Derivades: monotonia, extrems i optimització (context econòmic)",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p4.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
+      "pages_enunciado": [2],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "El benefici mensual (en milers d'euros) d'una empresa en funció del preu unitari de venda $x$ (en euros, amb $x \\in [1,10]$) ve donat per $B(x) = -2x^{3} + 15x^{2} - 24x + 7$.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula $B'(x)$ i troba els punts crítics de $B(x)$ en l'interval $[1,10]$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Estudia el signe de $B'(x)$ i determina els intervals de creixement i decreixement de $B(x)$ en $[1,10]$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Classifica cada punt crític com a màxim o mínim local. Indica el valor màxim de benefici i el preu al qual s'assoleix."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Calcula el preu unitari que dona uns beneficis mensuals de 7000 €."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-derivadas", "BACH-funciones-elementales"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "modelizacion", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p5",
+      "numero": 5,
+      "titulo": "Diagrama d'arbre, probabilitat total i teorema de Bayes",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p5.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
+      "pages_enunciado": [2],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "Una empresa de logística té tres centres de distribució: A, B i C, que gestionen el 40 %, el 35 % i el 25 % de les comandes, respectivament. La probabilitat que una comanda arribi amb retard és del 5 % si prové del centre A, del 3 % si prové del centre B i del 8 % si prové del centre C.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Dibuixa el diagrama d'arbre complet amb totes les probabilitats indicades."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.75,
+          "tarea": "Calcula la probabilitat que una comanda triada a l'atzar arribi amb retard."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.75,
+          "tarea": "Sabent que una comanda ha arribat amb retard, calcula la probabilitat que provingui del centre C."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-probabilidad"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_numerico", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p6",
+      "numero": 6,
+      "titulo": "Probabilitat condicionada, independència i distribució binomial",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
+      "pages_enunciado": [2],
+      "pages_solucion": null,
+      "puntuacion": 2,
+      "contexto": "En una classe de 30 estudiants, 18 han aprovat matemàtiques i 15 han aprovat anglès. Dels que han aprovat matemàtiques, 10 també han aprovat anglès. S'escull un estudiant a l'atzar.\n\nPer a l'apartat d): en un examen tipus test de 10 preguntes, cada pregunta té 4 opcions i una sola és correcta. Un estudiant contesta totes les respostes a l'atzar.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que hagi aprovat matemàtiques i anglès."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que hagi aprovat anglès sabent que ha aprovat matemàtiques (probabilitat condicionada)."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Són independents els successos «aprovar matemàtiques» i «aprovar anglès»? Justifica-ho numèricament."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Modela la situació com una distribució binomial $B(n,p)$. Calcula la probabilitat d'encertar exactament 3 preguntes, la probabilitat d'encertar com a mínim 2, i el nombre esperat d'encerts."
+        }
+      ],
+      "tags": {
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-probabilidad", "BACH-distribuciones"],
+        "dificultad": "media",
+        "habilidad": ["calculo_numerico", "razonamiento", "interpretacion"],
+        "formato": ["pregunta_larga", "problema_aplicado"]
+      }
+    }
+  ]
+}

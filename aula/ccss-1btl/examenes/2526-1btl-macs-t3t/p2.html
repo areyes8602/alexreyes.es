@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Equacions i sistemes — 1r BTL MACS</title>
+<meta name="description" content="Pregunta 2 de l'examen Global 3a Avaluació de Mat. Aplicades a CCSS de 1r BTL: equacions logarítmiques, irracionals, exponencials, amb valor absolut, bicuadrades i sistemes. Enunciat i correcció pas a pas.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/">Global 3a avaluació · 1r BTL MACS</a>
+      <span class="sep">/</span>
+      <span class="current">P2</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">1r BTL · MACS</span>
+        <span class="tag tag-orange">28/05/2026</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p3.html">Pregunta següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Equacions i sistemes</h1>
+      <p class="question-descriptor">Equacions logarítmiques, irracionals, exponencials, amb valor absolut, bicuadrades i sistemes logarítmics, amb verificació de solucions.</p>
+      <span class="score-pill">Puntuació màxima · 2 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Resol <strong>4 de les 6</strong> equacions i sistemes. Verifica les solucions si és necessari. (A l'examen cada equació val 0,5 punts; aquí es deixen resoltes totes sis.)</p>
+        </div>
+        <ol class="apartados">
+          <li>$\log(x+3) + \log(x-1) = \log(2x+6)$ <span class="apartado-puntos">0,25 p</span></li>
+          <li>$\sqrt{3x+4} - \sqrt{x} = 2$ <span class="apartado-puntos">0,25 p</span></li>
+          <li>$4^{x+1} - 5\cdot 2^{x+1} + 4 = 0$ <span class="apartado-puntos">0,25 p</span></li>
+          <li>$|x-5| = |2x+2|$ <span class="apartado-puntos">0,25 p</span></li>
+          <li>$x^{4} - 10x^{2} + 9 = 0$ <span class="apartado-puntos">0,5 p</span></li>
+          <li>Sistema: $\begin{cases} \log x + \log y = 3 \\ \log x - \log y = 1 \end{cases}$ <span class="apartado-puntos">0,5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloc D</span>
+        <span class="ib-chip" data-descriptor="Equacions logarítmiques, irracionals, exponencials i amb valor absolut">Equacions</span>
+        <span class="ib-chip" data-descriptor="Sistemes d'equacions no lineals">Sistemes</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Correcció pas a pas</h3>
+
+        <p class="note"><strong>Idea clau:</strong> en equacions logarítmiques i irracionals cal <em>verificar sempre</em> les solucions, perquè en aplicar logaritmes o elevar al quadrat poden aparèixer solucions estranyes. En exponencials i bicuadrades, un canvi de variable ho redueix a una equació de segon grau.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Logarítmica</h4>
+          <div class="math-block">$$\log[(x+3)(x-1)]=\log(2x+6)\ \Rightarrow\ x^{2}+2x-3=2x+6\ \Rightarrow\ x^{2}=9\ \Rightarrow\ x=\pm 3$$</div>
+          <p>Verificació: $x=-3$ dóna $\log(0)$, que no existeix; $x=3$ és vàlida.</p>
+          <div class="final">$x=3$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Irracional</h4>
+          <div class="math-block">$$\sqrt{3x+4}=2+\sqrt{x}\ \Rightarrow\ 3x+4=4+4\sqrt{x}+x\ \Rightarrow\ 2x=4\sqrt{x}\ \Rightarrow\ x=2\sqrt{x}$$</div>
+          <div class="math-block">$$x^{2}=4x\ \Rightarrow\ x(x-4)=0\ \Rightarrow\ x=0\ \text{o}\ x=4$$</div>
+          <p>Verificació: $x=0$: $\sqrt{4}-0=2$ ✓; $x=4$: $\sqrt{16}-\sqrt{4}=4-2=2$ ✓.</p>
+          <div class="final">$x=0$ i $x=4$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Exponencial</h4>
+          <p>Reescrivim $4^{x+1}=4\cdot(2^{x})^{2}$ i $2^{x+1}=2\cdot 2^{x}$, i fem el canvi $t=2^{x}$:</p>
+          <div class="math-block">$$4t^{2}-10t+4=0\ \Rightarrow\ 2t^{2}-5t+2=0\ \Rightarrow\ t=\dfrac{5\pm 3}{4}\ \Rightarrow\ t=2\ \text{o}\ t=\tfrac{1}{2}$$</div>
+          <div class="math-block">$$2^{x}=2\Rightarrow x=1,\qquad 2^{x}=\tfrac{1}{2}\Rightarrow x=-1$$</div>
+          <div class="final">$x=1$ i $x=-1$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Valor absolut</h4>
+          <p>Plantegem els dos casos:</p>
+          <div class="math-block">$$x-5=2x+2\ \Rightarrow\ x=-7;\qquad x-5=-(2x+2)\ \Rightarrow\ 3x=3\ \Rightarrow\ x=1$$</div>
+          <div class="final">$x=-7$ i $x=1$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Bicuadrada</h4>
+          <p>Canvi $t=x^{2}$:</p>
+          <div class="math-block">$$t^{2}-10t+9=0\ \Rightarrow\ (t-9)(t-1)=0\ \Rightarrow\ t=9\ \text{o}\ t=1$$</div>
+          <div class="math-block">$$x^{2}=9\Rightarrow x=\pm 3,\qquad x^{2}=1\Rightarrow x=\pm 1$$</div>
+          <div class="final">$x=\pm 3$ i $x=\pm 1$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">f)</span> Sistema logarítmic</h4>
+          <div class="math-block">$$\log x+\log y=3\Rightarrow \log(xy)=3\Rightarrow xy=1000$$</div>
+          <div class="math-block">$$\log x-\log y=1\Rightarrow \log\!\tfrac{x}{y}=1\Rightarrow \tfrac{x}{y}=10\Rightarrow x=10y$$</div>
+          <p>Substituint: $10y^{2}=1000\Rightarrow y^{2}=100\Rightarrow y=10$ (positiu, pel domini del logaritme).</p>
+          <div class="final">$x=100,\ y=10$</div>
+        </div>
+
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/">Índex de l'examen</a>
+      <a class="next" href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p3.html">Pregunta següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
