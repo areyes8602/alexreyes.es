@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visualizaciones — Doctorado — Àlex Reyes</title>
+<meta name="description" content="Módulos interactivos sobre la conjetura de Collatz: biyecciones, grafo mod 6, matrices y teorema de Fibonacci.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/doctorado/visualizaciones/">
+<style>
+/* ── Selector de módulo ──────────────────────────────────────────── */
+.viz-tabs { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:2rem; }
+.viz-tab {
+  padding:0.45rem 1rem; border-radius:20px; font-size:0.85rem; font-weight:500;
+  border:1px solid var(--border); background:transparent; cursor:pointer;
+  color:var(--text-soft); transition:all .15s; font-family:var(--font);
+}
+.viz-tab.active, .viz-tab:hover {
+  background:var(--bg-subtle); border-color:var(--border-strong); color:var(--text);
+}
+.viz-module { display:none; }
+.viz-module.active { display:block; }
+
+/* ── Preamble ────────────────────────────────────────────────────── */
+.viz-defs {
+  background:var(--bg-subtle); border:1px solid var(--border);
+  border-radius:8px; padding:0.75rem 1rem; margin-bottom:1.25rem;
+  font-size:0.82rem; color:var(--text-soft); line-height:1.85;
+}
+.viz-defs-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px 1.5rem; }
+.viz-defs-asym {
+  margin-top:0.5rem; padding-top:0.5rem;
+  border-top:1px solid var(--border);
+  display:grid; grid-template-columns:1fr 1fr; gap:2px 1.5rem;
+}
+.viz-defs b { color:var(--text); }
+@media(max-width:600px){
+  .viz-defs-grid, .viz-defs-asym { grid-template-columns:1fr; }
+}
+
+/* ── Selector binario / mod 6 ────────────────────────────────────── */
+.mode-seg {
+  display:inline-flex; border:1px solid var(--border);
+  border-radius:20px; overflow:hidden; margin-bottom:1rem;
+}
+.mode-seg button {
+  background:none; border:none; padding:6px 16px; font-size:0.82rem;
+  cursor:pointer; color:var(--text-soft); font-family:var(--font); font-weight:500;
+  transition:background .15s;
+}
+.mode-seg button.on {
+  background:var(--bg-subtle); color:var(--text);
+}
+
+/* ── Controles ───────────────────────────────────────────────────── */
+.viz-ctrl {
+  display:flex; flex-wrap:wrap; align-items:center; gap:1rem; margin-bottom:0.9rem;
+}
+.viz-ctrl label {
+  font-size:0.82rem; color:var(--text-soft); display:flex; align-items:center; gap:0.4rem;
+}
+.viz-ctrl input[type=number] {
+  width:46px; padding:3px 6px; border:1px solid var(--border); border-radius:6px;
+  background:var(--bg-subtle); color:var(--text); font-family:var(--mono); font-size:0.82rem;
+}
+
+/* ── Tabla ───────────────────────────────────────────────────────── */
+.viz-scroll { overflow-x:auto; max-height:460px; overflow-y:auto; }
+.viz-tbl {
+  width:100%; border-collapse:collapse;
+  font-family:var(--mono); font-size:0.8rem;
+}
+.viz-tbl th {
+  font-size:0.72rem; color:var(--text-faint); font-weight:600;
+  padding:4px 8px; border-bottom:1px solid var(--border);
+  font-family:var(--font); text-align:left; white-space:nowrap;
+  position:sticky; top:0; background:var(--bg); z-index:1;
+}
+.viz-tbl td { padding:4px 8px; border-bottom:1px solid var(--border); vertical-align:middle; }
+.viz-tbl tr.clickable { cursor:pointer; }
+.viz-tbl tr.clickable:hover td { background:var(--bg-hover) !important; }
+.viz-tbl tr.ghost td { opacity:.3; }
+
+/* ── Chips ───────────────────────────────────────────────────────── */
+.chips { display:flex; gap:2px; align-items:center; }
+.bc { display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:3px; font-size:0.68rem; font-weight:600; }
+.bc1 { background:#FAEEDA; color:#854F0B; }
+.bc0 { background:#EAF3DE; color:#3B6D11; }
+.bcx1 { background:#854F0B; color:#FAEEDA; width:22px; height:22px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:600; }
+.bcx0 { background:#3B6D11; color:#EAF3DE; width:22px; height:22px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:600; }
+.rv { display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:3px; font-size:0.68rem; font-weight:600; }
+.rv0 { background:#E8E8E8; color:#444441; }
+.rv1 { background:#B5D4F4; color:#0C447C; }
+.rv2 { background:#9FE1CB; color:#085041; }
+.rv3 { background:#D3D1C7; color:#5F5E5A; }
+.rv4 { background:#F5C4B3; color:#712B13; }
+.rv5 { background:#CECBF6; color:#3C3489; }
+.rvx { width:22px; height:22px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:600; }
+.rvx0 { background:#444441; color:#E8E8E8; }
+.rvx1 { background:#0C447C; color:#B5D4F4; }
+.rvx2 { background:#085041; color:#9FE1CB; }
+.rvx3 { background:#5F5E5A; color:#D3D1C7; }
+.rvx4 { background:#712B13; color:#F5C4B3; }
+.rvx5 { background:#3C3489; color:#CECBF6; }
+
+/* ── Columnas tabla ──────────────────────────────────────────────── */
+.col-n { width:36px; text-align:right; color:var(--text-soft); }
+.col-ext { width:38px; text-align:center; border-left:1.5px solid var(--border-strong); border-right:1.5px solid var(--border-strong); }
+.th-ext { text-align:center; border-left:1.5px solid var(--border-strong); border-right:1.5px solid var(--border-strong); background:var(--bg-subtle); }
+.sep-row td { padding:0; height:2px; background:var(--border-strong); }
+.period-sep td { padding:0; height:1px; background:var(--border); opacity:.4; }
+
+/* ── Fila de trayectoria ─────────────────────────────────────────── */
+.traj-td {
+  background:var(--bg-subtle); border-bottom:1px solid var(--border);
+  padding:5px 8px 5px 44px;
+}
+.traj-wrap { display:flex; flex-wrap:wrap; align-items:center; gap:2px; }
+.traj-node { font-family:var(--mono); font-weight:500; font-size:0.88rem; line-height:1; }
+.traj-arr { display:flex; flex-direction:column; align-items:center; gap:1px; margin:0 1px; }
+.traj-arr .lbl { font-size:0.62rem; line-height:1; }
+.traj-arr .sym { color:var(--text-faint); font-size:0.7rem; line-height:1; }
+.traj-fml-sep { width:1px; height:26px; background:var(--border-strong); margin:0 16px; flex-shrink:0; }
+.traj-fml {
+  display:flex; align-items:center; gap:6px;
+  font-family:var(--mono); font-size:0.82rem; color:var(--text-soft); flex-wrap:wrap;
+}
+.traj-fml .eq { color:var(--text-faint); }
+.frac {
+  display:inline-flex; flex-direction:column; align-items:center;
+  vertical-align:middle; margin:0 1px; line-height:1.3; font-size:0.78rem;
+}
+.frac .num { border-bottom:1px solid var(--text-soft); padding:0 4px; white-space:nowrap; text-align:center; }
+.frac .den { padding:0 4px; white-space:nowrap; text-align:center; }
+.traj-result { font-size:1rem; font-weight:600; color:var(--text); }
+
+/* ── Verificación biyección ──────────────────────────────────────── */
+.bij-check {
+  display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;
+  margin-top:0.75rem; padding:0.5rem 0.75rem;
+  border:1px solid var(--border); border-radius:8px;
+  font-size:0.78rem; color:var(--text-soft);
+}
+.bij-check .arrow { color:var(--text-faint); }
+.bij-ok { color:#16a34a; font-weight:600; }
+[data-theme=dark] .bij-ok { color:#4ade80; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/">Docencia</a>
+      <a href="/doctorado/" class="nav-active">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/doctorado/visualizaciones/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/doctorado/visualizaciones/">CA</a><span class="lang-sep">&middot;</span><a href="/en/doctorado/visualizaciones/">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/doctorado/">Doctorado</a>
+      <span class="sep">/</span>
+      <span class="current">Visualizaciones</span>
+    </div>
+
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+        <span class="section-label">Doctorado · Collatz</span>
+        <span class="tag tag-purple">Interactivo</span>
+      </div>
+      <h1 style="margin:0.3rem 0 0.8rem">Visualizaciones</h1>
+      <p style="font-size:1rem;color:var(--text-soft);max-width:42rem">Módulos interactivos para explorar la estructura de las órbitas de Collatz: biyecciones, codificación simbólica y la fórmula cerrada de <em>T<sup>m</sup></em>.</p>
+    </div>
+
+    <!-- Selector de módulos -->
+    <div class="viz-tabs">
+      <button class="viz-tab active" onclick="showModule('bijection', this)">1 · Biyecciones Φ<sub>m</sub> y Ψ<sub>m</sub></button>
+      <button class="viz-tab" onclick="showModule('grafo', this)">2 · Grafo G mod 6 <span style="font-size:0.75rem;opacity:.6">(próximamente)</span></button>
+      <button class="viz-tab" onclick="showModule('matrices', this)">3 · Matrices <span style="font-size:0.75rem;opacity:.6">(próximamente)</span></button>
+    </div>
+
+    <!-- Módulo 1: Biyecciones -->
+    <div id="mod-bijection" class="viz-module active card" style="padding:1.5rem">
+
+      <div style="margin-bottom:1rem">
+        <span class="section-label">Módulo 1</span>
+        <h2 style="font-size:1.1rem;margin:0.3rem 0 0.4rem">Biyecciones Φ<sub>m</sub> y Ψ<sub>m</sub></h2>
+        <p style="font-size:0.88rem;color:var(--text-soft);max-width:40rem;margin:0">La aplicación <strong>Φ<sub>m</sub></strong> envía {1,…,2<sup><em>m</em></sup>} biyectivamente sobre {0,1}<sup><em>m</em></sup> via <em>n</em> ↦ (<em>c</em><sub>1</sub>,…,<em>c</em><sub><em>m</em></sub>). La aplicación <strong>Ψ<sub>m</sub></strong> envía {1,…,6·2<sup><em>m</em></sup>} biyectivamente sobre los caminos de longitud <em>m</em> en el grafo <em>G</em> mod 6. Haz clic en cualquier fila para ver la trayectoria y la fórmula de <em>T<sup>m</sup></em>.</p>
+      </div>
+
+      <div class="viz-defs">
+        <div class="viz-defs-grid">
+          <div><b>c<sub>i</sub></b> = T<sup>i−1</sup>(n) mod 2 &mdash; paridad del i-ésimo iterado (0 = par, 1 = impar)</div>
+          <div><b>h<sub>i</sub></b> = T<sup>i−1</sup>(n) mod 6 &mdash; residuo mod 6 del i-ésimo iterado</div>
+          <div><b>s</b> = &sum; c<sub>i</sub> &mdash; peso de Hamming (n.º de iterados impares)</div>
+          <div><b>T(n)</b> = n/2 si par &nbsp;·&nbsp; (3n+1)/2 si impar &mdash; mapa acelerado de Collatz</div>
+        </div>
+        <div class="viz-defs-asym">
+          <div><b>Antisimetría binaria:</b> n y n+2<sup>m</sup> comparten c<sub>1</sub>…c<sub>m</sub>; el bit c<sub>m+1</sub> es siempre el complementario (0↔1)</div>
+          <div><b>Antisimetría mod 6:</b> n y n+3·2<sup>m</sup> comparten h<sub>1</sub>…h<sub>m</sub>; el residuo h<sub>m+1</sub> es siempre el opuesto (r↔r+3 mod 6)</div>
+        </div>
+      </div>
+
+      <div class="mode-seg">
+        <button class="on" id="btn-bin" onclick="setMode('bin')">Binario {1,…,2<sup>m</sup>}</button>
+        <button id="btn-mod6" onclick="setMode('mod6')">Mod 6 {1,…,6·2<sup>m</sup>}</button>
+      </div>
+
+      <div class="viz-ctrl">
+        <label>m = <input type="number" id="m-val" value="3" min="1" max="4" oninput="render()"></label>
+        <label><input type="checkbox" id="cb-asym" onchange="render()"> Antisimetría</label>
+        <label><input type="checkbox" id="cb-period" onchange="render()"> +1 período</label>
+      </div>
+
+      <div class="viz-scroll">
+        <table class="viz-tbl">
+          <thead id="bij-thead"></thead>
+          <tbody id="bij-tbody"></tbody>
+        </table>
+      </div>
+      <div id="bij-check" class="bij-check"></div>
+    </div>
+
+    <!-- Módulos futuros (placeholder) -->
+    <div id="mod-grafo" class="viz-module card" style="padding:1.5rem">
+      <span class="section-label">Módulo 2</span>
+      <h2 style="font-size:1.1rem;margin:0.3rem 0 0.5rem">Grafo G mod 6</h2>
+      <p style="color:var(--text-soft);font-size:0.88rem">Visualización interactiva del grafo dirigido de transiciones de Collatz módulo 6, con trayectorias animadas. En preparación.</p>
+    </div>
+
+    <div id="mod-matrices" class="viz-module card" style="padding:1.5rem">
+      <span class="section-label">Módulo 3</span>
+      <h2 style="font-size:1.1rem;margin:0.3rem 0 0.5rem">Matrices</h2>
+      <p style="color:var(--text-soft);font-size:0.88rem">Codificación matricial M<sub>c<sub>1</sub></sub>·…·M<sub>c<sub>m</sub></sub> y su relación con la fórmula de <em>T<sup>m</sup></em>. En preparación.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function showModule(id, btn){
+  document.querySelectorAll('.viz-module').forEach(m=>m.classList.remove('active'));
+  document.querySelectorAll('.viz-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('mod-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   Módulo 1 — Biyecciones Φm y Ψm
+   ══════════════════════════════════════════════════════════ */
+let bijMode='bin', bijExpanded=null;
+
+const COLORS=['#FEF9EC','#EFF6FF','#F0FDF4','#FDF4FF','#FFF7ED','#F0F9FF','#FAF5FF','#ECFDF5',
+              '#FFFBEB','#EFF4FF','#EDFDF4','#FDF2F8','#FFF7ED','#ECFEFF','#F5F5FF','#EEFDF5'];
+
+function T(n){return n%2===0?n/2:(3*n+1)/2;}
+function encBin(n,k){const b=[];let c=n;for(let i=0;i<k;i++){b.push(c%2);c=T(c);}return b;}
+function encMod6(n,k){const r=[];let c=n;for(let i=0;i<k;i++){r.push(c%6);c=T(c);}return r;}
+
+function setMode(v){
+  bijMode=v;
+  document.getElementById('btn-bin').className=v==='bin'?'on':'';
+  document.getElementById('btn-mod6').className=v==='mod6'?'on':'';
+  bijExpanded=null; render();
+}
+
+function render(){
+  const m=parseInt(document.getElementById('m-val').value)||3;
+  if(m<1||m>4) return;
+  const asym=document.getElementById('cb-asym').checked;
+  const showPeriod=document.getElementById('cb-period').checked;
+  const isbin=bijMode==='bin';
+  const N=Math.pow(2,m), ext=m+1;
+  const halfSize=isbin?N:3*N;
+  const mainCount=isbin?(asym?2*halfSize:halfSize):2*halfSize;
+  const tbody=document.getElementById('bij-tbody');
+
+  // Header
+  const thead=document.getElementById('bij-thead');
+  let h=`<tr><th class="col-n">n</th><th>${isbin?`c<sub>1</sub>&thinsp;…&thinsp;c<sub>${m}</sub>`:`h<sub>1</sub>&thinsp;…&thinsp;h<sub>${m}</sub>`}</th>`;
+  if(asym) h+=`<th class="th-ext">${isbin?`c<sub>${ext}</sub>`:`h<sub>${ext}</sub>`}</th>`;
+  h+=`</tr>`;
+  thead.innerHTML=h;
+  tbody.innerHTML='';
+
+  function mkChip(v,inv,isbin){
+    if(isbin) return inv?`<span class="bcx${v}">${v}</span>`:`<span class="bc bc${v}">${v}</span>`;
+    return inv?`<span class="rvx rvx${v}">${v}</span>`:`<span class="rv rv${v}">${v}</span>`;
+  }
+
+  function addRows(start,count,ghost){
+    for(let i=0;i<count;i++){
+      const n=start+i;
+      const enc=isbin?encBin(n,asym?ext:m):encMod6(n,asym?ext:m);
+      const prefix=enc.slice(0,m);
+      const extVal=asym?enc[m]:null;
+      const colorIdx=i%halfSize;
+      const bg=asym?COLORS[colorIdx%COLORS.length]:'';
+      const tr=document.createElement('tr');
+      tr.className=ghost?'ghost':'clickable';
+      const chips=prefix.map(v=>mkChip(v,false,isbin)).join('');
+      let cells=`<td class="col-n" style="${bg?'background:'+bg:''}">` +n+`</td>`;
+      cells+=`<td style="${bg?'background:'+bg:''}"><div class="chips">${chips}</div></td>`;
+      if(asym) cells+=`<td class="col-ext">${mkChip(extVal,true,isbin)}</td>`;
+      tr.innerHTML=cells;
+      if(!ghost){
+        const mCap=m, isbinCap=isbin;
+        tr.addEventListener('click',()=>toggleTraj(tr,n,mCap,isbinCap));
+      }
+      tbody.appendChild(tr);
+      if(!ghost && bijExpanded===n) tbody.insertBefore(makeTraj(n,m,isbin),tr.nextSibling);
+      if(asym&&!ghost&&(i+1)===halfSize){
+        const sep=document.createElement('tr'); sep.className='sep-row';
+        sep.innerHTML=`<td colspan="5"></td>`; tbody.appendChild(sep);
+      }
+    }
+  }
+
+  addRows(1,mainCount,false);
+  if(showPeriod){
+    const psep=document.createElement('tr'); psep.className='period-sep';
+    psep.innerHTML=`<td colspan="5"></td>`; tbody.appendChild(psep);
+    addRows(mainCount+1,mainCount,true);
+  }
+
+  // Bijection verification
+  const total=isbin?N:6*N;
+  const codes=new Set();
+  for(let n=1;n<=total;n++) codes.add((isbin?encBin(n,m):encMod6(n,m)).join(','));
+  const ok=codes.size===total;
+  const domainStr=isbin?`${total} enteros en {1,…,2<sup>${m}</sup>}`:`${total} enteros en {1,…,6·2<sup>${m}</sup>}`;
+  const codomStr=isbin?`${codes.size} cadenas distintas en {0,1}<sup>${m}</sup>`:`${codes.size} caminos distintos de longitud ${m} en G`;
+  document.getElementById('bij-check').innerHTML=
+    `<span>${domainStr}</span><span class="arrow">→</span><span>${codomStr}</span>`+
+    `<span class="arrow">→</span><span class="bij-ok">✓ biyección${ok?' verificada':' ✗'}</span>`;
+}
+
+function toggleTraj(tr,n,m,isbin){
+  document.querySelectorAll('.traj-row').forEach(r=>r.remove());
+  if(bijExpanded===n){bijExpanded=null;return;}
+  bijExpanded=n;
+  document.getElementById('bij-tbody').insertBefore(makeTraj(n,m,isbin),tr.nextSibling);
+}
+
+function makeTraj(n,m,isbin){
+  const tr=document.createElement('tr'); tr.classList.add('traj-row');
+  const td=document.createElement('td'); td.colSpan=5; td.className='traj-td';
+  const wrap=document.createElement('div'); wrap.className='traj-wrap';
+
+  // Steps
+  let cur=n;
+  for(let i=0;i<=m;i++){
+    const node=document.createElement('span'); node.className='traj-node'; node.textContent=cur;
+    wrap.appendChild(node);
+    if(i<m){
+      const bval=cur%2, rval=cur%6;
+      const arrDiv=document.createElement('div'); arrDiv.className='traj-arr';
+      const lbl=document.createElement('span'); lbl.className='lbl';
+      lbl.innerHTML=isbin
+        ?`<span class="bc bc${bval}" style="width:15px;height:15px;font-size:0.6rem;">${bval}</span>`
+        :`<span class="rv rv${rval}" style="width:15px;height:15px;font-size:0.6rem;">${rval}</span>`;
+      const arr=document.createElement('span'); arr.className='sym'; arr.textContent='→';
+      arrDiv.appendChild(lbl); arrDiv.appendChild(arr);
+      wrap.appendChild(arrDiv);
+      cur=T(cur);
+    }
+  }
+
+  // Separator
+  const sep=document.createElement('div'); sep.className='traj-fml-sep';
+  wrap.appendChild(sep);
+
+  // Formula (uses binary encoding for s and R regardless of display mode)
+  const encB=encBin(n,m), s=encB.reduce((a,b)=>a+b,0);
+  let R=0; for(let i=0;i<m;i++) if(encB[i]===1) R=3*R+Math.pow(2,i);
+  const p3=Math.pow(3,s)|0, p2=Math.pow(2,m)|0;
+  const result=Math.round((p3*n+R)/p2);
+  const fml=document.createElement('div'); fml.className='traj-fml';
+  fml.innerHTML=
+    `<span>T<sup>${m}</sup>(${n})</span>`+
+    `<span class="eq">=</span>`+
+    `<span class="frac"><span class="num">3<sup>${s}</sup>&thinsp;&middot;&thinsp;${n} + ${R}</span><span class="den">2<sup>${m}</sup></span></span>`+
+    `<span class="eq">=</span>`+
+    `<span class="frac"><span class="num">${p3*n} + ${R}</span><span class="den">${p2}</span></span>`+
+    `<span class="eq">=</span>`+
+    `<span class="traj-result">${result}</span>`;
+  wrap.appendChild(fml);
+
+  td.appendChild(wrap); tr.appendChild(td); return tr;
+}
+
+render();
+</script>
+</body>
+</html>
