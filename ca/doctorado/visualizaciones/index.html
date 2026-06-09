@@ -197,7 +197,7 @@
 
     <!-- Selector de módulos -->
     <div class="viz-tabs">
-      <button class="viz-tab active" onclick="showModule('bijection', this)">1 · Bijeccions Φ<sub>m</sub> y Ψ<sub>m</sub></button>
+      <button class="viz-tab active" onclick="showModule('bijection', this)">1 · Bijeccions Φ<sub>m</sub> i Ψ<sub>m</sub></button>
       <button class="viz-tab" onclick="showModule('grafo', this)">2 · Grafo G mod 6 <span style="font-size:0.75rem;opacity:.6">(aviat)</span></button>
       <button class="viz-tab" onclick="showModule('matrices', this)">3 · Matrices <span style="font-size:0.75rem;opacity:.6">(aviat)</span></button>
     </div>
@@ -207,8 +207,8 @@
 
       <div style="margin-bottom:1rem">
         <span class="section-label">Mòdul 1</span>
-        <h2 style="font-size:1.1rem;margin:0.3rem 0 0.4rem">Bijeccions Φ<sub>m</sub> y Ψ<sub>m</sub></h2>
-        <p style="font-size:0.88rem;color:var(--text-soft);max-width:40rem;margin:0">L'aplicació <strong>Φ<sub>m</sub></strong> envía {1,…,2<sup><em>m</em></sup>} bijectivament sobre {0,1}<sup><em>m</em></sup> via <em>n</em> ↦ (<em>c</em><sub>1</sub>,…,<em>c</em><sub><em>m</em></sub>). L'aplicació <strong>Ψ<sub>m</sub></strong> envía {1,…,6·2<sup><em>m</em></sup>} bijectivament sobre els camins de longitud <em>m</em> en el grafo <em>G</em> mod 6. Fes clic a qualsevol fila per veure la trajectòria i la fórmula de <em>T<sup>m</sup></em>.</p>
+        <h2 style="font-size:1.1rem;margin:0.3rem 0 0.4rem">Bijeccions Φ<sub>m</sub> i Ψ<sub>m</sub></h2>
+        <p style="font-size:0.88rem;color:var(--text-soft);max-width:40rem;margin:0">L'aplicació <strong>Φ<sub>m</sub></strong> envia {1,…,2<sup><em>m</em></sup>} bijectivament sobre {0,1}<sup><em>m</em></sup> via <em>n</em> ↦ (<em>c</em><sub>1</sub>,…,<em>c</em><sub><em>m</em></sub>). L'aplicació <strong>Ψ<sub>m</sub></strong> envia {1,…,6·2<sup><em>m</em></sup>} bijectivament sobre els camins de longitud <em>m</em> en el graf <em>G</em> mod 6. Fes clic a qualsevol fila per veure la trajectòria i la fórmula de <em>T<sup>m</sup></em>.</p>
       </div>
 
       <div class="viz-defs">
@@ -216,7 +216,7 @@
           <div><b>c<sub>i</sub></b> = T<sup>i−1</sup>(n) mod 2 &mdash; paritat del i-èsim iterat (0 = parell, 1 = senar)</div>
           <div><b>h<sub>i</sub></b> = T<sup>i−1</sup>(n) mod 6 &mdash; residu mod 6 del i-èsim iterat</div>
           <div><b>s</b> = &sum; c<sub>i</sub> &mdash; pes de Hamming (n.º d'iterats senars)</div>
-          <div><b>T(n)</b> = n/2 si par &nbsp;·&nbsp; (3n+1)/2 si impar &mdash; mapa accelerat de Collatz</div>
+          <div><b>T(n)</b> = n/2 si parell &nbsp;·&nbsp; (3n+1)/2 si senar &mdash; mapa accelerat de Collatz</div>
         </div>
         <div class="viz-defs-asym">
           <div><b>Antisimetria binària:</b> n i n+2<sup>m</sup> comparteixen c<sub>1</sub>…c<sub>m</sub>; el bit c<sub>m+1</sub> és sempre el complementari (0↔1)</div>
