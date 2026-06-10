@@ -74,7 +74,7 @@
         <span class="tag tag-purple">UPC</span>
       </div>
       <h1 style="margin:0.3rem 0 0.8rem">Conjetura de Collatz y Dinámica simbólica</h1>
-      <p style="font-size:1rem;color:var(--text-soft);max-width:42rem">Investigo la estructura fractal de las órbitas del problema 3<em>n</em>+1 desde el punto de vista de la dinámica simbólica y la aritmética modular. La idea: describir el comportamiento global de Collatz como un sistema dinámico sobre clases de residuos.</p>
+      <p style="font-size:1rem;color:var(--text-soft);max-width:42rem">Estudio la conjetura de Collatz desde una perspectiva combinatoria y aritmética. El eje central es una codificación binario-modular que convierte las iteraciones del mapa acelerado $T$ en palabras binarias y caminos en un grafo dirigido módulo 6. Desde esta estructura emergen resultados exactos — como el teorema de Fibonacci para trayectorias o la dicotomía de crecimiento de fibras — y reducciones de la conjetura en términos del residuo $h_m(n) \in \{0,\ldots,5\}$. La dirección a largo plazo apunta a caracterizar completamente los ciclos de $T$ y sus generalizaciones $T_D$.</p>
     </div>
 
     <div class="info-grid">
@@ -96,6 +96,7 @@
       <div style="margin-top:1.2rem;display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center">
         <a href="https://arxiv.org/abs/2606.02621" class="tag tag-purple" target="_blank" rel="noopener">arXiv:2606.02621</a>
         <a href="https://arxiv.org/pdf/2606.02621" class="tag tag-gray" target="_blank" rel="noopener">PDF</a>
+        <a href="/doctorado/papers/fibonacci-collatz/" class="tag tag-gray">Ver página del paper →</a>
         <span class="tag tag-gray">math.NT</span>
         <span class="tag tag-gray">28 may 2026</span>
       </div>
@@ -105,18 +106,23 @@
     <div class="subject-grid" style="margin-bottom:3rem">
       <div class="subject-card">
         <span class="subject-card-level">Línea 1</span>
-        <h3>Codificación simbólica de órbitas</h3>
-        <p>Caracterización de los caminos <em>C</em><sup><em>m</em></sup><sub><em>k</em></sub> y su relación con los ciclos de Collatz en <strong>Z</strong>/2<sup><em>m</em></sup><strong>Z</strong>.</p>
+        <h3>Codificación simbólico-modular</h3>
+        <p>Biyecciones $\Phi_m$ (binaria) y $\Psi_m$ (mod 6), grafo $G$ mod 6 y sus componentes fuertemente conexas. Base estructural de los tres papers.</p>
       </div>
       <div class="subject-card">
         <span class="subject-card-level">Línea 2</span>
-        <h3>Autosemejanza modular</h3>
-        <p>Estudio del patrón fractal que aparece en la función residuo <em>R</em>(·) al aumentar la profundidad de iteración <em>m</em>.</p>
+        <h3>Crecimiento de fibras y acoplamientos fuertes</h3>
+        <p>Dicotomía de crecimiento de fibras controlada por $h_m(n)$, inyección canónica entre fibras trasladadas y reducción de la conjetura al peso de Hamming.</p>
       </div>
       <div class="subject-card">
         <span class="subject-card-level">Línea 3</span>
-        <h3>Cotas sobre la longitud de vuelo</h3>
-        <p>Estimaciones sobre el número de pasos necesarios para alcanzar 1 en términos del camino simbólico.</p>
+        <h3>Conjetura $h_m = 4$ y descenso</h3>
+        <p>El residuo 4 mod 6 como firma modular de todo acoplamiento fuerte. Lema de descenso e implicaciones para la unicidad de ciclos.</p>
+      </div>
+      <div class="subject-card">
+        <span class="subject-card-level">Línea 4</span>
+        <h3>Collatz generalizado y ciclos</h3>
+        <p>Familia $T_D$ para $D$ impar, correspondencia universal rotación–ciclo y fórmula de collar de Moreau para contar ciclos de longitud $m$ y peso $s$.</p>
       </div>
     </div>
 

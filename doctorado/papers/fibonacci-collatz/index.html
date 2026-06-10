@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Fibonacci theorem for Collatz trajectories — Àlex Reyes</title>
+<meta name="description" content="Paper: A Fibonacci theorem for Collatz trajectories via modular graph structure. Àlex Reyes, arXiv:2606.02621.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/doctorado/papers/fibonacci-collatz/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/doctorado/papers/fibonacci-collatz/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/doctorado/papers/fibonacci-collatz/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/doctorado/papers/fibonacci-collatz/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/doctorado/papers/fibonacci-collatz/">
+<style>
+.paper-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.88rem;color:var(--text-soft);margin-bottom:1.4rem}
+.paper-meta span{display:flex;align-items:center;gap:.3rem}
+.abstract-box{background:var(--bg-subtle);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;margin-bottom:2rem}
+.abstract-box h3{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-soft);margin:0 0 .7rem}
+.abstract-box p{font-size:.95rem;line-height:1.65;margin:0;color:var(--text)}
+.pdf-embed{width:100%;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg-subtle);margin-bottom:2rem}
+.pdf-embed iframe{width:100%;height:80vh;min-height:520px;border:none;display:block}
+.pdf-fallback{padding:2.5rem;text-align:center;display:none}
+.pdf-fallback p{color:var(--text-soft);margin-bottom:1rem}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/">Docencia</a>
+      <a href="/doctorado/" class="nav-active">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/doctorado/papers/fibonacci-collatz/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/doctorado/papers/fibonacci-collatz/">CA</a><span class="lang-sep">&middot;</span><a href="/en/doctorado/papers/fibonacci-collatz/">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/doctorado/">Doctorado</a>
+      <span class="sep">/</span>
+      <span class="current">Paper 1</span>
+    </div>
+
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+        <span class="section-label">Preprint</span>
+        <span class="tag tag-purple">arXiv:2606.02621</span>
+        <span class="tag tag-gray">math.NT</span>
+      </div>
+      <h1 style="margin:0.3rem 0 0.8rem;font-size:1.5rem;line-height:1.3">A Fibonacci theorem for Collatz trajectories via modular graph structure</h1>
+      <div class="paper-meta">
+        <span>Àlex Reyes</span>
+        <span>28 mayo 2026</span>
+        <span>UPC &mdash; Doctorado en Matemática Aplicada</span>
+      </div>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+        <a href="https://arxiv.org/abs/2606.02621" class="tag tag-purple" target="_blank" rel="noopener">Ver en arXiv →</a>
+        <a href="/doctorado/papers/fibonacci-collatz/paper.pdf" class="tag tag-gray" download>Descargar PDF</a>
+        <a href="/doctorado/visualizaciones/" class="tag tag-gray">Visualizaciones relacionadas →</a>
+      </div>
+    </div>
+
+    <div class="abstract-box">
+      <h3>Abstract</h3>
+      <p>We prove that for each $m\ge1$, exactly $F(m+1)$ odd integers in $\{1,\ldots,2^m\}$ have the property that their orbit under the accelerated Collatz map $T$ avoids residue class $4\pmod{6}$ during steps $2,\ldots,m$, where $F(m+1)$ is the $(m+1)$-th Fibonacci number. The proportion decays at rate $(\varphi/2)^m$. The proof uses the directed graph $G$ of Collatz transitions modulo 6 and its unique absorbing strongly connected component $V_3=\{1,2,4,5\}$. An explicit bijection $\Psi_m$ is constructed encoding integers in $\{1,\ldots,6\cdot2^m\}$ as directed paths of $m$ edges in $G$. It is also shown that every positive cycle of $T$ must visit residue class $2\pmod{6}$, which by a flow conservation identity on $G$ accounts for more than $18\%$ of the steps in any cycle.</p>
+    </div>
+
+    <h2 style="font-size:1.1rem;margin-bottom:1rem">Resultados principales</h2>
+    <div class="subject-grid" style="margin-bottom:2.5rem">
+      <div class="subject-card">
+        <span class="subject-card-level">Teorema 1</span>
+        <h3>Teorema de Fibonacci</h3>
+        <p>Exactamente $F(m+1)$ enteros impares en $\{1,\ldots,2^m\}$ tienen trayectoria que evita el residuo $4\pmod{6}$ en los pasos $2,\ldots,m$. La proporción decae como $(\varphi/2)^m \to 0$.</p>
+      </div>
+      <div class="subject-card">
+        <span class="subject-card-level">Teorema 2</span>
+        <h3>Biyección $\Psi_m$</h3>
+        <p>Construcción explícita de una biyección entre $\{1,\ldots,6\cdot2^m\}$ y los caminos dirigidos de $m$ aristas en el grafo $G$ mod 6 con $m+1$ nodos.</p>
+      </div>
+      <div class="subject-card">
+        <span class="subject-card-level">Corolario</span>
+        <h3>Ciclos y residuo 2</h3>
+        <p>Todo ciclo positivo de $T$ debe visitar $2\pmod{6}$. Por la identidad de conservación de flujo en $G$, esto supone más del 18&thinsp;% de los pasos de cualquier ciclo.</p>
+      </div>
+    </div>
+
+    <h2 style="font-size:1.1rem;margin-bottom:1rem">PDF</h2>
+    <div class="pdf-embed" id="pdf-wrap">
+      <iframe
+        id="pdf-frame"
+        src="/doctorado/papers/fibonacci-collatz/paper.pdf"
+        title="A Fibonacci theorem for Collatz trajectories via modular graph structure"
+        aria-label="PDF del paper"
+        onload="document.getElementById('pdf-fallback').style.display='none'"
+        onerror="showFallback()">
+      </iframe>
+      <div class="pdf-fallback" id="pdf-fallback">
+        <p>El PDF no ha podido cargarse en el navegador.</p>
+        <a href="/doctorado/papers/fibonacci-collatz/paper.pdf" class="tag tag-gray" download>Descargar PDF</a>
+        &ensp;
+        <a href="https://arxiv.org/pdf/2606.02621" class="tag tag-purple" target="_blank" rel="noopener">Ver en arXiv →</a>
+      </div>
+    </div>
+
+    <h2 style="font-size:1.1rem;margin-bottom:1rem">Cómo citar</h2>
+    <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin-bottom:2rem">
+      <pre style="font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.6;margin:0;white-space:pre-wrap;color:var(--text)">@misc{reyes2026fibonacci,
+  title  = {A Fibonacci theorem for {Collatz} trajectories via modular graph structure},
+  author = {Reyes, \`{A}lex},
+  year   = {2026},
+  eprint = {2606.02621},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.NT}
+}</pre>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function showFallback(){document.getElementById('pdf-frame').style.display='none';document.getElementById('pdf-fallback').style.display='block';}
+// Show fallback if iframe fails to load within 4s (Safari/mobile PDF blocked)
+setTimeout(function(){
+  var f=document.getElementById('pdf-frame');
+  try{if(!f.contentDocument||f.contentDocument.body.childElementCount===0)showFallback();}catch(e){showFallback();}
+},4000);
+</script>
+</body>
+</html>
