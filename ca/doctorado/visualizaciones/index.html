@@ -848,7 +848,7 @@ onNInput();
 
 <script>
 /* ══════════════════════════════════════════════════════════
-   Module 3 — Graph G mod 6
+   Mòdul 3 — Graf G mod 6
    ══════════════════════════════════════════════════════════ */
 var M3=(function(){
   var BG=['#E8E8E8','#B5D4F4','#9FE1CB','#D3D1C7','#F5C4B3','#CECBF6'];
@@ -868,8 +868,15 @@ var M3=(function(){
   var SCC_C=['#888','#E8923A','#4A90D9'];
   var SCC_L=['V₁','V₂','V₃'];
   var SCC_TXT=['Punt fix','Transitòria','Atractor'];
-  var SCC_D=['T(0)=0, cicle de longitud 1','Surt a V\u2083 en 1 pas','Tota trajectòria no trivial entra i roman'];
-  var SUBS=[{lbl:'G (6×6)',nodes:[0,1,2,3,4,5],info:'Matriu d'adjac\u00e8ncia completa de G mod 6. Cada fila t\u00e9 exactament 2 uns.'},{lbl:'V₃ (4×4)',nodes:[1,2,4,5],info:'Submatriu de l'atractor. Les files 1, 4 i 5 s\u00f3n id\u00e8ntiques (\u21922 i \u21925). Rang = 2.'},{lbl:'H₁',nodes:[2,4,5],info:'G[V\u2083\u2216{1}] \u2014 \u00f2rbites que eviten el residu 1.'},{lbl:'H₂',nodes:[1,4,5],info:'G[V\u2083\u2216{2}] \u2014 \u00f2rbites que eviten el residu 2.'},{lbl:'H₄',nodes:[1,2,5],info:'G[V\u2083\u2216{4}] \u2014 conjectura h_m=4: tota trajectòria n>2 surt eventualment de H\u2084.'},{lbl:'H₅',nodes:[1,2,4],info:'G[V\u2083\u2216{5}] \u2014 \u00f2rbites que eviten el residu 5. Nom\u00e9s arestes amb \u230an/6\u230b parell.'}];
+  var SCC_D=['T(0)=0, cicle de longitud 1','Surt a V₃ en 1 pas','Tota trajectòria no trivial entra i roman'];
+  var SUBS=[
+    {lbl:'G (6×6)',nodes:[0,1,2,3,4,5],info:'Matriz de adyacencia completa de G mod 6. Cada fila té exactament 2 uns.'},
+    {lbl:'V₃ (4×4)',nodes:[1,2,4,5],info:'Submatriz del atractor. Les files 1, 4 i 5 són idèntiques (→2 y →5). Rang = 2.'},
+    {lbl:'H₁',nodes:[2,4,5],info:'G[V₃∖{1}] — òrbites que eviten el residu 1.'},
+    {lbl:'H₂',nodes:[1,4,5],info:'G[V₃∖{2}] — òrbites que eviten el residu 2.'},
+    {lbl:'H₄',nodes:[1,2,5],info:'G[V₃∖{4}] — conjetura h_m=4: tota trajectòria n>2 surt eventualment de H₄.'},
+    {lbl:'H₅',nodes:[1,2,4],info:'G[V₃∖{5}] — òrbites que eviten el residu 5. Només arestes amb ⌊n/6⌋ parell.'},
+  ];
 
   var mode='traj',ms=0,traj=[],eN=-1,sS=-1,mNi=0,mHi=null,playing=false,ptim=null;
   var viewMode='G';
@@ -952,6 +959,7 @@ var M3=(function(){
     var hasHi=ce||hiF>=0||hiM;
     var mn=SUBS[mNi].nodes;
     var mExcl=mode==='matriz'&&mNi>0;
+
     if(viewMode==='Gp'&&(mode==='traj'||mode==='matriz')){
       svg.setAttribute('viewBox',GVB);
       var ce2=ce&&sccOf(ce.r)===2?ce:null;
@@ -959,7 +967,7 @@ var M3=(function(){
       if(traj.length&&sccOf(traj[ms].r)!==2){
         var s=document.getElementById('m3svg');
         var t=sE('text',{x:222,y:138,'text-anchor':'middle','font-size':11,'font-family':'Inter,system-ui,sans-serif',fill:'#aaa'},s);
-        t.textContent='Pas '+ms+': '+SCC_L[sccOf(traj[ms].r)]+' \u2014 encara fora de V\u2083';
+        t.textContent='Pas '+ms+': a '+SCC_L[sccOf(traj[ms].r)]+' — encara fora de V₃';
       }
     } else {
       svg.setAttribute('viewBox',MVB);
@@ -973,10 +981,12 @@ var M3=(function(){
     var d=document.getElementById('m3chips');
     var inner=document.createElement('div');
     inner.style.cssText='display:inline-flex;align-items:flex-end;white-space:nowrap;min-width:max-content;padding-bottom:2px';
+
     traj.forEach(function(t,i){
       var isCur=(i===ms);
       var isCycleStart=cycleInfo&&i===cycleInfo.start;
       var isCycleRepeat=cycleInfo&&i===cycleInfo.repeatAt;
+
       if(isCycleRepeat){
         var rep=document.createElement('div');
         rep.style.cssText='display:inline-flex;flex-direction:column;align-items:center;margin:0 1px';
@@ -989,6 +999,7 @@ var M3=(function(){
         rep.appendChild(rb);rep.appendChild(ra);
         inner.appendChild(rep);
       }
+
       var vbox=document.createElement('div');
       vbox.className='tval'+(isCur?' cur':'');
       vbox.setAttribute('data-step',i);
@@ -1000,8 +1011,9 @@ var M3=(function(){
         badge.textContent='⟳';
         vbox.appendChild(badge);
       }
-      (function(idx){vbox.onclick=function(){pause();ms=idx;renderAll();};})( i);
+      (function(idx){vbox.onclick=function(){pause();ms=idx;renderAll();};})(i);
       inner.appendChild(vbox);
+
       if(i<traj.length-1){
         var abox=document.createElement('div');
         abox.className='tarr';
@@ -1015,14 +1027,17 @@ var M3=(function(){
         inner.appendChild(abox);
       }
     });
+
     d.innerHTML='';d.appendChild(inner);
     setTimeout(function(){var el=d.querySelector('[data-step="'+ms+'"]');if(el)el.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});},40);
+
     var sp=document.getElementById('m3sccpath');
     var parts=[];
-    if(firstV3>0) parts.push('<span style="color:'+SCC_C[2]+'">↳ entra a V\u2083 en el pas '+firstV3+' (≡'+traj[firstV3].r+' mod 6)</span>');
-    else if(firstV3===0) parts.push('<span style="color:'+SCC_C[2]+'">n\u2080 ja a V\u2083</span>');
-    if(cycleInfo) parts.push('<span style="color:#c17d0e">⟳ cicle de per\u00edode '+cycleInfo.period+', primer retorn en el pas '+cycleInfo.repeatAt+'</span>');
+    if(firstV3>0) parts.push('<span style="color:'+SCC_C[2]+'">↳ entra a V₃ al pas '+firstV3+' (≡'+traj[firstV3].r+' mod 6)</span>');
+    else if(firstV3===0) parts.push('<span style="color:'+SCC_C[2]+'">n₀ ya en V₃</span>');
+    if(cycleInfo) parts.push('<span style="color:#c17d0e">⟳ cicle de període '+cycleInfo.period+', primer retorn al pas '+cycleInfo.repeatAt+'</span>');
     sp.innerHTML=parts.join('&ensp;·&ensp;');
+
     var vbar=document.getElementById('m3vbar');
     vbar.style.display=firstV3>=0&&mode==='traj'?'flex':'none';
     if(traj.length){
@@ -1033,9 +1048,9 @@ var M3=(function(){
 
   function renderInfo(){
     var t=traj[ms],scc=sccOf(t.r);
-    var cycStr=cycleInfo&&ms>=cycleInfo.start?'&ensp;<span style="font-size:11px;color:#c17d0e">⟳ en cicle (per\u00edode '+cycleInfo.period+')</span>':'';
+    var cycStr=cycleInfo&&ms>=cycleInfo.start?'&ensp;<span style="font-size:11px;color:#c17d0e">⟳ en ciclo (período '+cycleInfo.period+')</span>':'';
     document.getElementById('m3info').innerHTML=
-      '<span style="font-weight:500;color:var(--text)">'+'Pas '+ms+'</span>'
+      '<span style="font-weight:500;color:var(--text)">Pas '+ms+'</span>'
       +'&ensp;T<sup>'+ms+'</sup>(n) = <b>'+t.val+'</b>'
       +'&ensp;'+nc(t.r,22)
       +'&ensp;<span style="font-size:11.5px;color:'+SCC_C[scc]+'">'+SCC_L[scc]+'</span>'
@@ -1100,7 +1115,7 @@ var M3=(function(){
         +'<div style="font-size:11px;color:var(--text-faint)">'+SCC_D[i]+'</div>'
         +'</div>';
     }).join('');
-    document.getElementById('m3cdg').innerHTML='<b style=\'color:var(--text-soft)\'>Condensaci\u00f3:</b> <span style=\'color:#888\'>V\u2081</span> \u00b7 <span style=\'color:#E8923A\'>V\u2082</span> \u2192 <span style=\'color:#4A90D9\'>V\u2083</span><br>Cicles simples: 0\u21920, 5\u21925 \u00b7 2\u21921\u21922, 2\u21924\u21922 \u00b7 2\u21921\u21925\u21922, 2\u21924\u21925\u21922.';
+    document.getElementById('m3cdg').innerHTML='<b style="color:var(--text-soft)">Condensació:</b> <span style="color:#888">V₁</span> · <span style="color:#E8923A">V₂</span> → <span style="color:#4A90D9">V₃</span><br>Cicles simples: 0→0, 5→5 · 2→1→2, 2→4→2 · 2→1→5→2, 2→4→5→2.';
   }
   function selScc(i){sS=(sS===i)?-1:i;renderSCCs();drawGraph();}
 
@@ -1108,7 +1123,7 @@ var M3=(function(){
     var d=document.getElementById('m3mbtns');d.innerHTML='';
     SUBS.forEach(function(s,i){
       var b=document.createElement('button');b.className='m3mbn'+(i===mNi?' on':'');
-      b.textContent=s.lbl;(function(idx){b.onclick=function(){mNi=idx;mHi=null;document.querySelectorAll('.m3mbn').forEach(function(el,j){el.classList.toggle('on',j===idx);});drawGraph();renderMatrix();renderMatPow();};;})(i);
+      b.textContent=s.lbl;(function(idx){b.onclick=function(){mNi=idx;mHi=null;document.querySelectorAll('.m3mbn').forEach(function(el,j){el.classList.toggle('on',j===idx);});drawGraph();renderMatrix();renderMatPow();};})(i);
       d.appendChild(b);
     });
   }
@@ -1157,6 +1172,7 @@ var M3=(function(){
     var A=nodes.map(function(r){return nodes.map(function(c){return EDT[r]&&EDT[r].indexOf(c)>=0?1:0;});});
     var Am=matPow(A,m);
     var maxv=0;Am.forEach(function(row){row.forEach(function(v){if(v>maxv)maxv=v;});});
+
     var h='<div style="overflow-x:auto"><table style="border-collapse:separate;border-spacing:3px;font-family:var(--mono)">';
     h+='<tr><td style="width:32px;height:32px"></td>';
     nodes.forEach(function(j){h+='<td style="text-align:center;padding:0 1px">'+nc(j,28)+'</td>';});h+='</tr>';
@@ -1170,8 +1186,10 @@ var M3=(function(){
       });h+='</tr>';
     });
     h+='</table></div>';
+
     var pow2=Math.pow(2,m);
     var stats='';
+
     if(mNi===0){
       var trAm=m%2===0?(pow2+2):pow2;
       var Nfin4=m%2===0?pow2:(pow2-1);
@@ -1187,45 +1205,45 @@ var M3=(function(){
         +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
         +stat('tr(A<sup>'+m+'</sup>)',trAm,'— '+(m%2===0?'2<sup>m</sup>+2':'2<sup>m</sup>'),'#888')
         +stat('N<sup>fin</sup><sub>'+m+'</sub>(4)',Nfin4,'camins que acaben en 4','#E8923A')
-        +stat('T<sub>'+m+'</sub>',Tm,'aparicions totals del d\u00edgit 4','#4A90D9')
+        +stat('T<sub>'+m+'</sub>',Tm,'aparicions totals del dígit 4','#4A90D9')
         +stat('N<sub>'+m+',0</sub>',Nm0,'camins que <em>eviten</em> el node 4','#3b6d11')
         +'</div>'
         +'<div style="font-size:11px;color:var(--text-faint);line-height:1.65;margin-top:2px">'
-        +'F\u00f3rmula tancada: p = (2<sup>m\u22121</sup>'+(m%2===0?'\u22122)/3':'\u22121)/3')+',&ensp;tr(A<sup>m</sup>) = 2<sup>m</sup>'+(m%2===0?'+2':'')
+        +'Fórmula tancada: p = (2<sup>m−1</sup>'+(m%2===0?'−2)/3':'−1)/3')+',&ensp;tr(A<sup>m</sup>) = 2<sup>m</sup>'+(m%2===0?'+2':'')
         +'</div></div>';
     } else if(mNi===1){
       var sum=0;Am.forEach(function(row){row.forEach(function(v){sum+=v;});});
       stats='<div style="margin-top:.6rem;display:grid;gap:5px">'
         +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
         +stat('ρ(G\')',2,'radi espectral','#4A90D9')
-        +stat('|camins|',sum,"camins de longitud "+m+" en G'",'#888')
+        +stat('|camins|',sum,'camins de longitud '+m+' en G\'','#888')
         +'</div>'
         +'<div style="font-size:11px;color:var(--text-faint);line-height:1.65;margin-top:2px">'
-        +'Distribuci\u00f3 estacion\u00e0ria: \u03c0(1)=\u03c0(4)=1/6, \u03c0(2)=\u03c0(5)=1/3&emsp;\u00b7&emsp;\u03c7(\u03bb)=\u03bb\u00b2(\u03bb\u22122)(\u03bb+1)'
+        +'Distribució estacionària: π(1)=π(4)=1/6, π(2)=π(5)=1/3&emsp;·&emsp;χ(λ)=λ²(λ−2)(λ+1)'
         +'</div></div>';
     } else if(mNi===4){
       var Fm1=fib(m+1),phi=(1+Math.sqrt(5))/2;
       var Lm=lucasNum(m),Fm4=fib(m+4);
       stats='<div style="margin-top:.6rem;display:grid;gap:.5rem">';
       stats+='<div style="border:.5px solid #C0DD97;border-radius:7px;padding:.5rem .75rem;background:rgba(60,109,17,.06)">'
-        +'<div style="font-size:12px;font-weight:600;color:#3b6d11;margin-bottom:.25rem">'+'Teorema Fibonacci'+'</div>'
+        +'<div style="font-size:12px;font-weight:600;color:#3b6d11;margin-bottom:.25rem">Teorema Fibonacci</div>'
         +'<div style="font-size:12px;color:var(--text-soft);line-height:1.7">'
-        +'Senars en {1,\u2026,2<sup>'+m+'</sup>} el cam\u00ed dels quals evita el node 4: '
+        +'Senars en {1,…,2<sup>'+m+'</sup>} el camí dels quals evita el node 4: '
         +'<b style="font-size:13px;color:#3b6d11">F('+(m+1)+') = '+Fm1+'</b>'
         +'</div>'
         +'<div style="font-size:11px;color:var(--text-faint);margin-top:.2rem;line-height:1.65">'
-        +'ρ = φ ≈ '+phi.toFixed(4)+'&emsp;·&emsp;χ(λ)=λ(λ²−λ−1)&emsp;·&emsp;φ/2 ≈ '+(phi/2).toFixed(4)+' '+'taxa de deca\u00efment'
+        +'ρ = φ ≈ '+phi.toFixed(4)+'&emsp;·&emsp;χ(λ)=λ(λ²−λ−1)&emsp;·&emsp;φ/2 ≈ '+(phi/2).toFixed(4)+' taxa de decaïment'
         +'</div></div>';
       stats+='<div style="font-size:11px;color:var(--text-faint);line-height:1.75">'
-        +'<b style="color:var(--text-soft)">A<sup>m</sup><sub>H₄</sub></b> '+'t\u00e9 entrades Fibonacci: '
+        +'<b style="color:var(--text-soft)">A<sup>m</sup><sub>H₄</sub></b> té entrades Fibonacci: '
         +'tr = L<sub>m</sub> = <b style="font-family:var(--mono)">'+Lm+'</b>'
-        +' &emsp;·&emsp; suma = F<sub>m+4</sub> = <b style="font-family:var(--mono)">'+Fm4+'</b>'
+        +' &emsp;·&emsp; suma total = F<sub>m+4</sub> = <b style="font-family:var(--mono)">'+Fm4+'</b>'
         +'</div>';
       if(m>=2&&m<=13){
         var codings=getFibCodings(m);
         stats+='<div style="font-size:11.5px;font-weight:600;color:var(--text-soft);margin-top:.2rem">'
           +'Codificacions que eviten el node 4 ('+codings.length+')'
-          +(m>10?' <span style="font-weight:400;color:var(--text-faint)">'+\u2014 desplau\u00e7a \u2195+'</span>':'')
+          +(m>10?' <span style="font-weight:400;color:var(--text-faint)">— scroll ↕</span>':'')
           +'</div>';
         var tbl='<div style="overflow-y:auto;max-height:260px;overflow-x:auto">'
           +'<table style="border-collapse:collapse;font-size:11px;width:100%;min-width:340px">'
@@ -1246,7 +1264,7 @@ var M3=(function(){
         tbl+='</tbody></table></div>';
         stats+=tbl;
       } else if(m>13){
-        stats+='<div style="font-size:11px;color:var(--text-faint)">'+Fm1+' codificacions \u2014 taula nom\u00e9s disponible per a m \u2264 13.'+'</div>';
+        stats+='<div style="font-size:11px;color:var(--text-faint)">'+Fm1+' codificacions — taula només disponible per a m ≤ 13.</div>';
       }
       stats+='</div>';
     } else {
@@ -1255,9 +1273,10 @@ var M3=(function(){
       var sum2=0;Am.forEach(function(row){row.forEach(function(v){sum2+=v;});});
       stats='<div style="margin-top:.6rem;display:flex;gap:8px;flex-wrap:wrap">'
         +stat('ρ',rhoStr,'radi espectral','#4A90D9')
-        +stat('|'+'camins de longitud '+m+'|',sum2,'camins de longitud '+m,'#888')
+        +stat('|camins|',sum2,'camins de longitud '+m,'#888')
         +'</div>';
     }
+
     document.getElementById('m3matpow').innerHTML=h+stats;
   }
 
@@ -1273,7 +1292,7 @@ var M3=(function(){
     var d=document.getElementById('m3pills');d.innerHTML='';
     for(var i=0;i<6;i++){
       var p=document.createElement('span');p.className='m3npill';p.style.cssText='background:'+BG[i]+';color:'+TX[i];p.textContent=String(i);
-      (function(idx){p.onclick=function(){eN=idx;document.querySelectorAll('.m3npill').forEach(function(el,j){el.classList.toggle('sel',j===idx);});renderDeriv(idx);drawGraph();};;})(i);
+      (function(idx){p.onclick=function(){eN=idx;document.querySelectorAll('.m3npill').forEach(function(el,j){el.classList.toggle('sel',j===idx);});renderDeriv(idx);drawGraph();};})(i);
       d.appendChild(p);
     }
     eN=1;d.querySelectorAll('.m3npill')[1].classList.add('sel');renderDeriv(1);drawGraph();
@@ -1287,10 +1306,10 @@ var M3=(function(){
     if(isEven){Tf2='T(n) = n/2 = '+a/2+' + 3k';s0='k=2j → '+a/2+' + 6j ≡ <b>'+r0+'</b> (mod 6)';s1='k=2j+1 → '+(a/2+3)+' + 6j ≡ <b>'+r1+'</b> (mod 6)';}
     else{var base=(3*a+1)/2;Tf2='T(n) = (3n+1)/2 = '+base+' + 9k';s0='k=2j → '+base+' + 18j ≡ <b>'+r0+'</b> (mod 6)';s1='k=2j+1 → '+(base+9)+' + 18j ≡ <b>'+r1+'</b> (mod 6)';}
     var rows='';
-    for(var k=0;k<6;k++){var n=a+6*k,tn=Tf(n),r=m6(tn);rows+='<tr><td style="padding:3px 8px;text-align:center;color:var(--text-faint)">'+k+'</td><td style="padding:3px 8px;text-align:center">'+n+'</td><td style="padding:3px 8px;text-align:center">'+tn+'</td><td style="padding:3px 8px;text-align:center">'+nc(r,22)+'</td><td style="padding:3px 8px;text-align:center"><span style="font-size:11px;background:'+(k%2===0?'#EAF3DE':'#FAEEDA')+';color:'+(k%2===0?'#3b6d11':'#854f0b')+';padding:1px 6px;border-radius:4px">'+(k%2===0?k parell:k senar)+'</span></td></tr>';}
-    var h='<div style="display:flex;align-items:center;gap:10px;margin-bottom:.75rem">'+nc(a,42)+'<div><div style="font-size:13.5px;color:var(--text);font-weight:500">n ≡ '+a+' — n '+(isEven?parell:senar)+'</div><div style="font-size:12px;color:var(--text-faint)">n = '+a+' + 6k</div></div></div>';
+    for(var k=0;k<6;k++){var n=a+6*k,tn=Tf(n),r=m6(tn);rows+='<tr><td style="padding:3px 8px;text-align:center;color:var(--text-faint)">'+k+'</td><td style="padding:3px 8px;text-align:center">'+n+'</td><td style="padding:3px 8px;text-align:center">'+tn+'</td><td style="padding:3px 8px;text-align:center">'+nc(r,22)+'</td><td style="padding:3px 8px;text-align:center"><span style="font-size:11px;background:'+(k%2===0?'#EAF3DE':'#FAEEDA')+';color:'+(k%2===0?'#3b6d11':'#854f0b')+';padding:1px 6px;border-radius:4px">k '+(k%2===0?'k parell':'k senar')+'</span></td></tr>';}
+    var h='<div style="display:flex;align-items:center;gap:10px;margin-bottom:.75rem">'+nc(a,42)+'<div><div style="font-size:13.5px;color:var(--text);font-weight:500">n ≡ '+a+' — n '+(isEven?'parell':'senar')+'</div><div style="font-size:12px;color:var(--text-faint)">n = '+a+' + 6k</div></div></div>';
     h+='<div style="font-family:var(--mono);font-size:12px;background:var(--bg-subtle);border-radius:7px;padding:.5rem .8rem;margin-bottom:.75rem;color:var(--text-soft)">'+Tf2+'</div>';
-    h+='<div style="display:flex;gap:8px;margin-bottom:.75rem"><div class="m3rbox" style="border-color:#C0DD97"><div style="font-size:12px;font-weight:500;color:#3b6d11;margin-bottom:.4rem">'+k parell+'</div><div style="font-size:12px;color:var(--text-soft);margin-bottom:.5rem">'+s0+'</div><div style="display:flex;align-items:center;gap:7px">'+nc(r0,38)+'<span style="font-size:12px;color:var(--text-faint)">\u2192 node '+r0+'</span></div></div><div class="m3rbox" style="border-color:#FAC775"><div style="font-size:12px;font-weight:500;color:#854f0b;margin-bottom:.4rem">'+k senar+'</div><div style="font-size:12px;color:var(--text-soft);margin-bottom:.5rem">'+s1+'</div><div style="display:flex;align-items:center;gap:7px">'+nc(r1,38)+'<span style="font-size:12px;color:var(--text-faint)">\u2192 node '+r1+'</span></div></div></div>';
+    h+='<div style="display:flex;gap:8px;margin-bottom:.75rem"><div class="m3rbox" style="border-color:#C0DD97"><div style="font-size:12px;font-weight:500;color:#3b6d11;margin-bottom:.4rem">k parell</div><div style="font-size:12px;color:var(--text-soft);margin-bottom:.5rem">'+s0+'</div><div style="display:flex;align-items:center;gap:7px">'+nc(r0,38)+'<span style="font-size:12px;color:var(--text-faint)">→ node '+r0+'</span></div></div><div class="m3rbox" style="border-color:#FAC775"><div style="font-size:12px;font-weight:500;color:#854f0b;margin-bottom:.4rem">k senar</div><div style="font-size:12px;color:var(--text-soft);margin-bottom:.5rem">'+s1+'</div><div style="display:flex;align-items:center;gap:7px">'+nc(r1,38)+'<span style="font-size:12px;color:var(--text-faint)">→ node '+r1+'</span></div></div></div>';
     h+='<table style="width:100%;border-collapse:collapse;font-size:12px;font-family:var(--mono)"><thead><tr style="border-bottom:.5px solid var(--border)"><th style="padding:3px 8px;color:var(--text-faint);font-weight:500;text-align:center">k</th><th style="padding:3px 8px;color:var(--text-faint);font-weight:500;text-align:center">n</th><th style="padding:3px 8px;color:var(--text-faint);font-weight:500;text-align:center">T(n)</th><th style="padding:3px 8px;color:var(--text-faint);font-weight:500;text-align:center">mod 6</th><th style="padding:3px 8px;color:var(--text-faint);font-weight:500;text-align:center"></th></tr></thead><tbody>'+rows+'</tbody></table>';
     d.innerHTML=h;
   }
