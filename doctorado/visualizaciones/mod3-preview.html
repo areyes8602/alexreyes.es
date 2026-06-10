@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Módulo 3 — Grafo G mod 6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-text-tertiary:#888;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f4;
+  --color-background-tertiary:#ebebea;
+  --color-border-primary:#d1d1ce;
+  --color-border-secondary:#e2e2e0;
+  --color-border-tertiary:#ececea;
+  --font-mono:'JetBrains Mono',monospace;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#e8e8e6;
+    --color-text-secondary:#aaa;
+    --color-text-tertiary:#666;
+    --color-background-primary:#1a1a1a;
+    --color-background-secondary:#242424;
+    --color-background-tertiary:#2c2c2a;
+    --color-border-primary:#444;
+    --color-border-secondary:#333;
+    --color-border-tertiary:#2c2c2a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--color-background-primary);
+  color:var(--color-text-primary);
+  margin:0;padding:24px 16px;
+  line-height:1.5;
+}
+.card{
+  max-width:680px;margin:0 auto;
+  background:var(--color-background-primary);
+  border:1px solid var(--color-border-secondary);
+  border-radius:12px;padding:1.25rem 1.25rem 1.5rem;
+}
+h2{font-size:1rem;margin:0 0 .75rem;color:var(--color-text-primary);}
+.slbl{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-tertiary);}
+</style>
+</head>
+<body>
+<div class="card">
+<span class="slbl">Módulo 3</span>
+<h2>Grafo <em>G</em> mod 6</h2>
+
+<style>
+.m3seg{display:inline-flex;border:.5px solid var(--color-border-secondary);border-radius:20px;overflow:hidden;margin-bottom:.6rem}
+.m3seg button{background:none;border:none;padding:5px 12px;font-size:12px;cursor:pointer;color:var(--color-text-secondary);font-family:inherit;font-weight:500}
+.m3seg button.on{background:var(--color-background-secondary);color:var(--color-text-primary)}
+.m3pb{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--color-border-secondary);background:var(--color-background-secondary);cursor:pointer;flex-shrink:0;font-size:13px;line-height:1}
+.m3pb:hover{background:var(--color-background-tertiary)}
+.m3ctrl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:.5rem}
+.m3ctrl label{font-size:12.5px;color:var(--color-text-secondary);display:flex;align-items:center;gap:5px}
+.m3npill{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;border:2px solid transparent;opacity:.7}
+.m3npill.sel{border-color:var(--color-text-primary);transform:scale(1.1);opacity:1}
+.m3rbox{flex:1;min-width:130px;border:.5px solid var(--color-border-tertiary);border-radius:8px;padding:.8rem}
+.m3mbn{font-size:11px;padding:3px 9px;border-radius:10px;border:.5px solid var(--color-border-secondary);background:none;color:var(--color-text-secondary);cursor:pointer}
+.m3mbn.on{background:var(--color-background-secondary);color:var(--color-text-primary)}
+.m3scc{flex:1;min-width:105px;border:1.5px solid var(--color-border-tertiary);border-radius:9px;padding:.65rem;cursor:pointer;transition:border-color .15s}
+.m3mc{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:5px;font-size:12px;font-weight:500;cursor:default;border:1px solid transparent}
+.m3mc.e0{background:rgba(60,109,17,.18);color:#3B6D11;cursor:pointer}
+.m3mc.e1{background:rgba(133,79,11,.18);color:#854F0B;cursor:pointer}
+.m3mc.hi{box-shadow:0 0 0 2.5px var(--color-text-primary)}
+.m3mc.trail{opacity:.5}
+@media(prefers-color-scheme:dark){.m3mc.e0{color:#C0DD97}.m3mc.e1{color:#FAC775}}
+.tval{display:inline-flex;flex-direction:column;align-items:center;padding:5px 7px;border-radius:7px;cursor:pointer;transition:background .1s;position:relative}
+.tval:hover{background:var(--color-background-tertiary)}
+.tval.cur{background:var(--color-background-secondary);box-shadow:0 0 0 1.5px var(--color-text-primary)}
+.tarr{display:inline-flex;flex-direction:column;align-items:center;margin:0 1px;user-select:none}
+details.m3pre{border:.5px solid var(--color-border-secondary);border-radius:9px;padding:.55rem .75rem;margin-bottom:.65rem;background:var(--color-background-secondary)}
+details.m3pre summary{font-size:12px;font-weight:500;color:var(--color-text-secondary);cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px;user-select:none}
+details.m3pre summary::before{content:'▶';font-size:9px;transition:transform .15s;display:inline-block}
+details.m3pre[open] summary::before{transform:rotate(90deg)}
+.m3prebody{margin-top:.6rem;font-size:12px;color:var(--color-text-secondary);line-height:1.75;display:grid;gap:.3rem}
+.m3prow{display:flex;gap:.5rem;align-items:baseline}
+.m3dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px}
+</style>
+
+<details class="m3pre">
+  <summary>Preámbulo — ¿qué visualiza este gráfico?</summary>
+  <div class="m3prebody">
+    <div class="m3prow"><span class="m3dot" style="background:#aaa"></span><span><b>T</b>: mapa de Collatz acelerado — T(n) = n/2 (par), (3n+1)/2 (impar), T(0)=0. La trayectoria es T⁰(n), T¹(n), T²(n), …</span></div>
+    <div class="m3prow"><span class="m3dot" style="background:#555"></span><span><b>Grafo G mod 6</b>: 6 nodos = residuos 0–5, 12 aristas. Escribe n = 6k + r. Cada nodo r tiene dos aristas salientes: <span style="color:#3b6d11;font-weight:500">●verde</span> (k par) y <span style="color:#854f0b;font-weight:500">●ámbar</span> (k impar).</span></div>
+    <div class="m3prow"><span class="m3dot" style="background:#4A90D9"></span><span><b>Periodicidad</b>: todos los n con el mismo residuo mod 6 y la misma sucesión de paridades recorren exactamente el mismo camino en G durante m iteraciones — es decir, los miembros de una clase de congruencia módulo 6·2<sup>m</sup> comparten trayectoria durante m pasos.</span></div>
+    <div class="m3prow"><span class="m3dot" style="background:#E8923A"></span><span><b>SCCs</b>: V₁={0} punto fijo · V₂={3} transitoria · V₃={1,2,4,5} atractor cerrado.</span></div>
+    <div class="m3prow"><span class="m3dot" style="background:#4A90D9;opacity:.5"></span><span><b>G'</b> = G[V₃]: subgrafo inducido en el atractor. Distribución estacionaria: π(1)=π(4)=1/6, π(2)=π(5)=1/3.</span></div>
+  </div>
+</details>
+
+<div class="m3seg">
+  <button id="m3bt" class="on" onclick="M3.tab('traj')">Trayectoria</button>
+  <button id="m3be" onclick="M3.tab('edges')">Aristas</button>
+  <button id="m3bs" onclick="M3.tab('sccs')">SCCs</button>
+  <button id="m3bm" onclick="M3.tab('matriz')">Matriz</button>
+</div>
+
+<div id="m3tc" class="m3ctrl">
+  <label>n = <input type="number" id="m3n" value="7" style="width:60px" oninput="M3.update()"></label>
+  <label>m = <input type="number" id="m3m" value="14" min="1" max="30" style="width:60px" oninput="M3.update()"></label>
+  <button class="m3pb" onclick="M3.reset()" title="Volver al inicio" style="color:var(--color-text-secondary)">⏮</button>
+  <button class="m3pb" id="m3play" onclick="M3.togglePlay()" style="color:var(--color-text-secondary)">▶</button>
+  <input type="range" id="m3sl" min="0" max="14" value="0" style="flex:1;min-width:80px" oninput="M3.slide()">
+  <span id="m3slbl" style="font-size:12px;color:var(--color-text-secondary);min-width:40px">0/14</span>
+  <label style="font-size:11px;color:var(--color-text-tertiary);display:flex;align-items:center;gap:4px">vel
+    <select id="m3sp" style="font-size:11px;padding:2px 4px;border-radius:4px;border:.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary)">
+      <option value="1200">▸</option><option value="700" selected>▸▸</option><option value="350">▸▸▸</option>
+    </select>
+  </label>
+</div>
+
+<!-- View toggle: only shown when trajectory reaches V₃ -->
+<div id="m3vbar" style="display:none;margin-bottom:.45rem;align-items:center;gap:8px">
+  <span style="font-size:11.5px;color:var(--color-text-tertiary)">Ver en:</span>
+  <div class="m3seg" style="margin-bottom:0">
+    <button id="m3vG" class="on" onclick="M3.setView('G')">G mod 6</button>
+    <button id="m3vGp" onclick="M3.setView('Gp')">G'</button>
+  </div>
+  <span id="m3gcinfo" style="font-size:11px;color:var(--color-text-tertiary)"></span>
+</div>
+
+<svg id="m3svg" width="100%" viewBox="-70 -165 530 340" style="background:var(--color-background-secondary);border-radius:12px;display:block;margin-bottom:.5rem"></svg>
+
+<div id="m3ut">
+  <div id="m3info" style="font-size:12.5px;color:var(--color-text-secondary);line-height:1.8;margin-bottom:.4rem"></div>
+  <div id="m3chips" style="overflow-x:auto;padding-bottom:.35rem"></div>
+  <div id="m3sccpath" style="margin-top:.3rem;min-height:16px"></div>
+</div>
+
+<div id="m3ue" style="display:none">
+  <div style="display:flex;gap:6px;margin-bottom:.75rem;align-items:center">
+    <span style="font-size:12.5px;color:var(--color-text-secondary)">Nodo:</span>
+    <div id="m3pills" style="display:flex;gap:5px"></div>
+  </div>
+  <div id="m3deriv"></div>
+</div>
+
+<div id="m3us" style="display:none">
+  <div id="m3sccc" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.75rem"></div>
+  <div id="m3cdg" style="font-size:12px;color:var(--color-text-tertiary);line-height:1.7"></div>
+</div>
+
+<div id="m3um" style="display:none">
+  <div style="display:flex;gap:6px;margin-bottom:.75rem;align-items:center;flex-wrap:wrap">
+    <span style="font-size:12px;color:var(--color-text-tertiary)">Subgrafo:</span>
+    <div id="m3mbtns" style="display:flex;gap:5px;flex-wrap:wrap"></div>
+  </div>
+  <div id="m3matd"></div>
+  <div id="m3minfo" style="font-size:11.5px;color:var(--color-text-tertiary);margin-top:.5rem;line-height:1.6"></div>
+  <div style="margin-top:.9rem;border-top:.5px solid var(--color-border-secondary);padding-top:.7rem">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:.5rem">
+      <span style="font-size:12px;color:var(--color-text-tertiary)">A<sup>m</sup> &nbsp;m =</span>
+      <input type="number" id="m3mpow" value="2" min="1" max="12" style="width:48px;font-size:12px;padding:2px 5px;border-radius:4px;border:.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary)" oninput="M3.renderMatPow()">
+    </div>
+    <div id="m3matpow"></div>
+  </div>
+</div>
+
+<script>
+var M3=(function(){
+  var BG=['#E8E8E8','#B5D4F4','#9FE1CB','#D3D1C7','#F5C4B3','#CECBF6'];
+  var TX=['#444441','#0C447C','#085041','#5F5E5A','#712B13','#3C3489'];
+  var EC=['#3b6d11','#854f0b'];
+  var NX=[0,250,200,100,350,200], NY=[0,0,100,0,0,-100];
+  // G' coords: node 1 moved to former node-3 position (100,0)
+  var GCNX=[0,100,200,0,350,200], GCNY=[0,0,100,0,0,-100];
+  var EDT={0:[0,3],1:[2,5],2:[1,4],3:[5,2],4:[2,5],5:[2,5]};
+  var NR=18,LR=15,LD=NR+LR+2;
+  var CX=(NX[0]+NX[1]+NX[2]+NX[3]+NX[4]+NX[5])/6;
+  var CY=(NY[0]+NY[1]+NY[2]+NY[3]+NY[4]+NY[5])/6;
+  var GCCX=(GCNX[1]+GCNX[2]+GCNX[4]+GCNX[5])/4; // 212.5
+  var GCCY=0;
+  var GVB='10 -190 460 420'; // G' viewBox
+  var MVB='-70 -165 530 340'; // G viewBox
+  var SCC_N=[[0],[3],[1,2,4,5]];
+  var SCC_C=['#888','#E8923A','#4A90D9'];
+  var SCC_L=['V₁','V₂','V₃'];
+  var SCC_TXT=['Punto fijo','Transitoria','Atractor'];
+  var SCC_D=['T(0)=0, ciclo de longitud 1','Sale a V₃ en 1 paso','Toda trayectoria no trivial entra y permanece'];
+  var SUBS=[
+    {lbl:'G (6×6)',nodes:[0,1,2,3,4,5],info:'Matriz de adyacencia completa de G mod 6. Cada fila tiene exactamente 2 unos.'},
+    {lbl:'V₃ (4×4)',nodes:[1,2,4,5],info:'Submatriz del atractor. Las filas 1, 4 y 5 son idénticas (→2 y →5). Rango = 2.'},
+    {lbl:'H₁',nodes:[2,4,5],info:'G[V₃∖{1}] — órbitas que evitan el residuo 1.'},
+    {lbl:'H₂',nodes:[1,4,5],info:'G[V₃∖{2}] — órbitas que evitan el residuo 2.'},
+    {lbl:'H₄',nodes:[1,2,5],info:'G[V₃∖{4}] — conjetura h_m=4: toda trayectoria n>2 sale eventualmente de H₄.'},
+    {lbl:'H₅',nodes:[1,2,4],info:'G[V₃∖{5}] — órbitas que evitan el residuo 5. Solo aristas con ⌊n/6⌋ par.'},
+  ];
+
+  var mode='traj',ms=0,traj=[],eN=-1,sS=-1,mNi=0,mHi=null,playing=false,ptim=null;
+  var viewMode='G'; // 'G' or 'Gp'
+  var cycleInfo=null,firstV3=-1;
+
+  function m6(x){return((x%6)+6)%6;}
+  function gB(x){return((Math.floor(x/6)%2)+2)%2;}
+  function Tf(x){return x%2===0?x/2:(3*x+1)/2;}
+  function cT(n,m){var t=[{val:n,r:m6(n),b:null,fr:-1}],x=n;for(var i=0;i<m;i++){var b=gB(x),fr=m6(x);x=Tf(x);t.push({val:x,r:m6(x),b:b,fr:fr});}return t;}
+  function sccOf(r){return r===0?0:r===3?1:2;}
+
+  function computeAux(){
+    cycleInfo=null;firstV3=-1;
+    var seen={};
+    for(var i=0;i<traj.length;i++){
+      if(firstV3<0&&sccOf(traj[i].r)===2)firstV3=i;
+      var v=traj[i].val;
+      if(seen[v]!==undefined&&cycleInfo===null){cycleInfo={start:seen[v],period:i-seen[v],repeatAt:i};}
+      if(seen[v]===undefined)seen[v]=i;
+    }
+  }
+
+  function sE(tag,a,p){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+  function mkLP(nx,ny,ccx,ccy){return function(r){var ang=Math.atan2(ny[r]-ccy,nx[r]-ccx),lx=nx[r]+LD*Math.cos(ang),ly=ny[r]+LD*Math.sin(ang),g=ang+Math.PI,gp=0.3,sx=lx+LR*Math.cos(g+gp),sy=ly+LR*Math.sin(g+gp),ex=lx+LR*Math.cos(g-gp),ey=ly+LR*Math.sin(g-gp);return'M'+sx+','+sy+' A'+LR+','+LR+' 0 1 1 '+ex+','+ey;};}
+  function mkEP(nx,ny){return function(r,to){var x1=nx[r],y1=ny[r],x2=nx[to],y2=ny[to],dx=x2-x1,dy=y2-y1,len=Math.sqrt(dx*dx+dy*dy);if(EDT[to][0]===r||EDT[to][1]===r){var off=11,cpx=(x1+x2)/2-dy/len*off,cpy=(y1+y2)/2+dx/len*off,t1x=cpx-x1,t1y=cpy-y1,t1l=Math.sqrt(t1x*t1x+t1y*t1y),t2x=x2-cpx,t2y=y2-cpy,t2l=Math.sqrt(t2x*t2x+t2y*t2y);return'M'+(x1+t1x/t1l*NR)+','+(y1+t1y/t1l*NR)+' Q'+cpx+','+cpy+' '+(x2-t2x/t2l*(NR+3))+','+(y2-t2y/t2l*(NR+3));}return'M'+(x1+dx/len*NR)+','+(y1+dy/len*NR)+' L'+(x2-dx/len*(NR+3))+','+(y2-dy/len*(NR+3));};}
+
+  var LP=mkLP(NX,NY,CX,CY),EP=mkEP(NX,NY);
+  var LPgc=mkLP(GCNX,GCNY,GCCX,GCCY),EPgc=mkEP(GCNX,GCNY);
+
+  function drawCore(svg,lpFn,epFn,nx,ny,nodes,ce,hiF,hiM,hasHi,sccMode,ssIdx,mExcl,mN2){
+    var s=document.getElementById(svg);s.innerHTML='';
+    var pfx=svg;
+    var defs=sE('defs',{},s);
+    [['g','#3b6d11'],['a','#854f0b']].forEach(function(d){var mk=sE('marker',{id:pfx+'mk'+d[0],markerWidth:8,markerHeight:6,refX:7,refY:3,orient:'auto'},defs);sE('path',{d:'M0,0 L8,3 L0,6 Z',fill:d[1]},mk);});
+    if(sccMode){
+      var ops=[ssIdx===-1||ssIdx===0?.22:.05,ssIdx===-1||ssIdx===1?.22:.05,ssIdx===-1||ssIdx===2?.16:.04];
+      sE('rect',{x:NX[0]-38,y:NY[0]-38,width:76,height:76,rx:10,fill:SCC_C[0],stroke:SCC_C[0],'stroke-width':1.5,opacity:ops[0]},s);
+      sE('rect',{x:NX[3]-38,y:NY[3]-38,width:76,height:76,rx:10,fill:SCC_C[1],stroke:SCC_C[1],'stroke-width':1.5,opacity:ops[1]},s);
+      sE('rect',{x:162,y:-138,width:228,height:276,rx:14,fill:SCC_C[2],stroke:SCC_C[2],'stroke-width':1.5,opacity:ops[2]},s);
+      [[NX[0],-54,SCC_L[0],0],[NX[3],-54,SCC_L[1],1],[275,-152,SCC_L[2],2]].forEach(function(it){
+        var t=sE('text',{x:it[0],y:it[1],'text-anchor':'middle','font-size':12,'font-weight':500,'font-family':'Inter,system-ui,sans-serif',fill:SCC_C[it[3]],opacity:ssIdx===-1||ssIdx===it[3]?.9:.3},s);t.textContent=it[2];
+      });
+    }
+    nodes.forEach(function(r){
+      [0,1].forEach(function(b){
+        var to=EDT[r][b];if(nodes.indexOf(to)<0)return;
+        var d=(r===to)?lpFn(r):epFn(r,to);
+        var col=EC[b],mid='url(#'+pfx+'mk'+(b===0?'g':'a')+')';
+        var isTraj=ce&&ce.fr===r&&ce.r===to&&ce.b===b;
+        var isEdge=hiF>=0&&r===hiF;
+        var isMat=hiM&&hiM.r===r&&hiM.c===to;
+        var inScc=ssIdx===-1||(SCC_N[ssIdx].indexOf(r)>=0&&SCC_N[ssIdx].indexOf(to)>=0);
+        var inMS=!mExcl||(mN2.indexOf(r)>=0&&mN2.indexOf(to)>=0);
+        if(isTraj||isMat||isEdge){sE('path',{d:d,stroke:col,'stroke-width':11,fill:'none',opacity:.22,'stroke-linecap':'round'},s);sE('path',{d:d,stroke:col,'stroke-width':2.5,fill:'none','marker-end':mid},s);}
+        else{var op=sccMode&&ssIdx>=0&&!inScc?.06:!inMS?.07:hasHi?.14:.35;sE('path',{d:d,stroke:col,'stroke-width':1.5,fill:'none','marker-end':mid,opacity:op},s);}
+      });
+    });
+    var curR=traj.length?traj[ms].r:-1;
+    var dests=hiF>=0?[EDT[hiF][0],EDT[hiF][1]]:[];
+    nodes.forEach(function(i){
+      var isSrc=i===hiF,isDest=dests.indexOf(i)>=0,isCur=i===curR;
+      var inScc2=ssIdx===-1||SCC_N[ssIdx].indexOf(i)>=0;
+      var inMS2=!mExcl||mN2.indexOf(i)>=0;
+      var sw=isSrc||isCur?2.5:isDest?2:1;
+      var stk=isCur||isSrc?'var(--color-text-primary)':isDest?EC[dests.indexOf(i)]:'#999';
+      if(sccMode&&inScc2&&ssIdx>=0)stk=SCC_C[ssIdx];
+      var opN=sccMode&&ssIdx>=0&&!inScc2?.28:!inMS2?.28:(hasHi&&!isCur&&!isSrc&&!isDest)?.4:1;
+      sE('circle',{cx:nx[i],cy:ny[i],r:NR,fill:BG[i],stroke:stk,'stroke-width':sw,opacity:opN},s);
+      var t=sE('text',{x:nx[i],y:ny[i],'text-anchor':'middle','dominant-baseline':'central','font-size':14,'font-weight':500,'font-family':'Inter,system-ui,sans-serif',fill:TX[i],opacity:opN},s);
+      t.textContent=String(i);
+    });
+    return s;
+  }
+
+  function drawGraph(){
+    var svg=document.getElementById('m3svg');
+    var ce=(mode==='traj'||mode==='matriz')&&ms>0&&ms<traj.length?traj[ms]:null;
+    var hiF=mode==='edges'?eN:-1;
+    var hiM=mode==='matriz'&&mHi?mHi:null;
+    var hasHi=ce||hiF>=0||hiM;
+    var mn=SUBS[mNi].nodes;
+    var mExcl=mode==='matriz'&&mNi>0;
+
+    if(viewMode==='Gp'&&(mode==='traj'||mode==='matriz')){
+      svg.setAttribute('viewBox',GVB);
+      // In G' mode: only highlight current if it's in V₃
+      var ce2=ce&&sccOf(ce.r)===2?ce:null;
+      drawCore('m3svg',LPgc,EPgc,GCNX,GCNY,[1,2,4,5],ce2,-1,null,ce2,false,-1,false,[]);
+      // Overlay message when current step is outside V₃
+      if(traj.length&&sccOf(traj[ms].r)!==2){
+        var s=document.getElementById('m3svg');
+        var t=sE('text',{x:222,y:138,'text-anchor':'middle','font-size':11,'font-family':'Inter,system-ui,sans-serif',fill:'#aaa'},s);
+        t.textContent='Paso '+ms+': en '+SCC_L[sccOf(traj[ms].r)]+' — aún fuera de V₃';
+      }
+    } else {
+      svg.setAttribute('viewBox',MVB);
+      drawCore('m3svg',LP,EP,NX,NY,[0,1,2,3,4,5],ce,hiF,hiM,hasHi,mode==='sccs',sS,mExcl,mn);
+    }
+  }
+
+  function nc(r,sz){sz=sz||26;return'<span style="display:inline-flex;align-items:center;justify-content:center;width:'+sz+'px;height:'+sz+'px;border-radius:'+(sz*.22)+'px;background:'+BG[r]+';color:'+TX[r]+';font-size:'+(sz*.52)+'px;font-weight:500">'+r+'</span>';}
+
+  function renderChips(){
+    var d=document.getElementById('m3chips');
+    var inner=document.createElement('div');
+    inner.style.cssText='display:inline-flex;align-items:flex-end;white-space:nowrap;min-width:max-content;padding-bottom:2px';
+
+    traj.forEach(function(t,i){
+      var isCur=(i===ms);
+      var isCycleStart=cycleInfo&&i===cycleInfo.start;
+      var isCycleRepeat=cycleInfo&&i===cycleInfo.repeatAt;
+
+      if(isCycleRepeat){
+        var rep=document.createElement('div');
+        rep.style.cssText='display:inline-flex;flex-direction:column;align-items:center;margin:0 1px';
+        var rb=document.createElement('span');
+        rb.style.cssText='font-size:10px;color:#c17d0e;background:rgba(193,125,14,.1);border-radius:3px;padding:1px 4px;margin-bottom:1px;line-height:1.5;font-weight:500';
+        rb.textContent='↩';
+        var ra=document.createElement('span');
+        ra.style.cssText='font-size:15px;color:var(--color-text-tertiary);line-height:1;opacity:.45';
+        ra.textContent='→';
+        rep.appendChild(rb);rep.appendChild(ra);
+        inner.appendChild(rep);
+      }
+
+      var vbox=document.createElement('div');
+      vbox.className='tval'+(isCur?' cur':'');
+      vbox.setAttribute('data-step',i);
+      if(isCycleStart&&!isCur){vbox.style.boxShadow='0 0 0 1px rgba(193,125,14,.5)';}
+      vbox.innerHTML='<span style="font-size:13px;font-weight:'+(isCur?'600':'400')+';color:var(--color-text-primary);line-height:1.2">'+t.val+'</span>';
+      if(isCycleStart){
+        var badge=document.createElement('span');
+        badge.style.cssText='position:absolute;top:-4px;right:-3px;font-size:8px;color:#c17d0e;background:rgba(193,125,14,.15);border-radius:50%;width:13px;height:13px;display:flex;align-items:center;justify-content:center;line-height:1';
+        badge.textContent='⟳';
+        vbox.appendChild(badge);
+      }
+      (function(idx){vbox.onclick=function(){pause();ms=idx;renderAll();};})(i);
+      inner.appendChild(vbox);
+
+      if(i<traj.length-1){
+        var abox=document.createElement('div');
+        abox.className='tarr';
+        var bdg=document.createElement('span');
+        bdg.style.cssText='background:'+BG[t.r]+';color:'+TX[t.r]+';font-size:10px;font-weight:600;padding:1px 4px;border-radius:3px;margin-bottom:1px;line-height:1.5';
+        bdg.textContent=t.r;
+        var arr=document.createElement('span');
+        arr.style.cssText='font-size:15px;color:var(--color-text-tertiary);line-height:1;opacity:.5';
+        arr.textContent='→';
+        abox.appendChild(bdg);abox.appendChild(arr);
+        inner.appendChild(abox);
+      }
+    });
+
+    d.innerHTML='';d.appendChild(inner);
+    setTimeout(function(){var el=d.querySelector('[data-step="'+ms+'"]');if(el)el.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});},40);
+
+    // SCC + cycle indicators
+    var sp=document.getElementById('m3sccpath');
+    var parts=[];
+    if(firstV3>0) parts.push('<span style="color:'+SCC_C[2]+'">↳ entra en V₃ en paso '+firstV3+' (≡'+traj[firstV3].r+' mod 6)</span>');
+    else if(firstV3===0) parts.push('<span style="color:'+SCC_C[2]+'">n₀ ya en V₃</span>');
+    if(cycleInfo) parts.push('<span style="color:#c17d0e">⟳ ciclo de período '+cycleInfo.period+', primer retorno en paso '+cycleInfo.repeatAt+'</span>');
+    sp.innerHTML=parts.join('&ensp;·&ensp;');
+
+    // View toggle visibility
+    var vbar=document.getElementById('m3vbar');
+    vbar.style.display=firstV3>=0&&mode==='traj'?'flex':'none';
+    if(traj.length){
+      var curScc=sccOf(traj[ms].r);
+      document.getElementById('m3gcinfo').textContent='Paso '+ms+' · '+SCC_L[curScc];
+    }
+  }
+
+  function renderInfo(){
+    var t=traj[ms],scc=sccOf(t.r);
+    var cycStr=cycleInfo&&ms>=cycleInfo.start?'&ensp;<span style="font-size:11px;color:#c17d0e">⟳ en ciclo (período '+cycleInfo.period+')</span>':'';
+    document.getElementById('m3info').innerHTML=
+      '<span style="font-weight:500;color:var(--color-text-primary)">Paso '+ms+'</span>'
+      +'&ensp;T<sup>'+ms+'</sup>(n) = <b>'+t.val+'</b>'
+      +'&ensp;'+nc(t.r,22)
+      +'&ensp;<span style="font-size:11.5px;color:'+SCC_C[scc]+'">'+SCC_L[scc]+'</span>'
+      +cycStr;
+  }
+
+  function renderAll(){
+    var m=traj.length-1;
+    document.getElementById('m3slbl').textContent=ms+'/'+m;
+    document.getElementById('m3sl').value=ms;
+    drawGraph();
+    if(mode==='traj'){renderChips();renderInfo();}
+    if(mode==='matriz'){renderMatrix();renderInfo();}
+  }
+
+  function pause(){playing=false;if(ptim){clearTimeout(ptim);ptim=null;}document.getElementById('m3play').textContent='▶';}
+  function step(){if(!playing)return;if(ms<traj.length-1){ms++;renderAll();ptim=setTimeout(step,parseInt(document.getElementById('m3sp').value)||700);}else{playing=false;document.getElementById('m3play').textContent='▶';}}
+  function togglePlay(){
+    if(playing){pause();return;}
+    if(ms>=traj.length-1){ms=0;renderAll();}
+    playing=true;document.getElementById('m3play').textContent='⏸';step();
+  }
+  function reset(){pause();ms=0;renderAll();}
+
+  function update(){
+    pause();var n=parseInt(document.getElementById('m3n').value),m=parseInt(document.getElementById('m3m').value)||14;
+    if(isNaN(n))return;traj=cT(n,m);computeAux();document.getElementById('m3sl').max=m;ms=0;
+    if(firstV3<0){viewMode='G';document.getElementById('m3vG').classList.add('on');document.getElementById('m3vGp').classList.remove('on');}
+    renderAll();if(mode==='matriz')renderMatrix();
+  }
+  function slide(){pause();ms=parseInt(document.getElementById('m3sl').value);renderAll();}
+
+  function setView(v){
+    viewMode=v;
+    document.getElementById('m3vG').classList.toggle('on',v==='G');
+    document.getElementById('m3vGp').classList.toggle('on',v==='Gp');
+    drawGraph();
+  }
+
+  function tab(m){
+    mode=m;pause();
+    ['traj','edges','sccs','matriz'].forEach(function(x){
+      document.getElementById('m3b'+x[0]).classList.toggle('on',x===m);
+      document.getElementById('m3u'+x[0]).style.display=x===m?'':'none';
+    });
+    document.getElementById('m3tc').style.display=(m==='traj'||m==='matriz')?'':'none';
+    var vbar=document.getElementById('m3vbar');
+    vbar.style.display=firstV3>=0&&m==='traj'?'flex':'none';
+    if(m!=='traj'){viewMode='G';document.getElementById('m3svg').setAttribute('viewBox',MVB);}
+    if(m==='sccs'){sS=-1;renderSCCs();}
+    if(m==='matriz'){buildMatBtns();renderMatrix();renderMatPow();}
+    if(m==='edges'){buildPills();}
+    drawGraph();
+  }
+
+  function renderSCCs(){
+    document.getElementById('m3sccc').innerHTML=SCC_N.map(function(nodes,i){
+      var sel=sS===i;
+      return'<div class="m3scc" onclick="M3.selScc('+i+')" style="border-color:'+(sel?SCC_C[i]:'var(--color-border-tertiary)')+';background:'+(sel?SCC_C[i]+'15':'')+'">'
+        +'<div style="display:flex;gap:5px;margin-bottom:5px">'+nodes.map(function(r){return nc(r,28);}).join('')+'</div>'
+        +'<div style="font-size:12px;font-weight:500;color:'+SCC_C[i]+';margin-bottom:2px">'+SCC_L[i]+' — '+SCC_TXT[i]+'</div>'
+        +'<div style="font-size:11px;color:var(--color-text-tertiary)">'+SCC_D[i]+'</div>'
+        +'</div>';
+    }).join('');
+    document.getElementById('m3cdg').innerHTML='<b style="color:var(--color-text-secondary)">Condensación:</b> <span style="color:#888">V₁</span> · <span style="color:#E8923A">V₂</span> → <span style="color:#4A90D9">V₃</span><br>Ciclos simples: 0→0, 5→5 · 2→1→2, 2→4→2 · 2→1→5→2, 2→4→5→2.';
+  }
+  function selScc(i){sS=(sS===i)?-1:i;renderSCCs();drawGraph();}
+
+  function buildMatBtns(){
+    var d=document.getElementById('m3mbtns');d.innerHTML='';
+    SUBS.forEach(function(s,i){
+      var b=document.createElement('button');b.className='m3mbn'+(i===mNi?' on':'');
+      b.textContent=s.lbl;(function(idx){b.onclick=function(){mNi=idx;mHi=null;document.querySelectorAll('.m3mbn').forEach(function(el,j){el.classList.toggle('on',j===idx);});drawGraph();renderMatrix();renderMatPow();};})(i);
+      d.appendChild(b);
+    });
+  }
+
+  function renderMatrix(){
+    var nodes=SUBS[mNi].nodes;
+    var ce=ms>0&&ms<traj.length?traj[ms]:null;
+    var trail={};for(var k=1;k<=ms;k++){var t=traj[k];var key=t.fr+','+t.r;if(!trail[key])trail[key]=k;}
+    var h='<div style="overflow-x:auto"><table style="border-collapse:separate;border-spacing:3px;font-family:var(--font-mono)">';
+    h+='<tr><td style="width:32px;height:32px"></td>';
+    nodes.forEach(function(j){h+='<td style="text-align:center;padding:0 1px">'+nc(j,28)+'</td>';});h+='</tr>';
+    nodes.forEach(function(r){
+      h+='<tr><td style="text-align:center;padding:1px 0">'+nc(r,28)+'</td>';
+      nodes.forEach(function(c){
+        var eb=-1;if(EDT[r][0]===c)eb=0;else if(EDT[r][1]===c)eb=1;
+        var isCur=ce&&ce.fr===r&&ce.r===c;
+        var isTrail=!isCur&&trail[r+','+c]!==undefined;
+        var cls='m3mc'+(eb===0?' e0':eb===1?' e1':'')+(isCur?' hi':isTrail?' trail':'');
+        var oc=eb>=0?'onclick="M3.matClick('+r+','+c+')"':'';
+        h+='<td style="padding:0"><div class="'+cls+'" '+oc+' title="'+(eb>=0?r+'→'+c:'sin arista')+'">'+(eb>=0?'1':'<span style="color:var(--color-text-tertiary);font-size:10px">0</span>')+'</div></td>';
+      });h+='</tr>';
+    });
+    h+='</table></div>';
+    document.getElementById('m3matd').innerHTML=h;
+    document.getElementById('m3minfo').textContent=SUBS[mNi].info;
+  }
+  function matClick(r,c){mHi={r:r,c:c};drawGraph();}
+
+  function getFibCodings(m){
+    // Returns odd n in {1,...,2^m} whose modular path (h_2,...,h_m) avoids vertex 4
+    var limit=Math.pow(2,m),result=[];
+    for(var n=1;n<limit;n+=2){
+      var cur=n,hs=[],cs=[1],ok=true;
+      for(var i=1;i<m;i++){cur=Tf(cur);var hi=m6(cur);hs.push(hi);cs.push(cur%2);if(hi===4){ok=false;break;}}
+      if(ok&&hs.length===m-1)result.push({n:n,hs:hs,cs:cs});
+    }
+    return result;
+  }
+  function lucasNum(n){if(n===0)return 2;if(n===1)return 1;var a=2,b=1;for(var i=2;i<=n;i++){var t=a+b;a=b;b=t;}return b;}
+
+  function matMul(A,B){var n=A.length,C=[];for(var i=0;i<n;i++){C[i]=[];for(var j=0;j<n;j++){var s=0;for(var k2=0;k2<n;k2++)s+=A[i][k2]*B[k2][j];C[i][j]=s;}}return C;}
+  function matPow(A,m){var n=A.length,R=[];for(var i=0;i<n;i++){R[i]=[];for(var j=0;j<n;j++)R[i][j]=(i===j?1:0);}var B=A.map(function(r){return r.slice();});while(m>0){if(m&1)R=matMul(R,B);B=matMul(B,B);m>>=1;}return R;}
+  function fib(n){if(n<=0)return 0;var a=0,b=1;for(var i=1;i<n;i++){var t=a+b;a=b;b=t;}return b;}
+
+  function renderMatPow(){
+    var nodes=SUBS[mNi].nodes;
+    var m=Math.max(1,Math.min(20,parseInt(document.getElementById('m3mpow').value)||2));
+    var A=nodes.map(function(r){return nodes.map(function(c){return EDT[r]&&EDT[r].indexOf(c)>=0?1:0;});});
+    var Am=matPow(A,m);
+    var maxv=0;Am.forEach(function(row){row.forEach(function(v){if(v>maxv)maxv=v;});});
+
+    // Matrix heat map
+    var h='<div style="overflow-x:auto"><table style="border-collapse:separate;border-spacing:3px;font-family:var(--font-mono)">';
+    h+='<tr><td style="width:32px;height:32px"></td>';
+    nodes.forEach(function(j){h+='<td style="text-align:center;padding:0 1px">'+nc(j,28)+'</td>';});h+='</tr>';
+    Am.forEach(function(row,i){
+      h+='<tr><td style="text-align:center;padding:1px 0">'+nc(nodes[i],28)+'</td>';
+      row.forEach(function(v){
+        var heat=maxv>0?v/maxv:0;
+        var bg=heat===0?'transparent':'rgba(74,144,217,'+Math.round(heat*6)/10+')';
+        var fc=heat>.55?'#fff':'var(--color-text-primary)';
+        h+='<td style="padding:0"><div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:5px;background:'+bg+';color:'+fc+';font-size:11px;font-weight:'+(v>0?'500':'400')+'">'+v+'</div></td>';
+      });h+='</tr>';
+    });
+    h+='</table></div>';
+
+    // Stats block — depends on active subgraph
+    var pow2=Math.pow(2,m);
+    var stats='';
+
+    if(mNi===0){
+      // G: closed-form + N^fin_m(4) + T_m + N_{m,0}
+      var trAm=m%2===0?(pow2+2):pow2;
+      var Nfin4=m%2===0?pow2:(pow2-1);
+      var Tm=Math.round(((3*m-2)*pow2)/3+(3+(m%2===0?1:-1))/6);
+      // N_{m,0}: paths in G never visiting node 4 = sum of B(0)^m where B(0)=A with A[2][4]=0
+      var allN=[0,1,2,3,4,5];
+      var B0=allN.map(function(r){return allN.map(function(c){
+        if(r===2&&c===4)return 0;
+        return EDT[r]&&EDT[r].indexOf(c)>=0?1:0;
+      });});
+      var B0m=matPow(B0,m);
+      var Nm0=0;B0m.forEach(function(row){row.forEach(function(v){Nm0+=v;});});
+      stats='<div style="margin-top:.6rem;display:grid;gap:5px">'
+        +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
+        +stat('tr(A<sup>'+m+'</sup>)',trAm,'— '+( m%2===0?'2<sup>m</sup>+2':'2<sup>m</sup>'),'#888')
+        +stat('N<sup>fin</sup><sub>'+m+'</sub>(4)',Nfin4,'caminos que terminan en 4','#E8923A')
+        +stat('T<sub>'+m+'</sub>',Tm,'apariciones totales del dígito 4','#4A90D9')
+        +stat('N<sub>'+m+',0</sub>',Nm0,'caminos que <em>evitan</em> el nodo 4','#3b6d11')
+        +'</div>'
+        +'<div style="font-size:11px;color:var(--color-text-tertiary);line-height:1.65;margin-top:2px">'
+        +'Fórmula cerrada: p = (2<sup>m−1</sup>'+( m%2===0?'−2)/3':'−1)/3')+',&ensp;tr(A<sup>m</sup>) = 2<sup>m</sup>'+(m%2===0?'+2':'')
+        +'</div></div>';
+    } else if(mNi===1){
+      // V₃ = G': ρ=2, stationary dist
+      var sum=0;Am.forEach(function(row){row.forEach(function(v){sum+=v;});});
+      stats='<div style="margin-top:.6rem;display:grid;gap:5px">'
+        +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
+        +stat('ρ(G\')',2,'radio espectral','#4A90D9')
+        +stat('|caminos|',sum,'caminos de longitud '+m+' en G\'','#888')
+        +'</div>'
+        +'<div style="font-size:11px;color:var(--color-text-tertiary);line-height:1.65;margin-top:2px">'
+        +'Distribución estacionaria: π(1)=π(4)=1/6, π(2)=π(5)=1/3&emsp;·&emsp;χ(λ)=λ²(λ−2)(λ+1)'
+        +'</div></div>';
+    } else if(mNi===4){
+      // H₄ = G'[{1,2,5}]: Fibonacci theorem + coding table
+      var Fm1=fib(m+1),phi=(1+Math.sqrt(5))/2;
+      var Lm=lucasNum(m),Fm4=fib(m+4);
+      stats='<div style="margin-top:.6rem;display:grid;gap:.5rem">';
+      // Fibonacci callout
+      stats+='<div style="border:.5px solid #C0DD97;border-radius:7px;padding:.5rem .75rem;background:rgba(60,109,17,.06)">'
+        +'<div style="font-size:12px;font-weight:600;color:#3b6d11;margin-bottom:.25rem">Teorema Fibonacci</div>'
+        +'<div style="font-size:12px;color:var(--color-text-secondary);line-height:1.7">'
+        +'Impares en {1,…,2<sup>'+m+'</sup>} cuyo camino evita el nodo 4: '
+        +'<b style="font-size:13px;color:#3b6d11">F('+(m+1)+') = '+Fm1+'</b>'
+        +'</div>'
+        +'<div style="font-size:11px;color:var(--color-text-tertiary);margin-top:.2rem;line-height:1.65">'
+        +'ρ = φ ≈ '+phi.toFixed(4)+'&emsp;·&emsp;χ(λ)=λ(λ²−λ−1)&emsp;·&emsp;φ/2 ≈ '+(phi/2).toFixed(4)+' tasa de decaimiento'
+        +'</div></div>';
+      // A^m_H₄ closed form info
+      stats+='<div style="font-size:11px;color:var(--color-text-tertiary);line-height:1.75">'
+        +'<b style="color:var(--color-text-secondary)">A<sup>m</sup><sub>H₄</sub></b> tiene entradas Fibonacci: '
+        +'tr = L<sub>m</sub> = <b style="font-family:var(--font-mono)">'+Lm+'</b>'
+        +' &emsp;·&emsp; suma total = F<sub>m+4</sub> = <b style="font-family:var(--font-mono)">'+Fm4+'</b>'
+        +'</div>';
+      // Coding table
+      if(m>=2&&m<=13){
+        var codings=getFibCodings(m);
+        stats+='<div style="font-size:11.5px;font-weight:600;color:var(--color-text-secondary);margin-top:.2rem">'
+          +'Codificaciones que evitan el nodo 4 ('+codings.length+')'
+          +(m>10?' <span style="font-weight:400;color:var(--color-text-tertiary)">— scroll ↕</span>':'')
+          +'</div>';
+        var tbl='<div style="overflow-y:auto;max-height:260px;overflow-x:auto">'
+          +'<table style="border-collapse:collapse;font-size:11px;width:100%;min-width:340px">'
+          +'<thead><tr style="border-bottom:.5px solid var(--color-border-secondary);position:sticky;top:0;background:var(--color-background-primary)">'
+          +'<th style="padding:3px 6px;text-align:right;color:var(--color-text-tertiary);font-weight:500">n</th>'
+          +'<th style="padding:3px 6px;text-align:left;color:var(--color-text-tertiary);font-weight:500;font-family:var(--font-mono)">c<sub>2</sub>···c<sub>'+m+'</sub></th>'
+          +'<th style="padding:3px 6px;text-align:left;color:var(--color-text-tertiary);font-weight:500">h<sub>2</sub>···h<sub>'+m+'</sub></th>'
+          +'</tr></thead><tbody>';
+        codings.forEach(function(row){
+          var binStr=row.cs.slice(1).join(''); // c_2...c_m
+          var chips=row.hs.map(function(h){return nc(h,17);}).join('');
+          tbl+='<tr style="border-bottom:.5px solid var(--color-border-tertiary)">'
+            +'<td style="padding:3px 6px;text-align:right;font-family:var(--font-mono);color:var(--color-text-primary)">'+row.n+'</td>'
+            +'<td style="padding:3px 6px;font-family:var(--font-mono);letter-spacing:.1em;color:#3b6d11;font-size:12px">'+binStr+'</td>'
+            +'<td style="padding:3px 4px;white-space:nowrap">'+chips+'</td>'
+            +'</tr>';
+        });
+        tbl+='</tbody></table></div>';
+        stats+=tbl;
+      } else if(m>13) {
+        stats+='<div style="font-size:11px;color:var(--color-text-tertiary)">'+Fm1+' codificaciones — tabla solo disponible para m ≤ 13.</div>';
+      }
+      stats+='</div>';
+    } else {
+      // H₁, H₂, H₅: basic info
+      var rhos={'2':'φ≈1.618','3':'1','5':'√2≈1.414'};
+      var rhoStr=rhos[String(nodes[0])]||'—';
+      var sum2=0;Am.forEach(function(row){row.forEach(function(v){sum2+=v;});});
+      stats='<div style="margin-top:.6rem;display:flex;gap:8px;flex-wrap:wrap">'
+        +stat('ρ',rhoStr,'radio espectral','#4A90D9')
+        +stat('|caminos|',sum2,'caminos de longitud '+m,'#888')
+        +'</div>';
+    }
+
+    document.getElementById('m3matpow').innerHTML=h+stats;
+  }
+
+  function stat(lbl,val,desc,col){
+    return '<div style="display:flex;flex-direction:column;padding:.35rem .6rem;border-radius:6px;border:.5px solid var(--color-border-secondary);min-width:80px">'
+      +'<span style="font-size:10px;color:'+col+';font-weight:600;line-height:1.3">'+lbl+'</span>'
+      +'<span style="font-size:15px;font-weight:700;color:var(--color-text-primary);font-family:var(--font-mono)">'+val+'</span>'
+      +'<span style="font-size:10px;color:var(--color-text-tertiary);line-height:1.3">'+desc+'</span>'
+      +'</div>';
+  }
+
+  function buildPills(){
+    var d=document.getElementById('m3pills');d.innerHTML='';
+    for(var i=0;i<6;i++){
+      var p=document.createElement('span');p.className='m3npill';p.style.cssText='background:'+BG[i]+';color:'+TX[i];p.textContent=String(i);
+      (function(idx){p.onclick=function(){eN=idx;document.querySelectorAll('.m3npill').forEach(function(el,j){el.classList.toggle('sel',j===idx);});renderDeriv(idx);drawGraph();};})(i);
+      d.appendChild(p);
+    }
+    renderDeriv(-1);
+  }
+
+  function renderDeriv(a){
+    var d=document.getElementById('m3deriv');
+    if(a<0){d.innerHTML='<span style="color:var(--color-text-tertiary)">Selecciona un nodo.</span>';return;}
+    var isEven=a%2===0,r0=EDT[a][0],r1=EDT[a][1];
+    var Tf2,s0,s1;
+    if(isEven){Tf2='T(n) = n/2 = '+a/2+' + 3k';s0='k=2j → '+a/2+' + 6j ≡ <b>'+r0+'</b> (mod 6)';s1='k=2j+1 → '+(a/2+3)+' + 6j ≡ <b>'+r1+'</b> (mod 6)';}
+    else{var base=(3*a+1)/2;Tf2='T(n) = (3n+1)/2 = '+base+' + 9k';s0='k=2j → '+base+' + 18j ≡ <b>'+r0+'</b> (mod 6)';s1='k=2j+1 → '+(base+9)+' + 18j ≡ <b>'+r1+'</b> (mod 6)';}
+    var rows='';
+    for(var k=0;k<6;k++){var n=a+6*k,tn=Tf(n),r=m6(tn);rows+='<tr><td style="padding:3px 8px;text-align:center;color:var(--color-text-tertiary)">'+k+'</td><td style="padding:3px 8px;text-align:center">'+n+'</td><td style="padding:3px 8px;text-align:center">'+tn+'</td><td style="padding:3px 8px;text-align:center">'+nc(r,22)+'</td><td style="padding:3px 8px;text-align:center"><span style="font-size:11px;background:'+(k%2===0?'#EAF3DE':'#FAEEDA')+';color:'+(k%2===0?'#3b6d11':'#854f0b')+';padding:1px 6px;border-radius:4px">k '+(k%2===0?'par':'impar')+'</span></td></tr>';}
+    var h='<div style="display:flex;align-items:center;gap:10px;margin-bottom:.75rem">'+nc(a,42)+'<div><div style="font-size:13.5px;color:var(--color-text-primary);font-weight:500">n ≡ '+a+' — n '+(isEven?'par':'impar')+'</div><div style="font-size:12px;color:var(--color-text-tertiary)">n = '+a+' + 6k</div></div></div>';
+    h+='<div style="font-family:var(--font-mono);font-size:12px;background:var(--color-background-secondary);border-radius:7px;padding:.5rem .8rem;margin-bottom:.75rem;color:var(--color-text-secondary)">'+Tf2+'</div>';
+    h+='<div style="display:flex;gap:8px;margin-bottom:.75rem"><div class="m3rbox" style="border-color:#C0DD97"><div style="font-size:12px;font-weight:500;color:#3b6d11;margin-bottom:.4rem">k par</div><div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:.5rem">'+s0+'</div><div style="display:flex;align-items:center;gap:7px">'+nc(r0,38)+'<span style="font-size:12px;color:var(--color-text-tertiary)">→ nodo '+r0+'</span></div></div><div class="m3rbox" style="border-color:#FAC775"><div style="font-size:12px;font-weight:500;color:#854f0b;margin-bottom:.4rem">k impar</div><div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:.5rem">'+s1+'</div><div style="display:flex;align-items:center;gap:7px">'+nc(r1,38)+'<span style="font-size:12px;color:var(--color-text-tertiary)">→ nodo '+r1+'</span></div></div></div>';
+    h+='<table style="width:100%;border-collapse:collapse;font-size:12px;font-family:var(--font-mono)"><thead><tr style="border-bottom:.5px solid var(--color-border-secondary)"><th style="padding:3px 8px;color:var(--color-text-tertiary);font-weight:500;text-align:center">k</th><th style="padding:3px 8px;color:var(--color-text-tertiary);font-weight:500;text-align:center">n</th><th style="padding:3px 8px;color:var(--color-text-tertiary);font-weight:500;text-align:center">T(n)</th><th style="padding:3px 8px;color:var(--color-text-tertiary);font-weight:500;text-align:center">mod 6</th><th style="padding:3px 8px;color:var(--color-text-tertiary);font-weight:500;text-align:center"></th></tr></thead><tbody>'+rows+'</tbody></table>';
+    d.innerHTML=h;
+  }
+
+  traj=cT(7,14);computeAux();
+  buildMatBtns();drawGraph();renderChips();renderInfo();
+
+  return{tab:tab,update:update,slide:slide,togglePlay:togglePlay,reset:reset,setView:setView,selScc:selScc,matClick:matClick,renderMatPow:renderMatPow};
+})();
+</script>
+
+</div>
+</body>
+</html>
