@@ -110,15 +110,8 @@
     </div>
 
     <h2 style="font-size:1.1rem;margin-bottom:1rem">PDF</h2>
-    <div class="pdf-embed" id="pdf-wrap">
-      <iframe
-        id="pdf-frame"
-        src="/doctorado/papers/fibonacci-collatz/paper.pdf"
-        title="A Fibonacci theorem for Collatz trajectories via modular graph structure"
-        aria-label="Paper PDF"
-        onload="document.getElementById('pdf-fallback').style.display='none'"
-        onerror="showFallback()">
-      </iframe>
+    <div class="pdf-embed" id="pdf-container" style="padding:0;min-height:520px;overflow-y:auto">
+      <div id="pdf-loading" style="padding:2.5rem;text-align:center;color:var(--text-soft)">Loading PDF…</div>
       <div class="pdf-fallback" id="pdf-fallback">
         <p>The PDF could not be loaded in your browser.</p>
         <a href="/doctorado/papers/fibonacci-collatz/paper.pdf" class="tag tag-gray" download>Download PDF</a>
@@ -152,10 +145,31 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
-function showFallback(){document.getElementById('pdf-frame').style.display='none';document.getElementById('pdf-fallback').style.display='block';}
+(function(){
+  var workerUrl='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob(['importScripts("'+workerUrl+'")'],{type:'application/javascript'}));
+  var container=document.getElementById('pdf-container');
+  var loading=document.getElementById('pdf-loading');
+  var fallback=document.getElementById('pdf-fallback');
+  pdfjsLib.getDocument('/doctorado/papers/fibonacci-collatz/paper.pdf').promise.then(function(pdf){
+    loading.style.display='none';
+    (function renderPage(n){
+      if(n>pdf.numPages)return;
+      pdf.getPage(n).then(function(page){
+        var vp=page.getViewport({scale:1.5});
+        var c=document.createElement('canvas');
+        c.style.cssText='width:100%;display:block'+(n<pdf.numPages?';border-bottom:1px solid var(--border)':'');
+        c.width=vp.width;c.height=vp.height;
+        container.appendChild(c);
+        page.render({canvasContext:c.getContext('2d'),viewport:vp}).promise.then(function(){renderPage(n+1);});
+      });
+    })(1);
+  }).catch(function(){loading.style.display='none';fallback.style.display='block';});
+})();
 </script>
 </body>
 </html>
