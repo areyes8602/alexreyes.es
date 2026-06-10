@@ -16,9 +16,10 @@
   X-Robots-Tag: noindex, nofollow
 
 # PDFs de papers — permitir embed desde el mismo origen
-/doctorado/papers/*/paper.pdf
+/doctorado/papers/fibonacci-collatz/paper.pdf
   X-Frame-Options: SAMEORIGIN
   Content-Type: application/pdf
+  Content-Disposition: inline
 
 # Cache largo para assets versionados — ajustar cuando se introduzcan hashes en filenames
 /assets/css/*
