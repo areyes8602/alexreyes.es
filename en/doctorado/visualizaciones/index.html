@@ -278,6 +278,9 @@ details.m3pre[open] summary::before{transform:rotate(90deg)}
 .m3dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px}
 
 
+
+
+[data-theme=dark] [data-theme=dark] [data-theme=dark] 
 </style>
 </head>
 <body>
@@ -329,7 +332,6 @@ details.m3pre[open] summary::before{transform:rotate(90deg)}
       <button class="viz-tab active" onclick="showModule('bijection', this)">1 · Bijections Φ<sub>m</sub> and Ψ<sub>m</sub></button>
       <button class="viz-tab" onclick="showModule('residue', this)">2 · R(C<sup>m</sup>) and T<sup>m</sup>(n)</button>
       <button class="viz-tab" onclick="showModule('grafo', this)">3 · Graph G mod 6</button>
-      <button class="viz-tab" onclick="showModule('matrices', this)">4 · Matrices <span style="font-size:0.75rem;opacity:.6">(coming soon)</span></button>
     </div>
 
     <!-- Módulo 1: Biyecciones -->
@@ -553,12 +555,6 @@ details.m3pre[open] summary::before{transform:rotate(90deg)}
     <div id="m3matpow"></div>
   </div>
 </div>
-    </div>
-
-    <div id="mod-matrices" class="viz-module card" style="padding:1.5rem">
-      <span class="section-label">Module 4</span>
-      <h2 style="font-size:1.1rem;margin:0.3rem 0 0.5rem">Matrices</h2>
-      <p style="color:var(--text-soft);font-size:0.88rem">Matrix encoding M<sub>c<sub>1</sub></sub>·…·M<sub>c<sub>m</sub></sub> and its relation to the formula for <em>T<sup>m</sup></em>. Coming soon.</p>
     </div>
 
   </div>
@@ -1320,5 +1316,6 @@ var M3=(function(){
   return{tab:tab,update:update,slide:slide,togglePlay:togglePlay,reset:reset,setView:setView,selScc:selScc,matClick:matClick,renderMatPow:renderMatPow};
 })();
 </script>
+
 </body>
 </html>
