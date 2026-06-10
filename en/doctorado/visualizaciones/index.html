@@ -617,7 +617,7 @@ function render(){
 
   // Header
   const thead=document.getElementById('bij-thead');
-  let h=`<tr><th class="col-n">n</th><th>${isbin?`c<sub>1</sub>&thinsp;…&thinsp;c<sub>${m}</sub>`:`h<sub>1</sub>&thinsp;…&thinsp;h<sub>${m}</sub>`}</th>`;
+  let h=`<tr><th class="col-n">n</th><th>${isbin?`c<sub>1</sub>&thinsp;…&thinsp;c<sub>${m}</sub>`:`h<sub>1</sub>&thinsp;…&thinsp;h<sub>${m+1}</sub>`}</th>`;
   if(asym) h+=`<th class="th-ext">${isbin?`c<sub>${ext}</sub>`:`h<sub>${ext}</sub>`}</th>`;
   h+=`</tr>`;
   thead.innerHTML=h;
@@ -631,9 +631,9 @@ function render(){
   function addRows(start,count,ghost){
     for(let i=0;i<count;i++){
       const n=start+i;
-      const enc=isbin?encBin(n,asym?ext:m):encMod6(n,asym?ext:m);
-      const prefix=enc.slice(0,m);
-      const extVal=asym?enc[m]:null;
+      const enc=isbin?encBin(n,asym?ext:m):encMod6(n,ext);
+      const prefix=isbin?enc.slice(0,m):enc;
+      const extVal=(asym&&isbin)?enc[m]:null;
       const colorIdx=i%halfSize;
       const bg=asym?COLORS[colorIdx%COLORS.length]:'';
       const tr=document.createElement('tr');
@@ -641,7 +641,7 @@ function render(){
       const chips=prefix.map(v=>mkChip(v,false,isbin)).join('');
       let cells=`<td class="col-n" style="${bg?'background:'+bg:''}">` +n+`</td>`;
       cells+=`<td style="${bg?'background:'+bg:''}"><div class="chips">${chips}</div></td>`;
-      if(asym) cells+=`<td class="col-ext">${mkChip(extVal,true,isbin)}</td>`;
+      if(asym&&isbin) cells+=`<td class="col-ext">${mkChip(extVal,true,isbin)}</td>`;
       tr.innerHTML=cells;
       if(!ghost){
         const mCap=m, isbinCap=isbin;
@@ -666,7 +666,7 @@ function render(){
   // Bijection verification
   const total=isbin?N:6*N;
   const codes=new Set();
-  for(let n=1;n<=total;n++) codes.add((isbin?encBin(n,m):encMod6(n,m)).join(','));
+  for(let n=1;n<=total;n++) codes.add((isbin?encBin(n,m):encMod6(n,ext)).join(','));
   const ok=codes.size===total;
   const domainStr=isbin?`${total} integers in {1,…,2<sup>${m}</sup>}`:`${total} integers in {1,…,6·2<sup>${m}</sup>}`;
   const codomStr=isbin?`${codes.size} distinct strings in {0,1}<sup>${m}</sup>`:`${codes.size} distinct paths of length ${m} en G`;
