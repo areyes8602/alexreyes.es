@@ -4,7 +4,7 @@
 # ─────────────────────────────────────────────────────────────────────
 
 /*
-  X-Frame-Options: DENY
+  X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(self "https://js.stripe.com")
@@ -14,12 +14,6 @@
 # Editor: bloqueado a indexación + sin frame embedding
 /editor/*
   X-Robots-Tag: noindex, nofollow
-
-# PDFs de papers — permitir embed desde el mismo origen
-/doctorado/papers/fibonacci-collatz/paper.pdf
-  X-Frame-Options: SAMEORIGIN
-  Content-Type: application/pdf
-  Content-Disposition: inline
 
 # Cache largo para assets versionados — ajustar cuando se introduzcan hashes en filenames
 /assets/css/*
