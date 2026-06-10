@@ -959,7 +959,7 @@ var M3=(function(){
       if(traj.length&&sccOf(traj[ms].r)!==2){
         var s=document.getElementById('m3svg');
         var t=sE('text',{x:222,y:138,'text-anchor':'middle','font-size':11,'font-family':'Inter,system-ui,sans-serif',fill:'#aaa'},s);
-        t.textContent='Step '+ms+': '+SCC_L[sccOf(traj[ms].r)]+ \u2014 still outside V\u2083;
+        t.textContent='Step '+ms+': '+SCC_L[sccOf(traj[ms].r)]+' \u2014 still outside V\u2083';
       }
     } else {
       svg.setAttribute('viewBox',MVB);
@@ -1033,7 +1033,7 @@ var M3=(function(){
 
   function renderInfo(){
     var t=traj[ms],scc=sccOf(t.r);
-    var cycStr=cycleInfo&&ms>=cycleInfo.start?'&ensp;<span style="font-size:11px;color:#c17d0e">⟳ INcycle of period '+cycleInfo.period+')</span>':'';
+    var cycStr=cycleInfo&&ms>=cycleInfo.start?'&ensp;<span style="font-size:11px;color:#c17d0e">⟳ in cycle (period '+cycleInfo.period+')</span>':'';
     document.getElementById('m3info').innerHTML=
       '<span style="font-weight:500;color:var(--text)">'+'Step '+ms+'</span>'
       +'&ensp;T<sup>'+ms+'</sup>(n) = <b>'+t.val+'</b>'
@@ -1197,8 +1197,8 @@ var M3=(function(){
       var sum=0;Am.forEach(function(row){row.forEach(function(v){sum+=v;});});
       stats='<div style="margin-top:.6rem;display:grid;gap:5px">'
         +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
-        +stat('ρ(G')',2,spectral radius,'#4A90D9')
-        +stat('|'+'paths of length '+m+ in G'+'|',sum,'paths of length '+m+ in G','#888')
+        +stat('ρ(G\')',2,'spectral radius','#4A90D9')
+        +stat('|'+'paths of length '+m+' in G\'+'|',sum,'paths of length '+m+' in G\'','#888')
         +'</div>'
         +'<div style="font-size:11px;color:var(--text-faint);line-height:1.65;margin-top:2px">'
         +'Stationary distribution: \u03c0(1)=\u03c0(4)=1/6, \u03c0(2)=\u03c0(5)=1/3&emsp;\u00b7&emsp;\u03c7(\u03bb)=\u03bb\u00b2(\u03bb\u22122)(\u03bb+1)'
@@ -1254,7 +1254,7 @@ var M3=(function(){
       var rhoStr=rhos[String(nodes[0])]||'—';
       var sum2=0;Am.forEach(function(row){row.forEach(function(v){sum2+=v;});});
       stats='<div style="margin-top:.6rem;display:flex;gap:8px;flex-wrap:wrap">'
-        +stat('ρ',rhoStr,spectral radius,'#4A90D9')
+        +stat('ρ',rhoStr,'spectral radius','#4A90D9')
         +stat('|'+'paths of length '+m+'|',sum2,'paths of length '+m,'#888')
         +'</div>';
     }

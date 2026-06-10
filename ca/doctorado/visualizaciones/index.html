@@ -959,7 +959,7 @@ var M3=(function(){
       if(traj.length&&sccOf(traj[ms].r)!==2){
         var s=document.getElementById('m3svg');
         var t=sE('text',{x:222,y:138,'text-anchor':'middle','font-size':11,'font-family':'Inter,system-ui,sans-serif',fill:'#aaa'},s);
-        t.textContent='Pas '+ms+': '+SCC_L[sccOf(traj[ms].r)]+ \u2014 encara fora de V\u2083;
+        t.textContent='Pas '+ms+': '+SCC_L[sccOf(traj[ms].r)]+' \u2014 encara fora de V\u2083';
       }
     } else {
       svg.setAttribute('viewBox',MVB);
@@ -1033,7 +1033,7 @@ var M3=(function(){
 
   function renderInfo(){
     var t=traj[ms],scc=sccOf(t.r);
-    var cycStr=cycleInfo&&ms>=cycleInfo.start?'&ensp;<span style="font-size:11px;color:#c17d0e">⟳ INcicle de per\u00edode '+cycleInfo.period+')</span>':'';
+    var cycStr=cycleInfo&&ms>=cycleInfo.start?'&ensp;<span style="font-size:11px;color:#c17d0e">⟳ en cicle (per\u00edode '+cycleInfo.period+')</span>':'';
     document.getElementById('m3info').innerHTML=
       '<span style="font-weight:500;color:var(--text)">'+'Pas '+ms+'</span>'
       +'&ensp;T<sup>'+ms+'</sup>(n) = <b>'+t.val+'</b>'
@@ -1197,8 +1197,8 @@ var M3=(function(){
       var sum=0;Am.forEach(function(row){row.forEach(function(v){sum+=v;});});
       stats='<div style="margin-top:.6rem;display:grid;gap:5px">'
         +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
-        +stat('ρ(G')',2,radi espectral,'#4A90D9')
-        +stat('|'+'camins de longitud '+m+ en G'+'|',sum,'camins de longitud '+m+ en G','#888')
+        +stat('ρ(G\')',2,'radi espectral','#4A90D9')
+        +stat('|camins|',sum,"camins de longitud "+m+" en G'",'#888')
         +'</div>'
         +'<div style="font-size:11px;color:var(--text-faint);line-height:1.65;margin-top:2px">'
         +'Distribuci\u00f3 estacion\u00e0ria: \u03c0(1)=\u03c0(4)=1/6, \u03c0(2)=\u03c0(5)=1/3&emsp;\u00b7&emsp;\u03c7(\u03bb)=\u03bb\u00b2(\u03bb\u22122)(\u03bb+1)'
@@ -1254,7 +1254,7 @@ var M3=(function(){
       var rhoStr=rhos[String(nodes[0])]||'—';
       var sum2=0;Am.forEach(function(row){row.forEach(function(v){sum2+=v;});});
       stats='<div style="margin-top:.6rem;display:flex;gap:8px;flex-wrap:wrap">'
-        +stat('ρ',rhoStr,radi espectral,'#4A90D9')
+        +stat('ρ',rhoStr,'radi espectral','#4A90D9')
         +stat('|'+'camins de longitud '+m+'|',sum2,'camins de longitud '+m,'#888')
         +'</div>';
     }
