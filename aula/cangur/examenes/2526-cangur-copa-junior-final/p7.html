@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P7 · Vuit cercles en un rectangle — Copa Cangur Final Júnior 2026</title>
+<meta name="description" content="Problema 7 de la final de la XII Copa Cangur (categoria Júnior, maig 2026): vuit cercles en un rectangle, amb solució raonada.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p7.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorat</a>
+      <a href="/notas/">Notes</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/docencia/cangur/">Cangur</a>
+      <span class="sep">/</span>
+      <a href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Copa Cangur Final Júnior 2026</a>
+      <span class="sep">/</span>
+      <span class="current">P7</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">Copa Cangur · Júnior</span>
+        <span class="tag tag-blue">5 maig 2026</span>
+        <span class="tag tag-orange">Final</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p6.html">&larr; Problema anterior</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p8.html">Problema següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Problema 7 &middot; Vuit cercles en un rectangle</h1>
+      <p class="question-descriptor">Tangències: files de 3-2-3 cercles iguals i una mica de trigonometria.</p>
+      <span class="score-pill">Resposta entera de 4 xifres com a màxim</span>
+
+      <div class="statement">
+        <p>Un rectangle alberga vuit cercles tots del mateix radi. Alguns cercles són tangents entre ells i/o tangents als costats del rectangle tal com es veu a la figura. El costat horitzontal del rectangle fa $30(\sqrt{3}-1)$ cm. Quant mesura el costat vertical?</p>
+        <div style="text-align:center;margin:1rem 0"><img src="fig-p7.png" alt="Figura del problema 7" style="max-width:240px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Copa Cangur · SCM</span>
+        <span class="ib-chip" data-descriptor="Dificultat estimada">Mitjana</span>
+        <span class="ib-chip" data-descriptor="Resposta numèrica entera, sense desenvolupament">Resposta tancada</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p7" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p7')">
+        <span class="toggle-label">Mostra la solució</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p7" hidden>
+        <h3>Solució raonada</h3>
+        <p class="note"><strong>Idea clau:</strong> els cercles formen files de 3–2–3. L'amplada fixa el radi; les tangències entre files donen l'alçada.</p>
+        <p>Sigui $r$ el radi. La fila superior té $3$ cercles tangents entre ells i als dos costats verticals, de manera que l'amplada del rectangle és $6r$:</p>
+        <div class="math-block">$$6r = 30(\sqrt{3}-1) \;\Longrightarrow\; r = 5(\sqrt{3}-1).$$</div>
+        <p>Els centres de la fila superior són a $x = r, 3r, 5r$ i els de la fila central a $x = 2r, 4r$. Dos centres tangents disten $2r$, amb separació horitzontal $r$; la separació vertical entre files és, per Pitàgores,</p>
+        <div class="math-block">$$\sqrt{(2r)^{2} - r^{2}} = \sqrt{3}\,r.$$</div>
+        <p>L'alçada total és $r$ (de la vora al primer centre) $+\sqrt{3}r + \sqrt{3}r + r$ (de l'últim centre a la vora):</p>
+        <div class="math-block">$$h = 2r(1+\sqrt{3}) = 10(\sqrt{3}-1)(\sqrt{3}+1) = 10 \cdot 2 = 20\ \text{cm}.$$</div>
+        <div class="final">Resposta: <strong>20</strong></div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p6.html">&larr; Problema anterior</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p8.html">Problema següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
