@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Anell de Collatz — Àlex Reyes</title>
+<meta name="description" content="Un assaig sobre les similituds entre la conjectura de Collatz i l'obra de Tolkien. Mapes, Anells i hobbits equivocats.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/ca/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/notas/anillo-de-collatz/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://alexreyes.es/ca/notas/anillo-de-collatz/">
+<meta property="og:title" content="L'Anell de Collatz — Àlex Reyes">
+<meta property="og:description" content="Un assaig sobre les similituds entre la conjectura de Collatz i l'obra de Tolkien.">
+<meta property="og:image" content="https://alexreyes.es/ca/notas/anillo-de-collatz/grafo-g-gema.jpg">
+<meta property="og:locale" content="ca_ES">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="L'Anell de Collatz — Àlex Reyes">
+<meta name="twitter:description" content="Un assaig sobre les similituds entre la conjectura de Collatz i l'obra de Tolkien.">
+<meta name="twitter:image" content="https://alexreyes.es/ca/notas/anillo-de-collatz/grafo-g-gema.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/" class="nav-active">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/notas/anillo-de-collatz/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/notas/anillo-de-collatz/" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/notas/anillo-de-collatz/">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/ca/notas/">Notes</a>
+      <span class="sep">/</span>
+      <span class="current">L'Anell de Collatz</span>
+    </div>
+
+    <div style="max-width:680px;margin:0 auto">
+
+      <div class="page-header" style="margin-bottom:2.5rem">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;flex-wrap:wrap">
+          <span class="section-label">Nota</span>
+          <span class="tag tag-purple">Collatz</span>
+          <span class="tag tag-gray">Tolkien</span>
+        </div>
+        <h1 style="margin:0 0 0.6rem;font-size:2rem;line-height:1.2">L'Anell de Collatz</h1>
+        <p style="font-size:0.9rem;color:var(--text-soft)">Àlex Reyes &middot; juny 2026</p>
+      </div>
+
+      <div class="nota-body" style="font-size:1.05rem;line-height:1.8;color:var(--text)">
+
+        <p>El 1937, mentre J. R. R. Tolkien acabava <em>El Hòbbit</em> a Oxford, un matemàtic alemany anomenat Lothar Collatz anotava —es conta— en un quadern una pregunta d'aparença quasi ridícula.</p>
+
+        <p>Pren qualsevol nombre enter positiu. Si és parell, divideix-lo entre dos. Si és senar, multiplica'l per tres i suma-li u. Repeteix.</p>
+
+        <p>¿Arribaràs sempre a l'u?</p>
+
+        <p>Gairebé noranta anys després, ningú no ho sap. Tolkien va publicar el seu llibre aquella tardor. Collatz va guardar la seva pregunta.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Jo vaig trigar gairebé quaranta anys a trobar la conjectura, i hi vaig arribar de la manera menys heroica possible: veient un podcast. Eduardo Sáenz de Cabezón, en una conversa amb Jordi Wild, va explicar el problema amb la claredat de qui el coneix massa bé, i va aprofitar per advertir que estava fart de rebre suposades solucions per correu, que ja no les responia, que la gent s'obsessionava.</p>
+
+        <p>Em vaig obsessionar.</p>
+
+        <p>No hi va haver cap senyal ni cap mag trucant a la meva porta. Només un professor de secundària amb quinze anys de pissarres a l'esquena, mirant una pantalla a les onze de la nit. Però hi ha alguna cosa en la conjectura de Collatz que, un cop dins, costa molt apartar. Com si portés des del 1937 esperant l'hobbit equivocat.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Hi ha alguna cosa que Tolkien va entendre sobre les càrregues impossibles i que els matemàtics rarament escriuen: acaben deixant-te sol.</p>
+
+        <p>Trobar algú disposat a dirigir una tesi sobre la conjectura de Collatz és, en si mateix, una petita odissea. El problema té mala fama; no entre el públic, que el troba fascinant, sinó entre els matemàtics, que són els qui millor coneixen el terreny. I no sense motiu: durant dècades han arribat massa dreceres il·lusòries, massa demostracions que es desfan en mirar amb cura el primer pas delicat. Sáenz de Cabezón no contesta aquests correus. Moltes revistes llegeixen la paraula Collatz i creuen saber ja quin tipus d'història ve.</p>
+
+        <p>Presentar-se com a desconegut amb un resultat nou sobre Collatz és una mica com arribar a Rivendell sense ser elfe, ni rei, ni mag. Amb només la pregunta a les mans i la sospita, encara fràgil, que has vist una estructura que mereix ser examinada.</p>
+
+        <p>La Germandat de l'Anell es trenca. És inevitable. Cadascú acompanya fins on pot, i hi ha trams del camí que es recorren sols. Però el moment d'entrar a Mordor és sempre singular.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Gandalf, però, existeix.</p>
+
+        <p>Quan vaig contactar amb el Dr. Jaume Franch Bullich, jo portava nou mesos investigant Collatz pel meu compte i volia explicar-li dues coses: el que havia trobat i que volia tornar a fer el doctorat. Em va dir el que era d'esperar —que li semblava genial, que m'animava, que no era la seva especialitat— i després va fer el que no era d'esperar: es va posar a buscar-me tutor. Ho vam intentar tres vegades. Ningú no estava interessat, o ningú no es veia capaç de declarar-se especialista en la matèria. Amb aquest problema era previsible: en Collatz no hi ha especialistes; hi ha, com a molt, supervivents.</p>
+
+        <p>Així que vam decidir emprendre el camí tots dos: Jaume com a director, i la porta oberta a un tutor que potser arribarà algun dia. A ell li sabia greu dirigir una tesi lluny del seu terreny. A mi em semblava la millor notícia possible: prefereixo algú que s'implica de veritat en un problema que no és el seu abans que un expert que no vol ni mirar el mapa.</p>
+
+        <p>Tampoc Gandalf era especialista en l'Anell. Va ser simplement l'únic disposat a estudiar els arxius, fer les preguntes i posar-se a caminar. Això és Gandalf en aquesta història: no el que resol el problema —aquest no existeix—, sinó el que et diu que el camí existeix, encara que no el pugui recórrer amb tu fins al final.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Però, ¿què és l'Anell?</p>
+
+        <p>L'Anell Únic no és poderós només perquè destrueixi: és poderós perquè organitza. Sota el caos aparent imposa un ordre invisible, i tots els portadors, tots els viatges, tots els regnes acaben orbitant al voltant del mateix centre.</p>
+
+        <p>La conjectura de Collatz té aquesta mateixa qualitat. El pertorbador no és la regla, que és elemental. El pertorbador és que una regla tan simple sembli crear un camp gravitatori invisible que arrossega tot nombre, des de qualsevol punt de partida, cap al mateix lloc. Sense raó aparent. Com si hi hagués alguna cosa a sota que encara no sabem anomenar.</p>
+
+        <p>Bilbo ho sabia, encara que parlés d'una altra cosa:</p>
+
+        <blockquote style="margin:1.5rem 0;padding:.8rem 1.2rem;border-left:3px solid var(--border);color:var(--text-soft);font-style:italic">
+          És perillós, Frodo, creuar la teva porta. Poses el peu al camí, i si no vigiles els teus passos, mai no saps on et podrien dur.
+        </blockquote>
+
+        <p>Això és Collatz. Cada nombre és una porta; cada iteració, un pas. Mirant només el punt de partida no hi ha manera de saber quant durarà el viatge ni per on anirà. El 26 arriba a casa en deu passos. El 27, el seu veí de porta, puja fins a 9.232 abans de començar a baixar, i tarda cent onze. El camí no es negocia. Només es recorre.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>A Tolkien li encantaven els mapes. Tots els seus llibres en tenen: muntanyes dibuixades a mà, rutes traçades abans que existís una sola línia de la història. El mapa no il·lustrava el món; el mapa era el món, i la història sorgía de recórrer-lo.</p>
+
+        <p>La dinàmica de Collatz també té un mapa, i el meu té sis regions: sis territoris entre els quals els nombres viatgen empesos sempre per la mateixa regla. Alguns són terres de pas, erms que la trajectòria creua sense aturar-se; d'altres retenen, fan girar, obliguen a llargs rodeus abans de deixar anar.</p>
+
+        <p>Les terres dels múltiples de tres són territoris peculiars. Tenen quelcom de lloc de partida, de frontera, de porta que empeny cap a un altre lloc. Són, en cert sentit, els Ports Grisos d'aquest mapa: territoris que no expliquen el retorn, sinó la sortida.</p>
+
+        <p>I hi ha una regió que fa el paper de Mordor: els nombres que deixen resta 4 en dividir-los entre sis. No perquè sigui fosca, sinó perquè tot indica que no es pot tancar el viatge sense travessar-la. Igual que cap portador pot destruir l'Anell sense entrar a Mordor, cap trajectòria positiva no trivial hauria de poder esquivar indefinidament aquesta regió, si la conjectura és certa. Demostrar aquesta inevitabilitat és apropar-se al cor del problema.</p>
+
+        <p>Al final de tot, si Collatz té raó, queden dos territoris. Només dos: l'1 i el 2, oscil·lant entre ells per sempre. Aquí és la Comarca: no el punt de partida, sinó el punt de retorn. El lloc al qual es torna quan l'Anell ja no existeix.</p>
+
+        <figure style="margin:2rem 0;border:1px solid var(--border);border-radius:8px;overflow:hidden">
+          <img src="/ca/notas/anillo-de-collatz/grafo-g-gema.jpg" alt="El graf G mod 6 representat com un mapa de fantasia a l'estil Tolkien, amb illes, ponts i volcans" style="width:100%;display:block">
+          <figcaption style="padding:.7rem 1rem;font-size:.82rem;color:var(--text-soft);background:var(--bg-subtle)">El graf G mod 6 com a mapa de fantasia &mdash; il·lustració de Gema Jiménez Camacho, 2026</figcaption>
+        </figure>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Frodo torna a la Comarca. Això promet la història de Tolkien: que el camí, per llarg que sigui, té retorn. Però Tolkien mostra també el que els finals feliços solen ometre: qui torna ja no és el mateix que ha sortit. La Comarca segueix igual; l'hobbit, no.</p>
+
+        <p>Jo encara no he tornat.</p>
+
+        <p>Però hi ha alguna cosa que sé ara que no sabia en començar: la conjectura de Collatz no és dels problemes que es resolen una tarda. És dels camins que et trien a tu, sense preguntar si estàs preparat, sense garantir que hi arribaràs. Només amb la certesa estranya que val la pena continuar posant un peu davant de l'altre.</p>
+
+        <p>Bilbo tenia raó.</p>
+
+        <p>És perillós creuar la porta.</p>
+
+        <p>Però ja la vaig creuar.</p>
+
+      </div>
+
+      <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+        <a href="/ca/notas/" style="font-size:0.9rem;color:var(--text-soft)">&larr; Tornar a notes</a>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Collatz Ring — Àlex Reyes</title>
+<meta name="description" content="An essay on the parallels between the Collatz conjecture and Tolkien's work. Maps, Rings and wrong hobbits.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/notas/anillo-de-collatz/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://alexreyes.es/en/notas/anillo-de-collatz/">
+<meta property="og:title" content="The Collatz Ring — Àlex Reyes">
+<meta property="og:description" content="An essay on the parallels between the Collatz conjecture and Tolkien's work.">
+<meta property="og:image" content="https://alexreyes.es/en/notas/anillo-de-collatz/grafo-g-gema.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Collatz Ring — Àlex Reyes">
+<meta name="twitter:description" content="An essay on the parallels between the Collatz conjecture and Tolkien's work.">
+<meta name="twitter:image" content="https://alexreyes.es/en/notas/anillo-de-collatz/grafo-g-gema.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/" class="nav-active">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/notas/anillo-de-collatz/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/notas/anillo-de-collatz/">CA</a><span class="lang-sep">&middot;</span><a href="/en/notas/anillo-de-collatz/" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/notas/">Notes</a>
+      <span class="sep">/</span>
+      <span class="current">The Collatz Ring</span>
+    </div>
+
+    <div style="max-width:680px;margin:0 auto">
+
+      <div class="page-header" style="margin-bottom:2.5rem">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;flex-wrap:wrap">
+          <span class="section-label">Note</span>
+          <span class="tag tag-purple">Collatz</span>
+          <span class="tag tag-gray">Tolkien</span>
+        </div>
+        <h1 style="margin:0 0 0.6rem;font-size:2rem;line-height:1.2">The Collatz Ring</h1>
+        <p style="font-size:0.9rem;color:var(--text-soft)">Àlex Reyes &middot; June 2026</p>
+      </div>
+
+      <div class="nota-body" style="font-size:1.05rem;line-height:1.8;color:var(--text)">
+
+        <p>In 1937, while J. R. R. Tolkien was finishing <em>The Hobbit</em> in Oxford, a German mathematician named Lothar Collatz was jotting down —so the story goes— in a notebook a question of almost laughable simplicity.</p>
+
+        <p>Take any positive integer. If it is even, divide it by two. If it is odd, multiply it by three and add one. Repeat.</p>
+
+        <p>Will you always reach one?</p>
+
+        <p>Nearly ninety years later, nobody knows. Tolkien published his book that autumn. Collatz kept his question to himself.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>It took me nearly forty years to find the conjecture, and I arrived at it in the least heroic way possible: watching a podcast. Eduardo Sáenz de Cabezón, in a conversation with Jordi Wild, explained the problem with the clarity of someone who knows it all too well, and took the opportunity to warn that he was tired of receiving supposed solutions by email, that he no longer replied to them, that people became obsessed.</p>
+
+        <p>I became obsessed.</p>
+
+        <p>There was no sign, no wizard knocking at my door. Just a secondary school teacher with fifteen years of blackboards behind him, staring at a screen at eleven at night. But there is something in the Collatz conjecture that, once it gets in, is hard to shake off. As if it had been waiting since 1937 for the wrong hobbit.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>There is something Tolkien understood about impossible burdens that mathematicians rarely write about: they end up leaving you alone.</p>
+
+        <p>Finding someone willing to supervise a thesis on the Collatz conjecture is, in itself, a small odyssey. The problem has a bad reputation — not among the general public, who find it fascinating, but among mathematicians, who know the terrain best. And not without reason: for decades, too many illusory shortcuts have arrived, too many proofs that fall apart upon examining the first delicate step with care. Sáenz de Cabezón doesn't answer those emails. Many journals read the word Collatz and already think they know what kind of story is coming.</p>
+
+        <p>Presenting yourself as an unknown with a new result on Collatz is a bit like arriving at Rivendell without being an elf, or a king, or a wizard. With only the question in hand and the suspicion, still fragile, that you have seen a structure worth examining.</p>
+
+        <p>The Fellowship of the Ring breaks. It is inevitable. Each member accompanies as far as they can, and there are stretches of the road that are walked alone. But the moment of entering Mordor is always singular.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Gandalf, however, exists.</p>
+
+        <p>When I contacted Dr. Jaume Franch Bullich, I had spent nine months researching Collatz on my own and wanted to tell him two things: what I had found, and that I wanted to do a doctorate. He told me what was to be expected — that he thought it was great, that he encouraged me, that it wasn't his specialty — and then he did what was not to be expected: he set about finding me a supervisor. We tried three times. Nobody was interested, or nobody felt able to declare themselves a specialist in the matter. With this problem it was predictable: there are no specialists in Collatz; at most, there are survivors.</p>
+
+        <p>So we decided to set out together: Jaume as supervisor, and the door open to a co-supervisor who might arrive someday. He felt uncomfortable supervising a thesis outside his field. To me it seemed like the best possible news: I prefer someone who genuinely engages with a problem that isn't their own over an expert who doesn't want to look at the map.</p>
+
+        <p>Gandalf wasn't a specialist in the Ring either. He was simply the only one willing to study the records, ask the questions, and start walking. That is Gandalf in this story: not the one who solves the problem — that person doesn't exist — but the one who tells you the road exists, even if he can't walk it with you all the way to the end.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>But what is the Ring?</p>
+
+        <p>The One Ring is not powerful merely because it destroys: it is powerful because it organizes. Beneath apparent chaos it imposes an invisible order, and all the bearers, all the journeys, all the kingdoms end up orbiting around the same centre.</p>
+
+        <p>The Collatz conjecture has exactly that quality. What is disturbing is not the rule itself, which is elementary. What is disturbing is that such a simple rule seems to create an invisible gravitational field that pulls every number, from any starting point, toward the same place. For no apparent reason. As if there were something underneath that we still don't know how to name.</p>
+
+        <p>Bilbo knew, even though he was talking about something else:</p>
+
+        <blockquote style="margin:1.5rem 0;padding:.8rem 1.2rem;border-left:3px solid var(--border);color:var(--text-soft);font-style:italic">
+          It's a dangerous business, Frodo, going out your door. You step onto the Road, and if you don't keep your feet, there's no knowing where you might be swept off to.
+        </blockquote>
+
+        <p>That is Collatz. Each number is a door; each iteration, a step. Looking only at the starting point, there is no way to know how long the journey will last or where it will go. Twenty-six reaches home in ten steps. Twenty-seven, its next-door neighbour, climbs all the way to 9,232 before beginning to descend, and takes one hundred and eleven steps. The road is not negotiated. It is only walked.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Tolkien loved maps. All his books have them: mountains drawn by hand, routes traced before a single line of the story existed. The map did not illustrate the world; the map <em>was</em> the world, and the story arose from travelling through it.</p>
+
+        <p>The dynamics of Collatz also have a map, and mine has six regions: six territories through which numbers travel, always driven by the same rule. Some are transit lands, moorlands that a trajectory crosses without stopping; others hold on, spin you around, force long detours before releasing you.</p>
+
+        <p>The lands of multiples of three are peculiar territories. They have something of a place of departure, a border, a door that pushes outward. They are, in a sense, the Grey Havens of this map: territories that do not explain the return, but the departure.</p>
+
+        <p>And there is a region that plays the role of Mordor: the numbers that leave a remainder of 4 when divided by six. Not because it is dark, but because everything indicates that the journey cannot be completed without crossing it. Just as no Ring-bearer can destroy the Ring without entering Mordor, no non-trivial positive trajectory should be able to indefinitely avoid that region, if the conjecture is true. Proving that inevitability is drawing closer to the heart of the problem.</p>
+
+        <p>At the end of everything, if Collatz is right, two territories remain. Only two: 1 and 2, oscillating between each other forever. There lies the Shire: not the point of departure, but the point of return. The place you come back to when the Ring no longer exists.</p>
+
+        <figure style="margin:2rem 0;border:1px solid var(--border);border-radius:8px;overflow:hidden">
+          <img src="/en/notas/anillo-de-collatz/grafo-g-gema.jpg" alt="The graph G mod 6 depicted as a Tolkien-style fantasy map, with islands, bridges and volcanoes" style="width:100%;display:block">
+          <figcaption style="padding:.7rem 1rem;font-size:.82rem;color:var(--text-soft);background:var(--bg-subtle)">The graph G mod 6 as a fantasy map &mdash; illustration by Gema Jiménez Camacho, 2026</figcaption>
+        </figure>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Frodo returns to the Shire. That is what Tolkien's story promises: that the road, however long, has a return. But Tolkien also shows what happy endings usually leave out: whoever returns is no longer the same as whoever left. The Shire remains unchanged; the hobbit does not.</p>
+
+        <p>I have not returned yet.</p>
+
+        <p>But there is something I know now that I didn't know at the start: the Collatz conjecture is not the kind of problem that gets solved one afternoon. It is the kind of road that chooses you — without asking if you are ready, without guaranteeing you will arrive. Only with the strange certainty that it is worth continuing to put one foot in front of the other.</p>
+
+        <p>Bilbo was right.</p>
+
+        <p>It is dangerous to cross the door.</p>
+
+        <p>But I already have.</p>
+
+      </div>
+
+      <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+        <a href="/en/notas/" style="font-size:0.9rem;color:var(--text-soft)">&larr; Back to notes</a>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and research</span>
+      <span>Barcelona &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
