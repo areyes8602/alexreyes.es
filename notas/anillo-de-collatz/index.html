@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Anillo de Collatz — Àlex Reyes</title>
+<meta name="description" content="Un ensayo sobre las similitudes entre la conjetura de Collatz y la obra de Tolkien. Mapas, Anillos y hobbits equivocados.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/notas/anillo-de-collatz/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/notas/anillo-de-collatz/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://alexreyes.es/notas/anillo-de-collatz/">
+<meta property="og:title" content="El Anillo de Collatz — Àlex Reyes">
+<meta property="og:description" content="Un ensayo sobre las similitudes entre la conjetura de Collatz y la obra de Tolkien.">
+<meta property="og:image" content="https://alexreyes.es/notas/anillo-de-collatz/grafo-g-gema.jpg">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El Anillo de Collatz — Àlex Reyes">
+<meta name="twitter:description" content="Un ensayo sobre las similitudes entre la conjetura de Collatz y la obra de Tolkien.">
+<meta name="twitter:image" content="https://alexreyes.es/notas/anillo-de-collatz/grafo-g-gema.jpg">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/" class="nav-active">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/notas/anillo-de-collatz/" class="lang-active">ES</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/notas/">Notas</a>
+      <span class="sep">/</span>
+      <span class="current">El Anillo de Collatz</span>
+    </div>
+
+    <div style="max-width:680px;margin:0 auto">
+
+      <div class="page-header" style="margin-bottom:2.5rem">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;flex-wrap:wrap">
+          <span class="section-label">Nota</span>
+          <span class="tag tag-purple">Collatz</span>
+          <span class="tag tag-gray">Tolkien</span>
+        </div>
+        <h1 style="margin:0 0 0.6rem;font-size:2rem;line-height:1.2">El Anillo de Collatz</h1>
+        <p style="font-size:0.9rem;color:var(--text-soft)">Àlex Reyes &middot; junio 2026</p>
+      </div>
+
+      <div class="nota-body" style="font-size:1.05rem;line-height:1.8;color:var(--text)">
+
+        <p>En 1937, mientras J. R. R. Tolkien terminaba <em>El Hobbit</em> en Oxford, un matemático alemán llamado Lothar Collatz anotaba —se cuenta— en un cuaderno una pregunta de apariencia casi ridícula.</p>
+
+        <p>Toma cualquier número entero positivo. Si es par, divídelo entre dos. Si es impar, multiplícalo por tres y súmale uno. Repite.</p>
+
+        <p>¿Llegarás siempre al uno?</p>
+
+        <p>Casi noventa años después, nadie lo sabe. Tolkien publicó su libro aquel otoño. Collatz guardó su pregunta.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Yo tardé casi cuarenta años en encontrar la conjetura, y llegué a ella de la manera menos heroica posible: viendo un podcast. Eduardo Sáenz de Cabezón, en una conversación con Jordi Wild, explicó el problema con la claridad de quien lo conoce demasiado bien, y aprovechó para advertir que estaba harto de recibir supuestas soluciones por correo, que ya no las respondía, que la gente se obsesionaba.</p>
+
+        <p>Me obsesioné.</p>
+
+        <p>No hubo señal ni mago llamando a mi puerta. Solo un profesor de secundaria con quince años de pizarras a la espalda, mirando una pantalla a las once de la noche. Pero hay algo en la conjetura de Collatz que, una vez dentro, cuesta apartar. Como si llevara desde 1937 esperando al hobbit equivocado.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Hay algo que Tolkien entendió sobre las cargas imposibles y que los matemáticos raramente escriben: acaban dejándote solo.</p>
+
+        <p>Encontrar a alguien dispuesto a dirigir una tesis sobre la conjetura de Collatz es, en sí mismo, una pequeña odisea. El problema tiene mala fama; no entre el público, que lo encuentra fascinante, sino entre los matemáticos, que son quienes mejor conocen el terreno. Y no sin motivo: durante décadas han llegado demasiados atajos ilusorios, demasiadas demostraciones que se deshacen al mirar con cuidado el primer paso delicado. Sáenz de Cabezón no contesta esos correos. Muchas revistas leen la palabra Collatz y creen saber ya qué clase de historia viene.</p>
+
+        <p>Presentarse como desconocido con un resultado nuevo sobre Collatz es un poco como llegar a Rivendel sin ser elfo, ni rey, ni mago. Con solo la pregunta en la mano y la sospecha, todavía frágil, de que has visto una estructura que merece ser examinada.</p>
+
+        <p>La Comunidad del Anillo se rompe. Es inevitable. Cada uno acompaña hasta donde puede, y hay tramos del camino que se recorren solos. Pero el momento de entrar en Mordor es siempre singular.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Gandalf, sin embargo, existe.</p>
+
+        <p>Cuando contacté con el Dr. Jaume Franch Bullich, yo llevaba nueve meses investigando Collatz por mi cuenta y quería contarle dos cosas: lo que había encontrado y que quería volver a hacer el doctorado. Me dijo lo que era de esperar —que le parecía genial, que me animaba, que no era su especialidad— y luego hizo lo que no era de esperar: se puso a buscarme tutor. Lo intentamos tres veces. Nadie estaba interesado, o nadie se veía capaz de declararse especialista en la materia. Con este problema era previsible: en Collatz no hay especialistas; hay, como mucho, supervivientes.</p>
+
+        <p>Así que decidimos emprender el camino los dos: Jaume como director, y la puerta abierta a un tutor que quizá llegue algún día. A él le sabía mal dirigir una tesis lejos de su terreno. A mí me parecía la mejor noticia posible: prefiero a alguien que se implica de verdad en un problema que no es el suyo antes que a un experto que no quiere ni mirar el mapa.</p>
+
+        <p>Tampoco Gandalf era especialista en el Anillo. Fue simplemente el único dispuesto a estudiar los archivos, hacer las preguntas y echar a andar. Eso es Gandalf en esta historia: no el que resuelve el problema —ese no existe—, sino el que te dice que el camino existe, aunque no pueda recorrerlo contigo hasta el final.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Pero ¿qué es el Anillo?</p>
+
+        <p>El Anillo Único no es poderoso solo porque destruya: es poderoso porque organiza. Bajo el caos aparente impone un orden invisible, y todos los portadores, todos los viajes, todos los reinos acaban orbitando alrededor del mismo centro.</p>
+
+        <p>La conjetura de Collatz tiene esa misma cualidad. Lo perturbador no es la regla, que es elemental. Lo perturbador es que una regla tan simple parezca crear un campo gravitatorio invisible que arrastra todo número, desde cualquier punto de partida, hacia el mismo lugar. Sin razón aparente. Como si hubiera algo debajo que aún no sabemos nombrar.</p>
+
+        <p>Bilbo lo sabía, aunque hablara de otra cosa:</p>
+
+        <blockquote style="margin:1.5rem 0;padding:.8rem 1.2rem;border-left:3px solid var(--border);color:var(--text-soft);font-style:italic">
+          Es peligroso, Frodo, cruzar tu puerta. Pones tu pie en el camino, y si no cuidas tus pasos, nunca sabes a dónde te pueden llevar.
+        </blockquote>
+
+        <p>Eso es Collatz. Cada número es una puerta; cada iteración, un paso. Mirando solo el punto de partida no hay manera de saber cuánto durará el viaje ni por dónde irá. El 26 llega a casa en diez pasos. El 27, su vecino de puerta, sube hasta 9.232 antes de empezar a descender, y tarda ciento once. El camino no se negocia. Solo se recorre.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>A Tolkien le encantaban los mapas. Todos sus libros los tienen: montañas dibujadas a mano, rutas trazadas antes de que existiera una sola línea de la historia. El mapa no ilustraba el mundo; el mapa era el mundo, y la historia surgía de recorrerlo.</p>
+
+        <p>La dinámica de Collatz también tiene un mapa, y el mío tiene seis regiones: seis territorios entre los que los números viajan empujados siempre por la misma regla. Algunos son tierras de paso, páramos que la trayectoria cruza sin detenerse; otros retienen, hacen girar, obligan a rodeos largos antes de soltar.</p>
+
+        <p>Las tierras de los múltiplos de tres son territorios peculiares. Tienen algo de lugar de partida, de frontera, de puerta que empuja hacia otra parte. Son, en cierto sentido, los Puertos Grises de este mapa: territorios que no explican el regreso, sino la salida.</p>
+
+        <p>Y hay una región que hace el papel de Mordor: los números que dejan resto 4 al dividirlos entre seis. No porque sea oscura, sino porque todo indica que no se puede cerrar el viaje sin atravesarla. Igual que ningún portador puede destruir el Anillo sin entrar en Mordor, ninguna trayectoria positiva no trivial debería poder esquivar indefinidamente esa región, si la conjetura es cierta. Demostrar esa inevitabilidad es acercarse al corazón del problema.</p>
+
+        <p>Al final de todo, si Collatz tiene razón, quedan dos territorios. Solo dos: el 1 y el 2, oscilando entre ellos para siempre. Ahí está la Comarca: no el punto de partida, sino el punto de regreso. El lugar al que se vuelve cuando el Anillo ya no existe.</p>
+
+        <figure style="margin:2rem 0;border:1px solid var(--border);border-radius:8px;overflow:hidden">
+          <img src="/notas/anillo-de-collatz/grafo-g-gema.jpg" alt="El grafo G mod 6 representado como un mapa de fantasía al estilo Tolkien, con islas, puentes y volcanes" style="width:100%;display:block">
+          <figcaption style="padding:.7rem 1rem;font-size:.82rem;color:var(--text-soft);background:var(--bg-subtle)">El grafo G mod 6 como mapa de fantasía &mdash; ilustración de Gema Jiménez Camacho, 2026</figcaption>
+        </figure>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
+
+        <p>Frodo vuelve a la Comarca. Eso promete la historia de Tolkien: que el camino, por largo que sea, tiene regreso. Pero Tolkien muestra también lo que los finales felices suelen omitir: quien vuelve ya no es el mismo que salió. La Comarca sigue igual; el hobbit, no.</p>
+
+        <p>Yo no he vuelto todavía.</p>
+
+        <p>Pero hay algo que sé ahora que no sabía al empezar: la conjetura de Collatz no es de los problemas que se resuelven una tarde. Es de los caminos que te eligen a ti, sin preguntar si estás preparado, sin garantizar que llegues. Solo con la certeza extraña de que vale la pena seguir poniendo un pie delante del otro.</p>
+
+        <p>Bilbo tenía razón.</p>
+
+        <p>Es peligroso cruzar la puerta.</p>
+
+        <p>Pero ya la crucé.</p>
+
+      </div>
+
+      <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+        <a href="/notas/" style="font-size:0.9rem;color:var(--text-soft)">&larr; Volver a notas</a>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
