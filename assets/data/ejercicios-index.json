@@ -1,467 +1,9 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-06-09T10:28:11.322106+00:00",
+  "generated_at": "2026-06-11T20:11:18.330905+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 168,
+  "count": 182,
   "ejercicios": [
-    {
-      "id": "2526-1btl-macs-t3t-p1",
-      "titulo": "Potències, radicals, logaritmes i polinomis",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p1.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [
-        1
-      ],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p1.html",
-      "numero": 1,
-      "puntuacion": 2,
-      "apartados": [
-        {
-          "letra": "a",
-          "puntos": 0.5,
-          "tarea": "Simplifica: $\\dfrac{\\sqrt[3]{8}\\cdot 4^{3/2}\\cdot \\sqrt{27}}{6^{0}\\cdot 9^{1/2}\\cdot 2^{-1}}$"
-        },
-        {
-          "letra": "b",
-          "puntos": 0.5,
-          "tarea": "Calcula: $\\log_{a}(a^{3}) + \\log_{b}\\!\\left(\\dfrac{1}{b^{2}}\\right) - \\log_{c}\\!\\left(\\dfrac{\\sqrt{c}}{c}\\right) + \\ln(e^{2}) + \\log_{d} 1$"
-        },
-        {
-          "letra": "c",
-          "puntos": 0.5,
-          "tarea": "Factoritza completament el polinomi $P(x) = 2x^{4} - x^{3} - 8x^{2} + x + 6$."
-        },
-        {
-          "letra": "d",
-          "puntos": 0.5,
-          "tarea": "Simplifica la fracció algebraica següent: $\\dfrac{x^{3} + x^{2} - 4x - 4}{x^{2} + 3x + 2}$"
-        }
-      ],
-      "apartados_count": 4,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3t",
-        "titulo": "Global 3a avaluació — Tot el curs",
-        "tipo": "examen",
-        "fecha": "2026-05-28",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
-        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
-        "unidades_implicadas": null
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-A",
-        "concepto_bach": [
-          "BACH-potencias",
-          "BACH-polinomios"
-        ],
-        "dificultad": "media",
-        "habilidad": [
-          "calculo_simbolico"
-        ],
-        "formato": [
-          "pregunta_larga"
-        ]
-      },
-      "search_text": {
-        "es": "potències, radicals, logaritmes i polinomis bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido numérico potencias, raíces y logaritmos polinomios: factorización, división, raíces media cálculo simbólico pregunta larga (estructurada en apartados)",
-        "ca": "potències, radicals, logaritmes i polinomis batxillerat — mat. ccss 1r català examen sentit numèric",
-        "en": "potències, radicals, logaritmes i polinomis bachillerato — applied maths year 1 catalan exam number sense"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3t-p2",
-      "titulo": "Equacions i sistemes (escollir 4 de 6)",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [
-        1
-      ],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html",
-      "numero": 2,
-      "puntuacion": 2,
-      "apartados": [
-        {
-          "letra": "a",
-          "puntos": 0.25,
-          "tarea": "$\\log(x+3) + \\log(x-1) = \\log(2x+6)$"
-        },
-        {
-          "letra": "b",
-          "puntos": 0.25,
-          "tarea": "$\\sqrt{3x+4} - \\sqrt{x} = 2$"
-        },
-        {
-          "letra": "c",
-          "puntos": 0.25,
-          "tarea": "$4^{x+1} - 5\\cdot 2^{x+1} + 4 = 0$"
-        },
-        {
-          "letra": "d",
-          "puntos": 0.25,
-          "tarea": "$|x-5| = |2x+2|$"
-        },
-        {
-          "letra": "e",
-          "puntos": 0.5,
-          "tarea": "$x^{4} - 10x^{2} + 9 = 0$"
-        },
-        {
-          "letra": "f",
-          "puntos": 0.5,
-          "tarea": "Sistema: $\\begin{cases} \\log x + \\log y = 3 \\\\ \\log x - \\log y = 1 \\end{cases}$"
-        }
-      ],
-      "apartados_count": 6,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3t",
-        "titulo": "Global 3a avaluació — Tot el curs",
-        "tipo": "examen",
-        "fecha": "2026-05-28",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
-        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
-        "unidades_implicadas": null
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-D",
-        "concepto_bach": [
-          "BACH-ecuaciones",
-          "BACH-sistemas"
-        ],
-        "dificultad": "media",
-        "habilidad": [
-          "calculo_simbolico",
-          "razonamiento"
-        ],
-        "formato": [
-          "pregunta_larga"
-        ]
-      },
-      "search_text": {
-        "es": "equacions i sistemes (escollir 4 de 6) bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) sistemas de ecuaciones lineales y no lineales media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
-        "ca": "equacions i sistemes (escollir 4 de 6) batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi)",
-        "en": "equacions i sistemes (escollir 4 de 6) bachillerato — applied maths year 1 catalan exam algebraic sense"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3t-p3",
-      "titulo": "Funcions: domini, composició, inversa i vèrtex",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p3.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [
-        1
-      ],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p3.html",
-      "numero": 3,
-      "puntuacion": 2,
-      "apartados": [
-        {
-          "letra": "a",
-          "puntos": 0.5,
-          "tarea": "Calcula el domini de $f$, de $g$ i de $(f \\circ g)$. Justifica tots els casos."
-        },
-        {
-          "letra": "b",
-          "puntos": 0.5,
-          "tarea": "Calcula $(f \\circ g)$ i $(g \\circ f)$."
-        },
-        {
-          "letra": "c",
-          "puntos": 0.5,
-          "tarea": "Calcula la funció inversa $f^{-1}(x)$ i $g^{-1}(x)$. Indica el domini de cada inversa."
-        },
-        {
-          "letra": "d",
-          "puntos": 0.5,
-          "tarea": "Troba totes les antiimatges de $-2$ per la funció $h(x)$. Troba el vèrtex de $h(x)$."
-        }
-      ],
-      "apartados_count": 4,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3t",
-        "titulo": "Global 3a avaluació — Tot el curs",
-        "tipo": "examen",
-        "fecha": "2026-05-28",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
-        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
-        "unidades_implicadas": null
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-D",
-        "concepto_bach": [
-          "BACH-funciones-elementales"
-        ],
-        "dificultad": "media",
-        "habilidad": [
-          "calculo_simbolico",
-          "razonamiento"
-        ],
-        "formato": [
-          "pregunta_larga"
-        ]
-      },
-      "search_text": {
-        "es": "funcions: domini, composició, inversa i vèrtex bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
-        "ca": "funcions: domini, composició, inversa i vèrtex batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi)",
-        "en": "funcions: domini, composició, inversa i vèrtex bachillerato — applied maths year 1 catalan exam algebraic sense"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3t-p4",
-      "titulo": "Derivades: monotonia, extrems i optimització (context econòmic)",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p4.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [
-        2
-      ],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p4.html",
-      "numero": 4,
-      "puntuacion": 2,
-      "apartados": [
-        {
-          "letra": "a",
-          "puntos": 0.5,
-          "tarea": "Calcula $B'(x)$ i troba els punts crítics de $B(x)$ en l'interval $[1,10]$."
-        },
-        {
-          "letra": "b",
-          "puntos": 0.5,
-          "tarea": "Estudia el signe de $B'(x)$ i determina els intervals de creixement i decreixement de $B(x)$ en $[1,10]$."
-        },
-        {
-          "letra": "c",
-          "puntos": 0.5,
-          "tarea": "Classifica cada punt crític com a màxim o mínim local. Indica el valor màxim de benefici i el preu al qual s'assoleix."
-        },
-        {
-          "letra": "d",
-          "puntos": 0.5,
-          "tarea": "Calcula el preu unitari que dona uns beneficis mensuals de 7000 €."
-        }
-      ],
-      "apartados_count": 4,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3t",
-        "titulo": "Global 3a avaluació — Tot el curs",
-        "tipo": "examen",
-        "fecha": "2026-05-28",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
-        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
-        "unidades_implicadas": null
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-D",
-        "concepto_bach": [
-          "BACH-derivadas",
-          "BACH-funciones-elementales"
-        ],
-        "dificultad": "media",
-        "habilidad": [
-          "calculo_simbolico",
-          "modelizacion",
-          "interpretacion"
-        ],
-        "formato": [
-          "pregunta_larga",
-          "problema_aplicado"
-        ]
-      },
-      "search_text": {
-        "es": "derivades: monotonia, extrems i optimització (context econòmic) bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) derivadas: cálculo y aplicaciones (monotonía, extremos, optimización) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico modelización interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
-        "ca": "derivades: monotonia, extrems i optimització (context econòmic) batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi)",
-        "en": "derivades: monotonia, extrems i optimització (context econòmic) bachillerato — applied maths year 1 catalan exam algebraic sense"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3t-p5",
-      "titulo": "Diagrama d'arbre, probabilitat total i teorema de Bayes",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p5.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [
-        2
-      ],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p5.html",
-      "numero": 5,
-      "puntuacion": 2,
-      "apartados": [
-        {
-          "letra": "a",
-          "puntos": 0.5,
-          "tarea": "Dibuixa el diagrama d'arbre complet amb totes les probabilitats indicades."
-        },
-        {
-          "letra": "b",
-          "puntos": 0.75,
-          "tarea": "Calcula la probabilitat que una comanda triada a l'atzar arribi amb retard."
-        },
-        {
-          "letra": "c",
-          "puntos": 0.75,
-          "tarea": "Sabent que una comanda ha arribat amb retard, calcula la probabilitat que provingui del centre C."
-        }
-      ],
-      "apartados_count": 3,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3t",
-        "titulo": "Global 3a avaluació — Tot el curs",
-        "tipo": "examen",
-        "fecha": "2026-05-28",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
-        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
-        "unidades_implicadas": null
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-E",
-        "concepto_bach": [
-          "BACH-probabilidad"
-        ],
-        "dificultad": "media",
-        "habilidad": [
-          "modelizacion",
-          "calculo_numerico",
-          "interpretacion"
-        ],
-        "formato": [
-          "pregunta_larga",
-          "problema_aplicado"
-        ]
-      },
-      "search_text": {
-        "es": "diagrama d'arbre, probabilitat total i teorema de bayes bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media modelización cálculo numérico interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
-        "ca": "diagrama d'arbre, probabilitat total i teorema de bayes batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat)",
-        "en": "diagrama d'arbre, probabilitat total i teorema de bayes bachillerato — applied maths year 1 catalan exam stochastic sense"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3t-p6",
-      "titulo": "Probabilitat condicionada, independència i distribució binomial",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [
-        2
-      ],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html",
-      "numero": 6,
-      "puntuacion": 2,
-      "apartados": [
-        {
-          "letra": "a",
-          "puntos": 0.5,
-          "tarea": "Calcula la probabilitat que hagi aprovat matemàtiques i anglès."
-        },
-        {
-          "letra": "b",
-          "puntos": 0.5,
-          "tarea": "Calcula la probabilitat que hagi aprovat anglès sabent que ha aprovat matemàtiques (probabilitat condicionada)."
-        },
-        {
-          "letra": "c",
-          "puntos": 0.5,
-          "tarea": "Són independents els successos «aprovar matemàtiques» i «aprovar anglès»? Justifica-ho numèricament."
-        },
-        {
-          "letra": "d",
-          "puntos": 0.5,
-          "tarea": "Modela la situació com una distribució binomial $B(n,p)$. Calcula la probabilitat d'encertar exactament 3 preguntes, la probabilitat d'encertar com a mínim 2, i el nombre esperat d'encerts."
-        }
-      ],
-      "apartados_count": 4,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3t",
-        "titulo": "Global 3a avaluació — Tot el curs",
-        "tipo": "examen",
-        "fecha": "2026-05-28",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
-        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
-        "unidades_implicadas": null
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-E",
-        "concepto_bach": [
-          "BACH-probabilidad",
-          "BACH-distribuciones"
-        ],
-        "dificultad": "media",
-        "habilidad": [
-          "calculo_numerico",
-          "razonamiento",
-          "interpretacion"
-        ],
-        "formato": [
-          "pregunta_larga",
-          "problema_aplicado"
-        ]
-      },
-      "search_text": {
-        "es": "probabilitat condicionada, independència i distribució binomial bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes distribuciones (binomial, normal) media cálculo numérico razonamiento interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
-        "ca": "probabilitat condicionada, independència i distribució binomial batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat)",
-        "en": "probabilitat condicionada, independència i distribució binomial bachillerato — applied maths year 1 catalan exam stochastic sense"
-      }
-    },
     {
       "id": "2426-ib2-g1-p3-p1",
       "titulo": "Red eléctrica: voltaje sinusoidal, fasores complejos y cadena de Markov",
@@ -4593,250 +4135,6 @@
       }
     },
     {
-      "id": "2526-1btl-macs-t3p2-p1",
-      "titulo": "Probabilitat condicionada i teorema de Bayes",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [1],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html",
-      "numero": 1,
-      "puntuacion": 2,
-      "apartados": [
-        { "letra": "a", "puntos": 0.75, "tarea": "Representa la situació mitjançant un diagrama d'arbre amb totes les probabilitats." },
-        { "letra": "b", "puntos": 0.5, "tarea": "Si triem un alumne a l'atzar, quina és la probabilitat que suspengui l'assignatura?" },
-        { "letra": "c", "puntos": 0.75, "tarea": "Sabem que un alumne ha tret bona nota a l'assignatura. Quina és la probabilitat que sigui dels que falten sovint a classe?" }
-      ],
-      "apartados_count": 3,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3p2",
-        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
-        "tipo": "examen",
-        "fecha": "2026-05-19",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
-        "pdf_soluciones": null,
-        "unidades_implicadas": ["09", "10"]
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-E",
-        "concepto_bach": ["BACH-probabilidad"],
-        "dificultad": "media",
-        "habilidad": ["modelizacion", "calculo_numerico", "interpretacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
-      },
-      "search_text": {
-        "es": "probabilitat condicionada i teorema de bayes bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media modelización cálculo numérico interpretación contextual pregunta larga problema aplicado",
-        "ca": "probabilitat condicionada i teorema de bayes batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) mitjana",
-        "en": "probabilitat condicionada i teorema de bayes bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) medium"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3p2-p2",
-      "titulo": "Diagrama de Venn — hàbits de lectura",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p2.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [1],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p2.html",
-      "numero": 2,
-      "puntuacion": 2,
-      "apartados": [
-        { "letra": "a", "puntos": 0.5, "tarea": "Representa la situació amb un diagrama de Venn indicant el nombre de persones a cada regió." },
-        { "letra": "b", "puntos": 0.5, "tarea": "Calcula la probabilitat que un client triat a l'atzar llegeixi novel·la o assaig." },
-        { "letra": "c", "puntos": 0.5, "tarea": "Calcula la probabilitat que un client triat a l'atzar no llegeixi cap dels dos gèneres." },
-        { "letra": "d", "puntos": 0.5, "tarea": "Si sabem que un client llegeix novel·la, quina és la probabilitat que també llegeixi assaig?" }
-      ],
-      "apartados_count": 4,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3p2",
-        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
-        "tipo": "examen",
-        "fecha": "2026-05-19",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
-        "pdf_soluciones": null,
-        "unidades_implicadas": ["09", "10"]
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-E",
-        "concepto_bach": ["BACH-probabilidad"],
-        "dificultad": "facil",
-        "habilidad": ["interpretacion", "calculo_numerico", "modelizacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
-      },
-      "search_text": {
-        "es": "diagrama de venn hàbits de lectura bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil interpretación contextual cálculo numérico modelización pregunta larga problema aplicado",
-        "ca": "diagrama de venn hàbits de lectura batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) fàcil",
-        "en": "diagrama de venn habits de lectura bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) easy"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3p2-p3",
-      "titulo": "Distribució binomial — bombetes defectuoses",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p3.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [1],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p3.html",
-      "numero": 3,
-      "puntuacion": 2,
-      "apartados": [
-        { "letra": "a", "puntos": 0.5, "tarea": "Justifica que la variable aleatòria $X =$ \"nombre de bombetes defectuoses entre les 10 triades\" segueix una distribució binomial i escriu els seus paràmetres." },
-        { "letra": "b", "puntos": 0.5, "tarea": "Calcula la probabilitat que exactament 3 bombetes siguin defectuoses. Escriu explícitament la fórmula de la binomial amb els valors substituïts." },
-        { "letra": "c", "puntos": 0.5, "tarea": "Calcula la probabilitat que com a màxim 2 bombetes siguin defectuoses." },
-        { "letra": "d", "puntos": 0.5, "tarea": "Calcula la probabilitat que almenys 4 bombetes siguin defectuoses." }
-      ],
-      "apartados_count": 4,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3p2",
-        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
-        "tipo": "examen",
-        "fecha": "2026-05-19",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
-        "pdf_soluciones": null,
-        "unidades_implicadas": ["09", "10"]
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-E",
-        "concepto_bach": ["BACH-distribuciones"],
-        "dificultad": "media",
-        "habilidad": ["modelizacion", "calculo_numerico", "interpretacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
-      },
-      "search_text": {
-        "es": "distribució binomial bombetes defectuoses bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) distribuciones (binomial, normal) media modelización cálculo numérico interpretación contextual pregunta larga problema aplicado",
-        "ca": "distribució binomial bombetes defectuoses batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) mitjana",
-        "en": "binomial distribution defective bulbs bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) medium"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3p2-p4",
-      "titulo": "Urna sense reposició — boles de tres colors",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [1],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html",
-      "numero": 4,
-      "puntuacion": 2,
-      "apartados": [
-        { "letra": "a", "puntos": 0.5, "tarea": "Calcula la probabilitat que les dues boles siguin vermelles." },
-        { "letra": "b", "puntos": 0.5, "tarea": "Calcula la probabilitat que les dues boles siguin del mateix color." },
-        { "letra": "c", "puntos": 0.5, "tarea": "Calcula la probabilitat que almenys una de les dues boles sigui groga." },
-        { "letra": "d", "puntos": 0.5, "tarea": "Si sabem que la primera bola extreta ha estat vermella, quina és la probabilitat que la segona també sigui vermella?" }
-      ],
-      "apartados_count": 4,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3p2",
-        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
-        "tipo": "examen",
-        "fecha": "2026-05-19",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
-        "pdf_soluciones": null,
-        "unidades_implicadas": ["09", "10"]
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-E",
-        "concepto_bach": ["BACH-probabilidad"],
-        "dificultad": "media",
-        "habilidad": ["calculo_numerico", "interpretacion", "modelizacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
-      },
-      "search_text": {
-        "es": "urna sense reposició boles de tres colors bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo numérico interpretación contextual modelización pregunta larga problema aplicado",
-        "ca": "urna sense reposició boles de tres colors batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) mitjana",
-        "en": "urn without replacement balls three colours bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) medium"
-      }
-    },
-    {
-      "id": "2526-1btl-macs-t3p2-p5",
-      "titulo": "Successos A i B — independència i probabilitat condicionada",
-      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html",
-      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
-      "url_solucion_pdf": null,
-      "url_solucion_html": null,
-      "pages_enunciado": [1],
-      "pages_solucion": [],
-      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html",
-      "numero": 5,
-      "puntuacion": 2,
-      "apartados": [
-        { "letra": "a", "puntos": 0.5, "tarea": "Calcula $P(A \\cap B)$. Són $A$ i $B$ successos incompatibles? Justifica la resposta." },
-        { "letra": "b", "puntos": 0.5, "tarea": "Comprova si els successos $A$ i $B$ són independents. Justifica la resposta amb càlculs." },
-        { "letra": "c", "puntos": 0.5, "tarea": "Calcula $P(A|B)$ i $P(B|A)$." },
-        { "letra": "d", "puntos": 0.5, "tarea": "Calcula la probabilitat que es compleixi $A$ però no $B$." }
-      ],
-      "apartados_count": 4,
-      "coleccion": {
-        "id": "2526-1btl-macs-t3p2",
-        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
-        "tipo": "examen",
-        "fecha": "2026-05-19",
-        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
-        "grupo": "1r BTL",
-        "promocion": null,
-        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
-        "pdf_soluciones": null,
-        "unidades_implicadas": ["09", "10"]
-      },
-      "tags": {
-        "materia": "ccss-1btl",
-        "curso_academico": "2025-2026",
-        "idioma": "ca",
-        "fuente": "propia",
-        "origen": "examen",
-        "ambito_bach": "BACH-E",
-        "concepto_bach": ["BACH-probabilidad"],
-        "dificultad": "facil",
-        "habilidad": ["calculo_simbolico", "calculo_numerico", "interpretacion"],
-        "formato": ["pregunta_corta"]
-      },
-      "search_text": {
-        "es": "successos a i b independència i probabilitat condicionada bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil cálculo simbólico cálculo numérico interpretación contextual pregunta corta",
-        "ca": "successos a i b independència i probabilitat condicionada batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) fàcil",
-        "en": "events a and b independence and conditional probability bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) easy"
-      }
-    },
-    {
       "id": "2526-1btl-macs-t2t-p1",
       "titulo": "Optimització: benefici màxim d'un taller de bicicletes",
       "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t2t/p1.html",
@@ -5170,6 +4468,853 @@
         "es": "valor absolut, exponencial, logaritme i composició bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico visualización / gráficos pregunta larga (estructurada en apartados)",
         "ca": "valor absolut, exponencial, logaritme i composició batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
         "en": "valor absolut, exponencial, logaritme i composició bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p1",
+      "titulo": "Probabilitat condicionada i teorema de Bayes",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p1.html",
+      "numero": 1,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.75,
+          "tarea": "Representa la situació mitjançant un diagrama d'arbre amb totes les probabilitats."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Si triem un alumne a l'atzar, quina és la probabilitat que suspengui l'assignatura?"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.75,
+          "tarea": "Sabem que un alumne ha tret bona nota a l'assignatura. Quina és la probabilitat que sigui dels que falten sovint a classe?"
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3p2",
+        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
+        "tipo": "examen",
+        "fecha": "2026-05-19",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "09",
+          "10"
+        ]
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_numerico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "probabilitat condicionada i teorema de bayes bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media modelización cálculo numérico interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "probabilitat condicionada i teorema de bayes batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "probabilitat condicionada i teorema de bayes bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p2",
+      "titulo": "Diagrama de Venn — hàbits de lectura",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p2.html",
+      "numero": 2,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Representa la situació amb un diagrama de Venn indicant el nombre de persones a cada regió."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que un client triat a l'atzar llegeixi novel·la o assaig."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que un client triat a l'atzar no llegeixi cap dels dos gèneres."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Si sabem que un client llegeix novel·la, quina és la probabilitat que també llegeixi assaig?"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3p2",
+        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
+        "tipo": "examen",
+        "fecha": "2026-05-19",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "09",
+          "10"
+        ]
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "interpretacion",
+          "calculo_numerico",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "diagrama de venn — hàbits de lectura bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil interpretación contextual cálculo numérico modelización pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "diagrama de venn — hàbits de lectura batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) fàcil",
+        "en": "diagrama de venn — hàbits de lectura bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p3",
+      "titulo": "Distribució binomial — bombetes defectuoses",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p3.html",
+      "numero": 3,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Justifica que la variable aleatòria $X =$ \"nombre de bombetes defectuoses entre les 10 triades\" segueix una distribució binomial i escriu els seus paràmetres."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que exactament 3 bombetes siguin defectuoses. Escriu explícitament la fórmula de la binomial amb els valors substituïts abans de donar el resultat numèric."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que com a màxim 2 bombetes siguin defectuoses."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que almenys 4 bombetes siguin defectuoses."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3p2",
+        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
+        "tipo": "examen",
+        "fecha": "2026-05-19",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "09",
+          "10"
+        ]
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-distribuciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_numerico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "distribució binomial — bombetes defectuoses bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) distribuciones (binomial, normal) media modelización cálculo numérico interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "distribució binomial — bombetes defectuoses batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "distribució binomial — bombetes defectuoses bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p4",
+      "titulo": "Urna sense reposició — boles de tres colors",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p4.html",
+      "numero": 4,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que les dues boles siguin vermelles."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que les dues boles siguin del mateix color."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que almenys una de les dues boles sigui groga."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Si sabem que la primera bola extreta ha estat vermella, quina és la probabilitat que la segona també sigui vermella?"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3p2",
+        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
+        "tipo": "examen",
+        "fecha": "2026-05-19",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "09",
+          "10"
+        ]
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "interpretacion",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "urna sense reposició — boles de tres colors bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo numérico interpretación contextual modelización pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "urna sense reposició — boles de tres colors batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "urna sense reposició — boles de tres colors bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3p2-p5",
+      "titulo": "Successos A i B — independència i probabilitat condicionada",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/p5.html",
+      "numero": 5,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula $P(A \\cap B)$. Són $A$ i $B$ successos incompatibles? Justifica la resposta."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Comprova si els successos $A$ i $B$ són independents. Justifica la resposta amb càlculs."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula $P(A|B)$ i $P(B|A)$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que es compleixi $A$ però no $B$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3p2",
+        "titulo": "Parcial 2 — 3a avaluació · Probabilitat",
+        "tipo": "examen",
+        "fecha": "2026-05-19",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": [
+          "09",
+          "10"
+        ]
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "calculo_numerico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "successos a i b — independència i probabilitat condicionada bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil cálculo simbólico cálculo numérico interpretación contextual pregunta corta",
+        "ca": "successos a i b — independència i probabilitat condicionada batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) fàcil",
+        "en": "successos a i b — independència i probabilitat condicionada bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) easy"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p1",
+      "titulo": "Potències, radicals, logaritmes i polinomis",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p1.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p1.html",
+      "numero": 1,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Simplifica: $\\dfrac{\\sqrt[3]{8}\\cdot 4^{3/2}\\cdot \\sqrt{27}}{6^{0}\\cdot 9^{1/2}\\cdot 2^{-1}}$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula: $\\log_{a}(a^{3}) + \\log_{b}\\!\\left(\\dfrac{1}{b^{2}}\\right) - \\log_{c}\\!\\left(\\dfrac{\\sqrt{c}}{c}\\right) + \\ln(e^{2}) + \\log_{d} 1$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Factoritza completament el polinomi $P(x) = 2x^{4} - x^{3} - 8x^{2} + x + 6$."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Simplifica la fracció algebraica següent: $\\dfrac{x^{3} + x^{2} - 4x - 4}{x^{2} + 3x + 2}$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3t",
+        "titulo": "Global 3a avaluació — Tot el curs",
+        "tipo": "examen",
+        "fecha": "2026-05-28",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
+        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-A",
+        "concepto_bach": [
+          "BACH-potencias",
+          "BACH-polinomios"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "potències, radicals, logaritmes i polinomis bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido numérico potencias, raíces y logaritmos polinomios: factorización, división, raíces media cálculo simbólico pregunta larga (estructurada en apartados)",
+        "ca": "potències, radicals, logaritmes i polinomis batxillerat — mat. ccss 1r català examen sentit numèric mitjana",
+        "en": "potències, radicals, logaritmes i polinomis bachillerato — applied maths year 1 catalan exam number sense medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p2",
+      "titulo": "Equacions i sistemes (escollir 4 de 6)",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p2.html",
+      "numero": 2,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.25,
+          "tarea": "$\\log(x+3) + \\log(x-1) = \\log(2x+6)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.25,
+          "tarea": "$\\sqrt{3x+4} - \\sqrt{x} = 2$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0.25,
+          "tarea": "$4^{x+1} - 5\\cdot 2^{x+1} + 4 = 0$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0.25,
+          "tarea": "$|x-5| = |2x+2|$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0.5,
+          "tarea": "$x^{4} - 10x^{2} + 9 = 0$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0.5,
+          "tarea": "Sistema: $\\begin{cases} \\log x + \\log y = 3 \\\\ \\log x - \\log y = 1 \\end{cases}$"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3t",
+        "titulo": "Global 3a avaluació — Tot el curs",
+        "tipo": "examen",
+        "fecha": "2026-05-28",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
+        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-ecuaciones",
+          "BACH-sistemas"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "equacions i sistemes (escollir 4 de 6) bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) ecuaciones (1º y 2º grado, racionales, irracionales) sistemas de ecuaciones lineales y no lineales media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "equacions i sistemes (escollir 4 de 6) batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "equacions i sistemes (escollir 4 de 6) bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p3",
+      "titulo": "Funcions: domini, composició, inversa i vèrtex",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p3.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p3.html",
+      "numero": 3,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula el domini de $f$, de $g$ i de $(f \\circ g)$. Justifica tots els casos."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula $(f \\circ g)$ i $(g \\circ f)$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Calcula la funció inversa $f^{-1}(x)$ i $g^{-1}(x)$. Indica el domini de cada inversa."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Troba totes les antiimatges de $-2$ per la funció $h(x)$. Troba el vèrtex de $h(x)$."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3t",
+        "titulo": "Global 3a avaluació — Tot el curs",
+        "tipo": "examen",
+        "fecha": "2026-05-28",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
+        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "search_text": {
+        "es": "funcions: domini, composició, inversa i vèrtex bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico razonamiento pregunta larga (estructurada en apartados)",
+        "ca": "funcions: domini, composició, inversa i vèrtex batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "funcions: domini, composició, inversa i vèrtex bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p4",
+      "titulo": "Derivades: monotonia, extrems i optimització (context econòmic)",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p4.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p4.html",
+      "numero": 4,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula $B'(x)$ i troba els punts crítics de $B(x)$ en l'interval $[1,10]$."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Estudia el signe de $B'(x)$ i determina els intervals de creixement i decreixement de $B(x)$ en $[1,10]$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Classifica cada punt crític com a màxim o mínim local. Indica el valor màxim de benefici i el preu al qual s'assoleix."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Calcula el preu unitari que dona uns beneficis mensuals de 7000 €."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3t",
+        "titulo": "Global 3a avaluació — Tot el curs",
+        "tipo": "examen",
+        "fecha": "2026-05-28",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
+        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-derivadas",
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "modelizacion",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "derivades: monotonia, extrems i optimització (context econòmic) bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido algebraico (álgebra y análisis) derivadas: cálculo y aplicaciones (monotonía, extremos, optimización) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico modelización interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "derivades: monotonia, extrems i optimització (context econòmic) batxillerat — mat. ccss 1r català examen sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "derivades: monotonia, extrems i optimització (context econòmic) bachillerato — applied maths year 1 catalan exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p5",
+      "titulo": "Diagrama d'arbre, probabilitat total i teorema de Bayes",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p5.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p5.html",
+      "numero": 5,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Dibuixa el diagrama d'arbre complet amb totes les probabilitats indicades."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.75,
+          "tarea": "Calcula la probabilitat que una comanda triada a l'atzar arribi amb retard."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.75,
+          "tarea": "Sabent que una comanda ha arribat amb retard, calcula la probabilitat que provingui del centre C."
+        }
+      ],
+      "apartados_count": 3,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3t",
+        "titulo": "Global 3a avaluació — Tot el curs",
+        "tipo": "examen",
+        "fecha": "2026-05-28",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
+        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_numerico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "diagrama d'arbre, probabilitat total i teorema de bayes bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media modelización cálculo numérico interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "diagrama d'arbre, probabilitat total i teorema de bayes batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "diagrama d'arbre, probabilitat total i teorema de bayes bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "2526-1btl-macs-t3t-p6",
+      "titulo": "Probabilitat condicionada, independència i distribució binomial",
+      "url_enunciado": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html",
+      "url_pdf": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/p6.html",
+      "numero": 6,
+      "puntuacion": 2,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que hagi aprovat matemàtiques i anglès."
+        },
+        {
+          "letra": "b",
+          "puntos": 0.5,
+          "tarea": "Calcula la probabilitat que hagi aprovat anglès sabent que ha aprovat matemàtiques (probabilitat condicionada)."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Són independents els successos «aprovar matemàtiques» i «aprovar anglès»? Justifica-ho numèricament."
+        },
+        {
+          "letra": "d",
+          "puntos": 0.5,
+          "tarea": "Modela la situació com una distribució binomial $B(n,p)$. Calcula la probabilitat d'encertar exactament 3 preguntes, la probabilitat d'encertar com a mínim 2, i el nombre esperat d'encerts."
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "2526-1btl-macs-t3t",
+        "titulo": "Global 3a avaluació — Tot el curs",
+        "tipo": "examen",
+        "fecha": "2026-05-28",
+        "url_index": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/",
+        "grupo": "1r BTL",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-enunciados.pdf",
+        "pdf_soluciones": "/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/original-soluciones.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "examen",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad",
+          "BACH-distribuciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "probabilitat condicionada, independència i distribució binomial bachillerato — mat. ccss 1º 2025-2026 catalán propia examen sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes distribuciones (binomial, normal) media cálculo numérico razonamiento interpretación contextual pregunta larga (estructurada en apartados) problema aplicado / contexto real",
+        "ca": "probabilitat condicionada, independència i distribució binomial batxillerat — mat. ccss 1r català examen sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "probabilitat condicionada, independència i distribució binomial bachillerato — applied maths year 1 catalan exam stochastic sense (statistics and probability) medium"
       }
     },
     {
@@ -11218,6 +11363,447 @@
       }
     },
     {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e1",
+      "titulo": "Funció candidata — és funció de probabilitat?",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-1",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-1",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-1",
+      "numero": 1,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Calcula $f(1)$, $f(2)$ i $f(3)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Pot ser $f$ una funció de probabilitat? Per què?"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-distribucio-binomial",
+        "titulo": "Apunts CCSS 1r BTL — Distribució binomial · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-13",
+        "url_index": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "funció candidata — és funció de probabilitat? bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil cálculo simbólico interpretación contextual pregunta corta",
+        "ca": "funció candidata — és funció de probabilitat? batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) fàcil",
+        "en": "funció candidata — és funció de probabilitat? bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) easy"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e2",
+      "titulo": "Taula d'una variable discreta — dada desconeguda",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-2",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-2",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-2",
+      "numero": 2,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(X{=}3)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$P(X &gt; 3)$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$P(X &lt; 2)$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$P(1 &lt; X \\le 5)$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "La mitjana $E(X)$"
+        },
+        {
+          "letra": "f",
+          "puntos": 0,
+          "tarea": "La desviació típica $\\sigma$"
+        }
+      ],
+      "apartados_count": 6,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-distribucio-binomial",
+        "titulo": "Apunts CCSS 1r BTL — Distribució binomial · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-13",
+        "url_index": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "taula d'una variable discreta — dada desconeguda bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo simbólico interpretación contextual pregunta corta",
+        "ca": "taula d'una variable discreta — dada desconeguda batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "taula d'una variable discreta — dada desconeguda bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e3",
+      "titulo": "Aplicació directa de la fórmula — $X \\sim B(6,\\,0{,}4)$",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-3",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-3",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-3",
+      "numero": 3,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "$P(X{=}2)$"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$P(X{=}0)$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$P(X \\ge 1)$ — almenys 1 èxit"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$E(X)$ i $\\sigma$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-distribucio-binomial",
+        "titulo": "Apunts CCSS 1r BTL — Distribució binomial · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-13",
+        "url_index": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ]
+      },
+      "search_text": {
+        "es": "aplicació directa de la fórmula — $x \\sim b(6,\\,0{,}4)$ bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes fácil cálculo simbólico pregunta corta",
+        "ca": "aplicació directa de la fórmula — $x \\sim b(6,\\,0{,}4)$ batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) fàcil",
+        "en": "aplicació directa de la fórmula — $x \\sim b(6,\\,0{,}4)$ bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) easy"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e4",
+      "titulo": "Filosofia — vuit estudiants triats a l'atzar",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-4",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-4",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-4",
+      "numero": 4,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Justifica que es tracta d'una distribució binomial"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Identifica la probabilitat d'èxit i fracàs"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Determina la funció de probabilitat"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "Calcula $P(\\text{només dos suspenguin})$"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-distribucio-binomial",
+        "titulo": "Apunts CCSS 1r BTL — Distribució binomial · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-13",
+        "url_index": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "filosofia — vuit estudiants triats a l'atzar bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media modelización cálculo simbólico interpretación contextual pregunta corta problema aplicado / contexto real",
+        "ca": "filosofia — vuit estudiants triats a l'atzar batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "filosofia — vuit estudiants triats a l'atzar bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e5",
+      "titulo": "Línia de producció — peces defectuoses",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-5",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-5",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-5",
+      "numero": 5,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Identifica la distribució i els seus paràmetres"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "$P(\\text{cap defectuosa})$"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "$P(\\text{exactament 2 defectuoses})$"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$P(\\text{almenys 1 defectuosa})$"
+        },
+        {
+          "letra": "e",
+          "puntos": 0,
+          "tarea": "$E(X)$ i $\\sigma$"
+        }
+      ],
+      "apartados_count": 5,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-distribucio-binomial",
+        "titulo": "Apunts CCSS 1r BTL — Distribució binomial · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-13",
+        "url_index": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "línia de producció — peces defectuoses bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media modelización cálculo simbólico interpretación contextual pregunta corta problema aplicado / contexto real",
+        "ca": "línia de producció — peces defectuoses batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "línia de producció — peces defectuoses bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "concepto-ccss-1btl-distribucio-binomial-e6",
+      "titulo": "Test multiopció responent a l'atzar",
+      "url_enunciado": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-6",
+      "url_pdf": null,
+      "url_solucion_pdf": null,
+      "url_solucion_html": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-6",
+      "pages_enunciado": [],
+      "pages_solucion": [],
+      "url": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html#ex-6",
+      "numero": 6,
+      "puntuacion": 0,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0,
+          "tarea": "Identifica la distribució i els seus paràmetres"
+        },
+        {
+          "letra": "b",
+          "puntos": 0,
+          "tarea": "Quantes respostes encertarà de mitjana? ($E(X)$)"
+        },
+        {
+          "letra": "c",
+          "puntos": 0,
+          "tarea": "Quina és la desviació típica?"
+        },
+        {
+          "letra": "d",
+          "puntos": 0,
+          "tarea": "$P(X{=}10)$ — encerta exactament 10 (la meitat)"
+        }
+      ],
+      "apartados_count": 4,
+      "coleccion": {
+        "id": "concepto-ccss-1btl-distribucio-binomial",
+        "titulo": "Apunts CCSS 1r BTL — Distribució binomial · Exercicis base",
+        "tipo": "apuntes_concepto",
+        "fecha": "2026-05-13",
+        "url_index": "/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html",
+        "grupo": null,
+        "promocion": "all",
+        "pdf_enunciados": null,
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-1btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "propia",
+        "origen": "classe",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "test multiopció responent a l'atzar bachillerato — mat. ccss 1º 2025-2026 catalán propia clase sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media modelización cálculo simbólico pregunta corta problema aplicado / contexto real",
+        "ca": "test multiopció responent a l'atzar batxillerat — mat. ccss 1r català classe sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "test multiopció responent a l'atzar bachillerato — applied maths year 1 catalan class stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
       "id": "concepto-ccss-1btl-prob-composta-e1",
       "titulo": "Moneda i dau — variants",
       "url_enunciado": "/aula/ccss-1btl/apuntes/u-probabilitat/06-probabilitat-composta.html#ex-1",
@@ -12156,6 +12742,531 @@
         "es": "hamburgueserías en una feria — áreas y nuevo puesto ib math ai hl 2025-2026 español propia clase tema 3 — geometría y trigonometría nm 3.5 — mediatrices; ecuaciones de circunferencias y de mediatrices nm 3.6 — diagramas de voronoi difícil cálculo simbólico razonamiento visualización / gráficos modelización pregunta larga (estructurada en apartados) problema aplicado / contexto real",
         "ca": "hamburgueserías en una feria — áreas y nuevo puesto ib math ai hl castellà classe tema 3 — geometria i trigonometria difícil",
         "en": "hamburgueserías en una feria — áreas y nuevo puesto ib math ai hl spanish class topic 3 — geometry and trigonometry hard"
+      }
+    },
+    {
+      "id": "pau-2025-macs-s1-p1",
+      "titulo": "Sistemes d'equacions — Habitacions d'hotel",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/p1.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2,
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/p1.html",
+      "numero": 1,
+      "puntuacion": 2.5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.25,
+          "tarea": "Determineu els preus de l'habitació doble i de la triple en funció del preu de la individual."
+        },
+        {
+          "letra": "b",
+          "puntos": 1.25,
+          "tarea": "Si el preu de l'habitació triple és el doble del preu de la individual, quin és el preu de cada tipus d'habitació? De les tres opcions plantejades per a allotjar les 10 persones, amb quina obtenim el preu més baix i quin és aquest preu?"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "pau-2025-macs-s1",
+        "titulo": "PAU 2025 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+        "tipo": "examen",
+        "fecha": "2025-06-04",
+        "url_index": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/",
+        "grupo": "2n BTL CCSS",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-2btl",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "pau_oficial",
+        "origen": "selectivitat",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-sistemas",
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "sistemes d'equacions — habitacions d'hotel bachillerato — mat. ccss 2º 2024-2025 catalán pau oficial (selectividad) selectividad / pau sentido algebraico (álgebra y análisis) sistemas de ecuaciones lineales y no lineales ecuaciones (1º y 2º grado, racionales, irracionales) media modelización cálculo simbólico problema aplicado / contexto real",
+        "ca": "sistemes d'equacions — habitacions d'hotel batxillerat — mat. ccss 2n català pau oficial (selectivitat) selectivitat / pau sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "sistemes d'equacions — habitacions d'hotel bachillerato — applied maths year 2 catalan official pau (university entrance) university entrance exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "pau-2025-macs-s1-p2",
+      "titulo": "Derivades i extrems — Fons d'inversió volàtil",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/p2.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/original.pdf#page=4",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        4,
+        5
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/p2.html",
+      "numero": 2,
+      "puntuacion": 2.5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.5,
+          "tarea": "Calculeu el valor inicial de la inversió en començar el dia i determineu quin benefici o pèrdua haurà tingut al cap de 24 hores. Trobeu també a quina hora del dia el valor de la inversió ha estat màxim i quin era aquest valor màxim."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Hi ha algun moment del dia en què el valor de la inversió és negatiu? Quin és el valor mínim que assoleix?"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "pau-2025-macs-s1",
+        "titulo": "PAU 2025 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+        "tipo": "examen",
+        "fecha": "2025-06-04",
+        "url_index": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/",
+        "grupo": "2n BTL CCSS",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-2btl",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "pau_oficial",
+        "origen": "selectivitat",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-derivadas",
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "derivades i extrems — fons d'inversió volàtil bachillerato — mat. ccss 2º 2024-2025 catalán pau oficial (selectividad) selectividad / pau sentido algebraico (álgebra y análisis) derivadas: cálculo y aplicaciones (monotonía, extremos, optimización) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico interpretación contextual problema aplicado / contexto real",
+        "ca": "derivades i extrems — fons d'inversió volàtil batxillerat — mat. ccss 2n català pau oficial (selectivitat) selectivitat / pau sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "derivades i extrems — fons d'inversió volàtil bachillerato — applied maths year 2 catalan official pau (university entrance) university entrance exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "pau-2025-macs-s1-p3",
+      "titulo": "Distribució normal i interval de confiança — Pes de vaques frisones",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/p3.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/original.pdf#page=6",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        6,
+        7
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/p3.html",
+      "numero": 3,
+      "puntuacion": 2.5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Calculeu, de manera raonada, la probabilitat que si agafem a l'atzar una vaca frisona d'aquesta granja, el seu pes estigui entre 531 i 629 kg."
+        },
+        {
+          "letra": "b",
+          "puntos": 1.5,
+          "tarea": "Creiem que un canvi en el tipus de farratge que es dona a les vaques n'ha modificat la mitjana del pes. Per a comprovar-ho, hem obtingut el pes d'una mostra de 10 vaques de la granja escollides a l'atzar: 569, 575, 611, 581, 583, 614, 589, 555, 566, 571. Trobeu un interval de confiança del 95% per a la mitjana del pes de les vaques, suposant que aquest pes segueix una distribució normal amb una desviació típica de 25 kg. A partir del resultat obtingut, podem afirmar que la mitjana del pes de les vaques ha canviat? Justifiqueu la resposta."
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "pau-2025-macs-s1",
+        "titulo": "PAU 2025 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+        "tipo": "examen",
+        "fecha": "2025-06-04",
+        "url_index": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/",
+        "grupo": "2n BTL CCSS",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-2btl",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "pau_oficial",
+        "origen": "selectivitat",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-distribuciones",
+          "BACH-inferencia"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "interpretacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "distribució normal i interval de confiança — pes de vaques frisones bachillerato — mat. ccss 2º 2024-2025 catalán pau oficial (selectividad) selectividad / pau sentido estocástico (estadística y probabilidad) distribuciones (binomial, normal) inferencia: muestreo, ic, contraste de hipótesis media cálculo numérico interpretación contextual problema aplicado / contexto real",
+        "ca": "distribució normal i interval de confiança — pes de vaques frisones batxillerat — mat. ccss 2n català pau oficial (selectivitat) selectivitat / pau sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "distribució normal i interval de confiança — pes de vaques frisones bachillerato — applied maths year 2 catalan official pau (university entrance) university entrance exam stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "pau-2025-macs-s1-p4",
+      "titulo": "Probabilitat condicionada — Congrés C2EM (Opció A)",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/p4.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/original.pdf#page=8",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        8
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/p4.html",
+      "numero": 4,
+      "puntuacion": 2.5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.25,
+          "tarea": "Calculeu la probabilitat que una persona escollida a l'atzar d'entre tots els inscrits sigui una dona. Si d'entre totes les dones inscrites n'escollim una a l'atzar, quina probabilitat hi ha que sigui docent de secundària?"
+        },
+        {
+          "letra": "b",
+          "puntos": 1.25,
+          "tarea": "Calculeu el nombre de docents que s'han inscrit al Congrés de cada nivell educatiu si sabem que en total hi ha 476 dones inscrites."
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "pau-2025-macs-s1",
+        "titulo": "PAU 2025 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+        "tipo": "examen",
+        "fecha": "2025-06-04",
+        "url_index": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/",
+        "grupo": "2n BTL CCSS",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2025-macs-s1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-2btl",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "pau_oficial",
+        "origen": "selectivitat",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "modelizacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "probabilitat condicionada — congrés c2em (opció a) bachillerato — mat. ccss 2º 2024-2025 catalán pau oficial (selectividad) selectividad / pau sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes media cálculo numérico modelización problema aplicado / contexto real",
+        "ca": "probabilitat condicionada — congrés c2em (opció a) batxillerat — mat. ccss 2n català pau oficial (selectivitat) selectivitat / pau sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "probabilitat condicionada — congrés c2em (opció a) bachillerato — applied maths year 2 catalan official pau (university entrance) university entrance exam stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "pau-2026-macs-s1-p1",
+      "titulo": "Funcions i derivades — Seguidors a les xarxes socials",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2,
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html",
+      "numero": 1,
+      "puntuacion": 2.5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.5,
+          "tarea": "Quants seguidors té al principi? Quants en té al cap de 10 setmanes? Estudieu els intervals de creixement i decreixement de la funció i determineu-ne els extrems locals. Feu un esbós de la gràfica utilitzant la informació obtinguda."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "En quina setmana penja el vídeo polèmic i quants seguidors té en aquell moment? En quina setmana penja el vídeo que té molt èxit? Al llarg de les 10 setmanes, en quin moment té més seguidors?"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "pau-2026-macs-s1",
+        "titulo": "PAU 2026 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+        "tipo": "examen",
+        "fecha": "2026-06-11",
+        "url_index": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/",
+        "grupo": "2n BTL CCSS",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-2btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "pau_oficial",
+        "origen": "selectivitat",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-derivadas",
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "funcions i derivades — seguidors a les xarxes socials bachillerato — mat. ccss 2º 2025-2026 catalán pau oficial (selectividad) selectividad / pau sentido algebraico (álgebra y análisis) derivadas: cálculo y aplicaciones (monotonía, extremos, optimización) funciones elementales (lineal, cuadrática, racional, exp, log, trig) media cálculo simbólico interpretación contextual problema aplicado / contexto real",
+        "ca": "funcions i derivades — seguidors a les xarxes socials batxillerat — mat. ccss 2n català pau oficial (selectivitat) selectivitat / pau sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "funcions i derivades — seguidors a les xarxes socials bachillerato — applied maths year 2 catalan official pau (university entrance) university entrance exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "pau-2026-macs-s1-p2",
+      "titulo": "Sistemes d'equacions — Caixes de fruita",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf#page=4",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        4,
+        5
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html",
+      "numero": 2,
+      "puntuacion": 2.5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.5,
+          "tarea": "Calculeu el preu d'una caixa de maduixes i el preu d'una caixa d'albercocs en funció del preu d'una caixa de cireres. Amb aquesta informació, calculeu quin és el preu d'una comanda de 6 caixes de maduixes, 4 d'albercocs i 2 de cireres."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Si se sap que el preu d'una caixa d'albercocs és de 12,50 €, calculeu quin és el preu de les altres dues caixes de fruita."
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "pau-2026-macs-s1",
+        "titulo": "PAU 2026 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+        "tipo": "examen",
+        "fecha": "2026-06-11",
+        "url_index": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/",
+        "grupo": "2n BTL CCSS",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-2btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "pau_oficial",
+        "origen": "selectivitat",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-sistemas",
+          "BACH-ecuaciones"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "sistemes d'equacions — caixes de fruita bachillerato — mat. ccss 2º 2025-2026 catalán pau oficial (selectividad) selectividad / pau sentido algebraico (álgebra y análisis) sistemas de ecuaciones lineales y no lineales ecuaciones (1º y 2º grado, racionales, irracionales) media modelización cálculo simbólico problema aplicado / contexto real",
+        "ca": "sistemes d'equacions — caixes de fruita batxillerat — mat. ccss 2n català pau oficial (selectivitat) selectivitat / pau sentit algebraic (àlgebra i anàlisi) mitjana",
+        "en": "sistemes d'equacions — caixes de fruita bachillerato — applied maths year 2 catalan official pau (university entrance) university entrance exam algebraic sense (algebra and analysis) medium"
+      }
+    },
+    {
+      "id": "pau-2026-macs-s1-p3",
+      "titulo": "Binomial, normal i interval de confiança — Temps de càrrega web",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf#page=6",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        6,
+        7
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html",
+      "numero": 3,
+      "puntuacion": 2.5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.25,
+          "tarea": "Se suposa que, cada vegada que se selecciona una pàgina web per a la mostra, aquesta pot ser eficient (o no ser-ho) amb una probabilitat $p = 0{,}5$, i que el fet que una pàgina sigui eficient (o no) és independent que la resta de pàgines ho siguin (o no). Es considera la variable aleatòria $X$, que compta el nombre de pàgines, d'entre les 2500 de la mostra, que són eficients. Quina distribució té la variable $X$? Calculeu la probabilitat que com a màxim 1299 pàgines siguin eficients. Per fer-ho, utilitzeu l'aproximació per la distribució normal sense fer la correcció per continuïtat."
+        },
+        {
+          "letra": "b",
+          "puntos": 1.25,
+          "tarea": "En la mostra de $n = 2500$ pàgines web, s'ha obtingut una mitjana mostral del temps de càrrega de $\\bar{x} = 2{,}95$ segons i una desviació típica mostral de $s = 0{,}38$ segons. Construïu un interval de confiança del 95 % per al temps mitjà de càrrega de les pàgines web que gestiona l'empresa. A partir de l'interval obtingut, què es pot dir sobre l'afirmació de l'empresa que almenys el 50 % de les pàgines web que gestiona són eficients?"
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "pau-2026-macs-s1",
+        "titulo": "PAU 2026 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+        "tipo": "examen",
+        "fecha": "2026-06-11",
+        "url_index": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/",
+        "grupo": "2n BTL CCSS",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-2btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "pau_oficial",
+        "origen": "selectivitat",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-distribuciones",
+          "BACH-inferencia"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "interpretacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "binomial, normal i interval de confiança — temps de càrrega web bachillerato — mat. ccss 2º 2025-2026 catalán pau oficial (selectividad) selectividad / pau sentido estocástico (estadística y probabilidad) distribuciones (binomial, normal) inferencia: muestreo, ic, contraste de hipótesis media cálculo numérico interpretación contextual problema aplicado / contexto real",
+        "ca": "binomial, normal i interval de confiança — temps de càrrega web batxillerat — mat. ccss 2n català pau oficial (selectivitat) selectivitat / pau sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "binomial, normal i interval de confiança — temps de càrrega web bachillerato — applied maths year 2 catalan official pau (university entrance) university entrance exam stochastic sense (statistics and probability) medium"
+      }
+    },
+    {
+      "id": "pau-2026-macs-s1-p4",
+      "titulo": "Probabilitat i matrius — Estudiants universitaris (Opció A)",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf#page=8",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        8
+      ],
+      "pages_solucion": [],
+      "url": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4.html",
+      "numero": 4,
+      "puntuacion": 2.5,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.25,
+          "tarea": "Si s'escull un estudiant a l'atzar, quina és la probabilitat que sigui un estudiant de doctorat de la Facultat de Lletres? Si s'escull a l'atzar un estudiant que cursa un màster, quina és la probabilitat que estudiï a la Facultat d'Enginyeria?"
+        },
+        {
+          "letra": "b",
+          "puntos": 1.25,
+          "tarea": "Expresseu la informació de la taula (sense els totals) mitjançant una matriu $3 \\times 3$ i calculeu, utilitzant un producte de matrius, el vector amb el nombre total d'estudiants de grau, màster i doctorat de la universitat. Se sap que els estudiants de grau paguen 1000 € de matrícula; els de màster, 1500 €, i els de doctorat, 500 €. Mitjançant un producte de matrius, calculeu l'import total que ingressa la universitat en concepte de matrícules."
+        }
+      ],
+      "apartados_count": 2,
+      "coleccion": {
+        "id": "pau-2026-macs-s1",
+        "titulo": "PAU 2026 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+        "tipo": "examen",
+        "fecha": "2026-06-11",
+        "url_index": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/",
+        "grupo": "2n BTL CCSS",
+        "promocion": null,
+        "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf",
+        "pdf_soluciones": null,
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "ccss-2btl",
+        "curso_academico": "2025-2026",
+        "idioma": "ca",
+        "fuente": "pau_oficial",
+        "origen": "selectivitat",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad",
+          "BACH-matrices"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico",
+          "interpretacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      },
+      "search_text": {
+        "es": "probabilitat i matrius — estudiants universitaris (opció a) bachillerato — mat. ccss 2º 2025-2026 catalán pau oficial (selectividad) selectividad / pau sentido estocástico (estadística y probabilidad) probabilidad: combinatoria, condicional, bayes matrices: operaciones, inversa, rango media cálculo numérico interpretación contextual problema aplicado / contexto real",
+        "ca": "probabilitat i matrius — estudiants universitaris (opció a) batxillerat — mat. ccss 2n català pau oficial (selectivitat) selectivitat / pau sentit estocàstic (estadística i probabilitat) mitjana",
+        "en": "probabilitat i matrius — estudiants universitaris (opció a) bachillerato — applied maths year 2 catalan official pau (university entrance) university entrance exam stochastic sense (statistics and probability) medium"
       }
     }
   ]

@@ -4,30 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>G1 &middot; Global 1 HL — Paper 3 (números complejos, Poisson, Markov) &middot; 27 nov 2025</title>
-<meta name="description" content="Examen IB Mathematics AI HL &mdash; Global 1 HL — Paper 3 (números complejos, Poisson, Markov). Autovalores / autovectores, Cadenas de Markov, Distribución binomial, Distribución de Poisson, Estado estacionario / largo plazo, Estadística, Fasores / forma polar, Funciones trigonométricas y sinusoidales.">
+<meta name="description" content="Examen IB Math AI HL &mdash; Global 1 HL — Paper 3 (números complejos, Poisson, Markov). ">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
-<script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
-<link rel="stylesheet" href="/style.css?v=202605141849">
-<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/css/examenes.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">
 <meta property="og:title" content="G1 &middot; Global 1 HL — Paper 3 (números complejos, Poisson, Markov)">
-<meta property="og:description" content="Examen IB Mathematics AI HL &mdash; Global 1 HL — Paper 3 (números complejos, Poisson, Markov).">
+<meta property="og:description" content="Examen IB Math AI HL &mdash; Global 1 HL — Paper 3 (números complejos, Poisson, Markov).">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="G1 &middot; Global 1 HL — Paper 3 (números complejos, Poisson, Markov)">
-<meta name="twitter:description" content="Examen IB Mathematics AI HL &mdash; Global 1 HL — Paper 3 (números complejos, Poisson, Markov).">
+<meta name="twitter:description" content="Examen IB Math AI HL &mdash; Global 1 HL — Paper 3 (números complejos, Poisson, Markov).">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <meta name="robots" content="index, follow">
 </head>
@@ -43,10 +42,6 @@
       <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
-      <div class="lang-sw">
-        <a href="/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/examenes/2426-ib2-g1-p3/">EN</a>
-      </div>
-      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -70,7 +65,7 @@
         <span class="tag tag-gray">G1</span>
       </div>
       <h1 style="font-size:clamp(1.7rem,3vw,2.2rem);margin-bottom:0.6rem">Global 1 HL — Paper 3 (números complejos, Poisson, Markov)</h1>
-      <p style="color:var(--text-soft);font-size:1rem;max-width:44rem">Autovalores / autovectores, Cadenas de Markov, Distribución binomial, Distribución de Poisson, Estado estacionario / largo plazo, Estadística, Fasores / forma polar, Funciones trigonométricas y sinusoidales.</p>
+      <p style="color:var(--text-soft);font-size:1rem;max-width:44rem"></p>
       <div class="exam-meta">
         <span>Fecha <strong>27 nov 2025</strong></span>
         <span>Curso <strong>IB2</strong></span>
@@ -98,7 +93,7 @@
         <div class="question-card-body">
           <h3>Red eléctrica: voltaje sinusoidal, fasores complejos y cadena de Markov</h3>
           <p style="color:var(--text-soft);font-size:0.88rem">(a) Significado de la amplitud A (b) Valor de A (c) Frecuencia angular ω en rad/ms; (d) Módulo de W (e) Ángulo principal de W (-π, π] (f) Valor de α que transforma Z en W; V_T(t) = V₁(t) + V₂(t) con V₁=6sin(ωt), V₂=4sin(ωt+π/3)…</p>
-          <div class="question-card-chips"><span class="ib-chip" title="Números complejos: forma cartesiana, polar y exponencial; fasores">TANS 3.9</span><span class="ib-chip" title="Funciones sinusoidales: amplitud, periodo, frecuencia angular y desfase">TANS 3.14</span><span class="ib-chip" title="Cadenas de Markov; matriz de transición y estado estacionario">TANS 1.13</span><span class="ib-chip" title="Álgebra matricial: suma, producto, inversas; forma matricial de sistemas">TANS 1.14</span></div>
+          <div class="question-card-chips"><span class="ib-chip" title="TANS 3.9 — Aplicaciones de funciones sinusoidales (incl. fasores)">TANS 3.9</span><span class="ib-chip" title="TANS 3.14 — Teoría de grafos: vértices, aristas, grado, conexión">TANS 3.14</span><span class="ib-chip" title="TANS 1.13 — Forma polar y exponencial de complejos">TANS 1.13</span><span class="ib-chip" title="TANS 1.14 — Matrices; suma, producto, inversa; sistemas en forma matricial">TANS 1.14</span></div>
         </div>
         <div class="question-card-score"><strong>28</strong>puntos</div>
       </a>
@@ -107,24 +102,20 @@
         <div class="question-card-body">
           <h3>Servicio de emergencias: Poisson, binomial, TCL y Markov 2×2</h3>
           <p style="color:var(--text-soft);font-size:0.88rem">(a) P(X=7) con X∼Poisson(9) (b) P(X≥10); 3 c.s; (c) Por qué Y∼Binomial (d) Distribución y parámetros (e) P(Y ≤ 2) en 12 llamadas con p=0,3; (f) Distribución de D (Poisson con λ=72) (g) Media y varianza de D…</p>
-          <div class="question-card-chips"><span class="ib-chip" title="Distribución de Poisson; suma de Poissons independientes">TANS 4.16</span><span class="ib-chip" title="Teorema central del límite; aproximación normal de la media muestral">TANS 4.17</span><span class="ib-chip" title="Cadenas de Markov; matriz de transición y estado estacionario">TANS 1.13</span><span class="ib-chip" title="Valores propios y vectores propios; polinomio característico de matrices 2×2">TANS 1.15</span></div>
+          <div class="question-card-chips"><span class="ib-chip" title="TANS 4.16 — Intervalos de confianza para la media">TANS 4.16</span><span class="ib-chip" title="TANS 4.17 — Distribución de Poisson; suma; aproximación a la normal">TANS 4.17</span><span class="ib-chip" title="TANS 1.13 — Forma polar y exponencial de complejos">TANS 1.13</span><span class="ib-chip" title="TANS 1.15 — Valores y vectores propios; potencias de matrices; cadenas de Markov">TANS 1.15</span></div>
         </div>
         <div class="question-card-score"><strong>27</strong>puntos</div>
       </a>
     </div>
 
   </div>
-  <aside class="ibo-disclaimer">
-  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
-  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
-</aside>
 </main>
 
 <footer>
   <div class="container">
     <div class="footer-inner">
       <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
     </div>
   </div>
 </footer>

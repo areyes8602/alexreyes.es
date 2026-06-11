@@ -45,6 +45,17 @@ for p in sorted(_REPO.glob("aula/*/examenes/*/p*.html")):
         continue
     single_paths.append('/' + str(p.relative_to(_REPO)))
 
+# Selectivitat (PAU): hub, índices de examen y páginas pN
+for p in sorted(_REPO.glob("aula/*/selectivitat/index.html")):
+    if not _is_retired(p):
+        single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
+for p in sorted(_REPO.glob("aula/*/selectivitat/*/index.html")):
+    if not _is_retired(p):
+        single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
+for p in sorted(_REPO.glob("aula/*/selectivitat/*/p*.html")):
+    if not _is_retired(p):
+        single_paths.append('/' + str(p.relative_to(_REPO)))
+
 # Apuntes: índices de unidad y apartados HTML individuales
 for p in sorted(_REPO.glob("aula/*/apuntes/*/index.html")):
     if _is_retired(p):

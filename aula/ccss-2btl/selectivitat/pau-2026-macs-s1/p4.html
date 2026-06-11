@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 Opció A · Probabilitat i matrius — Estudiants universitaris — PAU 2026 MACS</title>
+<meta name="description" content="Exercici 4 Opció A de la PAU 2026 MACS: probabilitat amb taula de contingència i productes de matrius per a totals i ingressos.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorat</a>
+      <a href="/notas/">Notes</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-2btl/selectivitat/">Selectivitat MACS</a>
+      <span class="sep">/</span>
+      <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">PAU 2026 Sèrie 1</a>
+      <span class="sep">/</span>
+      <span class="current">P4 (Opció A)</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2n BTL CCSS · PAU</span>
+        <span class="tag tag-blue">Juny 2026</span>
+        <span class="tag tag-orange">Sèrie 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">&larr; Exercici anterior</a>
+      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índex de l'examen</a>
+      <span class="disabled next">Exercici següent &rarr;</span>
+    </nav>
+
+    <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius);padding:0.8rem 1.1rem;margin-bottom:1.5rem;font-size:0.88rem;color:var(--text-soft)">
+      <strong>Exercici 4 — dues opcions:</strong> estàs veient l'<strong>Opció A</strong> (probabilitat i matrius). L'<a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4b.html" style="color:var(--accent)"><strong>Opció B</strong></a> (probabilitat i estudiants becats) és a la pàgina p4b.html.
+    </div>
+
+    <article class="question-block">
+      <h1>Exercici 4 &middot; Probabilitat i matrius — Estudiants universitaris <span style="font-size:0.75em;font-weight:500;color:var(--text-soft)">(Opció A)</span></h1>
+      <p class="question-descriptor">Probabilitat simple i condicionada en una taula de contingència; productes de matrius per a totals i ingressos.</p>
+      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>La taula següent recull el nombre d'estudiants de grau (G), màster (M) i doctorat (D) matriculats a les tres facultats —Ciències (C), Enginyeria (I) i Lletres (L)— d'una petita universitat.</p>
+          <div class="math-block">\[\begin{array}{|l|c|c|c|c|} \hline
+\textbf{Facultat} & \text{Grau (G)} & \text{Màster (M)} & \text{Doctorat (D)} & \text{Total} \\ \hline
+\text{Ciències (C)} & 450 & 172 & 41 & 663 \\
+\text{Enginyeria (I)} & 445 & 178 & 45 & 668 \\
+\text{Lletres (L)} & 438 & 183 & 48 & 669 \\ \hline
+\text{Total} & 1333 & 533 & 134 & 2000 \\ \hline
+\end{array}\]</div>
+        </div>
+        <ol class="apartados">
+          <li>Si s'escull un estudiant a l'atzar, quina és la probabilitat que sigui un estudiant de doctorat de la Facultat de Lletres? Si s'escull a l'atzar un estudiant que cursa un màster, quina és la probabilitat que estudiï a la Facultat d'Enginyeria? <span class="apartado-puntos">1,25 p</span></li>
+          <li>Expresseu la informació de la taula (sense els totals) mitjançant una matriu $3 \times 3$ i calculeu, utilitzant un producte de matrius, el vector amb el nombre total d'estudiants de grau, màster i doctorat de la universitat. Se sap que els estudiants de grau paguen 1000 € de matrícula; els de màster, 1500 €, i els de doctorat, 500 €. Mitjançant un producte de matrius, calculeu l'import total que ingressa la universitat en concepte de matrícules. <span class="apartado-puntos">1,25 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Batxillerat CCSS · Bloc E — Sentit estocàstic</span>
+        <span class="ib-chip" data-descriptor="Probabilitats simples i condicionades sobre una taula de contingència">Probabilitat condicionada</span>
+        <span class="ib-chip" data-descriptor="Producte de matrius per agregar dades i calcular ingressos">Matrius</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Correcció pas a pas</h3>
+        <p class="note"><strong>Idea clau:</strong> en una taula de contingència, la probabilitat d'una intersecció és la casella dividida pel total general, i una probabilitat condicionada és la casella dividida pel total de la fila o columna que condiciona.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Probabilitat simple i condicionada</h4>
+          <p>Probabilitat que sigui de doctorat <em>i</em> de la Facultat de Lletres (casella $D \cap L$ sobre el total):</p>
+          <div class="math-block">$$P(D \cap L) = \frac{48}{2000} = 0{,}024 = 2{,}4\,\%.$$</div>
+          <p>Si sabem que cursa un màster, el condicionant és la columna M (533 estudiants):</p>
+          <div class="math-block">$$P(I \mid M) = \frac{178}{533} \approx 0{,}3340 = 33{,}4\,\%.$$</div>
+          <div class="final">$P(D \cap L) = \dfrac{48}{2000} = 0{,}024$ &ensp;i&ensp; $P(I \mid M) = \dfrac{178}{533} \approx 0{,}334$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Productes de matrius</h4>
+          <p>Matriu $3 \times 3$ de la taula (files = facultats, columnes = nivells G, M, D):</p>
+          <div class="math-block">$$A = \begin{pmatrix} 450 & 172 & 41 \\ 445 & 178 & 45 \\ 438 & 183 & 48 \end{pmatrix}.$$</div>
+          <p>Per sumar les columnes (total per nivell), multipliquem per l'esquerra pel vector fila $(1\;\;1\;\;1)$:</p>
+          <div class="math-block">$$\begin{pmatrix} 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} 450 & 172 & 41 \\ 445 & 178 & 45 \\ 438 & 183 & 48 \end{pmatrix} = \begin{pmatrix} 1333 & 533 & 134 \end{pmatrix}.$$</div>
+          <p>És a dir, 1333 estudiants de grau, 533 de màster i 134 de doctorat.</p>
+          <p>Amb el vector de preus de matrícula $(1000,\ 1500,\ 500)$ en columna:</p>
+          <div class="math-block">$$\begin{pmatrix} 1333 & 533 & 134 \end{pmatrix} \begin{pmatrix} 1000 \\ 1500 \\ 500 \end{pmatrix} = 1333000 + 799500 + 67000 = 2199500.$$</div>
+          <div class="final">Vector de totals per nivell: $(1333,\ 533,\ 134)$. Ingressos totals per matrícules: <strong>2&#8239;199&#8239;500 €</strong>.</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">&larr; Exercici anterior</a>
+      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índex de l'examen</a>
+      <span class="disabled next">Exercici següent &rarr;</span>
+    </nav>
+
+    <p style="font-size:0.9rem;color:var(--text-soft);margin-top:1.5rem">
+      Vols veure l'altra opció? → <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4b.html">Exercici 4 Opció B (Probabilitat i estudiants becats)</a>
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

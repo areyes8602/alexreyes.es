@@ -1,0 +1,148 @@
+{
+  "schema_version": 3,
+  "id": "pau-2026-macs-s1",
+  "tipo_coleccion": "examen",
+  "titulo": "PAU 2026 — Matemàtiques Aplicades CCSS (Sèrie 1)",
+  "fecha": "2026-06-11",
+  "grupo": "2n BTL CCSS",
+  "promocion": null,
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_enunciados": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf",
+  "pdf_soluciones": null,
+  "url_index": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/",
+  "puntuacion_total": 10,
+  "baremo": null,
+  "tags_coleccion": {
+    "materia": "ccss-2btl",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "pau_oficial",
+    "origen": "selectivitat"
+  },
+  "ejercicios": [
+    {
+      "id": "pau-2026-macs-s1-p1",
+      "numero": 1,
+      "titulo": "Funcions i derivades — Seguidors a les xarxes socials",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf#page=2",
+      "pages_enunciado": [2, 3],
+      "pages_solucion": null,
+      "puntuacion": 2.5,
+      "contexto": "Un metge comença a fer divulgació sobre salut a les xarxes socials. A mesura que publica continguts relacionats amb aquest tema, observa un augment en el seu nombre de seguidors. En un moment determinat grava un vídeo polèmic i perd un petit nombre de seguidors, però al cap d'uns dies en publica un altre que té molt èxit i, a partir de llavors, el seu nombre de seguidors torna a créixer. La funció que descriu el seu nombre de seguidors en funció del temps $t$, mesurat en setmanes, és $f(t) = 10t^{3} - 120t^{2} + 450t + 700$, amb $t \\in [0, 10]$.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.5,
+          "tarea": "Quants seguidors té al principi? Quants en té al cap de 10 setmanes? Estudieu els intervals de creixement i decreixement de la funció i determineu-ne els extrems locals. Feu un esbós de la gràfica utilitzant la informació obtinguda."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "En quina setmana penja el vídeo polèmic i quants seguidors té en aquell moment? En quina setmana penja el vídeo que té molt èxit? Al llarg de les 10 setmanes, en quin moment té més seguidors?"
+        }
+      ],
+      "tags": {
+        "materia": "ccss-2btl",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-derivadas", "BACH-funciones-elementales"],
+        "dificultad": "media",
+        "habilidad": ["calculo_simbolico", "interpretacion"],
+        "formato": ["problema_aplicado"]
+      }
+    },
+    {
+      "id": "pau-2026-macs-s1-p2",
+      "numero": 2,
+      "titulo": "Sistemes d'equacions — Caixes de fruita",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf#page=4",
+      "pages_enunciado": [4, 5],
+      "pages_solucion": null,
+      "puntuacion": 2.5,
+      "contexto": "Un pagès produeix diferents tipus de fruita: maduixes, albercocs i cireres, que es venen en caixes a preus diferents. Se sap que una comanda de 5 caixes de maduixes, 3 d'albercocs i 4 de cireres té un cost total de 120 €. D'altra banda, una comanda de 2 caixes de maduixes, 1 d'albercocs i 3 de cireres té un cost total de 56 €.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.5,
+          "tarea": "Calculeu el preu d'una caixa de maduixes i el preu d'una caixa d'albercocs en funció del preu d'una caixa de cireres. Amb aquesta informació, calculeu quin és el preu d'una comanda de 6 caixes de maduixes, 4 d'albercocs i 2 de cireres."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Si se sap que el preu d'una caixa d'albercocs és de 12,50 €, calculeu quin és el preu de les altres dues caixes de fruita."
+        }
+      ],
+      "tags": {
+        "materia": "ccss-2btl",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": ["BACH-sistemas", "BACH-ecuaciones"],
+        "dificultad": "media",
+        "habilidad": ["modelizacion", "calculo_simbolico"],
+        "formato": ["problema_aplicado"]
+      }
+    },
+    {
+      "id": "pau-2026-macs-s1-p3",
+      "numero": 3,
+      "titulo": "Binomial, normal i interval de confiança — Temps de càrrega web",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf#page=6",
+      "pages_enunciado": [6, 7],
+      "pages_solucion": null,
+      "puntuacion": 2.5,
+      "contexto": "Una empresa de telecomunicacions considera que una pàgina web és eficient si el seu temps de càrrega és inferior a 3 segons. L'empresa afirma que almenys el 50 % de les pàgines web que gestiona són eficients. Per comprovar aquesta afirmació, se selecciona una mostra aleatòria de $n = 2500$ pàgines web gestionades per aquesta empresa. L'enunciat proporciona el formulari: $P(-1{,}96 \\le Z \\le 1{,}96) = 0{,}95$ i $P(-2{,}58 \\le Z \\le 2{,}58) = 0{,}99$ per a $Z \\sim N(0,1)$, i els intervals de confiança per a la proporció i per a la mitjana.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.25,
+          "tarea": "Se suposa que, cada vegada que se selecciona una pàgina web per a la mostra, aquesta pot ser eficient (o no ser-ho) amb una probabilitat $p = 0{,}5$, i que el fet que una pàgina sigui eficient (o no) és independent que la resta de pàgines ho siguin (o no). Es considera la variable aleatòria $X$, que compta el nombre de pàgines, d'entre les 2500 de la mostra, que són eficients. Quina distribució té la variable $X$? Calculeu la probabilitat que com a màxim 1299 pàgines siguin eficients. Per fer-ho, utilitzeu l'aproximació per la distribució normal sense fer la correcció per continuïtat."
+        },
+        {
+          "letra": "b",
+          "puntos": 1.25,
+          "tarea": "En la mostra de $n = 2500$ pàgines web, s'ha obtingut una mitjana mostral del temps de càrrega de $\\bar{x} = 2{,}95$ segons i una desviació típica mostral de $s = 0{,}38$ segons. Construïu un interval de confiança del 95 % per al temps mitjà de càrrega de les pàgines web que gestiona l'empresa. A partir de l'interval obtingut, què es pot dir sobre l'afirmació de l'empresa que almenys el 50 % de les pàgines web que gestiona són eficients?"
+        }
+      ],
+      "tags": {
+        "materia": "ccss-2btl",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-distribuciones", "BACH-inferencia"],
+        "dificultad": "media",
+        "habilidad": ["calculo_numerico", "interpretacion"],
+        "formato": ["problema_aplicado"]
+      }
+    },
+    {
+      "id": "pau-2026-macs-s1-p4",
+      "numero": 4,
+      "titulo": "Probabilitat i matrius — Estudiants universitaris (Opció A)",
+      "url_enunciado": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4.html",
+      "url_pdf": "/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/original.pdf#page=8",
+      "pages_enunciado": [8],
+      "pages_solucion": null,
+      "puntuacion": 2.5,
+      "contexto": "La taula següent recull el nombre d'estudiants de grau (G), màster (M) i doctorat (D) matriculats a les tres facultats —Ciències (C), Enginyeria (I) i Lletres (L)— d'una petita universitat. \\[\\begin{array}{|l|c|c|c|c|} \\hline \\textbf{Facultat} & \\text{Grau (G)} & \\text{Màster (M)} & \\text{Doctorat (D)} & \\text{Total} \\\\ \\hline \\text{Ciències (C)} & 450 & 172 & 41 & 663 \\\\ \\text{Enginyeria (I)} & 445 & 178 & 45 & 668 \\\\ \\text{Lletres (L)} & 438 & 183 & 48 & 669 \\\\ \\hline \\text{Total} & 1333 & 533 & 134 & 2000 \\\\ \\hline \\end{array}\\] (Opció A — l'opció B, amb els estudiants becats, està resolta a la pàgina p4b.html)",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1.25,
+          "tarea": "Si s'escull un estudiant a l'atzar, quina és la probabilitat que sigui un estudiant de doctorat de la Facultat de Lletres? Si s'escull a l'atzar un estudiant que cursa un màster, quina és la probabilitat que estudiï a la Facultat d'Enginyeria?"
+        },
+        {
+          "letra": "b",
+          "puntos": 1.25,
+          "tarea": "Expresseu la informació de la taula (sense els totals) mitjançant una matriu $3 \\times 3$ i calculeu, utilitzant un producte de matrius, el vector amb el nombre total d'estudiants de grau, màster i doctorat de la universitat. Se sap que els estudiants de grau paguen 1000 € de matrícula; els de màster, 1500 €, i els de doctorat, 500 €. Mitjançant un producte de matrius, calculeu l'import total que ingressa la universitat en concepte de matrícules."
+        }
+      ],
+      "tags": {
+        "materia": "ccss-2btl",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": ["BACH-probabilidad", "BACH-matrices"],
+        "dificultad": "media",
+        "habilidad": ["calculo_numerico", "interpretacion"],
+        "formato": ["problema_aplicado"]
+      }
+    }
+  ]
+}
