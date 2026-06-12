@@ -1,9 +1,817 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-06-12T12:51:59.902565+00:00",
+  "generated_at": "2026-06-12T13:15:17.783862+00:00",
   "taxonomy_path": "/assets/data/tags.json",
-  "count": 278,
+  "count": 292,
   "ejercicios": [
+    {
+      "id": "2425-cangur-copa-junior-final-p1",
+      "titulo": "La torre de 84 esferes",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p1.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p1.html",
+      "numero": 1,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Amb 84 esferes idèntiques fem una torre en forma de tetraedre regular, similar al de la imatge però amb més esferes, deixant el mínim espai possible entre elles. Quants punts de tangència hi ha entre totes les esferes?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-cuerpos",
+          "ESO-combinatoria"
+        ]
+      },
+      "search_text": {
+        "es": "la torre de 84 esferes cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen difícil cálculo numérico pregunta corta cuerpos geométricos: prismas, pirámides, cilindros, esferas combinatoria básica",
+        "ca": "la torre de 84 esferes cangur (olimpíada scm) català examen difícil",
+        "en": "la torre de 84 esferes cangur (scm olympiad) catalan exam hard"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p2",
+      "titulo": "El passeig en espiral",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p2.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p2.html",
+      "numero": 2,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "En un pla hi tenim uns eixos de coordenades orientats de la manera habitual. Ens situem al punt $(0,0)$ i ens movem seguint un patró: deu unitats a la dreta, deu unitats amunt, nou unitats a l'esquerra i nou unitats cap avall. Anem repetint aquest patró fins que ens hem mogut exactament 2025 unitats. En quin punt acabarem? (Doneu com a resposta les dues coordenades seguides; per exemple, si la solució és el punt $(28,49)$, responeu $2849$.)"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-coords",
+          "ESO-naturales"
+        ]
+      },
+      "search_text": {
+        "es": "el passeig en espiral cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen media cálculo numérico pregunta corta coordenadas, vectores en el plano números naturales y operaciones",
+        "ca": "el passeig en espiral cangur (olimpíada scm) català examen mitjana",
+        "en": "el passeig en espiral cangur (scm olympiad) catalan exam medium"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p3",
+      "titulo": "Potències perfectes fins a 2025",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p3.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p3.html",
+      "numero": 3,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Quants nombres naturals entre $1$ i $2025$ es poden escriure de la forma $a^b$ amb $a$ i $b$ nombres naturals més grans (no iguals) que $1$?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-potencias",
+          "ESO-divisibilidad"
+        ]
+      },
+      "search_text": {
+        "es": "potències perfectes fins a 2025 cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen difícil cálculo numérico pregunta corta potencias y raíces divisibilidad, mcd, mcm",
+        "ca": "potències perfectes fins a 2025 cangur (olimpíada scm) català examen difícil",
+        "en": "potències perfectes fins a 2025 cangur (scm olympiad) catalan exam hard"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p4",
+      "titulo": "Descomptes creixents",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p4.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p4.html",
+      "numero": 4,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "En una botiga fan una promoció per un article que té un preu inicial fixat. Si en comprem una unitat, ens la venen amb un 1% de descompte. Si en comprem dues, la primera té un 1% de descompte i la segona un 2% (sobre el preu inicial). Si en comprem tres, la primera té un 1% de descompte, la segona un 2% i la tercera un 3%. Si en comprem més unitats, el descompte s'aplica de la mateixa manera; per tant, l'$n$-èsima unitat té un descompte de l'$n\\,\\%$ (noteu que si en compréssim 100 unitats, l'última seria gratuïta). Si en comprem 63 unitats, quin percentatge de la comanda ens estalviarem amb aquesta promoció?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-proporcionalidad"
+        ]
+      },
+      "search_text": {
+        "es": "descomptes creixents cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen media cálculo numérico pregunta corta proporcionalidad, porcentajes, regla de tres",
+        "ca": "descomptes creixents cangur (olimpíada scm) català examen mitjana",
+        "en": "descomptes creixents cangur (scm olympiad) catalan exam medium"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p5",
+      "titulo": "Les rodes del monopatí",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p5.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=1",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        1
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p5.html",
+      "numero": 5,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Ens han regalat un monopatí de quatre rodes. Les quatre rodes són iguals, però es desgasten de manera diferent segons si van al davant o al darrere. Les rodes del davant s'han de canviar cada 300 km, i les del darrere, cada 500 km. Volem saber en quin moment hem d'intercanviar les rodes del davant per les del darrere per tal que toqui canviar les quatre rodes al mateix temps. Quants quilòmetres haurem fet amb el monopatí en el moment del canvi de rodes? (Si la resposta és un nombre enter, responeu aquest nombre. Si té decimals, arrodoniu a la primera xifra decimal i responeu amb totes les xifres sense la coma; per exemple, si la solució és $340{,}17$, responeu $3402$.)"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-proporcionalidad",
+          "ESO-ecuaciones-1g"
+        ]
+      },
+      "search_text": {
+        "es": "les rodes del monopatí cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen difícil cálculo numérico pregunta corta proporcionalidad, porcentajes, regla de tres ecuaciones de 1r grado",
+        "ca": "les rodes del monopatí cangur (olimpíada scm) català examen difícil",
+        "en": "les rodes del monopatí cangur (scm olympiad) catalan exam hard"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p6",
+      "titulo": "Fusions de personatges",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p6.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p6.html",
+      "numero": 6,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "En un videojoc hi ha 95 personatges vermells i 19 personatges blaus. Aquests personatges es poden fusionar entre ells de la manera següent: Si es fusionen dos personatges vermells, es transformen en un de blau.; Si es fusionen dos personatges blaus, es transformen en quatre de vermells.; Si es fusionen un personatge de cada color, es transformen en tres personatges vermells.; Si al final de la partida hi queden en total 100 personatges, com a mínim quants d'aquests personatges poden ser blaus? I com a màxim? (Doneu com a resposta la suma del màxim i el mínim.)"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-combinatoria",
+          "ESO-sistemas"
+        ]
+      },
+      "search_text": {
+        "es": "fusions de personatges cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen difícil cálculo numérico pregunta corta combinatoria básica sistemas de ecuaciones lineales",
+        "ca": "fusions de personatges cangur (olimpíada scm) català examen difícil",
+        "en": "fusions de personatges cangur (scm olympiad) catalan exam hard"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p7",
+      "titulo": "Uns i zeros divisibles per 792",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p7.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p7.html",
+      "numero": 7,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Quantes xifres té el nombre més petit que es pot formar amb uns i zeros i que és divisible per 792?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-divisibilidad"
+        ]
+      },
+      "search_text": {
+        "es": "uns i zeros divisibles per 792 cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen difícil cálculo numérico pregunta corta divisibilidad, mcd, mcm",
+        "ca": "uns i zeros divisibles per 792 cangur (olimpíada scm) català examen difícil",
+        "en": "uns i zeros divisibles per 792 cangur (scm olympiad) catalan exam hard"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p8",
+      "titulo": "Sis nombres gairebé encadenats",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p8.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p8.html",
+      "numero": 8,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Volem triar sis nombres enters i positius de manera que en qualsevol parella de nombres d'aquest conjunt sempre un d'ells és divisor de l'altre, excepte en el cas d'una única parella en què cap dels dos nombres és divisible per l'altre. Si anomenem $n$ el nombre més gran del conjunt, quin és el valor més petit que pot tenir $n$?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-divisibilidad"
+        ]
+      },
+      "search_text": {
+        "es": "sis nombres gairebé encadenats cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen difícil cálculo numérico pregunta corta divisibilidad, mcd, mcm",
+        "ca": "sis nombres gairebé encadenats cangur (olimpíada scm) català examen difícil",
+        "en": "sis nombres gairebé encadenats cangur (scm olympiad) catalan exam hard"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p9",
+      "titulo": "Els pares de tres xifres",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p9.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p9.html",
+      "numero": 9,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Cada nombre natural $n$ té un nombre «pare», que és el nombre natural més petit tal que les seves xifres sumen $n$. Per exemple, el «pare» de $30$ és $3999$, perquè $3999$ és el nombre més petit amb xifres que sumen $30$. Si sumem tots els nombres de tres xifres que són «pare» d'algun altre nombre, quin resultat obtindrem?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-naturales"
+        ]
+      },
+      "search_text": {
+        "es": "els pares de tres xifres cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen media cálculo numérico pregunta corta números naturales y operaciones",
+        "ca": "els pares de tres xifres cangur (olimpíada scm) català examen mitjana",
+        "en": "els pares de tres xifres cangur (scm olympiad) catalan exam medium"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p10",
+      "titulo": "Polinomis amb p(1) = 1",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p10.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p10.html",
+      "numero": 10,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Prenem tots els polinomis $p(x)$ de grau $5$ en què tots els coeficients són $1$, $-1$ o $0$. Quants d'aquests polinomis compleixen que $p(1) = 1$?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-expresiones",
+          "ESO-combinatoria"
+        ]
+      },
+      "search_text": {
+        "es": "polinomis amb p(1) = 1 cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen media cálculo numérico pregunta corta expresiones algebraicas y polinomios combinatoria básica",
+        "ca": "polinomis amb p(1) = 1 cangur (olimpíada scm) català examen mitjana",
+        "en": "polinomis amb p(1) = 1 cangur (scm olympiad) catalan exam medium"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p11",
+      "titulo": "El quadrat partit en tres",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p11.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p11.html",
+      "numero": 11,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Un quadrat s'ha dividit en tres regions de la mateixa àrea, dos triangles rectangles i un paral·lelogram, de manera que els segments $AB$ i $CD$ són paral·lels i la distància entre els dos segments és d'$1$ cm, tal com es veu a la imatge. Quant val l'àrea del quadrat?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-perimetros",
+          "ESO-coords"
+        ]
+      },
+      "search_text": {
+        "es": "el quadrat partit en tres cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen difícil cálculo numérico pregunta corta perímetros, áreas y volúmenes coordenadas, vectores en el plano",
+        "ca": "el quadrat partit en tres cangur (olimpíada scm) català examen difícil",
+        "en": "el quadrat partit en tres cangur (scm olympiad) catalan exam hard"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p12",
+      "titulo": "Suma, producte i suma de quadrats",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p12.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=2",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        2
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p12.html",
+      "numero": 12,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Si $x + y = 15$ i $xy = 19$, quant val $x^2 + y^2$?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-sistemas",
+          "ESO-expresiones"
+        ]
+      },
+      "search_text": {
+        "es": "suma, producte i suma de quadrats cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen fácil cálculo numérico pregunta corta sistemas de ecuaciones lineales expresiones algebraicas y polinomios",
+        "ca": "suma, producte i suma de quadrats cangur (olimpíada scm) català examen fàcil",
+        "en": "suma, producte i suma de quadrats cangur (scm olympiad) catalan exam easy"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p13",
+      "titulo": "El semicercle dels tres segments",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p13.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=3",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p13.html",
+      "numero": 13,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Al semicercle d'aquesta figura hi hem traçat uns segments. Si $\\overline{AB} = 7$ cm, $\\overline{CD} = 6$ cm i $\\overline{DE} = 5$ cm, quant val l'àrea del semicercle? La solució és un múltiple de $\\pi$: doneu com a resposta aquest nombre sense $\\pi$ (si la solució és $40\\pi$, responeu $40$; si surt decimal, arrodoniu a l'enter més proper)."
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-circulo",
+          "ESO-pitagoras"
+        ]
+      },
+      "search_text": {
+        "es": "el semicercle dels tres segments cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen difícil cálculo numérico pregunta corta circunferencia y círculo teorema de pitágoras",
+        "ca": "el semicercle dels tres segments cangur (olimpíada scm) català examen difícil",
+        "en": "el semicercle dels tres segments cangur (scm olympiad) catalan exam hard"
+      }
+    },
+    {
+      "id": "2425-cangur-copa-junior-final-p14",
+      "titulo": "Dos triangles dins del quadrat",
+      "url_enunciado": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p14.html",
+      "url_pdf": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf#page=3",
+      "url_solucion_pdf": null,
+      "url_solucion_html": null,
+      "pages_enunciado": [
+        3
+      ],
+      "pages_solucion": [],
+      "url": "/aula/cangur/examenes/2425-cangur-copa-junior-final/p14.html",
+      "numero": 14,
+      "puntuacion": 1,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "A la figura hi podeu veure un quadrat i dos triangles ombrejats al seu interior. Quina és la diferència d'àrea entre els dos triangles ombrejats?"
+        }
+      ],
+      "apartados_count": 1,
+      "coleccion": {
+        "id": "2425-cangur-copa-junior-final",
+        "titulo": "XI Copa Cangur — Final · Categoria Júnior",
+        "tipo": "examen",
+        "fecha": "2025-05-08",
+        "url_index": "/aula/cangur/examenes/2425-cangur-copa-junior-final/",
+        "grupo": "Copa Cangur · Júnior (3r-4t ESO)",
+        "promocion": null,
+        "pdf_enunciados": "/aula/cangur/examenes/2425-cangur-copa-junior-final/original.pdf",
+        "pdf_soluciones": "/aula/cangur/examenes/2425-cangur-copa-junior-final/solucions.pdf",
+        "unidades_implicadas": null
+      },
+      "tags": {
+        "materia": "cangur",
+        "curso_academico": "2024-2025",
+        "idioma": "ca",
+        "fuente": "cangur_oficial",
+        "origen": "examen",
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "pregunta_corta"
+        ],
+        "concepto_eso": [
+          "ESO-perimetros",
+          "ESO-coords"
+        ]
+      },
+      "search_text": {
+        "es": "dos triangles dins del quadrat cangur (olimpiada scm) 2024-2025 catalán cangur oficial examen media cálculo numérico pregunta corta perímetros, áreas y volúmenes coordenadas, vectores en el plano",
+        "ca": "dos triangles dins del quadrat cangur (olimpíada scm) català examen mitjana",
+        "en": "dos triangles dins del quadrat cangur (scm olympiad) catalan exam medium"
+      }
+    },
     {
       "id": "2426-ib2-g1-p3-p1",
       "titulo": "Red eléctrica: voltaje sinusoidal, fasores complejos y cadena de Markov",
