@@ -144,7 +144,7 @@ function render(){
 
   if(filtered.length === 0){
     cont.innerHTML = `<div class="empty-state">
-      <h3>Encara no hi ha proves publicades${activeCat !== 'all' ? ' d'aquesta categoria' : ''}</h3>
+      <h3>Encara no hi ha proves publicades${activeCat !== 'all' ? ' d\'aquesta categoria' : ''}</h3>
       <p>Aniré pujant les proves de la Copa Cangur progressivament, resoltes i comentades.</p>
     </div>`;
     return;
@@ -215,7 +215,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   })
   .catch(err => {
     document.getElementById('exams-container').innerHTML =
-      '<p style="color:var(--text-faint);font-size:0.9rem">No s'ha pogut carregar el llistat.</p>';
+      '<p style="color:var(--text-faint);font-size:0.9rem">No s\'ha pogut carregar el llistat.</p>';
     console.error('copa cangur:', err);
   });
 </script>
