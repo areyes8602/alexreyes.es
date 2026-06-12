@@ -86,8 +86,20 @@ def chips_for(ejercicio, tags):
                 label_full = v.get("label", {}).get("es", code)
                 safe_desc = label_full.replace('"', "'")
                 out.append(f'<span class="ib-chip" title="{esc(safe_desc)}">{esc(code)}</span>')
-            return '<div class="question-card-chips">' + "".join(out) + "</div>"
-    return ""
+            return '<div class="question-card-chips">' + dif_chip(ej_tags) + "".join(out) + "</div>"
+    d = dif_chip(ej_tags)
+    return '<div class="question-card-chips">' + d + "</div>" if d else ""
+
+
+DIF_LABEL = {"facil": "Fácil", "media": "Media", "dificil": "Difícil"}
+
+
+def dif_chip(ej_tags):
+    """Colored difficulty chip (classes dif-facil/media/dificil in examenes.css)."""
+    d = ej_tags.get("dificultad")
+    if d not in DIF_LABEL:
+        return ""
+    return f'<span class="ib-chip dif-{d}">{DIF_LABEL[d]}</span>'
 
 
 def summary_for(ejercicio):
