@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P1 · Funcions i derivades — Seguidors a les xarxes — PAU 2026 MACS</title>
-<meta name="description" content="Exercici 1 de la PAU 2026 de Matemàtiques Aplicades a les Ciències Socials: estudi d'una funció cúbica, monotonia, extrems i esbós.">
+<title>P1 · Funciones y derivadas — Seguidores en redes sociales — PAU 2026 MACS</title>
+<meta name="description" content="Lectura de valores, intervalos de monotonía, extremos locales y esbozo de una cúbica en un intervalo cerrado.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,73 +49,73 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
-      <a href="/aula/ccss-2btl/selectivitat/">Selectivitat MACS</a>
+      <a href="/aula/ccss-2btl/selectivitat/">Selectividad MACS</a>
       <span class="sep">/</span>
-      <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">PAU 2026 Sèrie 1</a>
+      <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">PAU 2026 Serie 1</a>
       <span class="sep">/</span>
       <span class="current">P1</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <span class="section-label">2n BTL CCSS · PAU</span>
-        <span class="tag tag-blue">Juny 2026</span>
-        <span class="tag tag-orange">Sèrie 1</span>
+        <span class="section-label">2º BTL CCSS · PAU</span>
+        <span class="tag tag-blue">Junio 2026</span>
+        <span class="tag tag-orange">Serie 1</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
-      <span class="disabled prev">&larr; Exercici anterior</span>
-      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índex de l'examen</a>
-      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">Exercici següent &rarr;</a>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <span class="disabled prev">&larr; Ejercicio anterior</span>
+      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índice del examen</a>
+      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">Ejercicio siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Exercici 1 &middot; Funcions i derivades — Seguidors a les xarxes socials</h1>
-      <p class="question-descriptor">Lectura de valors, intervals de monotonia, extrems locals i esbós d'una cúbica en un interval tancat.</p>
-      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
+      <h1>Ejercicio 1 &middot; Funciones y derivadas — Seguidores en redes sociales</h1>
+      <p class="question-descriptor">Lectura de valores, intervalos de monotonía, extremos locales y esbozo de una cúbica en un intervalo cerrado.</p>
+      <span class="score-pill">Puntuación máxima · 2,5 puntos</span>
 
       <div class="statement">
         <div class="context">
-          <p>Un metge comença a fer divulgació sobre salut a les xarxes socials. A mesura que publica continguts relacionats amb aquest tema, observa un augment en el seu nombre de seguidors. En un moment determinat grava un vídeo polèmic i perd un petit nombre de seguidors, però al cap d'uns dies en publica un altre que té molt èxit i, a partir de llavors, el seu nombre de seguidors torna a créixer. La funció que descriu el seu nombre de seguidors en funció del temps $t$, mesurat en setmanes, és $f(t) = 10t^{3} - 120t^{2} + 450t + 700$, amb $t \in [0, 10]$.</p>
+          <p>Un médico empieza a hacer divulgación sobre salud en las redes sociales. A medida que publica contenidos relacionados con este tema, observa un aumento en su número de seguidores. En un momento determinado graba un vídeo polémico y pierde un pequeño número de seguidores, pero al cabo de unos días publica otro que tiene mucho éxito y, a partir de entonces, su número de seguidores vuelve a crecer. La función que describe su número de seguidores en función del tiempo $t$, medido en semanas, es $f(t) = 10t^{3} - 120t^{2} + 450t + 700$, con $t \in [0, 10]$.</p>
         </div>
         <ol class="apartados">
-          <li>Quants seguidors té al principi? Quants en té al cap de 10 setmanes? Estudieu els intervals de creixement i decreixement de la funció i determineu-ne els extrems locals. Feu un esbós de la gràfica utilitzant la informació obtinguda. <span class="apartado-puntos">1,5 p</span></li>
-          <li>En quina setmana penja el vídeo polèmic i quants seguidors té en aquell moment? En quina setmana penja el vídeo que té molt èxit? Al llarg de les 10 setmanes, en quin moment té més seguidors? <span class="apartado-puntos">1 p</span></li>
+          <li>¿Cuántos seguidores tiene al principio? ¿Cuántos tiene al cabo de 10 semanas? Estudia los intervalos de crecimiento y decrecimiento de la función y determina sus extremos locales. Haz un esbozo de la gráfica utilizando la información obtenida. <span class="apartado-puntos">1,5 p</span></li>
+          <li>¿En qué semana cuelga el vídeo polémico y cuántos seguidores tiene en aquel momento? ¿En qué semana cuelga el vídeo que tiene mucho éxito? A lo largo de las 10 semanas, ¿en qué momento tiene más seguidores? <span class="apartado-puntos">1 p</span></li>
         </ol>
       </div>
 
       <div class="ib-chips">
-        <span class="ib-chips-label">Batxillerat CCSS · Bloc D — Sentit algebraic</span>
-        <span class="ib-chip" data-descriptor="Càlcul de la derivada i estudi del seu signe">Derivades</span>
-        <span class="ib-chip" data-descriptor="Intervals de creixement i decreixement, màxims i mínims locals">Monotonia i extrems</span>
-        <span class="ib-chip" data-descriptor="Representació qualitativa a partir de la informació de la derivada">Esbós de gràfiques</span>
+        <span class="ib-chips-label">Bachillerato CCSS · Bloque D — Sentido algebraico</span>
+        <span class="ib-chip" data-descriptor="Cálculo de la derivada y estudio de su signo">Derivadas</span>
+        <span class="ib-chip" data-descriptor="Intervalos de crecimiento y decrecimiento, máximos y mínimos locales">Monotonía y extremos</span>
+        <span class="ib-chip" data-descriptor="Representación cualitativa a partir de la información de la derivada">Esbozo de gráficas</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p1')">
-        <span class="toggle-label">Mostra la correcció</span>
+      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar la corrección" data-hide-label="Ocultar la corrección" onclick="toggleSolucion('sol-p1')">
+        <span class="toggle-label">Mostrar la corrección</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p1" hidden>
-        <h3>Correcció pas a pas</h3>
-        <p class="note"><strong>Idea clau:</strong> la monotonia de $f$ ve donada pel signe de $f'$; els extrems locals són els zeros de $f'$ on hi ha canvi de signe. En un interval tancat, el màxim absolut pot ser un extrem local <em>o</em> un extrem de l'interval: cal comparar valors.</p>
+        <h3>Corrección paso a paso</h3>
+        <p class="note"><strong>Idea clave:</strong> la monotonía de $f$ viene dada por el signo de $f'$; los extremos locales son los ceros de $f'$ donde hay cambio de signo. En un intervalo cerrado, el máximo absoluto puede ser un extremo local <em>o</em> un extremo del intervalo: hay que comparar valores.</p>
 
         <div class="apartado-sol">
-          <h4><span class="letra">a)</span> Valors inicials i finals, monotonia i extrems</h4>
-          <p>Seguidors al principi i al cap de 10 setmanes:</p>
+          <h4><span class="letra">a)</span> Valores iniciales y finales, monotonía y extremos</h4>
+          <p>Seguidores al principio y al cabo de 10 semanas:</p>
           <div class="math-block">$$f(0) = 700, \qquad f(10) = 10(1000) - 120(100) + 450(10) + 700 = 10000 - 12000 + 4500 + 700 = 3200.$$</div>
-          <p>Derivem i factoritzem:</p>
+          <p>Derivamos y factorizamos:</p>
           <div class="math-block">$$f'(t) = 30t^{2} - 240t + 450 = 30\,(t^{2} - 8t + 15) = 30\,(t-3)(t-5).$$</div>
-          <p>Els zeros de $f'$ són $t = 3$ i $t = 5$. Estudiem el signe de $f'$ sobre $[0, 10]$:</p>
-          <div class="math-block">$$f' > 0 \text{ a } [0, 3), \qquad f' < 0 \text{ a } (3, 5), \qquad f' > 0 \text{ a } (5, 10].$$</div>
-          <p>Per tant $f$ és <strong>creixent</strong> a $[0,3) \cup (5,10]$ i <strong>decreixent</strong> a $(3,5)$.</p>
-          <p>Extrems locals: a $t=3$ hi ha un <strong>màxim local</strong> amb $f(3) = 270 - 1080 + 1350 + 700 = 1240$; a $t=5$ hi ha un <strong>mínim local</strong> amb $f(5) = 1250 - 3000 + 2250 + 700 = 1200$.</p>
-          <p>Esbós amb els punts clau $(0,700)$, $(3,1240)$, $(5,1200)$ i $(10,3200)$:</p>
+          <p>Los ceros de $f'$ son $t = 3$ y $t = 5$. Estudiamos el signo de $f'$ sobre $[0, 10]$:</p>
+          <div class="math-block">$$f' > 0 \text{ en } [0, 3), \qquad f' < 0 \text{ en } (3, 5), \qquad f' > 0 \text{ en } (5, 10].$$</div>
+          <p>Por tanto $f$ es <strong>creciente</strong> en $[0,3) \cup (5,10]$ y <strong>decreciente</strong> en $(3,5)$.</p>
+          <p>Extremos locales: en $t=3$ hay un <strong>máximo local</strong> con $f(3) = 270 - 1080 + 1350 + 700 = 1240$; en $t=5$ hay un <strong>mínimo local</strong> con $f(5) = 1250 - 3000 + 2250 + 700 = 1200$.</p>
+          <p>Esbozo con los puntos clave $(0,700)$, $(3,1240)$, $(5,1200)$ y $(10,3200)$:</p>
           <svg viewBox="0 0 480 240" role="img" aria-label="Esbós de f(t)" style="max-width:480px;width:100%;display:block;margin:0.5rem auto">
   <line x1="50" y1="200" x2="460" y2="200" stroke="var(--text-faint)" stroke-width="1"/>
   <line x1="50" y1="200" x2="50" y2="20" stroke="var(--text-faint)" stroke-width="1"/>
@@ -135,24 +139,24 @@
   <text x="460" y="216" font-size="10" text-anchor="end" fill="var(--text-faint)">t (setmanes)</text>
   <text x="42" y="24" font-size="10" text-anchor="end" fill="var(--text-faint)">f(t)</text>
 </svg>
-          <div class="final">$f(0)=700$ i $f(10)=3200$ seguidors. Creixent a $[0,3)\cup(5,10]$, decreixent a $(3,5)$; màxim local $(3, 1240)$ i mínim local $(5, 1200)$.</div>
+          <div class="final">$f(0)=700$ y $f(10)=3200$ seguidores. Creciente en $[0,3)\cup(5,10]$, decreciente en $(3,5)$; máximo local $(3, 1240)$ y mínimo local $(5, 1200)$.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">b)</span> Interpretació dels extrems</h4>
-          <p>El vídeo <strong>polèmic</strong> el penja quan comença a perdre seguidors, és a dir, al màxim local: <strong>setmana 3</strong>, amb $f(3) = 1240$ seguidors.</p>
-          <p>El vídeo amb molt <strong>èxit</strong> el penja quan el nombre de seguidors torna a créixer, és a dir, al mínim local: <strong>setmana 5</strong>.</p>
-          <p>Per trobar el moment amb més seguidors comparem el màxim local amb els extrems de l'interval:</p>
+          <h4><span class="letra">b)</span> Interpretación de los extremos</h4>
+          <p>El vídeo <strong>polémico</strong> lo cuelga cuando empieza a perder seguidores, es decir, en el máximo local: <strong>semana 3</strong>, con $f(3) = 1240$ seguidores.</p>
+          <p>El vídeo con mucho <strong>éxito</strong> lo cuelga cuando el número de seguidores vuelve a crecer, es decir, en el mínimo local: <strong>semana 5</strong>.</p>
+          <p>Para hallar el momento con más seguidores comparamos el máximo local con los extremos del intervalo:</p>
           <div class="math-block">$$f(3) = 1240 \quad \text{vs.} \quad f(10) = 3200.$$</div>
-          <div class="final">Vídeo polèmic: setmana 3, amb 1240 seguidors. Vídeo d'èxit: setmana 5. El màxim de seguidors s'assoleix al final, a la setmana 10, amb 3200 seguidors.</div>
+          <div class="final">Vídeo polémico: semana 3, con 1240 seguidores. Vídeo de éxito: semana 5. El máximo de seguidores se alcanza al final, en la semana 10, con 3200 seguidores.</div>
         </div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
-      <span class="disabled prev">&larr; Exercici anterior</span>
-      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índex de l'examen</a>
-      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">Exercici següent &rarr;</a>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <span class="disabled prev">&larr; Ejercicio anterior</span>
+      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índice del examen</a>
+      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">Ejercicio siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -161,8 +165,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

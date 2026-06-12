@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P9 · Mesures de segments en una quadrícula — Copa Cangur Final Júnior 2026</title>
-<meta name="description" content="Problema 9 de la final de la XII Copa Cangur (categoria Júnior, maig 2026): mesures de segments en una quadrícula, amb solució raonada.">
+<title>P9 · Medidas de segmentos en una cuadrícula — Copa Cangur Final Júnior 2026</title>
+<meta name="description" content="Cuántas distancias distintas hay entre puntos de una cuadrícula 5×5.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p9.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p9.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/examenes/2526-cangur-copa-junior-final/p9.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/cangur/examenes/2526-cangur-copa-junior-final/p9.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p9.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,9 +49,9 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
       <a href="/docencia/cangur/">Cangur</a>
       <span class="sep">/</span>
@@ -59,53 +63,53 @@
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
         <span class="section-label">Copa Cangur · Júnior</span>
-        <span class="tag tag-blue">5 maig 2026</span>
+        <span class="tag tag-blue">5 mayo 2026</span>
         <span class="tag tag-orange">Final</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p8.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">Problema siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Problema 9 &middot; Mesures de segments en una quadrícula</h1>
-      <p class="question-descriptor">Quantes distàncies diferents hi ha entre punts d'una quadrícula 5×5.</p>
-      <span class="score-pill">Resposta entera de 4 xifres com a màxim</span>
+      <h1>Problema 9 &middot; Medidas de segmentos en una cuadrícula</h1>
+      <p class="question-descriptor">Cuántas distancias distintas hay entre puntos de una cuadrícula 5×5.</p>
+      <span class="score-pill">Respuesta entera de 4 cifras como máximo</span>
 
       <div class="statement">
-        <p>Si a una quadrícula formada per 25 quadradets com la de la figura hi dibuixem tots els segments corresponents a unir 2 punts qualssevol entre ells, quantes mesures diferents tindran aquests segments?</p>
-        <div style="text-align:center;margin:1rem 0"><img src="fig-p9.png" alt="Figura del problema 9" style="max-width:200px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
+        <p>Si en una cuadrícula formada por 25 cuadraditos como la de la figura dibujamos todos los segmentos correspondientes a unir 2 puntos cualesquiera entre ellos, ¿cuántas medidas diferentes tendrán estos segmentos?</p>
+        <div style="text-align:center;margin:1rem 0"><img src="/aula/cangur/examenes/2526-cangur-copa-junior-final/fig-p9.png" alt="Figura del problema 9" style="max-width:200px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
       </div>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Copa Cangur · SCM</span>
-        <span class="ib-chip" data-descriptor="Dificultat estimada">Mitjana</span>
-        <span class="ib-chip" data-descriptor="Resposta numèrica entera, sense desenvolupament">Resposta tancada</span>
+        <span class="ib-chip" data-descriptor="Dificultad estimada">Media</span>
+        <span class="ib-chip" data-descriptor="Respuesta numérica entera, sin desarrollo">Respuesta cerrada</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p9" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p9')">
-        <span class="toggle-label">Mostra la solució</span>
+      <button class="solution-toggle" data-toggles="sol-p9" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p9')">
+        <span class="toggle-label">Mostrar la solución</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p9" hidden>
-        <h3>Solució raonada</h3>
-        <p class="note"><strong>Idea clau:</strong> la longitud d'un segment entre punts de la quadrícula és $\sqrt{a^{2}+b^{2}}$ amb $0 \le a, b \le 5$ els desplaçaments horitzontal i vertical. Comptar mesures diferents és comptar valors diferents de $a^{2}+b^{2}$.</p>
-        <p>Llistem els valors de $a^{2}+b^{2}$ per a $0 \le a \le b \le 5$ (no tots dos zero):</p>
+        <h3>Solución razonada</h3>
+        <p class="note"><strong>Idea clave:</strong> la longitud de un segmento entre puntos de la cuadrícula es $\sqrt{a^{2}+b^{2}}$ con $0 \le a, b \le 5$ los desplazamientos horizontal y vertical. Contar medidas distintas es contar valores distintos de $a^{2}+b^{2}$.</p>
+        <p>Listamos los valores de $a^{2}+b^{2}$ para $0 \le a \le b \le 5$ (no ambos cero):</p>
         <div class="math-block">$$1,\ 2,\ 4,\ 5,\ 8,\ 9,\ 10,\ 13,\ 16,\ 17,\ 18,\ 20,\ 25,\ 26,\ 29,\ 32,\ 34,\ 41,\ 50.$$</div>
-        <p>Atenció a l'única coincidència: $25 = 5^{2}+0^{2} = 3^{2}+4^{2}$, que dona la mateixa mesura ($5$) per a dos parells diferents i per això només compta una vegada.</p>
-        <p>En total hi ha $19$ valors diferents.</p>
-        <div class="final">Resposta: <strong>19</strong></div>
+        <p>Atención a la única coincidencia: $25 = 5^{2}+0^{2} = 3^{2}+4^{2}$, que da la misma medida ($5$) para dos pares distintos y por eso solo cuenta una vez.</p>
+        <p>En total hay $19$ valores distintos.</p>
+        <div class="final">Respuesta: <strong>19</strong></div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p8.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">Problema siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -114,8 +118,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

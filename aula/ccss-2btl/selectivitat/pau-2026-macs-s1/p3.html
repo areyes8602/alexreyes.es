@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P3 · Binomial i interval de confiança — Temps de càrrega — PAU 2026 MACS</title>
-<meta name="description" content="Exercici 3 de la PAU 2026 MACS: distribució binomial, aproximació normal i interval de confiança per a la mitjana del temps de càrrega.">
+<title>P3 · Binomial, normal e intervalo de confianza — Tiempo de carga web — PAU 2026 MACS</title>
+<meta name="description" content="Distribución binomial, aproximación por la normal e intervalo de confianza para la media.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,91 +49,91 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
-      <a href="/aula/ccss-2btl/selectivitat/">Selectivitat MACS</a>
+      <a href="/aula/ccss-2btl/selectivitat/">Selectividad MACS</a>
       <span class="sep">/</span>
-      <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">PAU 2026 Sèrie 1</a>
+      <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">PAU 2026 Serie 1</a>
       <span class="sep">/</span>
       <span class="current">P3</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <span class="section-label">2n BTL CCSS · PAU</span>
-        <span class="tag tag-blue">Juny 2026</span>
-        <span class="tag tag-orange">Sèrie 1</span>
+        <span class="section-label">2º BTL CCSS · PAU</span>
+        <span class="tag tag-blue">Junio 2026</span>
+        <span class="tag tag-orange">Serie 1</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
-      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">&larr; Exercici anterior</a>
-      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índex de l'examen</a>
-      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4.html">Exercici següent &rarr;</a>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">&larr; Ejercicio anterior</a>
+      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índice del examen</a>
+      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4.html">Ejercicio siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Exercici 3 &middot; Binomial, normal i interval de confiança — Temps de càrrega web</h1>
-      <p class="question-descriptor">Distribució binomial, aproximació per la normal i interval de confiança per a la mitjana.</p>
-      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
+      <h1>Ejercicio 3 &middot; Binomial, normal e intervalo de confianza — Tiempo de carga web</h1>
+      <p class="question-descriptor">Distribución binomial, aproximación por la normal e intervalo de confianza para la media.</p>
+      <span class="score-pill">Puntuación máxima · 2,5 puntos</span>
 
       <div class="statement">
         <div class="context">
-          <p>Una empresa de telecomunicacions considera que una pàgina web és eficient si el seu temps de càrrega és inferior a 3 segons. L'empresa afirma que almenys el 50&nbsp;% de les pàgines web que gestiona són eficients. Per comprovar aquesta afirmació, se selecciona una mostra aleatòria de $n = 2500$ pàgines web gestionades per aquesta empresa.</p>
-          <p><em>Formulari de l'enunciat:</em> $Z \sim N(0,1) \Rightarrow P(-1{,}96 \le Z \le 1{,}96) = 0{,}95$ i $P(-2{,}58 \le Z \le 2{,}58) = 0{,}99$; intervals de confiança $\left[\hat{p} - z_{\gamma}\sqrt{\tfrac{\hat{p}(1-\hat{p})}{n}},\; \hat{p} + z_{\gamma}\sqrt{\tfrac{\hat{p}(1-\hat{p})}{n}}\right]$ per a la proporció i $\left[\bar{x} - z_{\gamma}\tfrac{s}{\sqrt{n}},\; \bar{x} + z_{\gamma}\tfrac{s}{\sqrt{n}}\right]$ per a la mitjana.</p>
+          <p>Una empresa de telecomunicaciones considera que una página web es eficiente si su tiempo de carga es inferior a 3 segundos. La empresa afirma que al menos el 50&nbsp;% de las páginas web que gestiona son eficientes. Para comprobar esta afirmación, se selecciona una muestra aleatoria de $n = 2500$ páginas web gestionadas por esta empresa.</p>
+          <p><em>Formulario del enunciado:</em> $Z \sim N(0,1) \Rightarrow P(-1{,}96 \le Z \le 1{,}96) = 0{,}95$ y $P(-2{,}58 \le Z \le 2{,}58) = 0{,}99$; intervalos de confianza $\left[\hat{p} - z_{\gamma}\sqrt{\tfrac{\hat{p}(1-\hat{p})}{n}},\; \hat{p} + z_{\gamma}\sqrt{\tfrac{\hat{p}(1-\hat{p})}{n}}\right]$ para la proporción y $\left[\bar{x} - z_{\gamma}\tfrac{s}{\sqrt{n}},\; \bar{x} + z_{\gamma}\tfrac{s}{\sqrt{n}}\right]$ para la media.</p>
         </div>
         <ol class="apartados">
-          <li>Se suposa que, cada vegada que se selecciona una pàgina web per a la mostra, aquesta pot ser eficient (o no ser-ho) amb una probabilitat $p = 0{,}5$, i que el fet que una pàgina sigui eficient (o no) és independent que la resta ho siguin (o no). Es considera la variable aleatòria $X$, que compta el nombre de pàgines, d'entre les 2500 de la mostra, que són eficients. Quina distribució té la variable $X$? Calculeu la probabilitat que com a màxim 1299 pàgines siguin eficients. Per fer-ho, utilitzeu l'aproximació per la distribució normal sense fer la correcció per continuïtat. <span class="apartado-puntos">1,25 p</span></li>
-          <li>En la mostra de $n = 2500$ pàgines web, s'ha obtingut una mitjana mostral del temps de càrrega de $\bar{x} = 2{,}95$ segons i una desviació típica mostral de $s = 0{,}38$ segons. Construïu un interval de confiança del 95 % per al temps mitjà de càrrega de les pàgines web que gestiona l'empresa. A partir de l'interval obtingut, què es pot dir sobre l'afirmació de l'empresa que almenys el 50 % de les pàgines web que gestiona són eficients? <span class="apartado-puntos">1,25 p</span></li>
+          <li>Se supone que, cada vez que se selecciona una página web para la muestra, esta puede ser eficiente (o no serlo) con una probabilidad $p = 0{,}5$, y que el hecho de que una página sea eficiente (o no) es independiente de que el resto lo sean (o no). Se considera la variable aleatoria $X$, que cuenta el número de páginas, de entre las 2500 de la muestra, que son eficientes. ¿Qué distribución tiene la variable $X$? Calcula la probabilidad de que como mucho 1299 páginas sean eficientes. Para ello, utiliza la aproximación por la distribución normal sin hacer la corrección por continuidad. <span class="apartado-puntos">1,25 p</span></li>
+          <li>En la muestra de $n = 2500$ páginas web, se ha obtenido una media muestral del tiempo de carga de $\bar{x} = 2{,}95$ segundos y una desviación típica muestral de $s = 0{,}38$ segundos. Construye un intervalo de confianza del 95 % para el tiempo medio de carga de las páginas web que gestiona la empresa. A partir del intervalo obtenido, ¿qué se puede decir sobre la afirmación de la empresa de que al menos el 50 % de las páginas web que gestiona son eficientes? <span class="apartado-puntos">1,25 p</span></li>
         </ol>
       </div>
 
       <div class="ib-chips">
-        <span class="ib-chips-label">Batxillerat CCSS · Bloc E — Sentit estocàstic</span>
-        <span class="ib-chip" data-descriptor="Identificació del model binomial i els seus paràmetres">Distribució binomial</span>
-        <span class="ib-chip" data-descriptor="Aproximació de la binomial per la normal amb tipificació">Aproximació normal</span>
-        <span class="ib-chip" data-descriptor="IC per a la mitjana amb mostres grans">Interval de confiança</span>
+        <span class="ib-chips-label">Bachillerato CCSS · Bloque E — Sentido estocástico</span>
+        <span class="ib-chip" data-descriptor="Identificación del modelo binomial y sus parámetros">Distribución binomial</span>
+        <span class="ib-chip" data-descriptor="Aproximación de la binomial por la normal con tipificación">Aproximación normal</span>
+        <span class="ib-chip" data-descriptor="IC para la media con muestras grandes">Intervalo de confianza</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p3')">
-        <span class="toggle-label">Mostra la correcció</span>
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostrar la corrección" data-hide-label="Ocultar la corrección" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostrar la corrección</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p3" hidden>
-        <h3>Correcció pas a pas</h3>
-        <p class="note"><strong>Idea clau:</strong> $X$ compta el nombre d'èxits en $n$ proves independents amb probabilitat d'èxit constant: és una binomial. Com que $n$ és molt gran, s'aproxima per una normal de mitjana $np$ i desviació $\sqrt{np(1-p)}$.</p>
+        <h3>Corrección paso a paso</h3>
+        <p class="note"><strong>Idea clave:</strong> $X$ cuenta el número de éxitos en $n$ pruebas independientes con probabilidad de éxito constante: es una binomial. Como $n$ es muy grande, se aproxima por una normal de media $np$ y desviación $\sqrt{np(1-p)}$.</p>
 
         <div class="apartado-sol">
-          <h4><span class="letra">a)</span> Distribució de $X$ i càlcul de la probabilitat</h4>
-          <p>Cada pàgina és eficient amb probabilitat $p = 0{,}5$, de manera independent, i en comptem els èxits entre $n = 2500$:</p>
+          <h4><span class="letra">a)</span> Distribución de $X$ y cálculo de la probabilidad</h4>
+          <p>Cada página es eficiente con probabilidad $p = 0{,}5$, de manera independiente, y contamos los éxitos entre $n = 2500$:</p>
           <div class="math-block">$$X \sim B(2500;\; 0{,}5).$$</div>
-          <p>Paràmetres de l'aproximació normal:</p>
+          <p>Parámetros de la aproximación normal:</p>
           <div class="math-block">$$\mu = np = 2500 \cdot 0{,}5 = 1250, \qquad \sigma = \sqrt{np(1-p)} = \sqrt{2500 \cdot 0{,}5 \cdot 0{,}5} = \sqrt{625} = 25.$$</div>
-          <p>Per tant $X \approx N(1250,\, 25)$. Tipifiquem (sense correcció per continuïtat, tal com demana l'enunciat):</p>
+          <p>Por tanto $X \approx N(1250,\, 25)$. Tipificamos (sin corrección por continuidad, tal como pide el enunciado):</p>
           <div class="math-block">$$P(X \le 1299) = P\!\left(Z \le \frac{1299 - 1250}{25}\right) = P(Z \le 1{,}96).$$</div>
-          <p>Com que $P(-1{,}96 \le Z \le 1{,}96) = 0{,}95$, cada cua val $0{,}025$ i, per tant, $P(Z \le 1{,}96) = 0{,}95 + 0{,}025 = 0{,}975$.</p>
-          <div class="final">$X \sim B(2500;\, 0{,}5) \approx N(1250,\, 25)$ &ensp;i&ensp; $P(X \le 1299) = 0{,}975$.</div>
+          <p>Como $P(-1{,}96 \le Z \le 1{,}96) = 0{,}95$, cada cola vale $0{,}025$ y, por tanto, $P(Z \le 1{,}96) = 0{,}95 + 0{,}025 = 0{,}975$.</p>
+          <div class="final">$X \sim B(2500;\, 0{,}5) \approx N(1250,\, 25)$ &ensp;y&ensp; $P(X \le 1299) = 0{,}975$.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">b)</span> Interval de confiança i interpretació</h4>
-          <p>Mostra gran amb variància desconeguda: fem servir l'interval per a la mitjana amb $z_{\gamma} = 1{,}96$ (confiança del 95 %):</p>
+          <h4><span class="letra">b)</span> Intervalo de confianza e interpretación</h4>
+          <p>Muestra grande con varianza desconocida: usamos el intervalo para la media con $z_{\gamma} = 1{,}96$ (confianza del 95 %):</p>
           <div class="math-block">$$\bar{x} \pm z_{\gamma}\,\frac{s}{\sqrt{n}} = 2{,}95 \pm 1{,}96 \cdot \frac{0{,}38}{\sqrt{2500}} = 2{,}95 \pm 1{,}96 \cdot \frac{0{,}38}{50} = 2{,}95 \pm 0{,}0149.$$</div>
-          <div class="math-block">$$IC_{95\%} = [\,2{,}9351,\; 2{,}9649\,]\ \text{segons}.$$</div>
-          <p>Tot l'interval queda <strong>per sota de 3 segons</strong>: amb una confiança del 95 %, el temps <em>mitjà</em> de càrrega de les pàgines de l'empresa és inferior a 3 segons.</p>
-          <p>Aquest resultat és coherent amb l'afirmació de l'empresa i li dona suport: si el temps mitjà és clarament inferior a 3 s, és plausible que almenys la meitat de les pàgines triguin menys de 3 s. (En rigor, l'interval és per a la <em>mitjana</em> i l'afirmació parla de la <em>proporció</em> de pàgines eficients; l'interval no la demostra, però no la contradiu.)</p>
-          <div class="final">$IC_{95\%} = [2{,}9351;\ 2{,}9649]$ s. Com que tot l'interval és inferior a 3 s, les dades donen suport a l'afirmació de l'empresa.</div>
+          <div class="math-block">$$IC_{95\%} = [\,2{,}9351,\; 2{,}9649\,]\ \text{segundos}.$$</div>
+          <p>Todo el intervalo queda <strong>por debajo de 3 segundos</strong>: con una confianza del 95 %, el tiempo <em>medio</em> de carga de las páginas de la empresa es inferior a 3 segundos.</p>
+          <p>Este resultado es coherente con la afirmación de la empresa y le da apoyo: si el tiempo medio es claramente inferior a 3 s, es plausible que al menos la mitad de las páginas tarden menos de 3 s. (En rigor, el intervalo es para la <em>media</em> y la afirmación habla de la <em>proporción</em> de páginas eficientes; el intervalo no la demuestra, pero no la contradice.)</p>
+          <div class="final">$IC_{95\%} = [2{,}9351;\ 2{,}9649]$ s. Como todo el intervalo es inferior a 3 s, los datos apoyan la afirmación de la empresa.</div>
         </div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
-      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">&larr; Exercici anterior</a>
-      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índex de l'examen</a>
-      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4.html">Exercici següent &rarr;</a>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">&larr; Ejercicio anterior</a>
+      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índice del examen</a>
+      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p4.html">Ejercicio siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -138,8 +142,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

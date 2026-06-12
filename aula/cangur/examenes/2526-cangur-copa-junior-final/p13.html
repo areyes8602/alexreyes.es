@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P13 · Perímetre d'una regió ombrejada — Copa Cangur Final Júnior 2026</title>
-<meta name="description" content="Problema 13 de la final de la XII Copa Cangur (categoria Júnior, maig 2026): perímetre d'una regió ombrejada, amb solució raonada.">
+<title>P13 · Perímetro de una región sombreada — Copa Cangur Final Júnior 2026</title>
+<meta name="description" content="Tres rectángulos inclinados 45° sobre la diagonal de un cuadrado.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p13.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p13.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/examenes/2526-cangur-copa-junior-final/p13.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/cangur/examenes/2526-cangur-copa-junior-final/p13.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p13.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,9 +49,9 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
       <a href="/docencia/cangur/">Cangur</a>
       <span class="sep">/</span>
@@ -59,60 +63,60 @@
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
         <span class="section-label">Copa Cangur · Júnior</span>
-        <span class="tag tag-blue">5 maig 2026</span>
+        <span class="tag tag-blue">5 mayo 2026</span>
         <span class="tag tag-orange">Final</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p12.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p14.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p14.html">Problema siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Problema 13 &middot; Perímetre d'una regió ombrejada</h1>
-      <p class="question-descriptor">Tres rectangles inclinats 45° sobre la diagonal d'un quadrat.</p>
-      <span class="score-pill">Resposta entera de 4 xifres com a màxim</span>
+      <h1>Problema 13 &middot; Perímetro de una región sombreada</h1>
+      <p class="question-descriptor">Tres rectángulos inclinados 45° sobre la diagonal de un cuadrado.</p>
+      <span class="score-pill">Respuesta entera de 4 cifras como máximo</span>
 
       <div class="statement">
-        <p>A la figura, $ABCD$ és un quadrat mentre que $EFGH$, $HIKL$ i $LMNP$ són simplement rectangles. El costat $AB$ del quadrat mesura $16\sqrt{2}$ cm i el segment $ID$ mesura $6\sqrt{2}$ cm. Quin és el perímetre de la regió ombrejada, en centímetres?</p>
-        <div style="text-align:center;margin:1rem 0"><img src="fig-p13.png" alt="Figura del problema 13" style="max-width:320px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
+        <p>En la figura, $ABCD$ es un cuadrado mientras que $EFGH$, $HIKL$ y $LMNP$ son simplemente rectángulos. El lado $AB$ del cuadrado mide $16\sqrt{2}$ cm y el segmento $ID$ mide $6\sqrt{2}$ cm. ¿Cuál es el perímetro de la región sombreada, en centímetros?</p>
+        <div style="text-align:center;margin:1rem 0"><img src="/aula/cangur/examenes/2526-cangur-copa-junior-final/fig-p13.png" alt="Figura del problema 13" style="max-width:320px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
       </div>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Copa Cangur · SCM</span>
-        <span class="ib-chip" data-descriptor="Dificultat estimada">Difícil</span>
-        <span class="ib-chip" data-descriptor="Resposta numèrica entera, sense desenvolupament">Resposta tancada</span>
+        <span class="ib-chip" data-descriptor="Dificultad estimada">Difícil</span>
+        <span class="ib-chip" data-descriptor="Respuesta numérica entera, sin desarrollo">Respuesta cerrada</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p13" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p13')">
-        <span class="toggle-label">Mostra la solució</span>
+      <button class="solution-toggle" data-toggles="sol-p13" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p13')">
+        <span class="toggle-label">Mostrar la solución</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p13" hidden>
-        <h3>Solució raonada</h3>
-        <p class="note"><strong>Idea clau:</strong> tots els costats dels tres rectangles formen $45°$ amb els costats del quadrat, i els punts $H$ i $L$ són sobre la diagonal $AC$. El perímetre dels dos rectangles petits no depèn de la seva posició exacta!</p>
-        <p>La diagonal del quadrat fa $AC = 16\sqrt{2}\cdot\sqrt{2} = 32$ cm.</p>
-        <p><strong>Rectangle central $HIKL$</strong> (costat $HL$ sobre la diagonal). Tenim $AI = AD - ID = 16\sqrt{2} - 6\sqrt{2} = 10\sqrt{2}$. El costat $AD$ forma $45°$ amb la diagonal i $IH \perp AC$, així que el triangle $AIH$ és rectangle isòsceles:</p>
+        <h3>Solución razonada</h3>
+        <p class="note"><strong>Idea clave:</strong> todos los lados de los tres rectángulos forman $45°$ con los lados del cuadrado, y los puntos $H$ y $L$ están sobre la diagonal $AC$. ¡El perímetro de los dos rectángulos pequeños no depende de su posición exacta!</p>
+        <p>La diagonal del cuadrado mide $AC = 16\sqrt{2}\cdot\sqrt{2} = 32$ cm.</p>
+        <p><strong>Rectángulo central $HIKL$</strong> (lado $HL$ sobre la diagonal). Tenemos $AI = AD - ID = 16\sqrt{2} - 6\sqrt{2} = 10\sqrt{2}$. El lado $AD$ forma $45°$ con la diagonal e $IH \perp AC$, así que el triángulo $AIH$ es rectángulo isósceles:</p>
         <div class="math-block">$$AH = IH = AI\cdot\frac{\sqrt{2}}{2} = 10\sqrt{2}\cdot\frac{\sqrt{2}}{2} = 10.$$</div>
-        <p>El mateix argument al vèrtex $C$ (amb $K$ al costat $DC$ i $KL \perp AC$, i $KL = IH = 10$ per ser costats oposats) dona $CL = KL = 10$. Per tant</p>
-        <div class="math-block">$$HL = AC - AH - LC = 32 - 10 - 10 = 12, \qquad \text{perímetre}(HIKL) = 2(10+12) = 44.$$</div>
-        <p><strong>Rectangle $EFGH$</strong> ($F$ al costat $AB$, $H$ a la diagonal). Els costats $FE$ i $FG$ formen $45°$ amb $AB$, de manera que la distància vertical de $F$ (al costat $AB$) fins a $H$ val $(FE+FG)\cdot\frac{\sqrt{2}}{2}$. Però aquesta distància és la de $H$ al costat $AB$, que val $AH\cdot\frac{\sqrt{2}}{2} = 5\sqrt{2}$. Així,</p>
-        <div class="math-block">$$FE + FG = 10 \qquad\Longrightarrow\qquad \text{perímetre}(EFGH) = 20,$$</div>
-        <p>sigui on sigui exactament el punt $F$.</p>
-        <p><strong>Rectangle $LMNP$</strong> ($N$ al costat $BC$, $L$ a la diagonal): el mateix argument amb la distància de $L$ al costat $BC$, que val $CL\cdot\frac{\sqrt{2}}{2} = 5\sqrt{2}$, dona perímetre $20$.</p>
-        <p>Els tres rectangles només es toquen en els punts $H$ i $L$, així que el perímetre de la regió ombrejada és la suma:</p>
+        <p>El mismo argumento en el vértice $C$ (con $K$ en el lado $DC$ y $KL \perp AC$, y $KL = IH = 10$ por ser lados opuestos) da $CL = KL = 10$. Por tanto</p>
+        <div class="math-block">$$HL = AC - AH - LC = 32 - 10 - 10 = 12, \qquad \text{perímetro}(HIKL) = 2(10+12) = 44.$$</div>
+        <p><strong>Rectángulo $EFGH$</strong> ($F$ en el lado $AB$, $H$ en la diagonal). Los lados $FE$ y $FG$ forman $45°$ con $AB$, de manera que la «profundidad» vertical de $F$ a $H$ vale $(FE+FG)\cdot\frac{\sqrt{2}}{2}$. Pero esa profundidad es la distancia de $H$ al lado $AB$, que vale $AH\cdot\frac{\sqrt{2}}{2} = 5\sqrt{2}$. Así,</p>
+        <div class="math-block">$$FE + FG = 10 \qquad\Longrightarrow\qquad \text{perímetro}(EFGH) = 20,$$</div>
+        <p>esté donde esté exactamente el punto $F$.</p>
+        <p><strong>Rectángulo $LMNP$</strong> ($N$ en el lado $BC$, $L$ en la diagonal): el mismo argumento con la distancia de $L$ al lado $BC$, que vale $CL\cdot\frac{\sqrt{2}}{2} = 5\sqrt{2}$, da perímetro $20$.</p>
+        <p>Los tres rectángulos solo se tocan en los puntos $H$ y $L$, así que el perímetro de la región sombreada es la suma:</p>
         <div class="math-block">$$44 + 20 + 20 = 84\ \text{cm}.$$</div>
-        <div class="final">Resposta: <strong>84</strong></div>
+        <div class="final">Respuesta: <strong>84</strong></div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p12.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p14.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p14.html">Problema siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -121,8 +125,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

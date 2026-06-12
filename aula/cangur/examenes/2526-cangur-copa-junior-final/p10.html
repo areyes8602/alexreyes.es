@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P10 · Segment paral·lel en un triangle — Copa Cangur Final Júnior 2026</title>
-<meta name="description" content="Problema 10 de la final de la XII Copa Cangur (categoria Júnior, maig 2026): segment paral·lel en un triangle, amb solució raonada.">
+<title>P10 · Segmento paralelo en un triángulo — Copa Cangur Final Júnior 2026</title>
+<meta name="description" content="Semejanza y razón de áreas 1 : 3.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p10.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,9 +49,9 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
       <a href="/docencia/cangur/">Cangur</a>
       <span class="sep">/</span>
@@ -59,54 +63,54 @@
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
         <span class="section-label">Copa Cangur · Júnior</span>
-        <span class="tag tag-blue">5 maig 2026</span>
+        <span class="tag tag-blue">5 mayo 2026</span>
         <span class="tag tag-orange">Final</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p9.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p11.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p11.html">Problema siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Problema 10 &middot; Segment paral·lel en un triangle</h1>
-      <p class="question-descriptor">Semblança i raó d'àrees 1 : 3.</p>
-      <span class="score-pill">Resposta entera de 4 xifres com a màxim</span>
+      <h1>Problema 10 &middot; Segmento paralelo en un triángulo</h1>
+      <p class="question-descriptor">Semejanza y razón de áreas 1 : 3.</p>
+      <span class="score-pill">Respuesta entera de 4 cifras como máximo</span>
 
       <div class="statement">
-        <p>Al triangle $ABC$ hi tracem un segment $DE$ paral·lel a $AB$ tal com es veu a la figura, de manera que l'àrea de $DCE$ és la meitat de la del trapezi $ABDE$. Si sabem que el costat $AB$ fa 45 cm, quina seria l'àrea d'un quadrat de costat $DE$?</p>
-        <div style="text-align:center;margin:1rem 0"><img src="fig-p10.png" alt="Figura del problema 10" style="max-width:280px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
+        <p>En el triángulo $ABC$ trazamos un segmento $DE$ paralelo a $AB$ tal como se ve en la figura, de manera que el área de $DCE$ es la mitad de la del trapecio $ABDE$. Si sabemos que el lado $AB$ mide 45 cm, ¿cuál sería el área de un cuadrado de lado $DE$?</p>
+        <div style="text-align:center;margin:1rem 0"><img src="/aula/cangur/examenes/2526-cangur-copa-junior-final/fig-p10.png" alt="Figura del problema 10" style="max-width:280px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
       </div>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Copa Cangur · SCM</span>
-        <span class="ib-chip" data-descriptor="Dificultat estimada">Fàcil</span>
-        <span class="ib-chip" data-descriptor="Resposta numèrica entera, sense desenvolupament">Resposta tancada</span>
+        <span class="ib-chip" data-descriptor="Dificultad estimada">Fácil</span>
+        <span class="ib-chip" data-descriptor="Respuesta numérica entera, sin desarrollo">Respuesta cerrada</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p10" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p10')">
-        <span class="toggle-label">Mostra la solució</span>
+      <button class="solution-toggle" data-toggles="sol-p10" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p10')">
+        <span class="toggle-label">Mostrar la solución</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p10" hidden>
-        <h3>Solució raonada</h3>
-        <p class="note"><strong>Idea clau:</strong> $DE \parallel AB$ fa que els triangles $DCE$ i $ACB$ siguin semblants, i la raó d'àrees de figures semblants és el quadrat de la raó de costats.</p>
-        <p>Si $[DCE] = \tfrac{1}{2}[ABDE]$, aleshores</p>
+        <h3>Solución razonada</h3>
+        <p class="note"><strong>Idea clave:</strong> $DE \parallel AB$ hace que los triángulos $DCE$ y $ACB$ sean semejantes, y la razón de áreas de figuras semejantes es el cuadrado de la razón de lados.</p>
+        <p>Si $[DCE] = \tfrac{1}{2}[ABDE]$, entonces</p>
         <div class="math-block">$$[ACB] = [DCE] + [ABDE] = [DCE] + 2[DCE] = 3\,[DCE] \;\Longrightarrow\; \frac{[DCE]}{[ACB]} = \frac{1}{3}.$$</div>
-        <p>Per semblança:</p>
+        <p>Por semejanza:</p>
         <div class="math-block">$$\left(\frac{DE}{AB}\right)^{2} = \frac{1}{3} \;\Longrightarrow\; DE^{2} = \frac{AB^{2}}{3} = \frac{2025}{3} = 675.$$</div>
-        <p>L'àrea del quadrat de costat $DE$ és precisament $DE^{2}$.</p>
-        <div class="final">Resposta: <strong>675</strong></div>
+        <p>El área del cuadrado de lado $DE$ es precisamente $DE^{2}$.</p>
+        <div class="final">Respuesta: <strong>675</strong></div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p9.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p11.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p11.html">Problema siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -115,8 +119,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

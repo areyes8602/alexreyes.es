@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P2 · Sistemes d'equacions — Caixes de fruita — PAU 2026 MACS</title>
-<meta name="description" content="Exercici 2 de la PAU 2026 MACS: sistema compatible indeterminat amb preus de caixes de fruita i càlcul d'una comanda.">
+<title>P2 · Sistemas de ecuaciones — Cajas de fruta — PAU 2026 MACS</title>
+<meta name="description" content="Sistema de dos ecuaciones con tres incógnitas: solución en función de un parámetro y aplicación.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p2.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,89 +49,89 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
-      <a href="/aula/ccss-2btl/selectivitat/">Selectivitat MACS</a>
+      <a href="/aula/ccss-2btl/selectivitat/">Selectividad MACS</a>
       <span class="sep">/</span>
-      <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">PAU 2026 Sèrie 1</a>
+      <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">PAU 2026 Serie 1</a>
       <span class="sep">/</span>
       <span class="current">P2</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <span class="section-label">2n BTL CCSS · PAU</span>
-        <span class="tag tag-blue">Juny 2026</span>
-        <span class="tag tag-orange">Sèrie 1</span>
+        <span class="section-label">2º BTL CCSS · PAU</span>
+        <span class="tag tag-blue">Junio 2026</span>
+        <span class="tag tag-orange">Serie 1</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
-      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">&larr; Exercici anterior</a>
-      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índex de l'examen</a>
-      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">Exercici següent &rarr;</a>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">&larr; Ejercicio anterior</a>
+      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índice del examen</a>
+      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">Ejercicio siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Exercici 2 &middot; Sistemes d'equacions — Caixes de fruita</h1>
-      <p class="question-descriptor">Sistema de dues equacions amb tres incògnites: solució en funció d'un paràmetre i aplicació.</p>
-      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
+      <h1>Ejercicio 2 &middot; Sistemas de ecuaciones — Cajas de fruta</h1>
+      <p class="question-descriptor">Sistema de dos ecuaciones con tres incógnitas: solución en función de un parámetro y aplicación.</p>
+      <span class="score-pill">Puntuación máxima · 2,5 puntos</span>
 
       <div class="statement">
         <div class="context">
-          <p>Un pagès produeix diferents tipus de fruita: maduixes, albercocs i cireres, que es venen en caixes a preus diferents. Se sap que una comanda de 5 caixes de maduixes, 3 d'albercocs i 4 de cireres té un cost total de 120 €. D'altra banda, una comanda de 2 caixes de maduixes, 1 d'albercocs i 3 de cireres té un cost total de 56 €.</p>
+          <p>Un campesino produce diferentes tipos de frutas: fresas, albaricoques y cerezas, que se venden en cajas a precios diferentes. Se sabe que un pedido de 5 cajas de fresas, 3 de albaricoques y 4 de cerezas tiene un coste total de 120 €. Por otro lado, un pedido de 2 cajas de fresas, 1 de albaricoques y 3 de cerezas tiene un coste total de 56 €.</p>
         </div>
         <ol class="apartados">
-          <li>Calculeu el preu d'una caixa de maduixes i el preu d'una caixa d'albercocs en funció del preu d'una caixa de cireres. Amb aquesta informació, calculeu quin és el preu d'una comanda de 6 caixes de maduixes, 4 d'albercocs i 2 de cireres. <span class="apartado-puntos">1,5 p</span></li>
-          <li>Si se sap que el preu d'una caixa d'albercocs és de 12,50 €, calculeu quin és el preu de les altres dues caixes de fruita. <span class="apartado-puntos">1 p</span></li>
+          <li>Calcula el precio de una caja de fresas y el precio de una caja de albaricoques en función del precio de una caja de cerezas. Con esta información, calcula cuál es el precio de un pedido de 6 cajas de fresas, 4 de albaricoques y 2 de cerezas. <span class="apartado-puntos">1,5 p</span></li>
+          <li>Si se sabe que el precio de una caja de albaricoques es de 12,50 €, calcula cuál es el precio de las otras dos cajas de fruta. <span class="apartado-puntos">1 p</span></li>
         </ol>
       </div>
 
       <div class="ib-chips">
-        <span class="ib-chips-label">Batxillerat CCSS · Bloc D — Sentit algebraic</span>
-        <span class="ib-chip" data-descriptor="Sistema compatible indeterminat resolt per substitució">Sistemes lineals</span>
-        <span class="ib-chip" data-descriptor="Traducció d'un enunciat real a equacions">Modelització</span>
+        <span class="ib-chips-label">Bachillerato CCSS · Bloque D — Sentido algebraico</span>
+        <span class="ib-chip" data-descriptor="Sistema compatible indeterminado resuelto por sustitución">Sistemas lineales</span>
+        <span class="ib-chip" data-descriptor="Traducción de un enunciado real a ecuaciones">Modelización</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p2')">
-        <span class="toggle-label">Mostra la correcció</span>
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar la corrección" data-hide-label="Ocultar la corrección" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostrar la corrección</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p2" hidden>
-        <h3>Correcció pas a pas</h3>
-        <p class="note"><strong>Idea clau:</strong> anomenem $m$, $a$ i $c$ els preus (en €) de les caixes de maduixes, albercocs i cireres. Tenim dues equacions i tres incògnites: el sistema és compatible indeterminat i expressarem $m$ i $a$ en funció de $c$.</p>
+        <h3>Corrección paso a paso</h3>
+        <p class="note"><strong>Idea clave:</strong> llamamos $m$, $a$ y $c$ a los precios (en €) de las cajas de fresas, albaricoques y cerezas. Tenemos dos ecuaciones y tres incógnitas: el sistema es compatible indeterminado y expresaremos $m$ y $a$ en función de $c$.</p>
 
         <div class="apartado-sol">
-          <h4><span class="letra">a)</span> Preus en funció de les cireres i preu de la comanda</h4>
-          <p>Les dues condicions de l'enunciat:</p>
+          <h4><span class="letra">a)</span> Precios en función de las cerezas y precio del pedido</h4>
+          <p>Las dos condiciones del enunciado:</p>
           <div class="math-block">$$\begin{cases} 5m + 3a + 4c = 120 \\ 2m + a + 3c = 56 \end{cases}$$</div>
-          <p>De la segona equació aïllem $a = 56 - 2m - 3c$ i substituïm a la primera:</p>
+          <p>De la segunda ecuación despejamos $a = 56 - 2m - 3c$ y sustituimos en la primera:</p>
           <div class="math-block">$$5m + 3(56 - 2m - 3c) + 4c = 120 \;\Longrightarrow\; 5m + 168 - 6m - 9c + 4c = 120 \;\Longrightarrow\; -m - 5c = -48.$$</div>
           <div class="math-block">$$m = 48 - 5c, \qquad a = 56 - 2(48 - 5c) - 3c = 7c - 40.$$</div>
-          <p>Preu de la comanda de 6 caixes de maduixes, 4 d'albercocs i 2 de cireres:</p>
+          <p>Precio del pedido de 6 cajas de fresas, 4 de albaricoques y 2 de cerezas:</p>
           <div class="math-block">$$6m + 4a + 2c = 6(48 - 5c) + 4(7c - 40) + 2c = 288 - 30c + 28c - 160 + 2c = 128.$$</div>
-          <p>Les $c$ es cancel·len: el preu de la comanda <strong>no depèn</strong> del preu de la caixa de cireres.</p>
-          <div class="final">$m = 48 - 5c$, &ensp;$a = 7c - 40$&ensp; i la comanda costa <strong>128 €</strong> sigui quin sigui el preu de les cireres.</div>
+          <p>Las $c$ se cancelan: el precio del pedido <strong>no depende</strong> del precio de la caja de cerezas.</p>
+          <div class="final">$m = 48 - 5c$, &ensp;$a = 7c - 40$&ensp; y el pedido cuesta <strong>128 €</strong> sea cual sea el precio de las cerezas.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">b)</span> Preus concrets</h4>
-          <p>Imposem $a = 12{,}50$:</p>
+          <h4><span class="letra">b)</span> Precios concretos</h4>
+          <p>Imponemos $a = 12{,}50$:</p>
           <div class="math-block">$$7c - 40 = 12{,}5 \;\Longrightarrow\; 7c = 52{,}5 \;\Longrightarrow\; c = 7{,}5\ \text{€}.$$</div>
           <div class="math-block">$$m = 48 - 5(7{,}5) = 48 - 37{,}5 = 10{,}5\ \text{€}.$$</div>
-          <p><strong>Comprovació:</strong> $5(10{,}5) + 3(12{,}5) + 4(7{,}5) = 52{,}5 + 37{,}5 + 30 = 120$ ✓ &nbsp;|&nbsp; $2(10{,}5) + 12{,}5 + 3(7{,}5) = 21 + 12{,}5 + 22{,}5 = 56$ ✓</p>
-          <div class="final">La caixa de maduixes val <strong>10,50 €</strong> i la de cireres <strong>7,50 €</strong>.</div>
+          <p><strong>Comprobación:</strong> $5(10{,}5) + 3(12{,}5) + 4(7{,}5) = 52{,}5 + 37{,}5 + 30 = 120$ ✓ &nbsp;|&nbsp; $2(10{,}5) + 12{,}5 + 3(7{,}5) = 21 + 12{,}5 + 22{,}5 = 56$ ✓</p>
+          <div class="final">La caja de fresas vale <strong>10,50 €</strong> y la de cerezas <strong>7,50 €</strong>.</div>
         </div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
-      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">&larr; Exercici anterior</a>
-      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índex de l'examen</a>
-      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">Exercici següent &rarr;</a>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p1.html">&larr; Ejercicio anterior</a>
+      <a class="index" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/">Índice del examen</a>
+      <a class="next" href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/p3.html">Ejercicio siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -136,8 +140,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

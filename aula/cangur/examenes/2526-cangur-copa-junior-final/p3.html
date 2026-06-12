@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P3 · Nombres en ziga-zaga — Copa Cangur Final Júnior 2026</title>
-<meta name="description" content="Problema 3 de la final de la XII Copa Cangur (categoria Júnior, maig 2026): nombres en ziga-zaga, amb solució raonada.">
+<title>P3 · Números en zigzag — Copa Cangur Final Júnior 2026</title>
+<meta name="description" content="Combinatoria: patrones de subida y bajada con cuatro cifras distintas.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p3.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p3.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/examenes/2526-cangur-copa-junior-final/p3.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/cangur/examenes/2526-cangur-copa-junior-final/p3.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p3.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,9 +49,9 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
       <a href="/docencia/cangur/">Cangur</a>
       <span class="sep">/</span>
@@ -59,59 +63,59 @@
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
         <span class="section-label">Copa Cangur · Júnior</span>
-        <span class="tag tag-blue">5 maig 2026</span>
+        <span class="tag tag-blue">5 mayo 2026</span>
         <span class="tag tag-orange">Final</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p2.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p4.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p4.html">Problema siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Problema 3 &middot; Nombres en ziga-zaga</h1>
-      <p class="question-descriptor">Combinatòria: patrons de pujada i baixada amb quatre xifres diferents.</p>
-      <span class="score-pill">Resposta entera de 4 xifres com a màxim</span>
+      <h1>Problema 3 &middot; Números en zigzag</h1>
+      <p class="question-descriptor">Combinatoria: patrones de subida y bajada con cuatro cifras distintas.</p>
+      <span class="score-pill">Respuesta entera de 4 cifras como máximo</span>
 
       <div class="statement">
-        <p>Un nombre enter positiu s'anomena <em>nombre en ziga-zaga</em> si compleix les tres condicions següents:</p>
+        <p>Un número entero positivo se llama <em>número en zigzag</em> si cumple las tres condiciones siguientes:</p>
         <ol class="apartados" style="list-style-type:lower-alpha">
-          <li>Les seves xifres són diferents de zero i són totes diferents.</li>
-          <li>No té tres xifres seguides en ordre ascendent.</li>
-          <li>No té tres xifres seguides en ordre descendent.</li>
+          <li>Sus cifras son distintas de cero y todas diferentes.</li>
+          <li>No tiene tres cifras seguidas en orden ascendente.</li>
+          <li>No tiene tres cifras seguidas en orden descendente.</li>
         </ol>
-        <p>Per exemple, 14385 i 2917 són nombres en ziga-zaga però 2564 i 71544 no ho són. Quants nombres en ziga-zaga hi ha de quatre xifres?</p>
+        <p>Por ejemplo, 14385 y 2917 son números en zigzag pero 2564 y 71544 no lo son. ¿Cuántos números en zigzag hay de cuatro cifras?</p>
       </div>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Copa Cangur · SCM</span>
-        <span class="ib-chip" data-descriptor="Dificultat estimada">Difícil</span>
-        <span class="ib-chip" data-descriptor="Resposta numèrica entera, sense desenvolupament">Resposta tancada</span>
+        <span class="ib-chip" data-descriptor="Dificultad estimada">Difícil</span>
+        <span class="ib-chip" data-descriptor="Respuesta numérica entera, sin desarrollo">Respuesta cerrada</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p3')">
-        <span class="toggle-label">Mostra la solució</span>
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostrar la solución</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p3" hidden>
-        <h3>Solució raonada</h3>
-        <p class="note"><strong>Idea clau:</strong> separem la tria del <em>conjunt</em> de xifres de la tria de l'<em>ordre</em> en què apareixen.</p>
-        <p>Les xifres són $4$ valors diferents de $\{1,\dots,9\}$: hi ha $\binom{9}{4}=126$ conjunts possibles.</p>
-        <p>Fixat un conjunt, mirem el patró de comparacions entre xifres consecutives ($\uparrow$ = puja, $\downarrow$ = baixa; són $3$ comparacions). Prohibir tres xifres seguides creixents o decreixents equival a dir que <strong>no hi pot haver dues fletxes iguals seguides</strong>. Els únics patrons vàlids són, doncs:</p>
-        <div class="math-block">$$\uparrow\downarrow\uparrow \qquad \text{i} \qquad \downarrow\uparrow\downarrow.$$</div>
-        <p>Per a $4$ valors fixats $a<b<c<d$, les ordenacions amb patró $\uparrow\downarrow\uparrow$ són exactament $5$: $a\,c\,b\,d$, $a\,d\,b\,c$, $b\,c\,a\,d$, $b\,d\,a\,c$, $c\,d\,a\,b$. Per simetria (llegir la seqüència al revés) també hi ha $5$ ordenacions amb patró $\downarrow\uparrow\downarrow$. En total, $10$ ordenacions per conjunt.</p>
+        <h3>Solución razonada</h3>
+        <p class="note"><strong>Idea clave:</strong> separamos la elección del <em>conjunto</em> de cifras de la elección del <em>orden</em> en que aparecen.</p>
+        <p>Las cifras son $4$ valores distintos de $\{1,\dots,9\}$: hay $\binom{9}{4}=126$ conjuntos posibles.</p>
+        <p>Fijado un conjunto, miramos el patrón de comparaciones entre cifras consecutivas ($\uparrow$ = sube, $\downarrow$ = baja; son $3$ comparaciones). Prohibir tres cifras seguidas crecientes o decrecientes equivale a decir que <strong>no puede haber dos flechas iguales seguidas</strong>. Los únicos patrones válidos son, pues:</p>
+        <div class="math-block">$$\uparrow\downarrow\uparrow \qquad \text{y} \qquad \downarrow\uparrow\downarrow.$$</div>
+        <p>Para $4$ valores fijados $a<b<c<d$, las ordenaciones con patrón $\uparrow\downarrow\uparrow$ son exactamente $5$: $a\,c\,b\,d$, $a\,d\,b\,c$, $b\,c\,a\,d$, $b\,d\,a\,c$, $c\,d\,a\,b$. Por simetría (leer la secuencia al revés) también hay $5$ ordenaciones con patrón $\downarrow\uparrow\downarrow$. En total, $10$ ordenaciones por conjunto.</p>
         <div class="math-block">$$126 \cdot 10 = 1260.$$</div>
-        <div class="final">Resposta: <strong>1260</strong></div>
+        <div class="final">Respuesta: <strong>1260</strong></div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p2.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p4.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p4.html">Problema siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -120,8 +124,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

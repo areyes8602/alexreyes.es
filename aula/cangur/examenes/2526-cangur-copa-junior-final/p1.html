@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P1 · Àrees ombrejades en un quadrat — Copa Cangur Final Júnior 2026</title>
-<meta name="description" content="Problema 1 de la final de la XII Copa Cangur (categoria Júnior, maig 2026): àrees ombrejades en un quadrat, amb solució raonada.">
+<title>P1 · Áreas sombreadas en un cuadrado — Copa Cangur Final Júnior 2026</title>
+<meta name="description" content="Geometría: dos regiones sombreadas y un triángulo rectángulo de catetos 4 y 5.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p1.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p1.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/examenes/2526-cangur-copa-junior-final/p1.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/cangur/examenes/2526-cangur-copa-junior-final/p1.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p1.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,9 +49,9 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
       <a href="/docencia/cangur/">Cangur</a>
       <span class="sep">/</span>
@@ -59,58 +63,58 @@
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
         <span class="section-label">Copa Cangur · Júnior</span>
-        <span class="tag tag-blue">5 maig 2026</span>
+        <span class="tag tag-blue">5 mayo 2026</span>
         <span class="tag tag-orange">Final</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <span class="disabled prev">&larr; Problema anterior</span>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p2.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p2.html">Problema siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Problema 1 &middot; Àrees ombrejades en un quadrat</h1>
-      <p class="question-descriptor">Geometria: dues regions ombrejades i un triangle rectangle de catets 4 i 5.</p>
-      <span class="score-pill">Resposta entera de 4 xifres com a màxim</span>
+      <h1>Problema 1 &middot; Áreas sombreadas en un cuadrado</h1>
+      <p class="question-descriptor">Geometría: dos regiones sombreadas y un triángulo rectángulo de catetos 4 y 5.</p>
+      <span class="score-pill">Respuesta entera de 4 cifras como máximo</span>
 
       <div class="statement">
-        <p>En un quadrat hi hem traçat alguns segments tal com es veu a la figura, de manera que ens ha quedat un triangle rectangle de catets 4 cm i 5 cm. Quant val l'àrea total de les dues regions ombrejades?</p>
-        <div style="text-align:center;margin:1rem 0"><img src="fig-p1.png" alt="Figura del problema 1" style="max-width:300px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
+        <p>En un cuadrado hemos trazado algunos segmentos tal como se ve en la figura, de manera que ha quedado un triángulo rectángulo de catetos 4 cm y 5 cm. ¿Cuánto vale el área total de las dos regiones sombreadas?</p>
+        <div style="text-align:center;margin:1rem 0"><img src="/aula/cangur/examenes/2526-cangur-copa-junior-final/fig-p1.png" alt="Figura del problema 1" style="max-width:300px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
       </div>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Copa Cangur · SCM</span>
-        <span class="ib-chip" data-descriptor="Dificultat estimada">Mitjana</span>
-        <span class="ib-chip" data-descriptor="Resposta numèrica entera, sense desenvolupament">Resposta tancada</span>
+        <span class="ib-chip" data-descriptor="Dificultad estimada">Media</span>
+        <span class="ib-chip" data-descriptor="Respuesta numérica entera, sin desarrollo">Respuesta cerrada</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')">
-        <span class="toggle-label">Mostra la solució</span>
+      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p1')">
+        <span class="toggle-label">Mostrar la solución</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p1" hidden>
-        <h3>Solució raonada</h3>
-        <p class="note"><strong>Idea clau:</strong> l'àrea ombrejada total coincideix exactament amb l'àrea del triangle rectangle de catets 4 i 5, sigui quina sigui la mida del quadrat. Ho veiem amb coordenades.</p>
-        <p>Posem el quadrat de costat $s$ amb vèrtexs $T_L=(0,0)$, $T_R=(s,0)$, $B_R=(s,s)$, $B_L=(0,s)$ (eix $y$ cap avall). Siguin $P=(0,p)$ el punt del costat esquerre i $Q=(q,s)$ el del costat inferior. Les dues rectes traçades són $PB_R$ i $QT_R$, que es tallen a $R$.</p>
-        <p><strong>Pas 1 — la perpendicularitat força $q=p$.</strong> Els vectors directors són $\vec{u}=(s,\,s-p)$ i $\vec{v}=(s-q,\,-s)$. Imposem $\vec{u}\cdot\vec{v}=0$:</p>
+        <h3>Solución razonada</h3>
+        <p class="note"><strong>Idea clave:</strong> el área sombreada total coincide exactamente con el área del triángulo rectángulo de catetos 4 y 5, sea cual sea el tamaño del cuadrado. Lo vemos con coordenadas.</p>
+        <p>Ponemos el cuadrado de lado $s$ con vértices $T_L=(0,0)$, $T_R=(s,0)$, $B_R=(s,s)$, $B_L=(0,s)$ (eje $y$ hacia abajo). Sean $P=(0,p)$ el punto del lado izquierdo y $Q=(q,s)$ el del lado inferior. Las dos rectas trazadas son $PB_R$ y $QT_R$, que se cortan en $R$.</p>
+        <p><strong>Paso 1 — la perpendicularidad fuerza $q=p$.</strong> Los vectores directores son $\vec{u}=(s,\,s-p)$ y $\vec{v}=(s-q,\,-s)$. Imponemos $\vec{u}\cdot\vec{v}=0$:</p>
         <div class="math-block">$$s(s-q) - (s-p)s = 0 \quad\Longleftrightarrow\quad q = p.$$</div>
-        <p><strong>Pas 2 — distàncies a $R$.</strong> Escrivim $w = s-p$ i $D = s^2+w^2$. Resolent la intersecció s'obté</p>
+        <p><strong>Paso 2 — distancias a $R$.</strong> Escribimos $w = s-p$ y $D = s^2+w^2$. Resolviendo la intersección se obtiene</p>
         <div class="math-block">$$PR = \frac{ps+w^{2}}{\sqrt{D}}, \qquad RT_R = \frac{s^{2}}{\sqrt{D}}.$$</div>
-        <p><strong>Pas 3 — les dues àrees ombrejades.</strong> El triangle superior té vèrtexs $T_L$, $P$, $T_R$ i el seu valor és $\dfrac{sp}{2}$. Un càlcul directe dona, per al triangle inferior $Q\,B_R\,R$, l'àrea $\dfrac{s\,w^{3}}{2D}$. Sumant:</p>
+        <p><strong>Paso 3 — las dos áreas sombreadas.</strong> El triángulo superior tiene vértices $T_L$, $P$, $T_R$ y su valor es $\dfrac{sp}{2}$. Un cálculo directo da, para el triángulo inferior $Q\,B_R\,R$, el área $\dfrac{s\,w^{3}}{2D}$. Sumando:</p>
         <div class="math-block">$$\frac{sp}{2} + \frac{s w^{3}}{2D} = \frac{s\left(p(s^{2}+w^{2})+w^{3}\right)}{2D} = \frac{s^{2}(ps+w^{2})}{2D} = \frac{1}{2}\cdot\frac{s^{2}}{\sqrt{D}}\cdot\frac{ps+w^{2}}{\sqrt{D}} = \frac{1}{2}\, RT_R \cdot PR.$$</div>
-        <p>És a dir, l'àrea ombrejada total és sempre la meitat del producte dels dos catets:</p>
-        <div class="math-block">$$\text{Àrea} = \frac{1}{2}\cdot 4 \cdot 5 = 10\ \text{cm}^{2}.$$</div>
-        <div class="final">Resposta: <strong>10</strong></div>
+        <p>Es decir, el área sombreada total es siempre la mitad del producto de los dos catetos:</p>
+        <div class="math-block">$$\text{Área} = \frac{1}{2}\cdot 4 \cdot 5 = 10\ \text{cm}^{2}.$$</div>
+        <div class="final">Respuesta: <strong>10</strong></div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <span class="disabled prev">&larr; Problema anterior</span>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p2.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p2.html">Problema siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -119,8 +123,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

@@ -58,6 +58,17 @@ for p in sorted(_REPO.glob("aula/*/selectivitat/*/p*.html")):
     if not _is_retired(p):
         single_paths.append('/' + str(p.relative_to(_REPO)))
 
+# Mirrors /ca/ y /en/ de exámenes y selectivitat (páginas que existen traducidas)
+for _pref in ("ca", "en"):
+    for pat in (f"{_pref}/aula/*/examenes/*/index.html", f"{_pref}/aula/*/selectivitat/*/index.html"):
+        for p in sorted(_REPO.glob(pat)):
+            if not _is_retired(p):
+                single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
+    for pat in (f"{_pref}/aula/*/examenes/*/p*.html", f"{_pref}/aula/*/selectivitat/*/p*.html"):
+        for p in sorted(_REPO.glob(pat)):
+            if not _is_retired(p):
+                single_paths.append('/' + str(p.relative_to(_REPO)))
+
 # Apuntes: índices de unidad y apartados HTML individuales
 for p in sorted(_REPO.glob("aula/*/apuntes/*/index.html")):
     if _is_retired(p):

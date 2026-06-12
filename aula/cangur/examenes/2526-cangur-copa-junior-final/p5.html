@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P5 · Nombres de sis xifres amb condicions — Copa Cangur Final Júnior 2026</title>
-<meta name="description" content="Problema 5 de la final de la XII Copa Cangur (categoria Júnior, maig 2026): nombres de sis xifres amb condicions, amb solució raonada.">
+<title>P5 · Números de seis cifras con condiciones — Copa Cangur Final Júnior 2026</title>
+<meta name="description" content="Recuento de parejas de cifras con una suma de dos cifras.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p5.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p5.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/examenes/2526-cangur-copa-junior-final/p5.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/cangur/examenes/2526-cangur-copa-junior-final/p5.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p5.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,9 +49,9 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
       <a href="/docencia/cangur/">Cangur</a>
       <span class="sep">/</span>
@@ -59,57 +63,57 @@
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
         <span class="section-label">Copa Cangur · Júnior</span>
-        <span class="tag tag-blue">5 maig 2026</span>
+        <span class="tag tag-blue">5 mayo 2026</span>
         <span class="tag tag-orange">Final</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p4.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p6.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p6.html">Problema siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Problema 5 &middot; Nombres de sis xifres amb condicions</h1>
-      <p class="question-descriptor">Recompte de parelles de xifres amb una suma de dues xifres.</p>
-      <span class="score-pill">Resposta entera de 4 xifres com a màxim</span>
+      <h1>Problema 5 &middot; Números de seis cifras con condiciones</h1>
+      <p class="question-descriptor">Recuento de parejas de cifras con una suma de dos cifras.</p>
+      <span class="score-pill">Respuesta entera de 4 cifras como máximo</span>
 
       <div class="statement">
-        <p>Quants nombres de 6 xifres compleixen les tres condicions següents?</p>
+        <p>¿Cuántos números de 6 cifras cumplen las tres condiciones siguientes?</p>
         <ol class="apartados" style="list-style-type:lower-alpha">
-          <li>El dígit 0 no hi apareix.</li>
-          <li>La suma de les dues primeres xifres és igual al nombre format per les dues últimes.</li>
-          <li>El nombre format per les dues xifres centrals és la suma de les dues primeres xifres més 1.</li>
+          <li>El dígito 0 no aparece.</li>
+          <li>La suma de las dos primeras cifras es igual al número formado por las dos últimas.</li>
+          <li>El número formado por las dos cifras centrales es la suma de las dos primeras cifras más 1.</li>
         </ol>
-        <p>Com, per exemple, el nombre 651211 ($6+5=11$; $6+5+1=12$).</p>
+        <p>Como, por ejemplo, el número 651211 ($6+5=11$; $6+5+1=12$).</p>
       </div>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Copa Cangur · SCM</span>
-        <span class="ib-chip" data-descriptor="Dificultat estimada">Fàcil</span>
-        <span class="ib-chip" data-descriptor="Resposta numèrica entera, sense desenvolupament">Resposta tancada</span>
+        <span class="ib-chip" data-descriptor="Dificultad estimada">Fácil</span>
+        <span class="ib-chip" data-descriptor="Respuesta numérica entera, sin desarrollo">Respuesta cerrada</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p5')">
-        <span class="toggle-label">Mostra la solució</span>
+      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p5')">
+        <span class="toggle-label">Mostrar la solución</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p5" hidden>
-        <h3>Solució raonada</h3>
-        <p class="note"><strong>Idea clau:</strong> tot el nombre queda determinat per les dues primeres xifres; només cal comptar quantes parelles inicials són vàlides.</p>
-        <p>Sigui $s = d_1 + d_2$. Les dues últimes xifres formen el nombre $s$, que ha de ser de dues xifres i sense zeros: $11 \le s \le 18$ (cap d'aquests conté el dígit 0). Les centrals formen $s+1 \in \{12,\dots,19\}$, que tampoc conté mai el dígit 0. Les condicions, doncs, només restringeixen $s$.</p>
-        <p>Per a cada $s$, les parelles $(d_1, d_2)$ amb $d_1, d_2 \in \{1,\dots,9\}$ i $d_1+d_2 = s$ són $19-s$:</p>
+        <h3>Solución razonada</h3>
+        <p class="note"><strong>Idea clave:</strong> todo el número queda determinado por las dos primeras cifras; solo hay que contar cuántas parejas iniciales son válidas.</p>
+        <p>Sea $s = d_1 + d_2$. Las dos últimas cifras forman el número $s$, que debe ser de dos cifras y sin ceros: $11 \le s \le 18$ (ninguno de estos contiene el dígito 0). Las centrales forman $s+1 \in \{12,\dots,19\}$, que tampoco contiene nunca el dígito 0. Las condiciones, pues, solo restringen $s$.</p>
+        <p>Para cada $s$, las parejas $(d_1, d_2)$ con $d_1, d_2 \in \{1,\dots,9\}$ y $d_1+d_2 = s$ son $19-s$:</p>
         <div class="math-block">$$\sum_{s=11}^{18}(19-s) = 8+7+6+5+4+3+2+1 = 36.$$</div>
-        <div class="final">Resposta: <strong>36</strong></div>
+        <div class="final">Respuesta: <strong>36</strong></div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p4.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p6.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p6.html">Problema siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -118,8 +122,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>

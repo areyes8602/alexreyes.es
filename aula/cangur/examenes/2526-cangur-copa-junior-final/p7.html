@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P7 · Vuit cercles en un rectangle — Copa Cangur Final Júnior 2026</title>
-<meta name="description" content="Problema 7 de la final de la XII Copa Cangur (categoria Júnior, maig 2026): vuit cercles en un rectangle, amb solució raonada.">
+<title>P7 · Ocho círculos en un rectángulo — Copa Cangur Final Júnior 2026</title>
+<meta name="description" content="Tangencias: filas de 3-2-3 círculos iguales y algo de trigonometría.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,21 @@
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p7.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p7.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/examenes/2526-cangur-copa-junior-final/p7.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/cangur/examenes/2526-cangur-copa-junior-final/p7.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-junior-final/p7.html">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -45,9 +49,9 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inici</a>
+      <a href="/">Inicio</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docència</a>
+      <a href="/docencia/">Docencia</a>
       <span class="sep">/</span>
       <a href="/docencia/cangur/">Cangur</a>
       <span class="sep">/</span>
@@ -59,55 +63,55 @@
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
         <span class="section-label">Copa Cangur · Júnior</span>
-        <span class="tag tag-blue">5 maig 2026</span>
+        <span class="tag tag-blue">5 mayo 2026</span>
         <span class="tag tag-orange">Final</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p6.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p8.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p8.html">Problema siguiente &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Problema 7 &middot; Vuit cercles en un rectangle</h1>
-      <p class="question-descriptor">Tangències: files de 3-2-3 cercles iguals i una mica de trigonometria.</p>
-      <span class="score-pill">Resposta entera de 4 xifres com a màxim</span>
+      <h1>Problema 7 &middot; Ocho círculos en un rectángulo</h1>
+      <p class="question-descriptor">Tangencias: filas de 3-2-3 círculos iguales y algo de trigonometría.</p>
+      <span class="score-pill">Respuesta entera de 4 cifras como máximo</span>
 
       <div class="statement">
-        <p>Un rectangle alberga vuit cercles tots del mateix radi. Alguns cercles són tangents entre ells i/o tangents als costats del rectangle tal com es veu a la figura. El costat horitzontal del rectangle fa $30(\sqrt{3}-1)$ cm. Quant mesura el costat vertical?</p>
-        <div style="text-align:center;margin:1rem 0"><img src="fig-p7.png" alt="Figura del problema 7" style="max-width:240px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
+        <p>Un rectángulo alberga ocho círculos, todos del mismo radio. Algunos círculos son tangentes entre ellos y/o tangentes a los lados del rectángulo tal como se ve en la figura. El lado horizontal del rectángulo mide $30(\sqrt{3}-1)$ cm. ¿Cuánto mide el lado vertical?</p>
+        <div style="text-align:center;margin:1rem 0"><img src="/aula/cangur/examenes/2526-cangur-copa-junior-final/fig-p7.png" alt="Figura del problema 7" style="max-width:240px;width:100%;border-radius:6px;background:#fff;padding:6px"></div>
       </div>
 
       <div class="ib-chips">
         <span class="ib-chips-label">Copa Cangur · SCM</span>
-        <span class="ib-chip" data-descriptor="Dificultat estimada">Mitjana</span>
-        <span class="ib-chip" data-descriptor="Resposta numèrica entera, sense desenvolupament">Resposta tancada</span>
+        <span class="ib-chip" data-descriptor="Dificultad estimada">Media</span>
+        <span class="ib-chip" data-descriptor="Respuesta numérica entera, sin desarrollo">Respuesta cerrada</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p7" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p7')">
-        <span class="toggle-label">Mostra la solució</span>
+      <button class="solution-toggle" data-toggles="sol-p7" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p7')">
+        <span class="toggle-label">Mostrar la solución</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p7" hidden>
-        <h3>Solució raonada</h3>
-        <p class="note"><strong>Idea clau:</strong> els cercles formen files de 3–2–3. L'amplada fixa el radi; les tangències entre files donen l'alçada.</p>
-        <p>Sigui $r$ el radi. La fila superior té $3$ cercles tangents entre ells i als dos costats verticals, de manera que l'amplada del rectangle és $6r$:</p>
+        <h3>Solución razonada</h3>
+        <p class="note"><strong>Idea clave:</strong> los círculos forman filas de 3–2–3. La anchura fija el radio; las tangencias entre filas dan la altura.</p>
+        <p>Sea $r$ el radio. La fila superior tiene $3$ círculos tangentes entre ellos y a los dos lados verticales, de manera que la anchura del rectángulo es $6r$:</p>
         <div class="math-block">$$6r = 30(\sqrt{3}-1) \;\Longrightarrow\; r = 5(\sqrt{3}-1).$$</div>
-        <p>Els centres de la fila superior són a $x = r, 3r, 5r$ i els de la fila central a $x = 2r, 4r$. Dos centres tangents disten $2r$, amb separació horitzontal $r$; la separació vertical entre files és, per Pitàgores,</p>
+        <p>Los centros de la fila superior están en $x = r, 3r, 5r$ y los de la fila central en $x = 2r, 4r$. Dos centros tangentes distan $2r$, con separación horizontal $r$; la separación vertical entre filas es, por Pitágoras,</p>
         <div class="math-block">$$\sqrt{(2r)^{2} - r^{2}} = \sqrt{3}\,r.$$</div>
-        <p>L'alçada total és $r$ (de la vora al primer centre) $+\sqrt{3}r + \sqrt{3}r + r$ (de l'últim centre a la vora):</p>
+        <p>La altura total es $r$ (del borde al primer centro) $+\sqrt{3}r + \sqrt{3}r + r$ (del último centro al borde):</p>
         <div class="math-block">$$h = 2r(1+\sqrt{3}) = 10(\sqrt{3}-1)(\sqrt{3}+1) = 10 \cdot 2 = 20\ \text{cm}.$$</div>
-        <div class="final">Resposta: <strong>20</strong></div>
+        <div class="final">Respuesta: <strong>20</strong></div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegació de l'examen">
+    <nav class="exam-nav" aria-label="Exam navigation">
       <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p6.html">&larr; Problema anterior</a>
-      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índex de la prova</a>
-      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p8.html">Problema següent &rarr;</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-junior-final/p8.html">Problema siguiente &rarr;</a>
     </nav>
 
   </div>
@@ -116,8 +120,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
 </footer>
