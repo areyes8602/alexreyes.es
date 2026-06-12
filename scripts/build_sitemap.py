@@ -18,6 +18,8 @@ trilingual_paths = [
     # Subject info subpages (per asignatura)
     '/docencia/2eso/info/', '/docencia/ccss-1btl/info/',
     '/docencia/ib-ai/2024-2026/info/', '/docencia/ib-ai/2025-2027/info/',
+    # Cangur: hub de pruebas Copa y problemas por tema (trilingües)
+    '/aula/cangur/copa/', '/aula/cangur/temes/',
 ]
 
 # Pages that exist only in ES (aula materials for a specific cohort).
@@ -55,11 +57,6 @@ for p in sorted(_REPO.glob("aula/*/selectivitat/*/index.html")):
 for p in sorted(_REPO.glob("aula/*/selectivitat/*/p*.html")):
     if not _is_retired(p):
         single_paths.append('/' + str(p.relative_to(_REPO)))
-
-# Copa Cangur: hub de proves i problemes per tema
-for p in sorted(_REPO.glob("aula/*/copa/index.html")) + sorted(_REPO.glob("aula/*/temes/index.html")):
-    if not _is_retired(p):
-        single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
 
 # Apuntes: índices de unidad y apartados HTML individuales
 for p in sorted(_REPO.glob("aula/*/apuntes/*/index.html")):
