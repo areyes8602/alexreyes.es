@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P5 · Los seis piratas y los 2026 cocos — Copa Cangur Final Cadet 2026</title>
+<meta name="description" content="Simular el reparto redondeando al más cercano.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\\\[',right:'\\\\]',display:true},{left:'$',right:'$',display:false},{left:'\\\\(',right:'\\\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-cadet-final/p5.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-cadet-final/p5.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/examenes/2526-cangur-copa-cadet-final/p5.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/cangur/examenes/2526-cangur-copa-cadet-final/p5.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/cangur/examenes/2526-cangur-copa-cadet-final/p5.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/p5.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/cangur/examenes/2526-cangur-copa-cadet-final/p5.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/cangur/examenes/2526-cangur-copa-cadet-final/p5.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/cangur/">Cangur</a>
+      <span class="sep">/</span>
+      <a href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/">Copa Cangur Final Cadet 2026</a>
+      <span class="sep">/</span>
+      <span class="current">P5</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">Copa Cangur · Cadet</span>
+        <span class="tag tag-blue">5 mayo 2026</span>
+        <span class="tag tag-orange">Final</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/p4.html">&larr; Problema anterior</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/p6.html">Problema siguiente &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Problema 5 &middot; Los seis piratas y los 2026 cocos</h1>
+      <p class="question-descriptor">Simular el reparto redondeando al más cercano.</p>
+      <span class="score-pill">Respuesta entera de 4 cifras como máximo</span>
+
+      <div class="statement">
+        <p>Seis piratas han capturado un tesoro de 2026 cocos en una isla. Quieren dividir los cocos de manera justa y proceden así: todos los cocos se colocan en una pila y los piratas se alinean. Uno por uno, el primer pirata de la fila va a la pila, divide el número de cocos que quedan por el número de piratas que quedan (incluyéndose a sí mismo), redondea el resultado al alza o a la baja al entero más cercano, coge ese número de cocos y navega a casa. Entonces es el turno del siguiente pirata, y así sucesivamente. Determina cuántos cocos recibe el sexto pirata.</p>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Copa Cangur · SCM</span>
+        <span class="ib-chip" data-descriptor="Dificultad estimada">Media</span>
+        <span class="ib-chip" data-descriptor="Respuesta numérica entera, sin desarrollo">Respuesta cerrada</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p5')">
+        <span class="toggle-label">Mostrar la solución</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p5" hidden>
+        <h3>Solución razonada</h3>
+        <p class="note"><strong>Idea clave:</strong> simulamos la cola. Cuando la división cae justo en $\tfrac{1}{2}$, el pirata (que elige) redondea al alza.</p>
+<p>$2026/6 = 337{,}67 \to 338$ (quedan $1688$); $1688/5 = 337{,}6 \to 338$ (quedan $1350$); $1350/4 = 337{,}5 \to 338$ (quedan $1012$); $1012/3 = 337{,}33 \to 337$ (quedan $675$); $675/2 = 337{,}5 \to 338$ (quedan $337$).</p>
+<p>Comprobación: $338 + 338 + 338 + 337 + 338 + 337 = 2026$ ✓.</p>
+        <div class="final">Respuesta: <strong>337</strong></div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/p4.html">&larr; Problema anterior</a>
+      <a class="index" href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/">Índice de la prueba</a>
+      <a class="next" href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/p6.html">Problema siguiente &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
