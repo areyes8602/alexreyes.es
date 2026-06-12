@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/style.css?v=202606121326">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/en/aula/cangur/copa/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/copa/">
@@ -39,6 +39,10 @@
   .exam-card-chips { display:flex; flex-wrap:wrap; gap:0.3rem; margin-top:0.2rem; }
   .chip { font-size:0.72rem; padding:0.18rem 0.5rem; border-radius:999px; background:var(--bg); border:1px solid var(--border); color:var(--text-faint); }
   .year-section { margin-bottom:2.5rem; }
+  .year-section-title { cursor:pointer; user-select:none; }
+  .year-caret { margin-left:auto; font-size:0.75rem; color:var(--text-faint); transition:transform 0.2s; }
+  .year-section.collapsed .year-caret { transform:rotate(-90deg); }
+  .year-section.collapsed .exam-grid { display:none; }
   .year-section-title { font-size:1rem; font-weight:600; color:var(--text); margin:0 0 0.8rem; padding-bottom:0.4rem; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:0.5rem; }
   .empty-state { text-align:center; padding:3rem 1.5rem; background:var(--bg-subtle); border:1px dashed var(--border); border-radius:var(--radius); }
   .empty-state h3 { margin:0 0 0.5rem; font-size:1rem; font-weight:600; color:var(--text); }
@@ -126,6 +130,13 @@ function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 
 let allExams = [];
 let activeCat = 'all';
+let collapsedYears = {};
+try { collapsedYears = JSON.parse(localStorage.getItem('copaCollapsedYears') || '{}'); } catch(e) {}
+function toggleYear(y){
+  if (collapsedYears[y]) delete collapsedYears[y]; else collapsedYears[y] = true;
+  localStorage.setItem('copaCollapsedYears', JSON.stringify(collapsedYears));
+  render();
+}
 
 function catOf(col){
   const g = (col.grupo || '') + ' ' + (col.titulo || '');
@@ -159,8 +170,8 @@ function render(){
   const years = Object.keys(byYear).sort((a,b) => b.localeCompare(a));
 
   cont.innerHTML = years.map(year => `
-    <div class="year-section">
-      <h2 class="year-section-title">📅 ${esc(year)}</h2>
+    <div class="year-section${collapsedYears[year] ? ' collapsed' : ''}" data-year="${esc(year)}">
+      <h2 class="year-section-title" onclick="toggleYear('${esc(year)}')">📅 ${esc(year)}<span class="year-caret">▾</span></h2>
       <div class="exam-grid">
         ${byYear[year].map(e => `
         <a href="${esc(e.url_index)}" class="exam-card">

@@ -491,3 +491,18 @@
   .container { max-width: 100%; padding: 0; }
   main { padding: 0 !important; }
 }
+
+/* ── Chips de dificultad coloreados (facil / media / dificil) ─────────────
+   Tonos suaves coherentes con el chip índigo base; variantes light/dark. */
+.ib-chip.dif-facil { background: rgba(34,197,94,0.08); color: #2f7d46; border-color: rgba(34,197,94,0.30); }
+.ib-chip.dif-media { background: rgba(217,119,6,0.08); color: #a16207; border-color: rgba(217,119,6,0.30); }
+.ib-chip.dif-dificil { background: rgba(225,29,72,0.07); color: #b0334f; border-color: rgba(225,29,72,0.26); }
+.ib-chip.dif-facil:hover { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.42); }
+.ib-chip.dif-media:hover { background: rgba(217,119,6,0.15); border-color: rgba(217,119,6,0.42); }
+.ib-chip.dif-dificil:hover { background: rgba(225,29,72,0.13); border-color: rgba(225,29,72,0.38); }
+[data-theme="dark"] .ib-chip.dif-facil { background: rgba(74,222,128,0.10); color: #8fd6a4; border-color: rgba(74,222,128,0.28); }
+[data-theme="dark"] .ib-chip.dif-media { background: rgba(251,191,36,0.10); color: #d6b35e; border-color: rgba(251,191,36,0.28); }
+[data-theme="dark"] .ib-chip.dif-dificil { background: rgba(251,113,133,0.10); color: #de8e9b; border-color: rgba(251,113,133,0.26); }
+@media print {
+  .ib-chip.dif-facil, .ib-chip.dif-media, .ib-chip.dif-dificil { border: 1px solid #666; color: #000; background: #f0f0f0; }
+}

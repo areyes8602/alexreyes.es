@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="stylesheet" href="/style.css?v=202606121326">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/en/aula/cangur/temes/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/temes/">
@@ -27,6 +27,17 @@
 <meta name="robots" content="index, follow">
 <style>
   .tema-section { margin-bottom:2.2rem; }
+  .tema-title { cursor:pointer; user-select:none; }
+  .tema-caret { margin-left:auto; font-size:0.75rem; color:var(--text-faint); transition:transform 0.2s; }
+  .tema-section.collapsed .tema-caret { transform:rotate(-90deg); }
+  .tema-section.collapsed .prob-list { display:none; }
+  .dif-facil { background: rgba(34,197,94,0.08); color: #2f7d46; border-color: rgba(34,197,94,0.30); }
+  .dif-media { background: rgba(217,119,6,0.08); color: #a16207; border-color: rgba(217,119,6,0.30); }
+  .dif-dificil { background: rgba(225,29,72,0.07); color: #b0334f; border-color: rgba(225,29,72,0.26); }
+  [data-theme="dark"] .dif-facil { background: rgba(74,222,128,0.10); color: #8fd6a4; border-color: rgba(74,222,128,0.28); }
+  [data-theme="dark"] .dif-media { background: rgba(251,191,36,0.10); color: #d6b35e; border-color: rgba(251,191,36,0.28); }
+  [data-theme="dark"] .dif-dificil { background: rgba(251,113,133,0.10); color: #de8e9b; border-color: rgba(251,113,133,0.26); }
+
   .tema-title { font-size:1rem; font-weight:600; color:var(--text); margin:0 0 0.7rem; padding-bottom:0.4rem; border-bottom:1px solid var(--border); display:flex; align-items:baseline; gap:0.5rem; }
   .tema-count { font-size:0.75rem; color:var(--text-faint); font-weight:400; }
   .prob-list { display:flex; flex-direction:column; gap:0.5rem; }
@@ -143,6 +154,13 @@ const DIF_LABEL = {"facil": "Easy", "media": "Medium", "dificil": "Hard"};
 
 let temes = {};
 let activeTema = 'all';
+let collapsedTemes = {};
+try { collapsedTemes = JSON.parse(localStorage.getItem('temesCollapsed') || '{}'); } catch(e) {}
+function toggleTema(t){
+  if (collapsedTemes[t]) delete collapsedTemes[t]; else collapsedTemes[t] = true;
+  localStorage.setItem('temesCollapsed', JSON.stringify(collapsedTemes));
+  render();
+}
 
 function render(){
   const cont = document.getElementById('temes-container');
@@ -153,14 +171,14 @@ function render(){
     return;
   }
   cont.innerHTML = shown.map(tag => `
-    <div class="tema-section">
-      <h2 class="tema-title">${esc(TEMA_LABEL[tag] || tag)} <span class="tema-count">${temes[tag].length} ${temes[tag].length===1?'problem':'problems'}</span></h2>
+    <div class="tema-section${collapsedTemes[tag] ? ' collapsed' : ''}">
+      <h2 class="tema-title" onclick="toggleTema('${esc(tag)}')">${esc(TEMA_LABEL[tag] || tag)} <span class="tema-count">${temes[tag].length} ${temes[tag].length===1?'problem':'problems'}</span><span class="tema-caret">▾</span></h2>
       <div class="prob-list">
         ${temes[tag].map(p => `
         <a href="${esc(p.url)}" class="prob-item">
           <span class="prob-num">P${p.numero}</span>
           <span class="prob-titol">${esc(p.titulo)}</span>
-          ${p.dif ? `<span class="chip">${esc(DIF_LABEL[p.dif] || p.dif)}</span>` : ''}
+          ${p.dif ? `<span class="chip dif-${esc(p.dif)}">${esc(DIF_LABEL[p.dif] || p.dif)}</span>` : ''}
           <span class="prob-prova">${esc(p.prova)}</span>
         </a>`).join('')}
       </div>
