@@ -56,6 +56,11 @@ for p in sorted(_REPO.glob("aula/*/selectivitat/*/p*.html")):
     if not _is_retired(p):
         single_paths.append('/' + str(p.relative_to(_REPO)))
 
+# Copa Cangur: hub de proves
+for p in sorted(_REPO.glob("aula/*/copa/index.html")):
+    if not _is_retired(p):
+        single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
+
 # Apuntes: índices de unidad y apartados HTML individuales
 for p in sorted(_REPO.glob("aula/*/apuntes/*/index.html")):
     if _is_retired(p):

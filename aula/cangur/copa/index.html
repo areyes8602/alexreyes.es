@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copa Cangur — Proves resoltes · Àlex Reyes</title>
+<meta name="description" content="Proves de la Copa Cangur (SCM) resoltes i comentades problema per problema, per categoria i curs.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202605141849">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/cangur/copa/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/cangur/copa/">
+<meta property="og:title" content="Copa Cangur — Proves resoltes · Àlex Reyes">
+<meta property="og:description" content="Proves de la Copa Cangur (SCM) resoltes i comentades problema per problema.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<style>
+  .filter-bar { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+  .filter-btn { padding:0.35rem 0.85rem; border:1px solid var(--border); border-radius:999px; background:var(--bg-subtle); color:var(--text-soft); font-size:0.82rem; cursor:pointer; transition:all 0.15s; }
+  .filter-btn:hover, .filter-btn.active { border-color:var(--accent); background:var(--accent); color:#fff; }
+  .exam-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem; }
+  .exam-card { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem 1.25rem; text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; display:flex; flex-direction:column; gap:0.5rem; }
+  .exam-card:hover { border-color:var(--border-strong); transform:translateY(-2px); }
+  .exam-card-head { display:flex; align-items:flex-start; justify-content:space-between; gap:0.5rem; }
+  .exam-card-year { font-family:var(--mono); font-size:1rem; font-weight:600; color:var(--text); }
+  .exam-card-conv { font-size:0.78rem; color:var(--text-faint); white-space:nowrap; }
+  .exam-card-title { font-size:0.9rem; color:var(--text-soft); margin:0; line-height:1.4; }
+  .exam-card-chips { display:flex; flex-wrap:wrap; gap:0.3rem; margin-top:0.2rem; }
+  .chip { font-size:0.72rem; padding:0.18rem 0.5rem; border-radius:999px; background:var(--bg); border:1px solid var(--border); color:var(--text-faint); }
+  .year-section { margin-bottom:2.5rem; }
+  .year-section-title { font-size:1rem; font-weight:600; color:var(--text); margin:0 0 0.8rem; padding-bottom:0.4rem; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:0.5rem; }
+  .empty-state { text-align:center; padding:3rem 1.5rem; background:var(--bg-subtle); border:1px dashed var(--border); border-radius:var(--radius); }
+  .empty-state h3 { margin:0 0 0.5rem; font-size:1rem; font-weight:600; color:var(--text); }
+  .empty-state p { margin:0; font-size:0.9rem; color:var(--text-soft); max-width:38rem; margin-left:auto; margin-right:auto; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorat</a>
+      <a href="/notas/">Notes</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/cangur/copa/" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/aula/cangur/copa/">ES</a><span class="lang-sep">&middot;</span><a href="/aula/cangur/copa/">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inici</a><span class="sep">/</span><a href="/docencia/">Docència</a><span class="sep">/</span><a href="/docencia/cangur/">Cangur</a><span class="sep">/</span><span class="current">Copa Cangur</span>
+    </div>
+
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+        <span class="section-label">Competició</span>
+        <span class="tag tag-blue">Copa Cangur · SCM</span>
+      </div>
+      <h1 style="margin:0.3rem 0 0.6rem">Copa Cangur &mdash; Proves resoltes</h1>
+      <p style="font-size:0.98rem;color:var(--text-soft)">Proves de la Copa Cangur resoltes i comentades problema per problema, amb les figures originals i el PDF oficial d'enunciats i solucions.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-label">Competició</div><div class="info-card-value">Copa Cangur</div></div>
+      <div class="info-card"><div class="info-card-label">Organitza</div><div class="info-card-value" style="font-size:0.88rem">SCM (IEC)</div></div>
+      <div class="info-card"><div class="info-card-label">Proves</div><div class="info-card-value" id="count-exams">—</div></div>
+      <div class="info-card"><div class="info-card-label">Problemes</div><div class="info-card-value" id="count-problems">—</div></div>
+    </div>
+
+    <div style="background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.25);border-radius:var(--radius);padding:0.9rem 1.1rem;font-size:0.9rem;color:var(--text);margin:1.5rem 0 2rem">
+      💡 <strong>Com usar-ho:</strong> cada prova s'obre amb tots els problemes resolts pas a pas. Pots filtrar per categoria.
+    </div>
+
+    <div class="filter-bar" id="filter-bar" style="display:none">
+      <button class="filter-btn active" data-cat="all" onclick="filterCat(this,'all')">Totes</button>
+      <button class="filter-btn" data-cat="benjami" onclick="filterCat(this,'benjami')">Benjamí</button>
+      <button class="filter-btn" data-cat="cadet" onclick="filterCat(this,'cadet')">Cadet</button>
+      <button class="filter-btn" data-cat="junior" onclick="filterCat(this,'junior')">Júnior</button>
+    </div>
+
+    <div id="exams-container">
+      <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Carregant…</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+let allExams = [];
+let activeCat = 'all';
+
+function catOf(col){
+  const g = (col.grupo || '') + ' ' + (col.titulo || '');
+  if (/j[uú]nior/i.test(g)) return 'junior';
+  if (/cadet/i.test(g)) return 'cadet';
+  if (/benjam/i.test(g)) return 'benjami';
+  return '';
+}
+function catLabel(c){
+  return c === 'junior' ? 'Júnior' : c === 'cadet' ? 'Cadet' : c === 'benjami' ? 'Benjamí' : '';
+}
+
+function render(){
+  const cont = document.getElementById('exams-container');
+  const filtered = activeCat === 'all' ? allExams : allExams.filter(e => e.cat === activeCat);
+
+  if(filtered.length === 0){
+    cont.innerHTML = `<div class="empty-state">
+      <h3>Encara no hi ha proves publicades${activeCat !== 'all' ? ' d\'aquesta categoria' : ''}</h3>
+      <p>Aniré pujant les proves de la Copa Cangur progressivament, resoltes i comentades.</p>
+    </div>`;
+    return;
+  }
+
+  const byYear = {};
+  filtered.forEach(e => {
+    const y = e.year || '—';
+    if(!byYear[y]) byYear[y] = [];
+    byYear[y].push(e);
+  });
+  const years = Object.keys(byYear).sort((a,b) => b.localeCompare(a));
+
+  cont.innerHTML = years.map(year => `
+    <div class="year-section">
+      <h2 class="year-section-title">📅 ${esc(year)}</h2>
+      <div class="exam-grid">
+        ${byYear[year].map(e => `
+        <a href="${esc(e.url_index)}" class="exam-card">
+          <div class="exam-card-head">
+            <span class="exam-card-year">${esc(e.year)}</span>
+            <span class="exam-card-conv">${esc(catLabel(e.cat))}</span>
+          </div>
+          <p class="exam-card-title">${esc(e.titulo)}</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:0.4rem">
+            <div class="exam-card-chips">${e.cat ? `<span class="chip">${esc(catLabel(e.cat))}</span>` : ''}<span class="chip">resolta</span></div>
+            <span style="font-size:0.82rem;color:var(--text-faint)">${e.problemes} prob.</span>
+          </div>
+        </a>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function filterCat(btn, cat){
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeCat = cat;
+  render();
+}
+
+fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(data => {
+    const colMap = {};
+    let nProb = 0;
+    (data.ejercicios || []).forEach(ej => {
+      const t = ej.tags || {};
+      const c = ej.coleccion || {};
+      if(t.materia !== 'cangur') return;
+      if(!/copa/i.test((c.id || '') + ' ' + (c.titulo || ''))) return;
+      nProb++;
+      if(!colMap[c.id]){
+        colMap[c.id] = {
+          titulo: c.titulo || c.id,
+          url_index: c.url_index || '#',
+          year: (c.fecha || '').split('-')[0] || '—',
+          cat: catOf(c),
+          problemes: 0
+        };
+      }
+      colMap[c.id].problemes++;
+    });
+    allExams = Object.values(colMap).sort((a,b) => b.year.localeCompare(a.year));
+    document.getElementById('count-exams').textContent = allExams.length || '0';
+    document.getElementById('count-problems').textContent = nProb || '0';
+    if(allExams.length) document.getElementById('filter-bar').style.display = '';
+    render();
+  })
+  .catch(err => {
+    document.getElementById('exams-container').innerHTML =
+      '<p style="color:var(--text-faint);font-size:0.9rem">No s\'ha pogut carregar el llistat de proves.</p>';
+    console.error('copa cangur:', err);
+  });
+</script>
+</body>
+</html>
