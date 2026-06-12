@@ -56,8 +56,8 @@ for p in sorted(_REPO.glob("aula/*/selectivitat/*/p*.html")):
     if not _is_retired(p):
         single_paths.append('/' + str(p.relative_to(_REPO)))
 
-# Copa Cangur: hub de proves
-for p in sorted(_REPO.glob("aula/*/copa/index.html")):
+# Copa Cangur: hub de proves i problemes per tema
+for p in sorted(_REPO.glob("aula/*/copa/index.html")) + sorted(_REPO.glob("aula/*/temes/index.html")):
     if not _is_retired(p):
         single_paths.append('/' + str(p.parent.relative_to(_REPO)) + '/')
 
