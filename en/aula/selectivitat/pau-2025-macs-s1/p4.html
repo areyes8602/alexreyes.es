@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Probability — C2EM Congress — PAU 2025 MACS</title>
+<meta name="description" content="Exercise 4 Option A of the PAU 2025 MACS: total probability, conditional probability and number of teachers by educational level.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/selectivitat/pau-2025-macs-s1/p4.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p4.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2025-macs-s1/p4.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2025-macs-s1/p4.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p4.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2025-macs-s1/p4.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2025-macs-s1/p4.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2025-macs-s1/p4.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/">Selectivity</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/pau-2025-macs-s1/">PAU 2025 Series 1</a>
+      <span class="sep">/</span>
+      <span class="current">P4 (Option A)</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2nd BTL CCSS · PAU</span>
+        <span class="tag tag-blue">June 2025</span>
+        <span class="tag tag-orange">Series 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2025-macs-s1/p3.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2025-macs-s1/">Exam index</a>
+      <span class="disabled next">Next exercise &rarr;</span>
+    </nav>
+
+    <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius);padding:0.8rem 1.1rem;margin-bottom:1.5rem;font-size:0.88rem;color:var(--text-soft)">
+      <strong>Exercise 4 — two options:</strong> you are viewing <strong>Option A</strong> (probability). <a href="/en/aula/selectivitat/pau-2025-macs-s1/p4b.html" style="color:var(--accent)"><strong>Option B</strong></a> (matrices and maximum revenue) is on page p4b.html.
+    </div>
+
+    <article class="question-block">
+      <h1>Exercise 4 &middot; Probability — C2EM Congress <span style="font-size:0.75em;font-weight:500;color:var(--text-soft)">(Option A)</span></h1>
+      <p class="question-descriptor">Total probability, conditional probability (Bayes) and determining the total number of registrants.</p>
+      <span class="score-pill">Maximum score · 2.5 points</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>The Catalan Congress on Mathematics Education (C2EM) will be attended by university teachers (10%), secondary-school teachers (50%) and early-childhood and primary teachers (40%). 40% of the university teachers, 52% of the secondary-school teachers and 65% of the early-childhood and primary teachers are women.</p>
+        </div>
+        <ol class="apartados">
+          <li>Compute the probability that a person chosen at random is a woman. If we choose one woman at random from all the registered women, what is the probability that she is a secondary-school teacher? <span class="apartado-puntos">1.25 p</span></li>
+          <li>Compute the number of teachers of each educational level registered at the Congress, knowing that there are 476 women registered in total. <span class="apartado-puntos">1.25 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Block E — Stochastic sense</span>
+        <span class="ib-chip" data-descriptor="Law of total probability">Total prob.</span>
+        <span class="ib-chip" data-descriptor="Conditional probability and Bayes' theorem">Conditional probability</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Show solution</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Step-by-step solution</h3>
+        <p class="note"><strong>Key idea:</strong> we use the <strong>law of total probability</strong> to obtain $P(\text{woman})$, and <strong>Bayes' formula</strong> to obtain the conditional probability $P(\text{Secondary}\mid\text{woman})$.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Probability of being a woman and conditional probability</h4>
+          <p>We define the events $U$ (university), $S$ (secondary), $IP$ (early-childhood and primary) and $D$ (woman). The data:</p>
+          <div class="math-block">$$P(U)=0{,}10,\quad P(S)=0{,}50,\quad P(IP)=0{,}40,$$</div>
+          <div class="math-block">$$P(D\mid U)=0{,}40,\quad P(D\mid S)=0{,}52,\quad P(D\mid IP)=0{,}65.$$</div>
+          <p><strong>Total probability of being a woman:</strong></p>
+          <div class="math-block">$$P(D) = P(U)\cdot P(D\mid U) + P(S)\cdot P(D\mid S) + P(IP)\cdot P(D\mid IP)$$</div>
+          <div class="math-block">$$= 0{,}10\cdot 0{,}40 + 0{,}50\cdot 0{,}52 + 0{,}40\cdot 0{,}65 = 0{,}04 + 0{,}26 + 0{,}26 = \mathbf{0{,}56}.$$</div>
+          <p><strong>Conditional probability</strong> that, given a woman, she is a secondary-school teacher (Bayes):</p>
+          <div class="math-block">$$P(S\mid D) = \dfrac{P(D\mid S)\cdot P(S)}{P(D)} = \dfrac{0{,}52\cdot 0{,}50}{0{,}56} = \dfrac{0{,}26}{0{,}56} = \dfrac{13}{28} \approx \mathbf{0{,}464}.$$</div>
+          <div class="final">$P(\text{woman}) = 0{,}56$ &ensp;|&ensp; $P(\text{Secondary}\mid\text{woman}) = \tfrac{13}{28} \approx 46{,}4\,\%$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Number of teachers per level</h4>
+          <p>Let $T$ be the total number of registered teachers. The number of women is $P(D)\cdot T = 0{,}56\,T$. Since there are 476 women:</p>
+          <div class="math-block">$$0{,}56\,T = 476 \quad \Longrightarrow \quad T = \dfrac{476}{0{,}56} = \mathbf{850}\ \text{teachers}.$$</div>
+          <p>We distribute by level:</p>
+          <div class="math-block">$$U: \ 0{,}10 \times 850 = \mathbf{85}\ \text{university teachers.}$$</div>
+          <div class="math-block">$$S: \ 0{,}50 \times 850 = \mathbf{425}\ \text{secondary-school teachers.}$$</div>
+          <div class="math-block">$$IP: \ 0{,}40 \times 850 = \mathbf{340}\ \text{early-childhood and primary teachers.}$$</div>
+          <p><strong>Check of the 476 women:</strong> $0{,}40(85) + 0{,}52(425) + 0{,}65(340) = 34 + 221 + 221 = 476$ ✓</p>
+          <div class="final">Total: 850 teachers. University: 85 · Secondary: 425 · Early-childhood and primary: 340.</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2025-macs-s1/p3.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2025-macs-s1/">Exam index</a>
+      <span class="disabled next">Next exercise &rarr;</span>
+    </nav>
+
+    <p style="margin-top:2rem;font-size:0.88rem;color:var(--text-soft)">
+      Want to see the other option? → <a href="/en/aula/selectivitat/pau-2025-macs-s1/p4b.html">Exercise 4 Option B (Matrices and maximum revenue)</a>
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

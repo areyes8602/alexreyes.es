@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · System of three planes — discussion and geometric interpretation — PAU 2026 Mathematics</title>
+<meta name="description" content="Discussion of a parametric linear system, geometric interpretation of the three planes and solving the consistent indeterminate case.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p2.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p2.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p2.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p2.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p2.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2026-mate-s1/p2.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p2.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p2.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/">Selectivity</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Series 1</a>
+      <span class="sep">/</span>
+      <span class="current">P2</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2nd BTL Science · PAU</span>
+        <span class="tag tag-blue">June 2026</span>
+        <span class="tag tag-orange">Series 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2026-mate-s1/p1.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2026-mate-s1/p3.html">Next exercise &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Exercise 2 &middot; System of three planes — discussion, geometric interpretation and solution</h1>
+      <p class="question-descriptor">Discussion of a parametric linear system, geometric interpretation of the three planes and solving the consistent indeterminate case.</p>
+      <span class="score-pill">Maximum score · 2.5 points</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Consider the following system of linear equations, formed by three planes in space and depending on the real parameter $m$: $$\left\{\begin{aligned} x+my+z&=4 \\ x+3y+z&=5 \\ mx+y+z&=4 \end{aligned}\right.$$</p>
+        </div>
+        <ol class="apartados">
+          <li>Discuss the system for the different values of the parameter $m$. <span class="apartado-puntos">1 p</span></li>
+          <li>Interpret this system geometrically for all values of the parameter $m$ and solve it, if possible, for the case $m=1$. <span class="apartado-puntos">1 p</span></li>
+          <li>For $m=1$, is it possible to add a fourth equation so that the resulting system is consistent and determinate and has $(x,y,z)=\left(3,\tfrac{1}{2},\tfrac{1}{2}\right)$ as its solution? Reason your answer. <span class="apartado-puntos">0.5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Science Bachillerato · Block C — Geometry and linear algebra</span>
+        <span class="ib-chip" data-descriptor="Rank and determinant of the coefficient and augmented matrices (Rouché-Frobenius)">Discussion of systems</span>
+        <span class="ib-chip" data-descriptor="Relative positions of three planes in space">Planes in space</span>
+        <span class="ib-chip" data-descriptor="Parametric solution and reasoning about the solution">Solution and reasoning</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Show solution</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Step-by-step solution</h3>
+        <p class="note"><strong>Key idea:</strong> the Rouché–Frobenius theorem relates the ranks of the coefficient matrix $A$ and the augmented matrix $A^{*}$ to the type of solution. The determinant of $A$ marks where the rank may drop; after that, each critical value must be examined separately.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Discussion according to $m$</h4>
+          <p>The coefficient matrix is $A=\begin{pmatrix}1&m&1\\1&3&1\\m&1&1\end{pmatrix}$. We compute its determinant:</p>
+          <div class="math-block">$$\det A=1\,(3-1)-m\,(1-m)+1\,(1-3m)=2-m+m^2+1-3m=m^2-4m+3=(m-1)(m-3).$$</div>
+          <p>Hence $\det A=0$ only if $m=1$ or $m=3$.</p>
+          <p><strong>If $m\neq 1$ and $m\neq 3$:</strong> $\det A\neq 0$, so $\operatorname{rank}(A)=\operatorname{rank}(A^{*})=3=$ number of unknowns. The system is <strong>consistent and determinate</strong> (unique solution).</p>
+          <p><strong>If $m=1$:</strong> the system is $\{x+y+z=4,\ x+3y+z=5,\ x+y+z=4\}$. The 1st and 3rd equations are identical, so only two of them are independent: $\operatorname{rank}(A)=\operatorname{rank}(A^{*})=2<3$. The system is <strong>consistent and indeterminate</strong> (infinitely many solutions, one degree of freedom).</p>
+          <p><strong>If $m=3$:</strong> the system is $\{x+3y+z=4,\ x+3y+z=5,\ 3x+y+z=4\}$. The 1st and 2nd have the same left-hand side but different constant terms ($4\neq 5$): they are mutually inconsistent, so $\operatorname{rank}(A)=2$ but $\operatorname{rank}(A^{*})=3$. The system is <strong>inconsistent</strong> (no solution).</p>
+          <div class="final">$m\neq 1,3$: consistent determinate (unique solution) · $m=1$: consistent indeterminate (infinitely many solutions) · $m=3$: inconsistent (no solution).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Geometric interpretation and solution for $m=1$</h4>
+          <p>Each equation is a plane in space. The discussion above translates as follows:</p>
+          <ul>
+            <li><strong>$m\neq 1,3$:</strong> the three planes meet at a <strong>single point</strong> (the unique solution).</li>
+            <li><strong>$m=1$:</strong> the 1st and 3rd planes are <strong>coincident</strong> ($x+y+z=4$) and the 2nd cuts them; the common intersection is a <strong>line</strong>.</li>
+            <li><strong>$m=3$:</strong> the 1st and 2nd planes are <strong>parallel and distinct</strong> ($x+3y+z=4$ and $=5$); there is no point common to all three, which is why the system is inconsistent.</li>
+          </ul>
+          <p>We solve the case $m=1$. Two independent equations remain:</p>
+          <div class="math-block">$$\left\{\begin{aligned} x+y+z&=4 \\ x+3y+z&=5 \end{aligned}\right.$$</div>
+          <p>Subtracting the first from the second: $2y=1\Rightarrow y=\tfrac{1}{2}$. We take $z=\lambda$ as a parameter; from the first, $x=4-y-z=\tfrac{7}{2}-\lambda$.</p>
+          <div class="math-block">$$(x,y,z)=\left(\tfrac{7}{2}-\lambda,\ \tfrac{1}{2},\ \lambda\right),\qquad \lambda\in\mathbb{R}.$$</div>
+          <div class="final">Geometry according to $m$ as indicated. For $m=1$ the solution is the line $\left(\tfrac{7}{2}-\lambda,\ \tfrac{1}{2},\ \lambda\right)$, with direction vector $(-1,0,1)$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Fourth equation with solution $\left(3,\tfrac12,\tfrac12\right)$</h4>
+          <p>For $m=1$ the solutions form the line $\left(\tfrac{7}{2}-\lambda,\ \tfrac{1}{2},\ \lambda\right)$. We first check whether the proposed point lies on it: with $\lambda=\tfrac{1}{2}$ we get $x=\tfrac{7}{2}-\tfrac{1}{2}=3$, $y=\tfrac{1}{2}$, $z=\tfrac{1}{2}$. Yes: the point $\left(3,\tfrac12,\tfrac12\right)$ <strong>lies on the line</strong> of solutions.</p>
+          <p>Adding a fourth equation is equivalent to adding a fourth plane. If we choose a plane that cuts the line exactly at this point (that is, one passing through $\left(3,\tfrac12,\tfrac12\right)$ and not containing the line, for example not parallel to the direction $(-1,0,1)$), the system now has a <strong>unique solution</strong> and it is precisely this point.</p>
+          <div class="math-block">$$\text{For example } \;z=\tfrac{1}{2}\;\text{ fixes } \lambda=\tfrac{1}{2}\;\Longrightarrow\; (x,y,z)=\left(3,\tfrac12,\tfrac12\right).$$</div>
+          <div class="final">Yes, it is possible. It suffices to add a plane through $\left(3,\tfrac12,\tfrac12\right)$ that does not contain the line of solutions (e.g. $z=\tfrac12$): the system becomes consistent and determinate with this solution.</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2026-mate-s1/p1.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2026-mate-s1/p3.html">Next exercise &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

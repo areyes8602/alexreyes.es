@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P4 · Opción A — optimización de superficies — PAU 2026 Matemáticas</title>
-<meta name="description" content="Opción A: minimizar la suma de las áreas de un círculo y un cuadrado con perímetro total fijado (problema de optimización con derivadas).">
+<title>P4 · Option A — surface optimisation — PAU 2026 Mathematics</title>
+<meta name="description" content="Option A: minimise the sum of the areas of a circle and a square with a fixed total perimeter (an optimisation problem with derivatives).">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/style.css?v=202606121326">
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p4.html">
+<link rel="canonical" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p4.html">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p4.html">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p4.html">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p4.html">
@@ -24,17 +24,17 @@
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-brand">alexreyes.es</a>
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
-      <a href="/doctorado/">Doctorado</a>
-      <a href="/notas/">Notas</a>
-      <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacto</a>
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
-        <a href="/aula/selectivitat/pau-2026-mate-s1/p4.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p4.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p4.html">EN</a>
+        <a href="/aula/selectivitat/pau-2026-mate-s1/p4.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p4.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p4.html" class="lang-active">EN</a>
       </div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -49,94 +49,94 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inicio</a>
+      <a href="/en/">Home</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docencia</a>
+      <a href="/en/docencia/">Teaching</a>
       <span class="sep">/</span>
-      <a href="/aula/selectivitat/">Selectividad</a>
+      <a href="/en/aula/selectivitat/">Selectivity</a>
       <span class="sep">/</span>
-      <a href="/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Serie 1</a>
+      <a href="/en/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Series 1</a>
       <span class="sep">/</span>
-      <span class="current">P4 · Opción A</span>
+      <span class="current">P4 · Option A</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <span class="section-label">2º BTL Científico · PAU</span>
-        <span class="tag tag-blue">Junio 2026</span>
-        <span class="tag tag-orange">Serie 1</span>
-        <span class="tag tag-green">Opción A</span>
+        <span class="section-label">2nd BTL Science · PAU</span>
+        <span class="tag tag-blue">June 2026</span>
+        <span class="tag tag-orange">Series 1</span>
+        <span class="tag tag-green">Option A</span>
       </div>
     </div>
 
     <nav class="exam-nav" aria-label="Exam navigation">
-      <a class="prev" href="/aula/selectivitat/pau-2026-mate-s1/p3.html">&larr; Ejercicio anterior</a>
-      <a class="index" href="/aula/selectivitat/pau-2026-mate-s1/">Índice del examen</a>
-      <a class="next" href="/aula/selectivitat/pau-2026-mate-s1/p4b.html">Opción B &rarr;</a>
+      <a class="prev" href="/en/aula/selectivitat/pau-2026-mate-s1/p3.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2026-mate-s1/p4b.html">Option B &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Ejercicio 4 · Opción A &middot; Optimización de superficies</h1>
-      <p class="question-descriptor">Minimizar la suma de las áreas de un círculo y un cuadrado cuando la longitud total de las dos barandillas está fijada.</p>
-      <span class="score-pill">Puntuación máxima · 2,5 puntos</span>
+      <h1>Exercise 4 · Option A &middot; Surface optimisation</h1>
+      <p class="question-descriptor">Minimise the sum of the areas of a circle and a square when the total length of the two railings is fixed.</p>
+      <span class="score-pill">Maximum score · 2.5 points</span>
 
       <div class="statement">
         <div class="context">
-          <p>En el examen debes elegir <strong>una</strong> de las dos opciones (A o B). Aquí tienes resuelta la <strong>Opción A</strong>; la <a href="/aula/selectivitat/pau-2026-mate-s1/p4b.html">Opción B</a> está en la página siguiente.</p>
+          <p>In the exam you must choose <strong>one</strong> of the two options (A or B). Here you have <strong>Option A</strong> worked out; <a href="/en/aula/selectivitat/pau-2026-mate-s1/p4b.html">Option B</a> is on the following page.</p>
         </div>
         <ol class="apartados">
-          <li>El alcalde de un pueblo de Cataluña encarga al arquitecto municipal el diseño de un parque infantil. Tiene que haber dos espacios delimitados: uno para una boca de riego (de forma circular) y otro para una caseta de herramientas (de forma cuadrada). Cada espacio se delimita con una barandilla de forja. Sabiendo que las dos barandillas miden exactamente 10 m de longitud en total, ¿qué medida debe tener la barandilla de cada espacio para que la suma de las superficies de los dos espacios sea lo más pequeña posible? ¿Cuál es esta superficie mínima? <span class="apartado-puntos">2,5 p</span></li>
+          <li>The mayor of a town in Catalonia asks the municipal architect to design a children's playground. There must be two delimited spaces: one for a water tap (circular in shape) and another for a tool shed (square in shape). Each space is delimited with a wrought-iron railing. Knowing that the two railings measure exactly 10 m in total length, what should the length of the railing of each space be so that the sum of the areas of the two spaces is as small as possible? What is this minimum area? <span class="apartado-puntos">2.5 p</span></li>
         </ol>
       </div>
 
       <div class="ib-chips">
-        <span class="ib-chips-label">Bachillerato Científico · Bloque D — Análisis</span>
-        <span class="ib-chip" data-descriptor="Plantear una función a optimizar con una restricción">Modelización</span>
-        <span class="ib-chip" data-descriptor="Mínimo de una función con la primera y la segunda derivada">Optimización</span>
-        <span class="ib-chip" data-descriptor="Perímetros y áreas del círculo y del cuadrado">Geometría métrica</span>
+        <span class="ib-chips-label">Science Bachillerato · Block D — Analysis</span>
+        <span class="ib-chip" data-descriptor="Setting up a function to optimise with a constraint">Modelling</span>
+        <span class="ib-chip" data-descriptor="Minimum of a function using the first and second derivatives">Optimisation</span>
+        <span class="ib-chip" data-descriptor="Perimeters and areas of the circle and the square">Metric geometry</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar la corrección" data-hide-label="Ocultar la corrección" onclick="toggleSolucion('sol-p4')">
-        <span class="toggle-label">Mostrar la corrección</span>
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Show solution</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p4" hidden>
-        <h3>Corrección paso a paso</h3>
-        <p class="note"><strong>Idea clave:</strong> cada barandilla es el <em>perímetro</em> de su figura. Expresamos las dos áreas en función de una sola variable (la longitud de la barandilla circular), usando la restricción de que suman 10 m, y minimizamos con la derivada.</p>
+        <h3>Step-by-step solution</h3>
+        <p class="note"><strong>Key idea:</strong> each railing is the <em>perimeter</em> of its figure. We express the two areas as a function of a single variable (the length of the circular railing), using the constraint that they add up to 10 m, and we minimise with the derivative.</p>
 
         <div class="apartado-sol">
-          <h4><span class="letra">·</span> Planteamiento con una variable</h4>
-          <p>Sea $c$ la longitud de la barandilla <strong>circular</strong> (en metros); entonces la barandilla <strong>cuadrada</strong> mide $10-c$. Cada barandilla es el perímetro de la figura:</p>
-          <div class="math-block">$$\text{Círculo: } 2\pi r=c\Rightarrow r=\frac{c}{2\pi},\qquad A_{\text{cercle}}=\pi r^2=\frac{c^2}{4\pi}.$$</div>
-          <div class="math-block">$$\text{Cuadrado: } 4\ell=10-c\Rightarrow \ell=\frac{10-c}{4},\qquad A_{\text{quadrat}}=\ell^2=\frac{(10-c)^2}{16}.$$</div>
-          <p>La función a minimizar, con $c\in[0,10]$, es:</p>
+          <h4><span class="letra">·</span> Setting up with one variable</h4>
+          <p>Let $c$ be the length of the <strong>circular</strong> railing (in metres); then the <strong>square</strong> railing is $10-c$. Each railing is the perimeter of the figure:</p>
+          <div class="math-block">$$\text{Circle: } 2\pi r=c\Rightarrow r=\frac{c}{2\pi},\qquad A_{\text{circle}}=\pi r^2=\frac{c^2}{4\pi}.$$</div>
+          <div class="math-block">$$\text{Square: } 4\ell=10-c\Rightarrow \ell=\frac{10-c}{4},\qquad A_{\text{square}}=\ell^2=\frac{(10-c)^2}{16}.$$</div>
+          <p>The function to minimise, with $c\in[0,10]$, is:</p>
           <div class="math-block">$$A(c)=\frac{c^2}{4\pi}+\frac{(10-c)^2}{16}.$$</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">·</span> Derivada y punto crítico</h4>
-          <p>Derivamos e igualamos a cero:</p>
+          <h4><span class="letra">·</span> Derivative and critical point</h4>
+          <p>We differentiate and set it to zero:</p>
           <div class="math-block">$$A'(c)=\frac{c}{2\pi}-\frac{10-c}{8}=0 \;\Longrightarrow\; 8c=2\pi(10-c) \;\Longrightarrow\; c\,(8+2\pi)=20\pi.$$</div>
           <div class="math-block">$$c=\frac{20\pi}{8+2\pi}=\frac{10\pi}{4+\pi}\approx 4{,}40\ \text{m}.$$</div>
-          <p>Como $A''(c)=\dfrac{1}{2\pi}+\dfrac{1}{8}>0$, la función es convexa y este punto crítico es un <strong>mínimo</strong>. La barandilla cuadrada mide:</p>
+          <p>Since $A''(c)=\dfrac{1}{2\pi}+\dfrac{1}{8}>0$, the function is convex and this critical point is a <strong>minimum</strong>. The square railing measures:</p>
           <div class="math-block">$$10-c=10-\frac{10\pi}{4+\pi}=\frac{40}{4+\pi}\approx 5{,}60\ \text{m}.$$</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">·</span> Superficie mínima</h4>
-          <p>Sustituimos en $A(c)$. Conviene simplificar cada término:</p>
+          <h4><span class="letra">·</span> Minimum area</h4>
+          <p>We substitute into $A(c)$. It is convenient to simplify each term:</p>
           <div class="math-block">$$\frac{c^2}{4\pi}=\frac{25\pi}{(4+\pi)^2},\qquad \frac{(10-c)^2}{16}=\frac{100}{(4+\pi)^2}.$$</div>
           <div class="math-block">$$A_{\min}=\frac{25\pi+100}{(4+\pi)^2}=\frac{25(\pi+4)}{(4+\pi)^2}=\frac{25}{4+\pi}\approx 3{,}50\ \text{m}^2.$$</div>
-          <div class="final">Barandilla circular $\approx 4{,}40$ m y barandilla cuadrada $\approx 5{,}60$ m. La superficie mínima es $\dfrac{25}{4+\pi}\approx 3{,}50\ \text{m}^2$.</div>
+          <div class="final">Circular railing $\approx 4{,}40$ m and square railing $\approx 5{,}60$ m. The minimum area is $\dfrac{25}{4+\pi}\approx 3{,}50\ \text{m}^2$.</div>
         </div>
       </section>
     </article>
 
     <nav class="exam-nav" aria-label="Exam navigation">
-      <a class="prev" href="/aula/selectivitat/pau-2026-mate-s1/p3.html">&larr; Ejercicio anterior</a>
-      <a class="index" href="/aula/selectivitat/pau-2026-mate-s1/">Índice del examen</a>
-      <a class="next" href="/aula/selectivitat/pau-2026-mate-s1/p4b.html">Opción B &rarr;</a>
+      <a class="prev" href="/en/aula/selectivitat/pau-2026-mate-s1/p3.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2026-mate-s1/p4b.html">Option B &rarr;</a>
     </nav>
 
   </div>
@@ -145,8 +145,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
     </div>
   </div>
 </footer>

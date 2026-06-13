@@ -61,6 +61,10 @@ for p in sorted(_REPO.glob("aula/selectivitat/*/p*.html")):
 
 # Mirrors /ca/ y /en/ de exámenes y selectivitat (páginas que existen traducidas)
 for _pref in ("ca", "en"):
+    _hub = _REPO / _pref / "aula" / "selectivitat" / "index.html"
+    if _hub.exists() and not _is_retired(_hub):
+        single_paths.append('/' + str(_hub.parent.relative_to(_REPO)) + '/')
+for _pref in ("ca", "en"):
     for pat in (f"{_pref}/aula/*/examenes/*/index.html", f"{_pref}/aula/selectivitat/*/index.html"):
         for p in sorted(_REPO.glob(pat)):
             if not _is_retired(p):

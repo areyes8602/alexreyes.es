@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Option B — geometry in space (plane, area and tetrahedron) — PAU 2026 Mathematics</title>
+<meta name="description" content="Option B: equation of a plane through three points, area of the triangle with the cross product and the condition for a fourth point to form a tetrahedron of volume 1.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p4b.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p4b.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p4b.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p4b.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p4b.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2026-mate-s1/p4b.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p4b.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p4b.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/">Selectivity</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Series 1</a>
+      <span class="sep">/</span>
+      <span class="current">P4 · Option B</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2nd BTL Science · PAU</span>
+        <span class="tag tag-blue">June 2026</span>
+        <span class="tag tag-orange">Series 1</span>
+        <span class="tag tag-green">Option B</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2026-mate-s1/p4.html">&larr; Option A</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <span class="disabled next">Next exercise &rarr;</span>
+    </nav>
+
+    <article class="question-block">
+      <h1>Exercise 4 · Option B &middot; Geometry in space</h1>
+      <p class="question-descriptor">Equation of a plane through three points, area of the triangle with the cross product and the condition for a fourth point to form a tetrahedron of volume 1.</p>
+      <span class="score-pill">Maximum score · 2.5 points</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>In the exam you must choose <strong>one</strong> of the two options (A or B). Here you have <strong>Option B</strong> worked out; <a href="/en/aula/selectivitat/pau-2026-mate-s1/p4.html">Option A</a> is on the previous page.</p>
+          <p>Consider the points in space $P=(1,0,-1)$, $Q=(3,-2,0)$ and $R=(1,1,1)$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Compute the equation of the plane containing the points $P$, $Q$ and $R$. <span class="apartado-puntos">0.75 p</span></li>
+          <li>Verify that the area of the triangle $\triangle PQR$ is $\dfrac{3\sqrt{5}}{2}$. <span class="apartado-puntos">0.75 p</span></li>
+          <li>Find the conditions that the coordinates of a fourth point $S=(x,y,z)$ must satisfy so that $P$, $Q$, $R$ and $S$ form a tetrahedron of volume 1. (The volume of the tetrahedron formed by the points $P,Q,R,S$ is $V=\tfrac{1}{6}\,\big|(\vec{PQ}\times\vec{PR})\cdot\vec{PS}\big|$.) <span class="apartado-puntos">1 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Science Bachillerato · Block C — Geometry in space</span>
+        <span class="ib-chip" data-descriptor="Cross product as the normal vector of a plane">Cross product</span>
+        <span class="ib-chip" data-descriptor="Area of the triangle with the magnitude of the cross product">Area of the triangle</span>
+        <span class="ib-chip" data-descriptor="Scalar triple product and volume of the tetrahedron">Scalar triple product</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4b" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p4b')">
+        <span class="toggle-label">Show solution</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4b" hidden>
+        <h3>Step-by-step solution</h3>
+        <p class="note"><strong>Key idea:</strong> two vectors of the plane, $\vec{PQ}$ and $\vec{PR}$, control everything. Their cross product gives the normal vector (for the plane) and its magnitude (for the area); the scalar triple product with $\vec{PS}$ gives the volume of the tetrahedron.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">4.1)</span> Equation of the plane through $P$, $Q$, $R$</h4>
+          <p>We compute two direction vectors of the plane:</p>
+          <div class="math-block">$$\vec{PQ}=Q-P=(2,-2,1),\qquad \vec{PR}=R-P=(0,1,2).$$</div>
+          <p>The normal vector is the cross product:</p>
+          <div class="math-block">$$\vec{n}=\vec{PQ}\times\vec{PR}=\begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\ 2&-2&1\\ 0&1&2\end{vmatrix}=(-5,-4,2).$$</div>
+          <p>The plane passes through $P=(1,0,-1)$, so $-5(x-1)-4(y-0)+2(z+1)=0$. Expanding (and changing sign):</p>
+          <div class="math-block">$$5x+4y-2z=7.$$</div>
+          <div class="final">Plane $\pi:\;5x+4y-2z=7$ (normal vector $(5,4,-2)$).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">4.2)</span> Area of the triangle $\triangle PQR$</h4>
+          <p>The area of the triangle is half the magnitude of the cross product:</p>
+          <div class="math-block">$$\text{Area}=\tfrac{1}{2}\,\big|\vec{PQ}\times\vec{PR}\big|=\tfrac{1}{2}\sqrt{(-5)^2+(-4)^2+2^2}=\tfrac{1}{2}\sqrt{25+16+4}=\tfrac{1}{2}\sqrt{45}.$$</div>
+          <div class="math-block">$$\sqrt{45}=3\sqrt{5}\;\Longrightarrow\;\text{Area}=\frac{3\sqrt{5}}{2}.\ \checkmark$$</div>
+          <div class="final">Verified: the area of $\triangle PQR$ is $\dfrac{3\sqrt{5}}{2}\approx 3{,}35$ square units.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">4.3)</span> Condition for the tetrahedron to have volume 1</h4>
+          <p>Let $\vec{PS}=(x-1,\,y,\,z+1)$. The scalar triple product is the dot product of the normal with $\vec{PS}$:</p>
+          <div class="math-block">$$(\vec{PQ}\times\vec{PR})\cdot\vec{PS}=(-5,-4,2)\cdot(x-1,\,y,\,z+1)=-5x-4y+2z+7.$$</div>
+          <p>We impose that the volume of the tetrahedron is 1:</p>
+          <div class="math-block">$$V=\tfrac{1}{6}\,\big|-5x-4y+2z+7\big|=1 \;\Longrightarrow\; \big|-5x-4y+2z+7\big|=6.$$</div>
+          <p>The absolute value gives two cases:</p>
+          <div class="math-block">$$-5x-4y+2z+7=6 \;\Longrightarrow\; 5x+4y-2z=1,$$</div>
+          <div class="math-block">$$-5x-4y+2z+7=-6 \;\Longrightarrow\; 5x+4y-2z=13.$$</div>
+          <p>These are two planes parallel to the plane $\pi$ (same normal vector), one on each side, located at the distance that makes the tetrahedron have volume 1.</p>
+          <div class="final">$S=(x,y,z)$ must satisfy $5x+4y-2z=1$ or $5x+4y-2z=13$ (and not be coplanar with $P,Q,R$, so that the tetrahedron is not degenerate).</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2026-mate-s1/p4.html">&larr; Option A</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <span class="disabled next">Next exercise &rarr;</span>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

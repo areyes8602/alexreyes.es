@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P1 · Función a trozos — continuidad, área y recta tangente — PAU 2026 Matemáticas</title>
-<meta name="description" content="Continuidad de una función definida a trozos, cálculo de un área con integrales y recta tangente con pendiente dada.">
+<title>P1 · Piecewise-defined function — continuity, area and tangent line — PAU 2026 Mathematics</title>
+<meta name="description" content="Continuity of a piecewise-defined function, computing an area with integrals and a tangent line with a given slope.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/style.css?v=202606121326">
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p1.html">
+<link rel="canonical" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p1.html">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p1.html">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p1.html">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p1.html">
@@ -24,17 +24,17 @@
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-brand">alexreyes.es</a>
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
-      <a href="/doctorado/">Doctorado</a>
-      <a href="/notas/">Notas</a>
-      <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacto</a>
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
-        <a href="/aula/selectivitat/pau-2026-mate-s1/p1.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p1.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p1.html">EN</a>
+        <a href="/aula/selectivitat/pau-2026-mate-s1/p1.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p1.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p1.html" class="lang-active">EN</a>
       </div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -49,78 +49,78 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inicio</a>
+      <a href="/en/">Home</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docencia</a>
+      <a href="/en/docencia/">Teaching</a>
       <span class="sep">/</span>
-      <a href="/aula/selectivitat/">Selectividad</a>
+      <a href="/en/aula/selectivitat/">Selectivity</a>
       <span class="sep">/</span>
-      <a href="/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Serie 1</a>
+      <a href="/en/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Series 1</a>
       <span class="sep">/</span>
       <span class="current">P1</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <span class="section-label">2º BTL Científico · PAU</span>
-        <span class="tag tag-blue">Junio 2026</span>
-        <span class="tag tag-orange">Serie 1</span>
+        <span class="section-label">2nd BTL Science · PAU</span>
+        <span class="tag tag-blue">June 2026</span>
+        <span class="tag tag-orange">Series 1</span>
       </div>
     </div>
 
     <nav class="exam-nav" aria-label="Exam navigation">
-      <span class="disabled prev">&larr; Ejercicio anterior</span>
-      <a class="index" href="/aula/selectivitat/pau-2026-mate-s1/">Índice del examen</a>
-      <a class="next" href="/aula/selectivitat/pau-2026-mate-s1/p2.html">Ejercicio siguiente &rarr;</a>
+      <span class="disabled prev">&larr; Previous exercise</span>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2026-mate-s1/p2.html">Next exercise &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Ejercicio 1 &middot; Función a trozos — continuidad, área y recta tangente</h1>
-      <p class="question-descriptor">Continuidad de una función definida a trozos, cálculo de un área con integrales y recta tangente con pendiente dada.</p>
-      <span class="score-pill">Puntuación máxima · 2,5 puntos</span>
+      <h1>Exercise 1 &middot; Piecewise-defined function — continuity, area and tangent line</h1>
+      <p class="question-descriptor">Continuity of a piecewise-defined function, computing an area with integrals and a tangent line with a given slope.</p>
+      <span class="score-pill">Maximum score · 2.5 points</span>
 
       <div class="statement">
         <div class="context">
-          <p>Considera la función definida a trozos $$f(x)=\begin{cases} 5e^{2x} & x\le 0 \\ (x+m)^2+1 & 0<x<2 \\ 1 & 2\le x \end{cases}$$ donde $m$ es un parámetro real.</p>
+          <p>Consider the piecewise-defined function $$f(x)=\begin{cases} 5e^{2x} & x\le 0 \\ (x+m)^2+1 & 0<x<2 \\ 1 & 2\le x \end{cases}$$ where $m$ is a real parameter.</p>
         </div>
         <ol class="apartados">
-          <li>Determina los valores de $m$ que hacen que la función $f(x)$ sea continua en todo su dominio. Justifica la respuesta. <span class="apartado-puntos">1 p</span></li>
-          <li>Haz un esbozo de la gráfica de $y=f(x)$ para el caso $m=-2$, y calcula el área delimitada por esta gráfica, el eje $OX$ y las rectas $x=-1$ y $x=3$. <span class="apartado-puntos">1 p</span></li>
-          <li>Para $m=-2$, halla un punto donde la recta tangente a $y=f(x)$ sea paralela a $y=-2x$. Calcula la ecuación de esta recta tangente. <span class="apartado-puntos">0,5 p</span></li>
+          <li>Find the values of $m$ that make the function $f(x)$ continuous on its whole domain. Justify your answer. <span class="apartado-puntos">1 p</span></li>
+          <li>Sketch the graph of $y=f(x)$ for the case $m=-2$, and compute the area bounded by this graph, the $OX$ axis and the lines $x=-1$ and $x=3$. <span class="apartado-puntos">1 p</span></li>
+          <li>For $m=-2$, find a point where the tangent line to $y=f(x)$ is parallel to $y=-2x$. Compute the equation of this tangent line. <span class="apartado-puntos">0.5 p</span></li>
         </ol>
       </div>
 
       <div class="ib-chips">
-        <span class="ib-chips-label">Bachillerato Científico · Bloque D — Análisis</span>
-        <span class="ib-chip" data-descriptor="Continuidad de una función a trozos: límites laterales y valor de la función">Continuidad</span>
-        <span class="ib-chip" data-descriptor="Integral definida como área bajo la curva">Integral definida</span>
-        <span class="ib-chip" data-descriptor="Derivada e interpretación geométrica: pendiente de la tangente">Recta tangente</span>
+        <span class="ib-chips-label">Science Bachillerato · Block D — Analysis</span>
+        <span class="ib-chip" data-descriptor="Continuity of a piecewise function: one-sided limits and the value of the function">Continuity</span>
+        <span class="ib-chip" data-descriptor="Definite integral as the area under the curve">Definite integral</span>
+        <span class="ib-chip" data-descriptor="Derivative and its geometric interpretation: slope of the tangent">Tangent line</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar la corrección" data-hide-label="Ocultar la corrección" onclick="toggleSolucion('sol-p1')">
-        <span class="toggle-label">Mostrar la corrección</span>
+      <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p1')">
+        <span class="toggle-label">Show solution</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p1" hidden>
-        <h3>Corrección paso a paso</h3>
-        <p class="note"><strong>Idea clave:</strong> una función a trozos es continua en un punto de enlace si los dos límites laterales coinciden con el valor de la función. Cada empalme da una condición sobre $m$; deben cumplirse <em>todas</em> a la vez.</p>
+        <h3>Step-by-step solution</h3>
+        <p class="note"><strong>Key idea:</strong> a piecewise function is continuous at a junction point when both one-sided limits agree with the value of the function. Each junction gives one condition on $m$; <em>all</em> of them must hold at the same time.</p>
 
         <div class="apartado-sol">
-          <h4><span class="letra">a)</span> Valores de $m$ que hacen $f$ continua</h4>
-          <p>Dentro de cada trozo la función es continua (exponencial, polinomio y constante). Solo hay que estudiar los dos puntos de enlace, $x=0$ y $x=2$.</p>
-          <p>En <strong>$x=0$</strong>: el límite por la izquierda es $5e^{0}=5$ y el límite por la derecha es $(0+m)^2+1=m^2+1$. Imponemos la igualdad:</p>
-          <div class="math-block">$$m^2+1=5 \;\Longrightarrow\; m^2=4 \;\Longrightarrow\; m=-2 \;\text{ o }\; m=2.$$</div>
-          <p>En <strong>$x=2$</strong>: el límite por la izquierda es $(2+m)^2+1$ y el valor (y límite por la derecha) es $1$. Imponemos la igualdad:</p>
+          <h4><span class="letra">a)</span> Values of $m$ that make $f$ continuous</h4>
+          <p>Within each piece the function is continuous (exponential, polynomial and constant). We only need to study the two junction points, $x=0$ and $x=2$.</p>
+          <p>At <strong>$x=0$</strong>: the left-hand limit is $5e^{0}=5$ and the right-hand limit is $(0+m)^2+1=m^2+1$. We impose equality:</p>
+          <div class="math-block">$$m^2+1=5 \;\Longrightarrow\; m^2=4 \;\Longrightarrow\; m=-2 \;\text{ or }\; m=2.$$</div>
+          <p>At <strong>$x=2$</strong>: the left-hand limit is $(2+m)^2+1$ and the value (and right-hand limit) is $1$. We impose equality:</p>
           <div class="math-block">$$(2+m)^2+1=1 \;\Longrightarrow\; (2+m)^2=0 \;\Longrightarrow\; m=-2.$$</div>
-          <p>Las dos condiciones se deben cumplir a la vez. El valor $m=2$ supera la primera pero falla en $x=2$; el único valor común es $m=-2$.</p>
-          <div class="final">$f$ es continua en todo su dominio solo si $m=-2$.</div>
+          <p>Both conditions must hold at the same time. The value $m=2$ passes the first one but fails at $x=2$; the only common value is $m=-2$.</p>
+          <div class="final">$f$ is continuous on its whole domain only if $m=-2$.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">b)</span> Esbozo y área para $m=-2$</h4>
-          <p>Con $m=-2$ el trozo central es $(x-2)^2+1$. La gráfica: una exponencial creciente hasta $(0,5)$, una parábola que baja de $(0,5)$ hasta el vértice $(2,1)$ y, a partir de aquí, la recta constante $y=1$. Como $f(x)>0$ en todas partes, el área es directamente la integral de $f$ entre $x=-1$ y $x=3$:</p>
-          <svg viewBox="0 0 480 240" role="img" aria-label="Esbozo de f(x) con m=-2" style="max-width:480px;width:100%;display:block;margin:0.5rem auto">
+          <h4><span class="letra">b)</span> Sketch and area for $m=-2$</h4>
+          <p>With $m=-2$ the middle piece is $(x-2)^2+1$. The graph: an increasing exponential up to $(0,5)$, a parabola descending from $(0,5)$ to the vertex $(2,1)$ and, from there on, the constant line $y=1$. Since $f(x)>0$ everywhere, the area is directly the integral of $f$ between $x=-1$ and $x=3$:</p>
+          <svg viewBox="0 0 480 240" role="img" aria-label="Sketch of f(x) with m=-2" style="max-width:480px;width:100%;display:block;margin:0.5rem auto">
   <line x1="40" y1="200" x2="465" y2="200" stroke="var(--text-faint)" stroke-width="1"/>
   <line x1="120" y1="210" x2="120" y2="20" stroke="var(--text-faint)" stroke-width="1"/>
   <!-- escala: x in [-1,3] -> [40,460]; y in [0,5] -> [200,40] -->
@@ -138,34 +138,34 @@
   <line x1="460" y1="200" x2="460" y2="204" stroke="var(--text-faint)"/><text x="460" y="216" font-size="10" text-anchor="middle" fill="var(--text-faint)">3</text>
   <text x="42" y="30" font-size="10" fill="var(--text-faint)">f(x)</text>
 </svg>
-          <p>Descomponemos la integral en los tres tramos:</p>
-          <div class="math-block">$$\text{Área}=\int_{-1}^{0} 5e^{2x}\,dx+\int_{0}^{2}\big((x-2)^2+1\big)\,dx+\int_{2}^{3} 1\,dx.$$</div>
-          <p>Primer tramo:</p>
+          <p>We split the integral into the three pieces:</p>
+          <div class="math-block">$$\text{Area}=\int_{-1}^{0} 5e^{2x}\,dx+\int_{0}^{2}\big((x-2)^2+1\big)\,dx+\int_{2}^{3} 1\,dx.$$</div>
+          <p>First piece:</p>
           <div class="math-block">$$\int_{-1}^{0} 5e^{2x}\,dx=\Big[\tfrac{5}{2}e^{2x}\Big]_{-1}^{0}=\tfrac{5}{2}\big(1-e^{-2}\big)=\tfrac{5}{2}-\tfrac{5}{2}e^{-2}.$$</div>
-          <p>Segundo tramo (con el cambio $u=x-2$):</p>
+          <p>Second piece (with the substitution $u=x-2$):</p>
           <div class="math-block">$$\int_{0}^{2}\big((x-2)^2+1\big)\,dx=\Big[\tfrac{(x-2)^3}{3}+x\Big]_{0}^{2}=\Big(0+2\Big)-\Big(-\tfrac{8}{3}+0\Big)=2+\tfrac{8}{3}=\tfrac{14}{3}.$$</div>
-          <p>Tercer tramo: $\int_{2}^{3}1\,dx=1$. Sumamos:</p>
-          <div class="math-block">$$\text{Área}=\Big(\tfrac{5}{2}-\tfrac{5}{2}e^{-2}\Big)+\tfrac{14}{3}+1=\frac{49}{6}-\frac{5}{2}e^{-2}\approx 7{,}83\ \text{u}^2.$$</div>
-          <div class="final">Área $=\dfrac{49}{6}-\dfrac{5}{2}e^{-2}\approx 7{,}83$ unidades cuadradas.</div>
+          <p>Third piece: $\int_{2}^{3}1\,dx=1$. Adding up:</p>
+          <div class="math-block">$$\text{Area}=\Big(\tfrac{5}{2}-\tfrac{5}{2}e^{-2}\Big)+\tfrac{14}{3}+1=\frac{49}{6}-\frac{5}{2}e^{-2}\approx 7{,}83\ \text{u}^2.$$</div>
+          <div class="final">Area $=\dfrac{49}{6}-\dfrac{5}{2}e^{-2}\approx 7{,}83$ square units.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">c)</span> Recta tangente paralela a $y=-2x$</h4>
-          <p>«Paralela a $y=-2x$» significa <strong>pendiente $-2$</strong>, es decir, buscamos un punto donde $f'(x)=-2$. Derivamos trozo a trozo (con $m=-2$):</p>
+          <h4><span class="letra">c)</span> Tangent line parallel to $y=-2x$</h4>
+          <p>"Parallel to $y=-2x$" means <strong>slope $-2$</strong>, that is, we look for a point where $f'(x)=-2$. We differentiate piece by piece (with $m=-2$):</p>
           <div class="math-block">$$f'(x)=\begin{cases} 10e^{2x} & x<0 \\ 2(x-2) & 0<x<2 \\ 0 & x>2 \end{cases}$$</div>
-          <p>El tramo exponencial da $10e^{2x}>0$ siempre (nunca $-2$) y el constante da $0$. Solo queda el tramo central:</p>
+          <p>The exponential piece gives $10e^{2x}>0$ always (never $-2$) and the constant piece gives $0$. Only the middle piece remains:</p>
           <div class="math-block">$$2(x-2)=-2 \;\Longrightarrow\; x-2=-1 \;\Longrightarrow\; x=1\in(0,2).\ \checkmark$$</div>
-          <p>El punto de tangencia es $\big(1,f(1)\big)$ con $f(1)=(1-2)^2+1=2$. La recta de pendiente $-2$ que pasa por él:</p>
+          <p>The point of tangency is $\big(1,f(1)\big)$ with $f(1)=(1-2)^2+1=2$. The line of slope $-2$ through it:</p>
           <div class="math-block">$$y-2=-2(x-1)\;\Longrightarrow\; y=-2x+4.$$</div>
-          <div class="final">Punto $(1,2)$; recta tangente $y=-2x+4$.</div>
+          <div class="final">Point $(1,2)$; tangent line $y=-2x+4$.</div>
         </div>
       </section>
     </article>
 
     <nav class="exam-nav" aria-label="Exam navigation">
-      <span class="disabled prev">&larr; Ejercicio anterior</span>
-      <a class="index" href="/aula/selectivitat/pau-2026-mate-s1/">Índice del examen</a>
-      <a class="next" href="/aula/selectivitat/pau-2026-mate-s1/p2.html">Ejercicio siguiente &rarr;</a>
+      <span class="disabled prev">&larr; Previous exercise</span>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2026-mate-s1/p2.html">Next exercise &rarr;</a>
     </nav>
 
   </div>
@@ -174,8 +174,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
     </div>
   </div>
 </footer>

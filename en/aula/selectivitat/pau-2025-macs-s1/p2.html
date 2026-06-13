@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Derivatives and extrema — Investment fund — PAU 2025 MACS</title>
+<meta name="description" content="Exercise 2 of the PAU 2025 Applied Mathematics for the Social Sciences: analysis of a cubic function, maximum and minimum of an investment fund.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/selectivitat/pau-2025-macs-s1/p2.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p2.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2025-macs-s1/p2.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2025-macs-s1/p2.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p2.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2025-macs-s1/p2.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2025-macs-s1/p2.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2025-macs-s1/p2.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/">Selectivity</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/pau-2025-macs-s1/">PAU 2025 Series 1</a>
+      <span class="sep">/</span>
+      <span class="current">P2</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2nd BTL CCSS · PAU</span>
+        <span class="tag tag-blue">June 2025</span>
+        <span class="tag tag-orange">Series 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2025-macs-s1/p1.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2025-macs-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2025-macs-s1/p3.html">Next exercise &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Exercise 2 &middot; Derivatives and extrema — Volatile investment fund</h1>
+      <p class="question-descriptor">Complete analysis of a cubic function: initial value, maximum, minimum and sign.</p>
+      <span class="score-pill">Maximum score · 2.5 points</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>An investor has some money invested in a very volatile investment fund. The value of their investment in euros during a given day is given by the function</p>
+          <p style="text-align:center">$f(x) = \dfrac{x^{3}}{3} - \dfrac{35x^{2}}{2} + 300x + 250,$</p>
+          <p>where $x \in [0, 24]$ represents the time in hours.</p>
+        </div>
+        <ol class="apartados">
+          <li>Compute the initial value of the investment at the start of the day and determine the profit or loss after 24 hours. Find also at what time of day the value of the investment was at its maximum and what that maximum value was. <span class="apartado-puntos">1.5 p</span></li>
+          <li>Is there any moment of the day when the value of the investment is negative? What is the minimum value it reaches? <span class="apartado-puntos">1 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Block D — Algebraic and functional sense</span>
+        <span class="ib-chip" data-descriptor="Computing the derivative and critical points">Derivatives</span>
+        <span class="ib-chip" data-descriptor="Analysis of maxima and minima on a closed interval">Extrema</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Show solution</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Step-by-step solution</h3>
+        <p class="note"><strong>Key idea:</strong> to find the absolute maximum and minimum on a closed interval $[a,b]$, we must compare the values of $f$ at the critical points (where $f'=0$) <em>and</em> at the endpoints of the interval. The absolute maximum may be at an endpoint, not necessarily at an interior critical point.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Initial value, profit and maximum</h4>
+          <p><strong>Initial value:</strong> $f(0) = 0 - 0 + 0 + 250 = \mathbf{250\ €}$.</p>
+          <p><strong>Value at the end of the day:</strong></p>
+          <div class="math-block">$$f(24) = \dfrac{24^{3}}{3} - \dfrac{35 \cdot 24^{2}}{2} + 300 \cdot 24 + 250 = \dfrac{13824}{3} - \dfrac{35 \cdot 576}{2} + 7200 + 250$$</div>
+          <div class="math-block">$$= 4608 - 10080 + 7200 + 250 = \mathbf{1978\ €}.$$</div>
+          <p><strong>Profit:</strong> $f(24) - f(0) = 1978 - 250 = \mathbf{1728\ €}$ gain.</p>
+          <p><strong>Critical points:</strong> differentiate and set equal to zero.</p>
+          <div class="math-block">$$f'(x) = x^{2} - 35x + 300 = (x-15)(x-20) = 0 \quad \Longrightarrow \quad x = 15\ \text{or}\ x = 20.$$</div>
+          <p>We study the sign of $f'$:</p>
+          <p style="margin-left:1rem">$x \in (0,15)$: $f'(x) > 0$ → $f$ increasing. &ensp; $x \in (15,20)$: $f'(x) < 0$ → $f$ decreasing. &ensp; $x \in (20,24)$: $f'(x) > 0$ → $f$ increasing.</p>
+          <p>Therefore $x=15$ is a local maximum and $x=20$ a local minimum. We check the four candidate values for the absolute maximum:</p>
+          <div class="math-block">$$f(0) = 250, \quad f(15) = \dfrac{3375}{3} - \dfrac{35 \cdot 225}{2} + 4500 + 250 = 1125 - 3937{,}5 + 4500 + 250 = 1937{,}5\ \text{€},$$</div>
+          <div class="math-block">$$f(20) = \dfrac{8000}{3} - \dfrac{35 \cdot 400}{2} + 6000 + 250 \approx 2666{,}7 - 7000 + 6000 + 250 \approx 1916{,}7\ \text{€}, \quad f(24) = 1978\ \text{€}.$$</div>
+          <div class="final">The absolute maximum value is $f(24) = \mathbf{1978\ €}$, reached at 24 h (end of the day).<br>
+          The local maximum (critical point) is $f(15) = 1937{,}5\ €$ at 15 h.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Minimum value and sign of the investment</h4>
+          <p>The absolute minimum on $[0,24]$ is compared between the endpoints and the critical point $x=20$:</p>
+          <div class="math-block">$$f(0) = 250\ \text{€}, \qquad f(20) \approx 1916{,}7\ \text{€}, \qquad f(24) = 1978\ \text{€}.$$</div>
+          <p>The minimum value is $f(0) = 250\ €$, reached at the start of the day.</p>
+          <div class="final">No, the value of the investment is <strong>never negative</strong> on $[0,24]$. The minimum value it reaches is <strong>250 €</strong>, at time $x = 0$.</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2025-macs-s1/p1.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2025-macs-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2025-macs-s1/p3.html">Next exercise &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

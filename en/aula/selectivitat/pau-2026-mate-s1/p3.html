@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 · Probability and optimisation — Tickets for a concert — PAU 2026 Mathematics</title>
+<meta name="description" content="Total and conditional probability with a tree, and the study of a cubic function to find when 100 decibels are exceeded.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p3.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p3.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p3.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p3.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p3.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2026-mate-s1/p3.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p3.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p3.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/">Selectivity</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Series 1</a>
+      <span class="sep">/</span>
+      <span class="current">P3</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2nd BTL Science · PAU</span>
+        <span class="tag tag-blue">June 2026</span>
+        <span class="tag tag-orange">Series 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2026-mate-s1/p2.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2026-mate-s1/p4.html">Next exercise &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Exercise 3 &middot; Probability and optimisation — Tickets for a concert</h1>
+      <p class="question-descriptor">Total and conditional probability with a tree, and the study of a cubic function to find when 100 decibels are exceeded.</p>
+      <span class="score-pill">Maximum score · 2.5 points</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>The Town Council of Canet de Mar has obtained 24 free tickets for a concert by a Catalan rock band and has decided to raffle them among the residents interested in attending. All the residents of the town who are fans of this band enter the raffle, and only 16% of them get a ticket. Of the remaining fans of the band, six sevenths try to buy a ticket through the website, where the probability of getting one is 25%.</p>
+        </div>
+        <ol class="apartados">
+          <li>How many people from this town have a ticket for the concert? <span class="apartado-puntos">0.75 p</span></li>
+          <li>If a resident of Canet who is a fan of this rock band is chosen at random and does not have a ticket for the concert, what is the probability that they tried to get one through the website? <span class="apartado-puntos">0.75 p</span></li>
+          <li>The decibel level during the song can be approximated by $S(t)=-t^3+12t^2-30t+90$, with $t\in[0,5]$ ($t$ in minutes). When 100 decibels are exceeded, some lighting effects are triggered. Will they be triggered at any moment during these five minutes? If the answer is yes, compute in which minute they are triggered, rounded to the tenths. <span class="apartado-puntos">1 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Science Bachillerato · Blocks E and D — Statistics and analysis</span>
+        <span class="ib-chip" data-descriptor="Total probability with a tree of cases">Total probability</span>
+        <span class="ib-chip" data-descriptor="Conditional probability and Bayes' rule">Conditional probability</span>
+        <span class="ib-chip" data-descriptor="Study of the sign and values of a function on a closed interval">Function on an interval</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Show solution</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p3" hidden>
+        <h3>Step-by-step solution</h3>
+        <p class="note"><strong>Key idea:</strong> the raffle distributes exactly 24 tickets and corresponds to 16% of the fans, which fixes how many fans there are. From there, a tree sorts out who has a ticket and who does not. In part c) we must compare $S(t)$ with 100 over the whole interval $[0,5]$.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> How many people have a ticket</h4>
+          <p>Let $N$ be the number of fans. The raffle gives a ticket to 16% and that is exactly the 24 available tickets:</p>
+          <div class="math-block">$$0{,}16\,N=24 \;\Longrightarrow\; N=\frac{24}{0{,}16}=150\ \text{fans.}$$</div>
+          <p>Tickets from the raffle: $24$. Without a raffle ticket, $150-24=126$ remain. Of these, six sevenths try the website:</p>
+          <div class="math-block">$$\tfrac{6}{7}\cdot 126=108 \text{ try}, \qquad 25\%\text{ succeed}: \;0{,}25\cdot 108=27.$$</div>
+          <p>Total with a ticket $=24+27=51$.</p>
+          <div class="final">There are $150$ fans; $51$ people have a ticket ($24$ from the raffle $+\,27$ from the website).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Probability of having tried the website, given no ticket</h4>
+          <p>We count those without a ticket ($150-51=99$) and, among them, those who had tried the website:</p>
+          <ul>
+            <li>Tried the website and did not get one: $108-27=81$.</li>
+            <li>Did not try the website (nor had one): $126-108=18$.</li>
+          </ul>
+          <p>In total $81+18=99$ without a ticket, as expected. The conditional probability is:</p>
+          <div class="math-block">$$P(\text{web}\mid\text{no ticket})=\frac{81}{99}=\frac{9}{11}\approx 0{,}818.$$</div>
+          <div class="final">$P=\dfrac{9}{11}\approx 0{,}818$ (approximately 81.8%).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Are the lighting effects triggered?</h4>
+          <p>We need to know whether $S(t)$ exceeds $100$ on $[0,5]$. We study the extrema with the derivative:</p>
+          <div class="math-block">$$S'(t)=-3t^2+24t-30=-3\,(t^2-8t+10)=0 \;\Longrightarrow\; t=4\pm\sqrt{6}.$$</div>
+          <p>Within $[0,5]$ there is only $t=4-\sqrt{6}\approx 1{,}55$. Since $S''(t)=-6t+24>0$ here, it is a <strong>minimum</strong>. Therefore the maximum of $S$ on the interval is attained at an endpoint. We evaluate:</p>
+          <div class="math-block">$$S(0)=90,\qquad S(5)=-125+300-150+90=115.$$</div>
+          <p>Since $S(5)=115>100$, the effects <strong>are</strong> triggered. We find the moment when $S(t)=100$:</p>
+          <div class="math-block">$$-t^3+12t^2-30t+90=100 \;\Longrightarrow\; t^3-12t^2+30t+10=0.$$</div>
+          <p>The function decreases from $S(0)=90$ to the minimum $S(1{,}55)\approx 68{,}6$ and then rises to $S(5)=115$, so it crosses the level 100 only once, on the increasing part. Solving numerically:</p>
+          <div class="math-block">$$t\approx 4{,}11 \;\text{min} \;\Rightarrow\; t\approx 4{,}1 \text{ minutes.}$$</div>
+          <div class="final">Yes, they are triggered: the level exceeds 100 dB from $t\approx 4{,}1$ minutes on (and stays there until the end, $t=5$).</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2026-mate-s1/p2.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2026-mate-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2026-mate-s1/p4.html">Next exercise &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

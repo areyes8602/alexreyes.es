@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P2 · Derivadas y extremos — Fondo de inversión — PAU 2025 MACS</title>
-<meta name="description" content="Ejercicio 2 de la PAU 2025 de Matemáticas Aplicadas a las CCSS: análisis de una función cúbica, máximo y mínimo de un fondo de inversión.">
+<title>P2 · Derivades i extrems — Fons d'inversió — PAU 2025 MACS</title>
+<meta name="description" content="Exercici 2 de la PAU 2025 de Matemàtiques Aplicades a les CCSS: anàlisi d'una funció cúbica, màxim i mínim d'un fons d'inversió.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/style.css?v=202606121326">
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p2.html">
+<link rel="canonical" href="https://alexreyes.es/ca/aula/selectivitat/pau-2025-macs-s1/p2.html">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p2.html">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2025-macs-s1/p2.html">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2025-macs-s1/p2.html">
@@ -24,17 +24,17 @@
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-brand">alexreyes.es</a>
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
-      <a href="/doctorado/">Doctorado</a>
-      <a href="/notas/">Notas</a>
-      <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacto</a>
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
-        <a href="/aula/selectivitat/pau-2025-macs-s1/p2.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2025-macs-s1/p2.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2025-macs-s1/p2.html">EN</a>
+        <a href="/aula/selectivitat/pau-2025-macs-s1/p2.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2025-macs-s1/p2.html" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2025-macs-s1/p2.html">EN</a>
       </div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -49,95 +49,95 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inicio</a>
+      <a href="/ca/">Inici</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docencia</a>
+      <a href="/ca/docencia/">Docència</a>
       <span class="sep">/</span>
-      <a href="/aula/selectivitat/">Selectividad</a>
+      <a href="/ca/aula/selectivitat/">Selectivitat</a>
       <span class="sep">/</span>
-      <a href="/aula/selectivitat/pau-2025-macs-s1/">PAU 2025 Serie 1</a>
+      <a href="/ca/aula/selectivitat/pau-2025-macs-s1/">PAU 2025 Sèrie 1</a>
       <span class="sep">/</span>
       <span class="current">P2</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <span class="section-label">2º BTL CCSS · PAU</span>
-        <span class="tag tag-blue">Junio 2025</span>
-        <span class="tag tag-orange">Serie 1</span>
+        <span class="section-label">2n BTL CCSS · PAU</span>
+        <span class="tag tag-blue">Juny 2025</span>
+        <span class="tag tag-orange">Sèrie 1</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegación del examen">
-      <a class="prev" href="/aula/selectivitat/pau-2025-macs-s1/p1.html">&larr; Ejercicio anterior</a>
-      <a class="index" href="/aula/selectivitat/pau-2025-macs-s1/">Índice del examen</a>
-      <a class="next" href="/aula/selectivitat/pau-2025-macs-s1/p3.html">Ejercicio siguiente &rarr;</a>
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/ca/aula/selectivitat/pau-2025-macs-s1/p1.html">&larr; Exercici anterior</a>
+      <a class="index" href="/ca/aula/selectivitat/pau-2025-macs-s1/">Índex de l'examen</a>
+      <a class="next" href="/ca/aula/selectivitat/pau-2025-macs-s1/p3.html">Exercici següent &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Ejercicio 2 &middot; Derivadas y extremos — Fondo de inversión volátil</h1>
-      <p class="question-descriptor">Análisis completo de una función cúbica: valor inicial, máximo, mínimo y signo.</p>
-      <span class="score-pill">Puntuación máxima · 2,5 puntos</span>
+      <h1>Exercici 2 &middot; Derivades i extrems — Fons d'inversió volàtil</h1>
+      <p class="question-descriptor">Anàlisi completa d'una funció cúbica: valor inicial, màxim, mínim i signe.</p>
+      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
 
       <div class="statement">
         <div class="context">
-          <p>Un inversor tiene un dinero invertido en un fondo de inversión muy volátil. El valor de su inversión en euros durante un día determinado viene dado por la función</p>
+          <p>Un inversor té uns diners invertits en un fons d'inversió molt volàtil. El valor de la seva inversió en euros durant un dia determinat és donat per la funció</p>
           <p style="text-align:center">$f(x) = \dfrac{x^{3}}{3} - \dfrac{35x^{2}}{2} + 300x + 250,$</p>
-          <p>donde $x \in [0, 24]$ representa el tiempo en horas.</p>
+          <p>en què $x \in [0, 24]$ representa el temps en hores.</p>
         </div>
         <ol class="apartados">
-          <li>Calculad el valor inicial de la inversión al empezar el día y determinad qué beneficio o pérdida habrá tenido al cabo de 24 horas. Hallad también a qué hora del día el valor de la inversión ha sido máximo y cuál era ese valor máximo. <span class="apartado-puntos">1,5 p</span></li>
-          <li>¿Hay algún momento del día en que el valor de la inversión sea negativo? ¿Cuál es el valor mínimo que alcanza? <span class="apartado-puntos">1 p</span></li>
+          <li>Calculeu el valor inicial de la inversió en començar el dia i determineu quin benefici o pèrdua haurà tingut al cap de 24 hores. Trobeu també a quina hora del dia el valor de la inversió ha estat màxim i quin era aquest valor màxim. <span class="apartado-puntos">1,5 p</span></li>
+          <li>Hi ha algun moment del dia en què el valor de la inversió és negatiu? Quin és el valor mínim que assoleix? <span class="apartado-puntos">1 p</span></li>
         </ol>
       </div>
 
       <div class="ib-chips">
-        <span class="ib-chips-label">Bachillerato CCSS · Bloque D — Sentido algebraico y funcional</span>
-        <span class="ib-chip" data-descriptor="Cálculo de la derivada y puntos críticos">Derivadas</span>
-        <span class="ib-chip" data-descriptor="Análisis de máximos y mínimos en un intervalo cerrado">Extremos</span>
+        <span class="ib-chips-label">Batxillerat CCSS · Bloc D — Sentit algebraic i funcional</span>
+        <span class="ib-chip" data-descriptor="Càlcul de la derivada i punts crítics">Derivades</span>
+        <span class="ib-chip" data-descriptor="Anàlisi de màxims i mínims en un interval tancat">Extrems</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar la corrección" data-hide-label="Ocultar la corrección" onclick="toggleSolucion('sol-p2')">
-        <span class="toggle-label">Mostrar la corrección</span>
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostra la correcció</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p2" hidden>
-        <h3>Corrección paso a paso</h3>
-        <p class="note"><strong>Idea clave:</strong> para hallar el máximo y el mínimo absolutos en un intervalo cerrado $[a,b]$, hay que comparar los valores de $f$ en los puntos críticos (donde $f'=0$) <em>y</em> en los extremos del intervalo. El máximo absoluto puede estar en un extremo, no necesariamente en un punto crítico interior.</p>
+        <h3>Correcció pas a pas</h3>
+        <p class="note"><strong>Idea clau:</strong> per trobar el màxim i el mínim absoluts en un interval tancat $[a,b]$, hem de comparar els valors de $f$ als punts crítics (on $f'=0$) <em>i</em> als extrems de l'interval. El màxim absolut pot estar a un extrem, no necessàriament en un punt crític interior.</p>
 
         <div class="apartado-sol">
-          <h4><span class="letra">a)</span> Valor inicial, beneficio y máximo</h4>
+          <h4><span class="letra">a)</span> Valor inicial, benefici i màxim</h4>
           <p><strong>Valor inicial:</strong> $f(0) = 0 - 0 + 0 + 250 = \mathbf{250\ €}$.</p>
-          <p><strong>Valor al final del día:</strong></p>
+          <p><strong>Valor al final del dia:</strong></p>
           <div class="math-block">$$f(24) = \dfrac{24^{3}}{3} - \dfrac{35 \cdot 24^{2}}{2} + 300 \cdot 24 + 250 = \dfrac{13824}{3} - \dfrac{35 \cdot 576}{2} + 7200 + 250$$</div>
           <div class="math-block">$$= 4608 - 10080 + 7200 + 250 = \mathbf{1978\ €}.$$</div>
-          <p><strong>Beneficio:</strong> $f(24) - f(0) = 1978 - 250 = \mathbf{1728\ €}$ de ganancia.</p>
-          <p><strong>Puntos críticos:</strong> derivamos e igualamos a cero.</p>
+          <p><strong>Benefici:</strong> $f(24) - f(0) = 1978 - 250 = \mathbf{1728\ €}$ de guany.</p>
+          <p><strong>Punts crítics:</strong> derivem i igualem a zero.</p>
           <div class="math-block">$$f'(x) = x^{2} - 35x + 300 = (x-15)(x-20) = 0 \quad \Longrightarrow \quad x = 15\ \text{o}\ x = 20.$$</div>
-          <p>Estudiamos el signo de $f'$:</p>
-          <p style="margin-left:1rem">$x \in (0,15)$: $f'(x) > 0$ → $f$ creciente. &ensp; $x \in (15,20)$: $f'(x) < 0$ → $f$ decreciente. &ensp; $x \in (20,24)$: $f'(x) > 0$ → $f$ creciente.</p>
-          <p>Por tanto, $x=15$ es máximo local y $x=20$ es mínimo local. Comprobamos los cuatro valores candidatos al máximo absoluto:</p>
+          <p>Estudiem el signe de $f'$:</p>
+          <p style="margin-left:1rem">$x \in (0,15)$: $f'(x) > 0$ → $f$ creixent. &ensp; $x \in (15,20)$: $f'(x) < 0$ → $f$ decreixent. &ensp; $x \in (20,24)$: $f'(x) > 0$ → $f$ creixent.</p>
+          <p>Per tant, $x=15$ és màxim local i $x=20$ és mínim local. Comprovem els quatre valors candidats al màxim absolut:</p>
           <div class="math-block">$$f(0) = 250, \quad f(15) = \dfrac{3375}{3} - \dfrac{35 \cdot 225}{2} + 4500 + 250 = 1125 - 3937{,}5 + 4500 + 250 = 1937{,}5\ \text{€},$$</div>
           <div class="math-block">$$f(20) = \dfrac{8000}{3} - \dfrac{35 \cdot 400}{2} + 6000 + 250 \approx 2666{,}7 - 7000 + 6000 + 250 \approx 1916{,}7\ \text{€}, \quad f(24) = 1978\ \text{€}.$$</div>
-          <div class="final">El valor máximo absoluto es $f(24) = \mathbf{1978\ €}$, alcanzado a las 24 h (final del día).<br>
-          El máximo local (punto crítico) es $f(15) = 1937{,}5\ €$ a las 15 h.</div>
+          <div class="final">El valor màxim absolut és $f(24) = \mathbf{1978\ €}$, assolit a les 24 h (final del dia).<br>
+          El màxim local (punt crític) és $f(15) = 1937{,}5\ €$ a les 15 h.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">b)</span> Valor mínimo y signo de la inversión</h4>
-          <p>El mínimo absoluto en $[0,24]$ se compara entre los extremos y el punto crítico $x=20$:</p>
+          <h4><span class="letra">b)</span> Valor mínim i signe de la inversió</h4>
+          <p>El mínim absolut en $[0,24]$ es compara entre els extrems i el punt crític $x=20$:</p>
           <div class="math-block">$$f(0) = 250\ \text{€}, \qquad f(20) \approx 1916{,}7\ \text{€}, \qquad f(24) = 1978\ \text{€}.$$</div>
-          <p>El valor mínimo es $f(0) = 250\ €$, obtenido al inicio del día.</p>
-          <div class="final">No, el valor de la inversión <strong>nunca es negativo</strong> en $[0,24]$. El valor mínimo que alcanza es <strong>250 €</strong>, en la hora $x = 0$.</div>
+          <p>El valor mínim és $f(0) = 250\ €$, obtingut a l'inici del dia.</p>
+          <div class="final">No, el valor de la inversió <strong>mai és negatiu</strong> en $[0,24]$. El valor mínim que assoleix és <strong>250 €</strong>, a l'hora $x = 0$.</div>
         </div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegación del examen">
-      <a class="prev" href="/aula/selectivitat/pau-2025-macs-s1/p1.html">&larr; Ejercicio anterior</a>
-      <a class="index" href="/aula/selectivitat/pau-2025-macs-s1/">Índice del examen</a>
-      <a class="next" href="/aula/selectivitat/pau-2025-macs-s1/p3.html">Ejercicio siguiente &rarr;</a>
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/ca/aula/selectivitat/pau-2025-macs-s1/p1.html">&larr; Exercici anterior</a>
+      <a class="index" href="/ca/aula/selectivitat/pau-2025-macs-s1/">Índex de l'examen</a>
+      <a class="next" href="/ca/aula/selectivitat/pau-2025-macs-s1/p3.html">Exercici següent &rarr;</a>
     </nav>
 
   </div>
@@ -146,8 +146,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
     </div>
   </div>
 </footer>

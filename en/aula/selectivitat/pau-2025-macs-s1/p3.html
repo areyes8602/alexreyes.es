@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P3 · Distribución normal e IC — PAU 2025 MACS</title>
-<meta name="description" content="Ejercicio 3 de la PAU 2025 MACS: probabilidad con la distribución normal e intervalo de confianza del 95% para la media.">
+<title>P3 · Normal distribution and CI — PAU 2025 MACS</title>
+<meta name="description" content="Exercise 3 of the PAU 2025 MACS: probability with the normal distribution and a 95% confidence interval for the mean.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/style.css?v=202606121326">
 <link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p3.html">
+<link rel="canonical" href="https://alexreyes.es/en/aula/selectivitat/pau-2025-macs-s1/p3.html">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p3.html">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2025-macs-s1/p3.html">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2025-macs-s1/p3.html">
@@ -24,17 +24,17 @@
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-brand">alexreyes.es</a>
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
-      <a href="/doctorado/">Doctorado</a>
-      <a href="/notas/">Notas</a>
-      <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacto</a>
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
-        <a href="/aula/selectivitat/pau-2025-macs-s1/p3.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2025-macs-s1/p3.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2025-macs-s1/p3.html">EN</a>
+        <a href="/aula/selectivitat/pau-2025-macs-s1/p3.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2025-macs-s1/p3.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2025-macs-s1/p3.html" class="lang-active">EN</a>
       </div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -49,88 +49,88 @@
   <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb">
-      <a href="/">Inicio</a>
+      <a href="/en/">Home</a>
       <span class="sep">/</span>
-      <a href="/docencia/">Docencia</a>
+      <a href="/en/docencia/">Teaching</a>
       <span class="sep">/</span>
-      <a href="/aula/selectivitat/">Selectividad</a>
+      <a href="/en/aula/selectivitat/">Selectivity</a>
       <span class="sep">/</span>
-      <a href="/aula/selectivitat/pau-2025-macs-s1/">PAU 2025 Serie 1</a>
+      <a href="/en/aula/selectivitat/pau-2025-macs-s1/">PAU 2025 Series 1</a>
       <span class="sep">/</span>
       <span class="current">P3</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
-        <span class="section-label">2º BTL CCSS · PAU</span>
-        <span class="tag tag-blue">Junio 2025</span>
-        <span class="tag tag-orange">Serie 1</span>
+        <span class="section-label">2nd BTL CCSS · PAU</span>
+        <span class="tag tag-blue">June 2025</span>
+        <span class="tag tag-orange">Series 1</span>
       </div>
     </div>
 
-    <nav class="exam-nav" aria-label="Navegación del examen">
-      <a class="prev" href="/aula/selectivitat/pau-2025-macs-s1/p2.html">&larr; Ejercicio anterior</a>
-      <a class="index" href="/aula/selectivitat/pau-2025-macs-s1/">Índice del examen</a>
-      <a class="next" href="/aula/selectivitat/pau-2025-macs-s1/p4.html">Ejercicio siguiente &rarr;</a>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2025-macs-s1/p2.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2025-macs-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2025-macs-s1/p4.html">Next exercise &rarr;</a>
     </nav>
 
     <article class="question-block">
-      <h1>Ejercicio 3 &middot; Distribución normal e intervalo de confianza</h1>
-      <p class="question-descriptor">Tipificación de la variable normal y construcción de un IC del 95% para la media.</p>
-      <span class="score-pill">Puntuación máxima · 2,5 puntos</span>
+      <h1>Exercise 3 &middot; Normal distribution and confidence interval</h1>
+      <p class="question-descriptor">Standardising the normal variable and building a 95% CI for the mean.</p>
+      <span class="score-pill">Maximum score · 2.5 points</span>
 
       <div class="statement">
         <div class="context">
-          <p>Hace unos años una granja de vacas frisonas dedicada a la producción de leche hizo un estudio sobre el peso de sus vacas y llegó a la conclusión de que esta variable seguía una distribución normal con una media de 580 kg y una desviación típica de 25 kg. Se da que $Z \sim \mathcal{N}(0,1)$ cumple $P(-1{,}96 \le Z \le 1{,}96) = 0{,}95$.</p>
+          <p>A few years ago, a farm of Friesian cows dedicated to milk production carried out a study on the weight of its cows and concluded that this variable followed a normal distribution with a mean of 580 kg and a standard deviation of 25 kg. It is given that $Z \sim \mathcal{N}(0,1)$ satisfies $P(-1{,}96 \le Z \le 1{,}96) = 0{,}95$.</p>
         </div>
         <ol class="apartados">
-          <li>Calculad, de manera razonada, la probabilidad de que si cogemos al azar una vaca frisona de esta granja, su peso esté entre 531 y 629 kg. <span class="apartado-puntos">1 p</span></li>
-          <li>Creemos que un cambio en el tipo de forraje ha modificado la media del peso. Hemos obtenido el peso de una muestra de 10 vacas escogidas al azar: 569, 575, 611, 581, 583, 614, 589, 555, 566, 571. Hallad un intervalo de confianza del 95 % para la media, suponiendo $\sigma = 25$ kg. ¿Podemos afirmar que la media ha cambiado? Justificad la respuesta. <span class="apartado-puntos">1,5 p</span></li>
+          <li>Compute, with justification, the probability that a Friesian cow chosen at random from this farm weighs between 531 and 629 kg. <span class="apartado-puntos">1 p</span></li>
+          <li>We believe that a change in the type of fodder has modified the mean weight. We have obtained the weight of a sample of 10 cows chosen at random: 569, 575, 611, 581, 583, 614, 589, 555, 566, 571. Find a 95% confidence interval for the mean, assuming $\sigma = 25$ kg. Can we claim that the mean has changed? Justify your answer. <span class="apartado-puntos">1.5 p</span></li>
         </ol>
       </div>
 
       <div class="ib-chips">
-        <span class="ib-chips-label">Bachillerato CCSS · Bloque E — Sentido estocástico</span>
-        <span class="ib-chip" data-descriptor="Tipificación y probabilidad con la distribución normal">Distribución normal</span>
-        <span class="ib-chip" data-descriptor="Intervalo de confianza para la media poblacional">Inferencia estadística</span>
+        <span class="ib-chips-label">Bachillerato CCSS · Block E — Stochastic sense</span>
+        <span class="ib-chip" data-descriptor="Standardising and probability with the normal distribution">Normal distribution</span>
+        <span class="ib-chip" data-descriptor="Confidence interval for the population mean">Statistical inference</span>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostrar la corrección" data-hide-label="Ocultar la corrección" onclick="toggleSolucion('sol-p3')">
-        <span class="toggle-label">Mostrar la corrección</span>
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Show solution</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <section class="solution" id="sol-p3" hidden>
-        <h3>Corrección paso a paso</h3>
-        <p class="note"><strong>Idea clave:</strong> para calcular probabilidades con una $\mathcal{N}(\mu,\sigma)$ hay que tipificar: $Z = \tfrac{X-\mu}{\sigma}$. Para el IC de la media con $\sigma$ conocida se utiliza la fórmula $\bar{x} \pm z_{0{,}95}\,\dfrac{\sigma}{\sqrt{n}}$, donde $z_{0{,}95} = 1{,}96$.</p>
+        <h3>Step-by-step solution</h3>
+        <p class="note"><strong>Key idea:</strong> to compute probabilities with a $\mathcal{N}(\mu,\sigma)$ we standardise: $Z = \tfrac{X-\mu}{\sigma}$. For the CI of the mean with $\sigma$ known we use the formula $\bar{x} \pm z_{0{,}95}\,\dfrac{\sigma}{\sqrt{n}}$, where $z_{0{,}95} = 1{,}96$.</p>
 
         <div class="apartado-sol">
-          <h4><span class="letra">a)</span> Probabilidad del peso entre 531 y 629 kg</h4>
-          <p>$X \sim \mathcal{N}(580, 25^{2})$. Tipificamos los extremos del intervalo:</p>
+          <h4><span class="letra">a)</span> Probability of weight between 531 and 629 kg</h4>
+          <p>$X \sim \mathcal{N}(580, 25^{2})$. We standardise the endpoints of the interval:</p>
           <div class="math-block">$$Z_1 = \dfrac{531 - 580}{25} = \dfrac{-49}{25} = -1{,}96, \qquad Z_2 = \dfrac{629 - 580}{25} = \dfrac{49}{25} = 1{,}96.$$</div>
-          <p>Por tanto:</p>
+          <p>Therefore:</p>
           <div class="math-block">$$P(531 \le X \le 629) = P(-1{,}96 \le Z \le 1{,}96) = 0{,}95.$$</div>
-          <div class="final">La probabilidad de que el peso esté entre 531 y 629 kg es <strong>0,95 (95%)</strong>.</div>
+          <div class="final">The probability that the weight is between 531 and 629 kg is <strong>0.95 (95%)</strong>.</div>
         </div>
 
         <div class="apartado-sol">
-          <h4><span class="letra">b)</span> Intervalo de confianza y contraste de cambio</h4>
-          <p><strong>Cálculo de la media muestral</strong> ($n = 10$ vacas):</p>
+          <h4><span class="letra">b)</span> Confidence interval and test for change</h4>
+          <p><strong>Sample mean</strong> ($n = 10$ cows):</p>
           <div class="math-block">$$\bar{x} = \dfrac{569+575+611+581+583+614+589+555+566+571}{10} = \dfrac{5814}{10} = 581{,}4\ \text{kg}.$$</div>
-          <p><strong>Intervalo de confianza al 95%</strong> con $\sigma = 25$ conocida:</p>
+          <p><strong>95% confidence interval</strong> with $\sigma = 25$ known:</p>
           <div class="math-block">$$\text{IC}_{95\%} = \left[\bar{x} - 1{,}96\,\dfrac{\sigma}{\sqrt{n}},\ \bar{x} + 1{,}96\,\dfrac{\sigma}{\sqrt{n}}\right] = \left[581{,}4 - 1{,}96\cdot\dfrac{25}{\sqrt{10}},\ 581{,}4 + 1{,}96\cdot\dfrac{25}{\sqrt{10}}\right].$$</div>
-          <p>$\dfrac{25}{\sqrt{10}} \approx \dfrac{25}{3{,}162} \approx 7{,}906$, y $1{,}96 \times 7{,}906 \approx 15{,}50$ kg.</p>
+          <p>$\dfrac{25}{\sqrt{10}} \approx \dfrac{25}{3{,}162} \approx 7{,}906$, and $1{,}96 \times 7{,}906 \approx 15{,}50$ kg.</p>
           <div class="math-block">$$\text{IC}_{95\%} \approx [581{,}4 - 15{,}5,\ 581{,}4 + 15{,}5] = [565{,}9,\ 596{,}9]\ \text{kg}.$$</div>
-          <p><strong>Conclusión:</strong> la media original $\mu_0 = 580$ kg <em>pertenece</em> al intervalo $[565{,}9,\, 596{,}9]$.</p>
-          <div class="final">No podemos afirmar que la media haya cambiado: el valor original 580 kg es compatible con la muestra a un nivel de confianza del 95%.</div>
+          <p><strong>Conclusion:</strong> the original mean $\mu_0 = 580$ kg <em>belongs</em> to the interval $[565{,}9,\, 596{,}9]$.</p>
+          <div class="final">We cannot claim that the mean has changed: the original value of 580 kg is compatible with the sample at a 95% confidence level.</div>
         </div>
       </section>
     </article>
 
-    <nav class="exam-nav" aria-label="Navegación del examen">
-      <a class="prev" href="/aula/selectivitat/pau-2025-macs-s1/p2.html">&larr; Ejercicio anterior</a>
-      <a class="index" href="/aula/selectivitat/pau-2025-macs-s1/">Índice del examen</a>
-      <a class="next" href="/aula/selectivitat/pau-2025-macs-s1/p4.html">Ejercicio siguiente &rarr;</a>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/en/aula/selectivitat/pau-2025-macs-s1/p2.html">&larr; Previous exercise</a>
+      <a class="index" href="/en/aula/selectivitat/pau-2025-macs-s1/">Exam index</a>
+      <a class="next" href="/en/aula/selectivitat/pau-2025-macs-s1/p4.html">Next exercise &rarr;</a>
     </nav>
 
   </div>
@@ -139,8 +139,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
-      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
     </div>
   </div>
 </footer>
