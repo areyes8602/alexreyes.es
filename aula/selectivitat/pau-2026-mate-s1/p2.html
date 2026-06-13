@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Sistema de tres plans — discussió i interpretació geomètrica — PAU 2026 Matemàtiques</title>
+<meta name="description" content="Discussió d'un sistema lineal amb paràmetre, interpretació geomètrica dels tres plans i resolució del cas compatible indeterminat.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p2.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p2.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p2.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p2.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p2.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorat</a>
+      <a href="/notas/">Notes</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2026-mate-s1/p2.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p2.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p2.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/aula/selectivitat/">Selectivitat</a>
+      <span class="sep">/</span>
+      <a href="/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Sèrie 1</a>
+      <span class="sep">/</span>
+      <span class="current">P2</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2n BTL Científic · PAU</span>
+        <span class="tag tag-blue">Juny 2026</span>
+        <span class="tag tag-orange">Sèrie 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/selectivitat/pau-2026-mate-s1/p1.html">&larr; Exercici anterior</a>
+      <a class="index" href="/aula/selectivitat/pau-2026-mate-s1/">Índex de l'examen</a>
+      <a class="next" href="/aula/selectivitat/pau-2026-mate-s1/p3.html">Exercici següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Exercici 2 &middot; Sistema de tres plans — discussió, interpretació geomètrica i resolució</h1>
+      <p class="question-descriptor">Discussió d'un sistema lineal amb paràmetre, interpretació geomètrica dels tres plans i resolució del cas compatible indeterminat.</p>
+      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Considereu el següent sistema d'equacions lineals, format per tres plans a l'espai i que depèn del paràmetre real $m$: $$\left\{\begin{aligned} x+my+z&=4 \\ x+3y+z&=5 \\ mx+y+z&=4 \end{aligned}\right.$$</p>
+        </div>
+        <ol class="apartados">
+          <li>Discutiu el sistema per als diferents valors del paràmetre $m$. <span class="apartado-puntos">1 p</span></li>
+          <li>Interpreteu geomètricament aquest sistema per a tots els valors del paràmetre $m$ i resoleu-lo, si és possible, per al cas $m=1$. <span class="apartado-puntos">1 p</span></li>
+          <li>Per a $m=1$, és possible afegir una quarta equació de manera que el sistema resultant sigui compatible determinat i tingui com a solució $(x,y,z)=\left(3,\tfrac{1}{2},\tfrac{1}{2}\right)$? Raoneu la resposta. <span class="apartado-puntos">0,5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Batxillerat Científic · Bloc C — Geometria i àlgebra lineal</span>
+        <span class="ib-chip" data-descriptor="Rang i determinant de la matriu de coeficients i ampliada (Rouché-Frobenius)">Discussió de sistemes</span>
+        <span class="ib-chip" data-descriptor="Posicions relatives de tres plans a l'espai">Plans a l'espai</span>
+        <span class="ib-chip" data-descriptor="Resolució paramètrica i raonament sobre la solució">Resolució i raonament</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Correcció pas a pas</h3>
+        <p class="note"><strong>Idea clau:</strong> el teorema de Rouché–Frobenius relaciona els rangs de la matriu de coeficients $A$ i de l'ampliada $A^{*}$ amb el tipus de solució. El determinant de $A$ marca on pot fallar el rang; després cal mirar cada valor crític a part.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Discussió segons $m$</h4>
+          <p>La matriu de coeficients és $A=\begin{pmatrix}1&m&1\\1&3&1\\m&1&1\end{pmatrix}$. Calculem el seu determinant:</p>
+          <div class="math-block">$$\det A=1\,(3-1)-m\,(1-m)+1\,(1-3m)=2-m+m^2+1-3m=m^2-4m+3=(m-1)(m-3).$$</div>
+          <p>Per tant $\det A=0$ només si $m=1$ o $m=3$.</p>
+          <p><strong>Si $m\neq 1$ i $m\neq 3$:</strong> $\det A\neq 0$, així $\operatorname{rang}(A)=\operatorname{rang}(A^{*})=3=$ nombre d'incògnites. El sistema és <strong>compatible determinat</strong> (solució única).</p>
+          <p><strong>Si $m=1$:</strong> el sistema és $\{x+y+z=4,\ x+3y+z=5,\ x+y+z=4\}$. La 1a i la 3a equació són idèntiques, de manera que només en queden dues d'independents: $\operatorname{rang}(A)=\operatorname{rang}(A^{*})=2<3$. El sistema és <strong>compatible indeterminat</strong> (infinites solucions, un grau de llibertat).</p>
+          <p><strong>Si $m=3$:</strong> el sistema és $\{x+3y+z=4,\ x+3y+z=5,\ 3x+y+z=4\}$. La 1a i la 2a tenen el mateix primer membre però termes independents diferents ($4\neq 5$): són incompatibles entre si, de manera que $\operatorname{rang}(A)=2$ però $\operatorname{rang}(A^{*})=3$. El sistema és <strong>incompatible</strong> (cap solució).</p>
+          <div class="final">$m\neq 1,3$: SCD (solució única) · $m=1$: SCI (infinites solucions) · $m=3$: SI (incompatible).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Interpretació geomètrica i resolució per a $m=1$</h4>
+          <p>Cada equació és un pla a l'espai. La discussió anterior es tradueix així:</p>
+          <ul>
+            <li><strong>$m\neq 1,3$:</strong> els tres plans es tallen en un <strong>únic punt</strong> (la solució única).</li>
+            <li><strong>$m=1$:</strong> els plans 1r i 3r són <strong>coincidents</strong> ($x+y+z=4$) i el 2n els talla; la intersecció comuna és una <strong>recta</strong>.</li>
+            <li><strong>$m=3$:</strong> els plans 1r i 2n són <strong>paral·lels i diferents</strong> ($x+3y+z=4$ i $=5$); no hi ha cap punt comú als tres, per això el sistema és incompatible.</li>
+          </ul>
+          <p>Resolem el cas $m=1$. Ens queden dues equacions independents:</p>
+          <div class="math-block">$$\left\{\begin{aligned} x+y+z&=4 \\ x+3y+z&=5 \end{aligned}\right.$$</div>
+          <p>Restant la primera a la segona: $2y=1\Rightarrow y=\tfrac{1}{2}$. Prenem $z=\lambda$ com a paràmetre; de la primera, $x=4-y-z=\tfrac{7}{2}-\lambda$.</p>
+          <div class="math-block">$$(x,y,z)=\left(\tfrac{7}{2}-\lambda,\ \tfrac{1}{2},\ \lambda\right),\qquad \lambda\in\mathbb{R}.$$</div>
+          <div class="final">Geometria segons $m$ com s'ha indicat. Per a $m=1$ la solució és la recta $\left(\tfrac{7}{2}-\lambda,\ \tfrac{1}{2},\ \lambda\right)$, amb vector director $(-1,0,1)$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Quarta equació amb solució $\left(3,\tfrac12,\tfrac12\right)$</h4>
+          <p>Per a $m=1$ les solucions formen la recta $\left(\tfrac{7}{2}-\lambda,\ \tfrac{1}{2},\ \lambda\right)$. Comprovem primer si el punt proposat hi pertany: amb $\lambda=\tfrac{1}{2}$ obtenim $x=\tfrac{7}{2}-\tfrac{1}{2}=3$, $y=\tfrac{1}{2}$, $z=\tfrac{1}{2}$. Sí: el punt $\left(3,\tfrac12,\tfrac12\right)$ <strong>és sobre la recta</strong> de solucions.</p>
+          <p>Afegir una quarta equació equival a afegir un quart pla. Si triem un pla que talli la recta exactament en aquest punt (és a dir, que passi per $\left(3,\tfrac12,\tfrac12\right)$ i no contingui la recta, per exemple no paral·lel al director $(-1,0,1)$), el sistema passa a tenir <strong>solució única</strong> i és precisament aquest punt.</p>
+          <div class="math-block">$$\text{Per exemple } \;z=\tfrac{1}{2}\;\text{ fixa } \lambda=\tfrac{1}{2}\;\Longrightarrow\; (x,y,z)=\left(3,\tfrac12,\tfrac12\right).$$</div>
+          <div class="final">Sí, és possible. N'hi ha prou d'afegir un pla que passi per $\left(3,\tfrac12,\tfrac12\right)$ sense contenir la recta de solucions (p. ex. $z=\tfrac12$): el sistema esdevé compatible determinat amb aquesta solució.</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/selectivitat/pau-2026-mate-s1/p1.html">&larr; Exercici anterior</a>
+      <a class="index" href="/aula/selectivitat/pau-2026-mate-s1/">Índex de l'examen</a>
+      <a class="next" href="/aula/selectivitat/pau-2026-mate-s1/p3.html">Exercici següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

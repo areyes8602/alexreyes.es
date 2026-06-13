@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 · Probabilitat i optimització — Entrades per a un concert — PAU 2026 Matemàtiques</title>
+<meta name="description" content="Probabilitat total i condicionada amb arbre, i estudi d'una funció cúbica per saber quan se superen els 100 decibels.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p3.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p3.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p3.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p3.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p3.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorat</a>
+      <a href="/notas/">Notes</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2026-mate-s1/p3.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p3.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p3.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/aula/selectivitat/">Selectivitat</a>
+      <span class="sep">/</span>
+      <a href="/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Sèrie 1</a>
+      <span class="sep">/</span>
+      <span class="current">P3</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2n BTL Científic · PAU</span>
+        <span class="tag tag-blue">Juny 2026</span>
+        <span class="tag tag-orange">Sèrie 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/selectivitat/pau-2026-mate-s1/p2.html">&larr; Exercici anterior</a>
+      <a class="index" href="/aula/selectivitat/pau-2026-mate-s1/">Índex de l'examen</a>
+      <a class="next" href="/aula/selectivitat/pau-2026-mate-s1/p4.html">Exercici següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Exercici 3 &middot; Probabilitat i optimització — Entrades per a un concert</h1>
+      <p class="question-descriptor">Probabilitat total i condicionada amb arbre, i estudi d'una funció cúbica per saber quan se superen els 100 decibels.</p>
+      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>L'Ajuntament de Canet de Mar ha aconseguit 24 entrades gratuïtes per a un concert d'un grup de rock català i ha decidit sortejar-les entre els veïns interessats a assistir-hi. Tots els veïns del poble seguidors d'aquest grup s'apunten al sorteig, i només al 16 % els toca una entrada. De la resta de seguidors del grup, sis setenes parts intenten comprar una entrada a través del web, on la probabilitat d'aconseguir-la és del 25 %.</p>
+        </div>
+        <ol class="apartados">
+          <li>Quantes persones d'aquest municipi tenen entrada per al concert? <span class="apartado-puntos">0,75 p</span></li>
+          <li>Si s'escull a l'atzar un veí de Canet seguidor d'aquest grup de rock i no té entrada per al concert, quina és la probabilitat que hagi intentat aconseguir-la via web? <span class="apartado-puntos">0,75 p</span></li>
+          <li>El nivell de decibels durant la cançó es pot aproximar per $S(t)=-t^3+12t^2-30t+90$, amb $t\in[0,5]$ ($t$ en minuts). Quan se superen els 100 decibels s'activen uns efectes lumínics. S'activaran en algun moment durant aquests cinc minuts? Si la resposta és afirmativa, calculeu en quin minut s'activen, aproximat a les dècimes. <span class="apartado-puntos">1 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Batxillerat Científic · Blocs E i D — Estadística i anàlisi</span>
+        <span class="ib-chip" data-descriptor="Probabilitat total amb un arbre de casos">Probabilitat total</span>
+        <span class="ib-chip" data-descriptor="Probabilitat condicionada i regla de Bayes">Probabilitat condicionada</span>
+        <span class="ib-chip" data-descriptor="Estudi del signe i dels valors d'una funció en un interval tancat">Funció en interval</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p3" hidden>
+        <h3>Correcció pas a pas</h3>
+        <p class="note"><strong>Idea clau:</strong> el sorteig reparteix exactament 24 entrades i correspon al 16 % dels seguidors, cosa que fixa quants seguidors hi ha. A partir d'aquí, un arbre ordena qui té entrada i qui no. A l'apartat c) cal comparar $S(t)$ amb 100 en tot l'interval $[0,5]$.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Quantes persones tenen entrada</h4>
+          <p>Sigui $N$ el nombre de seguidors. El sorteig dóna entrada al 16 % i això són justament les 24 entrades disponibles:</p>
+          <div class="math-block">$$0{,}16\,N=24 \;\Longrightarrow\; N=\frac{24}{0{,}16}=150\ \text{seguidors.}$$</div>
+          <p>Entrades pel sorteig: $24$. Sense entrada de sorteig en queden $150-24=126$. D'aquests, sis setenes parts proven el web:</p>
+          <div class="math-block">$$\tfrac{6}{7}\cdot 126=108 \text{ ho intenten}, \qquad 25\%\text{ ho aconsegueixen}: \;0{,}25\cdot 108=27.$$</div>
+          <p>Total amb entrada $=24+27=51$.</p>
+          <div class="final">Hi ha $150$ seguidors; $51$ persones tenen entrada ($24$ del sorteig $+\,27$ pel web).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Probabilitat d'haver provat el web, sabent que no té entrada</h4>
+          <p>Comptem els qui no tenen entrada ($150-51=99$) i, entre ells, els qui havien provat el web:</p>
+          <ul>
+            <li>Van provar el web i no la van aconseguir: $108-27=81$.</li>
+            <li>No van provar el web (ni la van tenir): $126-108=18$.</li>
+          </ul>
+          <p>En total $81+18=99$ sense entrada, com tocava. La probabilitat condicionada és:</p>
+          <div class="math-block">$$P(\text{web}\mid\text{sense entrada})=\frac{81}{99}=\frac{9}{11}\approx 0{,}818.$$</div>
+          <div class="final">$P=\dfrac{9}{11}\approx 0{,}818$ (aproximadament un 81,8 %).</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> S'activen els efectes lumínics?</h4>
+          <p>Cal saber si $S(t)$ arriba a superar $100$ en $[0,5]$. Estudiem els extrems amb la derivada:</p>
+          <div class="math-block">$$S'(t)=-3t^2+24t-30=-3\,(t^2-8t+10)=0 \;\Longrightarrow\; t=4\pm\sqrt{6}.$$</div>
+          <p>Dins de $[0,5]$ només hi ha $t=4-\sqrt{6}\approx 1{,}55$. Com que $S''(t)=-6t+24>0$ aquí, és un <strong>mínim</strong>. Per tant el màxim de $S$ a l'interval s'assoleix en un extrem. Avaluem:</p>
+          <div class="math-block">$$S(0)=90,\qquad S(5)=-125+300-150+90=115.$$</div>
+          <p>Com que $S(5)=115>100$, els efectes <strong>sí</strong> s'activen. Trobem l'instant en què $S(t)=100$:</p>
+          <div class="math-block">$$-t^3+12t^2-30t+90=100 \;\Longrightarrow\; t^3-12t^2+30t+10=0.$$</div>
+          <p>La funció baixa de $S(0)=90$ fins al mínim $S(1{,}55)\approx 68{,}6$ i després puja fins a $S(5)=115$, així que talla el nivell 100 una sola vegada, en la part creixent. Resolent numèricament:</p>
+          <div class="math-block">$$t\approx 4{,}11 \;\text{min} \;\Rightarrow\; t\approx 4{,}1 \text{ minuts.}$$</div>
+          <div class="final">Sí, s'activen: el nivell supera els 100 dB a partir de $t\approx 4{,}1$ minuts (i s'hi manté fins al final, $t=5$).</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/selectivitat/pau-2026-mate-s1/p2.html">&larr; Exercici anterior</a>
+      <a class="index" href="/aula/selectivitat/pau-2026-mate-s1/">Índex de l'examen</a>
+      <a class="next" href="/aula/selectivitat/pau-2026-mate-s1/p4.html">Exercici següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

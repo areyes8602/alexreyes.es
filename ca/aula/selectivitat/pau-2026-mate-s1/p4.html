@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Opció A — optimització de superfícies — PAU 2026 Matemàtiques</title>
+<meta name="description" content="Opció A: minimitzar la suma de les àrees d'un cercle i un quadrat amb perímetre total fixat (problema d'optimització amb derivades).">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p4.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p4.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-mate-s1/p4.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-mate-s1/p4.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2026-mate-s1/p4.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2026-mate-s1/p4.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-mate-s1/p4.html" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-mate-s1/p4.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/ca/aula/selectivitat/">Selectivitat</a>
+      <span class="sep">/</span>
+      <a href="/ca/aula/selectivitat/pau-2026-mate-s1/">PAU 2026 Sèrie 1</a>
+      <span class="sep">/</span>
+      <span class="current">P4 · Opció A</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2n BTL Científic · PAU</span>
+        <span class="tag tag-blue">Juny 2026</span>
+        <span class="tag tag-orange">Sèrie 1</span>
+        <span class="tag tag-green">Opció A</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/ca/aula/selectivitat/pau-2026-mate-s1/p3.html">&larr; Exercici anterior</a>
+      <a class="index" href="/ca/aula/selectivitat/pau-2026-mate-s1/">Índex de l'examen</a>
+      <a class="next" href="/ca/aula/selectivitat/pau-2026-mate-s1/p4b.html">Opció B &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Exercici 4 · Opció A &middot; Optimització de superfícies</h1>
+      <p class="question-descriptor">Minimitzar la suma de les àrees d'un cercle i un quadrat quan la longitud total de les dues baranes està fixada.</p>
+      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>A l'examen heu de triar <strong>una</strong> de les dues opcions (A o B). Aquí teniu resolta l'<strong>Opció A</strong>; l'<a href="/ca/aula/selectivitat/pau-2026-mate-s1/p4b.html">Opció B</a> és a la pàgina següent.</p>
+        </div>
+        <ol class="apartados">
+          <li>L'alcalde d'un poble de Catalunya encarrega a l'arquitecte municipal el disseny d'un parc infantil. Hi ha d'haver dos espais delimitats: un per a una boca de reg (de forma circular) i un altre per a una caseta d'eines (de forma quadrada). Cada espai es delimita amb una barana de forja. Sabent que les dues baranes mesuren exactament 10 m de longitud en total, quina mesura ha de tenir la barana de cada espai perquè la suma de les superfícies dels dos espais sigui tan petita com sigui possible? Quina és aquesta superfície mínima? <span class="apartado-puntos">2,5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Batxillerat Científic · Bloc D — Anàlisi</span>
+        <span class="ib-chip" data-descriptor="Plantejar una funció a optimitzar amb una restricció">Modelització</span>
+        <span class="ib-chip" data-descriptor="Mínim d'una funció amb la primera i la segona derivada">Optimització</span>
+        <span class="ib-chip" data-descriptor="Perímetres i àrees del cercle i del quadrat">Geometria mètrica</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Correcció pas a pas</h3>
+        <p class="note"><strong>Idea clau:</strong> cada barana és el <em>perímetre</em> de la seva figura. Expressem les dues àrees en funció d'una sola variable (la longitud de la barana circular), usant la restricció que sumen 10 m, i minimitzem amb la derivada.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Plantejament amb una variable</h4>
+          <p>Sigui $c$ la longitud de la barana <strong>circular</strong> (en metres); aleshores la barana <strong>quadrada</strong> fa $10-c$. Cada barana és el perímetre de la figura:</p>
+          <div class="math-block">$$\text{Cercle: } 2\pi r=c\Rightarrow r=\frac{c}{2\pi},\qquad A_{\text{cercle}}=\pi r^2=\frac{c^2}{4\pi}.$$</div>
+          <div class="math-block">$$\text{Quadrat: } 4\ell=10-c\Rightarrow \ell=\frac{10-c}{4},\qquad A_{\text{quadrat}}=\ell^2=\frac{(10-c)^2}{16}.$$</div>
+          <p>La funció a minimitzar, amb $c\in[0,10]$, és:</p>
+          <div class="math-block">$$A(c)=\frac{c^2}{4\pi}+\frac{(10-c)^2}{16}.$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Derivada i punt crític</h4>
+          <p>Derivem i igualem a zero:</p>
+          <div class="math-block">$$A'(c)=\frac{c}{2\pi}-\frac{10-c}{8}=0 \;\Longrightarrow\; 8c=2\pi(10-c) \;\Longrightarrow\; c\,(8+2\pi)=20\pi.$$</div>
+          <div class="math-block">$$c=\frac{20\pi}{8+2\pi}=\frac{10\pi}{4+\pi}\approx 4{,}40\ \text{m}.$$</div>
+          <p>Com que $A''(c)=\dfrac{1}{2\pi}+\dfrac{1}{8}>0$, la funció és convexa i aquest punt crític és un <strong>mínim</strong>. La barana quadrada mesura:</p>
+          <div class="math-block">$$10-c=10-\frac{10\pi}{4+\pi}=\frac{40}{4+\pi}\approx 5{,}60\ \text{m}.$$</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">·</span> Superfície mínima</h4>
+          <p>Substituïm a $A(c)$. Convé simplificar cada terme:</p>
+          <div class="math-block">$$\frac{c^2}{4\pi}=\frac{25\pi}{(4+\pi)^2},\qquad \frac{(10-c)^2}{16}=\frac{100}{(4+\pi)^2}.$$</div>
+          <div class="math-block">$$A_{\min}=\frac{25\pi+100}{(4+\pi)^2}=\frac{25(\pi+4)}{(4+\pi)^2}=\frac{25}{4+\pi}\approx 3{,}50\ \text{m}^2.$$</div>
+          <div class="final">Barana circular $\approx 4{,}40$ m i barana quadrada $\approx 5{,}60$ m. La superfície mínima és $\dfrac{25}{4+\pi}\approx 3{,}50\ \text{m}^2$.</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/ca/aula/selectivitat/pau-2026-mate-s1/p3.html">&larr; Exercici anterior</a>
+      <a class="index" href="/ca/aula/selectivitat/pau-2026-mate-s1/">Índex de l'examen</a>
+      <a class="next" href="/ca/aula/selectivitat/pau-2026-mate-s1/p4b.html">Opció B &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
