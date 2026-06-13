@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fibonacci hidden in Collatz — Àlex Reyes</title>
+<meta name="description" content="How the Fibonacci numbers appear, uninvited, inside the Collatz conjecture. A general-audience note with interactive simulators.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/notas/fibonacci-collatz/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/notas/fibonacci-collatz/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/notas/fibonacci-collatz/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/notas/fibonacci-collatz/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/notas/fibonacci-collatz/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://alexreyes.es/en/notas/fibonacci-collatz/">
+<meta property="og:title" content="Fibonacci hidden in Collatz">
+<meta property="og:description" content="How the Fibonacci numbers appear, uninvited, inside the Collatz conjecture.">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fibonacci hidden in Collatz">
+<meta name="twitter:description" content="How the Fibonacci numbers appear, uninvited, inside the Collatz conjecture.">
+<style>
+  :root{
+    --bg:#ffffff; --bg-subtle:#f9f9f9; --bg-hover:#f4f4f4;
+    --border:#e8e8e8; --border-strong:#d0d0d0;
+    --text:#0a0a0a; --text-soft:#525252; --text-faint:#888888;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'JetBrains Mono','Fira Code',monospace;
+    --verde:#3b6d11; --ambar:#854f0b;
+    --rv0bg:#E8E8E8; --rv0tx:#444441; --rv1bg:#B5D4F4; --rv1tx:#0C447C;
+    --rv2bg:#9FE1CB; --rv2tx:#085041; --rv3bg:#D3D1C7; --rv3tx:#5F5E5A;
+    --rv4bg:#F5C4B3; --rv4tx:#712B13; --rv5bg:#CECBF6; --rv5tx:#3C3489;
+  }
+  [data-theme="dark"]{
+    --bg:#0a0a0a; --bg-subtle:#111111; --bg-hover:#1a1a1a;
+    --border:#222222; --border-strong:#333333;
+    --text:#f0f0f0; --text-soft:#a0a0a0; --text-faint:#666666;
+    --verde:#C0DD97; --ambar:#FAC775;
+  }
+  *{box-sizing:border-box}
+  .sub{color:var(--text-soft);margin-bottom:40px}
+  .nota-body h2{font-size:1.4rem;margin:54px 0 14px;border-bottom:1px solid var(--border);padding-bottom:6px;font-weight:600}
+  .nota-body h3{font-size:1.05rem;margin:30px 0 8px;font-weight:600}
+  .nota-body p{margin:0 0 16px}
+  .widget{background:var(--bg-subtle);border:1px solid var(--border);border-radius:10px;
+    padding:18px 20px;margin:26px 0;font-size:14px}
+  .widget h4{margin:0 0 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-soft);font-weight:600}
+  button{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:20px;
+    padding:7px 16px;font:500 13px var(--font);cursor:pointer;transition:all .15s}
+  button:hover{background:var(--bg-hover);border-color:var(--border-strong)}
+  button.sec{color:var(--text-soft)}
+  input[type=number]{width:110px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;
+    font:13px var(--mono);background:var(--bg);color:var(--text)}
+  input[type=range]{accent-color:var(--text);width:200px;vertical-align:middle}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}
+  .chip{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;
+    font:600 13px var(--mono)}
+  .chip.nuevo{background:#FAEEDA;color:#854F0B;border-color:transparent}
+  .chip.padre{border:1px dashed var(--ambar)}
+  .op{font:600 13px var(--mono);color:var(--text-faint)}
+  .p1{background:#EAF3DE;color:#3B6D11}
+  .p2{background:#FAEEDA;color:#854F0B}
+  .paso{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;
+    border-radius:4px;font:600 12px var(--mono)}
+  .forma{display:inline-flex;gap:2px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);border-radius:6px}
+  .r0{background:var(--rv0bg);color:var(--rv0tx);border-color:transparent}
+  .r1{background:var(--rv1bg);color:var(--rv1tx);border-color:transparent}
+  .r2{background:var(--rv2bg);color:var(--rv2tx);border-color:transparent}
+  .r3{background:var(--rv3bg);color:var(--rv3tx);border-color:transparent}
+  .r4{background:var(--rv4bg);color:var(--rv4tx);border-color:transparent}
+  .r5{background:var(--rv5bg);color:var(--rv5tx);border-color:transparent}
+  .leyenda{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;font:12.5px var(--font);color:var(--text-soft)}
+  .rpill{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    border-radius:7px;font:600 14px var(--mono);cursor:pointer;border:2px solid transparent;opacity:.6;transition:all .12s}
+  .rpill.sel{border-color:var(--text);opacity:1;transform:scale(1.08)}
+  .dcase{flex:1;min-width:160px;border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .dform{background:var(--bg);border:1px solid var(--border);border-radius:7px;
+    padding:6px 12px;margin:10px 0;text-align:center}
+  .dform .katex{font-size:1.05em}
+  .dtbl{border-collapse:collapse;font:12.5px var(--mono);margin-top:12px}
+  .dtbl th,.dtbl td{padding:3px 9px;text-align:center}
+  .dtbl th{color:var(--text-faint);font:500 11px var(--font);border-bottom:1px solid var(--border)}
+  .ktag{font-size:11px;padding:1px 7px;border-radius:4px;font-family:var(--font)}
+  .ktag.par{background:#EAF3DE;color:#3b6d11}
+  .ktag.impar{background:#FAEEDA;color:#854f0b}
+  .minichip{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;
+    border-radius:5px;font:600 12px var(--mono)}
+  table.mat{border-collapse:collapse;font:14px var(--mono);margin:8px 0}
+  table.mat td,table.mat th{border:1px solid var(--border);background:var(--bg);min-width:46px;
+    text-align:center;padding:6px 8px}
+  table.mat th{background:var(--bg-subtle);font-weight:600;font-family:var(--font);font-size:12.5px}
+  table.mat th.hrv1{background:var(--rv1bg);color:var(--rv1tx)}
+  table.mat th.hrv2{background:var(--rv2bg);color:var(--rv2tx)}
+  table.mat th.hrv5{background:var(--rv5bg);color:var(--rv5tx)}
+  .fib-destacado{color:var(--ambar);font-weight:700}
+  .nota{font-size:.88em;color:var(--text-soft);border-left:2px solid var(--border-strong);
+    padding:2px 0 2px 14px;margin:18px 0}
+  .teorema{background:var(--bg-subtle);border:1px solid var(--border-strong);border-radius:10px;padding:16px 20px;margin:24px 0}
+  .teorema .titulo{font-variant:small-caps;letter-spacing:.05em;font-weight:600}
+  .resultado{font:500 13.5px var(--font);margin-top:10px;color:var(--text-soft);line-height:1.9}
+  .resultado strong{color:var(--text)}
+  .resultado .chip{vertical-align:middle}
+  .ok{color:var(--verde);font-weight:600} .fail{color:#b91c1c;font-weight:600}
+  .nota-body svg text{font:500 14px var(--font)}
+  .nodo{stroke:#999;stroke-width:1}
+  .nodo.activo{stroke:var(--text);stroke-width:2.5}
+  .ar-g{fill:none;stroke:var(--verde);stroke-width:1.5;opacity:.55;marker-end:url(#mkg);transition:opacity .15s,stroke-width .15s}
+  .ar-a{fill:none;stroke:var(--ambar);stroke-width:1.5;opacity:.55;marker-end:url(#mka);transition:opacity .15s,stroke-width .15s}
+  .ar-g.dim,.ar-a.dim{opacity:.1}
+  .ar-g.hot,.ar-a.hot{opacity:1;stroke-width:3}
+  #mkg path{fill:var(--verde)} #mka path{fill:var(--ambar)}
+  #h4mat td{cursor:pointer;transition:background .12s}
+  #h4mat td:hover{background:var(--bg-hover)}
+  #h4mat td.sel{outline:2px solid var(--text);outline-offset:-2px;font-weight:700}
+  #h4-reset{cursor:pointer;white-space:nowrap}
+  #h4-reset:hover{background:var(--bg-hover);color:var(--text)}
+  #matk td{cursor:pointer;transition:background .12s}
+  #matk td:hover{background:var(--bg-hover)}
+  #matk td.sel{outline:2px solid var(--text);outline-offset:-2px}
+  .codlist{display:flex;flex-wrap:wrap;gap:6px 12px}
+  .codpath{display:inline-flex;align-items:center;background:var(--bg);border:1px solid var(--border);
+    border-radius:6px;padding:3px 7px}
+  .orbcard{display:inline-flex;flex-direction:column;align-items:center;gap:2px;background:var(--bg);
+    border:1px solid var(--border);border-radius:6px;padding:4px 6px}
+  .orbcard.hit{border-color:var(--rv4tx);background:var(--rv4bg)}
+  .orbk{font:10px var(--font);color:var(--text-faint)}
+  .orbv{font:10px var(--mono);color:var(--text-faint)}
+  .teochip{cursor:pointer;transition:transform .1s}
+  .teochip:hover{transform:scale(1.12)}
+  .nodo.src{stroke:var(--text);stroke-width:2.5}
+  .nodo.dstg{stroke:var(--verde);stroke-width:2.5}
+  .nodo.dsta{stroke:var(--ambar);stroke-width:2.5}
+  .barra-wrap{background:var(--bg);border:1px solid var(--border);border-radius:6px;height:16px;overflow:hidden;margin-top:6px}
+  .barra{background:var(--ambar);height:100%;transition:width .3s;opacity:.75}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/" class="nav-active">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/notas/fibonacci-collatz/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/notas/fibonacci-collatz/">CA</a><span class="lang-sep">&middot;</span><a href="/en/notas/fibonacci-collatz/" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+    <div class="breadcrumb">
+      <a href="/en/">Home</a><span class="sep">/</span><a href="/en/notas/">Notes</a><span class="sep">/</span><span class="current">Fibonacci hidden in Collatz</span>
+    </div>
+    <div style="max-width:720px;margin:0 auto">
+      <div class="page-header" style="margin-bottom:2.5rem">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;flex-wrap:wrap">
+          <span class="section-label">Note</span>
+          <span class="tag tag-purple">Collatz</span>
+          <span class="tag tag-gray">Fibonacci</span>
+          <span class="tag tag-gray">Interactive</span>
+        </div>
+        <h1 style="margin:0 0 0.6rem;font-size:2rem;line-height:1.2">Fibonacci hidden in Collatz</h1>
+        <p style="font-size:0.9rem;color:var(--text-soft)">Àlex Reyes &middot; June 2026</p>
+      </div>
+      <div class="nota-body" style="font-size:1.05rem;line-height:1.8;color:var(--text)">
+<p class="sub">How the most famous sequence in mathematics turned up, uninvited, inside the problem nobody knows how to solve.</p>
+
+<p>This story brings together two characters that, on the face of it, have nothing to do with each other. One is a celebrity: the Fibonacci numbers, the sequence that shows up in pop-science books, in sunflowers, even in <em>The Da Vinci Code</em>. The other is a problem with a curious reputation: the Collatz conjecture, a question with a childishly simple statement that fascinates amateurs, unsettles professional mathematicians, and has gone unanswered since 1937.</p>
+
+<p>What I'm going to tell you here is a result from my doctoral thesis: a theorem showing that, inside the dynamics of Collatz, the Fibonacci numbers are counting something very specific. It's no numerical coincidence, no approximate curiosity: it's an exact equality, true forever, with a proof. And the best part is that the whole path —from the definition of Fibonacci to the theorem— can be walked with high-school mathematics. Let's walk it.</p>
+
+<h2>1. The Fibonacci numbers</h2>
+
+<p>The rule is as simple as it gets: start with \(1, 1\) and, from there, <strong>each term is the sum of the two before it</strong>.</p>
+
+\[ F(1)=1,\quad F(2)=1,\quad F(n)=F(n-1)+F(n-2). \]
+
+<div class="widget" id="w-fib">
+  <h4>The sequence, term by term</h4>
+  <div style="display:flex;gap:8px;margin-bottom:10px">
+    <button onclick="fibMas()">Add term</button>
+    <button class="sec" onclick="fibReset()">Reset</button>
+  </div>
+  <div class="chips" id="fib-chips" style="align-items:center"></div>
+  <div class="resultado" id="fib-ratio"></div>
+</div>
+
+<p>Look at the ratio between consecutive terms shown by the simulator. As you go on, it closes in on one very specific number:</p>
+
+\[ \varphi=\frac{1+\sqrt5}{2}=1.6180339\ldots \]
+
+<p>It's the famous <strong>golden ratio</strong>. No coincidence: in the long run the Fibonacci numbers grow by multiplying by \(\varphi\) at each step. Keep this in mind, because \(\varphi\) will come back at the end of the story in the most unexpected place.</p>
+
+<h3>Where they really live (and where they don't)</h3>
+
+<p>You've surely heard that the nautilus shell is a «golden spiral». I'm sorry to spoil it: it isn't. It is a logarithmic spiral, yes, but with a different ratio; the Fibonacci claim there is a myth repeated from book to book. There are, though, places where the Fibonacci numbers really do show up, for reasons we can understand: the spirals of seeds in a sunflower or the scales of a pinecone tend to come in pairs of consecutive Fibonacci numbers (8 and 13, 21 and 34), because that arrangement is the most efficient way to pack seeds that are born rotated by a fixed angle.</p>
+
+<p>But Fibonacci's natural habitat isn't botany: it's <strong>counting paths</strong>. The classic example: in how many ways can you climb a staircase of \(n\) steps if at each move you go up 1 or 2?</p>
+
+<div class="widget" id="w-esc">
+  <h4>The staircase</h4>
+  <p style="margin:0 0 8px">Steps: <input type="range" min="1" max="7" value="4" id="esc-n" oninput="escalera()"> <strong id="esc-nval">4</strong></p>
+  <div id="esc-out" style="font:14px var(--font)"></div>
+</div>
+
+<p>The why fits in one sentence: to reach step \(n\), your last move was a 1 (you came from \(n-1\)) or a 2 (you came from \(n-2\)); therefore, <em>ways to reach \(n\) = ways to reach \(n-1\) + ways to reach \(n-2\)</em>. That is exactly the Fibonacci rule. <strong>Whenever a problem reduces to counting paths with two options that chain together like this, Fibonacci shows up on its own.</strong> Remember this idea: it's the key to everything that follows.</p>
+
+<h2>2. The Collatz conjecture</h2>
+
+<p>Take any positive whole number. If it's even, divide it by 2. If it's odd, multiply it by 3 and add 1. Repeat. The Collatz conjecture says that, wherever you start, you always end up reaching 1. Almost ninety years on, nobody has been able to prove it or to find a counterexample — and not for lack of evidence: it has been checked by computer, one by one, for every number up to \(2^{71}\) (more than two sextillion). That it holds two sextillion times in a row doesn't prove it holds <em>always</em>: that gap between checking and proving is the heart of the problem.</p>
+
+<p>Mathematicians usually use an «accelerated» version of the rule. Since \(3n+1\) is always even when \(n\) is odd, we can divide by 2 right away and save a step:</p>
+
+\[ T(n)=\begin{cases} n/2 & \text{if } n \text{ is even},\\[2pt] \dfrac{3n+1}{2} & \text{if } n \text{ is odd}. \end{cases} \]
+
+<p>With this version, the end of the journey is the small cycle \(1\to2\to1\). Everything that follows uses \(T\).</p>
+
+<div class="widget" id="w-collatzA">
+  <h4>Trajectory simulator</h4>
+  <p style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+    Start at: <input type="number" id="colA-n" value="27" min="1" max="999999">
+    <button onclick="colSimular('A')">Start the journey</button>
+    <span style="color:var(--text-faint)">or try:</span>
+    <button class="sec" onclick="colPreset('A',26)">26</button>
+    <button class="sec" onclick="colPreset('A',27)">27</button>
+    <button class="sec" onclick="colPreset('A',871)">871</button>
+    <button class="sec" onclick="colPreset('A',6171)">6171</button>
+  </p>
+  <div class="chips" id="colA-out"></div>
+  <div class="resultado" id="colA-info"></div>
+</div>
+
+<p>Try 27: it climbs to almost 5,000 before giving up. Try 26: it gets home right away. Next-door neighbours, opposite fates. That's the character of the problem: the rule is trivial, but the behaviour is wild and unpredictable.</p>
+
+<p>And yet, there is a way to tame that chaos. It consists of changing lens: to stop looking at the number and look at something far humbler.</p>
+
+<p>That something is the <strong>remainder when you divide by 6</strong>: the number between 0 and 5 that's left over. 27 leaves remainder 3 (because \(27 = 4\cdot 6 + 3\)); 80 leaves remainder 2; and however huge the number, its remainder is always one of those six values. Nothing more.</p>
+
+<p>Here is the decisive shift, and it's worth pausing on. Numbers live in an <strong>infinite</strong> space: they jump into the thousands, with no way to foresee where they'll go. But their remainders live in a <strong>tiny</strong> space — only six possible values, no matter what. So while a number's trajectory shoots off with no apparent pattern, the trajectory of its <em>remainders</em> is forced to move among six cells. And the best part: it doesn't jump between them at random, but by fixed rules. It's like swapping an infinite, road-less map for a board of six cells with the arrows already drawn.</p>
+
+<p>Let's see it. Let's launch a trajectory again —the same one as before, if you like— but this time colouring each number by the remainder it leaves when divided by 6:</p>
+
+<div class="widget" id="w-collatzB">
+  <h4>The same trajectory, seen through its remainders</h4>
+  <p style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+    Start at: <input type="number" id="colB-n" value="27" min="1" max="999999">
+    <button onclick="colSimular('B')">See the remainders</button>
+    <span style="color:var(--text-faint)">or try:</span>
+    <button class="sec" onclick="colPreset('B',26)">26</button>
+    <button class="sec" onclick="colPreset('B',27)">27</button>
+    <button class="sec" onclick="colPreset('B',871)">871</button>
+    <button class="sec" onclick="colPreset('B',6171)">6171</button>
+  </p>
+  <div class="leyenda">
+    <span class="chip r0">remainder 0</span><span class="chip r1">remainder 1</span>
+    <span class="chip r2">remainder 2</span><span class="chip r3">remainder 3</span>
+    <span class="chip r4">remainder 4</span><span class="chip r5">remainder 5</span>
+    <span style="align-self:center">… when divided by 6</span>
+  </div>
+  <div class="chips" id="colB-out"></div>
+  <div class="resultado" id="colB-info"></div>
+</div>
+
+<p>This is the thing to see: however far the trajectory flies, the colours only dance among six. That small dance, finite and rule-bound, is what we're going to study — and it's where, in the end, Fibonacci will appear.</p>
+
+<h2>3. A map with six regions</h2>
+
+<p>Let's name the six cells: we'll call them «regions», one for each remainder (0 to 5). The question, the only one we need, is: if a number is in region \(r\), which region can \(T\) send it to?</p>
+
+<p>And it's answered with pure high-school arithmetic. Take region 1. A number with remainder 1 is written \(n=6k+1\) for some integer \(k\ge 0\); since it's odd, \(T\) sends it to:</p>
+
+\[ T(n)=\frac{3n+1}{2}=\frac{3(6k+1)+1}{2}=9k+2. \]
+
+<p>And what remainder does \(9k+2\) leave when divided by 6? Here's the idea, and it's the only thing to grasp: the result changes depending on whether \(k\) is <strong>even</strong> or <strong>odd</strong>. And the reason fits in one line: since \(9k+2 = 6k + (3k+2)\), the remainder is decided by \(3k\), which is 0 if \(k\) is even and 3 if it's odd. So \(9k+2\) leaves remainder 2 when \(k\) is even, and remainder 5 when it's odd. So region 1 has <strong>two</strong> exits — to 2 and to 5 —, one for each parity of \(k\). Those are the two arrows leaving region 1 on the map, and that's why they come in two colours: <span style="color:var(--verde);font-weight:600">green</span> for \(k\) even, <span style="color:var(--ambar);font-weight:600">amber</span> for \(k\) odd.</p>
+
+<p>With the other five regions it works the same (if \(n\) is even, you get \(n/2\), even simpler). The result is twelve arrows, two per region — this map. Click any region to see its calculation and light up its two arrows:</p>
+
+<div class="widget">
+  <h4>The graph \(G\): Collatz transitions modulo 6</h4>
+  <svg viewBox="-80 -170 580 320" xmlns="http://www.w3.org/2000/svg" id="grafoG">
+    <defs>
+      <marker id="mkg" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="8" refX="10" refY="4" orient="auto">
+        <path d="M0,0 L11,4 L0,8 Z" fill="#3b6d11"/>
+      </marker>
+      <marker id="mka" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="8" refX="10" refY="4" orient="auto">
+        <path d="M0,0 L11,4 L0,8 Z" fill="#854f0b"/>
+      </marker>
+    </defs>
+    <!-- aristas: verde = k par · ámbar = k impar (n = 6k + r) -->
+    <path id="e-0-0" class="ar-g" d="M-20.7,4.4 A15,15 0 1 1 -20.7,-4.4"/>     <!-- 0->0 -->
+    <path id="e-0-3" class="ar-a" d="M18,0 L79,0"/>                            <!-- 0->3 -->
+    <path id="e-1-2" class="ar-g" d="M239,14.2 Q215.2,45.1 205.6,79.8"/>       <!-- 1->2 -->
+    <path id="e-1-5" class="ar-a" d="M242,-16.1 L209.4,-81.2"/>                <!-- 1->5 -->
+    <path id="e-2-1" class="ar-g" d="M211,85.8 Q234.8,54.9 244.4,20.2"/>       <!-- 2->1 -->
+    <path id="e-2-4" class="ar-a" d="M216.1,91.9 Q281.1,59.2 334.1,13.7"/>     <!-- 2->4 -->
+    <path id="e-3-5" class="ar-g" d="M112.7,-12.7 L185.2,-85.2"/>              <!-- 3->5 -->
+    <path id="e-3-2" class="ar-a" d="M112.7,12.7 L185.2,85.2"/>                <!-- 3->2 -->
+    <path id="e-4-2" class="ar-g" d="M333.9,8.1 Q268.9,40.8 215.9,86.3"/>      <!-- 4->2 -->
+    <path id="e-4-5" class="ar-a" d="M335,-10 L217.5,-88.4"/>                  <!-- 4->5 -->
+    <path id="e-5-2" class="ar-g" d="M200,-82 L200,79"/>                       <!-- 5->2 -->
+    <path id="e-5-5" class="ar-a" d="M199,-121.1 A15,15 0 1 1 207.8,-119.7"/>  <!-- 5->5 -->
+    <!-- nodos (disposición de /doctorado/visualizaciones/) -->
+    <g id="nodo-0"><circle class="nodo" cx="0" cy="0" r="18" fill="#E8E8E8"/><text x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#444441">0</text></g>
+    <g id="nodo-3"><circle class="nodo" cx="100" cy="0" r="18" fill="#D3D1C7"/><text x="100" y="0" text-anchor="middle" dominant-baseline="central" fill="#5F5E5A">3</text></g>
+    <g id="nodo-5"><circle class="nodo" cx="200" cy="-100" r="18" fill="#CECBF6"/><text x="200" y="-100" text-anchor="middle" dominant-baseline="central" fill="#3C3489">5</text></g>
+    <g id="nodo-2"><circle class="nodo" cx="200" cy="100" r="18" fill="#9FE1CB"/><text x="200" y="100" text-anchor="middle" dominant-baseline="central" fill="#085041">2</text></g>
+    <g id="nodo-1"><circle class="nodo" cx="250" cy="0" r="18" fill="#B5D4F4"/><text x="250" y="0" text-anchor="middle" dominant-baseline="central" fill="#0C447C">1</text></g>
+    <g id="nodo-4"><circle class="nodo" cx="350" cy="0" r="18" fill="#F5C4B3"/><text x="350" y="0" text-anchor="middle" dominant-baseline="central" fill="#712B13">4</text></g>
+    <text x="50" y="-50" text-anchor="middle" style="font:italic 12px var(--font);fill:var(--text-faint)">exit only</text>
+    <text x="275" y="-152" text-anchor="middle" style="font:italic 12px var(--font);fill:var(--text-faint)">core</text>
+  </svg>
+  <div id="deriv-pills" class="chips" style="margin:4px 0 0"></div>
+  <div id="deriv-out" style="margin-top:8px"></div>
+  <p style="margin:10px 0 0;font:12.5px var(--font);color:var(--text-soft)">
+    Each arrow \(r\to s\) means: «there are numbers with remainder \(r\) whose image \(T(n)\) has remainder \(s\)».
+    The colour shows which of the two exits is taken:
+    <span style="color:var(--verde);font-weight:600">● green</span> if \(k\) is even,
+    <span style="color:var(--ambar);font-weight:600">● amber</span> if \(k\) is odd.
+    And if you launch a trajectory in the simulator from the previous section, its journey lights up here.</p>
+</div>
+
+<p>This map has two features worth a close look, because everything else flows from them.</p>
+
+<p><strong>Regions 0 and 3 have only outgoing arrows.</strong> They are different regions —0 is the multiples of 6 and 3 is the odd multiples of 3—, but together they form the multiples of 3, and they share a quirk: no arrow from the core reaches them. The reason is simple. To land on a multiple of 3 you'd have to start from one already: if \(n\) is odd, \(\tfrac{3n+1}{2}\) is never a multiple of 3 (because \(3n+1\) isn't); and if \(n\) is even, \(n/2\) is a multiple of 3 only when \(n\) already was. So you can <em>start</em> on a multiple of 3, but once you leave, you never return.</p>
+
+<p><strong>The other four regions \(\{1,2,4,5\}\) form the core of the system.</strong> Every trajectory ends up inside —by what we just saw: sooner or later you leave the club of multiples of 3 and never come back— and, once inside, you circulate among them forever. Each region of the core has exactly <strong>two exits</strong>: from 1 you go to 2 or 5; from 2, to 1 or 4; from 4, to 2 or 5; from 5, to 2 or 5. Two possible paths at each step means the number of trajectories <strong>doubles</strong> at every step: 2, 4, 8, 16… It grows fast, but in a perfectly regular way. Hold on to that word —<em>doubles</em>—, because in the next section we'll remove a single region from the map and watch that «doubling» turn, without warning, into something far more interesting.</p>
+
+<div class="nota">Technical detail for whoever wants it: the graph loses no information. In the paper one builds a <em>bijection</em> \(\Psi_m\) identifying each integer in \(\{1,\ldots,6\cdot 2^m\}\) with a unique path of length \(m\) in \(G\). Counting numbers with a certain modular property is, exactly, counting paths in the graph. That's why everything that follows is exact counts and not approximations.</div>
+
+<h2>4. The forbidden region: the subgraph \(H_4\)</h2>
+
+<p>Now comes the question that sets everything off. Of the four regions in the core, region 4 is special: you only reach it from one, region 2 (check it in the explorer above: it's the only arrow pointing to 4). What if a number manages to <strong>dodge</strong> it forever? How many can circulate through the core without ever stepping on region 4?</p>
+
+<p>To answer that, we remove region 4 from the map and keep only \(\{1,2,5\}\) and the arrows between them. (A vocabulary bridge, because from here on it's handy: what we've been calling a «map» is really a <em>graph</em>, and each region is a <em>vertex</em> of it; removing a region leaves a <em>subgraph</em>. I call this one \(H_4\): the one that survives deleting region 4.)</p>
+
+<div class="widget">
+  <h4>The subgraph \(H_4\) and its adjacency matrix</h4>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+    <svg id="h4svg" viewBox="125 -175 265 330" width="240" xmlns="http://www.w3.org/2000/svg">
+      <!-- misma disposición que el grafo G, sin el vértice 4 -->
+      <path id="h-1-2" class="ar-g" d="M239,14.2 Q215.2,45.1 205.6,79.8"/>      <!-- 1->2 -->
+      <path id="h-1-5" class="ar-a" d="M242,-16.1 L209.4,-81.2"/>               <!-- 1->5 -->
+      <path id="h-2-1" class="ar-g" d="M211,85.8 Q234.8,54.9 244.4,20.2"/>      <!-- 2->1 -->
+      <path id="h-5-2" class="ar-g" d="M200,-82 L200,79"/>                      <!-- 5->2 -->
+      <path id="h-5-5" class="ar-a" d="M192.2,-119.7 A15,15 0 1 1 201,-121.1"/> <!-- 5->5 -->
+      <g id="h4n-5"><circle class="nodo" cx="200" cy="-100" r="18" fill="#CECBF6"/><text x="200" y="-100" text-anchor="middle" dominant-baseline="central" fill="#3C3489">5</text></g>
+      <g id="h4n-2"><circle class="nodo" cx="200" cy="100" r="18" fill="#9FE1CB"/><text x="200" y="100" text-anchor="middle" dominant-baseline="central" fill="#085041">2</text></g>
+      <g id="h4n-1"><circle class="nodo" cx="250" cy="0" r="18" fill="#B5D4F4"/><text x="250" y="0" text-anchor="middle" dominant-baseline="central" fill="#0C447C">1</text></g>
+    </svg>
+    <div style="font:14px var(--font)">
+      <table class="mat" id="h4mat">
+        <tr><th id="h4-reset" onclick="h4reset()" title="Reset: see the full graph">\(M\) ↺</th><th class="hrv1">→1</th><th class="hrv2">→2</th><th class="hrv5">→5</th></tr>
+        <tr><th class="hrv1">1</th><td onclick="h4cell(this,1,1,0)">0</td><td onclick="h4cell(this,1,2,1)">1</td><td onclick="h4cell(this,1,5,1)">1</td></tr>
+        <tr><th class="hrv2">2</th><td onclick="h4cell(this,2,1,1)">1</td><td onclick="h4cell(this,2,2,0)">0</td><td onclick="h4cell(this,2,5,0)">0</td></tr>
+        <tr><th class="hrv5">5</th><td onclick="h4cell(this,5,1,0)">0</td><td onclick="h4cell(this,5,2,1)">1</td><td onclick="h4cell(this,5,5,1)">1</td></tr>
+      </table>
+    </div>
+  </div>
+  <p style="margin:12px 0 0;color:var(--text-soft)">The <strong>adjacency matrix</strong> is the map written as a table of ones and zeros —it's called that because it says which region is <em>adjacent</em> to which, that is, who points to whom—. It has one row and one column per region; in the cell at row \(r\) and column \(s\) there's a <strong>1</strong> if there's an arrow from \(r\) to \(s\), and a <strong>0</strong> if not. It's just another way to store the graph. <em>Click any cell</em> to see it on the graph, or the corner <strong>\(M\) ↺</strong> to return to the full graph.</p>
+  <div id="h4msg" class="resultado" style="margin-top:8px"></div>
+</div>
+
+<p>Notice what happened when we deleted 4: regions 1 and 5 keep their two exits, but region 2 has lost one —its arrow towards 4— and is left with a single one: back to 1. The full core always offered two options per step; \(H_4\) offers <em>two options, except when you step on 2, which offers only one</em>. That small asymmetry —two paths almost always, just one when you step on 2— is what will manufacture Fibonacci. Let's see it.</p>
+
+<h3>The matrix that counts paths</h3>
+
+<p>Here is the only piece of algebra we need, and it's worth understanding, not just believing. Let's start with the easiest case. The matrix \(M\) itself already counts the paths of <strong>one</strong> step: its cell \((r,s)\) is 1 when there's an arrow from \(r\) to \(s\) —a path of length 1— and 0 when there isn't.</p>
+
+<p>And the paths of <strong>two</strong> steps? To go from \(r\) to \(s\) in two steps you have to stop at some intermediate region \(t\): first \(r\to t\), then \(t\to s\). Counting in how many ways you can is exactly what multiplying the matrix by itself does: the cell \((r,s)\) of \(M^2\) runs over all possible intermediate regions \(t\) and adds up «is there an arrow \(r\to t\)?» times «is there an arrow \(t\to s\)?». Chaining the same thing step by step leads to the general rule:</p>
+
+<div class="teorema" style="text-align:center"><span class="titulo">The cell \((r,s)\) of \(M^k\) is the exact number of paths of length \(k\) going from region \(r\) to \(s\).</span></div>
+
+<p>And you needn't take it on faith: in the table below, <em>click any cell</em> and you'll see those paths written out one by one.</p>
+
+<div class="widget" id="w-mat">
+  <h4>Powers of \(M\): watch the Fibonacci numbers being born</h4>
+  <p style="margin:0 0 8px">Path length \(k\): <input type="range" min="1" max="12" value="1" id="mat-k" oninput="matPow()"> <strong id="mat-kval">1</strong></p>
+  <div id="mat-out" style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start"></div>
+  <div class="resultado" id="mat-info"></div>
+  <div id="mat-paths" style="margin-top:12px"></div>
+</div>
+
+<p>Slide it slowly and look at the matrix entries: <span class="fib-destacado">1, 1, 2, 3, 5, 8, 13, 21…</span> Every single entry of \(M^k\) is a Fibonacci number, and so are the path totals per row. We didn't put them there: the graph manufactured them.</p>
+
+<p>And why Fibonacci, and not just any sequence? The lovely thing is that you can see it without a single calculation, looking only at the map of \(H_4\). Let's count the paths of length \(k\) starting at region 1 —the very ones the simulator counts— and call them \(C(k)\). The first step can only go to 2 or to 5:</p>
+
+<p>If it goes to <strong>5</strong>, something fortunate happens: region 5 has exactly the same exits as 1 (in the matrix, their two rows are identical). So carrying on from 5 is like starting the count over from 1: there are \(C(k-1)\) paths left. If it goes to <strong>2</strong>, region 2 can't choose —its only exit is back to 1—, so the path spends two steps (\(1\to2\to1\)) and returns to the starting point: there are \(C(k-2)\) paths left. Adding the two possibilities:</p>
+
+\[ C(k) = C(k-1) + C(k-2). \]
+
+<p>It is, letter for letter, the Fibonacci rule. And now it really is <em>exactly</em> the staircase: two ways to continue, one that advances a step (going to 5) and another that «jumps» two (the detour \(1\to2\to1\)). The asymmetry at 2 wasn't a detail: it was the engine.</p>
+
+<p>Notice what that recurrence means for the <em>rate</em> of growth. In section 1 we saw that the Fibonacci numbers grow, in the long run, by multiplying by \(\varphi\) at each step. Since our paths obey exactly the same rule, they grow at the same rate: the number of paths through \(H_4\) multiplies by \(\varphi=1.618\ldots\) —I told you the golden ratio would come back—. In the full core, by contrast, where each region really does have two exits, the number of paths <strong>doubles</strong>: it multiplies by 2. Two different rates, \(\varphi\) against 2 (mathematicians call that rate the <em>spectral radius</em> of the graph), and that difference changes everything:</p>
+
+<div class="widget" id="w-rhythm">
+  <h4>Two rates of growth: \(\varphi\) against 2</h4>
+  <p style="margin:0 0 8px">Path length, \(m\): <input type="range" min="1" max="14" value="4" id="rh-m" oninput="rhythm()"> <strong id="rh-mval">4</strong></p>
+  <div id="rh-out"></div>
+</div>
+
+<p>Watch the two bars pull apart: the larger \(m\) gets, the rarer it is to dodge region 4 — the paths that avoid it are a fraction of the total that shrinks without brake, at the rate \((\varphi/2)^m\). And now, at last, recall the question from the start. By the number↔path dictionary from the previous section, the numbers that dodge region 4 <strong>are</strong> exactly those paths in \(H_4\). So we now have the full answer: <em>how many</em> numbers dodge 4 is told by the Fibonacci numbers, and <em>how rare</em> they become is told by the ratio \(\varphi/2\). That, written cleanly, is the theorem.</p>
+
+<h2>5. El teorema</h2>
+
+<p>Let's put the pieces together. The numbers that avoid region 4 are, via the graph, paths in \(H_4\); the paths in \(H_4\) are counted by the powers of \(M\); and the powers of \(M\) manufacture Fibonacci numbers. But the exact statement sharpens two things that look like details and are precisely where the subtlety lies: it talks about <strong>odd</strong> numbers and starts looking <strong>from the second step</strong>. It's worth understanding why.</p>
+
+<p>First, let's fix the words, because it's easy to get tangled here. The <em>orbit</em> of a number \(n\) is the sequence you get by applying \(T\) over and over: \(n,\ T(n),\ T(T(n)),\ \ldots\) We'll call \(n\) itself <strong>step 1</strong>, \(T(n)\) <strong>step 2</strong>, \(T(T(n))\) <strong>step 3</strong>, and so on: step \(k\) is the result of applying \(T\) a total of \(k-1\) times. (We'll always use «step» for that position and «apply \(T\)» for the operation; best not to mix the two words.)</p>
+
+<p>And now the fact that explains it all, and that you can check: <strong>whatever odd number you take, a single application of \(T\) lands it in region 2 or 5</strong> — that is, inside \(H_4\). Look: \(7\to11\equiv5\), \(9\to14\equiv2\), \(15\to23\equiv5\). It doesn't matter if the starting odd number is a multiple of 3 —like 3, 9 or 15, which live in region 3, outside the core—: on the first step it lands all the same, and cleanly, inside \(H_4\).</p>
+
+<p>That's where the two conditions come from. We count <strong>odd</strong> numbers because their entry into \(H_4\) is always clean and in a single step; even numbers behave worse —a multiple of 6 can keep looping in region 0, which has an arrow to itself, for several steps before entering the core (for example \(24\to12\to6\to3\), three steps in region 0)—. And we look <strong>from step 2</strong> because step 1 is the starting odd number: its remainder is never 4 (it's odd), so asking it to «avoid region 4» would say nothing, and besides it might be a multiple of 3, which isn't even in the core yet. It's from step 2 on that every odd number is guaranteed inside \(H_4\), and the question «does it manage to stay, dodging region 4?» becomes exactly our path count. Its answer is an exact statement:</p>
+
+<div class="teorema">
+  <p style="margin:0"><span class="titulo">Theorem (Reyes, 2026).</span> For every \(m\ge 1\), of all the odd numbers in \(\{1,\ldots,2^m\}\), <strong>exactly \(F(m+1)\)</strong> have the property that their orbit under \(T\) avoids the remainder class \(4 \pmod 6\) during steps \(2,\ldots,m\). The proportion of survivors decays at rate \((\varphi/2)^m\).</p>
+</div>
+
+<p>Not «approximately», nor «for large \(m\)»: <em>exactly</em> the Fibonacci number \(F(m+1)\), for every \(m\). For example, with \(m=6\): of the 32 odd numbers up to 64, exactly 13 \(=F(7)\) dodge region 4. And the rate \((\varphi/2)^m\)? It's precisely the \(\varphi\)-against-2 duel from the previous viewer: the survivors grow like \(\varphi\) and the total like 2, so their proportion fades on its own. Dodging region 4 is possible, but ever rarer; almost every number ends up stepping on it.</p>
+
+<p>Don't take my word for it — check it. This verifier runs the real count, number by number; and you can click any number to open its orbit and see how it dodges —or doesn't— region 4:</p>
+
+<div class="widget" id="w-teo">
+  <h4>Theorem verifier</h4>
+  <p style="margin:0 0 8px">\(m\): <input type="range" min="1" max="8" value="6" id="teo-m" oninput="teorema()"> <strong id="teo-mval">6</strong></p>
+  <div id="teo-out" style="font:14px var(--font)"></div>
+  <div id="teo-lista" style="margin-top:4px"></div>
+  <div id="teo-orbit"></div>
+</div>
+
+<h2>6. Why it matters</h2>
+
+<p>A connection between Fibonacci and Collatz is lovely in its own right, and it's not the first time someone has glimpsed it: in «Collatz Meets Fibonacci» (Albert, Gudmundsson and Ulfarsson, 2022), certain counts tied to Collatz coincide with the Fibonacci numbers… up to length 14, and from there the match breaks and «extra» terms appear. The difference here is that the count is <em>exact</em> —\(F(m+1)\), for every \(m\) without exception— and with a closed proof. But the theorem says, on top of that, something deeper about the structure of the problem.</p>
+
+<p>In the paper it's proved that <strong>no vertex of the core is dispensable</strong>: delete whichever you like, the growth rate falls strictly below 2, and each vertex has its exact price. Deleting 4 (or 1) leaves it at \(\varphi\approx1.618\); deleting 5, at \(\sqrt2\approx1.414\); and deleting 2 sinks it to 1: without region 2, barely a thread of paths is left. The full hierarchy, \(1<\sqrt2<\varphi<2\), measures how much each region holds up the traffic of the dynamics.</p>
+
+<p>And that has a direct consequence for the conjecture. If there were a cycle other than \(1\to2\to1\) —one of the two ways Collatz could be false—, that cycle would be a closed path in the graph, and a closed path has to square with the traffic rules of the map: in each region, the times you enter and the times you leave must balance out. From that bookkeeping comes something very concrete: the theorem forces <strong>every positive cycle of \(T\) to visit region 2, and moreover to spend more than 18% of its steps there</strong>. We don't know whether such cycles exist, but we already know something concrete about what they'd have to look like: there's no possible cycle living hidden in the margins of the map.</p>
+
+<p>That, for me, is the moral of all this. The Collatz conjecture is still open, and this theorem doesn't settle it. But it shows that beneath the apparent chaos of the trajectories there is a rigid, measurable, exact structure — so exact that at its heart beat, from the very beginning and unseen by anyone, the Fibonacci numbers and the golden ratio.</p>
+
+<hr style="border:none;border-top:1px solid var(--border);margin:2.5rem 0">
+<div class="nota-refs" style="font-size:0.88rem;color:var(--text-soft)">
+  <p>The full result, with the proofs: <em>A Fibonacci theorem for Collatz trajectories via modular graph structure</em>, M.-A. Reyes Jiménez, <a href="https://arxiv.org/abs/2606.02621">arXiv:2606.02621</a> (2026).</p>
+  <p>Background: M. Albert, B. Gudmundsson and H. Ulfarsson, «Collatz Meets Fibonacci», <em>Mathematics Magazine</em> 95 (2022), 130–136.</p>
+  <p>All the simulators on this page run the real computations in your browser: nothing is precooked.</p>
+</div>
+      <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+        <a href="/en/notas/" style="font-size:0.9rem;color:var(--text-soft)">&larr; Back to notes</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and research</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licenses</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script>
+// ---------- utilidades ----------
+const T = n => n % 2 === 0 ? n / 2 : (3 * n + 1) / 2;
+const fibArr = m => { const f=[1n,1n]; while(f.length<m) f.push(f[f.length-1]+f[f.length-2]); return f.slice(0,m); };
+
+// ---------- widget 1: sucesión ----------
+let fibs = [1, 1];
+function fibPinta(){
+  const c = document.getElementById('fib-chips');
+  const n = fibs.length;
+  c.innerHTML = fibs.map((v,i)=>{
+    const cls = n>2 && i===n-1 ? ' nuevo' : n>2 && (i===n-2||i===n-3) ? ' padre' : '';
+    const op  = n>2 && i===n-2 ? '<span class="op">+</span>' : n>2 && i===n-1 ? '<span class="op">=</span>' : '';
+    return op + `<span class="chip${cls}">${v.toLocaleString('en-US')}</span>`;
+  }).join('');
+  const r = document.getElementById('fib-ratio');
+  if(fibs.length>=4){
+    const q = fibs[fibs.length-1]/fibs[fibs.length-2];
+    r.innerHTML = `Ratio of the last two: <strong>${q.toFixed(7)}</strong> &nbsp;→&nbsp; φ = 1.6180339…`;
+  } else r.textContent = '';
+}
+function fibMas(){ if(fibs.length<40) fibs.push(fibs[fibs.length-1]+fibs[fibs.length-2]); fibPinta(); }
+function fibReset(){ fibs=[1,1]; fibPinta(); }
+fibPinta();
+
+// ---------- widget 2: escalera ----------
+function escalera(){
+  const n = +document.getElementById('esc-n').value;
+  document.getElementById('esc-nval').textContent = n;
+  // contar y enumerar composiciones de n con partes 1 y 2
+  const comps = (function gen(k){
+    if(k===0) return [[]];
+    if(k<0) return [];
+    return gen(k-1).map(c=>[1,...c]).concat(gen(k-2).map(c=>[2,...c]));
+  })(n);
+  const f = fibArr(n+2);
+  let html = `<p style="margin:4px 0"><strong>${comps.length.toLocaleString('en-US')}</strong> ways to climb — and F(${n+1}) = <strong class="fib-destacado">${f[n].toLocaleString('en-US')}</strong> ✓
+    &nbsp;·&nbsp; <span class="paso p1">1</span> = up 1 &nbsp; <span class="paso p2">2</span> = up 2</p>`;
+  html += '<div class="chips">'+comps.map(c=>`<span class="forma">${c.map(x=>`<span class="paso p${x}">${x}</span>`).join('')}</span>`).join('')+'</div>';
+  document.getElementById('esc-out').innerHTML = html;
+}
+escalera();
+
+// ---------- widget 3: simulador Collatz + grafo ----------
+let colTimer = null;
+function colPreset(which,n){ document.getElementById('col'+which+'-n').value = n; colSimular(which); }
+function colSimular(which){
+  const colored = (which==='B');
+  let n = Math.floor(+document.getElementById('col'+which+'-n').value);
+  if(!(n>=1)) return;
+  if(colTimer) clearInterval(colTimer);
+  const out = document.getElementById('col'+which+'-out'), info = document.getElementById('col'+which+'-info');
+  out.innerHTML=''; info.textContent='';
+  const traj=[n]; let x=n, pasos=0, max=n;
+  while(x!==1 && pasos<600){ x=T(x); traj.push(x); max=Math.max(max,x); pasos++; }
+  let i=0;
+  if(colored){ clearGraphHL(); document.querySelectorAll('#deriv-pills .rpill').forEach(el=>el.classList.remove('sel')); document.getElementById('deriv-out').innerHTML=''; }
+  colTimer = setInterval(()=>{
+    if(i>=traj.length){
+      clearInterval(colTimer);
+      if(colored){
+        const rs=[...new Set(traj.map(v=>((v%6)+6)%6))].sort((a,b)=>a-b);
+        info.innerHTML = `Reached 1 in <strong>${traj.length-1}</strong> steps · peak height <strong>${max.toLocaleString('en-US')}</strong> · and over the whole journey the remainders took only ${rs.length} values: ` +
+          rs.map(r=>`<span class="chip r${r}">${r}</span>`).join(' ');
+      } else {
+        info.innerHTML = `Reached 1 in <strong>${traj.length-1}</strong> steps · peak height <strong>${max.toLocaleString('en-US')}</strong>`;
+      }
+      return;
+    }
+    const v=traj[i], r=((v%6)+6)%6;
+    out.insertAdjacentHTML('beforeend', colored
+      ? `<span class="chip r${r}">${v.toLocaleString('en-US')}</span>`
+      : `<span class="chip">${v.toLocaleString('en-US')}</span>`);
+    if(colored){
+      document.querySelectorAll('#grafoG .nodo').forEach(c=>c.classList.remove('activo'));
+      const nodo=document.querySelector(`#grafoG #nodo-${r} .nodo`);
+      if(nodo) nodo.classList.add('activo');
+    }
+    i++;
+  }, Math.max(60, 900/traj.length));
+}
+
+// ---------- widget: derivación de aristas (mod 6) ----------
+const m6 = x => ((x%6)+6)%6;
+const colName = ['rv0tx','rv1tx','rv2tx','rv3tx','rv4tx','rv5tx'];
+function miniChip(r){ return `<span class="minichip r${r}">${r}</span>`; }
+function derivPills(){
+  document.getElementById('deriv-pills').innerHTML =
+    '<span style="align-self:center;color:var(--text-faint);margin-right:4px">region:</span>' +
+    [0,1,2,3,4,5].map(r=>`<span class="rpill r${r}" data-r="${r}" onclick="derivShow(${r})">${r}</span>`).join('');
+}
+function clearGraphHL(){
+  document.querySelectorAll('#grafoG .ar-g,#grafoG .ar-a').forEach(e=>e.classList.remove('dim','hot'));
+  document.querySelectorAll('#grafoG .nodo').forEach(c=>c.classList.remove('activo','src','dstg','dsta'));
+}
+function derivShow(a){
+  document.querySelectorAll('#deriv-pills .rpill').forEach(el=>el.classList.toggle('sel', +el.dataset.r===a));
+  const even = a%2===0;
+  const r0 = m6(T(a)), r1 = m6(T(a+6));   // k par (k=0) y k impar (k=1)
+  // light up the two edges of region a on the graph
+  document.querySelectorAll('#grafoG .ar-g,#grafoG .ar-a').forEach(e=>{e.classList.add('dim');e.classList.remove('hot');});
+  const eg=document.getElementById(`e-${a}-${r0}`), ea=document.getElementById(`e-${a}-${r1}`);
+  if(eg){eg.classList.remove('dim');eg.classList.add('hot');}
+  if(ea){ea.classList.remove('dim');ea.classList.add('hot');}
+  document.querySelectorAll('#grafoG .nodo').forEach(c=>c.classList.remove('activo','src','dstg','dsta'));
+  const dg=document.querySelector(`#grafoG #nodo-${r0} .nodo`); if(dg)dg.classList.add('dstg');
+  const da=document.querySelector(`#grafoG #nodo-${r1} .nodo`); if(da)da.classList.add('dsta');
+  const src=document.querySelector(`#grafoG #nodo-${a} .nodo`); if(src)src.classList.add('src');
+  // formula con el paso de sustitución n = 6k + a, todo en función de la paridad de k (LaTeX)
+  const nStr = a===0 ? '6k' : `6k+${a}`;
+  const formula = even
+    ? `T(n)=\\frac{n}{2}=\\frac{${nStr}}{2}=3k${a/2 ? '+'+(a/2) : ''}`
+    : `T(n)=\\frac{3n+1}{2}=\\frac{3(${nStr})+1}{2}=9k+${(3*a+1)/2}`;
+  let rows='';
+  for(let k=0;k<6;k++){
+    const n=a+6*k, tn=T(n), r=m6(tn);
+    rows += `<tr><td style="color:var(--text-faint)">${k}</td><td>${n}</td><td>${tn}</td>`
+      + `<td>${miniChip(r)}</td><td><span class="ktag ${k%2===0?'par':'impar'}">k ${k%2===0?'par':'impar'}</span></td></tr>`;
+  }
+  document.getElementById('deriv-out').innerHTML =
+    `<div style="color:var(--text-soft);margin-bottom:8px">A number with remainder ${a} is written <b>n = ${nStr}</b>. Es <b>${even?'even':'odd'}</b>, so the rule that applies is ${even?'n/2':'(3n+1)/2'}:</div>
+     <div class="dform">\\[ ${formula} \\]</div>
+     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px">
+       <div class="dcase" style="border-color:#C0DD97"><div style="color:var(--verde);font-weight:600;margin-bottom:6px">if k is even</div>
+         <div style="display:flex;align-items:center;gap:7px">${miniChip(r0)}<span style="color:var(--text-soft)">leaves remainder ${r0} → region ${r0}</span></div></div>
+       <div class="dcase" style="border-color:#FAC775"><div style="color:var(--ambar);font-weight:600;margin-bottom:6px">if k is odd</div>
+         <div style="display:flex;align-items:center;gap:7px">${miniChip(r1)}<span style="color:var(--text-soft)">leaves remainder ${r1} → region ${r1}</span></div></div>
+     </div>
+     <table class="dtbl"><tr><th>k</th><th>n</th><th>T(n)</th><th>rem.</th><th></th></tr>${rows}</table>`;
+  if(window.renderMathInElement) renderMathInElement(document.getElementById('deriv-out'),
+    {delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});
+}
+derivPills();
+
+// ---------- widget: matriz de adyacencia de H4 (clic en celda → arista) ----------
+function h4reset(){
+  document.querySelectorAll('#h4mat td').forEach(td=>td.classList.remove('sel'));
+  document.querySelectorAll('#h4svg .ar-g,#h4svg .ar-a').forEach(e=>e.classList.remove('dim','hot'));
+  document.querySelectorAll('#h4svg .nodo').forEach(c=>c.classList.remove('src','dstg','dsta'));
+  document.getElementById('h4msg').innerHTML='';
+}
+function h4cell(cell,r,s,val){
+  document.querySelectorAll('#h4mat td').forEach(td=>td.classList.remove('sel'));
+  cell.classList.add('sel');
+  document.querySelectorAll('#h4svg .ar-g,#h4svg .ar-a').forEach(e=>{e.classList.add('dim');e.classList.remove('hot');});
+  document.querySelectorAll('#h4svg .nodo').forEach(c=>c.classList.remove('src','dstg','dsta'));
+  const src=document.querySelector(`#h4n-${r} .nodo`); if(src)src.classList.add('src');
+  const msg=document.getElementById('h4msg');
+  if(val===1){
+    const e=document.getElementById(`h-${r}-${s}`);
+    if(e){
+      e.classList.remove('dim'); e.classList.add('hot');
+      const dst=document.querySelector(`#h4n-${s} .nodo`);
+      if(dst) dst.classList.add(e.classList.contains('ar-a')?'dsta':'dstg');
+    }
+    msg.innerHTML = `Cell row ${r}, column ${s} = <b>1</b>: yes, there's an arrow from region ${r} to region ${s} — the one just lit up on the graph.`;
+  } else {
+    msg.innerHTML = `Cell row ${r}, column ${s} = <b>0</b>: no arrow goes from region ${r} to region ${s}.`;
+  }
+}
+
+// ---------- widget 4: potencias de la matriz ----------
+const M = [[0n,1n,1n],[1n,0n,0n],[0n,1n,1n]];
+const mulM = (A,B)=>A.map((f,i)=>B[0].map((_,j)=>f.reduce((s,a,k)=>s+a*B[k][j],0n)));
+function matPow(){
+  const k = +document.getElementById('mat-k').value;
+  document.getElementById('mat-kval').textContent = k;
+  let P=[[1n,0n,0n],[0n,1n,0n],[0n,0n,1n]];
+  for(let i=0;i<k;i++) P=mulM(P,M);
+  const fset = new Set(fibArr(25).map(String));
+  const V=['1','2','5'];
+  let html = `<table class="mat" id="matk"><tr><th>M<sup>${k}</sup></th>${V.map(v=>`<th class="hrv${v}">→${v}</th>`).join('')}<th>total</th></tr>`;
+  P.forEach((fila,i)=>{
+    const tot = fila.reduce((a,b)=>a+b,0n);
+    const cells = fila.map((v,j)=>`<td data-rs="${V[i]}-${V[j]}" onclick="matCell(${V[i]},${V[j]})" class="${fset.has(String(v))&&v>0n?'fib-destacado':''}">${v.toLocaleString('en-US')}</td>`).join('');
+    html += `<tr><th class="hrv${V[i]}">${V[i]}</th>${cells}<td class="fib-destacado">${tot.toLocaleString('en-US')}</td></tr>`;
+  });
+  html += '</table>';
+  document.getElementById('mat-out').innerHTML = html;
+  document.getElementById('mat-paths').innerHTML = '';
+  const tot1 = P[0].reduce((a,b)=>a+b,0n);
+  let prev=[[1n,0n,0n],[0n,1n,0n],[0n,0n,1n]];
+  for(let i=0;i<k-1;i++) prev=mulM(prev,M);
+  const totPrev = prev[0].reduce((a,b)=>a+b,0n);
+  document.getElementById('mat-info').innerHTML =
+    `Paths of length ${k} from region 1: <strong>${tot1.toLocaleString('en-US')}</strong>` +
+    (k>1?` &nbsp;·&nbsp; ratio with the previous step: <strong>${(Number(tot1)/Number(totPrev)).toFixed(5)}</strong> → φ`:'') +
+    ` &nbsp;·&nbsp; <span class="fib-destacado">in amber, the Fibonacci numbers</span>`;
+}
+// ---------- widget: dos ritmos de crecimiento (φ vs 2) ----------
+function rhythm(){
+  const m=+document.getElementById('rh-m').value;
+  document.getElementById('rh-mval').textContent=m;
+  const full=Math.pow(2,m);                     // caminos del núcleo completo (se duplica)
+  let c1=2,c2=3,c=(m===1?2:3);                   // C(m): caminos en H4 desde la región 1 (Fibonacci)
+  for(let i=3;i<=m;i++){c=c1+c2;c1=c2;c2=c;}
+  const pct=100*c/full;
+  document.getElementById('rh-out').innerHTML =
+    `<div style="margin-bottom:12px">
+       <div style="display:flex;justify-content:space-between;gap:10px;font-size:13px;margin-bottom:3px"><span>All paths of the core <span style="color:var(--text-faint)">(they double, ×2)</span></span><strong>${full.toLocaleString('en-US')}</strong></div>
+       <div class="barra-wrap"><div class="barra" style="width:100%;background:var(--text-faint)"></div></div>
+     </div>
+     <div>
+       <div style="display:flex;justify-content:space-between;gap:10px;font-size:13px;margin-bottom:3px"><span>Paths that avoid region 4 <span style="color:var(--text-faint)">(Fibonacci, ×φ)</span></span><strong class="fib-destacado">${c.toLocaleString('en-US')}</strong></div>
+       <div class="barra-wrap"><div class="barra" style="width:${pct}%"></div></div>
+     </div>
+     <div class="resultado">Dodging region 4 is possible, but ever rarer: with m = ${m}, exactly <strong>${c.toLocaleString('en-US')}</strong> of the <strong>${full.toLocaleString('en-US')}</strong> paths manage it (${pct.toFixed(1)}%). Both counts are exact; that fraction tends to zero and, in the long run, multiplies by φ/2 ≈ 0.81 at each step.</div>`;
+}
+rhythm();
+
+const H4adj={1:[2,5],2:[1],5:[2,5]};
+function walksLen(r,k){
+  let paths=[[r]];
+  for(let i=0;i<k;i++){const nx=[];for(const p of paths){for(const v of H4adj[p[p.length-1]])nx.push(p.concat(v));}paths=nx;}
+  return paths;
+}
+function matCell(r,s){
+  const k=+document.getElementById('mat-k').value;
+  document.querySelectorAll('#matk td').forEach(td=>td.classList.remove('sel'));
+  const cell=document.querySelector(`#matk td[data-rs="${r}-${s}"]`); if(cell)cell.classList.add('sel');
+  const all=walksLen(r,k).filter(p=>p[p.length-1]===s);
+  const out=document.getElementById('mat-paths');
+  const arrow='<span style="color:var(--text-faint);margin:0 1px">→</span>';
+  const chip=v=>`<span class="minichip r${v}">${v}</span>`;
+  if(all.length===0){
+    out.innerHTML=`<div style="color:var(--text-soft)">There's no path of length ${k} from region ${r} to ${s}: that's why the cell is <b>0</b>.</div>`;
+    return;
+  }
+  const LIM=24;
+  const shown=all.slice(0,LIM).map(p=>`<div class="codpath">${p.map(chip).join(arrow)}</div>`).join('');
+  out.innerHTML=`<div style="color:var(--text-soft);margin-bottom:6px">There are <b>${all.length}</b> path${all.length>1?'s':''} of length ${k} from region ${r} to ${s} — exactly what the cell says. ${all.length<=LIM?'Here they all are:':'Here are the first '+LIM+':'}</div>`
+    +`<div class="codlist">${shown}</div>`
+    +(all.length>LIM?`<div style="color:var(--text-faint);margin-top:6px">… and ${all.length-LIM} more.</div>`:'');
+}
+matPow();
+
+// ---------- widget 5: verificador del teorema ----------
+function teorema(){
+  const m = +document.getElementById('teo-m').value;
+  document.getElementById('teo-mval').textContent = m;
+  const lim = 2**m, sup=[], fail=[];
+  for(let n=1;n<=lim;n+=2){
+    let x=n, ok=true;
+    for(let s=2;s<=m;s++){ x=T(x); if(x%6===4){ok=false;break;} }
+    (ok?sup:fail).push(n);
+  }
+  const F = fibArr(m+2); const fm1 = F[m]; // F(m+1)
+  const prop = sup.length/(lim/2);
+  const okIg = BigInt(sup.length)===fm1;
+  const cond = m>=2 ? `avoid region 4 in steps 2 to ${m}` : `there's no step to check yet, so they all count`;
+  document.getElementById('teo-out').innerHTML =
+    `<p style="margin:4px 0">Odd numbers in {1,…,${lim.toLocaleString('en-US')}}: <strong>${(lim/2).toLocaleString('en-US')}</strong> · survivors (${cond}): <strong>${sup.length.toLocaleString('en-US')}</strong> · F(${m+1}) = <strong>${fm1.toLocaleString('en-US')}</strong> <span class="${okIg?'ok':'fail'}">${okIg?'✓ exact match':'✗'}</span></p>
+     <p style="margin:4px 0">Proportion of survivors: ${(100*prop).toFixed(2)} %</p>
+     <div class="barra-wrap"><div class="barra" style="width:${100*prop}%"></div></div>`;
+  const chip=v=>`<span class="chip teochip" onclick="teoOrbit(${v},${m})">${v}</span>`;
+  let html = `<div style="margin:8px 0 3px;color:var(--text-soft)">Survivors (click one to see its mod-6 coding):</div>`
+    + `<div class="chips">${sup.map(chip).join('')}</div>`;
+  if(fail.length) html += `<div style="margin:10px 0 3px;color:var(--text-soft)">…and those that fall into region 4 (click one to see where):</div>`
+    + `<div class="chips">${fail.map(chip).join('')}</div>`;
+  document.getElementById('teo-lista').innerHTML = html;
+  document.getElementById('teo-orbit').innerHTML = '';
+}
+function teoOrbit(n,m){
+  let x=n, cards=[], hit=-1;
+  for(let k=1;k<=m;k++){
+    if(k>1) x=T(x);
+    const r=((x%6)+6)%6;
+    if(k>=2 && r===4 && hit<0) hit=k;
+    cards.push(`<div class="orbcard${k>=2&&r===4?' hit':''}"><div class="orbk">step ${k}</div><span class="minichip r${r}">${r}</span><div class="orbv">${x.toLocaleString('en-US')}</div></div>`);
+  }
+  const surv = hit<0;
+  document.getElementById('teo-orbit').innerHTML =
+    `<div style="margin-top:12px;color:var(--text-soft)">Mod-6 coding of the orbit of <b>${n}</b> (the remainder at each step; below, the number):</div>
+     <div class="codlist" style="margin-top:6px">${cards.join('')}</div>
+     <div class="resultado">${surv
+       ? 'From step 2 on, all the remainders are in {1, 2, 5} — it never touches region 4: <span class="ok">survivor ✓</span>'
+       : `At step ${hit} it falls into region 4: <span class="fail">doesn't survive ✗</span>`}</div>`;
+}
+teorema();
+</script>
+</body>
+</html>
