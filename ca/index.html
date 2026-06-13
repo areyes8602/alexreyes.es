@@ -41,6 +41,16 @@
 <meta name="twitter:title" content="Àlex Reyes — Matemàtiques, docència i doctorat">
 <meta name="twitter:description" content="Àlex Reyes — Professor de matemàtiques a Maristes Sants-Les Corts i estudiant de doctorat a la UPC. Conjectura de Collatz i Dinàmica simbòlica.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<style>
+  .news-card{background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius,10px);padding:0.85rem 1rem;margin-bottom:1rem}
+  .news-card-head{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;font-weight:600;font-size:0.9rem;margin-bottom:0.5rem}
+  .news-card-count{font-size:0.7rem;font-weight:600;color:var(--text-faint);background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:0.05rem 0.5rem;flex-shrink:0}
+  .news-card-list{list-style:none;margin:0;padding:0;max-height:240px;overflow-y:auto}
+  .news-card-list li{padding:0.55rem 0;border-bottom:1px solid var(--border)}
+  .news-card-list li:first-child{padding-top:0}
+  .news-card-list li:last-child{border-bottom:none;padding-bottom:0}
+  .news-card-empty{color:var(--text-faint);font-size:0.85rem;font-style:italic;padding:0.2rem 0}
+</style>
 </head>
 <body>
 <nav>
@@ -119,8 +129,8 @@
     <div class="container">
       <div class="now-header"><span class="section-label">Ara mateix</span></div>
       <div class="now-grid">
-        <div class="now-item"><span class="now-dot"></span><span>Preprint publicat a arXiv: <a href="https://arxiv.org/abs/2606.02621" target="_blank" rel="noopener">&laquo;A Fibonacci theorem for Collatz trajectories via modular graph structure&raquo;</a></span></div>
-        <div class="now-item"><span class="now-dot now-dot-blue"></span><span>Preparant els exàmens finals de la 3a avaluació</span></div>
+        <div class="now-item"><span class="now-dot"></span><span>Treballant en el <strong>Paper 2</strong>, centrat en fibres, acoblaments forts i la conjectura $h_m=4$.</span></div>
+        <div class="now-item"><span class="now-dot now-dot-blue"></span><span>Tancant el curs 2025&ndash;2026 i preparant el curs 2026&ndash;2027.</span></div>
       </div>
     </div>
   </section>
@@ -131,178 +141,140 @@
       <div class="news-grid">
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot"></span>Docència</h3>
-          <ul class="news-list" id="news-docencia">
-            <li>
+          <div class="news-card"><div class="news-card-head">Copa Cangur<span class="news-card-count">9</span></div><ul class="news-card-list"><li>
               <span class="news-date">12 juny 2026</span>
               <a href="/ca/aula/cangur/examenes/2425-cangur-copa-junior-final/" class="news-text">Comença l'arxiu històric de la Copa Cangur: publicada la <strong>final de l'XI Copa Cangur — categoria Júnior</strong> (La Garriga, 8 maig 2025) amb els <strong>14 problemes resolts i raonats</strong> en tres idiomes — la torre de 84 esferes ($6\,Te(6)=336$ tangències), l'invariant $v+2b$ de les fusions ($66$), el nombre més petit d'uns i zeros divisible per $792$ ($21$ xifres), les rodes del monopatí ($187{,}5$ km) i el semicercle d'àrea $25\pi$. PDF d'enunciats i solucions oficials.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 juny 2026</span>
               <a href="/ca/aula/cangur/examenes/2526-cangur-copa-cadet-fase1-mati/" class="news-text">Publicada la <strong>1a fase (torn de matí) de la XII Copa Cangur — categoria Cadet</strong> (seus locals, 28 gen 2026): els <strong>12 problemes resolts i raonats</strong> en tres idiomes — la doble balança ($3g=30 \Rightarrow 2b+10=60$), el coixí circular l'àrea del qual no necessita $\pi$ ($2r^2=200$), la resta més gran amb xifres invertides ($9801-1089=8712$), el lloc $2026$ de la successió triangular ($64$), els múltiples de $4$ que sumen $4$ ($14$) i els excursionistes del $0{,}24=\tfrac{6}{25}$ ($31$). PDF d'enunciats i solucions oficials.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 juny 2026</span>
               <a href="/ca/aula/cangur/examenes/2526-cangur-copa-junior-fase1-mati/" class="news-text">Publicada la <strong>1a fase (torn de matí) de la XII Copa Cangur — categoria Júnior</strong> (seus locals, 28 gen 2026): els <strong>12 problemes resolts i raonats</strong> en tres idiomes — la formiga al cub de Rubik ($\binom{9}{3}\binom{6}{3}=1680$ camins), els triangles encreuats ($h=\tfrac{20\cdot 30}{50}=12$), les 13 caixes que dupliquen el total ($2^{12}=4096$), l'alternança forçada ($5!\cdot 4!=2880$), el producte que esquiva el $18$ ($68$ nombres) i el canvi d'hora de la Maria ($51$ min). PDF d'enunciats i solucions oficials.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 juny 2026</span>
               <a href="/ca/aula/cangur/examenes/2526-cangur-copa-cadet-fase1-tarda/" class="news-text">Publicada la <strong>1a fase (torn de tarda) de la XII Copa Cangur — categoria Cadet</strong> (seus locals, 28 gen 2026): els <strong>12 problemes resolts i raonats</strong> en tres idiomes — la foto de la promoció ($5$ files de $12$), el mòbil dels $112$ g ($112/2^{4}=7$), el clàssic del $99\%$ que baixa al $98\%$ ($50$), les càmeres Fibonacci ($21$), el repdigit $555\,555\,555 = 45\cdot 12\,345\,679$, el camí del triangle equilàter ($324$ cm), inclusió-exclusió ($5$) i els tres quadrats amb marques iguals ($104$ cm²). PDF d'enunciats i solucions oficials.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 juny 2026</span>
               <a href="/ca/aula/cangur/examenes/2526-cangur-copa-junior-fase1-tarda/" class="news-text">Publicada la <strong>1a fase (torn de tarda) de la XII Copa Cangur — categoria Júnior</strong> (seus locals, 28 gen 2026): els <strong>12 problemes resolts i raonats</strong> en tres idiomes — la relació $AE^{2}+CG^{2}=BF^{2}+DH^{2}$ entre rectangles ($11$), el triple quadrat ($4$ nombres), el binomi amb $(1-x^{5})^{8}(1+2x)^{6}$ ($184$), els salts del cangur ($28$), els tres daus amb $8/15$, les sumes per parelles ($4S=28$), l'escala del quart de cercle ($r^{2}=7225/16$), les 60 monedes ($605$ ct) i el cub de la Mònica ($6\cdot 30\cdot 30$). PDF d'enunciats i solucions oficials.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 juny 2026</span>
               <a href="/ca/aula/cangur/examenes/2526-cangur-copa-cadet-semifinal-a/" class="news-text">Publicada la <strong>Semifinal A de la XII Copa Cangur — categoria Cadet</strong> (la Garriga, 5 maig 2026): els <strong>10 problemes resolts i raonats</strong> en tres idiomes — quadrats que amaguen quadrats ($196, 225, 841$), el deltoide isòsceles ($CD = 2026$), les monedes de la Carme i en Daniel ($5$), l'única terna de primers $\{2,5,7\}$, raons d'àrees ($91$ cm²), els $23$ nombres de Harshad de dues xifres, els taulers 0-1 amb sumes iguals ($14$) i les targetes en $4$ caixes. PDF d'enunciats i solucions oficials.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 juny 2026</span>
               <a href="/ca/aula/cangur/examenes/2526-cangur-copa-cadet-final/" class="news-text">Publicada la <strong>Final de la XII Copa Cangur — categoria Cadet</strong> (la Garriga, 5 maig 2026): els <strong>14 problemes resolts i raonats</strong> en tres idiomes — recorreguts eulerians per sis camins ($64$), el ziga-zaga més gran ($9786$), $2^{6}=(3\cdot 5+1)\cdot 4$ amb cinc consecutius, el trapezi mig hexàgon ($120°$), els pirates dels 2026 cocos ($337$), serps-rates-escorpins enrere ($189$ rates), l'ascensor adversari ($29$ viatges), el torneig amb només dos empats ($133$ punts) i Pitàgores final ($AE^{2}=180$). PDF d'enunciats i solucions oficials.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 juny 2026</span>
               <a href="/ca/aula/cangur/examenes/2526-cangur-copa-junior-semifinal-a/" class="news-text">Publicada la <strong>Semifinal A de la XII Copa Cangur — categoria Júnior</strong> (la Garriga, 5 maig 2026): els <strong>10 problemes resolts i raonats</strong>, en tres idiomes i amb les figures originals — ternes amb $|x||y||z|=6$ ($72$), l'anell de $6n+6$ triangles ($n=16$), el truc $(a+1)(b+1)=1276$ ($28$ i $43$), $x^{6}=1$ sense complexos, el tren amb retard proporcional ($30$ km/h), l'urna amb $b^{2}-10b+9=0$ ($9$ blaves), la circumferència d'àrea $65\pi$ i la unió de triangles de $\tfrac{131}{7}$ cm². PDF d'enunciats i solucions oficials.</a>
-            </li>
-            <li>
-              <span class="news-date">11 juny 2026</span>
-              <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/" class="news-text">Nou apartat de <strong>Selectivitat — PAU MACS</strong>: publicada la <strong>PAU 2026 de Matemàtiques Aplicades CCSS (Sèrie 1)</strong>, resolta el mateix dia de la prova (11 juny 2026). 4 exercicis de 2,5 punts — estudi complet d'una cúbica de seguidors a les xarxes ($f(t)=10t^{3}-120t^{2}+450t+700$, màxim local a $t=3$ i màxim absolut $f(10)=3200$); sistema compatible indeterminat de caixes de fruita (la comanda de 128 € no depèn del preu de les cireres); binomial $X\sim B(2500;\,0{,}5)$ aproximada per $N(1250,\,25)$ amb $P(X\le 1299)=0{,}975$ i interval de confiança $[2{,}935;\,2{,}965]$; i l'exercici 4 amb les <strong>dues opcions resoltes</strong> (probabilitat en taula i matrius amb ingressos de $2\,199\,500$ €; becats $830/103/103$). Correcció pas a pas desplegable i PDF original.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">11 juny 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-junior-final/" class="news-text">Nova secció de proves <strong>Cangur</strong>: publicada la final de la <strong>XII Copa Cangur — categoria Júnior</strong> (la Garriga, 5 maig 2026) amb els <strong>14 problemes resolts i raonats</strong> un a un, amb les figures originals: àrees ombrejades invariants en un quadrat (P1, sempre $\tfrac{1}{2}\cdot 4\cdot 5=10$), recomptes fins (nombres en ziga-zaga: $1260$; quasicapicues: $332$), vuit cercles tangents amb costat $30(\sqrt{3}-1)$ (P7), el perímetre invariant dels rectangles a 45° sobre la diagonal (P13, $84$ cm) i el radi que surt d'un $3$-$4$-$5$ (P14). PDF d'enunciats i de solucions oficials.</a>
-            </li>
-            <li>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">Mat. CCSS · 1r BTL<span class="news-card-count">21</span></div><ul class="news-card-list"><li>
               <span class="news-date">28 maig 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/" class="news-text">Nou examen de <strong>Mat. Aplicades CCSS 1r BTL</strong>: <em>Global 3a avaluació — Tot el curs</em> (28 maig 2026). Examen global de final de curs, amb tot el temari: 6 preguntes de 2 punts (se'n resolen 5, nota màxima 10) — potències, radicals i logaritmes i factorització de polinomis; equacions i sistemes (logarítmiques, irracionals, exponencials, valor absolut, bicuadrades); funcions (domini, composició, inversa i vèrtex); derivades i optimització en context econòmic ($B(x)=-2x^{3}+15x^{2}-24x+7$ → màxim $23\,000$ € a $4$ €/u); diagrama d'arbre i teorema de Bayes ($P(C\mid R)\approx 0{,}396$); i probabilitat condicionada, independència i binomial $X\sim B(10;\,\tfrac{1}{4})$. Totes les preguntes amb correcció pas a pas desplegable i PDF d'enunciats i solucions.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">19 maig 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/" class="news-text">Nou examen de <strong>Mat. Aplicades CCSS 1r BTL</strong>: <em>Parcial 2 — 3a avaluació · Probabilitat</em> (19 maig 2026). 5 preguntes de 2 punts cadascuna — diagrama d'arbre i teorema de Bayes ($P(\text{falta}\mid\text{bona nota})\approx 0{,}114$), diagrama de Venn sobre hàbits de lectura, distribució binomial $X\sim B(10;\,0{,}2)$, urna sense reposició amb 3 colors ($P(\text{almenys 1 groga})=\tfrac{5}{11}$) i propietats de successos $A$ i $B$ ($P(A\cup B)=0{,}7$, resulten independents). Totes les preguntes inclouen correcció pas a pas desplegable.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">14 maig 2026</span>
               <a href="/ca/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html" class="news-text">Comencem els <strong>apunts de la unitat de Distribucions de probabilitat</strong> (Unitat 10) de Mat. Aplicades CCSS 1r BTL: primer apartat <em>Distribució binomial</em>. Variable aleatòria discreta i funció de probabilitat, <strong>problema de Bernoulli</strong> ($p+q=1$) i <strong>distribució binomial</strong> $X\sim B(n,p)$ amb la fórmula clau $P(X{=}k)=\binom{n}{k}p^{k}q^{n-k}$, els <em>nombres combinatoris</em> $\binom{m}{n}=\tfrac{m!}{n!(m-n)!}$ i els paràmetres $E(X)=np$ i $\sigma=\sqrt{npq}$. Exemple guiat del futbolista (5 penals, $p=0{,}7$ → $P(X{=}3)\approx 0{,}3087$) i 6 exercicis amb solució desplegable: funció candidata $\tfrac{2x+1}{6}$, taula amb $P(X{=}3)$ desconegut (amb mitjana i desviació típica), aplicació directa amb $B(6,\,0{,}4)$, el problema de Filosofia ($P(\text{2 suspenen de 8})\approx 0{,}2936$), peces defectuoses ($B(10,\,0{,}05)$) i test multiopció a l'atzar ($B(20,\,0{,}25)$).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">28 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html" class="news-text">Cinquè apartat dels <strong>apunts de Probabilitat</strong> (Unitat 9) de Mat. Aplicades CCSS 1r BTL: <em>Tipus d'esdeveniments</em>. Dues classificacions clau — <strong>compatibles vs incompatibles</strong> ($A \cap B = \varnothing \Rightarrow P(A \cup B) = P(A)+P(B)$, regla de la suma) i <strong>dependents vs independents</strong> ($P(A \cap B) = P(A) \cdot P(B)$, regla del producte). Diagrames de Venn, exemple amb $P(A)=0{,}5$, $P(B)=0{,}3$ → $P(A-B) = 0{,}35$ i una caixa <em>"Independents ≠ Incompatibles"</em>. Tanca amb 4 exercicis (a–d): classificació, regla de la suma amb un dau, regla del producte i 4 escenaris d'independència (dos daus, baralla amb/sense reposició, urna).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html" class="news-text">Segon apartat dels <strong>apunts de Funcions reals</strong> (Unitat 5) de Mat. Aplicades CCSS 1r BTL: <em>Imatges i antiimatges</em>. La <strong>imatge</strong> $f(x_0)$ —sempre única— i l'<strong>antiimatge</strong> $f^{-1}(y)$ —pot ser cap, una o diverses—. Tres exemples d'imatge (per fórmula amb $\log_3(x^2+1)$, per taula i per gràfic), un exemple d'antiimatge ($f(x)=x^2-5$ → $\pm 3$) i una <em>aplicació completa</em> amb la funció d'eficiència empresarial $P(t)=\frac{100}{1+4e^{-0{,}05t}}$ on calculem domini, dues imatges i una antiimatge ($P(t)=70 \Rightarrow t \approx 45$ dies). Tanca amb 4 exercicis (a–d) amb solució desplegable.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/01-domini.html" class="news-text">Comencem els <strong>apunts de la unitat de Funcions reals</strong> (Unitat 5) de Mat. Aplicades CCSS 1r BTL: primer apartat <em>Funcions i domini</em> — definició formal de funció amb l'exemple del cotxe a 100 km/h ($y=200/x$), definició de domini, 5 exemples resolts per tipus (logaritme, racional, arrel d'un quocient amb taula de signes, quocient de dues arrels i exponencial) i al final una bateria de <strong>21 exercicis</strong> (a–u) amb la solució desplegable — inclou casos didàctics com el "forat" a $\frac{(x-1)(x-2)}{x-1}$ i tres funcions definides per peces.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-inequacions/01-lineals.html" class="news-text">Comencem els <strong>apunts de la unitat d'Inequacions</strong> (Unitat 4) de Mat. Aplicades CCSS 1r BTL: primer apartat sobre <em>inequacions de primer grau</em> — definició, les tres regles per resoldre-les (amb la regla clau del <strong>canvi de signe quan multipliquem/dividim per un negatiu</strong>) i quatre exemples resolts (un per dues vies; un amb fraccions; i una <em>ampliació</em> de 2n grau pel mètode dels signes). La solució es presenta com a interval i a la recta numèrica.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/" class="news-text">Publicada la <strong>fitxa d'exercicis d'equacions i sistemes exponencials i logarítmiques</strong> (Unitat 3) de Mat. Aplicades CCSS 1r BTL: 59 exercicis — 24 equacions exponencials (a–x), 21 equacions amb logaritmes (a–u) i 14 sistemes mixtes (a–n) — tots resolts pas a pas amb els mètodes dels apunts i amb la solució desplegable. PDF dels enunciats descarregable. <em>Documenta dues errates del PDF original (1c i 1t).</em></a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/08-sistemes-no-lineals.html" class="news-text">Vuitè apartat dels <strong>apunts d'Equacions i sistemes</strong>: <em>Sistemes no lineals</em>. La <em>substitució</em> com a motor principal — però sense camí únic, a diferència dels lineals. Un exemple introductori $\{xy=-6,\,x^2+y^2=13\}$ resolt per dues vies (substitució i productes notables) i 8 exemples més per casos: tres sistemes logarítmics (canvi $t=\log x,\,z=\log y$), un mixt lineal+log, un radical+exponencial, un radical+log (amb dues solucions) i dos amb dues exponencials (un d'ells via Vieta).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/07-valors-absoluts.html" class="news-text">Setè apartat dels <strong>apunts d'Equacions i sistemes</strong>: <em>Equacions amb valors absoluts</em>. Definició del valor absolut, l'equació senzilla $|E(x)|=k$ (dos casos directes), el <em>mètode dels punts crítics</em> per a $|E(x)|=F(x)$ i un exemple amb tres valors absoluts (4 intervals — un descartat per pertinença, un impossible i dos amb solució vàlida).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html" class="news-text">Sisè apartat dels <strong>apunts d'Equacions i sistemes</strong>: <em>Equacions irracionals</em>. Estratègia (aïllar l'arrel + elevar al quadrat + verificar les solucions extranyes), un exemple treballat amb tres arrels (que acaba sense solució per discriminant negatiu) i 10 exercicis (36a–f i 37a–d) amb la solució amagada — inclou una biquadrada amb 4 solucions i un cas amb arrel doble extranya.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/05-logaritmes.html" class="news-text">Cinquè apartat dels <strong>apunts d'Equacions i sistemes</strong>: <em>Equacions amb logaritmes</em>. Les dues identitats per "treure els logaritmes" ($\log_a B=\log_a C\Rightarrow B=C$ i la definició inversa), un exemple resolt per dues vies i 11 exercicis (a–k) amb la solució amagada — inclou un cas didàctic sense solució.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html" class="news-text">Quart apartat dels <strong>apunts d'Equacions i sistemes</strong>: <em>Equacions exponencials</em>. Quatre tipus (potència $a^x = b$, productes/quocients, sumes/restes amb factor comú, i 2n grau amagat amb canvi de variable), un exemple treballat per tipus i quatre exercicis resolts amb la solució amagada.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html" class="news-text">Tercer apartat dels <strong>apunts d'Equacions i sistemes</strong>: <em>Sessió de repàs</em>. 17 equacions resoltes — 6 polinòmiques (amb Ruffini i agrupació), 4 biquadrades (canvi $x^2=t$ i $x^3=t$) i 7 racionals (inclou un cas clàssic on totes dues solucions són extranyes i l'equació no té solució). Totes amb la solució amagada.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html" class="news-text">Segon apartat dels <strong>apunts d'Equacions i sistemes</strong>: <em>Equacions racionals</em>. Estratègia de 5 passos (factoritzar, MCM, amplificar, eliminar denominadors i resoldre), advertència sobre les solucions <em>extranyes</em> i dos exercicis resolts pas a pas amb la solució amagada.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html" class="news-text">Comencem els <strong>apunts de la unitat d'Equacions i sistemes</strong> (Unitat 3) de Mat. Aplicades CCSS 1r BTL: primer apartat sobre <em>equacions biquadrades</em> — el canvi de variable $x^{n}=z$ que les transforma en una de 2n grau, tres exemples treballats i l'exercici 30 amb les seves quatre equacions resoltes.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html" class="news-text">Quart apartat dels <strong>apunts de Polinomis</strong>: <em>MCD i MCM</em>. Definicions, la propietat $P\cdot Q = \operatorname{MCD}\cdot\operatorname{MCM}$, dos exemples treballats (nombres i polinomis) i tres exercicis resolts. També van al banc com a exercicis de classe.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html" class="news-text">Tercer apartat dels <strong>apunts de Polinomis</strong>: <em>Deures</em> (llibre Baula, ex. 3, 6, 7, 9 i 14a–j). Cinc exercicis sobre valor numèric, divisibilitat per $x+1$, divisió per Ruffini, construcció d'un polinomi a partir d'arrels i deu factoritzacions — tots resolts amb la solució desplegable. També al banc.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/02-factoritzacio.html" class="news-text">Segon apartat dels <strong>apunts de Polinomis</strong>: <em>Factorització</em>. Estratègia segons el grau, factor comú, fórmula de 2n grau ($\Delta=b^{2}-4ac$), productes notables i regla de Ruffini, amb 8 exemples resolts pas a pas.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/01-definicions.html" class="news-text">Comencem els <strong>apunts de la unitat de Polinomis</strong> (Unitat 2) de Mat. Aplicades CCSS 1r BTL: monomi, polinomi, grau, expressió general $P(x)=\sum a_i x^i$, terme principal, terme independent, valor numèric, arrels i factors de grau 1 i 2.</a>
-            </li>
-            <li>
-              <span class="news-date">26 abr 2026</span>
-              <a href="/aula/ccss-1btl/apuntes/u-probabilitat/" class="news-text">Unitat de <strong>Probabilitat</strong> de Mat. Aplicades CCSS 1r BTL completa: definicions, operacions amb conjunts (amb <em>app interactiva</em> de les lleis de Morgan i diagrames de la condicionada), teorema de la probabilitat total, Bayes, i 6 exercicis resolts (un de Selectivitat).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/ca/docencia/ccss-1btl/info/" class="news-text">Publicada la <strong>informació completa</strong> de Mat. Aplicades CCSS 1r BTL: horari, criteris d'avaluació, calendari i temari oficial (llibre Baula).</a>
-            </li>
-            <li>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">2n ESO<span class="news-card-count">3</span></div><ul class="news-card-list"><li>
               <span class="news-date">25 oct 2025</span>
               <a href="/aula/eso-2/examenes/2526-2eso-u01-a/" class="news-text">Publicat l'examen <strong>Tema 1 — Fraccions i decimals</strong> de 2n ESO grup A, amb correcció detallada per apartats.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">1 oct 2025</span>
               <a href="/aula/eso-2/examenes/2526-2eso-u01-previa-a/" class="news-text">Publicat l'examen <strong>Tema 1 — Nombres fraccionaris (PRÈVIA)</strong> de 2n ESO grup A.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">set 2025</span>
               <a href="/aula/eso-2/apuntes/u-fraccions/" class="news-text">Apunts complets de la unitat <strong>Fraccions</strong> publicats per a 2n ESO.</a>
-            </li>
-          </ul>
-          <div class="news-more-wrap"><button class="news-more-btn" data-target="news-docencia" data-more="Veure més notícies" data-less="Veure'n menys">Veure més notícies</button></div>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">Selectivitat · PAU MACS<span class="news-card-count">2</span></div><ul class="news-card-list"><li>
+              <span class="news-date">11 juny 2026</span>
+              <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/" class="news-text">Nou apartat de <strong>Selectivitat — PAU MACS</strong>: publicada la <strong>PAU 2026 de Matemàtiques Aplicades CCSS (Sèrie 1)</strong>, resolta el mateix dia de la prova (11 juny 2026). 4 exercicis de 2,5 punts — estudi complet d'una cúbica de seguidors a les xarxes ($f(t)=10t^{3}-120t^{2}+450t+700$, màxim local a $t=3$ i màxim absolut $f(10)=3200$); sistema compatible indeterminat de caixes de fruita (la comanda de 128 € no depèn del preu de les cireres); binomial $X\sim B(2500;\,0{,}5)$ aproximada per $N(1250,\,25)$ amb $P(X\le 1299)=0{,}975$ i interval de confiança $[2{,}935;\,2{,}965]$; i l'exercici 4 amb les <strong>dues opcions resoltes</strong> (probabilitat en taula i matrius amb ingressos de $2\,199\,500$ €; becats $830/103/103$). Correcció pas a pas desplegable i PDF original.</a>
+            </li><li>
+              <span class="news-date">26 abr 2026</span>
+              <a href="/aula/ccss-1btl/apuntes/u-probabilitat/" class="news-text">Unitat de <strong>Probabilitat</strong> de Mat. Aplicades CCSS 1r BTL completa: definicions, operacions amb conjunts (amb <em>app interactiva</em> de les lleis de Morgan i diagrames de la condicionada), teorema de la probabilitat total, Bayes, i 6 exercicis resolts (un de Selectivitat).</a>
+            </li></ul></div>
         </div>
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot dot-purple"></span>Doctorat</h3>
-          <ul class="news-list" id="news-doctorado">
-            <li>
-              <span class="news-date">13 jun 2026</span>
-              <a href="/ca/notas/fibonacci-collatz/" class="news-text">Nova nota divulgativa: <strong>«Fibonacci amagat dins de Collatz»</strong>. Com els nombres de Fibonacci apareixen, exactament, dins de la conjectura de Collatz — amb simuladors interactius del graf mod 6, el subgraf H<sub>4</sub> i el teorema F(m+1).</a>
-            </li>
-            <li>
-              <span class="news-date">11 jun 2026</span>
-              <a href="/ca/doctorado/visualizaciones/" class="news-text">Noves <strong>visualitzacions interactives</strong> del doctorat: bijeccions Φ<sub>m</sub> i Ψ<sub>m</sub>, graf G mod 6 i mòdul binari. Explora l'estructura combinatòria darrere del paper de Fibonacci i Collatz.</a>
-            </li>
-            <li>
+          <div class="news-card"><div class="news-card-head">Publicacions<span class="news-card-count">2</span></div><ul class="news-card-list"><li>
               <span class="news-date">28 maig 2026</span>
               <a href="https://arxiv.org/abs/2606.02621" class="news-text" target="_blank" rel="noopener">Preprint publicat a arXiv: <strong>«A Fibonacci theorem for Collatz trajectories via modular graph structure»</strong> (arXiv:2606.02621 [math.NT]).</a>
-            </li>
-            <li>
-              <span class="news-date">abr 2026</span>
-              <span class="news-text">Inici del doctorat a la UPC amb el Dr. <strong>Jaume Franch</strong>.</span>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">mar 2026</span>
               <span class="news-text">Primer esborrany del paper <strong>«A Fibonacci theorem for Collatz trajectories via modular graph structure»</strong>.</span>
-            </li>
-            <li>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">Notes i divulgació<span class="news-card-count">2</span></div><ul class="news-card-list"><li>
+              <span class="news-date">13 jun 2026</span>
+              <a href="/ca/notas/fibonacci-collatz/" class="news-text">Nova nota divulgativa: <strong>«Fibonacci amagat dins de Collatz»</strong>. Com els nombres de Fibonacci apareixen, exactament, dins de la conjectura de Collatz — amb simuladors interactius del graf mod 6, el subgraf H<sub>4</sub> i el teorema F(m+1).</a>
+            </li><li>
+              <span class="news-date">11 jun 2026</span>
+              <a href="/ca/doctorado/visualizaciones/" class="news-text">Noves <strong>visualitzacions interactives</strong> del doctorat: bijeccions Φ<sub>m</sub> i Ψ<sub>m</sub>, graf G mod 6 i mòdul binari. Explora l'estructura combinatòria darrere del paper de Fibonacci i Collatz.</a>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">Congressos</div><div class="news-card-empty">Properament.</div></div>
+          <div class="news-card"><div class="news-card-head">Fites<span class="news-card-count">2</span></div><ul class="news-card-list"><li>
+              <span class="news-date">abr 2026</span>
+              <span class="news-text">Inici del doctorat a la UPC amb el Dr. <strong>Jaume Franch</strong>.</span>
+            </li><li>
               <span class="news-date">feb 2026</span>
               <span class="news-text">Avenç en la formalització de la <strong>dinàmica modular fractal</strong> sobre la conjectura de Collatz.</span>
-            </li>
-          </ul>
+            </li></ul></div>
         </div>
       </div>
     </div>

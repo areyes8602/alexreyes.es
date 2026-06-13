@@ -41,6 +41,16 @@
 <meta name="twitter:title" content="Àlex Reyes — Matemáticas, docencia y doctorado">
 <meta name="twitter:description" content="Àlex Reyes — Profesor de matemáticas en Maristes Sants-Les Corts y estudiante de doctorado en la UPC. Conjetura de Collatz y Dinámica simbólica.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<style>
+  .news-card{background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius,10px);padding:0.85rem 1rem;margin-bottom:1rem}
+  .news-card-head{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;font-weight:600;font-size:0.9rem;margin-bottom:0.5rem}
+  .news-card-count{font-size:0.7rem;font-weight:600;color:var(--text-faint);background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:0.05rem 0.5rem;flex-shrink:0}
+  .news-card-list{list-style:none;margin:0;padding:0;max-height:240px;overflow-y:auto}
+  .news-card-list li{padding:0.55rem 0;border-bottom:1px solid var(--border)}
+  .news-card-list li:first-child{padding-top:0}
+  .news-card-list li:last-child{border-bottom:none;padding-bottom:0}
+  .news-card-empty{color:var(--text-faint);font-size:0.85rem;font-style:italic;padding:0.2rem 0}
+</style>
 </head>
 <body>
 <nav>
@@ -120,8 +130,8 @@
     <div class="container">
       <div class="now-header"><span class="section-label">Ahora mismo</span></div>
       <div class="now-grid">
-        <div class="now-item"><span class="now-dot"></span><span>Preprint publicado en arXiv: <a href="https://arxiv.org/abs/2606.02621" target="_blank" rel="noopener">&laquo;A Fibonacci theorem for Collatz trajectories via modular graph structure&raquo;</a></span></div>
-        <div class="now-item"><span class="now-dot now-dot-blue"></span><span>Preparando los exámenes finales de la 3&ordf; evaluación</span></div>
+        <div class="now-item"><span class="now-dot"></span><span>Trabajando en el <strong>Paper 2</strong>, centrado en fibras, acoplamientos fuertes y la conjetura $h_m=4$.</span></div>
+        <div class="now-item"><span class="now-dot now-dot-blue"></span><span>Cerrando el curso 2025&ndash;2026 y preparando el curso 2026&ndash;2027.</span></div>
       </div>
     </div>
   </section>
@@ -132,234 +142,182 @@
       <div class="news-grid">
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot"></span>Docencia</h3>
-          <ul class="news-list" id="news-docencia">
-            <li>
+          <div class="news-card"><div class="news-card-head">Copa Cangur<span class="news-card-count">9</span></div><ul class="news-card-list"><li>
               <span class="news-date">12 jun 2026</span>
               <a href="/aula/cangur/examenes/2425-cangur-copa-junior-final/" class="news-text">Empieza el archivo histórico de la Copa Cangur: publicada la <strong>final de la XI Copa Cangur — categoría Júnior</strong> (La Garriga, 8 may 2025) con los <strong>14 problemas resueltos y razonados</strong> en tres idiomas — la torre de 84 esferas ($6\,Te(6)=336$ tangencias), el invariante $v+2b$ de las fusiones ($66$), el menor número de unos y ceros divisible por $792$ ($21$ cifras), las ruedas del monopatín ($187{,}5$ km) y el semicírculo de área $25\pi$. PDF de enunciados y soluciones oficiales.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 jun 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-cadet-fase1-mati/" class="news-text">Publicada la <strong>1.ª fase (turno de mañana) de la XII Copa Cangur — categoría Cadet</strong> (sedes locales, 28 ene 2026): los <strong>12 problemas resueltos y razonados</strong> en tres idiomas — la doble balanza ($3g=30 \Rightarrow 2b+10=60$), el cojín circular cuya área no necesita $\pi$ ($2r^2=200$), la mayor resta con cifras invertidas ($9801-1089=8712$), el lugar $2026$ de la sucesión triangular ($64$), los múltiplos de $4$ que suman $4$ ($14$) y los excursionistas del $0{,}24=\tfrac{6}{25}$ ($31$). PDF de enunciados y soluciones oficiales.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 jun 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-junior-fase1-mati/" class="news-text">Publicada la <strong>1.ª fase (turno de mañana) de la XII Copa Cangur — categoría Júnior</strong> (sedes locales, 28 ene 2026): los <strong>12 problemas resueltos y razonados</strong> en tres idiomas — la hormiga en el cubo de Rubik ($\binom{9}{3}\binom{6}{3}=1680$ caminos), los triángulos cruzados ($h=\tfrac{20\cdot 30}{50}=12$), las 13 cajas que duplican el total ($2^{12}=4096$), la alternancia forzada ($5!\cdot 4!=2880$), el producto que esquiva el $18$ ($68$ números) y el cambio de hora de María ($51$ min). PDF de enunciados y soluciones oficiales.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 jun 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-cadet-fase1-tarda/" class="news-text">Publicada la <strong>1.ª fase (turno de tarde) de la XII Copa Cangur — categoria Cadet</strong> (seus locals, 28 ene 2026): los <strong>12 problemas resueltos y razonados</strong> en tres idiomas — la foto de la promoción ($5$ filas de $12$), el móvil de los $112$ g ($112/2^{4}=7$), el clásico del $99\%$ que baja al $98\%$ ($50$), las cámaras Fibonacci ($21$), el repdigit $555\,555\,555 = 45\cdot 12\,345\,679$, el camino del triángulo equilátero ($324$ cm), inclusión-exclusión ($5$) y los tres cuadrados con marcas iguales ($104$ cm²). PDF de enunciados y soluciones oficiales.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 jun 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-junior-fase1-tarda/" class="news-text">Publicada la <strong>1.ª fase (turno de tarde) de la XII Copa Cangur — categoria Júnior</strong> (seus locals, 28 ene 2026): los <strong>12 problemas resueltos y razonados</strong> en tres idiomas — la relación $AE^{2}+CG^{2}=BF^{2}+DH^{2}$ entre rectángulos ($11$), el triple cuadrado ($4$ números), el binomio con $(1-x^{5})^{8}(1+2x)^{6}$ ($184$), los saltos del canguro ($28$), los tres dados con $8/15$, las sumas por parejas ($4S=28$), la escalera del cuarto de círculo ($r^{2}=7225/16$), las 60 monedas ($605$ ct) y el cubo de Mònica ($6\cdot 30\cdot 30$). PDF de enunciados y soluciones oficiales.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 jun 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-cadet-semifinal-a/" class="news-text">Publicada la <strong>Semifinal A de la XII Copa Cangur — categoria Cadet</strong> (La Garriga, 5 may 2026): los <strong>10 problemas resueltos y razonados</strong> en tres idiomas — cuadrados que esconden cuadrados ($196, 225, 841$), el deltoide isósceles ($CD = 2026$), las monedas de Carme y Daniel ($5$), la única terna prima $\{2,5,7\}$, razones de áreas ($91$ cm²), los $23$ números de Harshad de dos cifras, los tableros 0-1 con sumas iguales ($14$) y las tarjetas en $4$ cajas. PDF de enunciados y soluciones oficiales.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 jun 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-cadet-final/" class="news-text">Publicada la <strong>Final de la XII Copa Cangur — categoria Cadet</strong> (La Garriga, 5 may 2026): los <strong>14 problemas resueltos y razonados</strong> en tres idiomas — recorridos eulerianos por seis caminos ($64$), el mayor zigzag ($9786$), $2^{6}=(3\cdot 5+1)\cdot 4$ con cinco consecutivos, el trapecio medio hexágono ($120°$), los piratas de los 2026 cocos ($337$), serpientes-ratas-escorpiones hacia atrás ($189$ ratas), el ascensor adversario ($29$ viajes), el torneo con solo dos empates ($133$ puntos) y Pitágoras final ($AE^{2}=180$). PDF de enunciados y soluciones oficiales.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">12 jun 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-junior-semifinal-a/" class="news-text">Publicada la <strong>Semifinal A de la XII Copa Cangur — categoria Júnior</strong> (La Garriga, 5 may 2026): los <strong>10 problemas resueltos y razonados</strong>, en tres idiomas y con las figuras originales — ternas con $|x||y||z|=6$ ($72$), el anillo de $6n+6$ triángulos ($n=16$), el truco $(a+1)(b+1)=1276$ ($28$ y $43$), $x^{6}=1$ sin complejos, el tren con retraso proporcional ($30$ km/h), la urna con $b^{2}-10b+9=0$ ($9$ azules), la circunferencia de área $65\pi$ y la unión de triángulos de $\tfrac{131}{7}$ cm². PDF de enunciados y soluciones oficiales.</a>
-            </li>
-            <li>
-              <span class="news-date">11 jun 2026</span>
-              <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/" class="news-text">Nuevo apartado de <strong>Selectividad — PAU MACS</strong>: publicada la <strong>PAU 2026 de Matemáticas Aplicadas CCSS (Serie 1)</strong>, resuelta el mismo día de la prueba (11 jun 2026). 4 ejercicios de 2,5 puntos — estudio completo de una cúbica de seguidores en redes ($f(t)=10t^{3}-120t^{2}+450t+700$, máximo local en $t=3$ y máximo absoluto $f(10)=3200$); sistema compatible indeterminado de cajas de fruta (el pedido de 128 € no depende del precio de las cerezas); binomial $X\sim B(2500;\,0{,}5)$ aproximada por $N(1250,\,25)$ con $P(X\le 1299)=0{,}975$ e intervalo de confianza $[2{,}935;\,2{,}965]$; y el ejercicio 4 con las <strong>dos opciones resueltas</strong> (probabilidad en tabla y matrices con ingresos de $2\,199\,500$ €; becados $830/103/103$). Corrección paso a paso desplegable y PDF original.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">11 jun 2026</span>
               <a href="/aula/cangur/examenes/2526-cangur-copa-junior-final/" class="news-text">Nueva sección de pruebas <strong>Cangur</strong>: publicada la final de la <strong>XII Copa Cangur — categoria Júnior</strong> (La Garriga, 5 may 2026) con los <strong>14 problemas resueltos y razonados</strong> uno a uno, con las figuras originales: áreas sombreadas invariantes en un cuadrado (P1, siempre $\tfrac{1}{2}\cdot 4\cdot 5=10$), recuentos finos (nombres en ziga-zaga: $1260$; quasicapicúas: $332$), ocho círculos tangentes con costado $30(\sqrt{3}-1)$ (P7), el perímetro invariante de los rectángulos a 45° sobre la diagonal (P13, $84$ cm) y el radio que sale de un $3$-$4$-$5$ (P14). PDF de enunciados y de soluciones oficiales.</a>
-            </li>
-            <li>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">Mat. CCSS · 1r BTL<span class="news-card-count">36</span></div><ul class="news-card-list"><li>
               <span class="news-date">28 may 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3t/" class="news-text">Nuevo examen de <strong>Mat. Aplicadas CCSS 1º BTL</strong>: <em>Global 3.ª evaluación — Tot el curs</em> (28 may 2026). Examen global de final de curso, con todo el temario: 6 preguntas de 2 puntos (se resuelven 5, nota máxima 10) — potencias, radicales y logaritmos y factorización de polinomios; equaciones y sistemas (logarítmicas, irracionales, exponenciales, valor absoluto, bicuadradas); funciones (dominio, composición, inversa y vértice); derivadas y optimización en contexto económico ($B(x)=-2x^{3}+15x^{2}-24x+7$ → máximo $23\,000$ € a $4$ €/u); diagrama de árbol y teorema de Bayes ($P(C\mid R)\approx 0{,}396$); y probabilidad condicionada, independencia y binomial $X\sim B(10;\,\tfrac{1}{4})$. Todas las preguntas con corrección paso a paso desplegable y PDF de enunciados y soluciones.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">19 may 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t3p2/" class="news-text">Nuevo examen de <strong>Mat. Aplicadas CCSS 1º BTL</strong>: <em>Parcial 2 — 3.ª evaluación · Probabilidad</em> (19 may 2026). 5 preguntas de 2 puntos cada una — diagrama de árbol y teorema de Bayes ($P(\text{falta}\mid\text{buena nota})\approx 0{,}114$), diagrama de Venn sobre hábitos de lectura, distribución binomial $X\sim B(10;\,0{,}2)$, urna sin reposición con 3 colores ($P(\text{al menos 1 amarilla})=\tfrac{5}{11}$) y propiedades de los sucesos $A$ y $B$ ($P(A\cup B)=0{,}7$, resultan independientes). Todas las preguntas incluyen corrección paso a paso desplegable.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">14 may 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/01-binomial.html" class="news-text">Empezamos los <strong>apuntes de la unidad de Distribucions de probabilitat</strong> (Unidad 10) de Mat. Aplicadas CCSS 1º BTL: primer apartado <em>Distribució binomial</em>. Variable aleatoria discreta y función de probabilidad, <strong>problema de Bernoulli</strong> ($p+q=1$) y <strong>distribución binomial</strong> $X\sim B(n,p)$ con la fórmula clave $P(X{=}k)=\binom{n}{k}p^{k}q^{n-k}$, los <em>nombres combinatoris</em> $\binom{m}{n}=\tfrac{m!}{n!(m-n)!}$ y los parámetros $E(X)=np$ y $\sigma=\sqrt{npq}$. Ejemplo guiado del futbolista (5 penaltis, $p=0{,}7$ → $P(X{=}3)\approx 0{,}3087$) y 6 ejercicios con solución desplegable: función candidata $\tfrac{2x+1}{6}$, tabla con $P(X{=}3)$ desconocido (con media y desviación típica), aplicación directa con $B(6,\,0{,}4)$, el problema de Filosofía ($P(\text{2 suspenden de 8})\approx 0{,}2936$), peças defectuoses ($B(10,\,0{,}05)$) y test multiopción a la suerte ($B(20,\,0{,}25)$).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">28 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-probabilitat/05-tipus-esdeveniments.html" class="news-text">Quinto apartado de los <strong>apuntes de Probabilitat</strong> (Unidad 9) de Mat. Aplicadas CCSS 1º BTL: <em>Tipus d'esdeveniments</em>. Dos clasificaciones clave — <strong>compatibles vs incompatibles</strong> ($A \cap B = \varnothing \Rightarrow P(A \cup B) = P(A)+P(B)$, regla de la suma) y <strong>dependents vs independents</strong> ($P(A \cap B) = P(A) \cdot P(B)$, regla del producto). Diagramas de Venn, ejemplo con $P(A)=0{,}5$, $P(B)=0{,}3$ → $P(A-B) = 0{,}35$ y un aviso clave <em>"Independents ≠ Incompatibles"</em>. Cierra con 4 ejercicios (a–d): clasificación, regla de la suma con un dado, regla del producto y 4 escenarios de independencia (dos dados, baraja con/sin reposición, urna).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html" class="news-text">Segundo apartado de los <strong>apuntes de Funcions reals</strong> (Unidad 5) de Mat. Aplicadas CCSS 1º BTL: <em>Imatges i antiimatges</em>. La <strong>imagen</strong> $f(x_0)$ —siempre única— y la <strong>antiimagen</strong> $f^{-1}(y)$ —puede tener cero, una o varias soluciones—. Tres ejemplos de imagen (por fórmula con $\log_3(x^2+1)$, por tabla y por gráfico), un ejemplo de antiimagen ($f(x)=x^2-5$ → $\pm 3$) y una <em>aplicación completa</em> con la función de eficiencia empresarial $P(t)=\frac{100}{1+4e^{-0{,}05t}}$ donde calculamos dominio, dos imágenes y una antiimagen ($P(t)=70 \Rightarrow t \approx 45$ días). Cierra con 4 ejercicios (a–d) con solución desplegable.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/01-domini.html" class="news-text">Empezamos los <strong>apuntes de la unidad de Funcions reals</strong> (Unidad 5) de Mat. Aplicadas CCSS 1º BTL: primer apartado <em>Funcions i domini</em> — definición formal de función con el ejemplo del coche a 100 km/h ($y=200/x$), definición de dominio, 5 ejemplos resueltos por tipos (logaritmo, racional, raíz de un cociente con tabla de signos, cociente de dos raíces y exponencial) y al final una bateria de <strong>21 ejercicios</strong> (a–u) con la solución desplegable — incluyendo casos didácticos como el "agujero" en $\frac{(x-1)(x-2)}{x-1}$ y tres funciones definidas a trozos.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-inequacions/01-lineals.html" class="news-text">Empezamos los <strong>apuntes de la unidad d'Inequacions</strong> (Unidad 4) de Mat. Aplicadas CCSS 1º BTL: primer apartado sobre <em>inecuaciones de primer grado</em> — definición, las tres reglas para resolverlas (con la regla clave del <strong>cambio de signo cuando se multiplica/divide por un negativo</strong>) y cuatro ejemplos resueltos (uno por dos vías; uno con fracciones; y una <em>ampliación</em> de 2º grado por el método de los signos). La solución se presenta como intervalo y sobre la recta numérica.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/ejercicios/u-eq-exponencials-logaritmiques/" class="news-text">Publicada la <strong>ficha de ejercicios de equaciones y sistemas exponenciales y logarítmicas</strong> (Unidad 3) de Mat. Aplicadas CCSS 1º BTL: 59 ejercicios — 24 ecuaciones exponenciales (a–x), 21 ecuaciones logarítmicas (a–u) y 14 sistemas mixtos (a–n) — todos resueltos paso a paso con los métodos de los apuntes y la solución desplegable. PDF de enunciados descargable. <em>Documenta dos erratas del PDF original (1c y 1t).</em></a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/08-sistemes-no-lineals.html" class="news-text">Octavo apartado de los <strong>apuntes de Equacions i sistemes</strong>: <em>Sistemas no lineales</em>. La <em>sustitución</em> como motor principal — pero sin un único camino fijo, a diferencia de los lineales. Un ejemplo introductorio $\{xy=-6,\,x^2+y^2=13\}$ resuelto por dos vías (sustitución y productos notables) y 8 ejemplos más por casos: tres sistemas logarítmicos (cambio $t=\log x,\,z=\log y$), un mixto lineal+log, un radical+exponencial, un radical+log (con dos soluciones) y dos con dos exponenciales (uno vía Vieta).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/07-valors-absoluts.html" class="news-text">Séptimo apartado de los <strong>apuntes de Equacions i sistemes</strong>: <em>Ecuaciones con valores absolutos</em>. Definición del valor absoluto, la ecuación sencilla $|E(x)|=k$ (dos casos directos), el <em>método de los puntos críticos</em> para $|E(x)|=F(x)$ y un ejemplo con tres valores absolutos (4 intervalos — uno descartado por pertenencia, uno imposible y dos con solución válida).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/06-irracionals.html" class="news-text">Sexto apartado de los <strong>apuntes de Equacions i sistemes</strong>: <em>Ecuaciones irracionales</em>. Estrategia (aislar la raíz + elevar al cuadrado + verificar las soluciones extrañas), un ejemplo trabajado con tres raíces (que acaba sin solución por discriminante negativo) y 10 ejercicios (36a–f y 37a–d) con solución oculta — incluyendo una bicuadrada con 4 soluciones y un caso con raíz doble extraña.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/05-logaritmes.html" class="news-text">Quinto apartado de los <strong>apuntes de Equacions i sistemes</strong>: <em>Ecuaciones con logaritmos</em>. Las dos identidades para "quitar los logaritmos" ($\log_a B=\log_a C\Rightarrow B=C$ y la definición inversa), un ejemplo resuelto por dos vías y 11 ejercicios (a–k) con solución oculta — incluyendo un caso didáctico sin solución.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/04-exponencials.html" class="news-text">Cuarto apartado de los <strong>apuntes de Equacions i sistemes</strong>: <em>Ecuaciones exponenciales</em>. Cuatro tipos (potencia $a^x = b$, productos/cocientes, sumas/restas con factor común, y 2º grado oculto con cambio de variable), un ejemplo trabajado por tipo y cuatro ejercicios resueltos con solución oculta.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/03-repas.html" class="news-text">Tercer apartado de los <strong>apuntes de Equacions i sistemes</strong>: <em>Sesión de repaso</em>. 17 ecuaciones resueltas — 6 polinómicas (con Ruffini y agrupación), 4 bicuadradas (cambio $x^2=t$ y $x^3=t$) y 7 racionales (incluyendo un caso clásico donde las dos soluciones son extrañas y la ecuación no tiene solución). Todas con solución oculta.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html" class="news-text">Segundo apartado de los <strong>apuntes de Equacions i sistemes</strong>: <em>Ecuaciones racionales</em>. Estrategia de 5 pasos (factorizar, MCM, amplificar, eliminar denominadores y resolver), aviso sobre las soluciones <em>extrañas</em> y dos ejercicios resueltos paso a paso con la solución oculta.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html" class="news-text">Empezamos los <strong>apuntes de la unidad de Equacions i sistemes</strong> (Unidad 3) de Mat. Aplicadas CCSS 1º BTL: primer apartado sobre <em>ecuaciones bicuadradas</em> — el cambio de variable $x^{n}=z$ que las transforma en una de 2º grado, tres ejemplos trabajados y el ejercicio 30 con sus cuatro ecuaciones resueltas.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/04-mcd-mcm.html" class="news-text">Cuarto apartado de los <strong>apuntes de Polinomis</strong>: <em>MCD i MCM</em>. Definiciones, la propiedad $P\cdot Q = \operatorname{MCD}\cdot\operatorname{MCM}$, dos ejemplos trabajados (números y polinomios) y tres ejercicios resueltos. También van al banco como ejercicios de clase.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/03-deures.html" class="news-text">Tercer apartado de los <strong>apuntes de Polinomis</strong>: <em>Deures</em> (libro Baula, ejs. 3, 6, 7, 9 y 14a–j). Cinco ejercicios sobre valor numérico, divisibilidad por $x+1$, división por Ruffini, construcción de un polinomio a partir de raíces y diez factorizaciones — todos resueltos con la solución desplegable. También al banco.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/02-factoritzacio.html" class="news-text">Segundo apartado de los <strong>apuntes de Polinomis</strong>: <em>Factorització</em>. Estrategia según el grado, factor común, fórmula de 2º grado ($\Delta=b^{2}-4ac$), productos notables y regla de Ruffini, con 8 ejemplos resueltos paso a paso.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">27 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-polinomis/01-definicions.html" class="news-text">Empezamos los <strong>apuntes de la unidad de Polinomis</strong> (Unidad 2) de Mat. Aplicadas CCSS 1º BTL: monomi, polinomi, grado, expresión general $P(x)=\sum a_i x^i$, término principal, término independiente, valor numérico, raíces y factores de grado 1 y 2.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/06-exercicis-logaritmes.html" class="news-text">Sexto apartado de los <strong>apuntes de Nombres reals</strong>: <em>Ejercicios de logaritmos</em>. Logaritmo de una expresión con raíces anidadas (47) y cuatro ecuaciones logarítmicas (49) resueltas paso a paso. Los ejercicios también van al banco como ejercicios de clase.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/05-exercicis-basics.html" class="news-text">Quinto apartado de los <strong>apuntes de Nombres reals</strong>: <em>10 ejercicios básicos</em> de potencias, raíces y definición de logaritmo. Cada apartado es un desplegable: el enunciado se ve al instante y la solución se descubre al hacer clic.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/04-logaritmes.html" class="news-text">Cuarto apartado de los <strong>apuntes de Nombres reals</strong>: <em>Logaritmes</em>. Definición $\log_{a} b = c \Leftrightarrow a^{c} = b$, tabla de propiedades, tipos (decimal, natural, base $a$) y la relación con la exponencial: cómo resolver $5^x = 7$ usando logaritmos.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/03-racionalitzacio.html" class="news-text">Tercer apartado de los <strong>apuntes de Nombres reals</strong>: <em>Racionalització</em>. Tres técnicas (raíz cuadrada, raíz no cuadrada y suma/resta de raíces con conjugado) y 2 ejercicios resueltos (32 y 36) que también van al banco.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/02-potencies-i-arrels.html" class="news-text">Segundo apartado de los <strong>apuntes de Nombres reals</strong>: <em>Potències i arrels</em>. Definiciones, tablas de propiedades y 6 ejercicios resueltos (incluido el del nombre d'or $\varphi^2 = \varphi + 1$). Los ejercicios están también en el banco como ejercicios de clase.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-nombres-reals/" class="news-text">Empezamos los <strong>apuntes de la unidad de Nombres reals</strong> (Unidad 1) de Mat. Aplicadas CCSS 1º BTL: primer apartado con conjuntos numéricos, demostración de la irracionalidad de $\sqrt{2}$, intervalos y operaciones de conjuntos.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/ejercicios/u-equacions-pol-bi-rac/" class="news-text">Publicada la <strong>ficha de ejercicios de equaciones</strong> (Unidad 3) de Mat. Aplicadas CCSS 1º BTL: 17 ejercicios — 6 polinómicas, 4 bicuadradas y 7 racionales — con solución desplegable y PDF descargable.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t1p1/" class="news-text">Publicado el <strong>Parcial 1 — 1ª evaluación</strong> de Mat. Aplicadas CCSS 1º BTL (31 oct 2025): cuatro preguntas sobre radicales y racionalización, factorización con MCD/MCM, logaritmos y cuatro ecuaciones (incluida una de grado 5 por Ruffini), con corrección detallada.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov-bis/" class="news-text">Publicada la <strong>mini prueba 1 (bis)</strong> de Mat. Aplicadas CCSS 1º BTL (14 oct 2025): siete cuestiones sobre potencias, raíces, racionalización, logaritmos y cuatro ecuaciones logarítmicas, con corrección detallada paso a paso.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t1-prov2/" class="news-text">Publicada la <strong>mini prueba 2 de la 1ª evaluación</strong> de Mat. Aplicadas CCSS 1º BTL (14 nov 2025): seis ecuaciones (radical, valor absoluto, logarítmica, exponencial), con corrección detallada paso a paso. La versión <em>bis</em> del 20 nov 2025 (ocho problemas) también se ha publicado por separado.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-u01-prov/" class="news-text">Publicada la <strong>mini prueba de la unidad 1</strong> (Nombres reals) de Mat. Aplicadas CCSS 1º BTL: tres preguntas cortas sobre potencias y raíces, definición de logaritmo y una ecuación logarítmica, con corrección detallada.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t1t/" class="news-text">Publicado el <strong>Global 1ª evaluación</strong> de Mat. Aplicadas CCSS 1º BTL (25 nov 2025): tres bloques sobre operaciones con radicales, potencias y logaritmos; factorización de polinomios y MCD/MCM; y ocho ecuaciones/sistemas para elegir cinco, con corrección detallada paso a paso.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p1/" class="news-text">Publicado el <strong>Parcial 1 — 2ª evaluación</strong> de Mat. Aplicadas CCSS 1º BTL (23 ene 2026): ocho preguntas sobre dominio, imagen, inversa, composición, derivada de una cúbica, parábola por tres puntos y lectura gráfica, con corrección detallada.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/examenes/2526-1btl-macs-t2p2/" class="news-text">Publicado el <strong>Parcial 2 — 2ª evaluación</strong> de Mat. Aplicadas CCSS 1º BTL (12 feb 2026): cinco preguntas sobre derivadas, monotonía, valor absoluto a trozos, modelo cuadrático y una cúbica de Selectividad, con corrección detallada por apartados.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/aula/ccss-1btl/apuntes/u-probabilitat/" class="news-text">Unidad de <strong>Probabilitat</strong> de Mat. Aplicadas CCSS 1º BTL al completo: definiciones, operaciones con conjuntos (con <em>app interactiva</em> de las leyes de Morgan y diagramas de la condicionada), teorema de la probabilidad total, Bayes, y 6 ejercicios resueltos (incluido uno de Selectividad).</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">26 abr 2026</span>
               <a href="/docencia/ccss-1btl/info/" class="news-text">Publicada la <strong>información completa</strong> de Mat. Aplicadas CCSS 1º BTL: horario, criterios de evaluación, calendario y temario oficial (libro Baula).</a>
-            </li>
-            <li>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">2n ESO<span class="news-card-count">3</span></div><ul class="news-card-list"><li>
               <span class="news-date">25 oct 2025</span>
               <a href="/aula/eso-2/examenes/2526-2eso-u01-a/" class="news-text">Publicado el examen <strong>Tema 1 — Fraccions i decimals</strong> de 2n ESO grup A, con corrección detallada por apartados.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">1 oct 2025</span>
               <a href="/aula/eso-2/examenes/2526-2eso-u01-previa-a/" class="news-text">Publicado el examen <strong>Tema 1 — Nombres fraccionaris (PRÈVIA)</strong> de 2n ESO grup A.</a>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">set 2025</span>
               <a href="/aula/eso-2/apuntes/u-fraccions/" class="news-text">Apuntes completos de la unidad <strong>Fraccions</strong> publicados para 2n ESO.</a>
-            </li>
-          </ul>
-          <div class="news-more-wrap"><button class="news-more-btn" data-target="news-docencia" data-more="Ver más noticias" data-less="Ver menos">Ver más noticias</button></div>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">Selectivitat · PAU MACS<span class="news-card-count">1</span></div><ul class="news-card-list"><li>
+              <span class="news-date">11 jun 2026</span>
+              <a href="/aula/ccss-2btl/selectivitat/pau-2026-macs-s1/" class="news-text">Nuevo apartado de <strong>Selectividad — PAU MACS</strong>: publicada la <strong>PAU 2026 de Matemáticas Aplicadas CCSS (Serie 1)</strong>, resuelta el mismo día de la prueba (11 jun 2026). 4 ejercicios de 2,5 puntos — estudio completo de una cúbica de seguidores en redes ($f(t)=10t^{3}-120t^{2}+450t+700$, máximo local en $t=3$ y máximo absoluto $f(10)=3200$); sistema compatible indeterminado de cajas de fruta (el pedido de 128 € no depende del precio de las cerezas); binomial $X\sim B(2500;\,0{,}5)$ aproximada por $N(1250,\,25)$ con $P(X\le 1299)=0{,}975$ e intervalo de confianza $[2{,}935;\,2{,}965]$; y el ejercicio 4 con las <strong>dos opciones resueltas</strong> (probabilidad en tabla y matrices con ingresos de $2\,199\,500$ €; becados $830/103/103$). Corrección paso a paso desplegable y PDF original.</a>
+            </li></ul></div>
         </div>
         <div class="news-col">
           <h3 class="news-col-title"><span class="dot dot-purple"></span>Doctorado</h3>
-          <ul class="news-list" id="news-doctorado">
-            <li>
-              <span class="news-date">13 jun 2026</span>
-              <a href="/notas/fibonacci-collatz/" class="news-text">Nueva nota divulgativa: <strong>«Fibonacci escondido en Collatz»</strong>. Cómo los números de Fibonacci aparecen, exactamente, dentro de la conjetura de Collatz — con simuladores interactivos del grafo mod 6, el subgrafo H<sub>4</sub> y el teorema F(m+1).</a>
-            </li>
-            <li>
-              <span class="news-date">11 jun 2026</span>
-              <a href="/doctorado/visualizaciones/" class="news-text">Nuevas <strong>visualizaciones interactivas</strong> del doctorado: biyecciones Φ<sub>m</sub> y Ψ<sub>m</sub>, grafo G mod 6 y módulo binario. Explora la estructura combinatoria detrás del paper de Fibonacci y Collatz.</a>
-            </li>
-            <li>
+          <div class="news-card"><div class="news-card-head">Publicaciones<span class="news-card-count">2</span></div><ul class="news-card-list"><li>
               <span class="news-date">28 may 2026</span>
               <a href="https://arxiv.org/abs/2606.02621" class="news-text" target="_blank" rel="noopener">Preprint publicado en arXiv: <strong>«A Fibonacci theorem for Collatz trajectories via modular graph structure»</strong> (arXiv:2606.02621 [math.NT]).</a>
-            </li>
-            <li>
-              <span class="news-date">abr 2026</span>
-              <span class="news-text">Inicio del doctorado en la UPC con el Dr. <strong>Jaume Franch</strong>.</span>
-            </li>
-            <li>
+            </li><li>
               <span class="news-date">mar 2026</span>
               <span class="news-text">Primer borrador del paper <strong>«A Fibonacci theorem for Collatz trajectories via modular graph structure»</strong>.</span>
-            </li>
-            <li>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">Notas y divulgación<span class="news-card-count">2</span></div><ul class="news-card-list"><li>
+              <span class="news-date">13 jun 2026</span>
+              <a href="/notas/fibonacci-collatz/" class="news-text">Nueva nota divulgativa: <strong>«Fibonacci escondido en Collatz»</strong>. Cómo los números de Fibonacci aparecen, exactamente, dentro de la conjetura de Collatz — con simuladores interactivos del grafo mod 6, el subgrafo H<sub>4</sub> y el teorema F(m+1).</a>
+            </li><li>
+              <span class="news-date">11 jun 2026</span>
+              <a href="/doctorado/visualizaciones/" class="news-text">Nuevas <strong>visualizaciones interactivas</strong> del doctorado: biyecciones Φ<sub>m</sub> y Ψ<sub>m</sub>, grafo G mod 6 y módulo binario. Explora la estructura combinatoria detrás del paper de Fibonacci y Collatz.</a>
+            </li></ul></div>
+          <div class="news-card"><div class="news-card-head">Congresos</div><div class="news-card-empty">Próximamente.</div></div>
+          <div class="news-card"><div class="news-card-head">Hitos<span class="news-card-count">2</span></div><ul class="news-card-list"><li>
+              <span class="news-date">abr 2026</span>
+              <span class="news-text">Inicio del doctorado en la UPC con el Dr. <strong>Jaume Franch</strong>.</span>
+            </li><li>
               <span class="news-date">feb 2026</span>
               <span class="news-text">Avance en la formalización de la <strong>dinámica modular fractal</strong> sobre la conjetura de Collatz.</span>
-            </li>
-          </ul>
+            </li></ul></div>
         </div>
       </div>
     </div>
