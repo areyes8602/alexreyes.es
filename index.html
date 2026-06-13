@@ -53,6 +53,14 @@
   .news-card-list li:last-child{border-bottom:none;padding-bottom:0}
   .news-card-empty{color:var(--text-faint);font-size:0.85rem;font-style:italic;padding:0.2rem 0}
   .pill::before{background:var(--text-faint)}
+  .news-card-head{cursor:default}
+  @media (max-width:768px){
+    .news-card-head{cursor:pointer;position:relative;padding-right:1.3rem;user-select:none}
+    .news-card-head::after{content:'\25BE';position:absolute;right:0;top:0.15rem;font-size:0.7rem;color:var(--text-faint);transition:transform .2s}
+    .news-card.collapsed .news-card-head::after{transform:rotate(-90deg)}
+    .news-card.collapsed .news-card-list,.news-card.collapsed .news-card-empty{display:none}
+    .news-card{margin-bottom:0.6rem}
+  }
 </style>
 </head>
 <body>
@@ -349,6 +357,20 @@ document.querySelectorAll('.news-more-btn').forEach(function(btn){
     btn.textContent=list.classList.contains('expanded')?btn.dataset.less:btn.dataset.more;
   });
 });
+</script>
+<script>
+(function(){
+  var mq = window.matchMedia('(max-width:768px)');
+  var cards = [].slice.call(document.querySelectorAll('.news-card'));
+  cards.forEach(function(card){
+    var head = card.querySelector('.news-card-head');
+    if(!head) return;
+    head.addEventListener('click', function(){ if(mq.matches) card.classList.toggle('collapsed'); });
+  });
+  function sync(){ cards.forEach(function(c){ if(mq.matches) c.classList.add('collapsed'); else c.classList.remove('collapsed'); }); }
+  sync();
+  if(mq.addEventListener) mq.addEventListener('change', sync); else if(mq.addListener) mq.addListener(sync);
+})();
 </script>
 </body>
 </html>
