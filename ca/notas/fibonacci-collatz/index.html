@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fibonacci amagat dins de Collatz — Àlex Reyes</title>
+<meta name="description" content="Com els nombres de Fibonacci apareixen, sense que ningú els convidés, dins de la conjectura de Collatz. Una nota divulgativa amb simuladors interactius.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/ca/notas/fibonacci-collatz/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/notas/fibonacci-collatz/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/notas/fibonacci-collatz/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/notas/fibonacci-collatz/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/notas/fibonacci-collatz/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://alexreyes.es/ca/notas/fibonacci-collatz/">
+<meta property="og:title" content="Fibonacci amagat dins de Collatz">
+<meta property="og:description" content="Com els nombres de Fibonacci apareixen, sense que ningú els convidés, dins de la conjectura de Collatz.">
+<meta property="og:locale" content="ca_ES">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fibonacci amagat dins de Collatz">
+<meta name="twitter:description" content="Com els nombres de Fibonacci apareixen, sense que ningú els convidés, dins de la conjectura de Collatz.">
+<style>
+  :root{
+    --bg:#ffffff; --bg-subtle:#f9f9f9; --bg-hover:#f4f4f4;
+    --border:#e8e8e8; --border-strong:#d0d0d0;
+    --text:#0a0a0a; --text-soft:#525252; --text-faint:#888888;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'JetBrains Mono','Fira Code',monospace;
+    --verde:#3b6d11; --ambar:#854f0b;
+    --rv0bg:#E8E8E8; --rv0tx:#444441; --rv1bg:#B5D4F4; --rv1tx:#0C447C;
+    --rv2bg:#9FE1CB; --rv2tx:#085041; --rv3bg:#D3D1C7; --rv3tx:#5F5E5A;
+    --rv4bg:#F5C4B3; --rv4tx:#712B13; --rv5bg:#CECBF6; --rv5tx:#3C3489;
+  }
+  [data-theme="dark"]{
+    --bg:#0a0a0a; --bg-subtle:#111111; --bg-hover:#1a1a1a;
+    --border:#222222; --border-strong:#333333;
+    --text:#f0f0f0; --text-soft:#a0a0a0; --text-faint:#666666;
+    --verde:#C0DD97; --ambar:#FAC775;
+  }
+  *{box-sizing:border-box}
+  .sub{color:var(--text-soft);margin-bottom:40px}
+  .nota-body h2{font-size:1.4rem;margin:54px 0 14px;border-bottom:1px solid var(--border);padding-bottom:6px;font-weight:600}
+  .nota-body h3{font-size:1.05rem;margin:30px 0 8px;font-weight:600}
+  .nota-body p{margin:0 0 16px}
+  .widget{background:var(--bg-subtle);border:1px solid var(--border);border-radius:10px;
+    padding:18px 20px;margin:26px 0;font-size:14px}
+  .widget h4{margin:0 0 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-soft);font-weight:600}
+  button{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:20px;
+    padding:7px 16px;font:500 13px var(--font);cursor:pointer;transition:all .15s}
+  button:hover{background:var(--bg-hover);border-color:var(--border-strong)}
+  button.sec{color:var(--text-soft)}
+  input[type=number]{width:110px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;
+    font:13px var(--mono);background:var(--bg);color:var(--text)}
+  input[type=range]{accent-color:var(--text);width:200px;vertical-align:middle}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}
+  .chip{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;
+    font:600 13px var(--mono)}
+  .chip.nuevo{background:#FAEEDA;color:#854F0B;border-color:transparent}
+  .chip.padre{border:1px dashed var(--ambar)}
+  .op{font:600 13px var(--mono);color:var(--text-faint)}
+  .p1{background:#EAF3DE;color:#3B6D11}
+  .p2{background:#FAEEDA;color:#854F0B}
+  .paso{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;
+    border-radius:4px;font:600 12px var(--mono)}
+  .forma{display:inline-flex;gap:2px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);border-radius:6px}
+  .r0{background:var(--rv0bg);color:var(--rv0tx);border-color:transparent}
+  .r1{background:var(--rv1bg);color:var(--rv1tx);border-color:transparent}
+  .r2{background:var(--rv2bg);color:var(--rv2tx);border-color:transparent}
+  .r3{background:var(--rv3bg);color:var(--rv3tx);border-color:transparent}
+  .r4{background:var(--rv4bg);color:var(--rv4tx);border-color:transparent}
+  .r5{background:var(--rv5bg);color:var(--rv5tx);border-color:transparent}
+  .leyenda{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;font:12.5px var(--font);color:var(--text-soft)}
+  .rpill{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    border-radius:7px;font:600 14px var(--mono);cursor:pointer;border:2px solid transparent;opacity:.6;transition:all .12s}
+  .rpill.sel{border-color:var(--text);opacity:1;transform:scale(1.08)}
+  .dcase{flex:1;min-width:160px;border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .dform{background:var(--bg);border:1px solid var(--border);border-radius:7px;
+    padding:6px 12px;margin:10px 0;text-align:center}
+  .dform .katex{font-size:1.05em}
+  .dtbl{border-collapse:collapse;font:12.5px var(--mono);margin-top:12px}
+  .dtbl th,.dtbl td{padding:3px 9px;text-align:center}
+  .dtbl th{color:var(--text-faint);font:500 11px var(--font);border-bottom:1px solid var(--border)}
+  .ktag{font-size:11px;padding:1px 7px;border-radius:4px;font-family:var(--font)}
+  .ktag.par{background:#EAF3DE;color:#3b6d11}
+  .ktag.impar{background:#FAEEDA;color:#854f0b}
+  .minichip{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;
+    border-radius:5px;font:600 12px var(--mono)}
+  table.mat{border-collapse:collapse;font:14px var(--mono);margin:8px 0}
+  table.mat td,table.mat th{border:1px solid var(--border);background:var(--bg);min-width:46px;
+    text-align:center;padding:6px 8px}
+  table.mat th{background:var(--bg-subtle);font-weight:600;font-family:var(--font);font-size:12.5px}
+  table.mat th.hrv1{background:var(--rv1bg);color:var(--rv1tx)}
+  table.mat th.hrv2{background:var(--rv2bg);color:var(--rv2tx)}
+  table.mat th.hrv5{background:var(--rv5bg);color:var(--rv5tx)}
+  .fib-destacado{color:var(--ambar);font-weight:700}
+  .nota{font-size:.88em;color:var(--text-soft);border-left:2px solid var(--border-strong);
+    padding:2px 0 2px 14px;margin:18px 0}
+  .teorema{background:var(--bg-subtle);border:1px solid var(--border-strong);border-radius:10px;padding:16px 20px;margin:24px 0}
+  .teorema .titulo{font-variant:small-caps;letter-spacing:.05em;font-weight:600}
+  .resultado{font:500 13.5px var(--font);margin-top:10px;color:var(--text-soft);line-height:1.9}
+  .resultado strong{color:var(--text)}
+  .resultado .chip{vertical-align:middle}
+  .ok{color:var(--verde);font-weight:600} .fail{color:#b91c1c;font-weight:600}
+  .nota-body svg text{font:500 14px var(--font)}
+  .nodo{stroke:#999;stroke-width:1}
+  .nodo.activo{stroke:var(--text);stroke-width:2.5}
+  .ar-g{fill:none;stroke:var(--verde);stroke-width:1.5;opacity:.55;marker-end:url(#mkg);transition:opacity .15s,stroke-width .15s}
+  .ar-a{fill:none;stroke:var(--ambar);stroke-width:1.5;opacity:.55;marker-end:url(#mka);transition:opacity .15s,stroke-width .15s}
+  .ar-g.dim,.ar-a.dim{opacity:.1}
+  .ar-g.hot,.ar-a.hot{opacity:1;stroke-width:3}
+  #mkg path{fill:var(--verde)} #mka path{fill:var(--ambar)}
+  #h4mat td{cursor:pointer;transition:background .12s}
+  #h4mat td:hover{background:var(--bg-hover)}
+  #h4mat td.sel{outline:2px solid var(--text);outline-offset:-2px;font-weight:700}
+  #h4-reset{cursor:pointer;white-space:nowrap}
+  #h4-reset:hover{background:var(--bg-hover);color:var(--text)}
+  #matk td{cursor:pointer;transition:background .12s}
+  #matk td:hover{background:var(--bg-hover)}
+  #matk td.sel{outline:2px solid var(--text);outline-offset:-2px}
+  .codlist{display:flex;flex-wrap:wrap;gap:6px 12px}
+  .codpath{display:inline-flex;align-items:center;background:var(--bg);border:1px solid var(--border);
+    border-radius:6px;padding:3px 7px}
+  .orbcard{display:inline-flex;flex-direction:column;align-items:center;gap:2px;background:var(--bg);
+    border:1px solid var(--border);border-radius:6px;padding:4px 6px}
+  .orbcard.hit{border-color:var(--rv4tx);background:var(--rv4bg)}
+  .orbk{font:10px var(--font);color:var(--text-faint)}
+  .orbv{font:10px var(--mono);color:var(--text-faint)}
+  .teochip{cursor:pointer;transition:transform .1s}
+  .teochip:hover{transform:scale(1.12)}
+  .nodo.src{stroke:var(--text);stroke-width:2.5}
+  .nodo.dstg{stroke:var(--verde);stroke-width:2.5}
+  .nodo.dsta{stroke:var(--ambar);stroke-width:2.5}
+  .barra-wrap{background:var(--bg);border:1px solid var(--border);border-radius:6px;height:16px;overflow:hidden;margin-top:6px}
+  .barra{background:var(--ambar);height:100%;transition:width .3s;opacity:.75}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/" class="nav-active">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/notas/fibonacci-collatz/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/notas/fibonacci-collatz/" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/notas/fibonacci-collatz/">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a><span class="sep">/</span><a href="/ca/notas/">Notes</a><span class="sep">/</span><span class="current">Fibonacci amagat dins de Collatz</span>
+    </div>
+    <div style="max-width:720px;margin:0 auto">
+      <div class="page-header" style="margin-bottom:2.5rem">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;flex-wrap:wrap">
+          <span class="section-label">Nota</span>
+          <span class="tag tag-purple">Collatz</span>
+          <span class="tag tag-gray">Fibonacci</span>
+          <span class="tag tag-gray">Interactiu</span>
+        </div>
+        <h1 style="margin:0 0 0.6rem;font-size:2rem;line-height:1.2">Fibonacci amagat dins de Collatz</h1>
+        <p style="font-size:0.9rem;color:var(--text-soft)">Àlex Reyes &middot; juny 2026</p>
+      </div>
+      <div class="nota-body" style="font-size:1.05rem;line-height:1.8;color:var(--text)">
+<p class="sub">Com la successió més famosa de les matemàtiques va aparèixer, sense que ningú la convidés, dins del problema que ningú sap resoldre.</p>
+
+<p>Aquesta història ajunta dos personatges que, en principi, no tenen res a veure. Un és una celebritat: els nombres de Fibonacci, aquella successió que surt als llibres de divulgació, als gira-sols i fins i tot a <em>El codi Da Vinci</em>. L'altre és un problema amb una fama curiosa: la conjectura de Collatz, una pregunta d'enunciat infantil que fascina els aficionats, incomoda els matemàtics professionals i porta des de 1937 sense resposta.</p>
+
+<p>El que t'explicaré aquí és un resultat de la meva tesi doctoral: un teorema que demostra que, dins de la dinàmica de Collatz, els nombres de Fibonacci estan comptant una cosa molt concreta. No és una coincidència numèrica ni una curiositat aproximada: és una igualtat exacta, vàlida per sempre, amb demostració. I el millor és que el camí complet —des de la definició de Fibonacci fins al teorema— es pot recórrer amb matemàtiques de batxillerat. Recorrem-lo.</p>
+
+<h2>1. Els nombres de Fibonacci</h2>
+
+<p>La regla és la més simple imaginable: comença amb \(1, 1\) i, a partir d'aquí, <strong>cada terme és la suma dels dos anteriors</strong>.</p>
+
+\[ F(1)=1,\quad F(2)=1,\quad F(n)=F(n-1)+F(n-2). \]
+
+<div class="widget" id="w-fib">
+  <h4>La successió, terme a terme</h4>
+  <div style="display:flex;gap:8px;margin-bottom:10px">
+    <button onclick="fibMas()">Afegir terme</button>
+    <button class="sec" onclick="fibReset()">Reiniciar</button>
+  </div>
+  <div class="chips" id="fib-chips" style="align-items:center"></div>
+  <div class="resultado" id="fib-ratio"></div>
+</div>
+
+<p>Fixa't en el quocient entre termes consecutius que mostra el simulador. A mesura que avances, s'acosta a un nombre molt concret:</p>
+
+\[ \varphi=\frac{1+\sqrt5}{2}=1{,}6180339\ldots \]
+
+<p>És el famós <strong>nombre auri</strong>. No és casualitat: els nombres de Fibonacci creixen, a la llarga, multiplicant-se per \(\varphi\) a cada pas. Guarda't aquesta dada, perquè \(\varphi\) reapareixerà al final de la història al lloc més inesperat.</p>
+
+<h3>On viuen de debò (i on no)</h3>
+
+<p>Segur que has sentit que la closca del nautilus és una «espiral àuria». Em sap greu esguerrar-ho: no ho és. És una espiral logarítmica, sí, però amb una altra proporció; això de Fibonacci aquí és un mite que es repeteix de llibre en llibre. En canvi, hi ha llocs on els nombres de Fibonacci apareixen de debò i per raons que s'entenen: les espirals de les llavors d'un gira-sol o les escames d'una pinya solen venir en parelles de nombres de Fibonacci consecutius (8 i 13, 21 i 34), perquè aquesta disposició és la manera més eficient d'empaquetar llavors que van naixent girades un angle fix.</p>
+
+<p>Però l'hàbitat natural de Fibonacci no és la botànica: és el <strong>recompte de camins</strong>. L'exemple clàssic: de quantes maneres pots pujar una escala de \(n\) graons si a cada pas puges 1 o 2?</p>
+
+<div class="widget" id="w-esc">
+  <h4>L'escala</h4>
+  <p style="margin:0 0 8px">Graons: <input type="range" min="1" max="7" value="4" id="esc-n" oninput="escalera()"> <strong id="esc-nval">4</strong></p>
+  <div id="esc-out" style="font:14px var(--font)"></div>
+</div>
+
+<p>El perquè cap en una frase: per arribar al graó \(n\), el teu últim pas va ser d'1 (venies del \(n-1\)) o de 2 (venies del \(n-2\)); per tant, <em>maneres d'arribar a \(n\) = maneres d'arribar a \(n-1\) + maneres d'arribar a \(n-2\)</em>. Aquesta és exactament la regla de Fibonacci. <strong>Quan un problema es redueix a comptar camins amb dues opcions que s'encadenen així, Fibonacci apareix sol.</strong> Recorda aquesta idea: és la clau de tot el que ve.</p>
+
+<h2>2. La conjectura de Collatz</h2>
+
+<p>Agafa qualsevol nombre enter positiu. Si és parell, divideix-lo entre 2. Si és senar, multiplica'l per 3 i suma-li 1. Repeteix. La conjectura de Collatz afirma que, comencis on comencis, sempre acabes arribant a l'1. Gairebé noranta anys després, ningú ha pogut demostrar-ho ni trobar un contraexemple — i no és per manca d'evidència: s'ha comprovat amb ordinador, un a un, per a tots els nombres fins a \(2^{71}\) (més de dos mil trilions). Que es compleixi dos mil trilions de vegades seguides no demostra que es compleixi <em>sempre</em>: aquesta distància entre comprovar i demostrar és el cor del problema.</p>
+
+<p>Els matemàtics solem fer servir una versió «accelerada» de la regla. Com que \(3n+1\) sempre és parell quan \(n\) és senar, podem dividir entre 2 immediatament i estalviar-nos un pas:</p>
+
+\[ T(n)=\begin{cases} n/2 & \text{si } n \text{ és parell},\\[2pt] \dfrac{3n+1}{2} & \text{si } n \text{ és senar}. \end{cases} \]
+
+<p>Amb aquesta versió, el final del viatge és el petit cicle \(1\to2\to1\). Tot el que segueix fa servir \(T\).</p>
+
+<div class="widget" id="w-collatzA">
+  <h4>Simulador de trajectòries</h4>
+  <p style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+    Comença a: <input type="number" id="colA-n" value="27" min="1" max="999999">
+    <button onclick="colSimular('A')">Inicia el viatge</button>
+    <span style="color:var(--text-faint)">o prova:</span>
+    <button class="sec" onclick="colPreset('A',26)">26</button>
+    <button class="sec" onclick="colPreset('A',27)">27</button>
+    <button class="sec" onclick="colPreset('A',871)">871</button>
+    <button class="sec" onclick="colPreset('A',6171)">6171</button>
+  </p>
+  <div class="chips" id="colA-out"></div>
+  <div class="resultado" id="colA-info"></div>
+</div>
+
+<p>Prova amb 27: puja fins a prop de 5.000 abans de rendir-se. Prova amb 26: hi arriba de seguida. Veïns de porta, destins oposats. Aquest és el caràcter del problema: la regla és trivial, però el comportament és salvatge i imprevisible.</p>
+
+<p>I tanmateix, hi ha una manera de domar aquest caos. Consisteix a canviar de lent: deixar de mirar el nombre i mirar una altra cosa molt més humil.</p>
+
+<p>Aquesta altra cosa és el <strong>residu en dividir entre 6</strong>: el nombre entre 0 i 5 que sobra. El 27 deixa residu 3 (perquè \(27 = 4\cdot 6 + 3\)); el 80 deixa residu 2; i per enorme que sigui el nombre, el seu residu és sempre un d'aquests sis valors. Res més.</p>
+
+<p>Aquí hi ha el canvi decisiu, i val la pena aturar-s'hi. Els nombres viuen en un espai <strong>infinit</strong>: salten a milers, sense manera de preveure on aniran. Però els seus residus viuen en un espai <strong>diminut</strong> — només sis valors possibles, passi el que passi. Així que mentre la trajectòria d'un nombre es dispara sense patró aparent, la trajectòria dels seus <em>residus</em> està obligada a moure's entre sis caselles. I el millor: no salta entre elles per caprici, sinó seguint regles fixes. És com canviar un mapa infinit i sense camins per un tauler de sis caselles amb les fletxes ja marcades.</p>
+
+<p>Vegem-ho. Llancem un altre cop una trajectòria —la mateixa d'abans, si vols— però aquest cop acolorint cada nombre segons el residu que deixa en dividir-lo entre 6:</p>
+
+<div class="widget" id="w-collatzB">
+  <h4>La mateixa trajectòria, vista pels seus residus</h4>
+  <p style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+    Comença a: <input type="number" id="colB-n" value="27" min="1" max="999999">
+    <button onclick="colSimular('B')">Veure els residus</button>
+    <span style="color:var(--text-faint)">o prova:</span>
+    <button class="sec" onclick="colPreset('B',26)">26</button>
+    <button class="sec" onclick="colPreset('B',27)">27</button>
+    <button class="sec" onclick="colPreset('B',871)">871</button>
+    <button class="sec" onclick="colPreset('B',6171)">6171</button>
+  </p>
+  <div class="leyenda">
+    <span class="chip r0">residu 0</span><span class="chip r1">residu 1</span>
+    <span class="chip r2">residu 2</span><span class="chip r3">residu 3</span>
+    <span class="chip r4">residu 4</span><span class="chip r5">residu 5</span>
+    <span style="align-self:center">… en dividir entre 6</span>
+  </div>
+  <div class="chips" id="colB-out"></div>
+  <div class="resultado" id="colB-info"></div>
+</div>
+
+<p>Això és el que cal veure: per molt lluny que voli la trajectòria, els colors només ballen entre sis. Aquest petit ball, finit i reglat, és el que estudiarem — i és on, al final, apareixerà Fibonacci.</p>
+
+<h2>3. Un mapa amb sis regions</h2>
+
+<p>Posem nom a les sis caselles: les anomenarem «regions», una per cada residu (0 a 5). La pregunta, l'única que cal, és: si un nombre és a la regió \(r\), a quina regió el pot enviar \(T\)?</p>
+
+<p>I es respon amb pura aritmètica d'institut. Prenguem la regió 1. Un nombre amb residu 1 s'escriu \(n=6k+1\) per a algun enter \(k\ge 0\); com que és senar, \(T\) l'envia a:</p>
+
+\[ T(n)=\frac{3n+1}{2}=\frac{3(6k+1)+1}{2}=9k+2. \]
+
+<p>I quin residu deixa \(9k+2\) en dividir entre 6? Aquí hi ha la idea, i és l'única cosa que cal entendre: el resultat canvia segons que \(k\) sigui <strong>parell</strong> o <strong>senar</strong>. I la raó cap en una ratlla: com que \(9k+2 = 6k + (3k+2)\), el residu el decideix \(3k\), que val 0 si \(k\) és parell i 3 si és senar. Així que \(9k+2\) deixa residu 2 quan \(k\) és parell, i residu 5 quan és senar. Per tant la regió 1 té <strong>dues</strong> sortides — a la 2 i a la 5 —, una per cada paritat de \(k\). Aquestes són les dues fletxes que surten de la regió 1 al mapa, i per això van en dos colors: <span style="color:var(--verde);font-weight:600">verd</span> per a \(k\) parell, <span style="color:var(--ambar);font-weight:600">ambre</span> per a \(k\) senar.</p>
+
+<p>Amb les altres cinc regions es fa igual (si \(n\) és parell, surt \(n/2\), encara més senzill). El resultat són dotze fletxes, dues per regió — aquest mapa. Prem qualsevol regió per veure'n el càlcul i encendre les seves dues fletxes:</p>
+
+<div class="widget">
+  <h4>El graf \(G\): transicions de Collatz mòdul 6</h4>
+  <svg viewBox="-80 -170 580 320" xmlns="http://www.w3.org/2000/svg" id="grafoG">
+    <defs>
+      <marker id="mkg" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="8" refX="10" refY="4" orient="auto">
+        <path d="M0,0 L11,4 L0,8 Z" fill="#3b6d11"/>
+      </marker>
+      <marker id="mka" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="8" refX="10" refY="4" orient="auto">
+        <path d="M0,0 L11,4 L0,8 Z" fill="#854f0b"/>
+      </marker>
+    </defs>
+    <!-- arestes: verd = k parell · ambre = k senar (n = 6k + r) -->
+    <path id="e-0-0" class="ar-g" d="M-20.7,4.4 A15,15 0 1 1 -20.7,-4.4"/>     <!-- 0->0 -->
+    <path id="e-0-3" class="ar-a" d="M18,0 L79,0"/>                            <!-- 0->3 -->
+    <path id="e-1-2" class="ar-g" d="M239,14.2 Q215.2,45.1 205.6,79.8"/>       <!-- 1->2 -->
+    <path id="e-1-5" class="ar-a" d="M242,-16.1 L209.4,-81.2"/>                <!-- 1->5 -->
+    <path id="e-2-1" class="ar-g" d="M211,85.8 Q234.8,54.9 244.4,20.2"/>       <!-- 2->1 -->
+    <path id="e-2-4" class="ar-a" d="M216.1,91.9 Q281.1,59.2 334.1,13.7"/>     <!-- 2->4 -->
+    <path id="e-3-5" class="ar-g" d="M112.7,-12.7 L185.2,-85.2"/>              <!-- 3->5 -->
+    <path id="e-3-2" class="ar-a" d="M112.7,12.7 L185.2,85.2"/>                <!-- 3->2 -->
+    <path id="e-4-2" class="ar-g" d="M333.9,8.1 Q268.9,40.8 215.9,86.3"/>      <!-- 4->2 -->
+    <path id="e-4-5" class="ar-a" d="M335,-10 L217.5,-88.4"/>                  <!-- 4->5 -->
+    <path id="e-5-2" class="ar-g" d="M200,-82 L200,79"/>                       <!-- 5->2 -->
+    <path id="e-5-5" class="ar-a" d="M199,-121.1 A15,15 0 1 1 207.8,-119.7"/>  <!-- 5->5 -->
+    <!-- nodos (disposición de /doctorado/visualizaciones/) -->
+    <g id="nodo-0"><circle class="nodo" cx="0" cy="0" r="18" fill="#E8E8E8"/><text x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#444441">0</text></g>
+    <g id="nodo-3"><circle class="nodo" cx="100" cy="0" r="18" fill="#D3D1C7"/><text x="100" y="0" text-anchor="middle" dominant-baseline="central" fill="#5F5E5A">3</text></g>
+    <g id="nodo-5"><circle class="nodo" cx="200" cy="-100" r="18" fill="#CECBF6"/><text x="200" y="-100" text-anchor="middle" dominant-baseline="central" fill="#3C3489">5</text></g>
+    <g id="nodo-2"><circle class="nodo" cx="200" cy="100" r="18" fill="#9FE1CB"/><text x="200" y="100" text-anchor="middle" dominant-baseline="central" fill="#085041">2</text></g>
+    <g id="nodo-1"><circle class="nodo" cx="250" cy="0" r="18" fill="#B5D4F4"/><text x="250" y="0" text-anchor="middle" dominant-baseline="central" fill="#0C447C">1</text></g>
+    <g id="nodo-4"><circle class="nodo" cx="350" cy="0" r="18" fill="#F5C4B3"/><text x="350" y="0" text-anchor="middle" dominant-baseline="central" fill="#712B13">4</text></g>
+    <text x="50" y="-50" text-anchor="middle" style="font:italic 12px var(--font);fill:var(--text-faint)">només sortida</text>
+    <text x="275" y="-152" text-anchor="middle" style="font:italic 12px var(--font);fill:var(--text-faint)">nucli</text>
+  </svg>
+  <div id="deriv-pills" class="chips" style="margin:4px 0 0"></div>
+  <div id="deriv-out" style="margin-top:8px"></div>
+  <p style="margin:10px 0 0;font:12.5px var(--font);color:var(--text-soft)">
+    Cada fletxa \(r\to s\) vol dir: «hi ha nombres amb residu \(r\) la imatge dels quals \(T(n)\) té residu \(s\)».
+    El color indica quina de les dues sortides s'agafa:
+    <span style="color:var(--verde);font-weight:600">● verd</span> si \(k\) és parell,
+    <span style="color:var(--ambar);font-weight:600">● ambre</span> si \(k\) és senar.
+    I si llances una trajectòria al simulador de la secció anterior, el seu viatge s'il·lumina aquí.</p>
+</div>
+
+<p>Aquest mapa té dos trets que val la pena mirar de prop, perquè d'ells surt tota la resta.</p>
+
+<p><strong>Les regions 0 i 3 només tenen fletxes de sortida.</strong> Són regions diferents —la 0 són els múltiples de 6 i la 3 són els múltiples de 3 senars—, però juntes formen els múltiples de 3, i comparteixen una peculiaritat: cap fletxa del nucli no hi arriba. La raó és senzilla. Per caure en un múltiple de 3 caldria partir ja d'un: si \(n\) és senar, \(\tfrac{3n+1}{2}\) mai és múltiple de 3 (perquè \(3n+1\) no ho és); i si \(n\) és parell, \(n/2\) només és múltiple de 3 quan \(n\) ja ho era. Així que es pot <em>començar</em> en un múltiple de 3, però un cop se'n surt, no s'hi torna mai més.</p>
+
+<p><strong>Les altres quatre regions \(\{1,2,4,5\}\) formen el nucli del sistema.</strong> Tota trajectòria acaba a dins —pel que acabem de veure: tard o d'hora s'abandona el club dels múltiples de 3 i no s'hi torna mai— i, un cop a dins, es circula entre elles per sempre. Cada regió del nucli té exactament <strong>dues sortides</strong>: des de l'1 es va a 2 o a 5; des del 2, a 1 o a 4; des del 4, a 2 o a 5; des del 5, a 2 o a 5. Dos camins possibles a cada pas vol dir que el nombre de trajectòries es <strong>duplica</strong> a cada pas: 2, 4, 8, 16… Creix de pressa, però de manera perfectament regular. Queda't amb aquesta paraula —<em>duplica</em>—, perquè a la propera secció traurem del mapa una sola regió i veurem com aquest «duplica» es transforma, sense avisar, en una cosa molt més interessant.</p>
+
+<div class="nota">Detall tècnic per a qui el vulgui: el graf no perd informació. Al paper es construeix una <em>bijecció</em> \(\Psi_m\) que identifica cada enter de \(\{1,\ldots,6\cdot 2^m\}\) amb un únic camí de longitud \(m\) a \(G\). Comptar nombres amb certa propietat modular equival, exactament, a comptar camins al graf. Per això tot el que segueix són comptes exactes i no aproximacions.</div>
+
+<h2>4. La regió prohibida: el subgraf \(H_4\)</h2>
+
+<p>Ara ve la pregunta que ho desencadena tot. De les quatre regions del nucli, la regió 4 és especial: només s'hi arriba des d'una, la regió 2 (comprova-ho a l'explorador d'abans: és l'única fletxa que apunta al 4). I si un nombre se les enginya per <strong>esquivar-la</strong> sempre? Quants n'hi ha capaços de circular pel nucli sense trepitjar mai la regió 4?</p>
+
+<p>Per respondre-la, traiem del mapa la regió 4 i ens quedem només amb \(\{1,2,5\}\) i les fletxes entre elles. (Un pont de vocabulari, perquè d'ara endavant és còmode: el que anem anomenant «mapa» és en realitat un <em>graf</em>, i cada regió és un <em>vèrtex</em> seu; en treure una regió ens queda un <em>subgraf</em>. A aquest l'anomeno \(H_4\): el que sobreviu en esborrar la regió 4.)</p>
+
+<div class="widget">
+  <h4>El subgraf \(H_4\) i la seva matriu d'adjacència</h4>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+    <svg id="h4svg" viewBox="125 -175 265 330" width="240" xmlns="http://www.w3.org/2000/svg">
+      <!-- misma disposición que el grafo G, sin el vértice 4 -->
+      <path id="h-1-2" class="ar-g" d="M239,14.2 Q215.2,45.1 205.6,79.8"/>      <!-- 1->2 -->
+      <path id="h-1-5" class="ar-a" d="M242,-16.1 L209.4,-81.2"/>               <!-- 1->5 -->
+      <path id="h-2-1" class="ar-g" d="M211,85.8 Q234.8,54.9 244.4,20.2"/>      <!-- 2->1 -->
+      <path id="h-5-2" class="ar-g" d="M200,-82 L200,79"/>                      <!-- 5->2 -->
+      <path id="h-5-5" class="ar-a" d="M192.2,-119.7 A15,15 0 1 1 201,-121.1"/> <!-- 5->5 -->
+      <g id="h4n-5"><circle class="nodo" cx="200" cy="-100" r="18" fill="#CECBF6"/><text x="200" y="-100" text-anchor="middle" dominant-baseline="central" fill="#3C3489">5</text></g>
+      <g id="h4n-2"><circle class="nodo" cx="200" cy="100" r="18" fill="#9FE1CB"/><text x="200" y="100" text-anchor="middle" dominant-baseline="central" fill="#085041">2</text></g>
+      <g id="h4n-1"><circle class="nodo" cx="250" cy="0" r="18" fill="#B5D4F4"/><text x="250" y="0" text-anchor="middle" dominant-baseline="central" fill="#0C447C">1</text></g>
+    </svg>
+    <div style="font:14px var(--font)">
+      <table class="mat" id="h4mat">
+        <tr><th id="h4-reset" onclick="h4reset()" title="Reiniciar: veure el graf complet">\(M\) ↺</th><th class="hrv1">→1</th><th class="hrv2">→2</th><th class="hrv5">→5</th></tr>
+        <tr><th class="hrv1">1</th><td onclick="h4cell(this,1,1,0)">0</td><td onclick="h4cell(this,1,2,1)">1</td><td onclick="h4cell(this,1,5,1)">1</td></tr>
+        <tr><th class="hrv2">2</th><td onclick="h4cell(this,2,1,1)">1</td><td onclick="h4cell(this,2,2,0)">0</td><td onclick="h4cell(this,2,5,0)">0</td></tr>
+        <tr><th class="hrv5">5</th><td onclick="h4cell(this,5,1,0)">0</td><td onclick="h4cell(this,5,2,1)">1</td><td onclick="h4cell(this,5,5,1)">1</td></tr>
+      </table>
+    </div>
+  </div>
+  <p style="margin:12px 0 0;color:var(--text-soft)">La <strong>matriu d'adjacència</strong> és el mapa escrit com una taula d'uns i zeros —es diu així perquè diu quina regió és <em>adjacent</em> a quina, és a dir, qui apunta a qui—. Té una fila i una columna per regió; a la casella de la fila \(r\) i la columna \(s\) hi va un <strong>1</strong> si hi ha una fletxa de \(r\) a \(s\), i un <strong>0</strong> si no n'hi ha. És només una altra manera de desar el graf. <em>Prem qualsevol casella</em> per veure-la al graf, o la cantonada <strong>\(M\) ↺</strong> per tornar al graf complet.</p>
+  <div id="h4msg" class="resultado" style="margin-top:8px"></div>
+</div>
+
+<p>Observa què ha passat en esborrar el 4: les regions 1 i 5 conserven les seves dues sortides, però la regió 2 n'ha perdut una —la seva fletxa cap al 4— i es queda amb una de sola: tornar a 1. El nucli complet oferia sempre dues opcions per pas; \(H_4\) ofereix <em>dues opcions, llevat que trepitgis el 2, que només en ofereix una</em>. Aquesta petita asimetria —dos camins gairebé sempre, un de sol en trepitjar el 2— és la que fabricarà Fibonacci. Vegem-ho.</p>
+
+<h3>La matriu que compta camins</h3>
+
+<p>Aquí hi ha l'única idea d'àlgebra que ens cal, i val la pena entendre-la, no només creure-se-la. Comencem pel més fàcil. La mateixa matriu \(M\) ja compta els camins d'<strong>un</strong> pas: la seva casella \((r,s)\) val 1 quan hi ha una fletxa de \(r\) a \(s\) —un camí de longitud 1— i 0 quan no n'hi ha.</p>
+
+<p>I els camins de <strong>dos</strong> passos? Per anar de \(r\) a \(s\) en dos passos cal aturar-se en alguna regió intermèdia \(t\): primer \(r\to t\), després \(t\to s\). Comptar de quantes maneres es pot fer és justament el que fa multiplicar la matriu per ella mateixa: la casella \((r,s)\) de \(M^2\) recorre totes les regions intermèdies \(t\) possibles i suma «hi ha fletxa \(r\to t\)?» per «hi ha fletxa \(t\to s\)?». Encadenant el mateix pas a pas s'arriba a la regla general:</p>
+
+<div class="teorema" style="text-align:center"><span class="titulo">La casella \((r,s)\) de \(M^k\) és el nombre exacte de camins de longitud \(k\) que van de la regió \(r\) a la \(s\).</span></div>
+
+<p>I no cal creure-s'ho: a la taula de baix, <em>prem qualsevol casella</em> i veuràs aquests camins escrits un a un.</p>
+
+<div class="widget" id="w-mat">
+  <h4>Potències de \(M\): mira com neixen els Fibonacci</h4>
+  <p style="margin:0 0 8px">Longitud del camí \(k\): <input type="range" min="1" max="12" value="1" id="mat-k" oninput="matPow()"> <strong id="mat-kval">1</strong></p>
+  <div id="mat-out" style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start"></div>
+  <div class="resultado" id="mat-info"></div>
+  <div id="mat-paths" style="margin-top:12px"></div>
+</div>
+
+<p>Apuja el lliscador a poc a poc i mira les entrades de la matriu: <span class="fib-destacado">1, 1, 2, 3, 5, 8, 13, 21…</span> Totes i cadascuna de les entrades de \(M^k\) són nombres de Fibonacci, i els totals de camins per fila també. No els hi hem posat nosaltres: els ha fabricat el graf.</p>
+
+<p>I per què Fibonacci, i no una altra successió qualsevol? El bonic és que es pot veure sense ni un sol càlcul, mirant només el mapa de \(H_4\). Comptem els camins de longitud \(k\) que arrenquen a la regió 1 —els mateixos que compta el simulador— i anomenem-los \(C(k)\). El primer pas només pot anar a 2 o a 5:</p>
+
+<p>Si va a <strong>5</strong>, passa una cosa afortunada: la regió 5 té exactament les mateixes sortides que la 1 (a la matriu, les seves dues files són idèntiques). Així que seguir des de 5 és com tornar a començar el recompte des de l'1: queden \(C(k-1)\) camins. Si va a <strong>2</strong>, la regió 2 no pot triar —la seva única sortida és tornar a 1—, així que el camí gasta dos passos (\(1\to2\to1\)) i torna al punt de partida: queden \(C(k-2)\) camins. Sumant les dues possibilitats:</p>
+
+\[ C(k) = C(k-1) + C(k-2). \]
+
+<p>És, lletra per lletra, la regla de Fibonacci. I ara sí que és <em>exactament</em> la de l'escala: dues maneres de continuar, una que avança un pas (anar a 5) i una altra que «salta» dos (la marrada \(1\to2\to1\)). L'asimetria del 2 no era un detall: era el motor.</p>
+
+<p>Fixa't en el que aquesta recurrència significa per al <em>ritme</em> de creixement. A la secció 1 vam veure que els nombres de Fibonacci creixen, a la llarga, multiplicant-se per \(\varphi\) a cada pas. Com que els nostres camins obeeixen exactament la mateixa regla, creixen al mateix ritme: el nombre de camins per \(H_4\) es multiplica per \(\varphi=1{,}618\ldots\) —ja t'havia dit que el nombre auri reapareixeria—. En canvi, al nucli complet, on cada regió sí que té dues sortides de debò, el nombre de camins es <strong>duplica</strong>: es multiplica per 2. Dos ritmes diferents, \(\varphi\) contra 2 (els matemàtics anomenen aquest ritme el <em>radi espectral</em> del graf), i aquesta diferència ho canvia tot:</p>
+
+<div class="widget" id="w-rhythm">
+  <h4>Dos ritmes de creixement: \(\varphi\) contra 2</h4>
+  <p style="margin:0 0 8px">Longitud dels camins, \(m\): <input type="range" min="1" max="14" value="4" id="rh-m" oninput="rhythm()"> <strong id="rh-mval">4</strong></p>
+  <div id="rh-out"></div>
+</div>
+
+<p>Mira com se separen les dues barres: com més gran és \(m\), més rar és esquivar la regió 4 — els camins que l'eviten són una fracció del total que s'encongeix sense fre, al ritme \((\varphi/2)^m\). I ara, per fi, recupera la pregunta del principi. Pel diccionari nombre↔camí de la secció anterior, els nombres que esquiven la regió 4 <strong>són</strong> exactament aquests camins de \(H_4\). Així que ja tenim la resposta completa: <em>quants</em> nombres esquiven el 4 ho diuen els nombres de Fibonacci, i <em>què rars</em> es tornen ho diu el quocient \(\varphi/2\). Això, posat en net, és el teorema.</p>
+
+<h2>5. El teorema</h2>
+
+<p>Ajuntem les peces. Els nombres que eviten la regió 4 són, via el graf, camins a \(H_4\); els camins a \(H_4\) els compten les potències de \(M\); i les potències de \(M\) fabriquen nombres de Fibonacci. Però l'enunciat exacte afina dues coses que semblen detalls i són justament on hi ha la subtilesa: parla de nombres <strong>senars</strong> i comença a mirar <strong>des del segon pas</strong>. Val la pena entendre per què.</p>
+
+<p>Primer, fixem les paraules, perquè aquí és fàcil embolicar-se. L'<em>òrbita</em> d'un nombre \(n\) és la successió que surt d'aplicar \(T\) una vegada i una altra: \(n,\ T(n),\ T(T(n)),\ \ldots\) Anomenarem <strong>pas 1</strong> el mateix \(n\), <strong>pas 2</strong> \(T(n)\), <strong>pas 3</strong> \(T(T(n))\), i així: el pas \(k\) és el resultat d'aplicar \(T\) un total de \(k-1\) vegades. (Farem servir sempre «pas» per a aquesta posició i «aplicar \(T\)» per a l'operació; convé no barrejar les dues paraules.)</p>
+
+<p>I ara el fet que ho explica tot, i que pots comprovar: <strong>agafis el nombre senar que agafis, una sola aplicació de \(T\) el deixa a la regió 2 o a la 5</strong> — és a dir, dins de \(H_4\). Mira-ho: \(7\to11\equiv5\), \(9\to14\equiv2\), \(15\to23\equiv5\). Tant és que el senar de partida sigui un múltiple de 3 —com 3, 9 o 15, que viuen a la regió 3, fora del nucli—: al primer pas hi aterra igualment, i net, dins de \(H_4\).</p>
+
+<p>D'aquí surten les dues condicions. Es compten <strong>senars</strong> perquè la seva entrada a \(H_4\) és sempre neta i d'un sol pas; els parells es porten pitjor —un múltiple de 6 pot quedar-se voltant a la regió 0, que té una fletxa cap a si mateixa, durant uns quants passos abans d'entrar al nucli (per exemple \(24\to12\to6\to3\), tres passos a la regió 0)—. I es mira <strong>des del pas 2</strong> perquè el pas 1 és el senar de partida: el seu residu mai és 4 (és senar), de manera que demanar-li que «eviti la regió 4» no diria res, i a més podria ser un múltiple de 3, que ni tan sols és encara al nucli. És a partir del pas 2 que tot senar està garantit dins de \(H_4\), i la pregunta «aconsegueix quedar-s'hi, esquivant la regió 4?» es converteix exactament en el nostre recompte de camins. La seva resposta és un enunciat exacte:</p>
+
+<div class="teorema">
+  <p style="margin:0"><span class="titulo">Teorema (Reyes, 2026).</span> Per a cada \(m\ge 1\), de tots els nombres senars de \(\{1,\ldots,2^m\}\), <strong>exactament \(F(m+1)\)</strong> tenen la propietat que la seva òrbita sota \(T\) evita la classe de residu \(4 \pmod 6\) durant els passos \(2,\ldots,m\). La proporció de supervivents decau a ritme \((\varphi/2)^m\).</p>
+</div>
+
+<p>Ni «aproximadament», ni «per a \(m\) gran»: <em>exactament</em> el nombre de Fibonacci \(F(m+1)\), per a tot \(m\). Per exemple, amb \(m=6\): dels 32 nombres senars fins a 64, exactament 13 \(=F(7)\) esquiven la regió 4. I el ritme \((\varphi/2)^m\)? És justament el duel \(\varphi\) contra 2 del visor anterior: els supervivents creixen com \(\varphi\) i el total com 2, així que la seva proporció s'apaga sola. Esquivar la regió 4 és possible, però cada cop més rar; gairebé tots els nombres acaben trepitjant-la.</p>
+
+<p>No te'n refiïs, de mi — comprova-ho. Aquest verificador executa el càlcul de debò, nombre a nombre; i pots prémer qualsevol nombre per obrir-ne l'òrbita i veure com esquiva —o no— la regió 4:</p>
+
+<div class="widget" id="w-teo">
+  <h4>Verificador del teorema</h4>
+  <p style="margin:0 0 8px">\(m\): <input type="range" min="1" max="8" value="6" id="teo-m" oninput="teorema()"> <strong id="teo-mval">6</strong></p>
+  <div id="teo-out" style="font:14px var(--font)"></div>
+  <div id="teo-lista" style="margin-top:4px"></div>
+  <div id="teo-orbit"></div>
+</div>
+
+<h2>6. Per què importa</h2>
+
+<p>Una connexió entre Fibonacci i Collatz ja és bonica per si sola, i no és la primera vegada que algú l'entreveu: a «Collatz Meets Fibonacci» (Albert, Gudmundsson i Ulfarsson, 2022), certs recomptes lligats a Collatz coincideixen amb els nombres de Fibonacci… fins a longitud 14, i a partir d'aquí la coincidència es trenca i apareixen termes «de més». La diferència aquí és que el recompte és <em>exacte</em> —\(F(m+1)\), per a tot \(m\) sense excepció— i amb demostració tancada. Però el teorema diu, a més, una cosa més profunda sobre l'estructura del problema.</p>
+
+<p>Al paper es demostra que <strong>cap vèrtex del nucli no és prescindible</strong>: esborris el que esborris, la velocitat de creixement cau estrictament per sota de 2, i cada vèrtex té el seu preu exacte. Esborrar el 4 (o l'1) la deixa en \(\varphi\approx1{,}618\); esborrar el 5, en \(\sqrt2\approx1{,}414\); i esborrar el 2 l'enfonsa fins a 1: sense la regió 2, amb prou feines queda un fil de camins. La jerarquia completa, \(1<\sqrt2<\varphi<2\), mesura quant sosté cada regió el trànsit de la dinàmica.</p>
+
+<p>I això té una conseqüència directa sobre la conjectura. Si existís un cicle diferent del \(1\to2\to1\) —una de les dues maneres en què Collatz podria ser falsa—, aquest cicle seria un camí tancat al graf, i un camí tancat ha de quadrar amb les regles de trànsit del mapa: a cada regió, les vegades que s'hi entra i les vegades que se'n surt s'han de compensar. D'aquesta comptabilitat surt una cosa molt concreta: el teorema obliga que <strong>tot cicle positiu de \(T\) ha de visitar la regió 2, i a més passar-hi més del 18% dels seus passos</strong>. No sabem si aquests cicles existeixen, però ja sabem una cosa concreta sobre com haurien de ser: no hi ha cap cicle possible que visqui amagat als marges del mapa.</p>
+
+<p>Aquesta és, per a mi, la moralitat de tot plegat. La conjectura de Collatz continua oberta, i aquest teorema no la resol. Però demostra que sota el caos aparent de les trajectòries hi ha una estructura rígida, mesurable i exacta — tan exacta que al seu cor bateguen, des de sempre i sense que ningú els hagués vist, els nombres de Fibonacci i el nombre auri.</p>
+
+<hr style="border:none;border-top:1px solid var(--border);margin:2.5rem 0">
+<div class="nota-refs" style="font-size:0.88rem;color:var(--text-soft)">
+  <p>El resultat complet, amb les demostracions: <em>A Fibonacci theorem for Collatz trajectories via modular graph structure</em>, M.-A. Reyes Jiménez, <a href="https://arxiv.org/abs/2606.02621">arXiv:2606.02621</a> (2026).</p>
+  <p>Antecedent: M. Albert, B. Gudmundsson i H. Ulfarsson, «Collatz Meets Fibonacci», <em>Mathematics Magazine</em> 95 (2022), 130–136.</p>
+  <p>Tots els simuladors d'aquesta pàgina executen els càlculs reals al teu navegador: res no està precuinat.</p>
+</div>
+      <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+        <a href="/ca/notas/" style="font-size:0.9rem;color:var(--text-soft)">&larr; Tornar a notes</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script>
+// ---------- utilidades ----------
+const T = n => n % 2 === 0 ? n / 2 : (3 * n + 1) / 2;
+const fibArr = m => { const f=[1n,1n]; while(f.length<m) f.push(f[f.length-1]+f[f.length-2]); return f.slice(0,m); };
+
+// ---------- widget 1: sucesión ----------
+let fibs = [1, 1];
+function fibPinta(){
+  const c = document.getElementById('fib-chips');
+  const n = fibs.length;
+  c.innerHTML = fibs.map((v,i)=>{
+    const cls = n>2 && i===n-1 ? ' nuevo' : n>2 && (i===n-2||i===n-3) ? ' padre' : '';
+    const op  = n>2 && i===n-2 ? '<span class="op">+</span>' : n>2 && i===n-1 ? '<span class="op">=</span>' : '';
+    return op + `<span class="chip${cls}">${v.toLocaleString('es')}</span>`;
+  }).join('');
+  const r = document.getElementById('fib-ratio');
+  if(fibs.length>=4){
+    const q = fibs[fibs.length-1]/fibs[fibs.length-2];
+    r.innerHTML = `Quocient entre els dos últims: <strong>${q.toFixed(7)}</strong> &nbsp;→&nbsp; φ = 1.6180339…`;
+  } else r.textContent = '';
+}
+function fibMas(){ if(fibs.length<40) fibs.push(fibs[fibs.length-1]+fibs[fibs.length-2]); fibPinta(); }
+function fibReset(){ fibs=[1,1]; fibPinta(); }
+fibPinta();
+
+// ---------- widget 2: escalera ----------
+function escalera(){
+  const n = +document.getElementById('esc-n').value;
+  document.getElementById('esc-nval').textContent = n;
+  // contar y enumerar composiciones de n con partes 1 y 2
+  const comps = (function gen(k){
+    if(k===0) return [[]];
+    if(k<0) return [];
+    return gen(k-1).map(c=>[1,...c]).concat(gen(k-2).map(c=>[2,...c]));
+  })(n);
+  const f = fibArr(n+2);
+  let html = `<p style="margin:4px 0"><strong>${comps.length.toLocaleString('es')}</strong> maneres de pujar — i F(${n+1}) = <strong class="fib-destacado">${f[n].toLocaleString('es')}</strong> ✓
+    &nbsp;·&nbsp; <span class="paso p1">1</span> pas d'1 &nbsp; <span class="paso p2">2</span> pas de 2</p>`;
+  html += '<div class="chips">'+comps.map(c=>`<span class="forma">${c.map(x=>`<span class="paso p${x}">${x}</span>`).join('')}</span>`).join('')+'</div>';
+  document.getElementById('esc-out').innerHTML = html;
+}
+escalera();
+
+// ---------- widget 3: simulador Collatz + grafo ----------
+let colTimer = null;
+function colPreset(which,n){ document.getElementById('col'+which+'-n').value = n; colSimular(which); }
+function colSimular(which){
+  const colored = (which==='B');
+  let n = Math.floor(+document.getElementById('col'+which+'-n').value);
+  if(!(n>=1)) return;
+  if(colTimer) clearInterval(colTimer);
+  const out = document.getElementById('col'+which+'-out'), info = document.getElementById('col'+which+'-info');
+  out.innerHTML=''; info.textContent='';
+  const traj=[n]; let x=n, pasos=0, max=n;
+  while(x!==1 && pasos<600){ x=T(x); traj.push(x); max=Math.max(max,x); pasos++; }
+  let i=0;
+  if(colored){ clearGraphHL(); document.querySelectorAll('#deriv-pills .rpill').forEach(el=>el.classList.remove('sel')); document.getElementById('deriv-out').innerHTML=''; }
+  colTimer = setInterval(()=>{
+    if(i>=traj.length){
+      clearInterval(colTimer);
+      if(colored){
+        const rs=[...new Set(traj.map(v=>((v%6)+6)%6))].sort((a,b)=>a-b);
+        info.innerHTML = `Arribada a l'1 en <strong>${traj.length-1}</strong> passos · altura màxima <strong>${max.toLocaleString('es')}</strong> · i en tot el viatge els residus només van prendre ${rs.length} valors: ` +
+          rs.map(r=>`<span class="chip r${r}">${r}</span>`).join(' ');
+      } else {
+        info.innerHTML = `Arribada a l'1 en <strong>${traj.length-1}</strong> passos · altura màxima <strong>${max.toLocaleString('es')}</strong>`;
+      }
+      return;
+    }
+    const v=traj[i], r=((v%6)+6)%6;
+    out.insertAdjacentHTML('beforeend', colored
+      ? `<span class="chip r${r}">${v.toLocaleString('es')}</span>`
+      : `<span class="chip">${v.toLocaleString('es')}</span>`);
+    if(colored){
+      document.querySelectorAll('#grafoG .nodo').forEach(c=>c.classList.remove('activo'));
+      const nodo=document.querySelector(`#grafoG #nodo-${r} .nodo`);
+      if(nodo) nodo.classList.add('activo');
+    }
+    i++;
+  }, Math.max(60, 900/traj.length));
+}
+
+// ---------- widget: derivación de aristas (mod 6) ----------
+const m6 = x => ((x%6)+6)%6;
+const colName = ['rv0tx','rv1tx','rv2tx','rv3tx','rv4tx','rv5tx'];
+function miniChip(r){ return `<span class="minichip r${r}">${r}</span>`; }
+function derivPills(){
+  document.getElementById('deriv-pills').innerHTML =
+    '<span style="align-self:center;color:var(--text-faint);margin-right:4px">regió:</span>' +
+    [0,1,2,3,4,5].map(r=>`<span class="rpill r${r}" data-r="${r}" onclick="derivShow(${r})">${r}</span>`).join('');
+}
+function clearGraphHL(){
+  document.querySelectorAll('#grafoG .ar-g,#grafoG .ar-a').forEach(e=>e.classList.remove('dim','hot'));
+  document.querySelectorAll('#grafoG .nodo').forEach(c=>c.classList.remove('activo','src','dstg','dsta'));
+}
+function derivShow(a){
+  document.querySelectorAll('#deriv-pills .rpill').forEach(el=>el.classList.toggle('sel', +el.dataset.r===a));
+  const even = a%2===0;
+  const r0 = m6(T(a)), r1 = m6(T(a+6));   // k par (k=0) y k impar (k=1)
+  // encender las dos aristas de la región a en el grafo
+  document.querySelectorAll('#grafoG .ar-g,#grafoG .ar-a').forEach(e=>{e.classList.add('dim');e.classList.remove('hot');});
+  const eg=document.getElementById(`e-${a}-${r0}`), ea=document.getElementById(`e-${a}-${r1}`);
+  if(eg){eg.classList.remove('dim');eg.classList.add('hot');}
+  if(ea){ea.classList.remove('dim');ea.classList.add('hot');}
+  document.querySelectorAll('#grafoG .nodo').forEach(c=>c.classList.remove('activo','src','dstg','dsta'));
+  const dg=document.querySelector(`#grafoG #nodo-${r0} .nodo`); if(dg)dg.classList.add('dstg');
+  const da=document.querySelector(`#grafoG #nodo-${r1} .nodo`); if(da)da.classList.add('dsta');
+  const src=document.querySelector(`#grafoG #nodo-${a} .nodo`); if(src)src.classList.add('src');
+  // formula con el paso de sustitución n = 6k + a, todo en función de la paridad de k (LaTeX)
+  const nStr = a===0 ? '6k' : `6k+${a}`;
+  const formula = even
+    ? `T(n)=\\frac{n}{2}=\\frac{${nStr}}{2}=3k${a/2 ? '+'+(a/2) : ''}`
+    : `T(n)=\\frac{3n+1}{2}=\\frac{3(${nStr})+1}{2}=9k+${(3*a+1)/2}`;
+  let rows='';
+  for(let k=0;k<6;k++){
+    const n=a+6*k, tn=T(n), r=m6(tn);
+    rows += `<tr><td style="color:var(--text-faint)">${k}</td><td>${n}</td><td>${tn}</td>`
+      + `<td>${miniChip(r)}</td><td><span class="ktag ${k%2===0?'par':'impar'}">k ${k%2===0?'par':'impar'}</span></td></tr>`;
+  }
+  document.getElementById('deriv-out').innerHTML =
+    `<div style="color:var(--text-soft);margin-bottom:8px">Un nombre amb residu ${a} s'escriu <b>n = ${nStr}</b>. Es <b>${even?'parell':'senar'}</b>, així que li toca la regla ${even?'n/2':'(3n+1)/2'}:</div>
+     <div class="dform">\\[ ${formula} \\]</div>
+     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px">
+       <div class="dcase" style="border-color:#C0DD97"><div style="color:var(--verde);font-weight:600;margin-bottom:6px">si k és parell</div>
+         <div style="display:flex;align-items:center;gap:7px">${miniChip(r0)}<span style="color:var(--text-soft)">deixa residu ${r0} → regió ${r0}</span></div></div>
+       <div class="dcase" style="border-color:#FAC775"><div style="color:var(--ambar);font-weight:600;margin-bottom:6px">si k és senar</div>
+         <div style="display:flex;align-items:center;gap:7px">${miniChip(r1)}<span style="color:var(--text-soft)">deixa residu ${r1} → regió ${r1}</span></div></div>
+     </div>
+     <table class="dtbl"><tr><th>k</th><th>n</th><th>T(n)</th><th>residu</th><th></th></tr>${rows}</table>`;
+  if(window.renderMathInElement) renderMathInElement(document.getElementById('deriv-out'),
+    {delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});
+}
+derivPills();
+
+// ---------- widget: matriz de adyacencia de H4 (clic en celda → arista) ----------
+function h4reset(){
+  document.querySelectorAll('#h4mat td').forEach(td=>td.classList.remove('sel'));
+  document.querySelectorAll('#h4svg .ar-g,#h4svg .ar-a').forEach(e=>e.classList.remove('dim','hot'));
+  document.querySelectorAll('#h4svg .nodo').forEach(c=>c.classList.remove('src','dstg','dsta'));
+  document.getElementById('h4msg').innerHTML='';
+}
+function h4cell(cell,r,s,val){
+  document.querySelectorAll('#h4mat td').forEach(td=>td.classList.remove('sel'));
+  cell.classList.add('sel');
+  document.querySelectorAll('#h4svg .ar-g,#h4svg .ar-a').forEach(e=>{e.classList.add('dim');e.classList.remove('hot');});
+  document.querySelectorAll('#h4svg .nodo').forEach(c=>c.classList.remove('src','dstg','dsta'));
+  const src=document.querySelector(`#h4n-${r} .nodo`); if(src)src.classList.add('src');
+  const msg=document.getElementById('h4msg');
+  if(val===1){
+    const e=document.getElementById(`h-${r}-${s}`);
+    if(e){
+      e.classList.remove('dim'); e.classList.add('hot');
+      const dst=document.querySelector(`#h4n-${s} .nodo`);
+      if(dst) dst.classList.add(e.classList.contains('ar-a')?'dsta':'dstg');
+    }
+    msg.innerHTML = `Casella fila ${r}, columna ${s} = <b>1</b>: sí que hi ha una fletxa de la regió ${r} a la regió ${s} — la que s'acaba d'encendre al graf.`;
+  } else {
+    msg.innerHTML = `Casella fila ${r}, columna ${s} = <b>0</b>: cap fletxa surt de la regió ${r} i arriba a la regió ${s}.`;
+  }
+}
+
+// ---------- widget 4: potencias de la matriz ----------
+const M = [[0n,1n,1n],[1n,0n,0n],[0n,1n,1n]];
+const mulM = (A,B)=>A.map((f,i)=>B[0].map((_,j)=>f.reduce((s,a,k)=>s+a*B[k][j],0n)));
+function matPow(){
+  const k = +document.getElementById('mat-k').value;
+  document.getElementById('mat-kval').textContent = k;
+  let P=[[1n,0n,0n],[0n,1n,0n],[0n,0n,1n]];
+  for(let i=0;i<k;i++) P=mulM(P,M);
+  const fset = new Set(fibArr(25).map(String));
+  const V=['1','2','5'];
+  let html = `<table class="mat" id="matk"><tr><th>M<sup>${k}</sup></th>${V.map(v=>`<th class="hrv${v}">→${v}</th>`).join('')}<th>total</th></tr>`;
+  P.forEach((fila,i)=>{
+    const tot = fila.reduce((a,b)=>a+b,0n);
+    const cells = fila.map((v,j)=>`<td data-rs="${V[i]}-${V[j]}" onclick="matCell(${V[i]},${V[j]})" class="${fset.has(String(v))&&v>0n?'fib-destacado':''}">${v.toLocaleString('es')}</td>`).join('');
+    html += `<tr><th class="hrv${V[i]}">${V[i]}</th>${cells}<td class="fib-destacado">${tot.toLocaleString('es')}</td></tr>`;
+  });
+  html += '</table>';
+  document.getElementById('mat-out').innerHTML = html;
+  document.getElementById('mat-paths').innerHTML = '';
+  const tot1 = P[0].reduce((a,b)=>a+b,0n);
+  let prev=[[1n,0n,0n],[0n,1n,0n],[0n,0n,1n]];
+  for(let i=0;i<k-1;i++) prev=mulM(prev,M);
+  const totPrev = prev[0].reduce((a,b)=>a+b,0n);
+  document.getElementById('mat-info').innerHTML =
+    `Camins de longitud ${k} des de la regió 1: <strong>${tot1.toLocaleString('es')}</strong>` +
+    (k>1?` &nbsp;·&nbsp; quocient amb el pas anterior: <strong>${(Number(tot1)/Number(totPrev)).toFixed(5)}</strong> → φ`:'') +
+    ` &nbsp;·&nbsp; <span class="fib-destacado">en ambre, els nombres de Fibonacci</span>`;
+}
+// ---------- widget: dos ritmos de crecimiento (φ vs 2) ----------
+function rhythm(){
+  const m=+document.getElementById('rh-m').value;
+  document.getElementById('rh-mval').textContent=m;
+  const full=Math.pow(2,m);                     // caminos del núcleo completo (se duplica)
+  let c1=2,c2=3,c=(m===1?2:3);                   // C(m): caminos en H4 desde la región 1 (Fibonacci)
+  for(let i=3;i<=m;i++){c=c1+c2;c1=c2;c2=c;}
+  const pct=100*c/full;
+  document.getElementById('rh-out').innerHTML =
+    `<div style="margin-bottom:12px">
+       <div style="display:flex;justify-content:space-between;gap:10px;font-size:13px;margin-bottom:3px"><span>Tots els camins del nucli <span style="color:var(--text-faint)">(es dupliquen, ×2)</span></span><strong>${full.toLocaleString('es')}</strong></div>
+       <div class="barra-wrap"><div class="barra" style="width:100%;background:var(--text-faint)"></div></div>
+     </div>
+     <div>
+       <div style="display:flex;justify-content:space-between;gap:10px;font-size:13px;margin-bottom:3px"><span>Camins que eviten la regió 4 <span style="color:var(--text-faint)">(Fibonacci, ×φ)</span></span><strong class="fib-destacado">${c.toLocaleString('es')}</strong></div>
+       <div class="barra-wrap"><div class="barra" style="width:${pct}%"></div></div>
+     </div>
+     <div class="resultado">Esquivar la regió 4 és possible, però cada cop més rar: amb m = ${m}, exactament <strong>${c.toLocaleString('es')}</strong> dels <strong>${full.toLocaleString('es')}</strong> camins ho aconsegueixen (un ${pct.toFixed(1)}%). Els dos comptes són exactes; aquesta fracció tendeix a zero i, a la llarga, es multiplica per φ/2 ≈ 0,81 a cada pas.</div>`;
+}
+rhythm();
+
+const H4adj={1:[2,5],2:[1],5:[2,5]};
+function walksLen(r,k){
+  let paths=[[r]];
+  for(let i=0;i<k;i++){const nx=[];for(const p of paths){for(const v of H4adj[p[p.length-1]])nx.push(p.concat(v));}paths=nx;}
+  return paths;
+}
+function matCell(r,s){
+  const k=+document.getElementById('mat-k').value;
+  document.querySelectorAll('#matk td').forEach(td=>td.classList.remove('sel'));
+  const cell=document.querySelector(`#matk td[data-rs="${r}-${s}"]`); if(cell)cell.classList.add('sel');
+  const all=walksLen(r,k).filter(p=>p[p.length-1]===s);
+  const out=document.getElementById('mat-paths');
+  const arrow='<span style="color:var(--text-faint);margin:0 1px">→</span>';
+  const chip=v=>`<span class="minichip r${v}">${v}</span>`;
+  if(all.length===0){
+    out.innerHTML=`<div style="color:var(--text-soft)">No hi ha cap camí de longitud ${k} que vagi de la regió ${r} a la ${s}: per això la casella val <b>0</b>.</div>`;
+    return;
+  }
+  const LIM=24;
+  const shown=all.slice(0,LIM).map(p=>`<div class="codpath">${p.map(chip).join(arrow)}</div>`).join('');
+  out.innerHTML=`<div style="color:var(--text-soft);margin-bottom:6px">Hi ha <b>${all.length}</b> camí${all.length>1?'ns':''} de longitud ${k} de la regió ${r} a la ${s} — just el que diu la casella. ${all.length<=LIM?'Aquí els tens tots:':'Aquests són els primers '+LIM+':'}</div>`
+    +`<div class="codlist">${shown}</div>`
+    +(all.length>LIM?`<div style="color:var(--text-faint);margin-top:6px">… i ${all.length-LIM} més.</div>`:'');
+}
+matPow();
+
+// ---------- widget 5: verificador del teorema ----------
+function teorema(){
+  const m = +document.getElementById('teo-m').value;
+  document.getElementById('teo-mval').textContent = m;
+  const lim = 2**m, sup=[], fail=[];
+  for(let n=1;n<=lim;n+=2){
+    let x=n, ok=true;
+    for(let s=2;s<=m;s++){ x=T(x); if(x%6===4){ok=false;break;} }
+    (ok?sup:fail).push(n);
+  }
+  const F = fibArr(m+2); const fm1 = F[m]; // F(m+1)
+  const prop = sup.length/(lim/2);
+  const okIg = BigInt(sup.length)===fm1;
+  const cond = m>=2 ? `eviten la regió 4 als passos 2 a ${m}` : `encara no hi ha cap pas a comprovar, així que tots compten`;
+  document.getElementById('teo-out').innerHTML =
+    `<p style="margin:4px 0">Senars a {1,…,${lim.toLocaleString('es')}}: <strong>${(lim/2).toLocaleString('es')}</strong> · supervivents (${cond}): <strong>${sup.length.toLocaleString('es')}</strong> · F(${m+1}) = <strong>${fm1.toLocaleString('es')}</strong> <span class="${okIg?'ok':'fail'}">${okIg?'✓ coincideixen exactament':'✗'}</span></p>
+     <p style="margin:4px 0">Proporció de supervivents: ${(100*prop).toFixed(2)} %</p>
+     <div class="barra-wrap"><div class="barra" style="width:${100*prop}%"></div></div>`;
+  const chip=v=>`<span class="chip teochip" onclick="teoOrbit(${v},${m})">${v}</span>`;
+  let html = `<div style="margin:8px 0 3px;color:var(--text-soft)">Supervivents (prem-ne un per veure'n la codificació mod 6):</div>`
+    + `<div class="chips">${sup.map(chip).join('')}</div>`;
+  if(fail.length) html += `<div style="margin:10px 0 3px;color:var(--text-soft)">…i els que cauen a la regió 4 (prem-ne un per veure on):</div>`
+    + `<div class="chips">${fail.map(chip).join('')}</div>`;
+  document.getElementById('teo-lista').innerHTML = html;
+  document.getElementById('teo-orbit').innerHTML = '';
+}
+function teoOrbit(n,m){
+  let x=n, cards=[], hit=-1;
+  for(let k=1;k<=m;k++){
+    if(k>1) x=T(x);
+    const r=((x%6)+6)%6;
+    if(k>=2 && r===4 && hit<0) hit=k;
+    cards.push(`<div class="orbcard${k>=2&&r===4?' hit':''}"><div class="orbk">pas ${k}</div><span class="minichip r${r}">${r}</span><div class="orbv">${x.toLocaleString('es')}</div></div>`);
+  }
+  const surv = hit<0;
+  document.getElementById('teo-orbit').innerHTML =
+    `<div style="margin-top:12px;color:var(--text-soft)">Codificació mod 6 de l'òrbita de <b>${n}</b> (el residu de cada pas; a sota, el nombre):</div>
+     <div class="codlist" style="margin-top:6px">${cards.join('')}</div>
+     <div class="resultado">${surv
+       ? 'Del pas 2 endavant, tots els residus són a {1, 2, 5} — mai no toca la regió 4: <span class="ok">supervivent ✓</span>'
+       : `Al pas ${hit} cau a la regió 4: <span class="fail">no sobreviu ✗</span>`}</div>`;
+}
+teorema();
+</script>
+</body>
+</html>
