@@ -1,0 +1,210 @@
+{
+  "schema_version": 3,
+  "id": "pau-2026-mate-s1",
+  "tipo_coleccion": "examen",
+  "titulo": "PAU 2026 — Matemàtiques (Sèrie 1)",
+  "fecha": "2026-06-12",
+  "grupo": "2n BTL Científic",
+  "promocion": null,
+  "centro": "Maristes Sants—Les Corts",
+  "pdf_enunciados": "/aula/selectivitat/pau-2026-mate-s1/original.pdf",
+  "pdf_soluciones": null,
+  "url_index": "/aula/selectivitat/pau-2026-mate-s1/",
+  "puntuacion_total": 10,
+  "baremo": null,
+  "tags_coleccion": {
+    "materia": "cient-2btl",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "pau_oficial",
+    "origen": "selectivitat"
+  },
+  "ejercicios": [
+    {
+      "id": "pau-2026-mate-s1-p1",
+      "numero": 1,
+      "titulo": "Funció a trossos — continuïtat, àrea i recta tangent",
+      "url_enunciado": "/aula/selectivitat/pau-2026-mate-s1/p1.html",
+      "url_pdf": "/aula/selectivitat/pau-2026-mate-s1/original.pdf#page=2",
+      "pages_enunciado": [
+        2,
+        3
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2.5,
+      "contexto": "Considereu la funció definida a trossos $$f(x)=\\begin{cases} 5e^{2x} & x\\le 0 \\\\ (x+m)^2+1 & 0<x<2 \\\\ 1 & 2\\le x \\end{cases}$$ on $m$ és un paràmetre real.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Determineu els valors de $m$ que fan que la funció $f(x)$ sigui contínua en tot el seu domini. Justifiqueu la resposta."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Feu un esbós de la gràfica de $y=f(x)$ per al cas $m=-2$, i calculeu l'àrea delimitada per aquesta gràfica, l'eix $OX$ i les rectes $x=-1$ i $x=3$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Per a $m=-2$, trobeu un punt on la recta tangent a $y=f(x)$ sigui paral·lela a $y=-2x$. Calculeu l'equació d'aquesta recta tangent."
+        }
+      ],
+      "tags": {
+        "materia": "cient-2btl",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-funciones-elementales",
+          "BACH-limites",
+          "BACH-derivadas",
+          "BACH-integrales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      }
+    },
+    {
+      "id": "pau-2026-mate-s1-p2",
+      "numero": 2,
+      "titulo": "Sistema de tres plans — discussió, interpretació geomètrica i resolució",
+      "url_enunciado": "/aula/selectivitat/pau-2026-mate-s1/p2.html",
+      "url_pdf": "/aula/selectivitat/pau-2026-mate-s1/original.pdf#page=4",
+      "pages_enunciado": [
+        4,
+        5
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2.5,
+      "contexto": "Considereu el següent sistema d'equacions lineals, format per tres plans a l'espai i que depèn del paràmetre real $m$: $$\\left\\{\\begin{aligned} x+my+z&=4 \\\\ x+3y+z&=5 \\\\ mx+y+z&=4 \\end{aligned}\\right.$$",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 1,
+          "tarea": "Discutiu el sistema per als diferents valors del paràmetre $m$."
+        },
+        {
+          "letra": "b",
+          "puntos": 1,
+          "tarea": "Interpreteu geomètricament aquest sistema per a tots els valors del paràmetre $m$ i resoleu-lo, si és possible, per al cas $m=1$."
+        },
+        {
+          "letra": "c",
+          "puntos": 0.5,
+          "tarea": "Per a $m=1$, és possible afegir una quarta equació de manera que el sistema resultant sigui compatible determinat i tingui com a solució $(x,y,z)=\\left(3,\\tfrac{1}{2},\\tfrac{1}{2}\\right)$? Raoneu la resposta."
+        }
+      ],
+      "tags": {
+        "materia": "cient-2btl",
+        "ambito_bach": "BACH-C",
+        "concepto_bach": [
+          "BACH-sistemas",
+          "BACH-matrices",
+          "BACH-determinantes",
+          "BACH-rectas-planos"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      }
+    },
+    {
+      "id": "pau-2026-mate-s1-p3",
+      "numero": 3,
+      "titulo": "Probabilitat i optimització — Entrades per a un concert",
+      "url_enunciado": "/aula/selectivitat/pau-2026-mate-s1/p3.html",
+      "url_pdf": "/aula/selectivitat/pau-2026-mate-s1/original.pdf#page=6",
+      "pages_enunciado": [
+        6,
+        7
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2.5,
+      "contexto": "L'Ajuntament de Canet de Mar ha aconseguit 24 entrades gratuïtes per a un concert d'un grup de rock català i ha decidit sortejar-les entre els veïns interessats a assistir-hi. Tots els veïns del poble seguidors d'aquest grup s'apunten al sorteig, i només al 16 % els toca una entrada. De la resta de seguidors del grup, sis setenes parts intenten comprar una entrada a través del web, on la probabilitat d'aconseguir-la és del 25 %.",
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 0.75,
+          "tarea": "Quantes persones d'aquest municipi tenen entrada per al concert?"
+        },
+        {
+          "letra": "b",
+          "puntos": 0.75,
+          "tarea": "Si s'escull a l'atzar un veí de Canet seguidor d'aquest grup de rock i no té entrada per al concert, quina és la probabilitat que hagi intentat aconseguir-la via web?"
+        },
+        {
+          "letra": "c",
+          "puntos": 1,
+          "tarea": "El nivell de decibels durant la cançó es pot aproximar per $S(t)=-t^3+12t^2-30t+90$, amb $t\\in[0,5]$ ($t$ en minuts). Quan se superen els 100 decibels s'activen uns efectes lumínics. S'activaran en algun moment durant aquests cinc minuts? Si la resposta és afirmativa, calculeu en quin minut s'activen, aproximat a les dècimes."
+        }
+      ],
+      "tags": {
+        "materia": "cient-2btl",
+        "ambito_bach": "BACH-E",
+        "concepto_bach": [
+          "BACH-probabilidad",
+          "BACH-derivadas",
+          "BACH-funciones-elementales"
+        ],
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento",
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      }
+    },
+    {
+      "id": "pau-2026-mate-s1-p4",
+      "numero": 4,
+      "titulo": "Opció A: optimització · Opció B: geometria a l'espai",
+      "url_enunciado": "/aula/selectivitat/pau-2026-mate-s1/p4.html",
+      "url_pdf": "/aula/selectivitat/pau-2026-mate-s1/original.pdf#page=8",
+      "pages_enunciado": [
+        8
+      ],
+      "pages_solucion": null,
+      "puntuacion": 2.5,
+      "contexto": "Trieu UNA de les dues opcions (A o B). En aquesta web teniu resoltes totes dues: l'Opció A en aquesta pàgina i l'Opció B a la pàgina següent.",
+      "apartados": [
+        {
+          "letra": "A",
+          "puntos": 2.5,
+          "tarea": "<strong>Opció A.</strong> L'alcalde d'un poble de Catalunya encarrega a l'arquitecte municipal el disseny d'un parc infantil. Hi ha d'haver dos espais delimitats: un per a una boca de reg (de forma circular) i un altre per a una caseta d'eines (de forma quadrada). Cada espai es delimita amb una barana de forja. Sabent que les dues baranes mesuren exactament 10 m de longitud en total, quina mesura ha de tenir la barana de cada espai perquè la suma de les superfícies dels dos espais sigui tan petita com sigui possible? Quina és aquesta superfície mínima?"
+        }
+      ],
+      "tags": {
+        "materia": "cient-2btl",
+        "ambito_bach": "BACH-D",
+        "concepto_bach": [
+          "BACH-derivadas",
+          "BACH-funciones-elementales",
+          "BACH-vectores",
+          "BACH-rectas-planos"
+        ],
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "modelizacion"
+        ],
+        "formato": [
+          "problema_aplicado"
+        ]
+      }
+    }
+  ]
+}

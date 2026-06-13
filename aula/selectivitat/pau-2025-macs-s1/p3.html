@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 · Distribució normal i IC — PAU 2025 MACS</title>
+<meta name="description" content="Exercici 3 de la PAU 2025 MACS: probabilitat amb la distribució normal i interval de confiança del 95% per a la mitjana.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/selectivitat/pau-2025-macs-s1/p3.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorat</a>
+      <a href="/notas/">Notes</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/aula/selectivitat/">Selectivitat MACS</a>
+      <span class="sep">/</span>
+      <a href="/aula/selectivitat/pau-2025-macs-s1/">PAU 2025 Sèrie 1</a>
+      <span class="sep">/</span>
+      <span class="current">P3</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2n BTL CCSS · PAU</span>
+        <span class="tag tag-blue">Juny 2025</span>
+        <span class="tag tag-orange">Sèrie 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/selectivitat/pau-2025-macs-s1/p2.html">&larr; Exercici anterior</a>
+      <a class="index" href="/aula/selectivitat/pau-2025-macs-s1/">Índex de l'examen</a>
+      <a class="next" href="/aula/selectivitat/pau-2025-macs-s1/p4.html">Exercici següent &rarr;</a>
+    </nav>
+
+    <article class="question-block">
+      <h1>Exercici 3 &middot; Distribució normal i interval de confiança</h1>
+      <p class="question-descriptor">Tipificació de la variable normal i construcció d'un IC del 95% per a la mitjana.</p>
+      <span class="score-pill">Puntuació màxima · 2,5 punts</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>Fa uns anys una granja de vaques frisones dedicada a la producció de llet va fer un estudi sobre el pes de les seves vaques i va arribar a la conclusió que aquesta variable seguia una distribució normal amb una mitjana de 580 kg i una desviació típica de 25 kg. Es dóna que $Z \sim \mathcal{N}(0,1)$ compleix $P(-1{,}96 \le Z \le 1{,}96) = 0{,}95$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Calculeu, de manera raonada, la probabilitat que si agafem a l'atzar una vaca frisona d'aquesta granja, el seu pes estigui entre 531 i 629 kg. <span class="apartado-puntos">1 p</span></li>
+          <li>Creiem que un canvi en el tipus de farratge n'ha modificat la mitjana del pes. Hem obtingut el pes d'una mostra de 10 vaques escollides a l'atzar: 569, 575, 611, 581, 583, 614, 589, 555, 566, 571. Trobeu un interval de confiança del 95 % per a la mitjana, suposant $\sigma = 25$ kg. Podem afirmar que la mitjana ha canviat? Justifiqueu la resposta. <span class="apartado-puntos">1,5 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Batxillerat CCSS · Bloc E — Sentit estocàstic</span>
+        <span class="ib-chip" data-descriptor="Tipificació i probabilitat amb la distribució normal">Distribució normal</span>
+        <span class="ib-chip" data-descriptor="Interval de confiança per a la mitjana poblacional">Inferència estadística</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p3" hidden>
+        <h3>Correcció pas a pas</h3>
+        <p class="note"><strong>Idea clau:</strong> per calcular probabilitats amb una $\mathcal{N}(\mu,\sigma)$ cal tipificar: $Z = \tfrac{X-\mu}{\sigma}$. Per a l'IC de la mitjana amb $\sigma$ coneguda s'utilitza la fórmula $\bar{x} \pm z_{0{,}95}\,\dfrac{\sigma}{\sqrt{n}}$, on $z_{0{,}95} = 1{,}96$.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Probabilitat del pes entre 531 i 629 kg</h4>
+          <p>$X \sim \mathcal{N}(580, 25^{2})$. Tipifiquem els extrems de l'interval:</p>
+          <div class="math-block">$$Z_1 = \dfrac{531 - 580}{25} = \dfrac{-49}{25} = -1{,}96, \qquad Z_2 = \dfrac{629 - 580}{25} = \dfrac{49}{25} = 1{,}96.$$</div>
+          <p>Per tant:</p>
+          <div class="math-block">$$P(531 \le X \le 629) = P(-1{,}96 \le Z \le 1{,}96) = 0{,}95.$$</div>
+          <div class="final">La probabilitat que el pes estigui entre 531 i 629 kg és <strong>0,95 (95%)</strong>.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Interval de confiança i contrast de canvi</h4>
+          <p><strong>Càlcul de la mitjana mostral</strong> ($n = 10$ vaques):</p>
+          <div class="math-block">$$\bar{x} = \dfrac{569+575+611+581+583+614+589+555+566+571}{10} = \dfrac{5814}{10} = 581{,}4\ \text{kg}.$$</div>
+          <p><strong>Interval de confiança al 95%</strong> amb $\sigma = 25$ coneguda:</p>
+          <div class="math-block">$$\text{IC}_{95\%} = \left[\bar{x} - 1{,}96\,\dfrac{\sigma}{\sqrt{n}},\ \bar{x} + 1{,}96\,\dfrac{\sigma}{\sqrt{n}}\right] = \left[581{,}4 - 1{,}96\cdot\dfrac{25}{\sqrt{10}},\ 581{,}4 + 1{,}96\cdot\dfrac{25}{\sqrt{10}}\right].$$</div>
+          <p>$\dfrac{25}{\sqrt{10}} \approx \dfrac{25}{3{,}162} \approx 7{,}906$, i $1{,}96 \times 7{,}906 \approx 15{,}50$ kg.</p>
+          <div class="math-block">$$\text{IC}_{95\%} \approx [581{,}4 - 15{,}5,\ 581{,}4 + 15{,}5] = [565{,}9,\ 596{,}9]\ \text{kg}.$$</div>
+          <p><strong>Conclusió:</strong> la mitjana original $\mu_0 = 580$ kg <em>pertany</em> a l'interval $[565{,}9,\, 596{,}9]$.</p>
+          <div class="final">No podem afirmar que la mitjana hagi canviat: el valor original 580 kg és compatible amb la mostra a un nivell de confiança del 95%.</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="/aula/selectivitat/pau-2025-macs-s1/p2.html">&larr; Exercici anterior</a>
+      <a class="index" href="/aula/selectivitat/pau-2025-macs-s1/">Índex de l'examen</a>
+      <a class="next" href="/aula/selectivitat/pau-2025-macs-s1/p4.html">Exercici següent &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>

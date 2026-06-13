@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Probabilidad y matrices — Estudiantes universitarios — PAU 2026 MACS</title>
+<meta name="description" content="Probabilidad simple y condicionada en una tabla de contingencia; productos de matrices para totales e ingresos.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/selectivitat/pau-2026-macs-s1/p4.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/pau-2026-macs-s1/p4.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/pau-2026-macs-s1/p4.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/selectivitat/pau-2026-macs-s1/p4.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/selectivitat/pau-2026-macs-s1/p4.html">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/selectivitat/pau-2026-macs-s1/p4.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/selectivitat/pau-2026-macs-s1/p4.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/selectivitat/pau-2026-macs-s1/p4.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/aula/selectivitat/">Selectividad MACS</a>
+      <span class="sep">/</span>
+      <a href="/aula/selectivitat/pau-2026-macs-s1/">PAU 2026 Serie 1</a>
+      <span class="sep">/</span>
+      <span class="current">P4 (Opción A)</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:0.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span class="section-label">2º BTL CCSS · PAU</span>
+        <span class="tag tag-blue">Junio 2026</span>
+        <span class="tag tag-orange">Serie 1</span>
+      </div>
+    </div>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/selectivitat/pau-2026-macs-s1/p3.html">&larr; Ejercicio anterior</a>
+      <a class="index" href="/aula/selectivitat/pau-2026-macs-s1/">Índice del examen</a>
+      <span class="disabled next">Ejercicio siguiente &rarr;</span>
+    </nav>
+
+    <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius);padding:0.8rem 1.1rem;margin-bottom:1.5rem;font-size:0.88rem;color:var(--text-soft)">
+      <strong>Ejercicio 4 — dos opciones:</strong> estás viendo la <strong>Opción A</strong> (probabilidad y matrices). La <a href="/aula/selectivitat/pau-2026-macs-s1/p4b.html" style="color:var(--accent)"><strong>Opción B</strong></a> (probabilidad y estudiantes becados) está en la página p4b.html.
+    </div>
+
+    <article class="question-block">
+      <h1>Ejercicio 4 &middot; Probabilidad y matrices — Estudiantes universitarios <span style="font-size:0.75em;font-weight:500;color:var(--text-soft)">(Opción A)</span></h1>
+      <p class="question-descriptor">Probabilidad simple y condicionada en una tabla de contingencia; productos de matrices para totales e ingresos.</p>
+      <span class="score-pill">Puntuación máxima · 2,5 puntos</span>
+
+      <div class="statement">
+        <div class="context">
+          <p>La siguiente tabla recoge el número de estudiantes de grado (G), máster (M) y doctorado (D) matriculados en las tres facultades —Ciencias (C), Ingeniería (I) y Letras (L)— de una pequeña universidad.</p>
+          <div class="math-block">\[\begin{array}{|l|c|c|c|c|} \hline
+\textbf{Facultad} & \text{Grado (G)} & \text{Máster (M)} & \text{Doctorado (D)} & \text{Total} \\ \hline
+\text{Ciencias (C)} & 450 & 172 & 41 & 663 \\
+\text{Ingeniería (I)} & 445 & 178 & 45 & 668 \\
+\text{Letras (L)} & 438 & 183 & 48 & 669 \\ \hline
+\text{Total} & 1333 & 533 & 134 & 2000 \\ \hline
+\end{array}\]</div>
+        </div>
+        <ol class="apartados">
+          <li>Si se escoge un estudiante al azar, ¿cuál es la probabilidad de que sea un estudiante de doctorado de la Facultad de Letras? Si se escoge al azar un estudiante que cursa un máster, ¿cuál es la probabilidad de que estudie en la Facultad de Ingeniería? <span class="apartado-puntos">1,25 p</span></li>
+          <li>Expresa la información de la tabla (sin los totales) mediante una matriz $3 \times 3$ y calcula, utilizando un producto de matrices, el vector con el número total de estudiantes de grado, máster y doctorado de la universidad. Se sabe que los estudiantes de grado pagan 1000 € de matrícula; los de máster, 1500 €, y los de doctorado, 500 €. Mediante un producto de matrices, calcula el importe total que ingresa la universidad en concepto de matrículas. <span class="apartado-puntos">1,25 p</span></li>
+        </ol>
+      </div>
+
+      <div class="ib-chips">
+        <span class="ib-chips-label">Bachillerato CCSS · Bloque E — Sentido estocástico</span>
+        <span class="ib-chip" data-descriptor="Probabilidades simples y condicionadas sobre una tabla de contingencia">Probabilidad condicionada</span>
+        <span class="ib-chip" data-descriptor="Producto de matrices para agregar datos y calcular ingresos">Matrices</span>
+      </div>
+
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar la corrección" data-hide-label="Ocultar la corrección" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostrar la corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Corrección paso a paso</h3>
+        <p class="note"><strong>Idea clave:</strong> en una tabla de contingencia, la probabilidad de una intersección es la casilla dividida por el total general, y una probabilidad condicionada es la casilla dividida por el total de la fila o columna que condiciona.</p>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Probabilidad simple y condicionada</h4>
+          <p>Probabilidad de que sea de doctorado <em>y</em> de la Facultad de Letras (casilla $D \cap L$ sobre el total):</p>
+          <div class="math-block">$$P(D \cap L) = \frac{48}{2000} = 0{,}024 = 2{,}4\,\%.$$</div>
+          <p>Si sabemos que cursa un máster, el condicionante es la columna M (533 estudiantes):</p>
+          <div class="math-block">$$P(I \mid M) = \frac{178}{533} \approx 0{,}3340 = 33{,}4\,\%.$$</div>
+          <div class="final">$P(D \cap L) = \dfrac{48}{2000} = 0{,}024$ &ensp;y&ensp; $P(I \mid M) = \dfrac{178}{533} \approx 0{,}334$.</div>
+        </div>
+
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Productos de matrices</h4>
+          <p>Matriz $3 \times 3$ de la tabla (filas = facultades, columnas = niveles G, M, D):</p>
+          <div class="math-block">$$A = \begin{pmatrix} 450 & 172 & 41 \\ 445 & 178 & 45 \\ 438 & 183 & 48 \end{pmatrix}.$$</div>
+          <p>Para sumar las columnas (total por nivel), multiplicamos por la izquierda por el vector fila $(1\;\;1\;\;1)$:</p>
+          <div class="math-block">$$\begin{pmatrix} 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} 450 & 172 & 41 \\ 445 & 178 & 45 \\ 438 & 183 & 48 \end{pmatrix} = \begin{pmatrix} 1333 & 533 & 134 \end{pmatrix}.$$</div>
+          <p>Es decir, 1333 estudiantes de grado, 533 de máster y 134 de doctorado.</p>
+          <p>Con el vector de precios de matrícula $(1000,\ 1500,\ 500)$ en columna:</p>
+          <div class="math-block">$$\begin{pmatrix} 1333 & 533 & 134 \end{pmatrix} \begin{pmatrix} 1000 \\ 1500 \\ 500 \end{pmatrix} = 1333000 + 799500 + 67000 = 2199500.$$</div>
+          <div class="final">Vector de totales por nivel: $(1333,\ 533,\ 134)$. Ingresos totales por matrículas: <strong>2&#8239;199&#8239;500 €</strong>.</div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="/aula/selectivitat/pau-2026-macs-s1/p3.html">&larr; Ejercicio anterior</a>
+      <a class="index" href="/aula/selectivitat/pau-2026-macs-s1/">Índice del examen</a>
+      <span class="disabled next">Ejercicio siguiente &rarr;</span>
+    </nav>
+
+    <p style="font-size:0.9rem;color:var(--text-soft);margin-top:1.5rem">
+      ¿Quieres ver la otra opción? → <a href="/aula/selectivitat/pau-2026-macs-s1/p4b.html">Ejercicio 4 Opción B (Probabilidad y estudiantes becados)</a>
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/examenes.js"></script>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
