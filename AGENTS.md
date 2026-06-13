@@ -105,6 +105,73 @@ script — añade ahí los hubs nuevos.
 3. Commit + push. Cloudflare Pages auto-deploya.
 4. Si hace falta forzar el purge del CDN: panel Cloudflare → Caché → Purgar todo.
 
+## Workflow: añadir una NOTA divulgativa (/notas/)
+
+Las notas (ensayos/divulgación, p. ej. `anillo-de-collatz`, `fibonacci-collatz`)
+NO van en `/aula/` ni usan sus templates. Convenciones:
+
+- Rutas: `/notas/{slug}/index.html`, `/ca/notas/{slug}/index.html`,
+  `/en/notas/{slug}/index.html`. **El slug es el MISMO en los 3 idiomas**
+  (no se traduce; p. ej. `fibonacci-collatz` en es/ca/en).
+- La nota usa el **chrome del sitio** (nav + breadcrumb + page-header con
+  `section-label` "Nota/Note" + `tag` + `<h1>` + fecha + `.nota-body` + footer),
+  igual que `notas/anillo-de-collatz/`. Reutiliza nav/footer de esa nota.
+- Si la nota lleva matemáticas/interactivos: KaTeX **0.16.9** (misma versión y
+  SRI que la home), con delimitadores `$$ \\[ $ \\(`. Para contenido inyectado
+  por JS, llamar a `renderMathInElement` sobre el contenedor tras pintarlo.
+- CSS propio de la nota va en un `<style>` en su `<head>`, **scopeado** para no
+  filtrar al chrome: nada de selectores `body{}`, `main{}`, `h1{}`, `a{}`,
+  `footer{}` globales; los de elemento van bajo `.nota-body`. Renombra clases
+  que colisionen con el sitio (p. ej. `.pill` → `.rpill`).
+- Hub `/notas/index.html` (×3 idiomas): añade el item `note-item` arriba
+  (más reciente primero) con su `data-tags` (minúsculas, separadas por espacio).
+  El hub tiene **filtro por etiquetas** (`.filter-bar` + `filterNotes()`):
+  botón "Todas/Totes/All" + un botón por etiqueta. Añade la etiqueta nueva si
+  procede.
+- Noticia en la home (ver sección de noticias) y sitemap:
+  añade `'/notas/{slug}/'` a `trilingual_paths` en `build_sitemap.py` y re-corre.
+
+## Transcreación i18n (NO traducción literal)
+
+Las versiones /ca/ y /en/ de contenido divulgativo deben **escribirse de forma
+nativa**, con la misma calidad que el original — no traducciones literales.
+También se localizan **todos** los textos de los interactivos (botones,
+leyendas, mensajes dinámicos del JS, tablas).
+
+Terminología matemática:
+- **CA**: "resto/residuo" → **residu** (NUNCA *resta*, que es la sustracción);
+  graph/vertex/subgraph → **graf / vèrtex / subgraf**; arrow → **fletxa**;
+  path → **camí/camins**; número áureo → **nombre auri**; "rodeo" → **marrada**.
+- **EN**: remainder; graph/vertex/subgraph; arrow; path(s); **golden ratio**;
+  "dos mil trillones" (2·10²¹) → **two sextillion**. Formato numérico inglés:
+  `toLocaleString('en-US')` y **decimales con punto** (1.618, no 1{,}618).
+
+## Home: sección de noticias y colores
+
+- Las novedades de la home van en dos columnas (`news-col`): **Docencia** y
+  **Doctorado/Doctorat/PhD**. Dentro de cada columna, **una tarjeta `.news-card`
+  por tipo**, con cabecera (título + `.news-card-count`) y una lista
+  `.news-card-list` con `max-height` + scroll (última noticia visible arriba).
+  Tarjetas pueden quedar **vacías** (`.news-card-empty`, p. ej. "Congresos").
+- Tipos actuales — Docencia: Copa Cangur · Mat. CCSS 1r BTL · 2n ESO ·
+  Selectivitat-PAU. Doctorado: Publicaciones · Notas y divulgación ·
+  Congresos · Hitos.
+- **Semántica de color (importante):** verde `#10b981` = **Docencia**;
+  lila/indigo `#6366f1` = **Doctorado**. Aplica a: puntos `.dot`/`.dot-purple`,
+  `.now-dot`/`.now-dot-blue` de "Ahora mismo", y al acento (franja izquierda
+  3px) de las `.news-card` por columna (`.news-col:nth-child(1)` verde,
+  `nth-child(2)` lila). No cruzar estos colores.
+- "Ahora mismo" (`now-section`): un `now-item` por línea de estado; el dot
+  define la disciplina (verde docencia / lila doctorado).
+
+## Imágenes de portada / ilustración
+
+- **No usar imágenes autogeneradas por código** (SVG→PNG tipo clip-art): no dan
+  la calidad del sitio. Para portada/og:image, usar Figma o encargo a
+  ilustrador/a (como el grafo de `anillo-de-collatz`).
+- Una nota llena de gráficos interactivos **no necesita** héroe estático; mejor
+  sin og:image propio que con uno mediocre (`twitter:card` = `summary`).
+
 ## Reglas i18n actual
 
 - El árbol raíz (`/aula/`, `/docencia/`, `/`) tiene contenido español
