@@ -11,6 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css?v=202606121326">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .filter-bar{display:flex;gap:0.5rem;flex-wrap:wrap;margin:0 0 1.75rem}
+  .filter-btn{padding:0.35rem 0.85rem;border:1px solid var(--border);border-radius:999px;background:var(--bg-subtle);color:var(--text-soft);font-size:0.82rem;cursor:pointer;transition:all .15s;font-family:inherit}
+  .filter-btn:hover{border-color:var(--border-strong);color:var(--text)}
+  .filter-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+</style>
 <link rel="canonical" href="https://alexreyes.es/ca/notas/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/notas/">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/notas/">
@@ -70,7 +76,14 @@
       <p style="font-size:0.98rem;color:var(--text-soft);max-width:42rem">Pensaments ràpids, idees en progrés i notes sobre didàctica, recerca i problemes que m'interessen.</p>
     </div>
 
-    <div>
+    <div class="filter-bar" id="notes-filter">
+      <button class="filter-btn active" onclick="filterNotes(this,'all')">Totes</button>
+      <button class="filter-btn" onclick="filterNotes(this,'collatz')">Collatz</button>
+      <button class="filter-btn" onclick="filterNotes(this,'fibonacci')">Fibonacci</button>
+      <button class="filter-btn" onclick="filterNotes(this,'tolkien')">Tolkien</button>
+    </div>
+
+    <div data-tags="collatz fibonacci interactivo">
       <a href="/ca/notas/fibonacci-collatz/" class="note-item" style="text-decoration:none;display:flex;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--border)">
         <div class="note-date" style="min-width:5rem;padding-top:.15rem">juny 2026</div>
         <div>
@@ -85,7 +98,7 @@
       </a>
     </div>
 
-    <div>
+    <div data-tags="collatz tolkien">
       <a href="/ca/notas/anillo-de-collatz/" class="note-item" style="text-decoration:none;display:flex;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--border)">
         <div class="note-date" style="min-width:5rem;padding-top:.15rem">juny 2026</div>
         <div>
@@ -113,6 +126,14 @@
 
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+function filterNotes(btn,tag){
+  document.querySelectorAll('#notes-filter .filter-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.note-item').forEach(function(a){
+    var w=a.parentElement, tags=(w.getAttribute('data-tags')||'').split(' ');
+    w.style.display=(tag==='all'||tags.indexOf(tag)>=0)?'':'none';
+  });
+}
 </script>
 </body>
 </html>
