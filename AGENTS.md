@@ -27,6 +27,7 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             BreadcrumbList (de cada breadcrumb), LearningResource
                             (hojas de /aula/) y WebSite (homes). Idempotente; correr
                             tras add_og_tags.py. No inventa datos: deriva del HTML.
+  build_feed.py          ← genera feed.xml (RSS 2.0) desde las noticias de la home
   build_sitemap.py       ← regenera sitemap.xml con todas las páginas vivas
   build_ejercicios.py    ← reconstruye índice del banco
   build_exam_pages.py    ← genera páginas de exámenes desde JSON

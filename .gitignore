@@ -48,3 +48,6 @@ dist/
 build/
 .next/
 .cache/
+
+# Artefactos del montaje FUSE (Cowork) — nunca commitear
+.fuse_hidden*
