@@ -10,8 +10,10 @@
   --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono: 'JetBrains Mono', 'Fira Code', monospace;
   --radius: 10px; --radius-sm: 6px;
+  --focus: #2563eb;
 }
 [data-theme="dark"] {
+  --focus: #60a5fa;
   --bg: #0a0a0a; --bg-subtle: #111111; --bg-hover: #1a1a1a;
   --border: #222222; --border-strong: #333333;
   --text: #f0f0f0; --text-soft: #a0a0a0; --text-faint: #666666;
@@ -826,4 +828,42 @@ footer { border-top: 1px solid var(--border); margin-top: 4rem; padding: 2rem 0;
 }
 .chapter-item.unidad-item.unidad-hl-only .chapter-num.unidad-num {
   background: #d97706;
+}
+
+/* ── Accesibilidad ─────────────────────────────────────────────────────── */
+/* Foco visible al navegar con teclado (no afecta al ratón) */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip-link: oculto hasta recibir foco con Tab */
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -52px;
+  z-index: 2000;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font: 500 0.95rem var(--font);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 8px; }
+
+/* Quitar el contorno por defecto del <main> enfocado vía skip-link */
+main:focus { outline: none; }
+
+/* Respetar a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

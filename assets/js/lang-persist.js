@@ -74,3 +74,25 @@
 
   location.replace(newPath + location.search + location.hash);
 })();
+
+/* ── Accesibilidad: skip-link + foco en <main> ──────────────────────────────
+   Inyecta "saltar al contenido" como primer elemento del body y asegura que
+   <main> sea enfocable. Progresivo: si no hay JS, el resto del sitio funciona.
+   (Este script se carga en <head>, por eso esperamos a DOMContentLoaded.) */
+document.addEventListener('DOMContentLoaded', function(){
+  var main = document.querySelector('main');
+  if (main){
+    if (!main.id) main.id = 'main';
+    if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+  }
+  if (document.querySelector('.skip-link')) return;
+  var lang = (document.documentElement.getAttribute('lang') || 'es').slice(0,2).toLowerCase();
+  var label = lang === 'ca' ? 'Salta al contingut'
+            : lang === 'en' ? 'Skip to main content'
+            : 'Saltar al contenido';
+  var sk = document.createElement('a');
+  sk.className = 'skip-link';
+  sk.href = '#' + ((main && main.id) || 'main');
+  sk.textContent = label;
+  document.body.insertBefore(sk, document.body.firstChild);
+});
