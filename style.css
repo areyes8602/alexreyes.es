@@ -111,6 +111,10 @@ nav {
   gap: 4rem; align-items: center;
 }
 .hero-text { display: flex; flex-direction: column; gap: 1.5rem; }
+.hero-subtitle {
+  font-size: 1.15rem; color: var(--text-soft);
+  font-weight: 500; line-height: 1.4; margin-top: -1rem;
+}
 .hero-name-full {
   font-size: 0.88rem; color: var(--text-faint);
   font-style: italic; margin-top: -1rem;
