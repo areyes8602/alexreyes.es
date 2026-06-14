@@ -60,6 +60,47 @@ def detect_lang(text):
     return m.group(1).strip().lower().split('-')[0]  # 'es', 'ca', 'en', etc.
 
 
+# ── nav-active por sección + preservación del selector de idioma ──────────────
+# El activo se decide por la SECCIÓN de la página (raíz/aula→Docencia, etc.), no
+# por el template. Y el selector de idioma (lang-sw) es PER-PÁGINA: el template
+# lleva un marcador <!--LANGSW--> que se sustituye por el lang-sw real de la
+# página, para NO borrarlo al sincronizar.
+SECTION_HREF = {
+    "docencia": "/docencia/",
+    "aula": "/docencia/",
+    "doctorado": "/doctorado/",
+    "notas": "/notas/",
+    "cv": "/cv/",
+    "contacto": "/contacto/",
+}
+LANGSW_RE = re.compile(r'<div class="lang-sw">.*?</div>', re.S)
+
+
+def active_href_for(rel_path):
+    parts = rel_path.parts
+    if parts and parts[0] in ("ca", "en"):  # ignorar prefijo de idioma
+        parts = parts[1:]
+    if len(parts) <= 1:  # raíz: index.html, 404.html
+        return None
+    return SECTION_HREF.get(parts[0])
+
+
+def build_nav(template, rel_path, page_text):
+    """Devuelve el nav del template con (1) el nav-active correcto por sección y
+    (2) el selector de idioma real de la página inyectado en <!--LANGSW-->."""
+    nav = template.replace(' class="nav-active"', '')
+    ah = active_href_for(rel_path)
+    if ah:
+        nav = nav.replace(f'<a href="{ah}">', f'<a href="{ah}" class="nav-active">', 1)
+    m = LANGSW_RE.search(page_text)
+    if m:
+        nav = nav.replace('<!--LANGSW-->', m.group(0))
+    else:
+        # sin selector en la página: quitar la línea del marcador
+        nav = re.sub(r'[ \t]*<!--LANGSW-->\n', '', nav)
+    return nav
+
+
 def replace_block(text, start_re, end_marker, new_content):
     """
     Reemplaza el primer bloque que va de `start_re` (regex que matchea la apertura,
@@ -92,9 +133,12 @@ def sync_file(html_path, navs_by_lang, footer_html, ibo_html, dry_run=False):
 
     lang = detect_lang(text)
 
-    # Sincronizar <nav>...</nav> sólo si conocemos el idioma
+    # Sincronizar <nav>...</nav> sólo si conocemos el idioma.
+    # Se preserva el selector de idioma de la página y se fija el nav-active
+    # según su sección (ver build_nav).
     if lang in navs_by_lang:
-        text2, changed = replace_block(text, r'<nav>\s*\n', '</nav>', navs_by_lang[lang])
+        nav_for_page = build_nav(navs_by_lang[lang], html_path.relative_to(REPO), text)
+        text2, changed = replace_block(text, r'<nav>\s*\n', '</nav>', nav_for_page)
         if changed and text2 != text:
             text = text2
             changes.append(f'nav[{lang}]')

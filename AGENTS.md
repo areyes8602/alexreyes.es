@@ -27,6 +27,10 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             BreadcrumbList (de cada breadcrumb), LearningResource
                             (hojas de /aula/) y WebSite (homes). Idempotente; correr
                             tras add_og_tags.py. No inventa datos: deriva del HTML.
+  add_hreflang.py        ← PASO FINAL: canonical + <link rel=alternate hreflang>.
+                            Solo emite hreflang para los idiomas que EXISTEN en disco
+                            (+ x-default→ES); las páginas aún sin traducir no apuntan
+                            a CA/EN 404. Re-ejecutable: se actualiza al traducir.
   build_feed.py          ← genera feed.xml (RSS 2.0) desde las noticias de la home
   check_i18n.py          ← CI: verifica que cada selector ES·CA·EN resuelve (no 404)
                             y es coherente. Usa i18n-baseline.txt (fallos conocidos);
@@ -104,6 +108,7 @@ inyectan OG por sí mismos**. Tras generarlos, ejecuta SIEMPRE como paso final:
 ```
 python3 scripts/add_og_tags.py   # OG/Twitter en toda página sin OG (idempotente)
 python3 scripts/add_jsonld.py    # JSON-LD schema.org (breadcrumbs, learning resource)
+python3 scripts/add_hreflang.py  # canonical + hreflang (solo idiomas existentes)
 python3 scripts/build_sitemap.py
 ```
 

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. Biquadratic equations · Equations and systems · 1st BTL CCSS</title>
+<meta name="description" content="Notes for Applied Maths for Social Sciences (1st BTL): biquadratic equations. The substitution $x^{n}=z$, three worked examples and four solved exercises with hidden solutions.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606121326">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606121326">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+/* Exercise block with collapsible parts (same pattern as u-nombres-reals/05) */
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">
+<meta property="og:title" content="1. Biquadratic equations · Equations and systems · 1st BTL CCSS">
+<meta property="og:description" content="Notes for Applied Maths for Social Sciences (1st BTL): biquadratic equations. The substitution $x^{n}=z$, three worked examples and four solved exercises with hidden solutions.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="1. Biquadratic equations · Equations and systems · 1st BTL CCSS">
+<meta name="twitter:description" content="Notes for Applied Maths for Social Sciences (1st BTL): biquadratic equations. The substitution $x^{n}=z$, three worked examples and four solved exercises with hidden solutions.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"Equations and systems","item":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/"},{"@type":"ListItem","position":4,"name":"01 · Biquadratic equations","item":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html"}]},{"@type":"LearningResource","name":"01 · Biquadratic equations","url":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Notes for Applied Maths for Social Sciences (1st BTL): biquadratic equations. The substitution $x^{n}=z$, three worked examples and four solved exercises with hidden solutions."}]}</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/01-biquadrades.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Equations and systems</a>
+      <span class="sep">/</span>
+      <span class="current">01 · Biquadratic equations</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1st BTL CCSS · Equations and systems</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">22 Oct 2025</span>
+      </div>
+      <h1 style="margin:0">1. Biquadratic equations</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">The substitution $x^{n}=z$ that turns a degree-$2n$ equation into a quadratic, worked examples and 4 solved exercises with hidden solutions.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ DEFINITION ============ -->
+      <div class="apunt-section">
+        <h2>What is a biquadratic equation?</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>A <strong>biquadratic equation</strong> is an equation that can be turned into a <strong>quadratic equation</strong> through a <strong>change of variable</strong>.</p>
+          <p>The typical case is an even-degree equation in which only the leading term, one middle-degree term and the constant term appear — and the exponents are such that one is double the other. For instance, the highest degree is $2n$ and the middle one is $n$:</p>
+          <div class="math-block">
+            $$a\,x^{2n} + b\,x^{n} + c = 0.$$
+          </div>
+          <p>With the substitution $\;x^{n} = z\;$ we get:</p>
+          <div class="math-block">
+            $$a\,z^{2} + b\,z + c = 0,$$
+          </div>
+          <p>a quadratic equation in $z$, which we already know how to solve.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>General strategy</h3>
+          <ol style="margin:0.4rem 0 0 1.2rem">
+            <li>Spot the substitution: if the equation has terms $x^{2n}, x^{n}$ and a constant, set $\;z = x^{n}$.</li>
+            <li>Rewrite the equation in $z$: you get a quadratic equation.</li>
+            <li>Solve the quadratic with the formula (or by factoring): you obtain one or two values of $z$.</li>
+            <li>For each value of $z$, <strong>undo the substitution</strong> ($x^{n} = z$) and find the roots in $x$.</li>
+            <li>Collect all the solutions.</li>
+          </ol>
+        </div>
+
+        <div class="warn-box">
+          <h3>Watch out for extra solutions (and the ones you lose)</h3>
+          <p>If you get $\,z<0\,$ and $n$ is <em>even</em> (for example $x^{2}=z$), that value gives <strong>no</strong> real root, because no real square is negative.</p>
+          <p>On the other hand, if $n$ is <em>odd</em> ($x^{3}=z$), any value of $z$ gives a single real root, even a negative one: $x = \sqrt[3]{z}$.</p>
+        </div>
+      </div>
+
+      <!-- ============ EXAMPLES ============ -->
+      <div class="apunt-section">
+        <h2>Worked examples</h2>
+
+        <div class="example-box">
+          <h3>Example 1 — just the substitution</h3>
+          <p>Consider $\;5x^{4} - 3x^{2} + 8 = 0$. We make the substitution $\;x^{2} = z$:</p>
+          <div class="math-block">
+            $$5z^{2} - 3z + 8 = 0.$$
+          </div>
+          <p class="note">The discriminant is $\Delta = 9 - 4\cdot 5\cdot 8 = -151 < 0$, so the quadratic has no real solutions. Therefore the original equation has none either.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Example 2 — $2x^{4} - 26x^{2} + 72 = 0$</h3>
+          <p>We apply the substitution $\;x^{2}=z$:</p>
+          <div class="math-block">
+            $$2z^{2} - 26z + 72 = 0.$$
+          </div>
+          <p>We solve with the quadratic formula:</p>
+          <div class="math-block">
+            $$z = \dfrac{26 \pm \sqrt{676 - 4\cdot 2\cdot 72}}{4} = \dfrac{26 \pm \sqrt{100}}{4} = \dfrac{26 \pm 10}{4}.$$
+          </div>
+          <p>So, &nbsp;$z_{1} = \dfrac{36}{4} = 9$ &nbsp;and&nbsp; $z_{2} = \dfrac{16}{4} = 4$. Now we undo the substitution:</p>
+          <ul>
+            <li>If $z = 9$: &nbsp;$x^{2} = 9 \;\Longrightarrow\; x = \pm\sqrt{9} = \pm 3$.</li>
+            <li>If $z = 4$: &nbsp;$x^{2} = 4 \;\Longrightarrow\; x = \pm\sqrt{4} = \pm 2$.</li>
+          </ul>
+          <div class="math-block">
+            $$\boxed{\;x \in \{-3,\,-2,\,2,\,3\}.\;}$$
+          </div>
+          <p class="note">A biquadratic equation with the substitution $x^{2}=z$ can have <strong>up to four</strong> real solutions (two for each $z>0$).</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Example 3 — cubic substitution $x^{6} - 9x^{3} + 8 = 0$</h3>
+          <p>Here the exponents are $6$ and $3$, so the substitution is $\;x^{3} = z$:</p>
+          <div class="math-block">
+            $$z^{2} - 9z + 8 = 0 \;\Longrightarrow\; z = \dfrac{9 \pm \sqrt{81-32}}{2} = \dfrac{9 \pm 7}{2}.$$
+          </div>
+          <p>So, &nbsp;$z_{1} = 8$ &nbsp;and&nbsp; $z_{2} = 1$. We undo the substitution (now with a cube root):</p>
+          <ul>
+            <li>If $z = 8$: &nbsp;$x^{3} = 8 \;\Longrightarrow\; x = \sqrt[3]{8} = 2$.</li>
+            <li>If $z = 1$: &nbsp;$x^{3} = 1 \;\Longrightarrow\; x = \sqrt[3]{1} = 1$.</li>
+          </ul>
+          <div class="math-block">
+            $$\boxed{\;x \in \{1,\,2\}.\;}$$
+          </div>
+          <p class="note">With an odd substitution ($x^{3}=z$) each $z$ gives <strong>a single</strong> real root, so in this case we have at most two solutions.</p>
+        </div>
+      </div>
+
+      <!-- ============ EXERCISES ============ -->
+      <div class="apunt-section">
+        <h2>Exercises</h2>
+
+        <!-- Exercise 30 -->
+        <div class="exercise" id="ex-30">
+          <div class="exercise-head">
+            <span class="num">30</span>
+            <span class="ttl">Solve the biquadratic equations</span>
+          </div>
+          <p class="exercise-intro">Solve the proposed biquadratic equations. Then check the results you obtained with GeoGebra.</p>
+
+          <div class="apart"><details>
+            <summary><span class="letter">a)</span> <span class="stmt">$x^{4} - 5x^{2} + 4 = 0$</span></summary>
+            <div class="apart-solution">
+              <p>Substitution $\;x^{2} = t$:</p>
+              <div class="math-block">$$t^{2} - 5t + 4 = 0 \;\Longrightarrow\; t = \dfrac{5 \pm \sqrt{25-16}}{2} = \dfrac{5 \pm 3}{2}.$$</div>
+              <p>$t_{1} = 4$ &nbsp;and&nbsp; $t_{2} = 1$. We undo the substitution:</p>
+              <ul>
+                <li>If $x^{2} = 1$: &nbsp;$x = \pm 1$.</li>
+                <li>If $x^{2} = 4$: &nbsp;$x = \pm 2$.</li>
+              </ul>
+              <div class="math-block">$$\boxed{\;x \in \{-2,\,-1,\,1,\,2\}.\;}$$</div>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">b)</span> <span class="stmt">$x^{4} - 2x^{2} + 1 = 0$</span></summary>
+            <div class="apart-solution">
+              <p>Substitution $\;x^{2} = t$:</p>
+              <div class="math-block">$$t^{2} - 2t + 1 = 0 \;\Longrightarrow\; (t-1)^{2} = 0 \;\Longrightarrow\; t = 1\ \text{(double)}.$$</div>
+              <p>We undo the substitution: if $x^{2} = 1$, then $x = \pm 1$. Since $t=1$ was a double root, each of these is <strong>double</strong>:</p>
+              <div class="math-block">$$\boxed{\;x = 1\ \text{(double)},\quad x = -1\ \text{(double)}.\;}$$</div>
+              <p class="note">It is clearer by factoring: $\;x^{4} - 2x^{2} + 1 = (x^{2}-1)^{2} = (x-1)^{2}(x+1)^{2}$.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">c)</span> <span class="stmt">$x^{4} - 3x^{2} = 0$</span></summary>
+            <div class="apart-solution">
+              <p>Here no change of variable is needed: we factor out $x^{2}$ and get a product that is zero whenever one of its factors is:</p>
+              <div class="math-block">$$x^{2}(x^{2} - 3) = 0.$$</div>
+              <ul>
+                <li>$x^{2} = 0$: &nbsp;$x = 0\ \text{(double)}$.</li>
+                <li>$x^{2} - 3 = 0$: &nbsp;$x = \pm\sqrt{3}$.</li>
+              </ul>
+              <div class="math-block">$$\boxed{\;x = 0\ \text{(double)},\quad x = \pm\sqrt{3}.\;}$$</div>
+              <p class="note">Factored: $\;x^{4} - 3x^{2} = x^{2}\,(x-\sqrt{3})(x+\sqrt{3})$.</p>
+            </div>
+          </details></div>
+
+          <div class="apart"><details>
+            <summary><span class="letter">d)</span> <span class="stmt">$x^{6} - 7x^{3} - 8 = 0$</span></summary>
+            <div class="apart-solution">
+              <p>The exponents are $6$ and $3$, so the substitution is $\;x^{3} = t$:</p>
+              <div class="math-block">$$t^{2} - 7t - 8 = 0 \;\Longrightarrow\; t = \dfrac{7 \pm \sqrt{49+32}}{2} = \dfrac{7 \pm 9}{2}.$$</div>
+              <p>$t_{1} = 8$ &nbsp;and&nbsp; $t_{2} = -1$. We undo the substitution (cube root):</p>
+              <ul>
+                <li>If $x^{3} = 8$: &nbsp;$x = \sqrt[3]{8} = 2$.</li>
+                <li>If $x^{3} = -1$: &nbsp;$x = \sqrt[3]{-1} = -1$.</li>
+              </ul>
+              <div class="math-block">$$\boxed{\;x \in \{-1,\,2\}.\;}$$</div>
+              <p class="note">The cube root of a negative number exists in the reals, so the case $t=-1$ is <em>not</em> discarded — that only happens with the substitution $x^{2}=z$.</p>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/">Unit index</a>
+        <a class="next" href="/en/aula/ccss-1btl/apuntes/u-equacions-sistemes/02-racionals.html">02 · Rational equations &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+  <aside class="manual-attribution">
+  <p><strong>📖 Attribution:</strong> Selection of exercises adapted from <em>Matemàtiques aplicades CCSS 1 — Baula · 2022 LOMLOE</em>. Free teaching material · use covered by <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930#a32" target="_blank" rel="noopener">art. 32 LPI</a> · the rights to the original work belong to the publisher.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js"></script>
+</body>
+</html>
