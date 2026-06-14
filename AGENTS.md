@@ -19,6 +19,10 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
   sync-aula-chrome.py    ← sincroniza nav/footer/ibo en todos los HTML
   bump-css-version.py    ← cache-busting: actualiza ?v={timestamp} en CSS refs
   add-seo-to-hubs.py     ← inyecta canonical + hreflang + OG + Twitter en hubs
+  add_og_tags.py         ← PASO FINAL: OG/Twitter en TODA página sin OG (catch-all,
+                            idempotente; deriva de <title>/description/canonical).
+                            Correr siempre al final tras generar /aula/ (apuntes,
+                            ejercicios, exámenes), que no inyectan OG por sí mismos.
   build_sitemap.py       ← regenera sitemap.xml con todas las páginas vivas
   build_ejercicios.py    ← reconstruye índice del banco
   build_exam_pages.py    ← genera páginas de exámenes desde JSON
@@ -83,6 +87,16 @@ ejecuta `python3 scripts/build_ejercicios.py` para refrescar el índice.
 4. Ejecuta `python3 scripts/build_sitemap.py` para incluir el nuevo hub en el
    sitemap (si es trilingual, añádelo también a `trilingual_paths` en el script).
 5. Idempotente: re-correr el SEO script no duplica nada.
+
+## Workflow: añadir contenido en /aula/ (apuntes, ejercicios, exámenes)
+
+Los builds de `/aula/` (`build_classe_pages.py`, exámenes, apuntes a mano) **no
+inyectan OG por sí mismos**. Tras generarlos, ejecuta SIEMPRE como paso final:
+
+```
+python3 scripts/add_og_tags.py   # OG/Twitter en toda página sin OG (idempotente)
+python3 scripts/build_sitemap.py
+```
 
 ## Workflow: regenerar sitemap
 
