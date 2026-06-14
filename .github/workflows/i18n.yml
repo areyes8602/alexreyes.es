@@ -1,0 +1,23 @@
+name: i18n parity
+
+# Verifica que el selector de idioma (ES·CA·EN) de cada página resuelve a un
+# fichero real y es coherente con su árbol. Usa scripts/i18n-baseline.txt: los
+# fallos históricos conocidos (hueco /aula/ solo-ES) no rompen el CI; solo falla
+# si introduces un selector roto NUEVO (regresión).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-i18n:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Comprobar paridad del selector de idioma
+        run: python3 scripts/check_i18n.py
