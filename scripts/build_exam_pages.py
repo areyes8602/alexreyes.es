@@ -351,11 +351,21 @@ def main():
         if not url_index:
             print(f"  - {cf.name}: sin url_index (se omite)")
             continue
-        out_path = REPO_ROOT / url_index.lstrip("/") / "index.html"
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        html = render_page(col, tags)
-        out_path.write_text(html, encoding="utf-8")
-        print(f"  ✓ {cf.name:30s}  →  {out_path.relative_to(REPO_ROOT)}")
+        # Col·leccions "inline" (deures o exercicis dins d'un apunt) apunten el seu
+        # url_index a un fitxer .html ja existent, no a una carpeta pròpia: no se'ls
+        # genera index.html.
+        if url_index.rstrip("/").endswith(".html"):
+            print(f"  ⏭  {cf.name:30s}  (url_index és un fitxer, no una carpeta; se omite)")
+            continue
+        try:
+            out_path = REPO_ROOT / url_index.lstrip("/") / "index.html"
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            html = render_page(col, tags)
+            out_path.write_text(html, encoding="utf-8")
+            print(f"  ✓ {cf.name:30s}  →  {out_path.relative_to(REPO_ROOT)}")
+        except Exception as e:
+            print(f"  ⚠  {cf.name:30s}  (omès per error: {e})")
+            continue
 
 
 if __name__ == "__main__":

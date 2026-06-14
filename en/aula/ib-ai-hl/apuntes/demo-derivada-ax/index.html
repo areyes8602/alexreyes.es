@@ -40,6 +40,16 @@
 [data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
 [data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
 </style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/demo-derivada-ax/">
+<meta property="og:title" content="Proof: derivative of a^x · TANS 5.8 · IB Math AI HL — alexreyes.es">
+<meta property="og:description" content="Step-by-step proof that the derivative of f(x)=a^x is a^x·ln(a), starting from the limit definition. Rewrite a as e^{ln(a)}, recognise the fundamental limit lim_{u→0}(e^u−1)/u=1 and apply a substitution. Short note for IB Math AI HL — TANS 5.8.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Proof: derivative of a^x · TANS 5.8 · IB Math AI HL — alexreyes.es">
+<meta name="twitter:description" content="Step-by-step proof that the derivative of f(x)=a^x is a^x·ln(a), starting from the limit definition. Rewrite a as e^{ln(a)}, recognise the fundamental limit lim_{u→0}(e^u−1)/u=1 and apply a substitution. Short note for IB Math AI HL — TANS 5.8.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 </head>
 <body>
 <nav>
@@ -518,5 +528,6 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script defer src="/assets/js/search.js"></script>
 </body>
 </html>

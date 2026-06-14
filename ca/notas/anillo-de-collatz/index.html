@@ -20,13 +20,13 @@
 <meta property="og:url" content="https://alexreyes.es/ca/notas/anillo-de-collatz/">
 <meta property="og:title" content="L'Anell de Collatz — Àlex Reyes">
 <meta property="og:description" content="Un assaig sobre les similituds entre la conjectura de Collatz i l'obra de Tolkien.">
-<meta property="og:image" content="https://alexreyes.es/ca/notas/anillo-de-collatz/grafo-g-gema.jpg">
+<meta property="og:image" content="https://alexreyes.es/assets/img/grafo-g-gema.jpg">
 <meta property="og:locale" content="ca_ES">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="L'Anell de Collatz — Àlex Reyes">
 <meta name="twitter:description" content="Un assaig sobre les similituds entre la conjectura de Collatz i l'obra de Tolkien.">
-<meta name="twitter:image" content="https://alexreyes.es/ca/notas/anillo-de-collatz/grafo-g-gema.jpg">
+<meta name="twitter:image" content="https://alexreyes.es/assets/img/grafo-g-gema.jpg">
 </head>
 <body>
 <nav>
@@ -142,7 +142,7 @@
         <p>Al final de tot, si Collatz té raó, queden dos territoris. Només dos: l'1 i el 2, alternant entre ells per sempre. Allà és la Comarca: no el punt de partida, sinó el de retorn. El lloc al qual es torna quan l'Anell ja no existeix.</p>
 
         <figure style="margin:2rem 0;border:1px solid var(--border);border-radius:8px;overflow:hidden">
-          <img src="/ca/notas/anillo-de-collatz/grafo-g-gema.jpg" alt="El graf G mod 6 representat com un mapa de fantasia a l'estil Tolkien, amb illes, ponts i volcans" style="width:100%;display:block">
+          <picture><source type="image/webp" srcset="/assets/img/grafo-g-gema.webp"><img src="/assets/img/grafo-g-gema.jpg" loading="lazy" alt="El graf G mod 6 representat com un mapa de fantasia a l'estil Tolkien, amb illes, ponts i volcans" style="width:100%;display:block" width="1400" height="993"></picture>
           <figcaption style="padding:.7rem 1rem;font-size:.82rem;color:var(--text-soft);background:var(--bg-subtle)">El graf G mod 6 com a mapa de fantasia &mdash; il·lustració de Gema Jiménez Camacho, 2026</figcaption>
         </figure>
 
@@ -183,5 +183,6 @@
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script defer src="/assets/js/search.js"></script>
 </body>
 </html>

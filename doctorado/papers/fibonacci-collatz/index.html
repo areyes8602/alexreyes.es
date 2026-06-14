@@ -30,6 +30,16 @@
 .pdf-fallback{padding:2.5rem;text-align:center;display:none}
 .pdf-fallback p{color:var(--text-soft);margin-bottom:1rem}
 </style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/doctorado/papers/fibonacci-collatz/">
+<meta property="og:title" content="A Fibonacci theorem for Collatz trajectories — Àlex Reyes">
+<meta property="og:description" content="Paper: A Fibonacci theorem for Collatz trajectories via modular graph structure. Àlex Reyes, arXiv:2606.02621.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Fibonacci theorem for Collatz trajectories — Àlex Reyes">
+<meta name="twitter:description" content="Paper: A Fibonacci theorem for Collatz trajectories via modular graph structure. Àlex Reyes, arXiv:2606.02621.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 </head>
 <body>
 <nav>
@@ -93,7 +103,7 @@
     <h2 style="font-size:1.1rem;margin-bottom:.6rem">Interpretación artística del grafo G</h2>
     <p style="font-size:.9rem;color:var(--text-soft);margin-bottom:1rem">La conjetura de Collatz nació en 1937 — el mismo año que <em>El Hobbit</em> de Tolkien. Esta coincidencia inspiró la siguiente ilustración, donde los nodos del grafo G mod 6 se convierten en territorios de un mapa de fantasía y los arcos en puentes que los unen.</p>
     <figure style="margin:0 0 2.5rem;border:1px solid var(--border);border-radius:8px;overflow:hidden">
-      <img src="/doctorado/papers/fibonacci-collatz/grafo-g-gema.jpg" alt="El grafo G mod 6 representado como un mapa de fantasía al estilo Tolkien, con islas, puentes y volcanes" style="width:100%;display:block">
+      <picture><source type="image/webp" srcset="/assets/img/grafo-g-gema.webp"><img src="/assets/img/grafo-g-gema.jpg" loading="lazy" alt="El grafo G mod 6 representado como un mapa de fantasía al estilo Tolkien, con islas, puentes y volcanes" style="width:100%;display:block" width="1400" height="993"></picture>
       <figcaption style="padding:.8rem 1rem;font-size:.82rem;color:var(--text-soft);background:var(--bg-subtle)">El grafo G mod 6, estilo Tolkien — ilustración de Gema Jiménez Camacho, 2026</figcaption>
     </figure>
 
@@ -178,5 +188,6 @@ function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-the
   }).catch(function(){loading.style.display='none';fallback.style.display='block';});
 })();
 </script>
+<script defer src="/assets/js/search.js"></script>
 </body>
 </html>
