@@ -23,6 +23,10 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             idempotente; deriva de <title>/description/canonical).
                             Correr siempre al final tras generar /aula/ (apuntes,
                             ejercicios, exámenes), que no inyectan OG por sí mismos.
+  add_jsonld.py          ← PASO FINAL: datos estructurados schema.org (JSON-LD).
+                            BreadcrumbList (de cada breadcrumb), LearningResource
+                            (hojas de /aula/) y WebSite (homes). Idempotente; correr
+                            tras add_og_tags.py. No inventa datos: deriva del HTML.
   build_sitemap.py       ← regenera sitemap.xml con todas las páginas vivas
   build_ejercicios.py    ← reconstruye índice del banco
   build_exam_pages.py    ← genera páginas de exámenes desde JSON
@@ -95,6 +99,7 @@ inyectan OG por sí mismos**. Tras generarlos, ejecuta SIEMPRE como paso final:
 
 ```
 python3 scripts/add_og_tags.py   # OG/Twitter en toda página sin OG (idempotente)
+python3 scripts/add_jsonld.py    # JSON-LD schema.org (breadcrumbs, learning resource)
 python3 scripts/build_sitemap.py
 ```
 
