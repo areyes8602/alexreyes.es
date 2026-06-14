@@ -8,6 +8,51 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 BASE = 'https://alexreyes.es'
 TODAY = date.today().isoformat()
 
+
+def _build_git_lastmod_map():
+    """Mapa {ruta_relativa: fecha_último_commit} en una sola pasada de git log.
+    Es la fecha correcta para <lastmod>: refleja cuándo cambió el contenido,
+    no cuándo se clonó el repo (que resetea los mtime)."""
+    import subprocess
+    m = {}
+    try:
+        out = subprocess.run(
+            ['git', '-C', str(REPO_ROOT), 'log', '--name-only',
+             '--format=%cs', '--no-renames'],
+            capture_output=True, text=True, timeout=120,
+        ).stdout
+    except Exception:
+        return m
+    cur = None
+    for line in out.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if len(line) == 10 and line[4] == '-' and line[7] == '-':
+            cur = line  # línea de fecha (%cs = YYYY-MM-DD)
+        elif cur and line not in m:
+            m[line] = cur  # primera aparición = commit más reciente
+    return m
+
+
+_GIT_LASTMOD = _build_git_lastmod_map()
+
+
+def _lastmod(fs_path):
+    """Fecha del último commit del archivo; si no está en git, cae a mtime y
+    finalmente a hoy."""
+    fs_path = Path(fs_path)
+    try:
+        rel = str(fs_path.resolve().relative_to(REPO_ROOT))
+        if rel in _GIT_LASTMOD:
+            return _GIT_LASTMOD[rel]
+    except Exception:
+        pass
+    try:
+        return date.fromtimestamp(fs_path.stat().st_mtime).isoformat()
+    except Exception:
+        return TODAY
+
 # Pages that exist in all 3 languages (canonical ES paths).
 # Add new pages here and re-run.
 trilingual_paths = [
@@ -98,6 +143,12 @@ for p in sorted(_REPO.glob("aula/*/ejercicios/*/*.html")):
 
 def url_tag(base_path, lang):
     loc = BASE + (base_path if lang == 'es' else f'/{lang}' + (base_path if base_path != '/' else '/'))
+    lang_prefix = '' if lang == 'es' else f'{lang}/'
+    if base_path == '/':
+        fs_path = REPO_ROOT / lang_prefix / 'index.html'
+    else:
+        fs_path = REPO_ROOT / (lang_prefix + base_path.strip('/') + '/index.html')
+    lastmod = _lastmod(fs_path)
     alternates = []
     for l in ('es', 'ca', 'en'):
         u = BASE + (base_path if l == 'es' else (f'/{l}' + (base_path if base_path != '/' else '/')))
@@ -108,7 +159,7 @@ def url_tag(base_path, lang):
     return (
         '  <url>\n'
         f'    <loc>{loc}</loc>\n'
-        f'    <lastmod>{TODAY}</lastmod>\n'
+        f'    <lastmod>{lastmod}</lastmod>\n'
         f'    <changefreq>{changefreq}</changefreq>\n'
         f'    <priority>{priority}</priority>\n'
         + '\n'.join(alternates) + '\n'
@@ -117,10 +168,12 @@ def url_tag(base_path, lang):
 
 
 def single_url_tag(path):
+    fs_path = REPO_ROOT / (path.lstrip('/') + ('index.html' if path.endswith('/') else ''))
+    lastmod = _lastmod(fs_path)
     return (
         '  <url>\n'
         f'    <loc>{BASE + path}</loc>\n'
-        f'    <lastmod>{TODAY}</lastmod>\n'
+        f'    <lastmod>{lastmod}</lastmod>\n'
         f'    <changefreq>monthly</changefreq>\n'
         f'    <priority>0.6</priority>\n'
         '  </url>'
