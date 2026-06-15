@@ -1,0 +1,43 @@
+name: Revelar Nota 1 (programado)
+
+# Hace pública la Nota 1 «El hombre y la nota al margen» el 22 de junio de 2026.
+# La nota se sube oculta (noindex, fuera de sitemap/home/índice). Este workflow
+# corre a diario; scripts/reveal_nota1.py solo actúa a partir de esa fecha y es
+# idempotente. Cuando revela, hace commit + push a main, lo que dispara el
+# deploy de Cloudflare Pages. Una vez publicada, las ejecuciones siguientes no
+# hacen nada (se puede borrar este workflow tras el 22).
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # cada día a las 06:00 UTC
+  workflow_dispatch:        # permite lanzarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reveal-nota1
+  cancel-in-progress: false
+
+jobs:
+  reveal:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Revelar si toca (>= 2026-06-22) y es idempotente
+        run: python3 scripts/reveal_nota1.py
+      - name: Commit y push si hay cambios
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Revelar Nota 1: El hombre y la nota al margen (ES/CA/EN)"
+            git push
+            echo "Nota 1 publicada y enviada a main."
+          else
+            echo "Sin cambios: aún no toca o ya estaba revelada."
+          fi

@@ -327,9 +327,9 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}fu
       mark.setAttribute("cx",xx); mark.setAttribute("cy",yy);
       guide.setAttribute("x1",xx); guide.setAttribute("x2",xx); guide.setAttribute("y1",yy); guide.setAttribute("y2",210);
       var html;
-      if(i===last){ html='Pas <b>'+i+'</b> &middot; n = <b>1</b> &mdash; fi (d&rsquo;aquí endavant, el cicle 1 &rarr; 4 &rarr; 2 &rarr; 1).'; }
+      if(i===last){ html='Pas <b>'+i+'</b> &nbsp;&mdash;&nbsp; n = <b>1</b>. Fi (d&rsquo;aquí endavant, el cicle 1 &rarr; 4 &rarr; 2 &rarr; 1).'; }
       else { var even=(v%2===0), nx=seq[i+1], op=even?(fmt(v)+' / 2'):('3 &middot; '+fmt(v)+' + 1');
-        html='Pas <b>'+i+'</b> &middot; n = <b>'+fmt(v)+'</b> ('+(even?'parell':'senar')+') &nbsp;&rarr;&nbsp; <span class="nxt">f(n) = '+op+' = '+fmt(nx)+'</span>'; }
+        html='Pas <b>'+i+'</b> &nbsp;&mdash;&nbsp; n = <b>'+fmt(v)+'</b> ('+(even?'parell':'senar')+') &nbsp;&rarr;&nbsp; <span class="nxt">f(n) = '+op+' = '+fmt(nx)+'</span>'; }
       out.innerHTML=html;
       if(parseInt(slider.value,10)!==i) slider.value=i;
     }
@@ -385,7 +385,7 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}fu
       var g=lpd(N);
       out.innerHTML = (N===1)
         ? 'L&rsquo;<b>1</b> és l&rsquo;arrel: tots els camins acaben aquí.'
-        : 'n = <b>'+N+'</b> · el seu major divisor propi és '+g+' &nbsp;&rarr;&nbsp; f('+N+') = '+N+' &minus; '+g+' = <b>'+(N-g)+'</b>.<br><span style="color:#525252">Camí a l&rsquo;1: '+path.join(' &rarr; ')+'</span>';
+        : 'n = <b>'+N+'</b> &nbsp;&mdash;&nbsp; el seu major divisor propi és '+g+' &nbsp;&rarr;&nbsp; f('+N+') = '+N+' &minus; '+g+' = <b>'+(N-g)+'</b>.<br><span style="color:#525252">Camí a l&rsquo;1: '+path.join(' &rarr; ')+'</span>';
     }
     nodes.forEach(function(c){ c.addEventListener("click",function(){ show(parseInt(c.dataset.n,10)); }); });
     show(21);
