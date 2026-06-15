@@ -38,6 +38,10 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
   build_sitemap.py       ← regenera sitemap.xml con todas las páginas vivas
   build_ejercicios.py    ← reconstruye índice del banco
   build_exam_pages.py    ← genera páginas de exámenes desde JSON
+  build_contact_feedback.py ← regenera el desplegable "Sobre la web" de /contacto/
+                            (es/ca/en). Cursos = lista curada en el script;
+                            notas y papers se leen del disco con su título por
+                            idioma. Correr tras publicar una nota o un paper.
 
 /aula/
   ib-ai-hl/{apuntes,ejercicios,examenes}/   ← IB lang="es"

@@ -81,11 +81,6 @@
           <a href="mailto:alexreyes@maristes.com">alexreyes@maristes.com</a>
           <button class="copy-btn" type="button" data-copy="alexreyes@maristes.com" data-label="copy" onclick="copyEmail(this)">copy</button>
         </div>
-        <div class="contact-side-links">
-          <a class="contact-chip" href="/en/docencia/">Teaching</a>
-          <a class="contact-chip" href="/en/aula/">Classroom</a>
-          <a class="contact-chip" href="/en/cv/">CV</a>
-        </div>
       </div>
 
       <div class="contact-side is-research">
@@ -95,11 +90,6 @@
         <div class="contact-email">
           <a href="mailto:alejandro.reyes@upc.edu">alejandro.reyes@upc.edu</a>
           <button class="copy-btn" type="button" data-copy="alejandro.reyes@upc.edu" data-label="copy" onclick="copyEmail(this)">copy</button>
-        </div>
-        <div class="contact-side-links">
-          <a class="contact-chip" href="/en/doctorado/">PhD</a>
-          <a class="contact-chip" href="/en/doctorado/visualizaciones/">Visualizations</a>
-          <a class="contact-chip" href="/en/notas/">Notes</a>
         </div>
       </div>
 
@@ -162,7 +152,7 @@
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function copyEmail(b){var t=b.getAttribute('data-copy');navigator.clipboard.writeText(t).then(function(){b.classList.add('copied');b.textContent='copied!';setTimeout(function(){b.classList.remove('copied');b.textContent=b.getAttribute('data-label');},1600);});}
-var FB={docencia:{label:'Teaching',color:'teaching',items:['IB Mathematics AI','Applied Maths CCSS · 1st BTL','Applied Maths CCSS · 2nd BTL','Science track · 1st BTL','Science track · 2nd BTL','Maths Year 8 (2n ESO)','Cangur','University entrance (PAU)']},notas:{label:'Notes',color:'notes',items:['The Collatz Ring','Fibonacci hidden in Collatz','The man and the margin note']},doctorado:{label:'PhD',color:'research',items:['Paper · A Fibonacci theorem for Collatz trajectories','Visualizations','Research lines']}};
+var FB={"docencia":{"label":"Teaching","color":"teaching","items":["IB Mathematics AI","Applied Maths CCSS · 1st BTL","Applied Maths CCSS · 2nd BTL","Science track · 1st BTL","Science track · 2nd BTL","Maths · 1r ESO","Maths · 2n ESO","Maths · 3r ESO","Maths · 4t ESO","Cangur","University entrance (PAU)"]},"notas":{"label":"Notes","color":"notes","items":["Fibonacci hidden in Collatz","The Collatz Ring","The man and the marginal note"]},"doctorado":{"label":"PhD","color":"research","items":["Paper · A Fibonacci theorem for Collatz trajectories","Visualizations","Research lines"]}};
 function fbSection(){var s=document.getElementById('fbSection'),d=document.getElementById('fbDetail'),p=document.getElementById('contactFeedback'),k=s.value;d.innerHTML='';p.classList.remove('fb-teaching','fb-research','fb-notes');if(!FB[k]){d.innerHTML='<option value="">—</option>';d.disabled=true;return;}d.disabled=false;p.classList.add('fb-'+FB[k].color);var o=document.createElement('option');o.value='';o.textContent='(whole section)';d.appendChild(o);FB[k].items.forEach(function(it){var x=document.createElement('option');x.value=it;x.textContent=it;d.appendChild(x);});}
 function fbSend(){var s=document.getElementById('fbSection'),d=document.getElementById('fbDetail'),m=document.getElementById('fbMsg'),parts=[];if(FB[s.value])parts.push(FB[s.value].label);if(d.value)parts.push(d.value);var subj='[web] Feedback'+(parts.length?' · '+parts.join(' · '):'');document.getElementById('fbSent').hidden=false;location.href='mailto:alexreyes@maristes.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(m.value||'');}
 </script>

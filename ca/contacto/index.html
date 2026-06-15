@@ -81,11 +81,6 @@
           <a href="mailto:alexreyes@maristes.com">alexreyes@maristes.com</a>
           <button class="copy-btn" type="button" data-copy="alexreyes@maristes.com" data-label="copia" onclick="copyEmail(this)">copia</button>
         </div>
-        <div class="contact-side-links">
-          <a class="contact-chip" href="/ca/docencia/">Docència</a>
-          <a class="contact-chip" href="/ca/aula/">Aula</a>
-          <a class="contact-chip" href="/ca/cv/">CV</a>
-        </div>
       </div>
 
       <div class="contact-side is-research">
@@ -95,11 +90,6 @@
         <div class="contact-email">
           <a href="mailto:alejandro.reyes@upc.edu">alejandro.reyes@upc.edu</a>
           <button class="copy-btn" type="button" data-copy="alejandro.reyes@upc.edu" data-label="copia" onclick="copyEmail(this)">copia</button>
-        </div>
-        <div class="contact-side-links">
-          <a class="contact-chip" href="/ca/doctorado/">Doctorat</a>
-          <a class="contact-chip" href="/ca/doctorado/visualizaciones/">Visualitzacions</a>
-          <a class="contact-chip" href="/ca/notas/">Notes</a>
         </div>
       </div>
 
@@ -162,7 +152,7 @@
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function copyEmail(b){var t=b.getAttribute('data-copy');navigator.clipboard.writeText(t).then(function(){b.classList.add('copied');b.textContent='copiat!';setTimeout(function(){b.classList.remove('copied');b.textContent=b.getAttribute('data-label');},1600);});}
-var FB={docencia:{label:'Docència',color:'teaching',items:['IB Mathematics AI','Mat. Aplicades CCSS · 1r BTL','Mat. Aplicades CCSS · 2n BTL','Científic · 1r BTL','Científic · 2n BTL','Matemàtiques 2n ESO','Cangur','Selectivitat (PAU)']},notas:{label:'Notes',color:'notes',items:['L\'Anell de Collatz','Fibonacci amagat a Collatz','L\'home i la nota al marge']},doctorado:{label:'Doctorat',color:'research',items:['Paper · A Fibonacci theorem for Collatz trajectories','Visualitzacions','Línies de treball']}};
+var FB={"docencia":{"label":"Docència","color":"teaching","items":["IB Mathematics AI","Mat. Aplicades CCSS · 1r BTL","Mat. Aplicades CCSS · 2n BTL","Científic · 1r BTL","Científic · 2n BTL","Matemàtiques 1r ESO","Matemàtiques 2n ESO","Matemàtiques 3r ESO","Matemàtiques 4t ESO","Cangur","Selectivitat (PAU)"]},"notas":{"label":"Notes","color":"notes","items":["Fibonacci amagat dins de Collatz","L'Anell de Collatz","L’home i la nota al marge"]},"doctorado":{"label":"Doctorat","color":"research","items":["Paper · A Fibonacci theorem for Collatz trajectories","Visualitzacions","Línies de treball"]}};
 function fbSection(){var s=document.getElementById('fbSection'),d=document.getElementById('fbDetail'),p=document.getElementById('contactFeedback'),k=s.value;d.innerHTML='';p.classList.remove('fb-teaching','fb-research','fb-notes');if(!FB[k]){d.innerHTML='<option value="">—</option>';d.disabled=true;return;}d.disabled=false;p.classList.add('fb-'+FB[k].color);var o=document.createElement('option');o.value='';o.textContent='(tota la secció)';d.appendChild(o);FB[k].items.forEach(function(it){var x=document.createElement('option');x.value=it;x.textContent=it;d.appendChild(x);});}
 function fbSend(){var s=document.getElementById('fbSection'),d=document.getElementById('fbDetail'),m=document.getElementById('fbMsg'),parts=[];if(FB[s.value])parts.push(FB[s.value].label);if(d.value)parts.push(d.value);var subj='[web] Feedback'+(parts.length?' · '+parts.join(' · '):'');document.getElementById('fbSent').hidden=false;location.href='mailto:alexreyes@maristes.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(m.value||'');}
 </script>
