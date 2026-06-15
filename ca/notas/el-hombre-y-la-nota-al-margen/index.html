@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>L&rsquo;home i la nota al marge — Àlex Reyes</title>
+<meta name="description" content="L&rsquo;origen de la conjectura de Collatz i l&rsquo;home que la va anotar: Lothar Collatz, un gegant de l&rsquo;anàlisi numèrica i no pas un caçador d&rsquo;endevinalles. Nota divulgativa amb visuals interactius.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/style.css?v=202606141519">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/ca/notas/el-hombre-y-la-nota-al-margen/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/notas/el-hombre-y-la-nota-al-margen/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/notas/el-hombre-y-la-nota-al-margen/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/notas/el-hombre-y-la-nota-al-margen/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://alexreyes.es/ca/notas/el-hombre-y-la-nota-al-margen/">
+<meta property="og:title" content="L&rsquo;home i la nota al marge">
+<meta property="og:description" content="L&rsquo;origen de la conjectura de Collatz i l&rsquo;home que la va anotar.">
+<meta property="og:locale" content="ca_ES">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary">
+<style>
+
+
+  :root{
+    --bg:#ffffff; --bg-subtle:#f7f6f2; --text:#1a1a1a; --soft:#525252; --faint:#757575; --border:#e8e8e8;
+    --accent:#5b4bb7; --link:#185fa5; --font:'Inter',-apple-system,system-ui,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{font-family:var(--font);max-width:1100px;margin:0 auto;padding:2.4rem 2rem 4rem;
+    color:var(--text);background:var(--bg);line-height:1.7;font-size:17px}
+  .kicker{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:0 0 .55rem}
+  .kicker b{color:var(--accent);font-weight:600}
+  h1{font-size:2rem;font-weight:700;letter-spacing:-.02em;line-height:1.12;margin:0 0 .45rem}
+  .byline{color:var(--faint);font-size:.9rem;margin:0 0 .2rem}
+  .subtitle{color:var(--soft);font-size:1.1rem;margin:0 0 2rem}
+  h2{font-size:1.4rem;font-weight:600;margin:54px 0 14px;border-bottom:1px solid var(--border);padding-bottom:6px}
+  p{margin:0 0 16px}
+  .draftnote{background:#faf7ee;border:1px solid #e8dcae;border-radius:10px;padding:.6rem .85rem;
+    font-size:.82rem;color:#7a5d12;margin:0 0 2rem}
+  figure{margin:1.8rem 0;text-align:center}
+  figcaption{font-size:.78rem;color:var(--faint);margin-top:.5rem}
+  .traj-controls{max-width:660px;margin:.7rem auto 0}
+  .traj-readout{font-size:.95rem;text-align:center;color:var(--text);margin-top:.55rem;min-height:1.6em}
+  .traj-readout b{color:var(--accent);font-weight:600}
+  .traj-readout .nxt{color:var(--soft)}
+  input#traj-slider{width:100%;cursor:pointer}
+  .orbit-controls{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;justify-content:center;margin:0 0 .9rem;font-size:.92rem}
+  .orbit-controls input#orbit-n{width:6em;font-family:var(--font);font-size:.95rem;padding:.25rem .45rem;border:1px solid var(--border);border-radius:7px}
+  .orbit-ex-lbl{color:var(--faint)}
+  .orbit-ex{font-family:var(--font);font-size:.85rem;padding:.18rem .6rem;border:1px solid var(--border);background:var(--bg);border-radius:7px;cursor:pointer;color:var(--accent)}
+  .orbit-ex:hover{background:#f4f2fb}
+  .itl{max-width:640px;margin:1.5rem auto}
+  .itl-row{display:flex;justify-content:space-between;align-items:flex-start;position:relative;margin-bottom:1rem}
+  .itl-row::before{content:"";position:absolute;left:6px;right:6px;top:5px;height:2px;background:var(--border)}
+  .itl-btn{position:relative;z-index:1;background:none;border:none;cursor:pointer;font-family:var(--font);
+    font-size:.8rem;color:var(--faint);display:flex;flex-direction:column;align-items:center;gap:7px;padding:0}
+  .itl-btn .dot{width:12px;height:12px;border-radius:50%;background:#cfcadf;border:2px solid #fff;transition:background .15s}
+  .itl-btn[aria-selected="true"]{color:var(--accent);font-weight:600}
+  .itl-btn[aria-selected="true"] .dot{background:var(--accent)}
+  .itl-detail{background:var(--bg-subtle);border:1px solid var(--border);border-radius:10px;padding:.75rem .95rem;font-size:.95rem;color:var(--text);min-height:2.8em;line-height:1.5}
+  .itl-detail b{color:var(--accent)}
+  .tnode{cursor:pointer}
+  .tnode:hover{stroke-width:2.5}
+  .tree-readout{max-width:520px;margin:.7rem auto 0;text-align:center;font-size:.92rem;color:var(--text);min-height:3em;line-height:1.55}
+  .tree-readout b{color:var(--accent);font-weight:600}
+
+  .nw{white-space:nowrap}
+  a.cit{font-size:.74em;color:var(--link);text-decoration:none;font-weight:500;opacity:.8}
+  a.cit:hover{text-decoration:underline}
+  .ref{position:relative;display:inline}
+  .srcbtn{appearance:none;border:none;background:none;padding:0;margin-left:3px;cursor:pointer;
+    color:var(--accent);opacity:.72;line-height:0;vertical-align:baseline}
+  .srcbtn:hover,.srcbtn:focus-visible{opacity:1}
+  .srcbtn svg{width:14px;height:14px;vertical-align:-2px}
+  .pop{position:absolute;top:1.8em;left:0;z-index:20;width:340px;max-width:86vw;white-space:normal;display:none;
+    background:var(--bg);border:1px solid var(--border);border-radius:13px;box-shadow:0 6px 24px rgba(0,0,0,.10);
+    padding:.9rem 1rem;font-size:.86rem;line-height:1.5;text-align:left}
+  .pop.open{display:block}
+  .popcite{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin:0 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+  .lbl{display:block;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin:0 0 .25rem}
+  .orig{display:block;font-style:italic;color:var(--text);margin:0 0 .8rem;padding-left:.7rem;border-left:2px solid var(--accent)}
+  .tr{display:block;color:var(--soft);margin:0}
+
+  hr{border:none;border-top:1px solid var(--border);margin:48px 0 1.4rem}
+  h3{font-size:1.05rem;font-weight:600;margin:0 0 .7rem}
+  .bibpolicy{font-size:.8rem;color:var(--faint);margin:0 0 1.1rem;line-height:1.45;background:var(--bg-subtle);border:1px solid var(--border);border-radius:8px;padding:.55rem .75rem}
+  ul.bib{list-style:none;font-size:.86rem;color:var(--soft);line-height:1.5;padding-left:0;margin:0}
+  ul.bib li{margin-bottom:.7rem;padding:.15rem .3rem;border-radius:6px;display:flex;gap:.5rem}
+  ul.bib li:target{background:#fdf3d6}
+  .bn{color:var(--link);font-weight:600;flex-shrink:0}
+  .bc{display:block}
+  .biblinks{display:block;margin-top:4px;font-size:.82rem}
+  .biblinks a{color:var(--link);text-decoration:none;margin-right:.9rem;font-weight:500}
+  .biblinks a:hover{text-decoration:underline}
+  .biblinks .cnote{color:var(--faint)}
+
+  [data-theme="dark"]{--bg:#0f0f10;--bg-subtle:#17171a;--text:#f0f0f0;--soft:#a8a8a8;--faint:#8a8a8a;--border:#2a2a2e;--accent:#a99cf0;--link:#6aa9e8;}
+  body{max-width:none;margin:0;padding:0;font-size:16px}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Notes","item":"https://alexreyes.es/ca/notas/"},{"@type":"ListItem","position":3,"name":"L\u2019home i la nota al marge","item":"https://alexreyes.es/ca/notas/el-hombre-y-la-nota-al-margen/"}]}</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/" class="nav-active">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/notas/el-hombre-y-la-nota-al-margen/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/notas/el-hombre-y-la-nota-al-margen/" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/notas/el-hombre-y-la-nota-al-margen/">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a><span class="sep">/</span><a href="/ca/notas/">Notes</a><span class="sep">/</span><span class="current">L’home i la nota al marge</span>
+    </div>
+    <div style="margin:0 auto">
+      <div class="page-header" style="margin-bottom:2.5rem">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;flex-wrap:wrap">
+          <span class="section-label">Nota</span>
+          <span class="tag tag-purple">Collatz</span>
+          <span class="tag tag-gray">Història</span>
+          <span class="tag tag-gray">Interactiu</span>
+        </div>
+        <h1 style="margin:0 0 0.6rem;font-size:2rem;line-height:1.2">L’home i la nota al marge</h1>
+        <p style="font-size:0.9rem;color:var(--text-soft)">Àlex Reyes &middot; juny 2026</p>
+      </div>
+      <div class="nota-body" style="font-size:1.05rem;line-height:1.8;color:var(--text)">
+<p class="sub">L’origen del problema més senzill que ningú sap resoldre.</p>
+
+<p>Comencem pel que és l’únic senzill d’aquesta història: la regla. La conjectura de Collatz es construeix sobre una funció definida en els enters positius: a cada nombre $n$ se li assigna la seva meitat si és parell, i el seu triple més un si és <span class="nw">senar.<a class="cit" href="#b1">[1]</a><span class="ref"><button class="srcbtn" aria-label="Veure font original i traducció"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/></svg></button><span class="pop"><span class="popcite">[1] · Collatz, L. (1986)</span><span class="lbl">Font original · anglès</span><span class="orig">“Now we define the ‘3n+1’ function: f(n)=3n+1 for odd n, n/2 for even n. […] For each n there is an index k(n) so that f_k(n)=1.”</span><span class="lbl">Traducció</span><span class="tr">«Definim ara la funció “3n+1”: f(n)=3n+1 per a n senar, n/2 per a n parell. […] Per a cada n existeix un índex k(n) tal que f_k(n)=1.»</span></span></span></span></p>
+
+<p>$$f(n)=\begin{cases} \dfrac{n}{2} & \text{si } n \text{ és parell},\\[4pt] 3n+1 & \text{si } n \text{ és senar}.\end{cases}$$</p>
+
+<p>Aplicada una vegada i una altra a partir de qualsevol $n$, genera una successió, i la conjectura afirma que aquesta successió, parteixi d’on parteixi, acaba sempre en l’1. Així la va deixar plantejada el mateix Collatz.</p>
+
+<p>I així d’enganyosa. Ningú no l’ha sabut demostrar, i no pas per falta d’evidència: s’ha comprovat, un a un, per a tots els enters fins a <span class="nw">2⁷¹,<a class="cit" href="#b2">[2]</a></span> és a dir, uns 2,36 · 10²¹, sense una sola excepció. Però una llista de casos, per llarga que sigui, mai no arriba a ser una demostració. És un problema que qualsevol nen entén en un minut i al qual els millors matemàtics del món no han trobat el flanc en gairebé un segle.</p>
+
+<p>Bona part d’aquesta dificultat rau en com de capricioses són les seves successions. El 27, per exemple, no baixa sense més: s’enfila fins a un pic de 9.232 abans de desplomar-se, i només aterra a l’1 després de <span class="nw">111 passos.<a class="cit" href="#b3">[3]</a><span class="ref"><button class="srcbtn" aria-label="Veure font original i traducció"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/></svg></button><span class="pop"><span class="popcite">[3] · Guy, R. K. (1983)</span><span class="lbl">Font original · anglès</span><span class="orig">“Figure 6 includes all the numbers up to 26; the branch containing 27 is a much longer one, but still comes down to 1 after 111 steps.”</span><span class="lbl">Traducció</span><span class="tr">«La Figura 6 inclou tots els nombres fins al 26; la branca que conté el 27 és molt més llarga, però tot i així baixa fins a 1 després de 111 passos.»</span></span></span></span> —un vaivé que ha valgut a aquests nombres el sobrenom de «calamarsa»:</p>
+
+<figure>
+  <div class="orbit-controls">
+    <label>Comença a <input type="number" id="orbit-n" value="27" min="1" inputmode="numeric"></label>
+    <span class="orbit-ex-lbl">o prova:</span>
+    <button class="orbit-ex" type="button" data-n="6">6</button>
+    <button class="orbit-ex" type="button" data-n="27">27</button>
+    <button class="orbit-ex" type="button" data-n="97">97</button>
+    <button class="orbit-ex" type="button" data-n="871">871</button>
+  </div>
+  <div id="orbit-chart"></div>
+  <input type="range" id="orbit-slider" min="0" max="111" value="0" step="1" aria-label="Pas de l’òrbita" style="width:100%;max-width:660px;display:block;margin:.6rem auto 0;cursor:pointer">
+  <div id="orbit-readout" class="traj-readout"></div>
+  <figcaption>L’òrbita «calamarsa» d’un nombre sota $f$. Escriu el nombre que vulguis i mou el control per veure cada valor i el següent, calculat amb la regla.</figcaption>
+</figure>
+
+<p>Un comportament tan salvatge a partir d’una regla tan elemental és el que ha mantingut el problema viu durant dècades. Però abans de ser un mur va ser una anotació al marge d’un quadern. I l’home que la va escriure hauria estat el primer a sorprendre’s que sigui això —justament això— el que el món recorda d’ell.</p>
+
+<h2>Qui era Lothar Collatz</h2>
+
+<p>Convé desfer un malentès d’entrada: Collatz no era un caçador d’endevinalles. Va ser un dels grans de l’anàlisi numèrica alemanya del segle XX —prop de 250 articles, una desena de llibres, <span class="nw">quaranta doctorands—,<a class="cit" href="#b4">[4]</a><span class="ref"><button class="srcbtn" aria-label="Veure font original i traducció"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/></svg></button><span class="pop"><span class="popcite">[4] · Biener, K. (1993)</span><span class="lbl">Font original · alemany</span><span class="orig">„Tatsächlich hat Collatz sein gesamtes Lebenswerk nahezu ausschließlich der Angewandten, insbesondere der Numerischen Mathematik gewidmet und mehrere Algorithmen ausgearbeitet, die für einen computergestützten Einsatz zur Lösung verschiedener praxisrelevanter mathematischer Probleme gedacht sind.“</span><span class="lbl">Traducció</span><span class="tr">«De fet, Collatz va dedicar tota la seva obra vital gairebé exclusivament a la matemàtica aplicada, en particular la numèrica, i va desenvolupar diversos algorismes pensats per a ser usats en ordinador en la resolució de diferents problemes matemàtics de rellevància pràctica.»</span></span></span></span> i el seu nom segueix viu on menys se’l busca: en la fórmula de Collatz–Wielandt, sobre els valors propis d’una <span class="nw">matriu,<a class="cit" href="#b5">[5]</a></span> i en un article de 1957, escrit amb Ulrich Sinogowitz, que es considera un dels articles fundacionals de la teoria espectral de <span class="nw">grafs.<a class="cit" href="#b6">[6,</a><a class="cit" href="#b7">&nbsp;7]</a></span> Sinogowitz no el va arribar a veure imprès: va morir en el bombardeig de Darmstadt, el <span class="nw">1944.<a class="cit" href="#b8">[8]</a></span></p>
+
+<p>S’havia doctorat a Berlín el 1935. El seu veritable mestre, Richard von Mises, va haver d’emigrar fugint de la persecució nazi, i Collatz, com altres doctorands que es van quedar sense director, va passar a mans d’<span class="nw">Alfred Klose.<a class="cit" href="#b8">[8,</a><a class="cit" href="#b9">&nbsp;9]</a></span> El mateix Collatz es va afiliar a les SA el 1933 i al partit nazi el 1937, i durant la guerra va treballar en càlculs de <span class="nw">balística.<a class="cit" href="#b8">[8,</a><a class="cit" href="#b10">&nbsp;10]</a></span></p>
+
+<figure>
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lothar_Collatz.jpg" alt="Retrat del matemàtic Lothar Collatz" style="width:100%;max-width:320px;border-radius:10px;display:block;margin:0 auto" loading="lazy">
+  <figcaption>Lothar Collatz. Foto: Konrad Jacobs, Mathematisches Forschungsinstitut Oberwolfach (MFO). CC BY-SA 2.0 DE.</figcaption>
+</figure>
+
+<p>Tenia una idea del seu ofici que avui sona gairebé a manifest: per a ell, la frontera entre matemàtica «pura» i «aplicada» era un sense-sentit; no hi havia dos camps, sinó un de <span class="nw">sol.<a class="cit" href="#b4">[4]</a><span class="ref"><button class="srcbtn" aria-label="Veure font original i traducció"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/></svg></button><span class="pop"><span class="popcite">[4] · Biener, K. (1993)</span><span class="lbl">Font original · alemany</span><span class="orig">„…der Verfasser wäre glücklich, wenn dieses Buch dazu beitragen würde, den unseligen Unterschied zwischen „reiner“ und „angewandter“ Mathematik ad absurdum zu führen, denn es gibt keine Trennungslinie zwischen diesen beiden Gebieten, es gibt nur eine Mathematik.“</span><span class="lbl">Traducció</span><span class="tr">«…l’autor seria feliç si aquest llibre contribuís a portar a l’absurd la nefasta distinció entre matemàtica “pura” i “aplicada”, car no hi ha cap línia divisòria entre tots dos camps: només hi ha una matemàtica.»</span></span></span></span> Potser per això té el seu punt d’ironia que un matemàtic amb una obra tan ampla i tan profunda acabi sent recordat, sobretot, per una curiositat de tres <span class="nw">ratlles.<a class="cit" href="#b11">[11]</a><span class="ref"><button class="srcbtn" aria-label="Veure font original i traducció"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/></svg></button><span class="pop"><span class="popcite">[11] · MacTutor (2006)</span><span class="lbl">Font original · anglès</span><span class="orig">“In many ways it might seem a pity that a mathematician who has produced so much important and fundamental work should be most remembered for a novelty.”</span><span class="lbl">Traducció</span><span class="tr">«En certa manera, sembla una llàstima que un matemàtic que ha produït una obra tan important i fonamental sigui recordat sobretot per una curiositat.»</span></span></span></span> Dibuixava, per cert, amb notable talent —es conserva un estudi a ploma seu dels mosaics de la basílica de San Vitale, a Ravenna—: el mateix ull per al patró i l’estructura que, com veurem de seguida, el va portar al 3n+1.<a class="cit" href="#b4">[4]</a></p>
+
+<h2>D’on va sortir</h2>
+
+<p>Collatz no va arribar al 3n+1 buscant una endevinalla, sinó fent una cosa molt seva: dibuixar funcions. L’apassionava representar les funcions aritmètiques com a grafs —un punt per a cada nombre, una fletxa de $n$ a $f(n)$— i classificar-les per la forma que adoptaven: línies, arbres, boscos, cicles.<a class="cit" href="#b1">[1]</a> El 3n+1 va néixer d’aquest joc, mentre construïa funcions senzilles a la caça de cicles.</p>
+
+<figure>
+  <svg id="tree-svg" viewBox="0 0 440 448" width="100%" style="max-width:440px;height:auto" role="img" aria-label="Arbol interactivo de la funcion f(n)=n menos su mayor divisor propio."><defs><marker id="ah2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#9a93c9"/></marker></defs><g stroke="#9a93c9" stroke-width="1.4" marker-end="url(#ah2)"><line class="tedge" id="te-2" x1="220.0" y1="372.0" x2="220.0" y2="405.0"/><line class="tedge" id="te-3" x1="106.2" y1="297.3" x2="204.9" y2="348.2"/><line class="tedge" id="te-4" x1="333.8" y1="297.3" x2="235.1" y2="348.2"/><line class="tedge" id="te-5" x1="295.1" y1="235.5" x2="336.2" y2="277.8"/><line class="tedge" id="te-6" x1="92.0" y1="240.0" x2="92.0" y2="273.0"/><line class="tedge" id="te-7" x1="39.1" y1="169.5" x2="80.2" y2="211.8"/><line class="tedge" id="te-8" x1="400.9" y1="235.5" x2="359.8" y2="277.8"/><line class="tedge" id="te-9" x1="92.0" y1="174.0" x2="92.0" y2="207.0"/><line class="tedge" id="te-10" x1="284.0" y1="174.0" x2="284.0" y2="207.0"/><line class="tedge" id="te-11" x1="231.1" y1="103.5" x2="272.2" y2="145.8"/><line class="tedge" id="te-12" x1="144.9" y1="169.5" x2="103.8" y2="211.8"/><line class="tedge" id="te-13" x1="156.0" y1="108.0" x2="156.0" y2="141.0"/><line class="tedge" id="te-14" x1="28.0" y1="108.0" x2="28.0" y2="141.0"/><line class="tedge" id="te-15" x1="284.0" y1="108.0" x2="284.0" y2="141.0"/><line class="tedge" id="te-16" x1="412.0" y1="174.0" x2="412.0" y2="207.0"/><line class="tedge" id="te-17" x1="412.0" y1="108.0" x2="412.0" y2="141.0"/><line class="tedge" id="te-18" x1="92.0" y1="108.0" x2="92.0" y2="141.0"/><line class="tedge" id="te-19" x1="92.0" y1="42.0" x2="92.0" y2="75.0"/><line class="tedge" id="te-20" x1="336.9" y1="103.5" x2="295.8" y2="145.8"/><line class="tedge" id="te-21" x1="28.0" y1="42.0" x2="28.0" y2="75.0"/><line class="tedge" id="te-22" x1="220.0" y1="42.0" x2="220.0" y2="75.0"/></g><g font-family="Inter,sans-serif"><circle class="tnode" id="tn-1" data-n="1" cx="220.0" cy="422.0" r="15" fill="#5b4bb7" stroke="#5b4bb7" stroke-width="1"/><text x="220.0" y="426.0" text-anchor="middle" font-size="12" font-weight="600" fill="#fff" pointer-events="none">1</text><circle class="tnode" id="tn-2" data-n="2" cx="220.0" cy="356.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="220.0" y="360.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">2</text><circle class="tnode" id="tn-3" data-n="3" cx="92.0" cy="290.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="92.0" y="294.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">3</text><circle class="tnode" id="tn-4" data-n="4" cx="348.0" cy="290.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="348.0" y="294.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">4</text><circle class="tnode" id="tn-5" data-n="5" cx="284.0" cy="224.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="284.0" y="228.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">5</text><circle class="tnode" id="tn-6" data-n="6" cx="92.0" cy="224.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="92.0" y="228.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">6</text><circle class="tnode" id="tn-7" data-n="7" cx="28.0" cy="158.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="28.0" y="162.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">7</text><circle class="tnode" id="tn-8" data-n="8" cx="412.0" cy="224.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="412.0" y="228.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">8</text><circle class="tnode" id="tn-9" data-n="9" cx="92.0" cy="158.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="92.0" y="162.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">9</text><circle class="tnode" id="tn-10" data-n="10" cx="284.0" cy="158.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="284.0" y="162.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">10</text><circle class="tnode" id="tn-11" data-n="11" cx="220.0" cy="92.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="220.0" y="96.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">11</text><circle class="tnode" id="tn-12" data-n="12" cx="156.0" cy="158.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="156.0" y="162.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">12</text><circle class="tnode" id="tn-13" data-n="13" cx="156.0" cy="92.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="156.0" y="96.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">13</text><circle class="tnode" id="tn-14" data-n="14" cx="28.0" cy="92.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="28.0" y="96.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">14</text><circle class="tnode" id="tn-15" data-n="15" cx="284.0" cy="92.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="284.0" y="96.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">15</text><circle class="tnode" id="tn-16" data-n="16" cx="412.0" cy="158.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="412.0" y="162.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">16</text><circle class="tnode" id="tn-17" data-n="17" cx="412.0" cy="92.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="412.0" y="96.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">17</text><circle class="tnode" id="tn-18" data-n="18" cx="92.0" cy="92.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="92.0" y="96.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">18</text><circle class="tnode" id="tn-19" data-n="19" cx="92.0" cy="26.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="92.0" y="30.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">19</text><circle class="tnode" id="tn-20" data-n="20" cx="348.0" cy="92.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="348.0" y="96.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">20</text><circle class="tnode" id="tn-21" data-n="21" cx="28.0" cy="26.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="28.0" y="30.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">21</text><circle class="tnode" id="tn-22" data-n="22" cx="220.0" cy="26.0" r="15" fill="#efeaf9" stroke="#5b4bb7" stroke-width="1"/><text x="220.0" y="30.0" text-anchor="middle" font-size="12" font-weight="600" fill="#4a3da0" pointer-events="none">22</text></g></svg>
+  <div id="tree-readout" class="tree-readout"></div>
+  <figcaption>Un dels «arbres» que dibuixava Collatz per classificar funcions. <strong>Atenció: no és la regla 3n+1</strong>, sinó una altra funció seva d’exemple —f(n) = n − g(n), on g(n) és el major divisor propi—, triada perquè el seu graf és un arbre net. <strong>Prem un nombre</strong> per veure com descendeix fins a l’1.</figcaption>
+</figure>
+
+<p>La seva afició venia de lluny, de les classes d’Edmund Landau, Oskar Perron i Issai Schur en els seus anys d’estudiant, entre 1928 i 1933.<a class="cit" href="#b1">[1]</a> En un quadern seu, datat l’1 de juliol de 1932, ja apareix una d’aquestes <span class="nw">preguntes<a class="cit" href="#b12">[12]</a><span class="ref"><button class="srcbtn" aria-label="Veure font original i traducció"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/></svg></button><span class="pop"><span class="popcite">[12] · Lagarias, J. C. (1985)</span><span class="lbl">Font original · anglès</span><span class="orig">“The exact origin of the 3x+1 problem is obscure. It has circulated by word of mouth in the mathematical community for many years.”</span><span class="lbl">Traducció</span><span class="tr">«L’origen exacte del problema 3x+1 és obscur. Ha circulat de boca en boca dins la comunitat matemàtica durant molts anys.»</span></span></span></span> —encara que encara no era el 3n+1, sinó una permutació diferent dels enters, que Klamkin publicaria el 1963 i que segueix sense resoldre’s—. I aquí cal una precisió que gairebé ningú no fa —jo inclòs: en la primera nota d’aquesta sèrie, <em>L’Anell de Collatz</em>, vaig datar el problema el 1937—. Aquesta data, però, no la recolza cap document del problema. L’única que es recolza en un escrit és la d’aquell quadern —tot i que, com admet el mateix Lagarias, l’origen exacte continua sent «obscur»—.</p>
+
+<p>Res de tot això, a més, no era el centre de la seva feina. Collatz era un analista numèric seriós; el 3n+1 va ser sempre el que gargotejava al marge, mentre s’ocupava del que era important. D’aquí el títol d’aquesta nota: l’home, i la nota al marge.</p>
+
+<p>Tampoc no el va publicar. El va difondre de viva veu —el va descriure al seu col·lega Helmut Hasse el 1952, en arribar a Hamburg—,<a class="cit" href="#b1">[1]</a> i, quan finalment el va deixar escrit, el va plantejar en dues formes equivalents: que tota òrbita acaba en l’1 o, dit amb els seus grafs, que el graf de la funció és connex. Va precisar fins i tot què caldria per tancar el problema: demostrar que sempre s’arriba a l’1, <strong>o</strong> exhibir un cicle diferent del trivial 1 → 4 → 2 → 1.<a class="cit" href="#b1">[1]</a> Aquestes dues cares —el descens i els cicles— són, justament, el fil de la propera nota.</p>
+
+<h2>El problema que es va escapar del quadern</h2>
+
+<p>Un problema que viatja de boca en boca acaba recollint noms pel camí, i el de Collatz en va reunir uns quants. Se li atribueix una xerrada informal al Congrés Internacional de Matemàtics de 1950, a Cambridge —la de Massachusetts—, on van fer conferències Coxeter, Kakutani i Ulam; d’aquí que els seus noms acabessin enganxats al <span class="nw">problema.<a class="cit" href="#b12">[12]</a></span> Hasse, a qui Collatz l’hi havia explicat a Hamburg, el va difondre al seu torn —alguns el van anomenar «algorisme de Hasse»—, i va ser ell qui, de visita a la Universitat de Syracuse, li va posar el nom pel qual molts encara el coneixen: el problema de <span class="nw">Siracusa.<a class="cit" href="#b12">[12]</a></span></p>
+
+<p>Hi va haver fins i tot qui en va reclamar l’autoria: el britànic Bryan Thwaites assegura haver-se’l inventat, pel seu compte, el <span class="nw">1952.<a class="cit" href="#b13">[13]</a></span> I a les mateixes successions els va sortir un malnom —«nombres calamarsa»—, que va encunyar Brian Hayes el 1984 perquè pugen i baixen al llarg del seu recorregut com la calamarsa dins d’un núvol abans de <span class="nw">caure.<a class="cit" href="#b14">[14]</a></span></p>
+
+<p>El que crida l’atenció és que, tot i circular des dels anys trenta, el problema no va aparèixer imprès fins al 1971. En aquelles dècades dominava una manera de fer matemàtiques —la de l’escola Bourbaki— que premiava les grans teories interconnectades, i un problema aïllat, amb resultats febles, semblava gairebé de mal gust: una cosa déclassé, capaç de fer malbé la reputació de qui se’l prengués <span class="nw">seriosament.<a class="cit" href="#b15">[15]</a></span> Quan finalment va saltar a la lletra impresa, ho va fer gairebé de gairell: en el text d’una xerrada del geòmetra H. S. M. Coxeter, que el va presentar —amb sorna— com «una xafarderia <span class="nw">matemàtica».<a class="cit" href="#b16">[16]</a><span class="ref"><button class="srcbtn" aria-label="Veure font original i traducció"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/></svg></button><span class="pop"><span class="popcite">[16] · Coxeter, H. S. M. (1971)</span><span class="lbl">Font original · anglès</span><span class="orig">“A more recent piece of mathematical gossip concerns the sequence of positive integers x<sub>1</sub>, x<sub>2</sub>, …, where x<sub>1</sub> is given and x<sub>r+1</sub> = ½x<sub>r</sub> or 3x<sub>r</sub> + 1 according as x<sub>r</sub> is even or odd.”</span><span class="lbl">Traducció</span><span class="tr">«Una xafarderia matemàtica més recent es refereix a la successió d’enters positius x<sub>1</sub>, x<sub>2</sub>, …, on x<sub>1</sub> està donat i x<sub>r+1</sub> = ½x<sub>r</sub> o 3x<sub>r</sub> + 1 segons x<sub>r</sub> sigui parell o senar.»</span></span></span></span> L’any següent, Martin Gardner el va portar a la seva columna de Scientific American, i el problema va deixar de ser un secret de passadís per convertir-se en un clàssic de la <span class="nw">divulgació.<a class="cit" href="#b17">[17]</a></span></p>
+
+<div class="itl">
+  <div class="itl-row" id="itl-row"></div>
+  <div class="itl-detail" id="itl-detail"></div>
+  <p style="text-align:center;font-size:.78rem;color:var(--faint);margin:.5rem 0 0">El viatge del problema · prem cada fita</p>
+</div>
+
+<h2>«Les matemàtiques encara no estan preparades»</h2>
+
+<p>Que el problema sigui fàcil d’enunciar no vol dir que sigui fàcil d’abordar; més aviat al contrari. La frase que millor ho resumeix se sol atribuir a Paul Erdős, un dels matemàtics més prolífics del segle XX, que davant la seva dificultat <span class="nw">sentencià<a class="cit" href="#b12">[12]</a><span class="ref"><button class="srcbtn" aria-label="Veure font original i traducció"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"/></svg></button><span class="pop"><span class="popcite">[12] · Lagarias, J. C. (1985)</span><span class="lbl">Font original · anglès</span><span class="orig">“Paul Erdős commented concerning the intractability of the 3x+1 problem: ‘Mathematics is not yet ready for such problems.’”</span><span class="lbl">Traducció</span><span class="tr">«Paul Erdős va comentar, a propòsit de la intractabilitat del problema 3x+1: “Les matemàtiques encara no estan preparades per a problemes així”.»</span></span></span></span> que les matemàtiques encara no estaven preparades per a problemes així. Circula també una variant —«encara no estan madures per a aquestes preguntes»—, que va recollir Richard Guy i que dona títol al seu cèlebre article, <em>No intenteu resoldre aquests problemes</em>.<a class="cit" href="#b3">[3]</a></p>
+
+<p>I, amb tot, el problema ha temptat molts. Tant, que s’han arribat a oferir premis per resoldre’l: Coxeter va prometre 50 dòlars a qui en donés una demostració i 100 a qui en trobés un <span class="nw">contraexemple;<a class="cit" href="#b16">[16]</a></span> Erdős en va posar 500 sobre la taula; i Bryan Thwaites va arribar a oferir 1000 <span class="nw">lliures.<a class="cit" href="#b12">[12]</a></span> Ningú no els ha cobrat.</p>
+
+<p>Convé entendre-ho bé, perquè és la clau de la seva fama: la conjectura de Collatz no és una endevinalla fàcil que ningú no s’hagi molestat a resoldre. És un mur que la mateixa elit matemàtica reconeix com a tal. El difícil no és la regla —ja hem vist que cap en una ratlla—, sinó el que amaga a sota.</p>
+
+<h2>Una pregunta que va sobreviure</h2>
+
+<p>Gairebé un segle després d’aquella anotació, la pregunta segueix dempeus, indemne. Ha canviat de nom mitja dotzena de vegades i ha resistit Erdős, els ordinadors i tots els qui ho van intentar.</p>
+
+<p>Però queda alguna cosa per explicar, i és el que de debò la torna formidable: el mateix Collatz ho va veure. No és un problema, en són dos —baixa sempre a l’1?, existeixen altres cicles?—, i aquesta és la història de la propera nota.</p>
+
+<p style="font-size:.92rem;color:var(--soft);background:var(--bg-subtle);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin:1.6rem 0 0">Nota relacionada: <a href="/ca/notas/anillo-de-collatz/" style="color:var(--link);text-decoration:none"><em>L’Anell de Collatz</em></a> — el mateix problema, explicat a través de Tolkien.</p>
+
+<hr>
+<h3>Bibliografia</h3>
+<p class="bibpolicy">Cada font enllaça al seu <strong>document original</strong> quan és accessible. Oferim <strong>traducció pròpia</strong> quan la llicència ho permet (CC, domini públic); en fonts amb copyright (©) mostrem només els fragments traduïts que veus al text, emparats pel dret de cita.</p>
+<ul class="bib">
+  <li id="b1"><span class="bn">[1]</span><span class="bc">Collatz, L. (1986). <em>On the motivation and origin of the (3n+1)-problem</em>. A J. C. Lagarias (Ed.), <em>The Ultimate Challenge: The 3x+1 Problem</em> (pp. 241–247). AMS, 2010. (Trad. de Mark Conger.)<span class="biblinks"><a href="https://bookstore.ams.org/mbk-78" target="_blank" rel="noopener">Accés ↗</a><span class="cnote">De pagament (llibre AMS) · anglès · fragments al text (©)</span></span></span></li>
+  <li id="b2"><span class="bn">[2]</span><span class="bc">Bařina, D. (2025). <em>Improved verification limit for the convergence of the Collatz conjecture</em>. The Journal of Supercomputing.<span class="biblinks"><a href="https://pcbarina.fit.vutbr.cz/" target="_blank" rel="noopener">Dades del projecte ↗</a><span class="cnote">Article tècnic · sense traducció</span></span></span></li>
+  <li id="b3"><span class="bn">[3]</span><span class="bc">Guy, R. K. (1983). <em>Don't try to solve these problems!</em> Amer. Math. Monthly, 90(1), 35–41.<span class="biblinks"><a href="https://bookstore.ams.org/mbk-78" target="_blank" rel="noopener">Accés ↗</a><span class="cnote">De pagament (reimprès a <em>The Ultimate Challenge</em>, AMS) · anglès · fragments al text (©)</span></span></span></li>
+  <li id="b4"><span class="bn">[4]</span><span class="bc">Biener, K. (1993). <em>Bedeutender Promovend unserer Universität: Lothar Collatz</em>. RZ-Mitteilungen 5, HU Berlin, 32–33.<span class="biblinks"><a href="https://doi.org/10.18452/6068" target="_blank" rel="noopener">Original (PDF) ↗</a><span class="cnote">Alemany · traducció pròpia dels fragments citats (©)</span></span></span></li>
+  <li id="b5"><span class="bn">[5]</span><span class="bc">Collatz, L. (1942). <em>Einschließungssatz für die charakteristischen Zahlen von Matrizen</em>. Math. Z. 48, 221–226.<span class="biblinks"><span class="cnote">Accés: GDZ / EuDML (Math. Z. 48) · alemany · article tècnic</span></span></span></li>
+  <li id="b6"><span class="bn">[6]</span><span class="bc">Collatz, L., &amp; Sinogowitz, U. (1957). <em>Spektren endlicher Grafen</em>. Abh. Math. Sem. Univ. Hamburg 21, 63–77.<span class="biblinks"><span class="cnote">Accés: Springer · alemany · article tècnic</span></span></span></li>
+  <li id="b7"><span class="bn">[7]</span><span class="bc">Cvetković, D., Doob, M., &amp; Sachs, H. (1995). <em>Spectra of Graphs. Theory and Applications</em> (3.ª ed.). Johann Ambrosius Barth.<span class="biblinks"><span class="cnote">Accés: editorial / biblioteca · anglès · llibre de referència</span></span></span></li>
+  <li id="b8"><span class="bn">[8]</span><span class="bc">Althöfer, I. (2020). <em>Lothar Collatz zwischen 1933 und 1950 – Eine Teilbiographie</em>. 3-Hirn-Verlag.<span class="biblinks"><a href="https://www.3-hirn-verlag.de/collatz-bis-seite-46.pdf" target="_blank" rel="noopener">Original (pp. 1–46) ↗</a><span class="cnote">Alemany · fragments al text (©)</span></span></span></li>
+  <li id="b9"><span class="bn">[9]</span><span class="bc">Mathematics Genealogy Project, id 20676 (Lothar Collatz).<span class="biblinks"><a href="https://www.mathgenealogy.org/id.php?id=20676" target="_blank" rel="noopener">Original ↗</a><span class="cnote">Registre de dades · sense traducció</span></span></span></li>
+  <li id="b10"><span class="bn">[10]</span><span class="bc">Segal, S. L. (2003). <em>Mathematicians under the Nazis</em>. Princeton University Press.<span class="biblinks"><span class="cnote">Accés: Princeton UP / biblioteca · anglès · fragments al text (©)</span></span></span></li>
+  <li id="b11"><span class="bn">[11]</span><span class="bc">O'Connor, J. J., &amp; Robertson, E. F. (2006). <em>Lothar Collatz</em>. MacTutor, Univ. of St Andrews.<span class="biblinks"><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Collatz/" target="_blank" rel="noopener">Original ↗</a><span class="cnote">Anglès · fragments al text (©)</span></span></span></li>
+  <li id="b12"><span class="bn">[12]</span><span class="bc">Lagarias, J. C. (1985). <em>The 3x+1 problem and its generalizations</em>. Amer. Math. Monthly, 92(1), 3–23.<span class="biblinks"><a href="https://dept.math.lsa.umich.edu/~lagarias/3x+1.html" target="_blank" rel="noopener">Original ↗</a><span class="cnote">En obert (web de l’autor) · anglès · fragments al text (©)</span></span></span></li>
+  <li id="b13"><span class="bn">[13]</span><span class="bc">Thwaites, B. (1985). <em>My conjecture</em>. Bull. Inst. Math. Appl., 21, 35–41.<span class="biblinks"><span class="cnote">Accés: biblioteca · anglès</span></span></span></li>
+  <li id="b14"><span class="bn">[14]</span><span class="bc">Hayes, B. (1984). <em>Computer recreations: The ups and downs of hailstone numbers</em>. Scientific American, 250(1), 10–16.<span class="biblinks"><span class="cnote">Accés: Scientific American (de pagament) · anglès · fragments al text (©)</span></span></span></li>
+  <li id="b15"><span class="bn">[15]</span><span class="bc">Lagarias, J. C. (2010). <em>The 3x+1 problem: an overview</em>. En <em>The Ultimate Challenge</em>, AMS, 3–29.<span class="biblinks"><a href="https://arxiv.org/abs/2111.02635" target="_blank" rel="noopener">arXiv ↗</a><span class="cnote">En obert (arXiv) · anglès · fragments al text (©)</span></span></span></li>
+  <li id="b16"><span class="bn">[16]</span><span class="bc">Coxeter, H. S. M. (1971). <em>Cyclic sequences and frieze patterns</em>. Vinculum, 8, 4–7. [Reimprès a <em>The Ultimate Challenge</em>, AMS 2010, 211–218.]<span class="biblinks"><a href="https://bookstore.ams.org/mbk-78" target="_blank" rel="noopener">Accés ↗</a><span class="cnote">De pagament (llibre AMS) · anglès · fragments al text (©)</span></span></span></li>
+  <li id="b17"><span class="bn">[17]</span><span class="bc">Gardner, M. (1972). <em>Mathematical Games</em>. Scientific American, 226(6), 114–118.<span class="biblinks"><span class="cnote">Accés: Scientific American (de pagament) · anglès</span></span></span></li>
+</ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script>
+  function closeAll(){ document.querySelectorAll(".pop.open").forEach(function(p){ p.classList.remove("open"); }); }
+  document.querySelectorAll(".srcbtn").forEach(function(btn){
+    btn.addEventListener("click", function(e){
+      e.stopPropagation();
+      var pop=btn.parentElement.querySelector(".pop");
+      var was=pop.classList.contains("open");
+      closeAll();
+      if(!was){
+        pop.classList.add("open");
+        pop.style.left="0"; pop.style.right="auto";
+        var r=pop.getBoundingClientRect();
+        if(r.right>window.innerWidth-8){ pop.style.left="auto"; pop.style.right="0"; }
+      }
+    });
+  });
+  document.addEventListener("click", closeAll);
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeAll(); });
+
+  (function(){
+    var host=document.getElementById("orbit-chart"); if(!host) return;
+    var inp=document.getElementById("orbit-n"), slider=document.getElementById("orbit-slider"), out=document.getElementById("orbit-readout");
+    var W=660,H=240,pad=30, seq=[], mx=1, last=0, guide=null, mark=null;
+    function fmt(x){ return x.toLocaleString("ca-ES"); }
+    function X(i){ return last===0 ? W/2 : pad+(W-2*pad)*i/last; }
+    function Y(v){ return mx<=1 ? (H-pad) : (H-pad)-(H-2*pad)*((v-1)/(mx-1)); }
+    function build(start){
+      start=Math.floor(Number(start)); if(!(start>=1)) start=27;
+      if(start>1e7) start=1e7;
+      seq=[start]; var n=start, guard=0;
+      while(n!==1 && guard<300000){ n=(n%2===0)? n/2 : 3*n+1; seq.push(n); guard++; }
+      mx=Math.max.apply(null,seq); last=seq.length-1;
+      var pts=seq.map(function(v,i){ return X(i).toFixed(1)+","+Y(v).toFixed(1); }).join(" ");
+      var pI=seq.indexOf(mx), px=X(pI), py=Y(mx);
+      host.innerHTML='<svg id="orbit-svg" viewBox="0 0 660 240" width="100%" style="max-width:660px;height:auto" role="img" aria-label="Òrbita de '+start+' sota la regla de Collatz.">'
+        +'<line x1="30" y1="210" x2="630" y2="210" stroke="#e8e8e8" stroke-width="1"/>'
+        +'<polyline points="'+pts+'" fill="none" stroke="#5b4bb7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
+        +'<line id="oguide" stroke="#5b4bb7" stroke-width="1" stroke-dasharray="3 3" opacity="0.45"/>'
+        +'<circle cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="3.5" fill="#5b4bb7"/>'
+        +'<text x="'+px.toFixed(1)+'" y="'+(py-9).toFixed(1)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#5b4bb7" font-weight="600">'+fmt(mx)+'</text>'
+        +'<text x="630" y="228" text-anchor="end" font-family="Inter,sans-serif" font-size="12" fill="#757575">'+last+' passos → 1</text>'
+        +'<circle id="omark" r="5.5" fill="#5b4bb7"/></svg>';
+      guide=document.getElementById("oguide"); mark=document.getElementById("omark");
+      var svg=document.getElementById("orbit-svg");
+      svg.addEventListener("click",function(e){ var r=svg.getBoundingClientRect(); upd(Math.round(((e.clientX-r.left)/r.width*W-pad)/(W-2*pad)*last)); });
+      slider.max=last; slider.value=0; upd(0);
+    }
+    function upd(i){
+      i = i<0?0:(i>last?last:Math.round(i));
+      var v=seq[i], xx=X(i), yy=Y(v);
+      mark.setAttribute("cx",xx); mark.setAttribute("cy",yy);
+      guide.setAttribute("x1",xx); guide.setAttribute("x2",xx); guide.setAttribute("y1",yy); guide.setAttribute("y2",210);
+      var html;
+      if(i===last){ html='Pas <b>'+i+'</b> &middot; n = <b>1</b> &mdash; fi (d&rsquo;aquí endavant, el cicle 1 &rarr; 4 &rarr; 2 &rarr; 1).'; }
+      else { var even=(v%2===0), nx=seq[i+1], op=even?(fmt(v)+' / 2'):('3 &middot; '+fmt(v)+' + 1');
+        html='Pas <b>'+i+'</b> &middot; n = <b>'+fmt(v)+'</b> ('+(even?'parell':'senar')+') &nbsp;&rarr;&nbsp; <span class="nxt">f(n) = '+op+' = '+fmt(nx)+'</span>'; }
+      out.innerHTML=html;
+      if(parseInt(slider.value,10)!==i) slider.value=i;
+    }
+    slider.addEventListener("input",function(){ upd(parseInt(slider.value,10)); });
+    inp.addEventListener("input",function(){ build(inp.value); });
+    document.querySelectorAll(".orbit-ex").forEach(function(b){ b.addEventListener("click",function(){ inp.value=b.dataset.n; build(b.dataset.n); }); });
+    build(27);
+  })();
+
+  (function(){
+    var ev=[
+      ["1932","Collatz anota el problema-germen al seu quadern."],
+      ["1950","Circula al Congrés de Cambridge (Massachusetts); Coxeter, Kakutani i Ulam fan xerrades."],
+      ["1952","Collatz l&rsquo;hi descriu a Hasse; Thwaites reclama haver-lo ideat pel seu compte."],
+      ["anys 50","Hasse el bateja «de Siracusa» a la universitat homònima."],
+      ["1971","Primera aparició impresa, de la mà de Coxeter: «una xafarderia matemàtica»."],
+      ["1972","Martin Gardner el popularitza a Scientific American."],
+      ["1984","Brian Hayes encunya el malnom «nombres calamarsa»."]
+    ];
+    var row=document.getElementById("itl-row"), det=document.getElementById("itl-detail");
+    if(!row) return;
+    var btns=[];
+    ev.forEach(function(e,i){
+      var b=document.createElement("button");
+      b.className="itl-btn"; b.type="button"; b.setAttribute("aria-selected","false");
+      b.innerHTML='<span class="dot"></span><span>'+e[0]+'</span>';
+      b.addEventListener("click",function(){ sel(i); });
+      row.appendChild(b); btns.push(b);
+    });
+    function sel(i){
+      btns.forEach(function(b,j){ b.setAttribute("aria-selected", j===i?"true":"false"); });
+      det.innerHTML='<b>'+ev[i][0]+'</b> &mdash; '+ev[i][1];
+    }
+    sel(0);
+  })();
+
+  (function(){
+    var svg=document.getElementById("tree-svg"); if(!svg) return;
+    var out=document.getElementById("tree-readout");
+    function lpd(n){ if(n===1) return 0; for(var d=2; d*d<=n; d++){ if(n%d===0) return n/d; } return 1; }
+    function f(n){ return n-lpd(n); }
+    var nodes=svg.querySelectorAll(".tnode");
+    function reset(){
+      nodes.forEach(function(c){ if(c.dataset.n!=="1"){ c.setAttribute("fill","#efeaf9"); c.setAttribute("stroke-width","1"); } });
+      svg.querySelectorAll(".tedge").forEach(function(e){ e.setAttribute("stroke","#9a93c9"); e.setAttribute("stroke-width","1.4"); });
+    }
+    function show(N){
+      reset();
+      var path=[N], m=N;
+      while(m!==1){ m=f(m); path.push(m); }
+      path.forEach(function(k){ var c=document.getElementById("tn-"+k); if(c && k!==1){ c.setAttribute("fill","#c9bff0"); c.setAttribute("stroke-width","2.2"); } });
+      for(var i=0;i<path.length-1;i++){ var e=document.getElementById("te-"+path[i]); if(e){ e.setAttribute("stroke","#5b4bb7"); e.setAttribute("stroke-width","2.6"); } }
+      var g=lpd(N);
+      out.innerHTML = (N===1)
+        ? 'L&rsquo;<b>1</b> és l&rsquo;arrel: tots els camins acaben aquí.'
+        : 'n = <b>'+N+'</b> · el seu major divisor propi és '+g+' &nbsp;&rarr;&nbsp; f('+N+') = '+N+' &minus; '+g+' = <b>'+(N-g)+'</b>.<br><span style="color:#525252">Camí a l&rsquo;1: '+path.join(' &rarr; ')+'</span>';
+    }
+    nodes.forEach(function(c){ c.addEventListener("click",function(){ show(parseInt(c.dataset.n,10)); }); });
+    show(21);
+  })();
+</script>
+<script defer src="/assets/js/search.js"></script>
+</body>
+</html>
