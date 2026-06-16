@@ -49,7 +49,10 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             y es coherente. Usa i18n-baseline.txt (fallos conocidos);
                             solo falla ante regresiones. --strict = auditoría completa.
   build_sitemap.py       ← regenera sitemap.xml con todas las páginas vivas
-  build_ejercicios.py    ← reconstruye índice del banco
+  build_ejercicios.py    ← reconstruye el índice del banco. Emite DOS ficheros:
+                            ejercicios-index.json (búsqueda/filtros, ligero) y
+                            ejercicios-apartados.json (los apartados, cargados aparte
+                            solo por /docencia/mi-examen/). Commitea ambos.
   build_exam_pages.py    ← genera páginas de exámenes desde JSON
   build_contact_feedback.py ← regenera el desplegable "Sobre la web" de /contacto/
                             (es/ca/en). Cursos = lista curada en el script;

@@ -40,6 +40,8 @@
       sol_section: 'Solución',
       pregunta: 'Pregunta',
       contexto_origen: 'De',
+      hdr_nombre: 'Nombre y apellidos', hdr_curso: 'Curso / Grupo', hdr_fecha: 'Fecha', hdr_nota: 'Calificación',
+      hdr_total: 'Puntuación total', answer_space: 'Dejar espacio para responder', soluciones_titulo: 'Soluciones',
     },
     ca: {
       vacio_titulo: "Encara no has afegit exercicis",
@@ -67,6 +69,8 @@
       sol_section: 'Solució',
       pregunta: 'Pregunta',
       contexto_origen: 'De',
+      hdr_nombre: 'Nom i cognoms', hdr_curso: 'Curs / Grup', hdr_fecha: 'Data', hdr_nota: 'Qualificació',
+      hdr_total: 'Puntuació total', answer_space: 'Deixar espai per respondre', soluciones_titulo: 'Solucions',
     },
     en: {
       vacio_titulo: "You haven't added any exercises yet",
@@ -94,6 +98,8 @@
       sol_section: 'Solution',
       pregunta: 'Question',
       contexto_origen: 'From',
+      hdr_nombre: 'Full name', hdr_curso: 'Course / Group', hdr_fecha: 'Date', hdr_nota: 'Grade',
+      hdr_total: 'Total points', answer_space: 'Leave space to answer', soluciones_titulo: 'Solutions',
     },
   };
   const STRINGS = I18N[LANG] || I18N.es;
@@ -142,14 +148,21 @@
   }
 
   async function load() {
-    const [taxRes, idxRes] = await Promise.all([
+    const [taxRes, idxRes, apRes] = await Promise.all([
       fetch('/assets/data/tags.json'),
       fetch('/assets/data/ejercicios-index.json'),
+      fetch('/assets/data/ejercicios-apartados.json'),
     ]);
     taxonomy = await taxRes.json();
     const idx = await idxRes.json();
+    // Los apartados viven en un fichero aparte (no en el índice) para aligerar
+    // la búsqueda del banco; aquí los rehidratamos sobre cada ejercicio.
+    const apartados = apRes.ok ? await apRes.json() : {};
     allIndex = {};
-    for (const ej of idx.ejercicios || []) allIndex[ej.id] = ej;
+    for (const ej of idx.ejercicios || []) {
+      ej.apartados = apartados[ej.id] || [];
+      allIndex[ej.id] = ej;
+    }
   }
 
   // ============================================================
@@ -361,15 +374,26 @@
     return `${String(d.getDate()).padStart(2, '0')} ${m} ${d.getFullYear()}`;
   }
 
-  function buildHeaderHtml(title) {
+  function buildHeaderHtml(title, totalPts, mode) {
+    const isSol = mode === 'soluciones';
+    // En modo soluciones no tiene sentido el bloque de datos del alumno.
+    const fields = isSol ? '' : `
+      <div class="mxp-examfields">
+        <div class="mxp-field mxp-field-wide"><span class="mxp-field-lbl">${t('hdr_nombre')}</span><span class="mxp-field-line"></span></div>
+        <div class="mxp-field"><span class="mxp-field-lbl">${t('hdr_curso')}</span><span class="mxp-field-line"></span></div>
+        <div class="mxp-field"><span class="mxp-field-lbl">${t('hdr_fecha')}</span><span class="mxp-field-line"></span></div>
+        <div class="mxp-field mxp-field-grade"><span class="mxp-field-lbl">${t('hdr_nota')}</span><span class="mxp-field-box"></span></div>
+      </div>`;
+    const totalHtml = totalPts ? `<div class="mxp-total">${t('hdr_total')}: <strong>${totalPts}</strong> ${t('pts')}</div>` : '';
+    const solTag = isSol ? ` <span class="mxp-soltag">${t('soluciones_titulo')}</span>` : '';
     return `
       <header class="mxp-header">
         <div class="mxp-brand">${escHtml(t('header_brand'))}</div>
-        <div class="mxp-meta">
-          <span class="mxp-date">${escHtml(todayLabel())}</span>
-        </div>
+        <div class="mxp-meta"><span class="mxp-date">${escHtml(todayLabel())}</span></div>
       </header>
-      ${title ? `<h1 class="mxp-title">${escHtml(title)}</h1>` : ''}
+      ${title ? `<h1 class="mxp-title">${escHtml(title)}${solTag}</h1>` : ''}
+      ${fields}
+      ${totalHtml}
     `;
   }
 
@@ -406,6 +430,8 @@
     if (!area) throw new Error('Falta #mx-print-area al DOM');
 
     const title = $('mx-title')?.value || t('title_default');
+    const totalPts = ejercicios.reduce((s, e) => s + (e.puntuacion || 0), 0);
+    const answerSpace = mode === 'enunciados' && !!($('mx-answer-space') && $('mx-answer-space').checked);
 
     // Fetched HTML pages aporten <style> inline propis (cada apunt té el seu).
     // Els ajuntem un sol cop en un <style> dins l'àrea imprimible.
@@ -434,7 +460,7 @@
     }
 
     // Construeix HTML
-    const headerHtml = buildHeaderHtml(title);
+    const headerHtml = buildHeaderHtml(title, totalPts, mode);
     const filtersHtml = buildFiltersHtml();
 
     // Estils inline (deduped) — embolicats en un wrapper #mxp-scope per evitar
@@ -486,6 +512,11 @@
         note.textContent = t('no_solutions_for');
         body.appendChild(note);
       }
+      if (answerSpace) {
+        const space = document.createElement('div');
+        space.className = 'mxp-answer';
+        body.appendChild(space);
+      }
       li.appendChild(body);
       ol.appendChild(li);
     });
@@ -503,6 +534,19 @@
   // ============================================================
   // PDF download via html2pdf.js (renderitza HTML → fitxer .pdf real)
   // ============================================================
+  // Carrega html2pdf.js sota demanda — així NO bloqueja la càrrega de la pàgina;
+  // només es descarrega el primer cop que l'usuari prem un botó de PDF.
+  function loadHtml2pdf() {
+    if (window.html2pdf) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.2/dist/html2pdf.bundle.min.js';
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error('No se pudo cargar html2pdf.js'));
+      document.head.appendChild(s);
+    });
+  }
+
   async function generatePDF(mode) {
     const btnId = mode === 'enunciados' ? 'mx-dl-enun' : 'mx-dl-sol';
     const btn = $(btnId);
@@ -518,21 +562,18 @@
       btn.disabled = false;
     };
 
-    if (!window.html2pdf) {
-      alert('html2pdf.js no s\'ha carregat. Comprova la connexió i recarrega.');
-      cleanup();
-      return;
-    }
-
     try {
+      await loadHtml2pdf();
       await buildPrintArea(mode);
 
       // Activa el mode imprimible — el CSS amaga la UI d'edició i deixa
       // visible només l'àrea, indispensable per a html2canvas.
       document.body.classList.add('mx-printing', bodyClass);
 
-      // Espera de KaTeX + reflow.
-      await new Promise(resolve => setTimeout(resolve, 250));
+      // Espera a que fonts i KaTeX estiguin renderitzats abans de capturar.
+      // Aquesta era la causa que KaTeX sortís a mitges: fonts.ready + settle.
+      if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (e) {} }
+      await new Promise(resolve => setTimeout(resolve, 400));
 
       const titleSlug = ($('mx-title')?.value || 'examen')
         .trim().toLowerCase()
@@ -558,7 +599,7 @@
         filename:     filename,
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  {
-          scale: 2,
+          scale: 3,
           useCORS: true,
           logging: false,
           backgroundColor: '#ffffff',
@@ -663,15 +704,21 @@
     // qualitat vectorial real, KaTeX intacte, paginació estable. L'usuari
     // tria "Guardar com a PDF" al diàleg del navegador.
     const enun = $('mx-dl-enun');
-    if (enun) enun.addEventListener('click', () => printPreview('enunciados', 'mx-dl-enun'));
+    if (enun) enun.addEventListener('click', () => generatePDF('enunciados'));
     const sol = $('mx-dl-sol');
-    if (sol) sol.addEventListener('click', () => printPreview('soluciones', 'mx-dl-sol'));
+    if (sol) sol.addEventListener('click', () => generatePDF('soluciones'));
     const titleInput = $('mx-title');
     const dateInput = $('mx-date');
     if (dateInput) dateInput.value = new Date().toISOString().slice(0, 10);
     if (titleInput) {
       titleInput.value = localStorage.getItem('mi-examen-title') || '';
       titleInput.addEventListener('input', () => localStorage.setItem('mi-examen-title', titleInput.value));
+    }
+    const answerToggle = $('mx-answer-space');
+    if (answerToggle) {
+      answerToggle.checked = localStorage.getItem('mi-examen-answer-space') === '1';
+      answerToggle.addEventListener('change', () =>
+        localStorage.setItem('mi-examen-answer-space', answerToggle.checked ? '1' : '0'));
     }
     render();
   }

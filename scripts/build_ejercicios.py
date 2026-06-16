@@ -30,6 +30,7 @@ DATA_DIR = REPO_ROOT / "assets" / "data"
 TAGS_FILE = DATA_DIR / "tags.json"
 EJERCICIOS_DIR = DATA_DIR / "ejercicios"
 INDEX_OUT = DATA_DIR / "ejercicios-index.json"
+APARTADOS_OUT = DATA_DIR / "ejercicios-apartados.json"
 
 
 class BuildError(Exception):
@@ -249,9 +250,13 @@ def main():
         if col.get("url_index"):
             warnings += validate_url_exists(col["url_index"], ctx_col)
 
-    # 3. Emit index
+    # 3. Split apartados out of the index. Son texto único (~½ del peso del
+    #    índice tras gzip) y la búsqueda del banco NO los necesita; solo
+    #    /docencia/mi-examen/ los usa, y los carga aparte bajo demanda.
+    apartados_map = {e["id"]: e.pop("apartados", []) for e in index_entries}
+
     index = {
-        "schema_version": 2,
+        "schema_version": 3,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "taxonomy_path": "/assets/data/tags.json",
         "count": len(index_entries),
@@ -282,8 +287,11 @@ def main():
 
     with open(INDEX_OUT, "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=2)
+    with open(APARTADOS_OUT, "w", encoding="utf-8") as f:
+        json.dump(apartados_map, f, ensure_ascii=False, indent=2)
 
     print(f"\n✓ Índice escrito en {INDEX_OUT.relative_to(REPO_ROOT)} ({os.path.getsize(INDEX_OUT)} bytes)")
+    print(f"✓ Apartados escritos en {APARTADOS_OUT.relative_to(REPO_ROOT)} ({os.path.getsize(APARTADOS_OUT)} bytes)")
 
 
 if __name__ == "__main__":

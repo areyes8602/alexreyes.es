@@ -381,6 +381,23 @@
 .mx-print-area.mxp-mode-soluciones details > summary::before { display: none !important; }
 .mx-print-area.mxp-mode-soluciones .apart-solution { display: block !important; padding-left: 1rem; border-left: 2px solid #ddd; }
 
+/* Cabecera de examen: datos del alumno, puntuación total, etiqueta de soluciones */
+.mx-print-area .mxp-examfields { display: flex; flex-wrap: wrap; gap: 0.55rem 1.4rem; margin: 0.2rem 0 0.55rem; font-size: 0.9rem; color: #111; }
+.mx-print-area .mxp-field { display: flex; align-items: baseline; gap: 0.4rem; }
+.mx-print-area .mxp-field-wide { flex: 1 1 100%; }
+.mx-print-area .mxp-field-lbl { font-weight: 600; color: #333; white-space: nowrap; }
+.mx-print-area .mxp-field-line { flex: 1 1 8rem; min-width: 6rem; height: 1.1em; border-bottom: 1px solid #999; }
+.mx-print-area .mxp-field-grade { margin-left: auto; }
+.mx-print-area .mxp-field-box { display: inline-block; width: 3.4rem; height: 1.7rem; border: 1.5px solid #333; border-radius: 3px; }
+.mx-print-area .mxp-total { font-size: 0.86rem; color: #333; margin-top: 0.15rem; }
+.mx-print-area .mxp-soltag { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #b45309; border: 1px solid #b45309; border-radius: 999px; padding: 0.05rem 0.5rem; vertical-align: middle; }
+/* Espacio en blanco para responder (modo enunciados, opcional) */
+.mx-print-area .mxp-answer { min-height: 5.5rem; margin: 0.7rem 0 0.2rem; border: 1px dashed #bbb; border-radius: 4px; }
+
+/* Toggle "espacio de respuesta" en el toolbar (solo pantalla) */
+.mx-toggle { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; color: var(--text-soft); cursor: pointer; user-select: none; }
+.mx-toggle input { cursor: pointer; margin: 0; }
+
 /* --- ACTIVACIÓ DEL MODE IMPRIMIBLE --- */
 /* Quan el body té .mx-printing, amaguem la UI d'edició i mostrem només
    l'àrea imprimible. Ho fem en pantalla i imprimint perquè el navegador
