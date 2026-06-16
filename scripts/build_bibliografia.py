@@ -52,25 +52,37 @@ def build_filters(entries):
                 areas.append(a)
         mscs.add(e["msc"]); difs.add(e["dif"]); accs.add(e["acceso"]); imps.add(e["imp"])
 
-    def group(title, facet, items):
-        chips = "".join(items)
-        return (f'<div class="bib-fgroup"><span class="bib-flabel">{title}</span>'
-                f'<div class="bib-fchips">{chips}</div></div>')
-
-    g = []
-    g.append(group("Tipo", "tipo", [chip("tipo", t, t) for t in sorted(tipos)]))
-    g.append(group("Área", "area", [chip("area", a, a) for a in sorted(areas)]))
-    g.append(group("Dificultad", "dif",
-                   [chip("dif", d, DIF_LBL[d], f" dif-{d}") for d in ["facil", "media", "dificil"] if d in difs]))
-    g.append(group("Acceso", "acceso",
-                   [chip("acceso", a, ACC_LBL[a]) for a in ["abierto", "pago", "biblioteca"] if a in accs]))
-    g.append(group("Importancia", "imp",
-                   [chip("imp", i, IMP_LBL[i]) for i in ["alta", "media", "baja"] if i in imps]))
-    g.append(group("MSC", "msc", [chip("msc", m, m) for m in sorted(mscs)]))
-    reset = ('<button class="bib-chip bib-chip-all bib-active" data-facet="all" '
-             'data-val="all">Todas</button>')
-    return (f'<div class="bib-filters">\n{reset}\n' + "\n".join(g) +
-            '\n<p class="bib-count" id="bibCount"></p>\n</div>')
+    # Cada grupo: (id, título, lista de chips). Oculto por defecto; el botón de
+    # concepto lo despliega.
+    groups = [
+        ("tipo", "Tipo", [chip("tipo", t, t) for t in sorted(tipos)]),
+        ("area", "Área", [chip("area", a, a) for a in sorted(areas)]),
+        ("dif", "Dificultad",
+         [chip("dif", d, DIF_LBL[d], f" dif-{d}") for d in ["facil", "media", "dificil"] if d in difs]),
+        ("acceso", "Acceso",
+         [chip("acceso", a, ACC_LBL[a]) for a in ["abierto", "pago", "biblioteca"] if a in accs]),
+        ("imp", "Importancia",
+         [chip("imp", i, IMP_LBL[i]) for i in ["alta", "media", "baja"] if i in imps]),
+        ("msc", "MSC", [chip("msc", m, m) for m in sorted(mscs)]),
+    ]
+    # Selector de concepto (siempre visible).
+    concepts = ['<span class="bib-flabel">Filtrar por</span>']
+    for gid, title, _ in groups:
+        concepts.append(
+            f'<button class="bib-concept" data-group="{gid}" aria-expanded="false">'
+            f'{title}<span class="bib-cbadge" hidden></span></button>')
+    concepts.append('<button class="bib-concept bib-chip-all bib-active" '
+                    'data-facet="all" data-val="all">Todas</button>')
+    # Grupos de chips (colapsados).
+    gblocks = []
+    for gid, title, chips_list in groups:
+        gblocks.append(
+            f'<div class="bib-fgroup" data-group="{gid}" hidden>'
+            f'<div class="bib-fchips">{"".join(chips_list)}</div></div>')
+    return ('<div class="bib-filters">\n'
+            f'<div class="bib-concepts">{"".join(concepts)}</div>\n'
+            f'<div class="bib-groups">{"".join(gblocks)}</div>\n'
+            '<p class="bib-count" id="bibCount"></p>\n</div>')
 
 
 def build_list(entries):

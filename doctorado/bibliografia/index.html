@@ -31,8 +31,20 @@
 <style>
 .bib-intro{font-size:1rem;color:var(--text-soft)}
 .bib-filters{margin:1.6rem 0 1.8rem;padding:1rem 1.1rem;background:var(--bg-subtle);border:1px solid var(--border);border-radius:10px}
-.bib-fgroup{display:flex;flex-wrap:wrap;align-items:baseline;gap:0.4rem;margin-top:0.55rem}
-.bib-flabel{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;color:var(--text-faint);min-width:5.5rem}
+.bib-concepts{display:flex;flex-wrap:wrap;align-items:center;gap:0.4rem}
+.bib-flabel{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;color:var(--text-faint);margin-right:0.3rem}
+.bib-concept{font-size:0.82rem;font-weight:500;padding:0.28rem 0.8rem;border-radius:8px;border:1px solid var(--border-strong);background:var(--bg);color:var(--text);cursor:pointer;transition:all .12s;display:inline-flex;align-items:center;gap:0.4rem}
+.bib-concept:hover{border-color:var(--text-faint)}
+.bib-concept.open{background:var(--bg-hover);border-color:var(--text-faint)}
+.bib-concept.has-filter{border-color:#6366f1;color:#6366f1}
+.bib-concept::after{content:'▾';font-size:0.6rem;color:var(--text-faint);transition:transform .15s}
+.bib-concept.open::after{transform:rotate(180deg)}
+.bib-chip-all{font-weight:600;margin-left:auto}
+.bib-chip-all::after{content:none}
+.bib-chip-all.bib-active{background:#6366f1;border-color:#6366f1;color:#fff}
+.bib-cbadge{font-size:0.66rem;font-weight:600;background:#6366f1;color:#fff;border-radius:999px;padding:0 0.38rem;min-width:1.1rem;text-align:center}
+.bib-fgroup{margin-top:0.75rem;padding-top:0.75rem;border-top:1px dashed var(--border)}
+.bib-fgroup[hidden]{display:none}
 .bib-fchips{display:flex;flex-wrap:wrap;gap:0.35rem}
 .bib-chip{font-size:0.8rem;font-weight:500;padding:0.2rem 0.7rem;border-radius:999px;border:1px solid var(--border-strong);background:var(--bg);color:var(--text-soft);cursor:pointer;transition:all .12s}
 .bib-chip:hover{border-color:var(--text-faint);color:var(--text)}
@@ -107,13 +119,8 @@
 
     <!-- BIB:START -->
 <div class="bib-filters">
-<button class="bib-chip bib-chip-all bib-active" data-facet="all" data-val="all">Todas</button>
-<div class="bib-fgroup"><span class="bib-flabel">Tipo</span><div class="bib-fchips"><button class="bib-chip" data-facet="tipo" data-val="articulo">Artículo</button><button class="bib-chip" data-facet="tipo" data-val="divulgacion">Divulgación</button><button class="bib-chip" data-facet="tipo" data-val="historico">Histórico</button><button class="bib-chip" data-facet="tipo" data-val="libro">Libro</button><button class="bib-chip" data-facet="tipo" data-val="preprint">Preprint</button><button class="bib-chip" data-facet="tipo" data-val="recurso">Recurso</button><button class="bib-chip" data-facet="tipo" data-val="survey">Survey</button></div></div>
-<div class="bib-fgroup"><span class="bib-flabel">Área</span><div class="bib-fchips"><button class="bib-chip" data-facet="area" data-val="analisis-y-probabilidad">Análisis y probabilidad</button><button class="bib-chip" data-facet="area" data-val="combinatoria">Combinatoria</button><button class="bib-chip" data-facet="area" data-val="computacion">Computación</button><button class="bib-chip" data-facet="area" data-val="dinamica-simbolica">Dinámica simbólica</button><button class="bib-chip" data-facet="area" data-val="historia">Historia</button><button class="bib-chip" data-facet="area" data-val="sistemas-dinamicos">Sistemas dinámicos</button><button class="bib-chip" data-facet="area" data-val="teoria-de-grafos">Teoría de grafos</button><button class="bib-chip" data-facet="area" data-val="teoria-de-numeros">Teoría de números</button><button class="bib-chip" data-facet="area" data-val="algebra-y-palabras">Álgebra y palabras</button></div></div>
-<div class="bib-fgroup"><span class="bib-flabel">Dificultad</span><div class="bib-fchips"><button class="bib-chip dif-facil" data-facet="dif" data-val="facil">Accesible</button><button class="bib-chip dif-media" data-facet="dif" data-val="media">Media</button><button class="bib-chip dif-dificil" data-facet="dif" data-val="dificil">Difícil</button></div></div>
-<div class="bib-fgroup"><span class="bib-flabel">Acceso</span><div class="bib-fchips"><button class="bib-chip" data-facet="acceso" data-val="abierto">Abierto</button><button class="bib-chip" data-facet="acceso" data-val="pago">De pago</button><button class="bib-chip" data-facet="acceso" data-val="biblioteca">Biblioteca</button></div></div>
-<div class="bib-fgroup"><span class="bib-flabel">Importancia</span><div class="bib-fchips"><button class="bib-chip" data-facet="imp" data-val="alta">Alta</button><button class="bib-chip" data-facet="imp" data-val="media">Media</button><button class="bib-chip" data-facet="imp" data-val="baja">Baja</button></div></div>
-<div class="bib-fgroup"><span class="bib-flabel">MSC</span><div class="bib-fchips"><button class="bib-chip" data-facet="msc" data-val="00a08">00A08</button><button class="bib-chip" data-facet="msc" data-val="01a60">01A60</button><button class="bib-chip" data-facet="msc" data-val="01a70">01A70</button><button class="bib-chip" data-facet="msc" data-val="05a05">05A05</button><button class="bib-chip" data-facet="msc" data-val="05c50">05C50</button><button class="bib-chip" data-facet="msc" data-val="11b83">11B83</button><button class="bib-chip" data-facet="msc" data-val="11d61">11D61</button><button class="bib-chip" data-facet="msc" data-val="11j86">11J86</button><button class="bib-chip" data-facet="msc" data-val="11y55">11Y55</button><button class="bib-chip" data-facet="msc" data-val="15a18">15A18</button><button class="bib-chip" data-facet="msc" data-val="17b01">17B01</button><button class="bib-chip" data-facet="msc" data-val="37b10">37B10</button></div></div>
+<div class="bib-concepts"><span class="bib-flabel">Filtrar por</span><button class="bib-concept" data-group="tipo" aria-expanded="false">Tipo<span class="bib-cbadge" hidden></span></button><button class="bib-concept" data-group="area" aria-expanded="false">Área<span class="bib-cbadge" hidden></span></button><button class="bib-concept" data-group="dif" aria-expanded="false">Dificultad<span class="bib-cbadge" hidden></span></button><button class="bib-concept" data-group="acceso" aria-expanded="false">Acceso<span class="bib-cbadge" hidden></span></button><button class="bib-concept" data-group="imp" aria-expanded="false">Importancia<span class="bib-cbadge" hidden></span></button><button class="bib-concept" data-group="msc" aria-expanded="false">MSC<span class="bib-cbadge" hidden></span></button><button class="bib-concept bib-chip-all bib-active" data-facet="all" data-val="all">Todas</button></div>
+<div class="bib-groups"><div class="bib-fgroup" data-group="tipo" hidden><div class="bib-fchips"><button class="bib-chip" data-facet="tipo" data-val="articulo">Artículo</button><button class="bib-chip" data-facet="tipo" data-val="divulgacion">Divulgación</button><button class="bib-chip" data-facet="tipo" data-val="historico">Histórico</button><button class="bib-chip" data-facet="tipo" data-val="libro">Libro</button><button class="bib-chip" data-facet="tipo" data-val="preprint">Preprint</button><button class="bib-chip" data-facet="tipo" data-val="recurso">Recurso</button><button class="bib-chip" data-facet="tipo" data-val="survey">Survey</button></div></div><div class="bib-fgroup" data-group="area" hidden><div class="bib-fchips"><button class="bib-chip" data-facet="area" data-val="analisis-y-probabilidad">Análisis y probabilidad</button><button class="bib-chip" data-facet="area" data-val="combinatoria">Combinatoria</button><button class="bib-chip" data-facet="area" data-val="computacion">Computación</button><button class="bib-chip" data-facet="area" data-val="dinamica-simbolica">Dinámica simbólica</button><button class="bib-chip" data-facet="area" data-val="historia">Historia</button><button class="bib-chip" data-facet="area" data-val="sistemas-dinamicos">Sistemas dinámicos</button><button class="bib-chip" data-facet="area" data-val="teoria-de-grafos">Teoría de grafos</button><button class="bib-chip" data-facet="area" data-val="teoria-de-numeros">Teoría de números</button><button class="bib-chip" data-facet="area" data-val="algebra-y-palabras">Álgebra y palabras</button></div></div><div class="bib-fgroup" data-group="dif" hidden><div class="bib-fchips"><button class="bib-chip dif-facil" data-facet="dif" data-val="facil">Accesible</button><button class="bib-chip dif-media" data-facet="dif" data-val="media">Media</button><button class="bib-chip dif-dificil" data-facet="dif" data-val="dificil">Difícil</button></div></div><div class="bib-fgroup" data-group="acceso" hidden><div class="bib-fchips"><button class="bib-chip" data-facet="acceso" data-val="abierto">Abierto</button><button class="bib-chip" data-facet="acceso" data-val="pago">De pago</button><button class="bib-chip" data-facet="acceso" data-val="biblioteca">Biblioteca</button></div></div><div class="bib-fgroup" data-group="imp" hidden><div class="bib-fchips"><button class="bib-chip" data-facet="imp" data-val="alta">Alta</button><button class="bib-chip" data-facet="imp" data-val="media">Media</button><button class="bib-chip" data-facet="imp" data-val="baja">Baja</button></div></div><div class="bib-fgroup" data-group="msc" hidden><div class="bib-fchips"><button class="bib-chip" data-facet="msc" data-val="00a08">00A08</button><button class="bib-chip" data-facet="msc" data-val="01a60">01A60</button><button class="bib-chip" data-facet="msc" data-val="01a70">01A70</button><button class="bib-chip" data-facet="msc" data-val="05a05">05A05</button><button class="bib-chip" data-facet="msc" data-val="05c50">05C50</button><button class="bib-chip" data-facet="msc" data-val="11b83">11B83</button><button class="bib-chip" data-facet="msc" data-val="11d61">11D61</button><button class="bib-chip" data-facet="msc" data-val="11j86">11J86</button><button class="bib-chip" data-facet="msc" data-val="11y55">11Y55</button><button class="bib-chip" data-facet="msc" data-val="15a18">15A18</button><button class="bib-chip" data-facet="msc" data-val="17b01">17B01</button><button class="bib-chip" data-facet="msc" data-val="37b10">37B10</button></div></div></div>
 <p class="bib-count" id="bibCount"></p>
 </div>
 <ol class="bib-list" id="bibList">
@@ -193,6 +200,15 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}fu
   var allBtn=document.querySelector('.bib-chip-all');
   var countEl=document.getElementById('bibCount');
   var items=Array.prototype.slice.call(document.querySelectorAll('.bib-item'));
+  function updateConcepts(){
+    document.querySelectorAll('.bib-concept[data-group]').forEach(function(btn){
+      var g=btn.getAttribute('data-group');
+      var n=filters[g]?filters[g].size:0;
+      btn.classList.toggle('has-filter',n>0);
+      var badge=btn.querySelector('.bib-cbadge');
+      if(badge){badge.hidden=(n===0);badge.textContent=n;}
+    });
+  }
   function apply(){
     var active=Object.keys(filters).filter(function(f){return filters[f].size>0;});
     var shown=0;
@@ -206,16 +222,34 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}fu
     });
     if(allBtn)allBtn.classList.toggle('bib-active',active.length===0);
     if(countEl)countEl.textContent=shown+(shown===1?' referencia':' referencias')+(active.length?' (filtradas)':'');
+    updateConcepts();
   }
+  document.querySelectorAll('.bib-concept[data-group]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var g=btn.getAttribute('data-group');
+      var grp=document.querySelector('.bib-fgroup[data-group="'+g+'"]');
+      if(!grp)return;
+      var open=grp.hasAttribute('hidden');
+      if(open){grp.removeAttribute('hidden');}else{grp.setAttribute('hidden','');}
+      btn.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+  });
   document.querySelectorAll('.bib-chip').forEach(function(c){
     c.addEventListener('click',function(){
       var f=c.getAttribute('data-facet'),v=c.getAttribute('data-val');
-      if(f==='all'){filters={};document.querySelectorAll('.bib-chip.bib-active').forEach(function(x){if(!x.classList.contains('bib-chip-all'))x.classList.remove('bib-active');});apply();return;}
       if(!filters[f])filters[f]=new Set();
       if(filters[f].has(v)){filters[f].delete(v);c.classList.remove('bib-active');}
       else{filters[f].add(v);c.classList.add('bib-active');}
       apply();
     });
+  });
+  if(allBtn)allBtn.addEventListener('click',function(){
+    filters={};
+    document.querySelectorAll('.bib-chip.bib-active').forEach(function(x){x.classList.remove('bib-active');});
+    document.querySelectorAll('.bib-fgroup').forEach(function(g){g.setAttribute('hidden','');});
+    document.querySelectorAll('.bib-concept.open').forEach(function(b){b.classList.remove('open');b.setAttribute('aria-expanded','false');});
+    apply();
   });
   apply();
 })();
