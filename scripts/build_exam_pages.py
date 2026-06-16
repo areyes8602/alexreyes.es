@@ -231,7 +231,7 @@ def render_page(col, tags):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{esc(short_badge or col_id)} &middot; {esc(title)}{" &middot; " + esc(fecha) if fecha else ""}</title>
+<title>{esc(title)}{" &middot; " + esc(short_badge) if short_badge else ""}{" &middot; " + esc(fecha) if fecha else ""} | Àlex Reyes</title>
 <meta name="description" content="Examen {esc(asig_label)} &mdash; {esc(title)}. {esc(desc)}">
 <script>(function(){{var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -246,14 +246,14 @@ def render_page(col, tags):
 <link rel="canonical" href="{full_url}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{full_url}">
-<meta property="og:title" content="{esc(short_badge or col_id)} &middot; {esc(title)}">
+<meta property="og:title" content="{esc(title)}{" &middot; " + esc(short_badge) if short_badge else ""}">
 <meta property="og:description" content="Examen {esc(asig_label)} &mdash; {esc(title)}.">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{esc(short_badge or col_id)} &middot; {esc(title)}">
+<meta name="twitter:title" content="{esc(title)}{" &middot; " + esc(short_badge) if short_badge else ""}">
 <meta name="twitter:description" content="Examen {esc(asig_label)} &mdash; {esc(title)}.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <meta name="robots" content="index, follow">

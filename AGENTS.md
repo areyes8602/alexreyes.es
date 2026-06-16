@@ -31,6 +31,10 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             Solo emite hreflang para los idiomas que EXISTEN en disco
                             (+ x-default→ES); las páginas aún sin traducir no apuntan
                             a CA/EN 404. Re-ejecutable: se actualiza al traducir.
+  add_skiplink.py        ← PASO FINAL: cablea el skip-link de accesibilidad
+                            (<a class="skip-link" href="#main"> tras <body> + id="main"
+                            en <main>), localizado es/ca/en. Idempotente y auto-corrige
+                            el texto si no casa con el idioma. CSS ya en style.css.
   build_feed.py          ← genera feed.xml (RSS 2.0) desde las noticias de la home
   check_i18n.py          ← CI: verifica que cada selector ES·CA·EN resuelve (no 404)
                             y es coherente. Usa i18n-baseline.txt (fallos conocidos);
@@ -110,9 +114,11 @@ Los builds de `/aula/` (`build_classe_pages.py`, exámenes, apuntes a mano) **no
 inyectan OG por sí mismos**. Tras generarlos, ejecuta SIEMPRE como paso final:
 
 ```
-python3 scripts/add_og_tags.py   # OG/Twitter en toda página sin OG (idempotente)
-python3 scripts/add_jsonld.py    # JSON-LD schema.org (breadcrumbs, learning resource)
-python3 scripts/add_hreflang.py  # canonical + hreflang (solo idiomas existentes)
+python3 scripts/add_og_tags.py    # OG/Twitter en toda página sin OG (idempotente)
+python3 scripts/add_jsonld.py     # JSON-LD schema.org (breadcrumbs, learning resource)
+python3 scripts/add_hreflang.py   # canonical + hreflang (solo idiomas existentes)
+python3 scripts/add_skiplink.py --apply  # skip-link a11y (localizado es/ca/en, idempotente)
+python3 scripts/add_lazy_img.py --apply  # loading="lazy" en figuras (excepto hero y foto CV)
 python3 scripts/build_sitemap.py
 ```
 

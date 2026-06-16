@@ -145,6 +145,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Notes","item":"https://alexreyes.es/en/notas/"},{"@type":"ListItem","position":3,"name":"Fibonacci hidden in Collatz","item":"https://alexreyes.es/en/notas/fibonacci-collatz/"}]}</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <nav>
   <div class="nav-inner">
     <a href="/en/" class="nav-brand">alexreyes.es</a>
@@ -168,7 +169,7 @@
   </div>
 </nav>
 
-<main>
+<main id="main">
   <div class="container" style="padding-top:3rem;padding-bottom:5rem">
     <div class="breadcrumb">
       <a href="/en/">Home</a><span class="sep">/</span><a href="/en/notas/">Notes</a><span class="sep">/</span><span class="current">Fibonacci hidden in Collatz</span>
@@ -221,7 +222,7 @@
 
 <div class="widget" id="w-esc">
   <h4>The staircase</h4>
-  <p style="margin:0 0 8px">Steps: <input type="range" min="1" max="7" value="4" id="esc-n" oninput="escalera()"> <strong id="esc-nval">4</strong></p>
+  <p style="margin:0 0 8px">Steps: <input type="range" aria-label="Number of steps" min="1" max="7" value="4" id="esc-n" oninput="escalera()"> <strong id="esc-nval">4</strong></p>
   <div id="esc-out" style="font:14px var(--font)"></div>
 </div>
 
@@ -299,7 +300,7 @@
 
 <div class="widget">
   <h4>The graph \(G\): Collatz transitions modulo 6</h4>
-  <svg viewBox="-80 -170 580 320" xmlns="http://www.w3.org/2000/svg" id="grafoG" style="width:100%;max-width:770px;display:block;margin:0 auto">
+  <svg viewBox="-80 -170 580 320" xmlns="http://www.w3.org/2000/svg" id="grafoG" style="width:100%;max-width:770px;display:block;margin:0 auto" role="img" aria-label="Graph G: Collatz transitions modulo 6">
     <defs>
       <marker id="mkg" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="8" refX="10" refY="4" orient="auto">
         <path d="M0,0 L11,4 L0,8 Z" fill="#3b6d11"/>
@@ -358,7 +359,7 @@
 <div class="widget">
   <h4>The subgraph \(H_4\) and its adjacency matrix</h4>
   <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
-    <svg id="h4svg" viewBox="125 -175 265 330" width="240" xmlns="http://www.w3.org/2000/svg">
+    <svg id="h4svg" viewBox="125 -175 265 330" width="240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Subgraph H₄: modulo 6 transitions without region 4">
       <!-- misma disposición que el grafo G, sin el vértice 4 -->
       <path id="h-1-2" class="ar-g" d="M239,14.2 Q215.2,45.1 205.6,79.8"/>      <!-- 1->2 -->
       <path id="h-1-5" class="ar-a" d="M242,-16.1 L209.4,-81.2"/>               <!-- 1->5 -->
@@ -396,7 +397,7 @@
 
 <div class="widget" id="w-mat">
   <h4>Powers of \(M\): watch the Fibonacci numbers being born</h4>
-  <p style="margin:0 0 8px">Path length \(k\): <input type="range" min="1" max="12" value="1" id="mat-k" oninput="matPow()"> <strong id="mat-kval">1</strong></p>
+  <p style="margin:0 0 8px">Path length \(k\): <input type="range" aria-label="Path length k" min="1" max="12" value="1" id="mat-k" oninput="matPow()"> <strong id="mat-kval">1</strong></p>
   <div id="mat-out" style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start"></div>
   <div class="resultado" id="mat-info"></div>
   <div id="mat-paths" style="margin-top:12px"></div>
@@ -416,7 +417,7 @@
 
 <div class="widget" id="w-rhythm">
   <h4>Two rates of growth: \(\varphi\) against 2</h4>
-  <p style="margin:0 0 8px">Path length, \(m\): <input type="range" min="1" max="14" value="4" id="rh-m" oninput="rhythm()"> <strong id="rh-mval">4</strong></p>
+  <p style="margin:0 0 8px">Path length, \(m\): <input type="range" aria-label="Path length m" min="1" max="14" value="4" id="rh-m" oninput="rhythm()"> <strong id="rh-mval">4</strong></p>
   <div id="rh-out"></div>
 </div>
 
@@ -442,7 +443,7 @@
 
 <div class="widget" id="w-teo">
   <h4>Theorem verifier</h4>
-  <p style="margin:0 0 8px">\(m\): <input type="range" min="1" max="8" value="6" id="teo-m" oninput="teorema()"> <strong id="teo-mval">6</strong></p>
+  <p style="margin:0 0 8px">\(m\): <input type="range" aria-label="Value of m" min="1" max="8" value="6" id="teo-m" oninput="teorema()"> <strong id="teo-mval">6</strong></p>
   <div id="teo-out" style="font:14px var(--font)"></div>
   <div id="teo-lista" style="margin-top:4px"></div>
   <div id="teo-orbit"></div>

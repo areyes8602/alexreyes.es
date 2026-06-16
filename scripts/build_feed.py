@@ -28,7 +28,7 @@ MONTHS = {
 
 SECTION_RE = re.compile(r'<section class="news-section">(.*?)</section>', re.S)
 COL_RE = re.compile(
-    r'<h3 class="news-col-title">.*?</span>([^<]+)</h3>(.*?)(?=<h3 class="news-col-title">|$)',
+    r'<h[23] class="news-col-title">.*?</span>([^<]+)</h[23]>(.*?)(?=<h[23] class="news-col-title">|$)',
     re.S,
 )
 ITEM_RE = re.compile(
