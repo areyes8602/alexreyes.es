@@ -9,7 +9,7 @@
 <script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css?v=202606160900">
+<link rel="stylesheet" href="/style.css?v=202606161447">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/en/cv/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/cv/">
@@ -66,14 +66,20 @@
     </div>
 
     <div class="page-header">
-      <span class="section-label">Curriculum</span>
-      <h1 style="margin:0.3rem 0 0.6rem">Education and experience</h1>
-      <p style="font-size:0.98rem;color:var(--text-soft)">Manuel Alejandro Reyes Jiménez &middot; Barcelona</p>
-      <a href="/assets/cv/CV_AlexReyes_EN.pdf" class="pdf-download" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg> Download CV (PDF)</a>
+      <div class="cv-header">
+        <div class="cv-header-main">
+          <span class="section-label">Curriculum</span>
+          <h1 style="margin:0.3rem 0 0.6rem">Education and experience</h1>
+          <p style="font-size:0.98rem;color:var(--text-soft)">Manuel Alejandro Reyes Jiménez &middot; Barcelona</p>
+          <div class="cv-links"><a href="https://orcid.org/0009-0002-7216-9385" target="_blank" rel="noopener">ORCID 0009-0002-7216-9385</a></div>
+          <a href="/assets/cv/CV_AlexReyes_EN.pdf" class="pdf-download" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg> Download CV (PDF)</a>
+        </div>
+        <img class="cv-header-photo" src="/alex.webp" alt="Manuel Alejandro Reyes Jiménez" width="108" height="132">
+      </div>
     </div>
 
     <div class="cv-section">
-      <div class="cv-section-title">Research</div>
+      <div class="cv-section-title is-research">Research</div>
       <div class="cv-entry">
         <div class="cv-period">2026 &ndash; present</div>
         <div>
@@ -85,7 +91,7 @@
     </div>
 
     <div class="cv-section">
-      <div class="cv-section-title">Teaching experience</div>
+      <div class="cv-section-title is-teaching">Teaching experience</div>
       <div class="cv-entry">
         <div class="cv-period">2018 &ndash; present</div>
         <div>
@@ -100,6 +106,31 @@
           <div class="cv-role">Mathematics teacher &middot; Head of Studies (Bachillerato)</div>
           <div class="cv-org">Escola Meritxell (Mataró)</div>
           <div class="cv-desc">ESO and Bachillerato mathematics. Last two years as Head of Studies for Bachillerato.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title is-research">Publications</div>
+      <div class="cv-entry">
+        <div class="cv-period">2026</div>
+        <div>
+          <div class="cv-role">A Fibonacci theorem for Collatz trajectories via modular graph structure</div>
+          <div class="cv-org">A. Reyes &mdash; preprint, <a href="https://arxiv.org/abs/2606.02621" target="_blank" rel="noopener">arXiv:2606.02621</a> [math.NT]</div>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-period">2014</div>
+        <div>
+          <div class="cv-role">New conditions to keep static feedback linearizability under addition of new inputs</div>
+          <div class="cv-org">J. Franch, A. Reyes &mdash; 53rd IEEE Conference on Decision and Control (CDC), pp. 5624&ndash;5629</div>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-period">2013</div>
+        <div>
+          <div class="cv-role">Differential flatness of a class of n-DOF planar manipulators driven by an arbitrary number of actuators</div>
+          <div class="cv-org">J. Franch, A. Reyes, S. K. Agrawal &mdash; European Control Conference (ECC), pp. 161&ndash;166</div>
         </div>
       </div>
     </div>
@@ -138,6 +169,13 @@
       <div class="cv-entry">
         <div class="cv-period">Intermediate</div>
         <div><div class="cv-role">English</div><div class="cv-desc">B2 level. 9-month Erasmus exchange at the University of Sheffield.</div></div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Tools &amp; software</div>
+      <div class="cv-chips">
+        <span class="cv-chip">LaTeX</span><span class="cv-chip">GeoGebra</span><span class="cv-chip">Maple</span><span class="cv-chip">Matlab</span><span class="cv-chip">C++</span><span class="cv-chip">Moodle</span><span class="cv-chip">ClickEdu</span><span class="cv-chip">Alexia</span><span class="cv-chip">Office 365</span><span class="cv-chip">Notion</span><span class="cv-chip">Generative AI (LLMs)</span>
       </div>
     </div>
 

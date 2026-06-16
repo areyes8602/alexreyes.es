@@ -438,6 +438,33 @@ a.archive-item:hover {
   color: var(--text); font-size: 0.88rem; font-weight: 500; margin-top: 1rem;
 }
 .pdf-download:hover { border-color: var(--border-strong); background: var(--bg-hover); opacity: 1; }
+/* CV header with photo */
+.cv-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; }
+.cv-header-main { min-width: 0; }
+.cv-header-photo {
+  width: 108px; height: 132px; flex: none; object-fit: cover; object-position: 50% 16%;
+  border-radius: 12px; border: 1px solid var(--border);
+}
+/* CV dual-identity section accents */
+.cv-section-title.is-research, .cv-section-title.is-teaching { display: flex; align-items: center; gap: 0.5rem; }
+.cv-section-title.is-research { color: #6366f1; }
+.cv-section-title.is-teaching { color: #059669; }
+.cv-section-title.is-research::before, .cv-section-title.is-teaching::before {
+  content: ""; width: 18px; height: 2px; border-radius: 2px; background: currentColor;
+}
+/* CV links (ORCID, arXiv) */
+.cv-links { font-size: 0.85rem; color: var(--text-soft); margin-top: 0.55rem; }
+.cv-links a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+.cv-links a:hover { color: var(--text); }
+.cv-org a { color: #6366f1; text-decoration: none; }
+.cv-org a:hover { text-decoration: underline; }
+/* CV tool chips */
+.cv-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.cv-chip {
+  font-size: 0.8rem; padding: 0.25rem 0.65rem; border-radius: 999px;
+  background: var(--bg-subtle); border: 1px solid var(--border); color: var(--text-soft);
+}
+@media (max-width: 560px) { .cv-header-photo { width: 84px; height: 104px; } }
 
 /* ---- NOTES ---- */
 .note-item {
