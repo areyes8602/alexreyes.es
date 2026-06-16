@@ -37,22 +37,42 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Doctorat","item":"https://alexreyes.es/ca/doctorado/"},{"@type":"ListItem","position":3,"name":"Cronologia","item":"https://alexreyes.es/ca/doctorado/cronologia/"}]}</script>
 <style>
 .tl-intro{font-size:1rem;color:var(--text-soft)}
-.tl{margin:1.8rem 0 0}
-.tl-year{position:relative;padding:0 0 0 1.6rem;border-left:2px solid #6366f1}
-.tl-year[data-seg="ext"]{border-left-style:dashed;border-left-color:#d97706}
-.tl-tick{position:absolute;left:0;top:-0.55rem;transform:translateX(-50%);background:var(--bg);padding:0 0.35rem;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.8rem;font-weight:600;color:var(--text-faint)}
-.tl-events{padding:0.5rem 0 1.5rem}
-.tl-events:empty{padding:0.7rem 0}
-.tl-event{position:relative;margin:0 0 0.95rem}
-.tl-event:last-child{margin-bottom:0}
-.tl-event::before{content:'';position:absolute;left:calc(-1.6rem - 1px);top:0.3rem;width:10px;height:10px;border-radius:50%;background:#6366f1;border:2px solid var(--bg);transform:translateX(-50%)}
-.tl-event[data-seg="ext"]::before{background:#d97706}
-.tl-event.tl-now::before{background:#10b981;box-shadow:0 0 0 4px rgba(16,185,129,.18)}
-.tl-date{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.8rem;font-weight:600;color:#6366f1}
-.tl-event[data-seg="ext"] .tl-date{color:#d97706}
-.tl-now .tl-date{color:#10b981}
-.tl-now-label{display:inline-block;font-size:0.68rem;font-weight:600;color:#10b981;border:1px solid #10b981;border-radius:999px;padding:0 0.5rem;margin-left:0.45rem;vertical-align:middle}
-.tl-event p{margin:0.2rem 0 0;color:var(--text-soft);font-size:0.95rem;line-height:1.5}
+.tl{position:relative;max-width:780px;margin:2.2rem auto 0}
+.tl-band{position:relative;min-height:6rem}
+.tl-band::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;background:#6366f1;z-index:0}
+.tl-band.ext::before{background:#d97706}
+.tl-yr{position:relative;z-index:3;text-align:center;padding:0.4rem 0 0.7rem}
+.tl-yr span{background:var(--bg);border:1px solid var(--border-strong);border-radius:999px;padding:0.12rem 0.65rem;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.75rem;font-weight:600;color:var(--text-faint)}
+.tl-band.ext .tl-yr span{border-color:#d97706;color:#d97706}
+.tl-item{position:relative;width:50%;box-sizing:border-box;padding:0.35rem 2.2rem 0.95rem;opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.tl-item.in{opacity:1;transform:none}
+.tl-item.left{left:0}
+.tl-item.right{left:50%}
+.tl-card{position:relative;z-index:1;background:var(--bg-subtle);border:1px solid var(--border);border-radius:10px;padding:0.7rem 0.95rem;transition:transform .15s,box-shadow .15s,border-color .15s}
+.tl-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09);border-color:var(--border-strong)}
+.tl-item::after{content:'';position:absolute;top:0.95rem;width:15px;height:15px;border-radius:50%;background:#6366f1;border:3px solid var(--bg);z-index:2;transition:transform .15s}
+.tl-item:hover::after{transform:scale(1.25)}
+.tl-item.left::after{right:-7.5px}
+.tl-item.right::after{left:-7.5px}
+.tl-band.ext .tl-item::after{background:#d97706}
+.tl-item.now::after{background:#10b981;animation:tlPulse 2s infinite}
+@keyframes tlPulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}70%{box-shadow:0 0 0 12px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.tl-card::before{content:'';position:absolute;top:0.85rem;border:8px solid transparent}
+.tl-item.left .tl-card::before{right:-15px;border-left-color:var(--bg-subtle)}
+.tl-item.right .tl-card::before{left:-15px;border-right-color:var(--bg-subtle)}
+.tl-date{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.78rem;font-weight:600;color:#6366f1}
+.tl-band.ext .tl-date{color:#d97706}
+.tl-item.now .tl-date{color:#10b981}
+.tl-now-label{display:inline-block;font-size:0.66rem;font-weight:600;color:#10b981;border:1px solid #10b981;border-radius:999px;padding:0 0.45rem;margin-left:0.4rem;vertical-align:middle}
+.tl-card p{margin:0.25rem 0 0;color:var(--text-soft);font-size:0.92rem;line-height:1.5}
+@media(prefers-reduced-motion:reduce){.tl-item{opacity:1;transform:none;transition:none}.tl-item.now::after{animation:none}}
+@media(max-width:640px){
+.tl-band::before{left:8px;margin-left:0}
+.tl-yr{text-align:left;padding-left:0}
+.tl-item,.tl-item.left,.tl-item.right{width:100%;left:0;padding:0.35rem 0 0.95rem 2.2rem}
+.tl-item::after,.tl-item.left::after,.tl-item.right::after{left:1px;right:auto}
+.tl-card::before,.tl-item.left .tl-card::before,.tl-item.right .tl-card::before{left:-15px;right:auto;border-right-color:var(--bg-subtle);border-left-color:transparent}
+}
 </style>
 </head>
 <body>
@@ -100,7 +120,7 @@
       <p class="tl-intro">Faig el doctorat a <strong>temps parcial i sense finançament</strong>, compaginant-lo amb la docència. Per això el pla s'estén a <strong>7 anys</strong> (2026–2033), amb possibilitat de pròrroga fins al 2035.</p>
     </div>
 
-    <div class="tl"><div class="tl-year" data-seg="main"><span class="tl-tick">2026</span><div class="tl-events"><div class="tl-event" data-seg="main"><span class="tl-date">Abr 2026</span><p>Inici del doctorat en Matemàtica Aplicada (UPC), a temps parcial, sota la direcció del Dr. Jaume Franch.</p></div><div class="tl-event" data-seg="main"><span class="tl-date">Maig 2026</span><p><strong>Paper 1</strong> — teorema de Fibonacci per a trajectòries de Collatz: preprint a arXiv (2606.02621), enviat a <em>Acta Arithmetica</em>.</p></div><div class="tl-event tl-now" data-seg="now"><span class="tl-date">Juny 2026</span><span class="tl-now-label">Ara</span><p><strong>Ara:</strong> preparant el <strong>Paper 2</strong> (conjectura $h_m=4$ i creixement de fibres).</p></div></div></div><div class="tl-year" data-seg="main"><span class="tl-tick">2027</span><div class="tl-events"></div></div><div class="tl-year" data-seg="main"><span class="tl-tick">2028</span><div class="tl-events"></div></div><div class="tl-year" data-seg="main"><span class="tl-tick">2029</span><div class="tl-events"></div></div><div class="tl-year" data-seg="main"><span class="tl-tick">2030</span><div class="tl-events"></div></div><div class="tl-year" data-seg="main"><span class="tl-tick">2031</span><div class="tl-events"></div></div><div class="tl-year" data-seg="main"><span class="tl-tick">2032</span><div class="tl-events"></div></div><div class="tl-year" data-seg="main"><span class="tl-tick">2033</span><div class="tl-events"><div class="tl-event" data-seg="main"><span class="tl-date">2033</span><p>Dipòsit i defensa de la tesi <span style="color:var(--text-faint)">(previst)</span>.</p></div></div></div><div class="tl-year" data-seg="ext"><span class="tl-tick">2034</span><div class="tl-events"></div></div><div class="tl-year" data-seg="ext"><span class="tl-tick">2035</span><div class="tl-events"><div class="tl-event" data-seg="ext"><span class="tl-date">2035</span><p>Límit màxim amb pròrroga <span style="color:var(--text-faint)">(només si calgués allargar-lo)</span>.</p></div></div></div></div>
+    <div class="tl"><div class="tl-band"><div class="tl-yr"><span>2026</span></div><div class="tl-item left"><div class="tl-card"><span class="tl-date">Abr 2026</span><p>Inici del doctorat en Matemàtica Aplicada (UPC), a temps parcial, sota la direcció del Dr. Jaume Franch.</p></div></div><div class="tl-item right"><div class="tl-card"><span class="tl-date">Maig 2026</span><p><strong>Paper 1</strong> — teorema de Fibonacci per a trajectòries de Collatz: preprint a arXiv (2606.02621), enviat a <em>Acta Arithmetica</em>.</p></div></div><div class="tl-item left now"><div class="tl-card"><span class="tl-date">Juny 2026</span><span class="tl-now-label">Ara</span><p><strong>Ara:</strong> preparant el <strong>Paper 2</strong> (conjectura $h_m=4$ i creixement de fibres).</p></div></div></div><div class="tl-band"><div class="tl-yr"><span>2027</span></div></div><div class="tl-band"><div class="tl-yr"><span>2028</span></div></div><div class="tl-band"><div class="tl-yr"><span>2029</span></div></div><div class="tl-band"><div class="tl-yr"><span>2030</span></div></div><div class="tl-band"><div class="tl-yr"><span>2031</span></div></div><div class="tl-band"><div class="tl-yr"><span>2032</span></div></div><div class="tl-band"><div class="tl-yr"><span>2033</span></div><div class="tl-item right"><div class="tl-card"><span class="tl-date">2033</span><p>Dipòsit i defensa de la tesi <span style="color:var(--text-faint)">(previst)</span>.</p></div></div></div><div class="tl-band ext"><div class="tl-yr"><span>2034</span></div></div><div class="tl-band ext"><div class="tl-yr"><span>2035</span></div><div class="tl-item left"><div class="tl-card"><span class="tl-date">2035</span><p>Límit màxim amb pròrroga <span style="color:var(--text-faint)">(només si calgués allargar-lo)</span>.</p></div></div></div></div>
 
   </div>
 </main>
@@ -116,6 +136,7 @@
 
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+(function(){var items=document.querySelectorAll('.tl-item');if(!('IntersectionObserver' in window)){items.forEach(function(i){i.classList.add('in');});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.15});items.forEach(function(i){io.observe(i);});})();
 </script>
 <script defer src="/assets/js/search.js"></script>
 </body>
