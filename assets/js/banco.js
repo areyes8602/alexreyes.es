@@ -125,16 +125,37 @@
     taxonomy = await taxRes.json();
     const idx = await idxRes.json();
     allEjercicios = idx.ejercicios || [];
+    // Precompute the normalized search haystack ONCE per ejercicio (accent-folded).
+    // Per keystroke solo se normaliza la consulta, no toda la lista → escala bien.
+    for (const ej of allEjercicios) {
+      ej._hay = searchNorm((ej.search_text && ej.search_text[LANG]) || '');
+    }
   }
 
   // ---- Filtering ----
+  // Búsqueda insensible a acentos y por palabras: "funcion" encuentra "función",
+  // "calcul" encuentra "càlcul"; varias palabras = todas deben aparecer (en
+  // cualquier orden).
+  function searchNorm(s) {
+    return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  let _tokCache = { q: null, t: [] };
+  function searchTokens() {
+    if (_tokCache.q !== state.search) {
+      _tokCache = { q: state.search, t: searchNorm(state.search).split(/\s+/).filter(Boolean) };
+    }
+    return _tokCache.t;
+  }
+  function matchesSearch(ej) {
+    const tokens = searchTokens();
+    if (!tokens.length) return true;
+    const hay = ej._hay || '';
+    return tokens.every((t) => hay.includes(t));
+  }
+
   function ejercicioMatches(ej) {
     // search
-    if (state.search) {
-      const q = state.search.toLowerCase();
-      const hay = (ej.search_text && ej.search_text[LANG]) || '';
-      if (!hay.includes(q)) return false;
-    }
+    if (!matchesSearch(ej)) return false;
     // filters: AND across namespaces, OR within a namespace
     for (const [ns, selected] of Object.entries(state.filters)) {
       if (!selected || !selected.length) continue;
@@ -179,11 +200,7 @@
     const counts = {};
     for (const ej of allEjercicios) {
       // Apply all filters EXCEPT this namespace, plus search
-      if (state.search) {
-        const q = state.search.toLowerCase();
-        const hay = (ej.search_text && ej.search_text[LANG]) || '';
-        if (!hay.includes(q)) continue;
-      }
+      if (!matchesSearch(ej)) continue;
       let ok = true;
       for (const [otherNs, selected] of Object.entries(state.filters)) {
         if (otherNs === ns || !selected || !selected.length) continue;
