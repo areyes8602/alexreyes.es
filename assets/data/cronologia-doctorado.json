@@ -1,0 +1,33 @@
+{
+  "_meta": "Cronología del doctorado de Àlex Reyes. Edita 'hitos' y re-ejecuta scripts/build_cronologia.py (genera es/ca/en). year_start..split = tramo normal (color principal); split+1..year_end = posible prórroga (color extensión). 'now' marca el momento actual.",
+  "year_start": 2026,
+  "split": 2033,
+  "year_end": 2035,
+  "intro": {
+    "es": "Hago el doctorado a <strong>tiempo parcial y sin financiación</strong>, compaginándolo con la docencia. Por eso el plan se extiende a <strong>7 años</strong> (2026–2033), con posibilidad de prórroga hasta 2035.",
+    "ca": "Faig el doctorat a <strong>temps parcial i sense finançament</strong>, compaginant-lo amb la docència. Per això el pla s'estén a <strong>7 anys</strong> (2026–2033), amb possibilitat de pròrroga fins al 2035.",
+    "en": "I am doing the PhD <strong>part-time and without funding</strong>, alongside my teaching. That is why the plan spans <strong>7 years</strong> (2026–2033), with a possible extension to 2035."
+  },
+  "hitos": [
+    {"year": 2026, "date": {"es": "Abr 2026", "ca": "Abr 2026", "en": "Apr 2026"}, "type": "inicio",
+     "text": {"es": "Inicio del doctorado en Matemática Aplicada (UPC), a tiempo parcial, bajo la dirección del Dr. Jaume Franch.",
+              "ca": "Inici del doctorat en Matemàtica Aplicada (UPC), a temps parcial, sota la direcció del Dr. Jaume Franch.",
+              "en": "Start of the PhD in Applied Mathematics (UPC), part-time, advised by Dr. Jaume Franch."}},
+    {"year": 2026, "date": {"es": "May 2026", "ca": "Maig 2026", "en": "May 2026"}, "type": "paper",
+     "text": {"es": "<strong>Paper 1</strong> — teorema de Fibonacci para trayectorias de Collatz: preprint en arXiv (2606.02621), enviado a <em>Acta Arithmetica</em>.",
+              "ca": "<strong>Paper 1</strong> — teorema de Fibonacci per a trajectòries de Collatz: preprint a arXiv (2606.02621), enviat a <em>Acta Arithmetica</em>.",
+              "en": "<strong>Paper 1</strong> — Fibonacci theorem for Collatz trajectories: arXiv preprint (2606.02621), submitted to <em>Acta Arithmetica</em>."}},
+    {"year": 2026, "date": {"es": "Jun 2026", "ca": "Juny 2026", "en": "Jun 2026"}, "type": "now",
+     "text": {"es": "<strong>Ahora:</strong> preparando el <strong>Paper 2</strong> (conjetura $h_m=4$ y crecimiento de fibras).",
+              "ca": "<strong>Ara:</strong> preparant el <strong>Paper 2</strong> (conjectura $h_m=4$ i creixement de fibres).",
+              "en": "<strong>Now:</strong> preparing <strong>Paper 2</strong> (the $h_m=4$ conjecture and fiber growth)."}},
+    {"year": 2033, "date": {"es": "2033", "ca": "2033", "en": "2033"}, "type": "tesis",
+     "text": {"es": "Depósito y defensa de la tesis <span style=\"color:var(--text-faint)\">(previsto)</span>.",
+              "ca": "Dipòsit i defensa de la tesi <span style=\"color:var(--text-faint)\">(previst)</span>.",
+              "en": "Thesis deposit and defence <span style=\"color:var(--text-faint)\">(planned)</span>."}},
+    {"year": 2035, "date": {"es": "2035", "ca": "2035", "en": "2035"}, "type": "ext",
+     "text": {"es": "Límite máximo con prórroga <span style=\"color:var(--text-faint)\">(solo si hiciera falta alargarlo)</span>.",
+              "ca": "Límit màxim amb pròrroga <span style=\"color:var(--text-faint)\">(només si calgués allargar-lo)</span>.",
+              "en": "Maximum limit with extension <span style=\"color:var(--text-faint)\">(only if it needs lengthening)</span>."}}
+  ]
+}

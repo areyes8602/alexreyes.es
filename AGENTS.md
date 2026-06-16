@@ -40,6 +40,10 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             filtro por facetas (tipo/área/MSC/dificultad/acceso/importancia) entre
                             los marcadores BIB:START/END de doctorado/bibliografia/index.html.
                             Edita el JSON y re-ejecuta. CSS y JS del filtro viven en la página.
+  build_cronologia.py    ← cronología del doctorado: lee assets/data/cronologia-doctorado.json
+                            y genera las 3 páginas completas (es/ca/en) de /doctorado/cronologia/
+                            con línea del tiempo vertical graduada por años (2026–2033 color
+                            principal, 2034–2035 prórroga) y marcador del momento actual.
   build_feed.py          ← genera feed.xml (RSS 2.0) desde las noticias de la home
   check_i18n.py          ← CI: verifica que cada selector ES·CA·EN resuelve (no 404)
                             y es coherente. Usa i18n-baseline.txt (fallos conocidos);

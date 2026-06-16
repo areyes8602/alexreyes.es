@@ -56,7 +56,7 @@ def _lastmod(fs_path):
 # Pages that exist in all 3 languages (canonical ES paths).
 # Add new pages here and re-run.
 trilingual_paths = [
-    '/', '/cv/', '/contacto/', '/doctorado/', '/doctorado/bibliografia/', '/notas/',
+    '/', '/cv/', '/contacto/', '/doctorado/', '/doctorado/bibliografia/', '/doctorado/cronologia/', '/notas/',
     '/notas/anillo-de-collatz/', '/notas/fibonacci-collatz/',
     '/docencia/', '/docencia/ejercicios/', '/docencia/apuntes/', '/docencia/mi-examen/', '/docencia/mis-apuntes/',
     '/docencia/ib-ai/', '/docencia/ib-ai/2024-2026/', '/docencia/ib-ai/2025-2027/',
