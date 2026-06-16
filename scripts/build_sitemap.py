@@ -87,6 +87,8 @@ single_paths = [
     for p in _exam_dirs
     if not _is_retired(p)
 ]
+# Bibliografía del doctorado (de momento solo ES; pasar a trilingual_paths al traducir)
+single_paths.append('/doctorado/bibliografia/')
 # plus the per-pregunta static HTMLs that exist
 for p in sorted(_REPO.glob("aula/*/examenes/*/p*.html")):
     if _is_retired(p):

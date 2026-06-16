@@ -35,6 +35,11 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             (<a class="skip-link" href="#main"> tras <body> + id="main"
                             en <main>), localizado es/ca/en. Idempotente y auto-corrige
                             el texto si no casa con el idioma. CSS ya en style.css.
+  build_bibliografia.py  ← bibliografía del doctorado: lee assets/data/bibliografia-doctorado.json,
+                            ordena alfabético (bibtex 'plain'), numera [n] e inyecta la lista +
+                            filtro por facetas (tipo/área/MSC/dificultad/acceso/importancia) entre
+                            los marcadores BIB:START/END de doctorado/bibliografia/index.html.
+                            Edita el JSON y re-ejecuta. CSS y JS del filtro viven en la página.
   build_feed.py          ← genera feed.xml (RSS 2.0) desde las noticias de la home
   check_i18n.py          ← CI: verifica que cada selector ES·CA·EN resuelve (no 404)
                             y es coherente. Usa i18n-baseline.txt (fallos conocidos);
