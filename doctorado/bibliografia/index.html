@@ -199,7 +199,7 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}fu
     items.forEach(function(it){
       var ok=active.every(function(f){
         var vals=(it.getAttribute('data-'+f)||'').split(' ');
-        return Array.prototype.some.call(filters[f],function(v){return vals.indexOf(v)>=0;});
+        return vals.some(function(v){return filters[f].has(v);});
       });
       it.classList.toggle('bib-hidden',!ok);
       if(ok)shown++;
