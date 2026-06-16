@@ -531,98 +531,8 @@
     return area;
   }
 
-  // ============================================================
-  // PDF download via html2pdf.js (renderitza HTML → fitxer .pdf real)
-  // ============================================================
-  // Carrega html2pdf.js sota demanda — així NO bloqueja la càrrega de la pàgina;
-  // només es descarrega el primer cop que l'usuari prem un botó de PDF.
-  function loadHtml2pdf() {
-    if (window.html2pdf) return Promise.resolve();
-    return new Promise((resolve, reject) => {
-      const s = document.createElement('script');
-      s.src = 'https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.2/dist/html2pdf.bundle.min.js';
-      s.onload = () => resolve();
-      s.onerror = () => reject(new Error('No se pudo cargar html2pdf.js'));
-      document.head.appendChild(s);
-    });
-  }
-
-  async function generatePDF(mode) {
-    const btnId = mode === 'enunciados' ? 'mx-dl-enun' : 'mx-dl-sol';
-    const btn = $(btnId);
-    const orig = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = t('generando');
-
-    const bodyClass = mode === 'enunciados' ? 'mx-printing-enunciados' : 'mx-printing-soluciones';
-
-    const cleanup = () => {
-      document.body.classList.remove('mx-printing', 'mx-printing-enunciados', 'mx-printing-soluciones');
-      btn.textContent = orig;
-      btn.disabled = false;
-    };
-
-    try {
-      await loadHtml2pdf();
-      await buildPrintArea(mode);
-
-      // Activa el mode imprimible — el CSS amaga la UI d'edició i deixa
-      // visible només l'àrea, indispensable per a html2canvas.
-      document.body.classList.add('mx-printing', bodyClass);
-
-      // Espera a que fonts i KaTeX estiguin renderitzats abans de capturar.
-      // Aquesta era la causa que KaTeX sortís a mitges: fonts.ready + settle.
-      if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (e) {} }
-      await new Promise(resolve => setTimeout(resolve, 400));
-
-      const titleSlug = ($('mx-title')?.value || 'examen')
-        .trim().toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '')
-        .slice(0, 60) || 'examen';
-      const date = new Date().toISOString().slice(0, 10);
-      const suffix = mode === 'enunciados' ? 'enunciats' : 'solucions';
-      const filename = `${titleSlug}-${date}-${suffix}.pdf`;
-
-      const target = $('mx-print-area');
-
-      // Configuració html2pdf — A4, marges còmodes, alta resolució.
-      // IMPORTANT (paginació): NO posem .mxp-question dins `avoid` perquè
-      // un exercici pot ser més llarg que una pàgina A4 i html2pdf el retallaria.
-      // En lloc d'això:
-      //   - `before: '.mxp-question + .mxp-question'` → cada exercici nou
-      //     comença en pàgina nova (excepte el primer).
-      //   - `avoid: [...]` només a sub-blocs de mida raonable que sí caben
-      //     dins una pàgina (def-box, exercici individual, apartat, fórmula).
-      const opt = {
-        margin:       [12, 12, 14, 12], // top, right, bottom, left (mm)
-        filename:     filename,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  {
-          scale: 3,
-          useCORS: true,
-          logging: false,
-          backgroundColor: '#ffffff',
-          windowWidth: 900, // amplada de captura, equival a una columna A4 estable
-        },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak:    {
-          mode: ['css', 'legacy'],
-          before: ['.mxp-question + .mxp-question'],
-          avoid: ['.exercise', '.apart', '.def-box', '.example-box', '.prop-box', '.warn-box', '.math-block', '.katex-display', 'svg', 'table'],
-        },
-      };
-
-      await window.html2pdf().set(opt).from(target).save();
-
-      btn.textContent = '✓ ' + t('ok');
-      setTimeout(cleanup, 1200);
-    } catch (e) {
-      console.error(e);
-      alert(t('error_pdflib') + ': ' + e.message);
-      cleanup();
-    }
-  }
+  // (La descàrrega de PDF passa per window.print() → vector net. La via
+  //  html2canvas/html2pdf es va descartar: rasteritzava i retallava marges.)
 
   // Imprimir natiu (window.print) — qualitat vectorial real (KaTeX vector, font
   // del navegador, paginació respectant @page del CSS). L'usuari fa "Guardar
@@ -703,10 +613,13 @@
     // Els dos botons de descàrrega de PDF també passen per window.print() —
     // qualitat vectorial real, KaTeX intacte, paginació estable. L'usuari
     // tria "Guardar com a PDF" al diàleg del navegador.
+    // Descarga del PDF vía window.print() → "Guardar como PDF": salida vectorial,
+    // texto seleccionable y ligera. (La vía html2canvas/html2pdf se descartó: el
+    // raster recortaba el margen y producía PDFs-imagen pesados.)
     const enun = $('mx-dl-enun');
-    if (enun) enun.addEventListener('click', () => generatePDF('enunciados'));
+    if (enun) enun.addEventListener('click', () => printPreview('enunciados', 'mx-dl-enun'));
     const sol = $('mx-dl-sol');
-    if (sol) sol.addEventListener('click', () => generatePDF('soluciones'));
+    if (sol) sol.addEventListener('click', () => printPreview('soluciones', 'mx-dl-sol'));
     const titleInput = $('mx-title');
     const dateInput = $('mx-date');
     if (dateInput) dateInput.value = new Date().toISOString().slice(0, 10);
