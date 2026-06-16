@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 bump-css-version.py — Añade/actualiza el cache-busting ?v={timestamp} a las
-referencias de los CSS principales en TODOS los HTML del repo.
+referencias de los CSS principales Y de los JS de /assets/js/ en TODOS los HTML
+del repo (a pesar del nombre, versiona CSS *y* JS).
 
 Por qué: Cloudflare cachea /assets/css/* durante max-age=3600 (1h). Cuando se
 cambia un CSS, los navegadores y el CDN siguen sirviendo la versión vieja hasta
@@ -43,7 +44,7 @@ CSS_TARGETS = [
 
 def main():
     timestamp = time.strftime("%Y%m%d%H%M")
-    print(f"─── Bumping CSS version → ?v={timestamp} ───\n")
+    print(f"─── Bumping asset version (CSS + JS) → ?v={timestamp} ───\n")
 
     # Construir patrón compuesto: para cada CSS, capturar opcionalmente el ?v=...
     # Reemplazo: la URL base + nuevo ?v=
@@ -76,6 +77,12 @@ def main():
 
             text, n = full_pattern.subn(replace_with_version, text)
             cambios_total += n
+
+        # JS: versiona cualquier referencia local a /assets/js/*.js (src="...").
+        js_pattern = re.compile(r'(src=["\'])(/assets/js/[\w-]+\.js)(\?v=\d+)?(["\'])')
+        text, nj = js_pattern.subn(
+            lambda m: f'{m.group(1)}{m.group(2)}?v={timestamp}{m.group(4)}', text)
+        cambios_total += nj
 
         if text != original:
             html.write_text(text, encoding='utf-8')

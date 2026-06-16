@@ -17,7 +17,9 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
 
 /scripts/
   sync-aula-chrome.py    ← sincroniza nav/footer/ibo en todos los HTML
-  bump-css-version.py    ← cache-busting: actualiza ?v={timestamp} en CSS refs
+  bump-css-version.py    ← cache-busting: actualiza ?v={timestamp} en refs de CSS
+                            Y de JS (/assets/js/*.js). Correr tras editar cualquier
+                            .css o .js para que el CDN/navegador sirva la versión nueva.
   add-seo-to-hubs.py     ← inyecta canonical + hreflang + OG + Twitter en hubs
   add_og_tags.py         ← PASO FINAL: OG/Twitter en TODA página sin OG (catch-all,
                             idempotente; deriva de <title>/description/canonical).
