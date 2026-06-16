@@ -431,6 +431,13 @@ a.archive-item:hover {
 .cv-role { font-weight: 600; font-size: 0.98rem; margin-bottom: 0.2rem; }
 .cv-org { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 0.5rem; }
 .cv-desc { font-size: 0.88rem; color: var(--text-faint); line-height: 1.6; }
+.pdf-download {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.1rem; background: var(--bg);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); font-size: 0.88rem; font-weight: 500; margin-top: 1rem;
+}
+.pdf-download:hover { border-color: var(--border-strong); background: var(--bg-hover); opacity: 1; }
 
 /* ---- NOTES ---- */
 .note-item {

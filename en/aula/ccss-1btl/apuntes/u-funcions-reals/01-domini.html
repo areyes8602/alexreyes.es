@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. Functions and domain · Real functions · 1st BTL CCSS</title>
+<meta name="description" content="Notes for Applied Maths CCSS 1st BTL: definition of a function with the car-at-100-km/h example, computing the domain by type (logarithm, rational, root, exponential) and the subtlety between the root of a quotient and the quotient of two roots.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606160900">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606160900">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.warn-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.warn-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.warn-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .warn-box { background: rgba(244,63,94,0.10); }
+
+/* Taules */
+table.dom-table, table.signs-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.92rem; }
+table.dom-table th, table.dom-table td,
+table.signs-table th, table.signs-table td { border:1px solid var(--border); padding:0.5rem 0.7rem; text-align:left; vertical-align:top; }
+table.dom-table th, table.signs-table th { background: var(--bg-subtle); font-weight:600; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-soft); }
+table.signs-table td { text-align:center; font-family: ui-monospace, "JetBrains Mono", monospace; }
+table.signs-table td:first-child { text-align:left; font-family: inherit; }
+table.signs-table .pos { color:#047857; font-weight:600; }
+table.signs-table .neg { color:#be123c; font-weight:600; }
+[data-theme="dark"] table.dom-table th, [data-theme="dark"] table.signs-table th { background: rgba(255,255,255,0.04); }
+
+/* Resultat / interval destacat */
+.solution-row { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; margin-top:0.5rem; }
+.solution-row .interval { font-family: ui-monospace, monospace; font-size:0.95rem; padding:0.2rem 0.6rem; background: rgba(16,185,129,0.10); border:1px solid rgba(16,185,129,0.3); border-radius:4px; color:#047857; font-weight:500; }
+[data-theme="dark"] .solution-row .interval { background: rgba(16,185,129,0.15); }
+
+/* Recta numèrica SVG */
+.numline { display:block; margin:0.6rem auto 0.2rem; width:100%; max-width:340px; height:auto; }
+.numline .axis { stroke: var(--text-soft); stroke-width: 1; }
+.numline .axis-arrow { fill: var(--text-soft); }
+.numline .region { stroke: #6366f1; stroke-width: 3; fill: none; }
+.numline .region-arrow { fill: #6366f1; }
+.numline .pt-open { fill: var(--bg); stroke: #6366f1; stroke-width: 2.5; }
+.numline .pt-closed { fill: #6366f1; stroke: #6366f1; stroke-width: 2.5; }
+.numline .lbl { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 11px; fill: var(--text-soft); }
+[data-theme="dark"] .numline .pt-open { fill: var(--bg-subtle); }
+
+/* Exercicis amb solució amagada (botó "Show solution") */
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.8rem 1rem; margin: 0.8rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-statement { margin:0.2rem 0 0.4rem; font-size:0.95rem; }
+.exercise details { margin-top:0.4rem; border-top:1px dashed var(--border); padding-top:0.5rem; }
+.exercise details summary { cursor:pointer; font-size:0.84rem; font-weight:600; color:#6366f1; list-style:none; user-select:none; padding:0.15rem 0; }
+.exercise details summary::-webkit-details-marker { display:none; }
+.exercise details summary::before { content:"▶ "; font-size:0.7em; transition: transform 0.15s; display:inline-block; margin-right:0.2rem; }
+.exercise details[open] summary::before { transform: rotate(90deg); }
+.exercise details .solution { padding:0.3rem 0 0; font-size:0.92rem; color:var(--text); }
+.exercise details .solution p { margin:0.4rem 0; }
+.exercise details .solution .final { background: rgba(16,185,129,0.10); border-left:3px solid #10b981; padding:0.4rem 0.7rem; border-radius:4px; margin-top:0.5rem; font-weight:500; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ccss-1btl/apuntes/u-funcions-reals/01-domini.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/u-funcions-reals/01-domini.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/u-funcions-reals/01-domini.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ccss-1btl/">Mat. Aplicades CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/ccss-1btl/apuntes/u-funcions-reals/">Real functions</a>
+      <span class="sep">/</span>
+      <span class="current">01 · Functions and domain</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1st BTL CCSS · Real functions</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">2 Dec 2025</span>
+      </div>
+      <h1 style="margin:0">1. Functions and domain</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Formal definition of a function, the car-at-100-km/h example ($y = 200/x$), definition of domain and computation by type — with the subtlety of the <strong>difference between the root of a quotient and the quotient of two roots</strong>.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <!-- ============ TEORIA ============ -->
+      <div class="apunt-section">
+        <h2>What is a function?</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>A <strong>function</strong> is a relationship between two quantities in which to each value of the <strong>independent variable</strong> ($x$) we associate <strong>at most one value</strong> of the <strong>dependent variable</strong> ($y$). We write:</p>
+          <div class="math-block">$$y = f(x).$$</div>
+          <p>The "at most one" is the key: each $x$ can have a single value of $y$ (or none, if $x$ is not in the domain), but never two.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>A car at 100 km/h</h3>
+          <p>A car takes 2 h to make a trip if it travels at 100 km/h. What is the relationship between <strong>time</strong> (in hours) and <strong>speed</strong> (in km/h)?</p>
+          <p>If it travels at twice the speed (200 km/h), it takes half the time (1 h). If it travels at half the speed (50 km/h), it takes twice as long (4 h). It is an <em>inverse proportionality</em>:</p>
+          <table class="dom-table" style="max-width:340px;margin:0.6rem 0">
+            <thead><tr><th>Time $x$ (h)</th><th>$1$</th><th>$2$</th><th>$4$</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Speed $y$ (km/h)</strong></td><td>200</td><td>100</td><td>50</td></tr>
+            </tbody>
+          </table>
+          <p>The product $\,x\cdot y = 200\,$ is constant (the total distance). Solving for $y$:</p>
+          <div class="math-block">$$y = f(x) = \dfrac{200}{x}.$$</div>
+        </div>
+      </div>
+
+      <!-- ============ DOMINI ============ -->
+      <div class="apunt-section">
+        <h2>Domain of a function</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>The <strong>domain</strong> of a function $f$ is the set of all values of $x$ for which $f(x)$ <strong>makes sense</strong> (is defined). In set notation:</p>
+          <div class="math-block">$$\operatorname{Dom} f = \{\,x \in \mathbb{R} \mid \exists\, y = f(x)\,\}.$$</div>
+        </div>
+
+        <div class="example-box">
+          <h3>Back to the car: $f(x) = \dfrac{200}{x}$</h3>
+          <p>This function makes sense for any $x$ <strong>except</strong> $x = 0$ (you cannot divide by zero). Moreover, since $x$ represents a time, physically only $x > 0$ makes sense — but mathematically:</p>
+          <div class="solution-row">
+            <span class="interval">$\operatorname{Dom} f = \mathbb{R} \setminus \{0\}$</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ CÀLCUL DE DOMINIS ============ -->
+      <div class="apunt-section">
+        <h2>Computing domains</h2>
+
+        <div class="prop-box">
+          <h3>Strategy: two questions</h3>
+          <p><strong>1)</strong> What <em>type</em> of function is it?</p>
+          <p><strong>2)</strong> When does this function <em>make sense</em>?</p>
+          <p>Once the type is identified, we apply the corresponding domain condition. The typical cases:</p>
+
+          <table class="dom-table">
+            <thead><tr><th>Type of function</th><th>Domain condition</th></tr></thead>
+            <tbody>
+              <tr><td>Polynomial $P(x)$</td><td>Always — $\operatorname{Dom} = \mathbb{R}$</td></tr>
+              <tr><td>Rational $\dfrac{P(x)}{Q(x)}$</td><td>$Q(x) \neq 0$</td></tr>
+              <tr><td>Even root $\sqrt[2k]{P(x)}$</td><td>$P(x) \geq 0$</td></tr>
+              <tr><td>Logarithm $\log_a P(x)$</td><td>$P(x) > 0$ &nbsp; (strict)</td></tr>
+              <tr><td>Exponential $a^{P(x)}$</td><td>Always — $\operatorname{Dom} = \mathbb{R}$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 1: LOGARITME ============ -->
+      <div class="apunt-section">
+        <h2>Example 1 — Logarithm of a polynomial</h2>
+
+        <div class="example-box">
+          <h3>$f(x) = \log(3x - 1)$</h3>
+          <p>It is the logarithm of a polynomial. The argument must be <strong>strictly positive</strong>:</p>
+          <div class="math-block">$$3x - 1 > 0 \;\Longrightarrow\; x > \dfrac{1}{3}.$$</div>
+          <div class="solution-row">
+            <span class="interval">$\operatorname{Dom} f = \bigl(\tfrac{1}{3},\; +\infty\bigr)$</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 2: RACIONAL ============ -->
+      <div class="apunt-section">
+        <h2>Example 2 — Rational function</h2>
+
+        <div class="example-box">
+          <h3>$f(x) = \dfrac{3x}{x^{2} - 4}$</h3>
+          <p>It is a rational function. The denominator must be <strong>different from zero</strong>:</p>
+          <div class="math-block">$$x^{2} - 4 = 0 \;\Longrightarrow\; x = \pm 2.$$</div>
+          <p>These two values are removed from the domain.</p>
+          <div class="solution-row">
+            <span class="interval">$\operatorname{Dom} f = \mathbb{R} \setminus \{-2,\,2\} = (-\infty,\,-2) \cup (-2,\,2) \cup (2,\,+\infty)$</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 3: ARREL D'UN QUOCIENT ============ -->
+      <div class="apunt-section">
+        <h2>Example 3 — Root of a quotient of polynomials</h2>
+
+        <div class="example-box">
+          <h3>$f(x) = \sqrt{\dfrac{x-3}{x^{2}-4}}$</h3>
+          <p>There is <strong>a single root</strong> and a quotient inside it. The condition is <em>radicand $\geq 0$</em> and, in addition, denominator $\neq 0$:</p>
+          <div class="math-block">$$\dfrac{x-3}{x^{2}-4} \geq 0 \quad \text{and} \quad x^{2}-4 \neq 0.$$</div>
+
+          <p><strong>Sign method.</strong> We find the zeros of the numerator and the denominator to get the change points:</p>
+          <p>Numerator $x - 3 = 0 \Rightarrow x = 3$. &nbsp;Denominator $x^{2} - 4 = 0 \Rightarrow x = \pm 2$ (holes!).</p>
+          <p>These three points split the line into four intervals; we analyse the sign in each one:</p>
+
+          <table class="signs-table">
+            <thead><tr><th>Interval</th><th>$x-3$</th><th>$x^{2}-4$</th><th>$\dfrac{x-3}{x^{2}-4}$</th></tr></thead>
+            <tbody>
+              <tr><td>$(-\infty,\,-2)$</td><td class="neg">−</td><td class="pos">+</td><td class="neg">−</td></tr>
+              <tr><td>$(-2,\,2)$</td><td class="neg">−</td><td class="neg">−</td><td class="pos">+</td></tr>
+              <tr><td>$(2,\,3)$</td><td class="neg">−</td><td class="pos">+</td><td class="neg">−</td></tr>
+              <tr><td>$(3,\,+\infty)$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td></tr>
+            </tbody>
+          </table>
+
+          <p>We want $\geq 0$ → we keep the rows marked <span class="pos">+</span>: $(-2, 2)$ and $(3, +\infty)$. Moreover, $x = 3$ <em>is also included</em> because the quotient equals $0$ there and $0 \geq 0$ ✓. On the other hand, $x = \pm 2$ <em>are not included</em> (denominator zero).</p>
+
+          <div class="solution-row">
+            <span class="interval">$\operatorname{Dom} f = (-2,\,2) \cup [3,\,+\infty)$</span>
+          </div>
+
+          <svg class="numline" viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg" aria-label="Number line of the domain of example 3">
+            <line class="axis" x1="14" y1="25" x2="266" y2="25"/>
+            <polygon class="axis-arrow" points="14,25 22,21 22,29"/>
+            <polygon class="axis-arrow" points="266,25 258,21 258,29"/>
+            <!-- regió 1: (-2, 2) -->
+            <line class="region" x1="80" y1="25" x2="160" y2="25"/>
+            <circle class="pt-open" cx="80" cy="25" r="5"/>
+            <circle class="pt-open" cx="160" cy="25" r="5"/>
+            <!-- regió 2: [3, +∞) -->
+            <line class="region" x1="190" y1="25" x2="258" y2="25"/>
+            <polygon class="region-arrow" points="266,25 258,21 258,29"/>
+            <circle class="pt-closed" cx="190" cy="25" r="5"/>
+            <text class="lbl" x="80" y="45" text-anchor="middle">-2</text>
+            <text class="lbl" x="160" y="45" text-anchor="middle">2</text>
+            <text class="lbl" x="190" y="45" text-anchor="middle">3</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 4: QUOCIENT D'ARRELS ============ -->
+      <div class="apunt-section">
+        <h2>Example 4 — Quotient of two roots</h2>
+
+        <div class="example-box">
+          <h3>$g(x) = \dfrac{\sqrt{x-3}}{\sqrt{x^{2}-4}}$</h3>
+          <p>Here the expression "looks the same" as in the previous example, but <strong>now there are two separate roots</strong>: one in the numerator and one in the denominator. Each root must have its own domain, and in addition the one in the denominator cannot be $0$ (because then the quotient would be undefined).</p>
+
+          <p><strong>Condition 1</strong> — the numerator root: $\;x - 3 \geq 0 \Rightarrow x \in [3, +\infty)$.</p>
+          <p><strong>Condition 2</strong> — the denominator root, with a <em>strict</em> inequality: $\;x^{2} - 4 > 0 \Rightarrow x \in (-\infty, -2) \cup (2, +\infty)$.</p>
+
+          <p>The domain is the <strong>intersection</strong> of both sets:</p>
+          <div class="math-block">$$[3, +\infty) \,\cap\, \bigl[(-\infty, -2) \cup (2, +\infty)\bigr] = [3, +\infty).$$</div>
+          <p class="note">(Because $[3, +\infty)$ is already entirely inside $(2, +\infty)$.)</p>
+
+          <div class="solution-row">
+            <span class="interval">$\operatorname{Dom} g = [3,\,+\infty)$</span>
+          </div>
+
+          <svg class="numline" viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg" aria-label="Number line of the domain of example 4">
+            <line class="axis" x1="14" y1="25" x2="266" y2="25"/>
+            <polygon class="axis-arrow" points="14,25 22,21 22,29"/>
+            <polygon class="axis-arrow" points="266,25 258,21 258,29"/>
+            <line class="region" x1="190" y1="25" x2="258" y2="25"/>
+            <polygon class="region-arrow" points="266,25 258,21 258,29"/>
+            <circle class="pt-closed" cx="190" cy="25" r="5"/>
+            <text class="lbl" x="190" y="45" text-anchor="middle">3</text>
+          </svg>
+        </div>
+
+        <div class="warn-box">
+          <h3>Watch out: $\sqrt{A/B}$ is not the same as $\sqrt{A}/\sqrt{B}$ for the domain</h3>
+          <p>Let's compare examples 3 and 4:</p>
+          <p><strong>·</strong> $\;f(x) = \sqrt{\dfrac{x-3}{x^{2}-4}}\;\Rightarrow\;\operatorname{Dom} f = (-2, 2) \cup [3, +\infty)$.</p>
+          <p><strong>·</strong> $\;g(x) = \dfrac{\sqrt{x-3}}{\sqrt{x^{2}-4}}\;\Rightarrow\;\operatorname{Dom} g = [3, +\infty)$.</p>
+          <p>The identity $\sqrt{A/B} = \sqrt{A}/\sqrt{B}$ <em>is only valid when both sides are defined</em>. In $f(x)$, the interval $(-2, 2)$ is still valid because the quotient $\frac{x-3}{x^{2}-4}$ is <strong>positive</strong> there (a negative divided by a negative): we can take its root. But in $g(x)$ we can't even get there: $\sqrt{x-3}$ already requires $x \geq 3$ on its own.</p>
+        </div>
+      </div>
+
+      <!-- ============ EXEMPLE 5: EXPONENCIAL ============ -->
+      <div class="apunt-section">
+        <h2>Example 5 — Exponential of a polynomial</h2>
+
+        <div class="example-box">
+          <h3>$f(x) = 3^{5x+1}$</h3>
+          <p>The exponential is defined for <strong>any real exponent</strong>; the expression $5x + 1$ is a polynomial and has no domain restriction. Therefore:</p>
+          <div class="solution-row">
+            <span class="interval">$\operatorname{Dom} f = \mathbb{R}$</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ EXERCICIS ============ -->
+      <div class="apunt-section">
+        <h2>Exercises</h2>
+        <p style="font-size:0.92rem;color:var(--text-soft);margin:0 0 0.8rem">Compute the domain of the following 21 functions. They are ordered from the simplest (polynomial, log, rational, root) to the most complex (quotients with roots, roots of quotients and three piecewise-defined functions). Each part has its solution hidden — try it first and then unfold it.</p>
+
+        <!-- a -->
+        <div class="exercise" id="ex-1a">
+          <div class="exercise-head"><span class="num">1a</span></div>
+          <div class="exercise-statement"><p>$f_{1}(x) = -3x^{2} + 12$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>It is a polynomial: it is defined for all $x \in \mathbb{R}$.</p>
+            <div class="final">$\operatorname{Dom} f_{1} = \mathbb{R}$.</div>
+          </div></details>
+        </div>
+
+        <!-- b -->
+        <div class="exercise" id="ex-1b">
+          <div class="exercise-head"><span class="num">1b</span></div>
+          <div class="exercise-statement"><p>$f_{2}(x) = \ln(3x+1)$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Logarithm of a polynomial. We need $\,3x+1 > 0$:</p>
+            <p>$3x > -1 \;\Longrightarrow\; x > -\tfrac{1}{3}$.</p>
+            <div class="final">$\operatorname{Dom} f_{2} = \bigl(-\tfrac{1}{3},\;+\infty\bigr)$.</div>
+          </div></details>
+        </div>
+
+        <!-- c -->
+        <div class="exercise" id="ex-1c">
+          <div class="exercise-head"><span class="num">1c</span></div>
+          <div class="exercise-statement"><p>$f_{3}(x) = \dfrac{5}{x}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Rational function: we need denominator $\neq 0$, that is $x \neq 0$.</p>
+            <div class="final">$\operatorname{Dom} f_{3} = \mathbb{R} \setminus \{0\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- d -->
+        <div class="exercise" id="ex-1d">
+          <div class="exercise-head"><span class="num">1d</span></div>
+          <div class="exercise-statement"><p>$f_{4}(x) = \sqrt{3x+2}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Even root: we need $\,3x+2 \geq 0$:</p>
+            <p>$3x \geq -2 \;\Longrightarrow\; x \geq -\tfrac{2}{3}$.</p>
+            <div class="final">$\operatorname{Dom} f_{4} = \bigl[-\tfrac{2}{3},\;+\infty\bigr)$.</div>
+          </div></details>
+        </div>
+
+        <!-- e -->
+        <div class="exercise" id="ex-1e">
+          <div class="exercise-head"><span class="num">1e</span></div>
+          <div class="exercise-statement"><p>$f_{5}(x) = \sqrt[5]{2x+1}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Root of <strong>odd order</strong> (5): it has no restriction on the radicand. It is defined for all $x \in \mathbb{R}$.</p>
+            <div class="final">$\operatorname{Dom} f_{5} = \mathbb{R}$.</div>
+          </div></details>
+        </div>
+
+        <!-- f -->
+        <div class="exercise" id="ex-1f">
+          <div class="exercise-head"><span class="num">1f</span></div>
+          <div class="exercise-statement"><p>$f_{6}(x) = \dfrac{(x-1)(x-2)}{x+1}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Rational: we need denominator $\neq 0$, that is $x+1 \neq 0$ → $x \neq -1$.</p>
+            <div class="final">$\operatorname{Dom} f_{6} = \mathbb{R} \setminus \{-1\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- g -->
+        <div class="exercise" id="ex-1g">
+          <div class="exercise-head"><span class="num">1g</span></div>
+          <div class="exercise-statement"><p>$f_{7}(x) = \dfrac{(x-1)(x-2)}{x-1}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Rational: we need $x - 1 \neq 0$ → $x \neq 1$.</p>
+            <p class="note">Although algebraically $\dfrac{(x-1)(x-2)}{x-1} = x-2$ for $x \neq 1$, the original expression is <strong>not defined</strong> at $x = 1$ (a "hole" or removable discontinuity).</p>
+            <div class="final">$\operatorname{Dom} f_{7} = \mathbb{R} \setminus \{1\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- h -->
+        <div class="exercise" id="ex-1h">
+          <div class="exercise-head"><span class="num">1h</span></div>
+          <div class="exercise-statement"><p>$f_{8}(x) = \dfrac{\sqrt{x+3}}{x+1}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We need: the numerator root defined ($x+3 \geq 0$) <strong>and</strong> denominator $\neq 0$ ($x+1 \neq 0$):</p>
+            <p>$x \geq -3 \;\;$ and $\;\; x \neq -1$.</p>
+            <div class="final">$\operatorname{Dom} f_{8} = [-3,\,-1) \cup (-1,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- i -->
+        <div class="exercise" id="ex-1i">
+          <div class="exercise-head"><span class="num">1i</span></div>
+          <div class="exercise-statement"><p>$f_{9}(x) = \dfrac{x+4}{\sqrt{2x+6}}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>The root is in the <strong>denominator</strong>: we need $2x+6 > 0$ (strict, because the denominator cannot be zero):</p>
+            <p>$2x > -6 \;\Longrightarrow\; x > -3$.</p>
+            <div class="final">$\operatorname{Dom} f_{9} = (-3,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- j -->
+        <div class="exercise" id="ex-1j">
+          <div class="exercise-head"><span class="num">1j</span></div>
+          <div class="exercise-statement"><p>$f_{10}(x) = \dfrac{2}{x^{2}+1}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Denominator $x^{2}+1 \geq 1 > 0$ for all $x$ — it never vanishes.</p>
+            <div class="final">$\operatorname{Dom} f_{10} = \mathbb{R}$.</div>
+          </div></details>
+        </div>
+
+        <!-- k -->
+        <div class="exercise" id="ex-1k">
+          <div class="exercise-head"><span class="num">1k</span></div>
+          <div class="exercise-statement"><p>$f_{11}(x) = \dfrac{2}{x^{2}-1}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We need $x^{2} - 1 \neq 0$, that is $x \neq \pm 1$.</p>
+            <div class="final">$\operatorname{Dom} f_{11} = \mathbb{R} \setminus \{-1,\,1\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- l -->
+        <div class="exercise" id="ex-1l">
+          <div class="exercise-head"><span class="num">1l</span></div>
+          <div class="exercise-statement"><p>$f_{12}(x) = \dfrac{\sqrt{x+2}}{\sqrt{x-3}}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Each root has its own domain, and the denominator one is strict $> 0$:</p>
+            <p>Numerator: $x+2 \geq 0 \Rightarrow x \geq -2$.</p>
+            <p>Denominator: $x-3 > 0 \Rightarrow x > 3$.</p>
+            <p>Intersection: $x > 3$ (because $(3, +\infty) \subset [-2, +\infty)$).</p>
+            <div class="final">$\operatorname{Dom} f_{12} = (3,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- m -->
+        <div class="exercise" id="ex-1m">
+          <div class="exercise-head"><span class="num">1m</span></div>
+          <div class="exercise-statement"><p>$f_{13}(x) = \dfrac{\sqrt{x^{2}-16}}{5x+1}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We need: $x^{2}-16 \geq 0$ (root) <strong>and</strong> $5x+1 \neq 0$ (denominator).</p>
+            <p>$x^{2} \geq 16 \Rightarrow x \leq -4$ or $x \geq 4$. &nbsp;On the other hand, $x = -\tfrac{1}{5}$ is already <em>inside</em> $(-4, 4)$ — outside the domain of the root — so it adds no new restriction.</p>
+            <div class="final">$\operatorname{Dom} f_{13} = (-\infty,\,-4] \cup [4,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- n -->
+        <div class="exercise" id="ex-1n">
+          <div class="exercise-head"><span class="num">1n</span></div>
+          <div class="exercise-statement"><p>$f_{14}(x) = \sqrt{\dfrac{2x+4}{x-3}}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We need $\dfrac{2x+4}{x-3} \geq 0$ and $x-3 \neq 0$. Roots: numerator $x = -2$, denominator $x = 3$ (hole). Sign method:</p>
+            <table class="signs-table">
+              <thead><tr><th>Interval</th><th>$2x+4$</th><th>$x-3$</th><th>quotient</th></tr></thead>
+              <tbody>
+                <tr><td>$(-\infty,\,-2)$</td><td class="neg">−</td><td class="neg">−</td><td class="pos">+</td></tr>
+                <tr><td>$(-2,\,3)$</td><td class="pos">+</td><td class="neg">−</td><td class="neg">−</td></tr>
+                <tr><td>$(3,\,+\infty)$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td></tr>
+              </tbody>
+            </table>
+            <p>$\geq 0$ → $(-\infty, -2] \cup (3, +\infty)$. $x=-2$ included (quotient $= 0$); $x=3$ excluded (denominator $= 0$).</p>
+            <div class="final">$\operatorname{Dom} f_{14} = (-\infty,\,-2] \cup (3,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- o -->
+        <div class="exercise" id="ex-1o">
+          <div class="exercise-head"><span class="num">1o</span></div>
+          <div class="exercise-statement"><p>$f_{15}(x) = \sqrt{\dfrac{2x+4}{x^{2}-4}}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We need $\dfrac{2x+4}{x^{2}-4} \geq 0$ and $x^{2}-4 \neq 0$ (that is $x \neq \pm 2$). We factor: $\dfrac{2(x+2)}{(x-2)(x+2)}$.</p>
+            <p>For $x \neq -2$ we can simplify to $\dfrac{2}{x-2}$. For $x = -2$ the function is <strong>not defined</strong> (denominator zero, even though the numerator is too).</p>
+            <p>So, for $x \neq \pm 2$, we need $\dfrac{2}{x-2} \geq 0 \Leftrightarrow x - 2 > 0 \Leftrightarrow x > 2$.</p>
+            <div class="final">$\operatorname{Dom} f_{15} = (2,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- p -->
+        <div class="exercise" id="ex-1p">
+          <div class="exercise-head"><span class="num">1p</span></div>
+          <div class="exercise-statement"><p>$f_{16}(x) = \sqrt{\,-\dfrac{x-4}{3x-9}\,}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We need $-\dfrac{x-4}{3x-9} \geq 0$, that is $\dfrac{x-4}{3(x-3)} \leq 0$, and $x \neq 3$.</p>
+            <p>Roots: $x = 4$ (numerator), $x = 3$ (denominator, hole). Signs of $\dfrac{x-4}{x-3}$:</p>
+            <table class="signs-table">
+              <thead><tr><th>Interval</th><th>$x-4$</th><th>$x-3$</th><th>quotient</th></tr></thead>
+              <tbody>
+                <tr><td>$(-\infty,\,3)$</td><td class="neg">−</td><td class="neg">−</td><td class="pos">+</td></tr>
+                <tr><td>$(3,\,4)$</td><td class="neg">−</td><td class="pos">+</td><td class="neg">−</td></tr>
+                <tr><td>$(4,\,+\infty)$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td></tr>
+              </tbody>
+            </table>
+            <p>We want $\leq 0$ → $(3, 4]$. ($x=3$ excluded by the denominator, $x=4$ included because the quotient is $0$ and the root is $\sqrt{0} = 0$.)</p>
+            <div class="final">$\operatorname{Dom} f_{16} = (3,\,4]$.</div>
+          </div></details>
+        </div>
+
+        <!-- q -->
+        <div class="exercise" id="ex-1q">
+          <div class="exercise-head"><span class="num">1q</span></div>
+          <div class="exercise-statement"><p>$f_{17}(x) = \ln(x^{2}+4)$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We need $x^{2}+4 > 0$. But $x^{2} \geq 0$ always, so $x^{2}+4 \geq 4 > 0$ for all $x$.</p>
+            <div class="final">$\operatorname{Dom} f_{17} = \mathbb{R}$.</div>
+          </div></details>
+        </div>
+
+        <!-- r -->
+        <div class="exercise" id="ex-1r">
+          <div class="exercise-head"><span class="num">1r</span></div>
+          <div class="exercise-statement"><p>$f_{18}(x) = \sqrt{x^{2}-4}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We need $x^{2}-4 \geq 0$, that is $x^{2} \geq 4$, that is $|x| \geq 2$.</p>
+            <div class="final">$\operatorname{Dom} f_{18} = (-\infty,\,-2] \cup [2,\,+\infty)$.</div>
+          </div></details>
+        </div>
+
+        <!-- s -->
+        <div class="exercise" id="ex-1s">
+          <div class="exercise-head"><span class="num">1s</span></div>
+          <div class="exercise-statement"><p>$f_{19}(x) = \begin{cases} \dfrac{1}{x-4} & x > 5 \\[0.4em] \ln(-3x+20) & x < 5 \end{cases}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>We study each branch on its interval:</p>
+            <p><strong>·</strong> For $x > 5$: $x - 4 > 1 > 0$, already $\neq 0$. The whole piece is valid: $(5, +\infty)$.</p>
+            <p><strong>·</strong> For $x < 5$: we need $-3x + 20 > 0 \Rightarrow x < \tfrac{20}{3} \approx 6.67$. Since $x < 5 < \tfrac{20}{3}$, the whole piece is valid: $(-\infty, 5)$.</p>
+            <p><strong>·</strong> At $x = 5$: no branch covers it (both are strict).</p>
+            <div class="final">$\operatorname{Dom} f_{19} = \mathbb{R} \setminus \{5\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- t -->
+        <div class="exercise" id="ex-1t">
+          <div class="exercise-head"><span class="num">1t</span></div>
+          <div class="exercise-statement"><p>$f_{20}(x) = \begin{cases} \sqrt{x+1} & x > 0 \\[0.4em] e^{-x} & x < 0 \end{cases}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p><strong>·</strong> For $x > 0$: $x + 1 > 1 > 0$ — the root is always defined. The whole piece is valid: $(0, +\infty)$.</p>
+            <p><strong>·</strong> For $x < 0$: the exponential $e^{-x}$ is always defined. The whole piece is valid: $(-\infty, 0)$.</p>
+            <p><strong>·</strong> At $x = 0$: no branch covers it.</p>
+            <div class="final">$\operatorname{Dom} f_{20} = \mathbb{R} \setminus \{0\}$.</div>
+          </div></details>
+        </div>
+
+        <!-- u -->
+        <div class="exercise" id="ex-1u">
+          <div class="exercise-head"><span class="num">1u</span></div>
+          <div class="exercise-statement"><p>$f_{21}(x) = \begin{cases} \dfrac{x^{2}-1}{x^{2}-4} & x < -1 \\[0.5em] \sqrt{3x+3} & -1 \leq x < 2 \\[0.4em] \ln(3-x) & 2 \leq x \end{cases}$</p></div>
+          <details><summary>Show solution</summary><div class="solution">
+            <p>Three branches:</p>
+            <p><strong>·</strong> For $x < -1$ (1st branch): we need $x^{2}-4 \neq 0 \Rightarrow x \neq \pm 2$. Within $(-\infty, -1)$ this only removes $x = -2$. Valid: $(-\infty, -2) \cup (-2, -1)$.</p>
+            <p><strong>·</strong> For $-1 \leq x < 2$ (2nd branch): we need $3x+3 \geq 0 \Rightarrow x \geq -1$. It holds for the whole interval. Valid: $[-1, 2)$.</p>
+            <p><strong>·</strong> For $2 \leq x$ (3rd branch): we need $3 - x > 0 \Rightarrow x < 3$. Combining with $x \geq 2$: valid $[2, 3)$.</p>
+            <p>Union: $(-\infty, -2) \cup (-2, -1) \cup [-1, 2) \cup [2, 3) = (-\infty, -2) \cup (-2, 3)$.</p>
+            <div class="final">$\operatorname{Dom} f_{21} = (-\infty,\,-2) \cup (-2,\,3)$.</div>
+          </div></details>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/ccss-1btl/apuntes/u-funcions-reals/">Unit index</a>
+        <a class="next" href="/en/aula/ccss-1btl/apuntes/u-funcions-reals/02-imatges-antiimatges.html">02 · Images and preimages &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
