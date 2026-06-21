@@ -72,7 +72,7 @@ def sortkey(e):
 
 
 def chip(facet, canon, label, extra=""):
-    return (f'<button class="bib-chip{extra}" data-facet="{facet}" '
+    return (f'<button class="flt-chip{extra}" data-facet="{facet}" '
             f'data-val="{slug(canon)}">{label}</button>')
 
 
@@ -94,21 +94,21 @@ def build_filters(entries, t):
         ("imp", [chip("imp", i, t["impv"][i]) for i in ["alta", "media", "baja"] if i in imps]),
         ("msc", [chip("msc", m, m) for m in sorted(mscs)]),
     ]
-    concepts = [f'<span class="bib-flabel">{t["filtrar"]}</span>']
+    concepts = [f'<span class="flt-label">{t["filtrar"]}</span>']
     for gid, _ in groups:
         concepts.append(
-            f'<button class="bib-concept" data-group="{gid}" aria-expanded="false">'
-            f'{t["grp"][gid]}<span class="bib-cbadge" hidden></span></button>')
-    concepts.append(f'<button class="bib-concept bib-chip-all bib-active" '
-                    f'data-facet="all" data-val="all">{t["todas"]}</button>')
-    gblocks = [f'<div class="bib-fgroup" data-group="{gid}" hidden>'
-               f'<div class="bib-fchips">{"".join(ch)}</div></div>' for gid, ch in groups]
+            f'<button class="flt-concept" data-group="{gid}" aria-expanded="false">'
+            f'{t["grp"][gid]}<span class="flt-badge" hidden></span></button>')
+    concepts.append(f'<button class="flt-all is-active" data-val="all">{t["todas"]}</button>')
+    gblocks = [f'<div class="flt-group" data-group="{gid}" hidden>'
+               f'<div class="flt-chips">{"".join(ch)}</div></div>' for gid, ch in groups]
     one, many, filt = t["count"]
-    return ('<div class="bib-filters">\n'
-            f'<div class="bib-concepts">{"".join(concepts)}</div>\n'
-            f'<div class="bib-groups">{"".join(gblocks)}</div>\n'
-            f'<p class="bib-count" id="bibCount" data-one="{one}" data-many="{many}" '
-            f'data-filt="{filt}"></p>\n</div>')
+    return ('<div class="flt" data-items=".flt-item" data-count="bibCount">\n'
+            f'<div class="flt-concepts">{"".join(concepts)}</div>\n'
+            f'<div class="flt-groups">{"".join(gblocks)}</div>\n'
+            f'</div>\n'
+            f'<p class="flt-count" id="bibCount" data-one="{one}" data-many="{many}" '
+            f'data-filt="{filt}"></p>')
 
 
 def build_list(entries, t):
@@ -125,7 +125,7 @@ def build_list(entries, t):
         link = (f' <a class="bib-link" href="{e["url"]}" target="_blank" rel="noopener">{t["enlace"]}</a>'
                 if e["url"] else "")
         rows.append(
-            f'<li class="bib-item" data-tipo="{slug(e["tipo"])}" data-area="{areas_slug}" '
+            f'<li class="bib-item flt-item" data-tipo="{slug(e["tipo"])}" data-area="{areas_slug}" '
             f'data-msc="{slug(e["msc"])}" data-dif="{e["dif"]}" data-acceso="{e["acceso"]}" '
             f'data-imp="{e["imp"]}">'
             f'<span class="bibnum">[{n}]</span>'

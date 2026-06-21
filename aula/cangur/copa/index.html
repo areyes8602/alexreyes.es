@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="/style.css?v=202606162226">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/css/filters.css?v=202606162226">
 <link rel="canonical" href="https://alexreyes.es/aula/cangur/copa/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/copa/">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/cangur/copa/">
@@ -26,9 +27,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow">
 <style>
-  .filter-bar { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem; }
-  .filter-btn { padding:0.35rem 0.85rem; border:1px solid var(--border); border-radius:999px; background:var(--bg-subtle); color:var(--text-soft); font-size:0.82rem; cursor:pointer; transition:all 0.15s; }
-  .filter-btn:hover, .filter-btn.active { border-color:var(--accent); background:var(--accent); color:#fff; }
   .exam-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem; }
   .exam-card { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem 1.25rem; text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; display:flex; flex-direction:column; gap:0.5rem; }
   .exam-card:hover { border-color:var(--border-strong); transform:translateY(-2px); }
@@ -102,15 +100,22 @@
       💡 <strong>Cómo usarlo:</strong> cada prueba se abre con todos los problemas resueltos paso a paso. Puedes filtrar por categoría.
     </div>
 
-    <div class="filter-bar" id="filter-bar" style="display:none">
-      <button class="filter-btn active" data-cat="all" onclick="filterCat(this,'all')">Todas</button>
-      <button class="filter-btn" data-cat="benjami" onclick="filterCat(this,'benjami')">Benjamí</button>
-      <button class="filter-btn" data-cat="cadet" onclick="filterCat(this,'cadet')">Cadet</button>
-      <button class="filter-btn" data-cat="junior" onclick="filterCat(this,'junior')">Júnior</button>
+    <div class="flt flt-inline" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
+      <span class="flt-label">Filtrar</span>
+      <button class="flt-all is-active" data-val="all">Todas</button>
+      <div class="flt-chips">
+        <button class="flt-chip" data-facet="cat" data-val="benjami">Benjamí</button>
+        <button class="flt-chip" data-facet="cat" data-val="cadet">Cadet</button>
+        <button class="flt-chip" data-facet="cat" data-val="junior">Júnior</button>
+      </div>
     </div>
 
     <div id="exams-container">
       <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Cargando…</p>
+    </div>
+    <div id="no-results" class="empty-state" style="display:none">
+      <h3>No hay pruebas de esta categoría</h3>
+      <p>Prueba con otra categoría o pulsa «Todas».</p>
     </div>
 
   </div>
@@ -131,13 +136,13 @@ function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-the
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
 let allExams = [];
-let activeCat = 'all';
 let collapsedYears = {};
 try { collapsedYears = JSON.parse(localStorage.getItem('copaCollapsedYears') || '{}'); } catch(e) {}
 function toggleYear(y){
   if (collapsedYears[y]) delete collapsedYears[y]; else collapsedYears[y] = true;
   localStorage.setItem('copaCollapsedYears', JSON.stringify(collapsedYears));
-  render();
+  var sec = document.querySelector('.year-section[data-year="'+y+'"]');
+  if (sec) sec.classList.toggle('collapsed');
 }
 
 function catOf(col){
@@ -153,18 +158,17 @@ function catLabel(c){
 
 function render(){
   const cont = document.getElementById('exams-container');
-  const filtered = activeCat === 'all' ? allExams : allExams.filter(e => e.cat === activeCat);
 
-  if(filtered.length === 0){
+  if(allExams.length === 0){
     cont.innerHTML = `<div class="empty-state">
-      <h3>Todavía no hay pruebas publicadas${activeCat !== 'all' ? ' de esta categoría' : ''}</h3>
+      <h3>Todavía no hay pruebas publicadas</h3>
       <p>Iré subiendo las pruebas de la Copa Cangur progresivamente, resueltas y comentadas.</p>
     </div>`;
     return;
   }
 
   const byYear = {};
-  filtered.forEach(e => {
+  allExams.forEach(e => {
     const y = e.year || '—';
     if(!byYear[y]) byYear[y] = [];
     byYear[y].push(e);
@@ -176,7 +180,7 @@ function render(){
       <h2 class="year-section-title" onclick="toggleYear('${esc(year)}')">📅 ${esc(year)}<span class="year-caret">▾</span></h2>
       <div class="exam-grid">
         ${byYear[year].map(e => `
-        <a href="${esc(e.url_index)}" class="exam-card">
+        <a href="${esc(e.url_index)}" class="exam-card flt-item" data-cat="${esc(e.cat)}">
           <div class="exam-card-head">
             <span class="exam-card-year">${esc(e.year)}</span>
             <span class="exam-card-conv">${esc(catLabel(e.cat))}</span>
@@ -191,12 +195,15 @@ function render(){
     </div>`).join('');
 }
 
-function filterCat(btn, cat){
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeCat = cat;
-  render();
-}
+var fltRoot = document.getElementById('filter-bar');
+if (fltRoot) fltRoot.addEventListener('flt:change', function(ev){
+  document.querySelectorAll('.year-section').forEach(function(sec){
+    var vis = sec.querySelectorAll('.exam-card:not(.flt-hidden)').length;
+    sec.style.display = vis ? '' : 'none';
+  });
+  var nr = document.getElementById('no-results');
+  if (nr) nr.style.display = (ev.detail.shown === 0 && allExams.length) ? '' : 'none';
+});
 
 fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
@@ -225,6 +232,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     document.getElementById('count-problems').textContent = nProb || '0';
     if(allExams.length) document.getElementById('filter-bar').style.display = '';
     render();
+    if (window.fltRefresh) window.fltRefresh();
   })
   .catch(err => {
     document.getElementById('exams-container').innerHTML =
@@ -232,6 +240,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     console.error('copa cangur:', err);
   });
 </script>
+<script defer src="/assets/js/filters.js?v=202606162226"></script>
 <script defer src="/assets/js/search.js?v=202606162226"></script>
 </body>
 </html>

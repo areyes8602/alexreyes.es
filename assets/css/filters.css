@@ -1,0 +1,93 @@
+/* ============================================================
+   Componente de filtro compartido — alexreyes.es
+   Lenguaje visual canónico (modelado sobre doctorado/bibliografia).
+   Dos modos con el MISMO estilo:
+     · faceteado  → .flt            (conceptos que despliegan grupos)
+     · inline     → .flt.flt-inline (una fila de chips, sin desplegar)
+   Color de acento por contenedor con --flt-accent (def. lila doctorado).
+   Convención de color (AGENTS.md): verde #10b981 = docencia,
+   lila #6366f1 = doctorado. Dificultad: verde/ámbar/rojo.
+   ============================================================ */
+
+.flt{
+  margin:1.6rem 0 1.8rem;padding:1rem 1.1rem;
+  background:var(--bg-subtle);border:1px solid var(--border);border-radius:10px;
+  --flt-accent:#6366f1;
+}
+
+/* fila de conceptos / cabecera */
+.flt-concepts{display:flex;flex-wrap:wrap;align-items:center;gap:0.4rem}
+.flt-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;
+  font-weight:600;color:var(--text-faint);margin-right:0.3rem}
+
+/* botón de concepto (modo faceteado) */
+.flt-concept{font-size:0.82rem;font-weight:500;padding:0.28rem 0.8rem;border-radius:8px;
+  border:1px solid var(--border-strong);background:var(--bg);color:var(--text);
+  cursor:pointer;transition:all .12s;display:inline-flex;align-items:center;gap:0.4rem}
+.flt-concept:hover{border-color:var(--text-faint)}
+.flt-concept.open{background:var(--bg-hover);border-color:var(--text-faint)}
+.flt-concept.has-filter{border-color:var(--flt-accent);color:var(--flt-accent)}
+.flt-concept::after{content:'▾';font-size:0.6rem;color:var(--text-faint);transition:transform .15s}
+.flt-concept.open::after{transform:rotate(180deg)}
+
+/* contador por concepto */
+.flt-badge{font-size:0.66rem;font-weight:600;background:var(--flt-accent);color:#fff;
+  border-radius:999px;padding:0 0.38rem;min-width:1.1rem;text-align:center}
+
+/* botón "Todas/Totes/All" (reset) */
+.flt-all{font-weight:600;margin-left:auto;
+  font-size:0.82rem;padding:0.28rem 0.8rem;border-radius:8px;
+  border:1px solid var(--border-strong);background:var(--bg);color:var(--text);
+  cursor:pointer;transition:all .12s}
+.flt-all:hover{border-color:var(--text-faint)}
+.flt-all.is-active{background:var(--flt-accent);border-color:var(--flt-accent);color:#fff}
+
+/* grupo desplegable de chips */
+.flt-group{margin-top:0.75rem;padding-top:0.75rem;border-top:1px dashed var(--border)}
+.flt-group[hidden]{display:none}
+.flt-chips{display:flex;flex-wrap:wrap;gap:0.35rem}
+
+/* chip de valor */
+.flt-chip{font-size:0.8rem;font-weight:500;padding:0.2rem 0.7rem;border-radius:999px;
+  border:1px solid var(--border-strong);background:var(--bg);color:var(--text-soft);
+  cursor:pointer;transition:all .12s}
+.flt-chip:hover{border-color:var(--text-faint);color:var(--text)}
+.flt-chip.is-active{background:var(--flt-accent);border-color:var(--flt-accent);color:#fff}
+
+/* dificultad: semántica de color compartida con .dif-* del sitio */
+.flt-chip.dif-facil.is-active{background:#10b981;border-color:#10b981}
+.flt-chip.dif-media.is-active{background:#d97706;border-color:#d97706}
+.flt-chip.dif-dificil.is-active{background:#ef4444;border-color:#ef4444}
+
+/* paleta opcional por chip (etiquetas temáticas con color propio) */
+.flt-chip.c-green.is-active{background:#10b981;border-color:#10b981}
+.flt-chip.c-purple.is-active{background:#6366f1;border-color:#6366f1}
+.flt-chip.c-blue.is-active{background:#3b82f6;border-color:#3b82f6}
+.flt-chip.c-amber.is-active{background:#d97706;border-color:#d97706}
+.flt-chip.c-pink.is-active{background:#ec4899;border-color:#ec4899}
+.flt-chip.c-teal.is-active{background:#14b8a6;border-color:#14b8a6}
+.flt-chip.c-red.is-active{background:#ef4444;border-color:#ef4444}
+.flt-chip.c-slate.is-active{background:#64748b;border-color:#64748b}
+/* punto de color en reposo, para que el chip "tenga color" sin estar activo */
+.flt-chip[class*="c-"]::before{content:'';display:inline-block;width:7px;height:7px;
+  border-radius:50%;margin-right:0.4rem;vertical-align:middle;background:var(--flt-dot,currentColor);opacity:.85}
+.flt-chip.c-green::before{--flt-dot:#10b981}
+.flt-chip.c-purple::before{--flt-dot:#6366f1}
+.flt-chip.c-blue::before{--flt-dot:#3b82f6}
+.flt-chip.c-amber::before{--flt-dot:#d97706}
+.flt-chip.c-pink::before{--flt-dot:#ec4899}
+.flt-chip.c-teal::before{--flt-dot:#14b8a6}
+.flt-chip.c-red::before{--flt-dot:#ef4444}
+.flt-chip.c-slate::before{--flt-dot:#64748b}
+.flt-chip.is-active[class*="c-"]::before{background:#fff;--flt-dot:#fff;opacity:.9}
+
+/* ---- modo inline: chips visibles, sin conceptos ni desplegable ---- */
+.flt-inline{display:flex;align-items:center;flex-wrap:wrap;gap:0.5rem}
+.flt-inline .flt-group{margin-top:0;padding-top:0;border-top:none}
+.flt-inline .flt-all{margin-left:0}
+
+/* contador de resultados */
+.flt-count{font-size:0.8rem;color:var(--text-faint);margin:0.9rem 0 0}
+
+/* ocultar ítem filtrado (genérico, reutilizable por cualquier hub) */
+.flt-hidden{display:none !important}

@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="/style.css?v=202606162226">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/css/filters.css?v=202606162226">
 <style>
   .temes-cta { display:flex; align-items:center; gap:1rem; margin:1.5rem 0 0.5rem; padding:1.1rem 1.3rem; border:1px solid var(--accent); border-radius:var(--radius); background:linear-gradient(135deg, rgba(59,130,246,0.10), rgba(139,92,246,0.10)); text-decoration:none; color:inherit; transition:box-shadow 0.15s, transform 0.15s; }
   .temes-cta:hover { box-shadow:0 6px 22px rgba(59,130,246,0.18); transform:translateY(-1px); }
@@ -35,9 +36,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow">
 <style>
-  .filter-bar { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem; }
-  .filter-btn { padding:0.35rem 0.85rem; border:1px solid var(--border); border-radius:999px; background:var(--bg-subtle); color:var(--text-soft); font-size:0.82rem; cursor:pointer; transition:all 0.15s; }
-  .filter-btn:hover, .filter-btn.active { border-color:var(--accent); background:var(--accent); color:#fff; }
   .exam-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem; }
   .exam-card { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem 1.25rem; text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; display:flex; flex-direction:column; gap:0.5rem; }
   .exam-card:hover { border-color:var(--border-strong); transform:translateY(-2px); }
@@ -116,19 +114,31 @@
       💡 <strong>How to use it:</strong> Each exam opens with every problem solved step by step. You can filter by subject, year or session.
     </div>
 
-    <div class="filter-bar" id="filter-mat" style="display:none">
-      <button class="filter-btn active" onclick="filterMat(this,'all')">All subjects</button>
-      <button class="filter-btn" onclick="filterMat(this,'ccss-2btl')">Applied CCSS</button>
-      <button class="filter-btn" onclick="filterMat(this,'cient-2btl')">Mathematics</button>
-    </div>
-    <div class="filter-bar" id="filter-bar" style="display:none">
-      <button class="filter-btn active" onclick="filterConv(this,'all')">All sessions</button>
-      <button class="filter-btn" onclick="filterConv(this,'juny')">June</button>
-      <button class="filter-btn" onclick="filterConv(this,'setembre')">September</button>
+    <div class="flt" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
+      <div class="flt-concepts">
+        <span class="flt-label">Filter by</span>
+        <button class="flt-concept" data-group="materia" aria-expanded="false">Subject<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="conv" aria-expanded="false">Session<span class="flt-badge" hidden></span></button>
+        <button class="flt-all is-active" data-val="all">All</button>
+      </div>
+      <div class="flt-groups">
+        <div class="flt-group" data-group="materia" hidden><div class="flt-chips">
+          <button class="flt-chip" data-facet="materia" data-val="cient-2btl">Mathematics</button>
+          <button class="flt-chip" data-facet="materia" data-val="ccss-2btl">Applied CCSS</button>
+        </div></div>
+        <div class="flt-group" data-group="conv" hidden><div class="flt-chips">
+          <button class="flt-chip" data-facet="conv" data-val="juny">June</button>
+          <button class="flt-chip" data-facet="conv" data-val="setembre">September</button>
+        </div></div>
+      </div>
     </div>
 
     <div id="exams-container">
       <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Loading…</p>
+    </div>
+    <div id="no-results" class="empty-state" style="display:none">
+      <h3>No exams match this filter</h3>
+      <p>Try another subject or session, or click “All”.</p>
     </div>
 
   </div>
@@ -149,8 +159,6 @@ function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-the
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
 let allExams = [];
-let activeConv = 'all';
-let activeMat = 'all';
 function matLabel(m){return m==='cient-2btl'?'Mathematics':m==='ccss-2btl'?'Applied CCSS':'';}
 
 function convLabel(conv){
@@ -166,11 +174,10 @@ function buildChips(tags){
 
 function render(){
   const cont = document.getElementById('exams-container');
-  const filtered = allExams.filter(e => (activeConv==='all'||(e.convocatoria||'')===activeConv) && (activeMat==='all'||e.materia===activeMat));
 
-  if(filtered.length === 0){
+  if(allExams.length === 0){
     cont.innerHTML = `<div class="empty-state">
-      <h3>No exams published yet${activeConv !== 'all' ? ' for this session' : ''}</h3>
+      <h3>No exams published yet</h3>
       <p>I will be adding the PAU exams gradually, solved and explained.</p>
     </div>`;
     return;
@@ -178,7 +185,7 @@ function render(){
 
   // Group by year
   const byYear = {};
-  filtered.forEach(e => {
+  allExams.forEach(e => {
     const y = e.year || e.fecha?.split('-')[0] || '—';
     if(!byYear[y]) byYear[y] = [];
     byYear[y].push(e);
@@ -190,7 +197,7 @@ function render(){
       <h2 class="year-section-title">📅 ${esc(year)}</h2>
       <div class="exam-grid">
         ${byYear[year].map(e => `
-        <a href="/en${esc(e.url_index)}" class="exam-card">
+        <a href="/en${esc(e.url_index)}" class="exam-card flt-item" data-materia="${esc(e.materia)}" data-conv="${esc(e.convocatoria)}">
           <div class="exam-card-head">
             <span class="exam-card-year">${esc(e.year || year)}</span>
             <span class="exam-card-conv">${esc(convLabel(e.convocatoria))}</span>
@@ -205,18 +212,15 @@ function render(){
     </div>`).join('');
 }
 
-function filterConv(btn, conv){
-  document.querySelectorAll('#filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeConv = conv;
-  render();
-}
-function filterMat(btn, mat){
-  document.querySelectorAll('#filter-mat .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeMat = mat;
-  render();
-}
+var fltRoot = document.getElementById('filter-bar');
+if (fltRoot) fltRoot.addEventListener('flt:change', function(ev){
+  document.querySelectorAll('.year-section').forEach(function(sec){
+    var vis = sec.querySelectorAll('.exam-card:not(.flt-hidden)').length;
+    sec.style.display = vis ? '' : 'none';
+  });
+  var nr = document.getElementById('no-results');
+  if (nr) nr.style.display = (ev.detail.active > 0 && ev.detail.shown === 0) ? '' : 'none';
+});
 
 // Load from ejercicios-index.json
 fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
@@ -253,12 +257,12 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     document.getElementById('count-exams').textContent = allExams.length || '0';
     document.getElementById('count-problems').textContent = allExams.reduce((s,e)=>s+e.ejercicios_count,0) || '0';
 
-    if(allExams.length > 0){
-      document.getElementById('filter-bar').style.display = 'flex';
-      document.getElementById('filter-mat').style.display = 'flex';
-    }
-
     render();
+
+    if(allExams.length > 0){
+      document.getElementById('filter-bar').style.display = '';
+    }
+    if (window.fltRefresh) window.fltRefresh();
   })
   .catch(() => {
     document.getElementById('count-exams').textContent = '0';
@@ -269,6 +273,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     </div>`;
   });
 </script>
+<script defer src="/assets/js/filters.js?v=202606162226"></script>
 <script defer src="/assets/js/search.js?v=202606162226"></script>
 </body>
 </html>
