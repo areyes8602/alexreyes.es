@@ -205,7 +205,21 @@ def render_pn(col, ej, code, n_total):
         chips += f'<span class="ib-chip">{esc(lab)}</span>'
     prev_l = f'<a href="p{n-1}.html" class="exam-nav-btn">← {t["prev"]}</a>' if n > 1 else f'<span class="exam-nav-btn is-off">← {t["prev"]}</span>'
     next_l = f'<a href="p{n+1}.html" class="exam-nav-btn">{t["next"]} →</a>' if n < n_total else f'<span class="exam-nav-btn is-off">{t["next"]} →</span>'
-    opts = "".join(f'<div class="pt-opt" style="cursor:default">{o}</div>' for o in ["A", "B", "C", "D", "E"])
+    cl = "en" if code == "en" else "ca"
+    fig = ej.get("figura")
+    fig_html = f'<img class="pt-q-img" src="{fig}" alt="" style="margin-top:0.6rem">' if fig else ""
+    if ej.get("opciones_tipo") == "imagen" and ej.get("opciones_img"):
+        cells = "".join(
+            f'<div class="pt-opt-img"><span class="pt-opt-lbl">{o}</span>' +
+            (f'<img src="{src}" alt="{o}">' if src else "") + "</div>"
+            for o, src in zip("ABCDE", ej["opciones_img"]))
+        opts_html = f'<div class="pt-opts-img" style="margin:0.6rem 0 1rem">{cells}</div>'
+    else:
+        texts = (ej.get("opciones") or {}).get(cl) or (ej.get("opciones") or {}).get("ca") or ["", "", "", "", ""]
+        cells = "".join(
+            f'<div class="pt-opt pt-opt-txt" style="cursor:default"><span class="pt-opt-lbl">{o}</span> {esc(tx)}</div>'
+            for o, tx in zip("ABCDE", texts))
+        opts_html = f'<div class="pt-opts" style="margin:0.6rem 0 1rem">{cells}</div>'
     examname = title_for(col, code).split("·")[-1].strip()
     navrow = f'''<div class="exam-nav" style="display:flex;justify-content:space-between;align-items:center;gap:0.6rem;margin:{{m}}">
       {prev_l}<a href="{pfx}{uip}" class="exam-nav-btn">{t["index"]} · {n}/{n_total}</a>{next_l}
@@ -220,8 +234,8 @@ def render_pn(col, ej, code, n_total):
     <h1 style="font-size:1.5rem;margin:0.2rem 0 0.8rem">{esc(title)}</h1>
     <div class="ib-chips" style="margin-bottom:1rem">{chips}</div>
     <p style="font-size:0.98rem;line-height:1.7;color:var(--text)">{esc(enun)}</p>
-    <img class="pt-q-img" src="{ej["imagen"]}" alt="{t['pregunta']} {n}" style="margin-top:0.6rem">
-    <div class="pt-opts" style="margin:0.4rem 0 1rem">{opts}</div>
+    {fig_html}
+    {opts_html}
     <button class="solution-toggle" onclick="var s=document.getElementById('sol');s.hidden=!s.hidden;this.setAttribute('aria-expanded',!s.hidden);">{t["show"]}</button>
     <section class="solution" id="sol" hidden style="margin-top:1rem">
       <p style="font-size:1.05rem"><strong>{t["correct"]}:</strong> <span class="pt-opt ok sel" style="cursor:default">{sol}</span></p>

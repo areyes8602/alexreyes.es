@@ -34,6 +34,21 @@
   };
   var L = T[I18N] || T.ca;
   var OPTS = ["A", "B", "C", "D", "E"];
+  var CL = (I18N === "en") ? "en" : "ca";   // idioma del CONTENIDO (enunciado y opciones)
+
+  function mapEj(e, col) {
+    var ap = (e.apartados && e.apartados[0]) || {};
+    return {
+      numero: e.numero, puntuacion: e.puntuacion, solucion: e.solucion,
+      titulo: (CL === "en" ? (e.titulo_en || e.titulo) : e.titulo),
+      enunciado: (CL === "en" ? (ap.tarea_en || ap.tarea) : ap.tarea),
+      figura: e.figura || null,
+      optkind: e.opciones_tipo || "texto",
+      opcimg: e.opciones_img || null,
+      opctxt: (e.opciones ? (CL === "en" ? e.opciones.en : e.opciones.ca) : null),
+      imagen: e.imagen, src: (col && col.titulo) || ""
+    };
+  }
 
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); }
@@ -122,9 +137,7 @@
     var self = this;
     this.root.innerHTML = '<p class="pt-faint">' + L.loading + "</p>";
     fetch("/assets/data/ejercicios/" + id + ".json").then(function (r) { return r.json(); }).then(function (col) {
-      var qs = col.ejercicios.map(function (e) {
-        return { numero: e.numero, puntuacion: e.puntuacion, imagen: e.imagen, solucion: e.solucion, titulo: e.titulo, src: col.titulo };
-      });
+      var qs = col.ejercicios.map(function (e) { return mapEj(e, col); });
       self.begin({ titulo: col.titulo, tiempo: (col.prova_cangur && col.prova_cangur.tiempo_min) || 75 }, qs);
     });
   };
@@ -144,9 +157,7 @@
     })).then(function (cols) {
       var pool = [];
       cols.forEach(function (col) {
-        col.ejercicios.forEach(function (e) {
-          pool.push({ numero: e.numero, puntuacion: e.puntuacion, imagen: e.imagen, solucion: e.solucion, titulo: e.titulo, src: col.titulo });
-        });
+        col.ejercicios.forEach(function (e) { pool.push(mapEj(e, col)); });
       });
       for (var i = pool.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
       var qs = pool.slice(0, 30);
@@ -195,11 +206,22 @@
       head.appendChild(el("span", "pt-q-num", L.q + " " + q.numero));
       head.appendChild(el("span", "pt-q-pts", q.puntuacion + " " + L.pts));
       box.appendChild(head);
-      var img = el("img", "pt-q-img"); img.loading = "lazy"; img.alt = L.q + " " + q.numero; img.src = q.imagen;
-      box.appendChild(img);
-      var opts = el("div", "pt-opts");
-      OPTS.forEach(function (o) {
-        var b = el("button", "pt-opt", o); b.dataset.o = o;
+      if (q.enunciado) box.appendChild(el("p", "pt-q-text", esc(q.enunciado)));
+      if (q.figura) { var img = el("img", "pt-q-img"); img.loading = "lazy"; img.alt = ""; img.src = q.figura; box.appendChild(img); }
+      else if (!q.enunciado && q.imagen) { var im2 = el("img", "pt-q-img"); im2.loading = "lazy"; im2.alt = L.q + " " + q.numero; im2.src = q.imagen; box.appendChild(im2); }
+      var imgOpts = (q.optkind === "imagen" && q.opcimg);
+      var opts = el("div", imgOpts ? "pt-opts-img" : "pt-opts");
+      OPTS.forEach(function (o, idx) {
+        var b;
+        if (imgOpts) {
+          b = el("button", "pt-opt-img"); b.dataset.o = o;
+          var src = q.opcimg[idx];
+          b.innerHTML = '<span class="pt-opt-lbl">' + o + '</span>' + (src ? '<img loading="lazy" alt="' + o + '" src="' + esc(src) + '">' : "");
+        } else {
+          var txt = (q.opctxt && q.opctxt[idx]) ? q.opctxt[idx] : "";
+          b = el("button", "pt-opt" + (txt ? " pt-opt-txt" : "")); b.dataset.o = o;
+          b.innerHTML = '<span class="pt-opt-lbl">' + o + '</span>' + (txt ? " " + esc(txt) : "");
+        }
         b.addEventListener("click", function () { self.choose(q.numero, o, box); });
         opts.appendChild(b);
       });
@@ -223,7 +245,7 @@
   Engine.prototype.choose = function (n, o, box) {
     if (this.state.submitted) return;
     if (o === null) delete this.state.answers[n]; else this.state.answers[n] = o;
-    box.querySelectorAll(".pt-opt").forEach(function (b) { b.classList.toggle("sel", b.dataset.o === o); });
+    box.querySelectorAll("[data-o]").forEach(function (b) { b.classList.toggle("sel", b.dataset.o === o); });
     var done = Object.keys(this.state.answers).length;
     var d = this.root.querySelector("#pt-done"); if (d) d.textContent = done;
   };
@@ -259,7 +281,7 @@
       var n = +box.dataset.n;
       var q = s.questions.filter(function (x) { return x.numero === n; })[0];
       var a = s.answers[n];
-      box.querySelectorAll(".pt-opt").forEach(function (b) {
+      box.querySelectorAll("[data-o]").forEach(function (b) {
         b.disabled = true;
         if (b.dataset.o === q.solucion) b.classList.add("ok");
         if (a && b.dataset.o === a && a !== q.solucion) b.classList.add("bad");
