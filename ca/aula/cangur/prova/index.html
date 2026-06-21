@@ -7,10 +7,11 @@
 <meta name="description" content="La Prova Cangur de la SCM: competició individual de matemàtiques tipus test, de 5è de primària a 2n de batxillerat. Estructura, normes, puntuació oficial, enllaços i proves per practicar en línia.">
 <meta name="robots" content="index, follow">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
-<script src="/assets/js/lang-persist.js?v=202606212111"></script>
+<script src="/assets/js/lang-persist.js?v=202606212146"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css?v=202606212111">
+<link rel="stylesheet" href="/style.css?v=202606212146">
+<link rel="stylesheet" href="/assets/css/filters.css?v=202606212146">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/ca/aula/cangur/prova/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/cangur/prova/">
@@ -74,13 +75,23 @@
     <div style="margin-top:2.4rem">
       <h2 style="font-size:1.15rem;margin-bottom:0.4rem">Proves per curs</h2>
       <p style="color:var(--text-faint);font-size:0.86rem;margin-bottom:1rem">Aniré penjant les proves de cada curs, de 5è de primària a 2n de batxillerat, amb les respostes i classificades per tema.</p>
-      <ul class="item-list">
-        <li><a href="/aula/cangur/examenes/2526-cangur-prova-1eso-a/">1r ESO &mdash; 2026 · 19 de març</a><span class="tag tag-green">nou</span></li>
-        <li><a href="/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/">1r ESO &mdash; 2026 · 24 de març</a><span class="tag tag-green">nou</span></li>
-        <li><a href="/aula/cangur/examenes/2526-cangur-prova-2eso-a/">2n ESO &mdash; 2026 · 19 de març</a><span class="tag tag-green">nou</span></li>
-        <li><a href="/aula/cangur/examenes/2526-cangur-prova-2eso-dia24/">2n ESO &mdash; 2026 · 24 de març</a><span class="tag tag-green">nou</span></li>
-        <li><span>Resta de cursos (5è Prim. &ndash; 2n Batx.)</span><span class="tag tag-gray">pròximament</span></li>
-      </ul>
+      <div class="flt" id="prova-filter" data-items="#prova-exams .prova-exam" style="--flt-accent:#10b981">
+        <div class="flt-concepts">
+          <span class="flt-label">Filtrar per</span>
+          <button class="flt-concept" data-group="curs" aria-expanded="false">Curs<span class="flt-badge" hidden></span></button>
+          <button class="flt-concept" data-group="dia" aria-expanded="false">Dia<span class="flt-badge" hidden></span></button>
+          <button class="flt-concept" data-group="edicio" aria-expanded="false">Curs escolar<span class="flt-badge" hidden></span></button>
+          <button class="flt-all is-active" data-val="all">Totes</button>
+        </div>
+        <div class="flt-groups">
+          <div class="flt-group" data-group="curs" hidden><div class="flt-chips" id="pf-curs"></div></div>
+          <div class="flt-group" data-group="dia" hidden><div class="flt-chips" id="pf-dia"></div></div>
+          <div class="flt-group" data-group="edicio" hidden><div class="flt-chips" id="pf-edicio"></div></div>
+        </div>
+      </div>
+      <div id="prova-exams" style="display:flex;flex-direction:column;gap:0.55rem;margin-top:1rem"><p style="color:var(--text-faint);font-size:0.86rem">Carregant…</p></div>
+      <p id="prova-noresults" style="display:none;color:var(--text-faint);font-size:0.9rem">No hi ha proves amb aquest filtre.</p>
+      <style>.prova-exam{display:flex;align-items:center;gap:0.7rem;padding:0.8rem 1rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);text-decoration:none}.prova-exam:hover{border-color:#10b981}.prova-exam .pe-title{flex:1;font-weight:600;font-size:0.95rem}.prova-exam .pe-meta{font-size:0.8rem;color:var(--text-faint);white-space:nowrap}.prova-exam .pe-go{color:#10b981;font-weight:700}.prova-exam.flt-hidden{display:none}</style>
     </div>
     <div style="margin-top:2.4rem">
       <h2 style="font-size:1.15rem;margin-bottom:1rem">Recursos</h2>
@@ -105,6 +116,27 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
-<script defer src="/assets/js/search.js?v=202606212111"></script>
+<script defer src="/assets/js/filters.js?v=202606212146"></script>
+<script>
+(function(){
+  function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});}
+  var DIA={'19mar':'19 de mar\u00e7','24mar':'24 de mar\u00e7'};
+  var root=document.getElementById('prova-filter');
+  fetch('/assets/data/prova-cangur-index.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(m){
+    var curs={},dia={},ed={},rows='';
+    (m.courses||[]).forEach(function(c){(c.models||[]).forEach(function(mod){
+      var d=mod.modelo, dl=DIA[d]||mod.modelo, e=mod.curso_academico||'2025-2026';
+      curs[c.curso]=(c.label&&c.label.ca)||c.curso; dia[d]=dl; ed[e]=e;
+      rows+='<a class="prova-exam flt-item" href="/ca'+mod.url_index+'" data-curs="'+c.curso+'" data-dia="'+d+'" data-edicio="'+e+'"><span class="pe-title">'+esc(mod.titulo)+'</span><span class="pe-meta">'+(mod.num_preguntas||30)+' preguntes \u00b7 '+esc(mod.fecha||'')+'</span><span class="pe-go">\u2192</span></a>';
+    });});
+    document.getElementById('prova-exams').innerHTML=rows;
+    function chips(id,obj,facet){document.getElementById(id).innerHTML=Object.keys(obj).map(function(k){return '<button class="flt-chip" data-facet="'+facet+'" data-val="'+esc(k)+'">'+esc(obj[k])+'</button>';}).join('');}
+    chips('pf-curs',curs,'curs');chips('pf-dia',dia,'dia');chips('pf-edicio',ed,'edicio');
+    if(window.fltRefresh)window.fltRefresh();
+  });
+  if(root)root.addEventListener('flt:change',function(ev){var nr=document.getElementById('prova-noresults');if(nr)nr.style.display=(ev.detail.active>0&&ev.detail.shown===0)?'':'none';});
+})();
+</script>
+<script defer src="/assets/js/search.js?v=202606212146"></script>
 </body>
 </html>

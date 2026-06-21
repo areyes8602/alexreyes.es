@@ -47,6 +47,7 @@ def main():
             "num_preguntas": pc.get("num_preguntas", len(col.get("ejercicios", []))),
             "tiempo_min": pc.get("tiempo_min"),
             "puntuacion_total": col.get("puntuacion_total"),
+            "curso_academico": (col.get("tags_coleccion") or {}).get("curso_academico", "2025-2026"),
             "json": f"/assets/data/ejercicios/{col['id']}.json",
             "url_index": col.get("url_index"),
         })

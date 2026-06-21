@@ -59,6 +59,7 @@
           "num_preguntas": 30,
           "tiempo_min": 75,
           "puntuacion_total": 120,
+          "curso_academico": "2025-2026",
           "json": "/assets/data/ejercicios/2526-cangur-prova-1eso-a.json",
           "url_index": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/"
         },
@@ -70,6 +71,7 @@
           "num_preguntas": 30,
           "tiempo_min": 75,
           "puntuacion_total": 120,
+          "curso_academico": "2025-2026",
           "json": "/assets/data/ejercicios/2526-cangur-prova-1eso-dia24.json",
           "url_index": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/"
         }
@@ -91,6 +93,7 @@
           "num_preguntas": 30,
           "tiempo_min": 75,
           "puntuacion_total": 120,
+          "curso_academico": "2025-2026",
           "json": "/assets/data/ejercicios/2526-cangur-prova-2eso-a.json",
           "url_index": "/aula/cangur/examenes/2526-cangur-prova-2eso-a/"
         },
@@ -102,8 +105,43 @@
           "num_preguntas": 30,
           "tiempo_min": 75,
           "puntuacion_total": 120,
+          "curso_academico": "2025-2026",
           "json": "/assets/data/ejercicios/2526-cangur-prova-2eso-dia24.json",
           "url_index": "/aula/cangur/examenes/2526-cangur-prova-2eso-dia24/"
+        }
+      ]
+    },
+    {
+      "curso": "3eso",
+      "label": {
+        "es": "3º ESO",
+        "ca": "3r ESO",
+        "en": "Year 9 (3 ESO)"
+      },
+      "models": [
+        {
+          "id": "2526-cangur-prova-3eso-a",
+          "modelo": "19mar",
+          "titulo": "Prova Cangur 2026 — 3r ESO · 19 de març",
+          "fecha": "2026-03-19",
+          "num_preguntas": 30,
+          "tiempo_min": 75,
+          "puntuacion_total": 120,
+          "curso_academico": "2025-2026",
+          "json": "/assets/data/ejercicios/2526-cangur-prova-3eso-a.json",
+          "url_index": "/aula/cangur/examenes/2526-cangur-prova-3eso-a/"
+        },
+        {
+          "id": "2526-cangur-prova-3eso-dia24",
+          "modelo": "24mar",
+          "titulo": "Prova Cangur 2026 — 3r ESO · 24 de març",
+          "fecha": "2026-03-24",
+          "num_preguntas": 30,
+          "tiempo_min": 75,
+          "puntuacion_total": 120,
+          "curso_academico": "2025-2026",
+          "json": "/assets/data/ejercicios/2526-cangur-prova-3eso-dia24.json",
+          "url_index": "/aula/cangur/examenes/2526-cangur-prova-3eso-dia24/"
         }
       ]
     }
