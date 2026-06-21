@@ -3,8 +3,6 @@
   "id": "2526-cangur-prova-1eso-a",
   "tipo_coleccion": "examen",
   "titulo": "Prova Cangur 2026 — 1r ESO · 19 de març",
-  "titulo_en": "Cangur Test 2026 — Year 7 (1 ESO) · 19 March",
-  "titulo_ca": "Prova Cangur 2026 — 1r ESO · 19 de març",
   "fecha": "2026-03-19",
   "grupo": "Prova Cangur · 1r ESO",
   "promocion": null,
@@ -16,6 +14,8 @@
   "puntuacion_inicial": 30,
   "puntuacion_maxima": 150,
   "baremo": null,
+  "modo": "imagen",
+  "idioma_unico": "ca",
   "prova_cangur": {
     "curso": "1eso",
     "modelo": "19mar",
@@ -38,23 +38,16 @@
       "id": "2526-cangur-prova-1eso-a-p1",
       "numero": 1,
       "titulo": "Patró repetitiu de rajoles",
-      "titulo_en": "Repeating tile pattern",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p1.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q01.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q01-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "D",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "El terra d'un passadís està enrajolat amb cinc rajoles diferents col·locades amb un patró repetitiu. L'Eva fa una foto a un tros del terra. Quin és el patró repetitiu de les cinc rajoles?",
-          "tarea_en": "A corridor floor is tiled with five different tiles laid out in a repeating pattern. Eva takes a photo of a patch of the floor. What is the repeating pattern of the five tiles?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -70,37 +63,22 @@
           "ESO-vision-espacial",
           "ESO-patrones"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q01-optA.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q01-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q01-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q01-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q01-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p2",
       "numero": 2,
       "titulo": "Peces de fusta per al vaixell",
-      "titulo_en": "Wooden pieces for the boat",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p2.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q02.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q02-fig.png",
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "E",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "En Marc té peces de fusta de dues classes diferents. Tenint en compte que les pot girar, quantes peces necessita per a crear un vaixell amb la forma de la figura?",
-          "tarea_en": "Marc has wooden pieces of two different kinds. Allowing rotations, how many pieces does he need to build a boat with the shape shown?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -115,46 +93,22 @@
         "concepto_eso": [
           "ESO-vision-espacial"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "4",
-          "5",
-          "6",
-          "7",
-          "8"
-        ],
-        "en": [
-          "4",
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p3",
       "numero": 3,
       "titulo": "Habitacions de 3 i 4 persones",
-      "titulo_en": "Rooms for 3 and 4 people",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p3.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q03.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "Un grup de 20 persones arriba a un hotel amb 6 habitacions buides; a cada habitació hi poden dormir 3 o 4 persones. Si el grup ocupa completament totes les habitacions, en quantes dormiran 4 persones?",
-          "tarea_en": "A group of 20 people arrives at a hotel with 6 empty rooms; each room sleeps 3 or 4 people. If the group fills all the rooms completely, in how many rooms will 4 people sleep?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -169,46 +123,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
-        "en": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p4",
       "numero": 4,
       "titulo": "La polsera de la Júlia",
-      "titulo_en": "Júlia's bracelet",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p4.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q04.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "C",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "La polsera de la Júlia està feta amb sis complements de tres formes diferents. Té dos complements rodons seguits i no hi ha dos complements quadrats junts. Quina de les polseres pot ser la de la Júlia?",
-          "tarea_en": "Júlia's bracelet is made of six charms of three different shapes. It has two round charms in a row and no two square charms together. Which of the bracelets can be Júlia's?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -223,45 +153,29 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q04-optA.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q04-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q04-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q04-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q04-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p5",
       "numero": 5,
       "titulo": "Les cares del dau",
-      "titulo_en": "The faces of the die",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p5.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q05.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "A",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "Un dau té sis cares numerades de l'1 al 6 i la suma de cares oposades sempre és 7. Les tres cares al voltant d'un vèrtex sumen 14 punts. Quins són els nombres de les altres tres cares?",
-          "tarea_en": "A die has six faces numbered 1 to 6, with opposite faces always adding up to 7. The three faces around one vertex add up to 14. What are the numbers on the other three faces?"
+          "tarea": ""
         }
       ],
       "tags": {
         "materia": "cangur",
         "dificultad": "media",
         "habilidad": [
-          "razonamiento",
-          "visualizacion"
+          "razonamiento"
         ],
         "formato": [
           "opcion_multiple"
@@ -270,46 +184,22 @@
           "ESO-logica",
           "ESO-vision-espacial"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "1, 2 i 4",
-          "3, 5 i 6",
-          "2, 5 i 6",
-          "1, 2 i 6",
-          "2, 3 i 4"
-        ],
-        "en": [
-          "1, 2 and 4",
-          "3, 5 and 6",
-          "2, 5 and 6",
-          "1, 2 and 6",
-          "2, 3 and 4"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p6",
       "numero": 6,
       "titulo": "Eixos de simetria",
-      "titulo_en": "Axes of symmetry",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p6.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q06.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "D",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "Quina de les figures següents té més eixos de simetria?",
-          "tarea_en": "Which of the following figures has the most axes of symmetry?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -324,37 +214,22 @@
         "concepto_eso": [
           "ESO-figuras-planas"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q06-optA.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q06-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q06-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q06-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q06-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p7",
       "numero": 7,
       "titulo": "El full retallat i doblegat",
-      "titulo_en": "The cut and folded sheet",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p7.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q07.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q07-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "E",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "L'Eduard ha format una figura a partir d'un full quadrat amb una quadrícula, tallant per uns segments gruixuts i doblegant per uns altres de punts. Quin dels esquemes ha fet servir per a formar la figura?",
-          "tarea_en": "Eduard formed a figure from a square gridded sheet, cutting along some thick segments and folding along some dotted ones. Which of the schemes did he use to make the figure?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -369,37 +244,22 @@
         "concepto_eso": [
           "ESO-vision-espacial"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q07-optA.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q07-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q07-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q07-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q07-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p8",
       "numero": 8,
       "titulo": "Peces per a formar la flor",
-      "titulo_en": "Pieces to make the flower",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p8.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q08.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q08.png",
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "C",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "L'Andrea vol formar la flor superposant peces d'una mateixa classe. Quin és el nombre mínim de peces que ha d'utilitzar?",
-          "tarea_en": "Andrea wants to make the flower by overlapping pieces of the same kind. What is the smallest number of pieces she needs?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -414,47 +274,22 @@
         "concepto_eso": [
           "ESO-vision-espacial"
         ]
-      },
-      "figura_fallback": true,
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "2",
-          "3",
-          "4",
-          "5",
-          "6"
-        ],
-        "en": [
-          "2",
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p9",
       "numero": 9,
       "titulo": "Porcions de pizza",
-      "titulo_en": "Pizza slices",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p9.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q09.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "Una pizza es talla en 8 trossos iguals. En Max se'n menja una quarta part i, després, la Gràcia, la meitat del que queda. Quantes porcions de pizza els queden al final?",
-          "tarea_en": "A pizza is cut into 8 equal slices. Max eats a quarter of it and then Gràcia eats half of what is left. How many slices are left at the end?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -469,46 +304,22 @@
         "concepto_eso": [
           "ESO-fracciones"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "4",
-          "3",
-          "1",
-          "2",
-          "5"
-        ],
-        "en": [
-          "4",
-          "3",
-          "1",
-          "2",
-          "5"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p10",
       "numero": 10,
       "titulo": "Simetries del cangur",
-      "titulo_en": "The kangaroo's reflections",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p10.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q10.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q10-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 3,
       "solucion": "D",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "En el triangle 1 hi ha dibuixat el cap d'un cangur. La segona figura mostra el resultat de fer-li dues simetries consecutives. Si se'n fan dues més seguint el mateix procediment, quina imatge hi haurà en el triangle ombrejat?",
-          "tarea_en": "Triangle 1 shows a kangaroo's head. The second figure shows the result of two consecutive reflections. If two more are done in the same way, which image will be in the shaded triangle?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -523,37 +334,22 @@
         "concepto_eso": [
           "ESO-vision-espacial"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q10-optA.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q10-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q10-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q10-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q10-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p11",
       "numero": 11,
       "titulo": "Les vagonetes de la cova",
-      "titulo_en": "The cave wagons",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p11.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q11.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "C",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "Una visita a una cova es fa en vagonetes de 3 places: en surt una cada 2 minuts i el trajecte dura 10 minuts. Una classe de 30 alumnes vol fer la visita; si la primera vagoneta surt a les 11.45 h, a quina hora acabaran el trajecte els últims tres alumnes?",
-          "tarea_en": "A cave tour uses 3-seat wagons: one leaves every 2 minutes and the trip lasts 10 minutes. A class of 30 students takes the tour; if the first wagon leaves at 11:45, at what time will the last three students finish the trip?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -567,23 +363,6 @@
         ],
         "concepto_eso": [
           "ESO-logica"
-        ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "12.03 h",
-          "12.05 h",
-          "12.13 h",
-          "12.15 h",
-          "13.13 h"
-        ],
-        "en": [
-          "12.03 h",
-          "12.05 h",
-          "12.13 h",
-          "12.15 h",
-          "13.13 h"
         ]
       }
     },
@@ -591,23 +370,16 @@
       "id": "2526-cangur-prova-1eso-a-p12",
       "numero": 12,
       "titulo": "Tallar en dues parts iguals",
-      "titulo_en": "Cutting into two equal parts",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p12.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q12.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "Volem tallar una figura amb una quadrícula de punts en dues parts que coincideixin exactament en superposar-les (es poden capgirar). En quina opció la línia contínua dibuixada, com a línia de tall, permet aconseguir-ho?",
-          "tarea_en": "We want to cut a dotted-grid figure into two parts that match exactly when overlaid (flips allowed). In which option does the solid line drawn, used as the cut, achieve this?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -622,37 +394,22 @@
         "concepto_eso": [
           "ESO-vision-espacial"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q12-optA.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q12-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q12-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q12-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q12-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p13",
       "numero": 13,
       "titulo": "El rellotge avariat",
-      "titulo_en": "The faulty clock",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p13.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q13.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "A",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "Un rellotge digital mostra sempre els mateixos dos dígits intercanviats per una anomalia. Si ara marca les 15:69, quina hora marcarà d'aquí a un minut?",
-          "tarea_en": "A digital clock always shows the same two digits swapped because of a fault. If it now reads 15:69, what will it read one minute from now?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -667,46 +424,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "10:70",
-          "15:70",
-          "16:69",
-          "16:70",
-          "25:69"
-        ],
-        "en": [
-          "10:70",
-          "15:70",
-          "16:69",
-          "16:70",
-          "25:69"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p14",
       "numero": 14,
       "titulo": "Àrea diferent",
-      "titulo_en": "The odd area out",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p14.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q14.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "D",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "Quina de les figures ombrejades següents té una àrea diferent de les altres?",
-          "tarea_en": "Which of the following shaded figures has an area different from the others?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -721,45 +454,29 @@
         "concepto_eso": [
           "ESO-perimetros"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q14-optA.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q14-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q14-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q14-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q14-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p15",
       "numero": 15,
       "titulo": "La tira plegada amb l'agulla",
-      "titulo_en": "The folded strip and the needle",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p15.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q15.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q15-fig.png",
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "L'Íria té una tira de paper amb els nombres de l'1 al 16. La plega per la meitat successivament fins que només es veuen l'1 i el 2, fa passar una agulla pel nombre 1 travessant totes les capes, desplega i suma tots els nombres perforats. Quina suma obté?",
-          "tarea_en": "Íria has a paper strip with the numbers 1 to 16. She folds it in half repeatedly until only 1 and 2 show, pushes a needle through number 1 piercing every layer, unfolds it and adds all the pierced numbers. What sum does she get?"
+          "tarea": ""
         }
       ],
       "tags": {
         "materia": "cangur",
         "dificultad": "dificil",
         "habilidad": [
-          "visualizacion",
-          "razonamiento"
+          "visualizacion"
         ],
         "formato": [
           "opcion_multiple"
@@ -768,46 +485,22 @@
           "ESO-vision-espacial",
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "64",
-          "68",
-          "99",
-          "128",
-          "136"
-        ],
-        "en": [
-          "64",
-          "68",
-          "99",
-          "128",
-          "136"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p16",
       "numero": 16,
       "titulo": "Repartir set targetes",
-      "titulo_en": "Sharing seven cards",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p16.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q16.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "A",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "Tenim set targetes numerades del 0 al 6. En David n'agafa dues, la Carme dues més i la Victòria les altres tres, de manera que la suma de cadascun és la mateixa. Quin és el producte de les targetes de la Victòria?",
-          "tarea_en": "There are seven cards numbered 0 to 6. David takes two, Carme another two and Victòria the remaining three, so that each person's sum is the same. What is the product of Victòria's cards?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -822,46 +515,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "0",
-          "15",
-          "18",
-          "24",
-          "30"
-        ],
-        "en": [
-          "0",
-          "15",
-          "18",
-          "24",
-          "30"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p17",
       "numero": 17,
       "titulo": "El perímetre del molinet",
-      "titulo_en": "The pinwheel's perimeter",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p17.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q17.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q17-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "D",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "Un trapezi té perímetre 22 cm. Juxtaposant-ne quatre, sense superposar-los, es dissenya un molinet de perímetre 56 cm. Quina és la mesura del costat AB del trapezi?",
-          "tarea_en": "A trapezium has a perimeter of 22 cm. Placing four of them side by side, without overlap, gives a pinwheel of perimeter 56 cm. What is the length of side AB of the trapezium?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -876,46 +545,22 @@
         "concepto_eso": [
           "ESO-perimetros"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "8 cm",
-          "6 cm",
-          "3 cm",
-          "4 cm",
-          "5 cm"
-        ],
-        "en": [
-          "8 cm",
-          "6 cm",
-          "3 cm",
-          "4 cm",
-          "5 cm"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p18",
       "numero": 18,
       "titulo": "Els retoladors per torns",
-      "titulo_en": "The markers in turns",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p18.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q18.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "E",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "En Dídac, la Fàtima i l'Oriol agafen retoladors per torns: 1, 2, 3, després 4, 5, 6… Quan no en queden prou per continuar, qui té el torn agafa els que resten. Al final la Fàtima en té 25. Quants n'hi havia al començament?",
-          "tarea_en": "Dídac, Fàtima and Oriol take markers in turns: 1, 2, 3, then 4, 5, 6… When there are not enough left to continue, whoever's turn it is takes the rest. In the end Fàtima has 25. How many were there at the start?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -930,46 +575,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "48",
-          "50",
-          "55",
-          "56",
-          "65"
-        ],
-        "en": [
-          "48",
-          "50",
-          "55",
-          "56",
-          "65"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p19",
       "numero": 19,
       "titulo": "El codi PIN",
-      "titulo_en": "The PIN code",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p19.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q19.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "C",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "La Flor recorda que el seu PIN de quatre dígits té tots els dígits senars i que augmenten o disminueixen d'esquerra a dreta. Quantes combinacions possibles hi ha?",
-          "tarea_en": "Flor remembers that her four-digit PIN has all odd digits and that they either increase or decrease from left to right. How many possible combinations are there?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -984,46 +605,22 @@
         "concepto_eso": [
           "ESO-combinatoria"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "6",
-          "8",
-          "10",
-          "12",
-          "14"
-        ],
-        "en": [
-          "6",
-          "8",
-          "10",
-          "12",
-          "14"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p20",
       "numero": 20,
       "titulo": "Endevinar la ruta",
-      "titulo_en": "Guessing the route",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p20.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q20.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 4,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 4,
-          "tarea": "A partir de tres frases sobre rutes (sortida, pas i arribada) en què només una ciutat està ben col·locada a cada frase, cal endevinar la ruta que va fer l'Albert. Quina és?",
-          "tarea_en": "From three sentences about routes (start, via, end) in which only one city is correctly placed in each sentence, you must guess the route Albert took. Which one is it?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1038,46 +635,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "Girona→Vic→Barcelona",
-          "Tarragona→Vic→Lleida",
-          "Girona→Manresa→Lleida",
-          "Vic→Tarragona→Lleida",
-          "Tarragona→Manresa→Barcelona"
-        ],
-        "en": [
-          "Girona→Vic→Barcelona",
-          "Tarragona→Vic→Lleida",
-          "Girona→Manresa→Lleida",
-          "Vic→Tarragona→Lleida",
-          "Tarragona→Manresa→Barcelona"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p21",
       "numero": 21,
       "titulo": "Els cercles grisos",
-      "titulo_en": "The grey circles",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p21.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q21.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q21-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "D",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "Cada cercle de la figura conté un nombre que fa que els càlculs siguin correctes. Quina és la suma dels nombres dels cercles grisos?",
-          "tarea_en": "Each circle in the figure holds a number that makes the calculations correct. What is the sum of the numbers in the grey circles?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1093,46 +666,22 @@
           "ESO-logica",
           "ESO-ecuaciones-1g"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "14",
-          "16",
-          "23",
-          "12",
-          "10"
-        ],
-        "en": [
-          "14",
-          "16",
-          "23",
-          "12",
-          "10"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p22",
       "numero": 22,
       "titulo": "La caixa de maduixes",
-      "titulo_en": "The box of strawberries",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p22.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q22.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "Un grup d'amics reparteix una caixa de maduixes a parts iguals. Amb 80 maduixes més, a cadascú li'n tocarien 4 més; amb 8 amics menys, 6 més. Quantes maduixes hi ha a la caixa?",
-          "tarea_en": "A group of friends shares a box of strawberries equally. With 80 more strawberries, each would get 4 more; with 8 fewer friends, each would get 6 more. How many strawberries are in the box?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1147,46 +696,22 @@
         "concepto_eso": [
           "ESO-sistemas"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "240",
-          "180",
-          "160",
-          "120",
-          "No es pot determinar."
-        ],
-        "en": [
-          "240",
-          "180",
-          "160",
-          "120",
-          "Cannot be determined."
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p23",
       "numero": 23,
       "titulo": "Els nombres de l'1 al 5",
-      "titulo_en": "The numbers 1 to 5",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p23.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q23.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "E",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "Cinc persones escriuen els nombres de l'1 al 5 (un cadascú). La suma d'en Jaume i en Frederic és el triple del nombre de la Zoe; la d'en Frederic i en Carles és el doble del de la Reme. Quin nombre ha escrit en Frederic?",
-          "tarea_en": "Five people each write one of the numbers 1 to 5. Jaume plus Frederic equals three times Zoe's number; Frederic plus Carles equals twice Reme's number. Which number did Frederic write?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1201,46 +726,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
-        "en": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p24",
       "numero": 24,
       "titulo": "Els segments de la tira",
-      "titulo_en": "The strip's segments",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p24.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q24.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q24-fig.png",
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "D",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "En Quim dibuixa sis segments a la cara blanca d'una tira i la plega seguint-los, obtenint la figura mostrada. Com havia dibuixat els segments abans de plegar-la?",
-          "tarea_en": "Quim draws six segments on the white side of a strip and folds it along them, getting the figure shown. How had he drawn the segments before folding it?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1255,37 +756,22 @@
         "concepto_eso": [
           "ESO-vision-espacial"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        null,
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q24-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q24-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q24-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q24-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p25",
       "numero": 25,
       "titulo": "La balança equilibrada",
-      "titulo_en": "The balanced scale",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p25.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q25.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q25-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "La Juliana té nou pilotes d'1 a 9 kg. Posa set en una balança (dues a l'esquerra i cinc a la dreta) i queda equilibrada. Quin és el pes total mínim possible de les dues pilotes que no fa servir?",
-          "tarea_en": "Juliana has nine balls weighing 1 to 9 kg. She puts seven on a scale (two on the left, five on the right) and it balances. What is the smallest possible total weight of the two balls she does not use?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1300,46 +786,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "17 kg",
-          "11 kg",
-          "9 kg",
-          "7 kg",
-          "5 kg"
-        ],
-        "en": [
-          "17 kg",
-          "11 kg",
-          "9 kg",
-          "7 kg",
-          "5 kg"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p26",
       "numero": 26,
       "titulo": "El quadrat ABCD",
-      "titulo_en": "The square ABCD",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p26.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q26.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q26-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "C",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "El quadrat ABCD està dividit en quatre rectangles grisos iguals, quatre de blancs iguals i un quadrat negre. El costat llarg del gris fa 29 cm, el del blanc 15 cm i el del quadrat negre 7 cm. Quina és la longitud del costat del quadrat ABCD?",
-          "tarea_en": "Square ABCD is divided into four equal grey rectangles, four equal white ones and a black square. The grey's long side is 29 cm, the white's long side 15 cm and the black square's side 7 cm. What is the side length of square ABCD?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1354,46 +816,22 @@
         "concepto_eso": [
           "ESO-figuras-planas"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "33 cm",
-          "34 cm",
-          "35 cm",
-          "36 cm",
-          "37 cm"
-        ],
-        "en": [
-          "33 cm",
-          "34 cm",
-          "35 cm",
-          "36 cm",
-          "37 cm"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p27",
       "numero": 27,
       "titulo": "Eliminar per sumar 6",
-      "titulo_en": "Delete to add up to 6",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p27.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q27.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q27-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "Volem eliminar alguns nombres d'una taula de manera que la suma de cada fila i cada columna sigui 6. Quin és el producte dels nombres eliminats?",
-          "tarea_en": "We want to delete some numbers from a table so that each row and each column adds up to 6. What is the product of the deleted numbers?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1407,23 +845,6 @@
         ],
         "concepto_eso": [
           "ESO-logica"
-        ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "30",
-          "40",
-          "48",
-          "60",
-          "No es pot aconseguir el que diu l'enunciat."
-        ],
-        "en": [
-          "30",
-          "40",
-          "48",
-          "60",
-          "Cannot achieve what the statement asks."
         ]
       }
     },
@@ -1431,23 +852,16 @@
       "id": "2526-cangur-prova-1eso-a-p28",
       "numero": 28,
       "titulo": "La tassa del Sergi",
-      "titulo_en": "Sergi's mug",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p28.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q28.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "B",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "Cinc tasses pertanyen al Leo, Raül, Ona, Paula i Sergi; les nanses són negres o blanques. Leo i Raül tenen la mateixa mida però diferent color de nansa; Ona i Paula, mides diferents però el mateix color. Quina és la tassa del Sergi?",
-          "tarea_en": "Five mugs belong to Leo, Raül, Ona, Paula and Sergi; the handles are black or white. Leo and Raül have the same size but different handle colour; Ona and Paula have different sizes but the same colour. Which is Sergi's mug?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1462,37 +876,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "imagen",
-      "opciones_img": [
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q28-optA.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q28-optB.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q28-optC.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q28-optD.png",
-        "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q28-optE.png"
-      ]
+      }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p29",
       "numero": 29,
       "titulo": "Els gronxadors al pati",
-      "titulo_en": "The swings in the yard",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p29.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q29.png",
-      "figura": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q29-fig.png",
-      "figura_pos": "right",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "C",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "Un pati de 5×5 quadrats forma cinc regions. Cal posar cinc gronxadors de manera que cada fila, columna i regió en tingui exactament un i que no n'hi hagi dos en quadrats que comparteixin costat o vèrtex. En quin quadrat marcat amb una lletra es pot col·locar un gronxador?",
-          "tarea_en": "A 5×5 yard forms five regions. Five swings must be placed so that each row, column and region has exactly one, and no two share a side or a corner. In which lettered square can a swing be placed?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1507,46 +906,22 @@
         "concepto_eso": [
           "ESO-logica"
         ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "A",
-          "B",
-          "C",
-          "D",
-          "E"
-        ],
-        "en": [
-          "A",
-          "B",
-          "C",
-          "D",
-          "E"
-        ]
       }
     },
     {
       "id": "2526-cangur-prova-1eso-a-p30",
       "numero": 30,
       "titulo": "La seqüència 2026",
-      "titulo_en": "The string 2026",
       "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/p30.html",
       "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/original.pdf",
       "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-a/q/q30.png",
-      "figura": null,
-      "figura_pos": "center",
-      "pages_enunciado": null,
-      "pages_solucion": null,
       "puntuacion": 5,
       "solucion": "C",
-      "contexto": null,
       "apartados": [
         {
           "letra": "a",
           "puntos": 5,
-          "tarea": "S'escriuen tots els nombres de l'1 al 7000 en ordre i seguits, sense separadors. Quantes vegades apareix la seqüència de dígits 2026 en la cadena resultant?",
-          "tarea_en": "All the numbers from 1 to 7000 are written in order with no separators. How many times does the digit string 2026 appear in the resulting string?"
+          "tarea": ""
         }
       ],
       "tags": {
@@ -1561,23 +936,6 @@
         "concepto_eso": [
           "ESO-combinatoria",
           "ESO-logica"
-        ]
-      },
-      "opciones_tipo": "texto",
-      "opciones": {
-        "ca": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
-        "en": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
         ]
       }
     }

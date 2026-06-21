@@ -24,21 +24,21 @@ LANGS = [
     {"code": "en", "pfx": "/en", "html": "en"},
 ]
 TX = {
- "es": dict(doc="Docencia", phd="Doctorado", notes="Notas", contact="Contacto", home="Inicio",
+ "es": dict(zoom="Ampliar imagen", doc="Docencia", phd="Doctorado", notes="Notas", contact="Contacto", home="Inicio",
    cangur="Cangur", prova="Prova Cangur", preguntas="Preguntas", pregunta="Pregunta", pts="puntos",
    show="Mostrar respuesta", correct="Respuesta correcta", test="Ponte a prueba",
    prev="Anterior", next="Siguiente", index="Índice", dl="Descargar enunciados (PDF)",
    dlsol="Descargar respuestas (PDF)", pend="La solución razonada paso a paso se añadirá próximamente.",
    practel="Practica esta prueba completa en el", each="Cada tarjeta abre la pregunta con su respuesta.",
    intro="Prueba tipo test con corrección automática y puntuación oficial.", tag="Matemáticas, docencia y doctorado", lic="Licencias"),
- "ca": dict(doc="Docència", phd="Doctorat", notes="Notes", contact="Contacte", home="Inici",
+ "ca": dict(zoom="Ampliar imatge", doc="Docència", phd="Doctorat", notes="Notes", contact="Contacte", home="Inici",
    cangur="Cangur", prova="Prova Cangur", preguntas="Preguntes", pregunta="Pregunta", pts="punts",
    show="Mostrar resposta", correct="Resposta correcta", test="Posa't a prova",
    prev="Anterior", next="Següent", index="Índex", dl="Baixar enunciats (PDF)",
    dlsol="Baixar respostes (PDF)", pend="La solució raonada pas a pas s'afegirà pròximament.",
    practel="Practica aquesta prova completa al", each="Cada targeta obre la pregunta amb la seva resposta.",
    intro="Prova tipus test amb correcció automàtica i puntuació oficial.", tag="Matemàtiques, docència i doctorat", lic="Llicències"),
- "en": dict(doc="Teaching", phd="PhD", notes="Notes", contact="Contact", home="Home",
+ "en": dict(zoom="Enlarge image", doc="Teaching", phd="PhD", notes="Notes", contact="Contact", home="Home",
    cangur="Cangur", prova="Cangur Test", preguntas="Questions", pregunta="Question", pts="points",
    show="Show answer", correct="Correct answer", test="Test yourself",
    prev="Previous", next="Next", index="Index", dl="Download questions (PDF)",
@@ -128,14 +128,10 @@ function toggleTheme(){{var h=document.documentElement,n=h.getAttribute('data-th
 
 
 def title_for(col, code):
-    return col.get("titulo_en") if code == "en" else col.get("titulo")
+    return col.get("titulo")   # contenido solo en catalán (modo imagen)
 
 def q_title(ej, code):
-    return ej.get("titulo_en") if code == "en" else ej.get("titulo")
-
-def q_enun(ej, code):
-    ap = (ej.get("apartados") or [{}])[0]
-    return ap.get("tarea_en") if code == "en" else ap.get("tarea")
+    return ej.get("titulo")
 
 def concept_labels(ej, code):
     out = []
@@ -196,7 +192,7 @@ def render_index(col, code):
 def render_pn(col, ej, code, n_total):
     t = TX[code]; pfx = "" if code == "es" else "/" + code
     uip = col["url_index"]; ID = col["id"]; n = ej["numero"]
-    title = q_title(ej, code); enun = q_enun(ej, code); sol = ej.get("solucion", "")
+    title = q_title(ej, code); sol = ej.get("solucion", ""); imagen = ej.get("imagen")
     chips = ""
     dif = (ej.get("tags") or {}).get("dificultad")
     if dif in DIF:
@@ -205,22 +201,6 @@ def render_pn(col, ej, code, n_total):
         chips += f'<span class="ib-chip">{esc(lab)}</span>'
     prev_l = f'<a href="p{n-1}.html" class="exam-nav-btn">← {t["prev"]}</a>' if n > 1 else f'<span class="exam-nav-btn is-off">← {t["prev"]}</span>'
     next_l = f'<a href="p{n+1}.html" class="exam-nav-btn">{t["next"]} →</a>' if n < n_total else f'<span class="exam-nav-btn is-off">{t["next"]} →</span>'
-    cl = "en" if code == "en" else "ca"
-    fig = ej.get("figura")
-    figcls = "pt-q-img fig-right" if ej.get("figura_pos") == "right" else "pt-q-img"
-    fig_html = f'<img class="{figcls}" src="{fig}" alt="" style="margin-top:0.6rem">' if fig else ""
-    if ej.get("opciones_tipo") == "imagen" and ej.get("opciones_img"):
-        cells = "".join(
-            f'<div class="pt-opt-img"><span class="pt-opt-lbl">{o})</span>' +
-            (f'<img src="{src}" alt="{o}">' if src else "") + "</div>"
-            for o, src in zip("ABCDE", ej["opciones_img"]))
-        opts_html = f'<div class="pt-opts-img" style="margin:0.6rem 0 1rem">{cells}</div>'
-    else:
-        texts = (ej.get("opciones") or {}).get(cl) or (ej.get("opciones") or {}).get("ca") or ["", "", "", "", ""]
-        cells = "".join(
-            f'<div class="pt-opt pt-opt-txt" style="cursor:default"><span class="pt-opt-lbl">{o})</span> {esc(tx)}</div>'
-            for o, tx in zip("ABCDE", texts))
-        opts_html = f'<div class="pt-opts" style="margin:0.6rem 0 1rem">{cells}</div>'
     examname = title_for(col, code).split("·")[-1].strip()
     navrow = f'''<div class="exam-nav" style="display:flex;justify-content:space-between;align-items:center;gap:0.6rem;margin:{{m}}">
       {prev_l}<a href="{pfx}{uip}" class="exam-nav-btn">{t["index"]} · {n}/{n_total}</a>{next_l}
@@ -228,19 +208,17 @@ def render_pn(col, ej, code, n_total):
     body = f'''
 {nav(code, pfx, uip, f"p{n}.html")}
 <main id="main">
-  <div class="container" style="padding-top:2rem;padding-bottom:5rem;max-width:760px">
+  <div class="container" style="padding-top:2rem;padding-bottom:5rem;max-width:780px">
     <div class="breadcrumb"><a href="{pfx}/">{t["home"]}</a><span class="sep">/</span><a href="{pfx}/aula/cangur/prova/">{t["prova"]}</a><span class="sep">/</span><a href="{pfx}{uip}">{esc(examname)}</a><span class="sep">/</span><span class="current">P{n}</span></div>
     {navrow.format(m="0 0 1.2rem")}
     <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.5rem"><span class="section-label">{t["pregunta"]} {n}</span><span class="pt-q-pts">{ej["puntuacion"]} {t["pts"]}</span></div>
     <h1 style="font-size:1.5rem;margin:0.2rem 0 0.8rem">{esc(title)}</h1>
     <div class="ib-chips" style="margin-bottom:1rem">{chips}</div>
-    {fig_html}
-    <p style="font-size:0.98rem;line-height:1.7;color:var(--text)">{esc(enun)}</p>
-    {opts_html}
-    <button class="solution-toggle" onclick="var s=document.getElementById('sol');s.hidden=!s.hidden;this.setAttribute('aria-expanded',!s.hidden);">{t["show"]}</button>
+    <a class="pt-qfull-wrap" href="{imagen}" target="_blank" rel="noopener" title="{t['zoom']}"><img class="pt-qfull" src="{imagen}" alt="{t['pregunta']} {n}"><span class="pt-zoom">🔍</span></a>
+    <button class="solution-toggle" style="margin-top:1rem" onclick="var s=document.getElementById('sol');s.hidden=!s.hidden;this.setAttribute('aria-expanded',!s.hidden);">{t["show"]}</button>
     <section class="solution" id="sol" hidden style="margin-top:1rem">
-      <p style="font-size:1.05rem"><strong>{t["correct"]}:</strong> <span class="pt-opt ok sel" style="cursor:default">{sol}</span></p>
-      <p class="pt-faint" style="margin-top:0.6rem">{t["pend"]} {t["practel"]} <a href="{pfx}/aula/cangur/prova/test/?id={ID}">«{t["test"]}»</a>.</p>
+      <p style="font-size:1.1rem"><strong>{t["correct"]}:</strong> <span class="pt-opt ok sel" style="cursor:default">{sol})</span></p>
+      <p class="pt-faint" style="margin-top:0.6rem">{t["practel"]} <a href="{pfx}/aula/cangur/prova/test/?id={ID}">«{t["test"]}»</a>.</p>
     </section>
     {navrow.format(m="2rem 0 0")}
   </div>
@@ -248,7 +226,7 @@ def render_pn(col, ej, code, n_total):
 {footer(code)}
 </body>
 </html>'''
-    return head(code, LANGS_BY[code]["html"], f"{title} · {examname}", enun[:140], uip, f"p{n}.html", "") + body
+    return head(code, LANGS_BY[code]["html"], f"{title} · {examname}", f"{title} — {examname}", uip, f"p{n}.html", "") + body
 
 
 def stub(col):
