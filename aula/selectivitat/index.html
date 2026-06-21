@@ -119,6 +119,7 @@
         <span class="flt-label">Filtrar por</span>
         <button class="flt-concept" data-group="materia" aria-expanded="false">Asignatura<span class="flt-badge" hidden></span></button>
         <button class="flt-concept" data-group="conv" aria-expanded="false">Convocatoria<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="anyo" aria-expanded="false">Año<span class="flt-badge" hidden></span></button>
         <button class="flt-all is-active" data-val="all">Todas</button>
       </div>
       <div class="flt-groups">
@@ -130,6 +131,7 @@
           <button class="flt-chip" data-facet="conv" data-val="juny">Junio</button>
           <button class="flt-chip" data-facet="conv" data-val="setembre">Septiembre</button>
         </div></div>
+        <div class="flt-group" data-group="anyo" hidden><div class="flt-chips" id="sel-chips-anyo"></div></div>
       </div>
     </div>
 
@@ -197,7 +199,7 @@ function render(){
       <h2 class="year-section-title">📅 ${esc(year)}</h2>
       <div class="exam-grid">
         ${byYear[year].map(e => `
-        <a href="${esc(e.url_index)}" class="exam-card flt-item" data-materia="${esc(e.materia)}" data-conv="${esc(e.convocatoria)}">
+        <a href="${esc(e.url_index)}" class="exam-card flt-item" data-materia="${esc(e.materia)}" data-conv="${esc(e.convocatoria)}" data-anyo="${esc(e.year || year)}">
           <div class="exam-card-head">
             <span class="exam-card-year">${esc(e.year || year)}</span>
             <span class="exam-card-conv">${esc(convLabel(e.convocatoria))}</span>
@@ -263,6 +265,9 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     if(allExams.length > 0){
       document.getElementById('filter-bar').style.display = '';
     }
+    const anys = [...new Set(allExams.map(e => e.year).filter(Boolean))].sort().reverse();
+    document.getElementById('sel-chips-anyo').innerHTML =
+      anys.map(y => `<button class="flt-chip" data-facet="anyo" data-val="${esc(y)}">${esc(y)}</button>`).join('');
     if (window.fltRefresh) window.fltRefresh();
   })
   .catch(() => {

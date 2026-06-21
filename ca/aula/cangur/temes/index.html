@@ -99,14 +99,20 @@
       <div class="info-card"><div class="info-card-label">Proves</div><div class="info-card-value" id="count-proves">—</div></div>
     </div>
 
-    <div class="flt" id="filter-bar" style="display:none;margin-top:1.5rem;--flt-accent:#10b981" data-items="#temes-container .tema-section">
+    <div class="flt" id="filter-bar" style="display:none;margin-top:1.5rem;--flt-accent:#10b981" data-items="#temes-container .prob-item">
       <div class="flt-concepts">
         <span class="flt-label">Filtra per</span>
         <button class="flt-concept" data-group="tema" aria-expanded="false">Tema<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="dif" aria-expanded="false">Dificultat<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="cat" aria-expanded="false">Categoria<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="edicio" aria-expanded="false">Edició<span class="flt-badge" hidden></span></button>
         <button class="flt-all is-active" data-val="all">Tots</button>
       </div>
       <div class="flt-groups">
-        <div class="flt-group" data-group="tema" hidden><div class="flt-chips" id="tema-chips"></div></div>
+        <div class="flt-group" data-group="tema" hidden><div class="flt-chips" id="chips-tema"></div></div>
+        <div class="flt-group" data-group="dif" hidden><div class="flt-chips" id="chips-dif"></div></div>
+        <div class="flt-group" data-group="cat" hidden><div class="flt-chips" id="chips-cat"></div></div>
+        <div class="flt-group" data-group="edicio" hidden><div class="flt-chips" id="chips-edicio"></div></div>
       </div>
     </div>
 
@@ -163,6 +169,14 @@ const TEMA_LABEL = {
   "ESO-probabilidad": "Probabilitat"
 };
 const DIF_LABEL = {"facil": "Fàcil", "media": "Mitjana", "dificil": "Difícil"};
+const CAT_LABEL = {"benjami": "Benjamí", "cadet": "Cadet", "junior": "Júnior"};
+function catOf(col){
+  const g = ((col.grupo||'')+' '+(col.titulo||'')).toLowerCase();
+  if (/j[uú]nior/.test(g)) return 'junior';
+  if (/cadet/.test(g)) return 'cadet';
+  if (/benjam/.test(g)) return 'benjami';
+  return '';
+}
 
 let temes = {};
 let collapsedTemes = {};
@@ -186,7 +200,7 @@ function render(){
       <h2 class="tema-title" onclick="toggleTema('${esc(tag)}')">${esc(TEMA_LABEL[tag] || tag)} <span class="tema-count">${temes[tag].length} ${temes[tag].length===1?'problema':'problemes'}</span><span class="tema-caret">▾</span></h2>
       <div class="prob-list">
         ${temes[tag].map(p => `
-        <a href="${esc(p.url)}" class="prob-item">
+        <a href="${esc(p.url)}" class="prob-item flt-item" data-tema="${esc(tag)}" data-dif="${esc(p.dif)}" data-cat="${esc(p.cat)}" data-edicio="${esc(p.edicio)}">
           <span class="prob-num">P${p.numero}</span>
           <span class="prob-titol">${esc(p.titulo)}</span>
           ${p.dif ? `<span class="chip dif-${esc(p.dif)}">${esc(DIF_LABEL[p.dif] || p.dif)}</span>` : ''}
@@ -198,6 +212,10 @@ function render(){
 
 var fltRoot = document.getElementById('filter-bar');
 if (fltRoot) fltRoot.addEventListener('flt:change', function(ev){
+  document.querySelectorAll('.tema-section').forEach(function(sec){
+    var vis = sec.querySelectorAll('.prob-item:not(.flt-hidden)').length;
+    sec.style.display = vis ? '' : 'none';
+  });
   var nr = document.getElementById('no-results');
   if (nr) nr.style.display = (ev.detail.active > 0 && ev.detail.shown === 0) ? '' : 'none';
 });
@@ -206,21 +224,29 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(data => {
     const proves = new Set();
+    const difsSet = new Set(), catsSet = new Set(), edSet = new Set();
     let nProb = 0;
     for (const ej of (data.ejercicios || [])) {
       const t = ej.tags || {};
       if (t.materia !== 'cangur') continue;
       nProb++;
-      proves.add((ej.coleccion || {}).id);
+      const col = ej.coleccion || {};
+      proves.add(col.id);
+      const cat = catOf(col), edicio = t.curso_academico || '';
+      if (t.dificultad) difsSet.add(t.dificultad);
+      if (cat) catsSet.add(cat);
+      if (edicio) edSet.add(edicio);
       const conceptes = [].concat(t.concepto_eso || []);
       for (const tag of conceptes) {
         if (!temes[tag]) temes[tag] = [];
         temes[tag].push({
-          url: ej.url_enunciado || (ej.coleccion || {}).url_index || '#',
+          url: ej.url_enunciado || col.url_index || '#',
           numero: ej.numero,
           titulo: ej.titulo,
           dif: t.dificultad || '',
-          prova: (ej.coleccion || {}).titulo || ''
+          cat: cat,
+          edicio: edicio,
+          prova: col.titulo || ''
         });
       }
     }
@@ -233,8 +259,17 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     render();
     if (keys.length) {
       bar.style.display = '';
-      document.getElementById('tema-chips').innerHTML =
+      document.getElementById('chips-tema').innerHTML =
         keys.map(k => `<button class="flt-chip" data-facet="tema" data-val="${esc(k)}">${esc(TEMA_LABEL[k] || k)}</button>`).join('');
+      document.getElementById('chips-dif').innerHTML =
+        ['facil','media','dificil'].filter(d => difsSet.has(d))
+          .map(d => `<button class="flt-chip dif-${d}" data-facet="dif" data-val="${d}">${esc(DIF_LABEL[d])}</button>`).join('');
+      document.getElementById('chips-cat').innerHTML =
+        ['benjami','cadet','junior'].filter(c => catsSet.has(c))
+          .map(c => `<button class="flt-chip" data-facet="cat" data-val="${c}">${esc(CAT_LABEL[c])}</button>`).join('');
+      document.getElementById('chips-edicio').innerHTML =
+        Array.from(edSet).sort().reverse()
+          .map(e => `<button class="flt-chip" data-facet="edicio" data-val="${esc(e)}">${esc(e)}</button>`).join('');
     }
     if (window.fltRefresh) window.fltRefresh();
   })

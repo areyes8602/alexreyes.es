@@ -104,6 +104,8 @@
       <div class="flt-concepts">
         <span class="flt-label">Filtra per</span>
         <button class="flt-concept" data-group="cat" aria-expanded="false">Categoria<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="edicio" aria-expanded="false">Edició<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="fase" aria-expanded="false">Fase<span class="flt-badge" hidden></span></button>
         <button class="flt-all is-active" data-val="all">Totes</button>
       </div>
       <div class="flt-groups">
@@ -112,6 +114,8 @@
           <button class="flt-chip" data-facet="cat" data-val="cadet">Cadet</button>
           <button class="flt-chip" data-facet="cat" data-val="junior">Júnior</button>
         </div></div>
+        <div class="flt-group" data-group="edicio" hidden><div class="flt-chips" id="copa-chips-edicio"></div></div>
+        <div class="flt-group" data-group="fase" hidden><div class="flt-chips" id="copa-chips-fase"></div></div>
       </div>
     </div>
 
@@ -160,6 +164,15 @@ function catOf(col){
 function catLabel(c){
   return c === 'junior' ? 'Júnior' : c === 'cadet' ? 'Cadet' : c === 'benjami' ? 'Benjamí' : '';
 }
+function edicioOf(col){ const m = (col.titulo || '').match(/^\s*([IVXLCDM]+)\b/); return m ? m[1] : ''; }
+function faseOf(col){
+  const g = ((col.titulo || '') + ' ' + (col.grupo || '')).toLowerCase();
+  if (/semifinal/.test(g)) return 'semifinal';
+  if (/\bfinal\b/.test(g)) return 'final';
+  if (/fase/.test(g)) return 'fase1';
+  return '';
+}
+const FASE_LABEL = { fase1: '1a fase', semifinal: 'Semifinal', final: 'Final' };
 
 function render(){
   const cont = document.getElementById('exams-container');
@@ -184,7 +197,7 @@ function render(){
       <h2 class="year-section-title" onclick="toggleYear('${esc(year)}')">📅 ${esc(year)}<span class="year-caret">▾</span></h2>
       <div class="exam-grid">
         ${byYear[year].map(e => `
-        <a href="${esc(e.url_index)}" class="exam-card flt-item" data-cat="${esc(e.cat)}">
+        <a href="${esc(e.url_index)}" class="exam-card flt-item" data-cat="${esc(e.cat)}" data-edicio="${esc(e.edicio)}" data-fase="${esc(e.fase)}">
           <div class="exam-card-head">
             <span class="exam-card-year">${esc(e.year)}</span>
             <span class="exam-card-conv">${esc(catLabel(e.cat))}</span>
@@ -226,6 +239,8 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
           url_index: c.url_index || '#',
           year: (c.fecha || '').split('-')[0] || '—',
           cat: catOf(c),
+          edicio: edicioOf(c),
+          fase: faseOf(c),
           problemes: 0
         };
       }
@@ -236,6 +251,12 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     document.getElementById('count-problems').textContent = nProb || '0';
     if(allExams.length) document.getElementById('filter-bar').style.display = '';
     render();
+    const eds = [...new Set(allExams.map(e => e.edicio).filter(Boolean))].sort().reverse();
+    document.getElementById('copa-chips-edicio').innerHTML =
+      eds.map(x => `<button class="flt-chip" data-facet="edicio" data-val="${esc(x)}">${esc(x)}</button>`).join('');
+    const fases = ['fase1','semifinal','final'].filter(f => allExams.some(e => e.fase === f));
+    document.getElementById('copa-chips-fase').innerHTML =
+      fases.map(f => `<button class="flt-chip" data-facet="fase" data-val="${f}">${esc(FASE_LABEL[f])}</button>`).join('');
     if (window.fltRefresh) window.fltRefresh();
   })
   .catch(err => {
