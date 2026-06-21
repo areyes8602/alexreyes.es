@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="/style.css?v=202606162226">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/css/filters.css?v=202606162226">
 <link rel="canonical" href="https://alexreyes.es/aula/selectivitat/temes/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/temes/">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/selectivitat/temes/">
@@ -51,10 +52,6 @@
   .prob-titol { font-size:0.92rem; color:var(--text); flex:1 1 12rem; }
   .prob-prova { font-size:0.75rem; color:var(--text-faint); white-space:nowrap; }
   .chip { font-size:0.7rem; padding:0.15rem 0.5rem; border-radius:999px; background:var(--bg); border:1px solid var(--border); color:var(--text-faint); }
-  .filter-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint); margin:0 0 0.4rem; font-weight:600; }
-  .filter-bar { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.2rem; }
-  .filter-btn { padding:0.35rem 0.85rem; border:1px solid var(--border); border-radius:999px; background:var(--bg-subtle); color:var(--text-soft); font-size:0.82rem; cursor:pointer; transition:all 0.15s; }
-  .filter-btn:hover, .filter-btn.active { border-color:var(--accent); background:var(--accent); color:#fff; }
   .empty-state { text-align:center; padding:3rem 1.5rem; background:var(--bg-subtle); border:1px dashed var(--border); border-radius:var(--radius); }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"Selectividad","item":"https://alexreyes.es/aula/selectivitat/"},{"@type":"ListItem","position":4,"name":"Problemas por tema","item":"https://alexreyes.es/aula/selectivitat/temes/"}]}</script>
@@ -107,22 +104,31 @@
       <div class="info-card"><div class="info-card-label">Exámenes</div><div class="info-card-value" id="count-proves">—</div></div>
     </div>
 
-    <div style="margin-top:1.5rem">
-      <p class="filter-label">Asignatura</p>
-      <div class="filter-bar" id="filter-mat">
-        <button class="filter-btn active" onclick="filterMat(this,'all')">Todas</button>
-        <button class="filter-btn" onclick="filterMat(this,'cient-2btl')">Matemáticas</button>
-        <button class="filter-btn" onclick="filterMat(this,'ccss-2btl')">Mat. CCSS</button>
+    <div class="flt" id="filter-bar" style="display:none;margin-top:1.5rem;--flt-accent:#10b981" data-items="#temes-container .prob-item">
+      <div class="flt-concepts">
+        <span class="flt-label">Filtrar por</span>
+        <button class="flt-concept" data-group="tema" aria-expanded="false">Tema<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="materia" aria-expanded="false">Asignatura<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="dif" aria-expanded="false">Dificultad<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="anyo" aria-expanded="false">Año<span class="flt-badge" hidden></span></button>
+        <button class="flt-all is-active" data-val="all">Todos</button>
       </div>
-    </div>
-
-    <div>
-      <p class="filter-label">Tema</p>
-      <div class="filter-bar" id="filter-tema"></div>
+      <div class="flt-groups">
+        <div class="flt-group" data-group="tema" hidden><div class="flt-chips" id="chips-tema"></div></div>
+        <div class="flt-group" data-group="materia" hidden><div class="flt-chips">
+          <button class="flt-chip" data-facet="materia" data-val="cient-2btl">Matemáticas</button>
+          <button class="flt-chip" data-facet="materia" data-val="ccss-2btl">Mat. CCSS</button>
+        </div></div>
+        <div class="flt-group" data-group="dif" hidden><div class="flt-chips" id="chips-dif"></div></div>
+        <div class="flt-group" data-group="anyo" hidden><div class="flt-chips" id="chips-anyo"></div></div>
+      </div>
     </div>
 
     <div id="temes-container" style="margin-top:1rem">
       <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Cargando…</p>
+    </div>
+    <div id="no-results" class="empty-state" style="display:none;margin-top:1rem">
+      <p>No hay problemas con ese filtro. Prueba con otra combinación o pulsa «Todos».</p>
     </div>
 
   </div>
@@ -155,64 +161,47 @@ const TEMA_LABEL = {
   "BACH-vectores": "Vectores",
   "BACH-probabilidad": "Probabilidad",
   "BACH-distribuciones": "Distribuciones (binomial, normal)",
-  "BACH-inferencia": "Inferencia estadística"
+  "BACH-inferencia": "Inferencia estadística",
+  "__altres": "Otros"
 };
 const DIF_LABEL = {"facil": "Fácil", "media": "Media", "dificil": "Difícil"};
 const MAT_LABEL = {"cient-2btl": "Matemáticas", "ccss-2btl": "Mat. CCSS"};
 const MAT_CLASS = {"cient-2btl": "mat-cient", "ccss-2btl": "mat-ccss"};
 
 let allProbs = [];
-let activeMat = 'all';
-let activeTema = 'all';
 let collapsedTemes = {};
 try { collapsedTemes = JSON.parse(localStorage.getItem('selTemesCollapsed') || '{}'); } catch(e) {}
 
 function toggleTema(t){
   if (collapsedTemes[t]) delete collapsedTemes[t]; else collapsedTemes[t] = true;
   localStorage.setItem('selTemesCollapsed', JSON.stringify(collapsedTemes));
-  render();
+  var sec = document.querySelector('.tema-section[data-tema="'+t+'"]');
+  if (sec) sec.classList.toggle('collapsed');
 }
 
 function buildTemes(){
   const t = {};
   for (const p of allProbs){
-    if (activeMat !== 'all' && p.materia !== activeMat) continue;
     for (const c of p.concepts){ (t[c] = t[c] || []).push(p); }
   }
   for (const k in t) t[k].sort((a,b)=>(a.prova+a.numero).localeCompare(b.prova+b.numero, undefined, {numeric:true}));
   return t;
 }
 
-function buildTemaBar(keys){
-  const bar = document.getElementById('filter-tema');
-  if (!keys.includes(activeTema)) activeTema = 'all';
-  bar.innerHTML = `<button class="filter-btn${activeTema==='all'?' active':''}" onclick="filterTema(this,'all')">Todos</button>` +
-    keys.map(k => `<button class="filter-btn${activeTema===k?' active':''}" onclick="filterTema(this,'${esc(k)}')">${esc(TEMA_LABEL[k] || k)}</button>`).join('');
-}
-
 function render(){
   const cont = document.getElementById('temes-container');
   const temes = buildTemes();
   const keys = Object.keys(temes).sort((a,b) => temes[b].length - temes[a].length);
-  buildTemaBar(keys);
-
-  const visibleProbs = allProbs.filter(p => activeMat === 'all' || p.materia === activeMat);
-  const proves = new Set(visibleProbs.map(p => p.colId));
-  document.getElementById('count-problems').textContent = visibleProbs.length || '0';
-  document.getElementById('count-temes').textContent = keys.length || '0';
-  document.getElementById('count-proves').textContent = proves.size || '0';
-
-  const shown = activeTema === 'all' ? keys : keys.filter(k => k === activeTema);
-  if (shown.length === 0){
-    cont.innerHTML = '<div class="empty-state"><p>Todavía no hay problemas clasificados para esta selección.</p></div>';
+  if (keys.length === 0){
+    cont.innerHTML = '<div class="empty-state"><p>Todavía no hay problemas clasificados.</p></div>';
     return;
   }
-  cont.innerHTML = shown.map(tag => `
-    <div class="tema-section${collapsedTemes[tag] ? ' collapsed' : ''}">
+  cont.innerHTML = keys.map(tag => `
+    <div class="tema-section${collapsedTemes[tag] ? ' collapsed' : ''}" data-tema="${esc(tag)}">
       <h2 class="tema-title" onclick="toggleTema('${esc(tag)}')">${esc(TEMA_LABEL[tag] || tag)} <span class="tema-count">${temes[tag].length} ${temes[tag].length===1?'problema':'problemas'}</span><span class="tema-caret">▾</span></h2>
       <div class="prob-list">
         ${temes[tag].map(p => `
-        <a href="${esc(p.url)}" class="prob-item">
+        <a href="${esc(p.url)}" class="prob-item flt-item" data-tema="${esc(tag)}" data-materia="${esc(p.materia)}" data-dif="${esc(p.dif)}" data-anyo="${esc(p.anyo)}">
           <span class="prob-num">P${esc(p.numero)}</span>
           <span class="prob-titol">${esc(p.titulo)}</span>
           <span class="chip ${MAT_CLASS[p.materia]||''}">${esc(MAT_LABEL[p.materia]||p.materia)}</span>
@@ -223,33 +212,35 @@ function render(){
     </div>`).join('');
 }
 
-function filterMat(btn, mat){
-  document.querySelectorAll('#filter-mat .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeMat = mat;
-  render();
-}
-function filterTema(btn, tag){
-  document.querySelectorAll('#filter-tema .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeTema = tag;
-  render();
-}
+var fltRoot = document.getElementById('filter-bar');
+if (fltRoot) fltRoot.addEventListener('flt:change', function(ev){
+  document.querySelectorAll('.tema-section').forEach(function(sec){
+    var vis = sec.querySelectorAll('.prob-item:not(.flt-hidden)').length;
+    sec.style.display = vis ? '' : 'none';
+  });
+  var nr = document.getElementById('no-results');
+  if (nr) nr.style.display = (ev.detail.active > 0 && ev.detail.shown === 0) ? '' : 'none';
+});
 
 fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(data => {
+    const difsSet = new Set(), anySet = new Set();
     for (const ej of (data.ejercicios || [])) {
       const t = ej.tags || {};
       if (t.origen !== 'selectivitat') continue;
       const col = ej.coleccion || {};
       let concepts = [].concat(t.concepto_bach || []);
       if (!concepts.length) concepts = ['__altres'];
+      const anyo = (col.fecha || '').split('-')[0] || '';
+      if (t.dificultad) difsSet.add(t.dificultad);
+      if (anyo) anySet.add(anyo);
       allProbs.push({
         materia: t.materia || '',
         numero: ej.numero,
         titulo: ej.titulo,
         dif: t.dificultad || '',
+        anyo: anyo,
         prova: col.titulo || '',
         colId: col.id || '',
         url: ej.url_enunciado || col.url_index || '#',
@@ -257,6 +248,24 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
       });
     }
     render();
+    const temes = buildTemes();
+    const keys = Object.keys(temes).sort((a,b) => temes[b].length - temes[a].length);
+    const proves = new Set(allProbs.map(p => p.colId));
+    document.getElementById('count-problems').textContent = allProbs.length || '0';
+    document.getElementById('count-temes').textContent = keys.length || '0';
+    document.getElementById('count-proves').textContent = proves.size || '0';
+    if (allProbs.length){
+      document.getElementById('filter-bar').style.display = '';
+      document.getElementById('chips-tema').innerHTML =
+        keys.map(k => `<button class="flt-chip" data-facet="tema" data-val="${esc(k)}">${esc(TEMA_LABEL[k] || k)}</button>`).join('');
+      document.getElementById('chips-dif').innerHTML =
+        ['facil','media','dificil'].filter(d => difsSet.has(d))
+          .map(d => `<button class="flt-chip dif-${d}" data-facet="dif" data-val="${d}">${esc(DIF_LABEL[d])}</button>`).join('');
+      document.getElementById('chips-anyo').innerHTML =
+        Array.from(anySet).sort().reverse()
+          .map(y => `<button class="flt-chip" data-facet="anyo" data-val="${esc(y)}">${esc(y)}</button>`).join('');
+    }
+    if (window.fltRefresh) window.fltRefresh();
   })
   .catch(err => {
     document.getElementById('temes-container').innerHTML =
@@ -264,6 +273,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     console.error('selectivitat temes:', err);
   });
 </script>
+<script defer src="/assets/js/filters.js?v=202606162226"></script>
 <script defer src="/assets/js/search.js?v=202606162226"></script>
 </body>
 </html>

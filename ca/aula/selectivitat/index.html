@@ -21,6 +21,15 @@
   .temes-cta-body p { font-size:0.88rem; color:var(--text-soft); margin:0; }
   .temes-cta-arrow { margin-left:auto; font-size:1.3rem; color:var(--accent); flex-shrink:0; }
   @media (max-width:560px){ .temes-cta-arrow{ display:none; } }
+  .temes-cta-title { font-size:1.05rem; font-weight:500; margin:0 0 0.25rem; color:var(--text); display:block; }
+  .sel-block { margin-top:2.6rem; }
+  .sel-block-head { margin-bottom:1rem; }
+  .sel-block-head h2 { font-size:1.2rem; margin:0.25rem 0 0.3rem; color:var(--text); }
+  .sel-block-sub { font-size:0.9rem; color:var(--text-soft); margin:0; max-width:46rem; }
+  .sel-info-card { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.4rem; }
+  .sel-info-card p { margin:0 0 1rem; font-size:0.95rem; color:var(--text); line-height:1.6; }
+  .sel-official-btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-size:0.88rem; font-weight:500; padding:0.5rem 1rem; border-radius:8px; transition:opacity 0.15s; }
+  .sel-official-btn:hover { opacity:0.9; }
 </style>
 <link rel="canonical" href="https://alexreyes.es/ca/aula/selectivitat/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/">
@@ -101,18 +110,23 @@
       <div class="info-card"><div class="info-card-label">Problemes</div><div class="info-card-value" id="count-problems">—</div></div>
     </div>
 
-    <a href="/ca/aula/selectivitat/temes/" class="temes-cta">
-      <div class="temes-cta-icon">📚</div>
-      <div class="temes-cta-body">
-        <h2>Problemes classificats per tema</h2>
-        <p>Tots els problemes de PAU agrupats per tema —derivades, integrals, sistemes, probabilitat, geometria…—, amb les preguntes de <strong>Matemàtiques (científic)</strong> i <strong>Mat. CCSS</strong> diferenciades. Practica un tema concret.</p>
+    <section class="sel-block">
+      <div class="sel-block-head">
+        <span class="section-label">La prova</span>
+        <h2>Estructura de l'examen</h2>
       </div>
-      <div class="temes-cta-arrow">&rarr;</div>
-    </a>
+      <div class="sel-info-card">
+        <p>La prova de Matemàtiques de la PAU té dues modalitats segons el batxillerat: <strong>Matemàtiques</strong> (cientificotecnològic) i <strong>Matemàtiques Aplicades a les Ciències Socials</strong>. Des del model de 2025 l'examen és únic —ja no es tria entre dues opcions—, està orientat a competències i les preguntes de resposta tancada no superen el 30%. L'ortografia, la presentació i la coherència del discurs poden restar fins a un 10% de la nota. Convocatòries: juny (ordinària) i setembre (extraordinària).</p>
+        <a href="https://universitats.gencat.cat/ca/pau/" target="_blank" rel="noopener" class="sel-official-btn">Web oficial · Canal Universitats ↗</a>
+      </div>
+    </section>
 
-    <div style="background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.25);border-radius:var(--radius);padding:0.9rem 1.1rem;font-size:0.9rem;color:var(--text);margin:1.5rem 0 2rem">
-      💡 <strong>Com usar-ho:</strong> Cada examen s'obre amb tots els problemes resolts pas a pas. Pots filtrar per assignatura, any o convocatòria.
-    </div>
+    <section class="sel-block">
+      <div class="sel-block-head">
+        <span class="section-label">Exàmens complets</span>
+        <h2>Filtra i obre cada examen resolt</h2>
+        <p class="sel-block-sub">Cada examen s'obre amb tots els problemes resolts pas a pas. Filtra per assignatura, convocatòria o any.</p>
+      </div>
 
     <div class="flt" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
       <div class="flt-concepts">
@@ -142,6 +156,22 @@
       <h3>No hi ha exàmens amb aquest filtre</h3>
       <p>Prova amb una altra assignatura o convocatòria, o prem «Totes».</p>
     </div>
+    </section>
+
+    <section class="sel-block">
+      <div class="sel-block-head">
+        <span class="section-label">Problemes per tema</span>
+        <h2>Prefereixes practicar un tema concret?</h2>
+      </div>
+      <a href="/ca/aula/selectivitat/temes/" class="temes-cta" style="margin-top:0">
+        <div class="temes-cta-icon">📚</div>
+        <div class="temes-cta-body">
+          <span class="temes-cta-title">Problemes classificats per tema</span>
+          <p>Tots els problemes de PAU agrupats per tema —derivades, integrals, sistemes, probabilitat, geometria…—, amb <strong>Matemàtiques (científic)</strong> i <strong>Mat. CCSS</strong> diferenciades, i filtre per dificultat i any.</p>
+        </div>
+        <div class="temes-cta-arrow">&rarr;</div>
+      </a>
+    </section>
 
   </div>
 </main>
