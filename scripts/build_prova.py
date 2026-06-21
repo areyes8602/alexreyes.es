@@ -17,7 +17,8 @@ CANONICAL_FOR = {"2526-cangur-prova-1eso-b": "2526-cangur-prova-1eso-a",
                  "2526-cangur-prova-2eso-b": "2526-cangur-prova-2eso-a",
                  "2526-cangur-prova-3eso-b": "2526-cangur-prova-3eso-a",
                  "2526-cangur-prova-4eso-b": "2526-cangur-prova-4eso-a",
-                 "2526-cangur-prova-1btl-b": "2526-cangur-prova-1btl-a"}
+                 "2526-cangur-prova-1btl-b": "2526-cangur-prova-1btl-a",
+                 "2526-cangur-prova-2btl-b": "2526-cangur-prova-2btl-a"}
 
 def esc(s):
     return str(s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
