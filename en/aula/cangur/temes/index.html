@@ -6,11 +6,11 @@
 <title>Cangur — Problems by topic · Àlex Reyes</title>
 <meta name="description" content="Problems from the Cangur (SCM) contests classified by topic: geometry, combinatorics, numbers, algebra and functions, all solved and commented.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
-<script src="/assets/js/lang-persist.js?v=202606211526"></script>
+<script src="/assets/js/lang-persist.js?v=202606211543"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css?v=202606211526">
+<link rel="stylesheet" href="/style.css?v=202606211543">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/assets/css/filters.css?v=202606162226">
 <link rel="canonical" href="https://alexreyes.es/en/aula/cangur/temes/">
@@ -102,16 +102,20 @@
     <div class="flt" id="filter-bar" style="display:none;margin-top:1.5rem;--flt-accent:#10b981" data-items="#temes-container .prob-item">
       <div class="flt-concepts">
         <span class="flt-label">Filter by</span>
+        <button class="flt-concept" data-group="font" aria-expanded="false">Competition<span class="flt-badge" hidden></span></button>
         <button class="flt-concept" data-group="tema" aria-expanded="false">Topic<span class="flt-badge" hidden></span></button>
         <button class="flt-concept" data-group="dif" aria-expanded="false">Difficulty<span class="flt-badge" hidden></span></button>
         <button class="flt-concept" data-group="cat" aria-expanded="false">Category<span class="flt-badge" hidden></span></button>
+        <button class="flt-concept" data-group="curs" aria-expanded="false">Year<span class="flt-badge" hidden></span></button>
         <button class="flt-concept" data-group="edicio" aria-expanded="false">Edition<span class="flt-badge" hidden></span></button>
         <button class="flt-all is-active" data-val="all">All</button>
       </div>
       <div class="flt-groups">
+        <div class="flt-group" data-group="font" hidden><div class="flt-chips" id="chips-font"></div></div>
         <div class="flt-group" data-group="tema" hidden><div class="flt-chips" id="chips-tema"></div></div>
         <div class="flt-group" data-group="dif" hidden><div class="flt-chips" id="chips-dif"></div></div>
         <div class="flt-group" data-group="cat" hidden><div class="flt-chips" id="chips-cat"></div></div>
+        <div class="flt-group" data-group="curs" hidden><div class="flt-chips" id="chips-curs"></div></div>
         <div class="flt-group" data-group="edicio" hidden><div class="flt-chips" id="chips-edicio"></div></div>
       </div>
     </div>
@@ -181,6 +185,17 @@ function catOf(col){
   return '';
 }
 
+const FONT_LABEL = {"copa":"Copa Cangur","prova":"Cangur Test"};
+const CURS_LABEL = {"1eso":"Year 7","2eso":"Year 8","3eso":"Year 9","4eso":"Year 10","5prim":"Year 5","6prim":"Year 6","1btl":"Year 11","2btl":"Year 12"};
+function fontOf(col){ var id=(col.id||''); return /prova/.test(id)?'prova':(/copa/.test(id)?'copa':''); }
+function cursOf(col){ var id=(col.id||''); var m=id.match(/prova-([0-9a-z]+?)-(?:a|b|dia24|19mar|24mar)/); return m?m[1]:''; }
+function updateFacetVis(){
+  var act=[].map.call(document.querySelectorAll('#chips-font .flt-chip.is-active'),function(x){return x.getAttribute('data-val');});
+  var onlyProva = act.length===1 && act[0]==='prova';
+  function setF(g,show){ var c=document.querySelector('.flt-concept[data-group="'+g+'"]'); var gr=document.querySelector('.flt-group[data-group="'+g+'"]'); if(c)c.style.display=show?'':'none'; if(gr&&!show)gr.setAttribute('hidden',''); }
+  setF('cat', !onlyProva);   // Categoría: Copa (oculta si solo Prova)
+  setF('curs', onlyProva);   // Curso: solo cuando se elige Prova
+}
 let temes = {};
 let collapsedTemes = {};
 try { collapsedTemes = JSON.parse(localStorage.getItem('temesCollapsed') || '{}'); } catch(e) {}
@@ -203,7 +218,7 @@ function render(){
       <h2 class="tema-title" onclick="toggleTema('${esc(tag)}')">${esc(TEMA_LABEL[tag] || tag)} <span class="tema-count">${temes[tag].length} ${temes[tag].length===1?'problem':'problems'}</span><span class="tema-caret">▾</span></h2>
       <div class="prob-list">
         ${temes[tag].map(p => `
-        <a href="${esc(p.url)}" class="prob-item flt-item" data-tema="${esc(tag)}" data-dif="${esc(p.dif)}" data-cat="${esc(p.cat)}" data-edicio="${esc(p.edicio)}">
+        <a href="${esc(p.url)}" class="prob-item flt-item" data-tema="${esc(tag)}" data-dif="${esc(p.dif)}" data-cat="${esc(p.cat)}" data-edicio="${esc(p.edicio)}" data-font="${esc(p.font)}" data-curs="${esc(p.curs)}">
           <span class="prob-num">P${p.numero}</span>
           <span class="prob-titol">${esc(p.titulo)}</span>
           ${p.dif ? `<span class="chip dif-${esc(p.dif)}">${esc(DIF_LABEL[p.dif] || p.dif)}</span>` : ''}
@@ -214,6 +229,7 @@ function render(){
 }
 
 var fltRoot = document.getElementById('filter-bar');
+if (fltRoot) fltRoot.addEventListener('click', function(){ setTimeout(updateFacetVis, 0); });
 if (fltRoot) fltRoot.addEventListener('flt:change', function(ev){
   document.querySelectorAll('.tema-section').forEach(function(sec){
     var vis = sec.querySelectorAll('.prob-item:not(.flt-hidden)').length;
@@ -227,7 +243,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(data => {
     const proves = new Set();
-    const difsSet = new Set(), catsSet = new Set(), edSet = new Set();
+    const difsSet = new Set(), catsSet = new Set(), edSet = new Set(), fontSet = new Set(), cursSet = new Set();
     let nProb = 0;
     for (const ej of (data.ejercicios || [])) {
       const t = ej.tags || {};
@@ -236,6 +252,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
       const col = ej.coleccion || {};
       proves.add(col.id);
       const cat = catOf(col), edicio = t.curso_academico || '';
+      const font = fontOf(col), curs = cursOf(col); if (font) fontSet.add(font); if (curs) cursSet.add(curs);
       if (t.dificultad) difsSet.add(t.dificultad);
       if (cat) catsSet.add(cat);
       if (edicio) edSet.add(edicio);
@@ -249,7 +266,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
           dif: t.dificultad || '',
           cat: cat,
           edicio: edicio,
-          prova: col.titulo || ''
+          prova: col.titulo || '', font: fontOf(col), curs: cursOf(col)
         });
       }
     }
@@ -270,10 +287,17 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
       document.getElementById('chips-cat').innerHTML =
         ['benjami','cadet','junior'].filter(c => catsSet.has(c))
           .map(c => `<button class="flt-chip" data-facet="cat" data-val="${c}">${esc(CAT_LABEL[c])}</button>`).join('');
+      document.getElementById('chips-font').innerHTML =
+        ['copa','prova'].filter(f => fontSet.has(f))
+          .map(f => `<button class="flt-chip" data-facet="font" data-val="${f}">${esc(FONT_LABEL[f]||f)}</button>`).join('');
+      document.getElementById('chips-curs').innerHTML =
+        Array.from(cursSet).sort()
+          .map(c => `<button class="flt-chip" data-facet="curs" data-val="${esc(c)}">${esc(CURS_LABEL[c]||c)}</button>`).join('');
       document.getElementById('chips-edicio').innerHTML =
         Array.from(edSet).sort().reverse()
           .map(e => `<button class="flt-chip" data-facet="edicio" data-val="${esc(e)}">${esc(e)}</button>`).join('');
     }
+    updateFacetVis();
     if (window.fltRefresh) window.fltRefresh();
   })
   .catch(err => {
@@ -282,7 +306,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     console.error('cangur temes:', err);
   });
 </script>
-<script defer src="/assets/js/filters.js?v=202606211526"></script>
-<script defer src="/assets/js/search.js?v=202606211526"></script>
+<script defer src="/assets/js/filters.js?v=202606211543"></script>
+<script defer src="/assets/js/search.js?v=202606211543"></script>
 </body>
 </html>
