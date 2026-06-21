@@ -30,6 +30,40 @@
   .sel-info-card p { margin:0 0 1rem; font-size:0.95rem; color:var(--text); line-height:1.6; }
   .sel-official-btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-size:0.88rem; font-weight:500; padding:0.5rem 1rem; border-radius:8px; transition:opacity 0.15s; }
   .sel-official-btn:hover { opacity:0.9; }
+  .sel-guide-cta { display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-subtle); text-decoration:none; color:inherit; transition:border-color .15s, transform .15s; }
+  .sel-guide-cta:hover { border-color:var(--border-strong); transform:translateY(-1px); }
+  .sel-guide-ic { font-size:1.5rem; flex-shrink:0; }
+  .sel-guide-title { font-size:1rem; font-weight:600; color:var(--text); display:block; margin-bottom:0.15rem; }
+  .sel-guide-body p { font-size:0.86rem; color:var(--text-soft); margin:0; }
+  .sel-guide-arrow { margin-left:auto; color:var(--accent); font-size:1.2rem; flex-shrink:0; }
+  .sel-switch { display:inline-flex; gap:0.25rem; padding:0.25rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:99px; margin:2rem 0 1.3rem; }
+  .sel-switch-btn { font-size:0.88rem; font-weight:500; padding:0.4rem 1.1rem; border:none; border-radius:99px; background:transparent; color:var(--text-soft); cursor:pointer; transition:all .15s; font-family:inherit; }
+  .sel-switch-btn:hover { color:var(--text); }
+  .sel-switch-btn.is-active { background:var(--bg); color:var(--text); box-shadow:0 1px 3px rgba(0,0,0,0.08); }
+  [data-theme="dark"] .sel-switch-btn.is-active { background:var(--bg-hover); }
+  .sel-panel[hidden] { display:none; }
+  .tema-section { margin-bottom:2.2rem; }
+  .tema-title { cursor:pointer; user-select:none; font-size:1rem; font-weight:600; color:var(--text); margin:0 0 0.7rem; padding-bottom:0.4rem; border-bottom:1px solid var(--border); display:flex; align-items:baseline; gap:0.5rem; }
+  .tema-caret { margin-left:auto; font-size:0.75rem; color:var(--text-faint); transition:transform 0.2s; }
+  .tema-section.collapsed .tema-caret { transform:rotate(-90deg); }
+  .tema-section.collapsed .prob-list { display:none; }
+  .tema-count { font-size:0.75rem; color:var(--text-faint); font-weight:400; }
+  .prob-list { display:flex; flex-direction:column; gap:0.5rem; }
+  .prob-item { display:flex; align-items:baseline; gap:0.7rem; padding:0.6rem 0.9rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s; flex-wrap:wrap; }
+  .prob-item:hover { border-color:var(--border-strong); }
+  .prob-num { font-family:var(--mono); font-size:0.8rem; color:var(--text-faint); white-space:nowrap; }
+  .prob-titol { font-size:0.92rem; color:var(--text); flex:1 1 12rem; }
+  .prob-prova { font-size:0.75rem; color:var(--text-faint); white-space:nowrap; }
+  .chip.dif-facil { background:rgba(34,197,94,0.08); color:#2f7d46; border-color:rgba(34,197,94,0.30); }
+  .chip.dif-media { background:rgba(217,119,6,0.08); color:#a16207; border-color:rgba(217,119,6,0.30); }
+  .chip.dif-dificil { background:rgba(225,29,72,0.07); color:#b0334f; border-color:rgba(225,29,72,0.26); }
+  .chip.mat-cient { background:rgba(59,130,246,0.08); color:#2563eb; border-color:rgba(59,130,246,0.30); }
+  .chip.mat-ccss { background:rgba(139,92,246,0.08); color:#7c3aed; border-color:rgba(139,92,246,0.30); }
+  [data-theme="dark"] .chip.dif-facil { background:rgba(74,222,128,0.10); color:#8fd6a4; }
+  [data-theme="dark"] .chip.dif-media { background:rgba(251,191,36,0.10); color:#d6b35e; }
+  [data-theme="dark"] .chip.dif-dificil { background:rgba(251,113,133,0.10); color:#de8e9b; }
+  [data-theme="dark"] .chip.mat-cient { background:rgba(96,165,250,0.12); color:#93c5fd; }
+  [data-theme="dark"] .chip.mat-ccss { background:rgba(167,139,250,0.12); color:#c4b5fd; }
 </style>
 <link rel="canonical" href="https://alexreyes.es/ca/aula/selectivitat/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/selectivitat/">
@@ -111,66 +145,83 @@
     </div>
 
     <section class="sel-block">
-      <div class="sel-block-head">
-        <span class="section-label">La prova</span>
-        <h2>Estructura de l'examen</h2>
-      </div>
-      <div class="sel-info-card">
-        <p>La prova de Matemàtiques de la PAU té dues modalitats segons el batxillerat: <strong>Matemàtiques</strong> (cientificotecnològic) i <strong>Matemàtiques Aplicades a les Ciències Socials</strong>. Des del model de 2025 l'examen és únic —ja no es tria entre dues opcions—, està orientat a competències i les preguntes de resposta tancada no superen el 30%. L'ortografia, la presentació i la coherència del discurs poden restar fins a un 10% de la nota. Convocatòries: juny (ordinària) i setembre (extraordinària).</p>
-        <a href="https://universitats.gencat.cat/ca/pau/" target="_blank" rel="noopener" class="sel-official-btn">Web oficial · Canal Universitats ↗</a>
-      </div>
-    </section>
-
-    <section class="sel-block">
-      <div class="sel-block-head">
-        <span class="section-label">Exàmens complets</span>
-        <h2>Filtra i obre cada examen resolt</h2>
-        <p class="sel-block-sub">Cada examen s'obre amb tots els problemes resolts pas a pas. Filtra per assignatura, convocatòria o any.</p>
-      </div>
-
-    <div class="flt" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
-      <div class="flt-concepts">
-        <span class="flt-label">Filtra per</span>
-        <button class="flt-concept" data-group="materia" aria-expanded="false">Assignatura<span class="flt-badge" hidden></span></button>
-        <button class="flt-concept" data-group="conv" aria-expanded="false">Convocatòria<span class="flt-badge" hidden></span></button>
-        <button class="flt-concept" data-group="anyo" aria-expanded="false">Any<span class="flt-badge" hidden></span></button>
-        <button class="flt-all is-active" data-val="all">Totes</button>
-      </div>
-      <div class="flt-groups">
-        <div class="flt-group" data-group="materia" hidden><div class="flt-chips">
-          <button class="flt-chip" data-facet="materia" data-val="cient-2btl">Matemàtiques</button>
-          <button class="flt-chip" data-facet="materia" data-val="ccss-2btl">Mat. CCSS</button>
-        </div></div>
-        <div class="flt-group" data-group="conv" hidden><div class="flt-chips">
-          <button class="flt-chip" data-facet="conv" data-val="juny">Juny</button>
-          <button class="flt-chip" data-facet="conv" data-val="setembre">Setembre</button>
-        </div></div>
-        <div class="flt-group" data-group="anyo" hidden><div class="flt-chips" id="sel-chips-anyo"></div></div>
-      </div>
-    </div>
-
-    <div id="exams-container">
-      <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Carregant…</p>
-    </div>
-    <div id="no-results" class="empty-state" style="display:none">
-      <h3>No hi ha exàmens amb aquest filtre</h3>
-      <p>Prova amb una altra assignatura o convocatòria, o prem «Totes».</p>
-    </div>
-    </section>
-
-    <section class="sel-block">
-      <div class="sel-block-head">
-        <span class="section-label">Problemes per tema</span>
-        <h2>Prefereixes practicar un tema concret?</h2>
-      </div>
-      <a href="/ca/aula/selectivitat/temes/" class="temes-cta" style="margin-top:0">
-        <div class="temes-cta-icon">📚</div>
-        <div class="temes-cta-body">
-          <span class="temes-cta-title">Problemes classificats per tema</span>
-          <p>Tots els problemes de PAU agrupats per tema —derivades, integrals, sistemes, probabilitat, geometria…—, amb <strong>Matemàtiques (científic)</strong> i <strong>Mat. CCSS</strong> diferenciades, i filtre per dificultat i any.</p>
+      <a href="/ca/aula/selectivitat/examen/" class="sel-guide-cta">
+        <div class="sel-guide-ic">📋</div>
+        <div class="sel-guide-body">
+          <span class="sel-guide-title">Com és la prova?</span>
+          <p>Estructura per modalitat, durada, calculadora, criteris de correcció i temari. Model 2025.</p>
         </div>
-        <div class="temes-cta-arrow">&rarr;</div>
+        <div class="sel-guide-arrow">&rarr;</div>
       </a>
+    </section>
+
+    <div class="sel-switch" role="tablist" aria-label="Què vols cercar">
+      <button class="sel-switch-btn is-active" id="tab-examenes" role="tab" aria-selected="true" onclick="selSwitch('examenes')">Cerca exàmens</button>
+      <button class="sel-switch-btn" id="tab-ejercicios" role="tab" aria-selected="false" onclick="selSwitch('ejercicios')">Per tipus d'exercici</button>
+    </div>
+
+    <section class="sel-panel" id="panel-examenes" role="tabpanel" aria-labelledby="tab-examenes">
+      <p class="sel-block-sub" style="margin:0 0 1rem">Cada examen s'obre amb tots els problemes resolts pas a pas. Filtra per assignatura, convocatòria o any.</p>
+
+      <div class="flt" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
+        <div class="flt-concepts">
+          <span class="flt-label">Filtra per</span>
+          <button class="flt-concept" data-group="materia" aria-expanded="false">Assignatura<span class="flt-badge" hidden></span></button>
+          <button class="flt-concept" data-group="conv" aria-expanded="false">Convocatòria<span class="flt-badge" hidden></span></button>
+          <button class="flt-concept" data-group="anyo" aria-expanded="false">Any<span class="flt-badge" hidden></span></button>
+          <button class="flt-all is-active" data-val="all">Totes</button>
+        </div>
+        <div class="flt-groups">
+          <div class="flt-group" data-group="materia" hidden><div class="flt-chips">
+            <button class="flt-chip" data-facet="materia" data-val="cient-2btl">Matemàtiques</button>
+            <button class="flt-chip" data-facet="materia" data-val="ccss-2btl">Mat. CCSS</button>
+          </div></div>
+          <div class="flt-group" data-group="conv" hidden><div class="flt-chips">
+            <button class="flt-chip" data-facet="conv" data-val="juny">Juny</button>
+            <button class="flt-chip" data-facet="conv" data-val="setembre">Setembre</button>
+          </div></div>
+          <div class="flt-group" data-group="anyo" hidden><div class="flt-chips" id="sel-chips-anyo"></div></div>
+        </div>
+      </div>
+
+      <div id="exams-container">
+        <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Carregant…</p>
+      </div>
+      <div id="no-results" class="empty-state" style="display:none">
+        <h3>No hi ha exàmens amb aquest filtre</h3>
+        <p>Prova amb una altra assignatura o convocatòria, o prem «Totes».</p>
+      </div>
+    </section>
+
+    <section class="sel-panel" id="panel-ejercicios" role="tabpanel" aria-labelledby="tab-ejercicios" hidden>
+      <p class="sel-block-sub" style="margin:0 0 1rem">Tots els problemes de PAU agrupats per tema, amb <strong>Matemàtiques (científic)</strong> i <strong>Mat. CCSS</strong> diferenciades. Filtra per tema, assignatura, dificultat o any.</p>
+
+      <div class="flt" id="tema-filter-bar" style="display:none;--flt-accent:#10b981" data-items="#temes-container .prob-item">
+        <div class="flt-concepts">
+          <span class="flt-label">Filtra per</span>
+          <button class="flt-concept" data-group="tema" aria-expanded="false">Tema<span class="flt-badge" hidden></span></button>
+          <button class="flt-concept" data-group="materia" aria-expanded="false">Assignatura<span class="flt-badge" hidden></span></button>
+          <button class="flt-concept" data-group="dif" aria-expanded="false">Dificultat<span class="flt-badge" hidden></span></button>
+          <button class="flt-concept" data-group="anyo" aria-expanded="false">Any<span class="flt-badge" hidden></span></button>
+          <button class="flt-all is-active" data-val="all">Tots</button>
+        </div>
+        <div class="flt-groups">
+          <div class="flt-group" data-group="tema" hidden><div class="flt-chips" id="t-chips-tema"></div></div>
+          <div class="flt-group" data-group="materia" hidden><div class="flt-chips">
+            <button class="flt-chip" data-facet="materia" data-val="cient-2btl">Matemàtiques</button>
+            <button class="flt-chip" data-facet="materia" data-val="ccss-2btl">Mat. CCSS</button>
+          </div></div>
+          <div class="flt-group" data-group="dif" hidden><div class="flt-chips" id="t-chips-dif"></div></div>
+          <div class="flt-group" data-group="anyo" hidden><div class="flt-chips" id="t-chips-anyo"></div></div>
+        </div>
+      </div>
+
+      <div id="temes-container" style="margin-top:1rem">
+        <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Carregant…</p>
+      </div>
+      <div id="no-results-temes" class="empty-state" style="display:none;margin-top:1rem">
+        <p>No hi ha problemes amb aquest filtre. Prova amb una altra combinació o prem «Tots».</p>
+      </div>
     </section>
 
   </div>
@@ -254,6 +305,69 @@ if (fltRoot) fltRoot.addEventListener('flt:change', function(ev){
   if (nr) nr.style.display = (ev.detail.active > 0 && ev.detail.shown === 0) ? '' : 'none';
 });
 
+// ===== Panel "per tipus d'exercici" =====
+const TEMA_LABEL = {
+  "BACH-funciones-elementales":"Funcions elementals","BACH-limites":"Límits i continuïtat",
+  "BACH-derivadas":"Derivades i aplicacions","BACH-integrales":"Integrals","BACH-ecuaciones":"Equacions",
+  "BACH-sistemas":"Sistemes d'equacions","BACH-matrices":"Matrius","BACH-determinantes":"Determinants",
+  "BACH-rectas-planos":"Rectes i plans","BACH-vectores":"Vectors","BACH-probabilidad":"Probabilitat",
+  "BACH-distribuciones":"Distribucions (binomial, normal)","BACH-inferencia":"Inferència estadística","__altres":"Altres"
+};
+const DIF_LABEL = {"facil":"Fàcil","media":"Mitjana","dificil":"Difícil"};
+const MAT_CLASS = {"cient-2btl":"mat-cient","ccss-2btl":"mat-ccss"};
+let allProbs = [];
+let collapsedTemes = {};
+try { collapsedTemes = JSON.parse(localStorage.getItem('selTemesCollapsed') || '{}'); } catch(e) {}
+function toggleTemaSel(t){
+  if (collapsedTemes[t]) delete collapsedTemes[t]; else collapsedTemes[t] = true;
+  localStorage.setItem('selTemesCollapsed', JSON.stringify(collapsedTemes));
+  var sec = document.querySelector('#temes-container .tema-section[data-tema="'+t+'"]');
+  if (sec) sec.classList.toggle('collapsed');
+}
+function buildTemes(){
+  const t = {};
+  for (const p of allProbs){ for (const c of p.concepts){ (t[c]=t[c]||[]).push(p); } }
+  for (const k in t) t[k].sort((a,b)=>(a.prova+a.numero).localeCompare(b.prova+b.numero, undefined, {numeric:true}));
+  return t;
+}
+function renderTemes(temes, keys){
+  const cont = document.getElementById('temes-container');
+  if (!keys.length){ cont.innerHTML = '<div class="empty-state"><p>Encara no hi ha problemes classificats.</p></div>'; return; }
+  cont.innerHTML = keys.map(tag => `
+    <div class="tema-section${collapsedTemes[tag] ? ' collapsed' : ''}" data-tema="${esc(tag)}">
+      <h2 class="tema-title" onclick="toggleTemaSel('${esc(tag)}')">${esc(TEMA_LABEL[tag] || tag)} <span class="tema-count">${temes[tag].length} ${temes[tag].length===1?'problema':'problemes'}</span><span class="tema-caret">▾</span></h2>
+      <div class="prob-list">
+        ${temes[tag].map(p => `
+        <a href="/ca${esc(p.url)}" class="prob-item flt-item" data-tema="${esc(tag)}" data-materia="${esc(p.materia)}" data-dif="${esc(p.dif)}" data-anyo="${esc(p.anyo)}">
+          <span class="prob-num">P${esc(p.numero)}</span>
+          <span class="prob-titol">${esc(p.titulo)}</span>
+          <span class="chip ${MAT_CLASS[p.materia]||''}">${esc(matLabel(p.materia)||p.materia)}</span>
+          ${p.dif ? `<span class="chip dif-${esc(p.dif)}">${esc(DIF_LABEL[p.dif] || p.dif)}</span>` : ''}
+          <span class="prob-prova">${esc(p.prova)}</span>
+        </a>`).join('')}
+      </div>
+    </div>`).join('');
+}
+var temaRoot = document.getElementById('tema-filter-bar');
+if (temaRoot) temaRoot.addEventListener('flt:change', function(ev){
+  document.querySelectorAll('#temes-container .tema-section').forEach(function(sec){
+    var vis = sec.querySelectorAll('.prob-item:not(.flt-hidden)').length;
+    sec.style.display = vis ? '' : 'none';
+  });
+  var nr = document.getElementById('no-results-temes');
+  if (nr) nr.style.display = (ev.detail.active > 0 && ev.detail.shown === 0) ? '' : 'none';
+});
+function selSwitch(which){
+  var ex = which === 'examenes';
+  document.getElementById('panel-examenes').hidden = !ex;
+  document.getElementById('panel-ejercicios').hidden = ex;
+  document.getElementById('tab-examenes').classList.toggle('is-active', ex);
+  document.getElementById('tab-ejercicios').classList.toggle('is-active', !ex);
+  document.getElementById('tab-examenes').setAttribute('aria-selected', ex ? 'true' : 'false');
+  document.getElementById('tab-ejercicios').setAttribute('aria-selected', ex ? 'false' : 'true');
+  try { localStorage.setItem('selView', which); } catch(e){}
+}
+
 // Load from ejercicios-index.json
 fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
@@ -292,14 +406,36 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     document.getElementById('count-problems').textContent = allExams.reduce((s,e)=>s+e.ejercicios_count,0) || '0';
 
     render();
-
-    if(allExams.length > 0){
-      document.getElementById('filter-bar').style.display = '';
-    }
+    if(allExams.length > 0){ document.getElementById('filter-bar').style.display = ''; }
     const anys = [...new Set(allExams.map(e => e.year).filter(Boolean))].sort().reverse();
     document.getElementById('sel-chips-anyo').innerHTML =
       anys.map(y => `<button class="flt-chip" data-facet="anyo" data-val="${esc(y)}">${esc(y)}</button>`).join('');
+
+    // ---- panel per tipus d'exercici ----
+    const tDif = new Set(), tAny = new Set();
+    (data.ejercicios || []).forEach(ej => {
+      const t = ej.tags || {};
+      if (t.origen !== 'selectivitat') return;
+      const col = ej.coleccion || {};
+      let concepts = [].concat(t.concepto_bach || []);
+      if (!concepts.length) concepts = ['__altres'];
+      const anyo = (col.fecha||'').split('-')[0] || '';
+      if (t.dificultad) tDif.add(t.dificultad);
+      if (anyo) tAny.add(anyo);
+      allProbs.push({ materia:t.materia||'', numero:ej.numero, titulo:ej.titulo, dif:t.dificultad||'', anyo:anyo, prova:col.titulo||'', url: ej.url_enunciado || col.url_index || '#', concepts });
+    });
+    const temesObj = buildTemes();
+    const tkeys = Object.keys(temesObj).sort((a,b)=>temesObj[b].length-temesObj[a].length);
+    renderTemes(temesObj, tkeys);
+    if (allProbs.length){
+      document.getElementById('tema-filter-bar').style.display = '';
+      document.getElementById('t-chips-tema').innerHTML = tkeys.map(k => `<button class="flt-chip" data-facet="tema" data-val="${esc(k)}">${esc(TEMA_LABEL[k]||k)}</button>`).join('');
+      document.getElementById('t-chips-dif').innerHTML = ['facil','media','dificil'].filter(d=>tDif.has(d)).map(d => `<button class="flt-chip dif-${d}" data-facet="dif" data-val="${d}">${esc(DIF_LABEL[d])}</button>`).join('');
+      document.getElementById('t-chips-anyo').innerHTML = [...tAny].sort().reverse().map(y => `<button class="flt-chip" data-facet="anyo" data-val="${esc(y)}">${esc(y)}</button>`).join('');
+    }
+
     if (window.fltRefresh) window.fltRefresh();
+    try { if (localStorage.getItem('selView') === 'ejercicios') selSwitch('ejercicios'); } catch(e){}
   })
   .catch(() => {
     document.getElementById('count-exams').textContent = '0';
