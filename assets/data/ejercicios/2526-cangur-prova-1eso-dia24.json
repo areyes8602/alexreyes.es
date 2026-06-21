@@ -1,0 +1,1275 @@
+{
+  "schema_version": 3,
+  "id": "2526-cangur-prova-1eso-dia24",
+  "tipo_coleccion": "examen",
+  "titulo": "Prova Cangur 2026 — 1r ESO · Dia 24",
+  "fecha": "2026-03-24",
+  "grupo": "Prova Cangur · 1r ESO",
+  "promocion": null,
+  "centro": "SCM — Prova Cangur (individual)",
+  "pdf_enunciados": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+  "pdf_soluciones": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/solucions.pdf",
+  "url_index": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/",
+  "puntuacion_total": 120,
+  "baremo": null,
+  "prova_cangur": {
+    "curso": "1eso",
+    "modelo": "dia24",
+    "num_preguntas": 30,
+    "opciones": 5,
+    "tiempo_min": 75,
+    "puntos_por_bloque": {
+      "3": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "4": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "5": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    "penalizacion": "1/4"
+  },
+  "tags_coleccion": {
+    "materia": "cangur",
+    "curso_academico": "2025-2026",
+    "idioma": "ca",
+    "fuente": "cangur_oficial",
+    "origen": "examen"
+  },
+  "ejercicios": [
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p1",
+      "numero": 1,
+      "titulo": "La paraula KANGAROO",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p1.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q01.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "D",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "L'Alba escriu les lletres de KANGAROO en una quadrícula 4×2; cada lletra ha d'anar en una casella amb algun punt en comú amb l'anterior. Quina imatge segur que NO correspon a la quadrícula de l'Alba?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "facil",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial",
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p2",
+      "numero": 2,
+      "titulo": "El vaixell de tres peces",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p2.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q02.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "En Santi té tres classes de peces de fusta. Quin és el mínim nombre de peces que necessita per construir el vaixell de la figura, tenint en compte que les pot girar 180°?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "facil",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p3",
+      "numero": 3,
+      "titulo": "El preu que es dobla",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p3.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q03.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "L'any passat dos productes tenien el mateix preu. Aquest any un manté el preu i l'altre s'ha doblat; ara la suma dels dos preus és 12 €. Quina era la suma l'any passat?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "facil",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-proporcionalidad"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p4",
+      "numero": 4,
+      "titulo": "La pilota entre cinc",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p4.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q04.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "A",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Dues noies i tres nois juguen amb una pilota: una noia la passa a l'altra noia o a un noi; un noi no la torna a qui li ha passat ni la passa a cap noia. Si l'Eva la passa a l'Adam, qui farà la cinquena passada?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p5",
+      "numero": 5,
+      "titulo": "El 'flip' de la figura",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p5.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q05.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "D",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "La Diana dibuixa una figura i li aplica un 'flip' (simetria respecte una recta horitzontal). Quina figura li quedarà dibuixada?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "facil",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p6",
+      "numero": 6,
+      "titulo": "Pizza en dotze trossos",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p6.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q06.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "D",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Una pizza es talla en 12 trossos iguals. En Max se'n menja una quarta part i la Gràcia la tercera part del que queda. Quantes porcions els queden al final?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "facil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-fracciones"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p7",
+      "numero": 7,
+      "titulo": "Peces per a la flor",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p7.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q07.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "L'Aina ha de formar una flor superposant peces iguals a la que es mostra. Quin és el nombre mínim de peces que ha d'utilitzar?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "facil",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p8",
+      "numero": 8,
+      "titulo": "Els segments tallats",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p8.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q08.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "D",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "La Berta quadricula la cara blanca d'un paper, dibuixa una B al centre, talla per alguns segments numerats de l'1 al 8, doblega i obté la figura mostrada. Per quins segments havia tallat?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p9",
+      "numero": 9,
+      "titulo": "El dau i el vèrtex",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p9.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q09.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Un dau té cares oposades que sumen 7. Per a un cert vèrtex, la suma de les tres cares que el comparteixen és 12. Quins són aquests nombres?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica",
+          "ESO-vision-espacial"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p10",
+      "numero": 10,
+      "titulo": "Simetries del cangur",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p10.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q10.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 3,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 3,
+          "tarea": "Amb el cap d'un cangur dibuixat al triangle 1 i el resultat de dues simetries consecutives, si se'n fan dues més, quina imatge hi haurà en el triangle ombrejat?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p11",
+      "numero": 11,
+      "titulo": "Les gotes del podi",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p11.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q11.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "El podi del País Dels Cubs té 24 cubs. Si a cada lloc on dues cares estan en contacte cal una gota de goma, quantes gotes necessitarem?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p12",
+      "numero": 12,
+      "titulo": "Vagonetes de quatre places",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p12.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q12.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "D",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Les vagonetes de 4 places surten cada 3 minuts i el trajecte dura 8 minuts. 24 persones volen fer la visita i el primer grup comença a les 11.50. A quina hora ha baixat l'últim grup?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p13",
+      "numero": 13,
+      "titulo": "El rellotge desordenat",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p13.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q13.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Un rellotge de 24 hores mostra els dígits sempre canviats de posició de la mateixa manera. Si ara marca 29:61, què hi veurem d'aquí a 40 minuts?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p14",
+      "numero": 14,
+      "titulo": "La tira en tres parts",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p14.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q14.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "En Patufet té una tira de 15 caselles numerades de l'1 al 15 i la plega en tres parts iguals; després punxa la casella del 2 fins travessar tot el paper. Quant sumen els nombres de les caselles foradades?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial",
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p15",
+      "numero": 15,
+      "titulo": "Cartes parells i imparells",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p15.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q15.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "De nou cartes (0 a 8), en Joan n'agafa quatre totes parells, la Marta tres i en Nèstor dues imparells, amb la mateixa suma cadascun. Quin és el producte de les cartes de la Marta?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p16",
+      "numero": 16,
+      "titulo": "La capsa mínima",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p16.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q16.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "D",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Una construcció de 11 cubs d'aresta 1 cm es vol guardar a la capsa que millor s'hi ajusta. Quines són, en cm, les dimensions d'aquesta capsa?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-cuerpos"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p17",
+      "numero": 17,
+      "titulo": "Caramels per torns",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p17.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q17.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "En Dídac, la Fàtima i l'Oriol agafen caramels per torns (1, 2, 3, 4, 5…); quan no en queden prou, qui té el torn agafa els que resten. L'Oriol acaba amb 22 caramels. Quants n'hi havia inicialment?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p18",
+      "numero": 18,
+      "titulo": "El molinet de trapezis",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p18.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q18.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Un trapezi té perímetre 26 cm. Juxtaposant-ne quatre s'obté un molinet de perímetre 80 cm. Quina és la mesura del costat AB del trapezi?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-perimetros"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p19",
+      "numero": 19,
+      "titulo": "PIN parell i imparell",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p19.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q19.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "E",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "En Ramon recorda que el seu PIN de quatre dígits és imparell, parell, imparell, parell i que augmenta d'esquerra a dreta. Quantes combinacions possibles hi ha?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-combinatoria"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p20",
+      "numero": 20,
+      "titulo": "Mentides al debat",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p20.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q20.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 4,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 4,
+          "tarea": "Cinc persones diuen, successivament, 'ja s'han dit exactament 1, 2, 3, 4, 5 mentides'. Si exactament una ha dit la veritat, quantes mentides s'havien dit durant el debat?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "dificil",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p21",
+      "numero": 21,
+      "titulo": "Els cercles grisos",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p21.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q21.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "D",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Cada cercle conté un nombre que fa correctes els càlculs. Quina és la suma dels nombres dels cercles grisos?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica",
+          "ESO-ecuaciones-1g"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p22",
+      "numero": 22,
+      "titulo": "Caramels a repartir",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p22.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q22.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Un grup reparteix caramels a parts iguals. Amb 60 caramels menys, a cadascú li'n tocarien 5 menys; amb 3 alumnes més, 2 menys. Quants caramels hi ha a la capsa?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "dificil",
+        "habilidad": [
+          "modelizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-sistemas"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p23",
+      "numero": 23,
+      "titulo": "Nombres de l'1 al 5",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p23.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q23.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "D",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Cinc persones escriuen els nombres de l'1 al 5. La suma d'en Ferran i la Jordina és el triple del de'n Toni; la d'en Ferran i la Clara és el doble del de la Rosa. Quin nombre ha escrit la Rosa?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p24",
+      "numero": 24,
+      "titulo": "La línia poligonal",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p24.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q24.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "En una figura amb quadrats de tres mides, el costat del més petit fa 20 cm. Quina és la longitud de la línia poligonal gruixuda?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "dificil",
+        "habilidad": [
+          "calculo_numerico"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-figuras-planas"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p25",
+      "numero": 25,
+      "titulo": "Boles a les balances",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p25.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q25.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "E",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Sis boles negres iguals i tres de blanques iguals s'equilibren amb pesos de 6 g i 30 g segons les imatges. Quin és el pes d'una bola negra?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "dificil",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p26",
+      "numero": 26,
+      "titulo": "Voltes amb el monopatí",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p26.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q26.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "La Paula recorre un camí estrellat amb el monopatí girant sempre a l'esquerra fins tornar al punt de sortida. Quantes voltes completes fa (mirant cap a l'est)?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "dificil",
+        "habilidad": [
+          "visualizacion"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-vision-espacial"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p27",
+      "numero": 27,
+      "titulo": "Esborrar per sumar 14",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p27.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q27.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "En una graella podem suprimir xifres de manera que la suma de cada fila i cada columna sigui 14. Quin és el màxim nombre de xifres que podem esborrar?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p28",
+      "numero": 28,
+      "titulo": "La tassa del Sergi",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p28.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q28.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "E",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "Cinc tasses (Leo, Raül, Ona, Paula, Sergi) amb nanses negres o blanques: Leo i Raül igual mida i diferent color; Ona i Paula mides diferents i mateix color. Quina és la del Sergi?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "media",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p29",
+      "numero": 29,
+      "titulo": "Gronxadors al pati",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p29.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q29.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "B",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "En un pati 5×5 amb cinc regions, en Cangur posa cinc gronxadors (un per fila, columna i regió) sense que dos comparteixin costat o vèrtex. En quin quadrat marcat amb lletra en pot col·locar un?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "dificil",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-logica"
+        ]
+      }
+    },
+    {
+      "id": "2526-cangur-prova-1eso-dia24-p30",
+      "numero": 30,
+      "titulo": "La tercera vegada de 2026",
+      "url_enunciado": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/p30.html",
+      "url_pdf": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/original.pdf",
+      "imagen": "/aula/cangur/examenes/2526-cangur-prova-1eso-dia24/q/q30.png",
+      "pages_enunciado": null,
+      "pages_solucion": null,
+      "puntuacion": 5,
+      "opciones": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "solucion": "C",
+      "contexto": null,
+      "apartados": [
+        {
+          "letra": "a",
+          "puntos": 5,
+          "tarea": "S'escriuen tots els naturals en ordre i seguits, sense separadors. Quin nombre haurà acabat d'escriure l'ordinador quan aparegui per tercera vegada la seqüència 2026?"
+        }
+      ],
+      "tags": {
+        "materia": "cangur",
+        "dificultad": "dificil",
+        "habilidad": [
+          "razonamiento"
+        ],
+        "formato": [
+          "opcion_multiple"
+        ],
+        "concepto_eso": [
+          "ESO-combinatoria",
+          "ESO-logica"
+        ]
+      }
+    }
+  ]
+}

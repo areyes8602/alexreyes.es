@@ -66,6 +66,8 @@ trilingual_paths = [
     '/docencia/ib-ai/2024-2026/info/', '/docencia/ib-ai/2025-2027/info/',
     # Cangur: hub de pruebas Copa y problemas por tema (trilingües)
     '/aula/cangur/copa/', '/aula/cangur/temes/',
+    # Cangur: Prova Cangur (info) y "Ponte a prueba" (test interactivo)
+    '/aula/cangur/prova/', '/aula/cangur/prova/test/',
 ]
 
 # Pages that exist only in ES (aula materials for a specific cohort).
