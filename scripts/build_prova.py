@@ -15,7 +15,8 @@ CE = TAGS["namespaces"]["concepto_eso"]["valores"]
 V = "202606211432"
 CANONICAL_FOR = {"2526-cangur-prova-1eso-b": "2526-cangur-prova-1eso-a",
                  "2526-cangur-prova-2eso-b": "2526-cangur-prova-2eso-a",
-                 "2526-cangur-prova-3eso-b": "2526-cangur-prova-3eso-a"}
+                 "2526-cangur-prova-3eso-b": "2526-cangur-prova-3eso-a",
+                 "2526-cangur-prova-4eso-b": "2526-cangur-prova-4eso-a"}
 
 def esc(s):
     return str(s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")

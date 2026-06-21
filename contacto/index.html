@@ -6,10 +6,10 @@
 <title>Contacto — Àlex Reyes</title>
 <meta name="description" content="Contacto — Àlex Reyes. Docencia: alexreyes@maristes.com · Investigación: alejandro.reyes@upc.edu.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
-<script src="/assets/js/lang-persist.js?v=202606212146"></script>
+<script src="/assets/js/lang-persist.js?v=202606212156"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css?v=202606212146">
+<link rel="stylesheet" href="/style.css?v=202606212156">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/contacto/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/contacto/">
@@ -158,6 +158,6 @@ var FB={"docencia":{"label":"Docencia","color":"teaching","items":["IB Mathemati
 function fbSection(){var s=document.getElementById('fbSection'),d=document.getElementById('fbDetail'),p=document.getElementById('contactFeedback'),k=s.value;d.innerHTML='';p.classList.remove('fb-teaching','fb-research','fb-notes');if(!FB[k]){d.innerHTML='<option value="">—</option>';d.disabled=true;return;}d.disabled=false;p.classList.add('fb-'+FB[k].color);var o=document.createElement('option');o.value='';o.textContent='(toda la sección)';d.appendChild(o);FB[k].items.forEach(function(it){var x=document.createElement('option');x.value=it;x.textContent=it;d.appendChild(x);});}
 function fbSend(){var s=document.getElementById('fbSection'),d=document.getElementById('fbDetail'),m=document.getElementById('fbMsg'),parts=[];if(FB[s.value])parts.push(FB[s.value].label);if(d.value)parts.push(d.value);var subj='[web] Feedback'+(parts.length?' · '+parts.join(' · '):'');document.getElementById('fbSent').hidden=false;location.href='mailto:alexreyes@maristes.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(m.value||'');}
 </script>
-<script defer src="/assets/js/search.js?v=202606212146"></script>
+<script defer src="/assets/js/search.js?v=202606212156"></script>
 </body>
 </html>
