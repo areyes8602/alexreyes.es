@@ -1,9 +1,9 @@
 /* ============================================================
    Componente de filtro compartido — alexreyes.es
    Lenguaje visual canónico (modelado sobre doctorado/bibliografia).
-   Dos modos con el MISMO estilo:
-     · faceteado  → .flt            (conceptos que despliegan grupos)
-     · inline     → .flt.flt-inline (una fila de chips, sin desplegar)
+   Estructura única: "Filtrar por" + conceptos .flt-concept que despliegan
+   sus grupos de chips, y botón .flt-all ("Todas") a la derecha en el color
+   de acento. Igual en todos los hubs (1 concepto o varios).
    Color de acento por contenedor con --flt-accent (def. lila doctorado).
    Convención de color (AGENTS.md): verde #10b981 = docencia,
    lila #6366f1 = doctorado. Dificultad: verde/ámbar/rojo.
@@ -80,11 +80,6 @@
 .flt-chip.c-red::before{--flt-dot:#ef4444}
 .flt-chip.c-slate::before{--flt-dot:#64748b}
 .flt-chip.is-active[class*="c-"]::before{background:#fff;--flt-dot:#fff;opacity:.9}
-
-/* ---- modo inline: chips visibles, sin conceptos ni desplegable ---- */
-.flt-inline{display:flex;align-items:center;flex-wrap:wrap;gap:0.5rem}
-.flt-inline .flt-group{margin-top:0;padding-top:0;border-top:none}
-.flt-inline .flt-all{margin-left:0}
 
 /* contador de resultados */
 .flt-count{font-size:0.8rem;color:var(--text-faint);margin:0.9rem 0 0}

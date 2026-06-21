@@ -73,13 +73,18 @@
       <p style="font-size:0.98rem;color:var(--text-soft);max-width:42rem">Quick thoughts, works-in-progress, and notes on teaching, research, and problems that interest me.</p>
     </div>
 
-    <div class="flt flt-inline" data-items=".flt-item" data-count="notesCount">
-      <span class="flt-label">Filter</span>
-      <button class="flt-all is-active" data-val="all">All</button>
-      <div class="flt-chips">
-        <button class="flt-chip c-purple" data-facet="tag" data-val="collatz">Collatz</button>
-        <button class="flt-chip c-amber" data-facet="tag" data-val="fibonacci">Fibonacci</button>
-        <button class="flt-chip c-teal" data-facet="tag" data-val="tolkien">Tolkien</button>
+    <div class="flt" data-items=".flt-item" data-count="notesCount">
+      <div class="flt-concepts">
+        <span class="flt-label">Filter by</span>
+        <button class="flt-concept" data-group="tag" aria-expanded="false">Topic<span class="flt-badge" hidden></span></button>
+        <button class="flt-all is-active" data-val="all">All</button>
+      </div>
+      <div class="flt-groups">
+        <div class="flt-group" data-group="tag" hidden><div class="flt-chips">
+          <button class="flt-chip c-purple" data-facet="tag" data-val="collatz">Collatz</button>
+          <button class="flt-chip c-amber" data-facet="tag" data-val="fibonacci">Fibonacci</button>
+          <button class="flt-chip c-teal" data-facet="tag" data-val="tolkien">Tolkien</button>
+        </div></div>
       </div>
     </div>
     <p class="flt-count" id="notesCount" data-one="note" data-many="notes" data-filt=" · filtering"></p>

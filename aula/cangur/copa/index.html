@@ -100,13 +100,18 @@
       💡 <strong>Cómo usarlo:</strong> cada prueba se abre con todos los problemas resueltos paso a paso. Puedes filtrar por categoría.
     </div>
 
-    <div class="flt flt-inline" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
-      <span class="flt-label">Filtrar</span>
-      <button class="flt-all is-active" data-val="all">Todas</button>
-      <div class="flt-chips">
-        <button class="flt-chip" data-facet="cat" data-val="benjami">Benjamí</button>
-        <button class="flt-chip" data-facet="cat" data-val="cadet">Cadet</button>
-        <button class="flt-chip" data-facet="cat" data-val="junior">Júnior</button>
+    <div class="flt" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
+      <div class="flt-concepts">
+        <span class="flt-label">Filtrar por</span>
+        <button class="flt-concept" data-group="cat" aria-expanded="false">Categoría<span class="flt-badge" hidden></span></button>
+        <button class="flt-all is-active" data-val="all">Todas</button>
+      </div>
+      <div class="flt-groups">
+        <div class="flt-group" data-group="cat" hidden><div class="flt-chips">
+          <button class="flt-chip" data-facet="cat" data-val="benjami">Benjamí</button>
+          <button class="flt-chip" data-facet="cat" data-val="cadet">Cadet</button>
+          <button class="flt-chip" data-facet="cat" data-val="junior">Júnior</button>
+        </div></div>
       </div>
     </div>
 

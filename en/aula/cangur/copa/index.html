@@ -100,13 +100,18 @@
       💡 <strong>How to use it:</strong> each paper opens with every problem solved step by step. You can filter by category.
     </div>
 
-    <div class="flt flt-inline" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
-      <span class="flt-label">Filter</span>
-      <button class="flt-all is-active" data-val="all">All</button>
-      <div class="flt-chips">
-        <button class="flt-chip" data-facet="cat" data-val="benjami">Benjamí</button>
-        <button class="flt-chip" data-facet="cat" data-val="cadet">Cadet</button>
-        <button class="flt-chip" data-facet="cat" data-val="junior">Júnior</button>
+    <div class="flt" id="filter-bar" style="display:none;--flt-accent:#10b981" data-items="#exams-container .exam-card">
+      <div class="flt-concepts">
+        <span class="flt-label">Filter by</span>
+        <button class="flt-concept" data-group="cat" aria-expanded="false">Category<span class="flt-badge" hidden></span></button>
+        <button class="flt-all is-active" data-val="all">All</button>
+      </div>
+      <div class="flt-groups">
+        <div class="flt-group" data-group="cat" hidden><div class="flt-chips">
+          <button class="flt-chip" data-facet="cat" data-val="benjami">Benjamí</button>
+          <button class="flt-chip" data-facet="cat" data-val="cadet">Cadet</button>
+          <button class="flt-chip" data-facet="cat" data-val="junior">Júnior</button>
+        </div></div>
       </div>
     </div>
 
