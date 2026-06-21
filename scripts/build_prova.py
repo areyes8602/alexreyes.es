@@ -210,14 +210,14 @@ def render_pn(col, ej, code, n_total):
     fig_html = f'<img class="pt-q-img" src="{fig}" alt="" style="margin-top:0.6rem">' if fig else ""
     if ej.get("opciones_tipo") == "imagen" and ej.get("opciones_img"):
         cells = "".join(
-            f'<div class="pt-opt-img"><span class="pt-opt-lbl">{o}</span>' +
+            f'<div class="pt-opt-img"><span class="pt-opt-lbl">{o})</span>' +
             (f'<img src="{src}" alt="{o}">' if src else "") + "</div>"
             for o, src in zip("ABCDE", ej["opciones_img"]))
         opts_html = f'<div class="pt-opts-img" style="margin:0.6rem 0 1rem">{cells}</div>'
     else:
         texts = (ej.get("opciones") or {}).get(cl) or (ej.get("opciones") or {}).get("ca") or ["", "", "", "", ""]
         cells = "".join(
-            f'<div class="pt-opt pt-opt-txt" style="cursor:default"><span class="pt-opt-lbl">{o}</span> {esc(tx)}</div>'
+            f'<div class="pt-opt pt-opt-txt" style="cursor:default"><span class="pt-opt-lbl">{o})</span> {esc(tx)}</div>'
             for o, tx in zip("ABCDE", texts))
         opts_html = f'<div class="pt-opts" style="margin:0.6rem 0 1rem">{cells}</div>'
     examname = title_for(col, code).split("·")[-1].strip()

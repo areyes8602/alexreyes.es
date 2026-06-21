@@ -216,11 +216,11 @@
         if (imgOpts) {
           b = el("button", "pt-opt-img"); b.dataset.o = o;
           var src = q.opcimg[idx];
-          b.innerHTML = '<span class="pt-opt-lbl">' + o + '</span>' + (src ? '<img loading="lazy" alt="' + o + '" src="' + esc(src) + '">' : "");
+          b.innerHTML = '<span class="pt-opt-lbl">' + o + ')</span>' + (src ? '<img loading="lazy" alt="' + o + '" src="' + esc(src) + '">' : "");
         } else {
           var txt = (q.opctxt && q.opctxt[idx]) ? q.opctxt[idx] : "";
           b = el("button", "pt-opt" + (txt ? " pt-opt-txt" : "")); b.dataset.o = o;
-          b.innerHTML = '<span class="pt-opt-lbl">' + o + '</span>' + (txt ? " " + esc(txt) : "");
+          b.innerHTML = '<span class="pt-opt-lbl">' + o + ')</span>' + (txt ? " " + esc(txt) : "");
         }
         b.addEventListener("click", function () { self.choose(q.numero, o, box); });
         opts.appendChild(b);
