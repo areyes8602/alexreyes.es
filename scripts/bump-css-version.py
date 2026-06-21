@@ -38,6 +38,8 @@ CSS_TARGETS = [
     r'/assets/css/examenes\.css',
     r'/assets/css/banco\.css',
     r'/assets/css/mi-examen\.css',
+    r'/assets/css/prova-test\.css',
+    r'/assets/css/filters\.css',
     r'/style\.css',
 ]
 
