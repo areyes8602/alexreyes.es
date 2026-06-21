@@ -347,6 +347,10 @@ def main():
         if col.get("tipo_coleccion") == "practica":
             print(f"  ⏭  {cf.name:30s}  (tipo=practica, gestionat per build_classe_pages.py)")
             continue
+        # Les proves Cangur (prova_cangur) es generen trilingües amb build_prova.py
+        if col.get("prova_cangur"):
+            print(f"  ⏭  {cf.name:30s}  (prova_cangur, gestionat per build_prova.py)")
+            continue
         url_index = col.get("url_index")
         if not url_index:
             print(f"  - {cf.name}: sin url_index (se omite)")

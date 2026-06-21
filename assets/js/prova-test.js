@@ -9,26 +9,26 @@
   var T = {
     ca: { pick_course: "Tria un curs", pick_model: "Tria una prova", random: "Prova a l'atzar",
       shuffle: "Barreja (30 preguntes a l'atzar del curs)", q: "Pregunta", pts: "punts",
-      clear: "deixar en blanc", submit: "Corregir la prova", confirm: "Encara tens preguntes sense respondre. Vols corregir igualment?",
+      clear: "deixar en blanc", submit: "Finalitzar la prova", confirm: "Encara tens preguntes sense respondre. Vols finalitzar igualment?",
       time_left: "Temps", up: "Temps exhaurit", your: "La teva resposta", correct: "Correcta",
-      blank: "En blanc", result: "Resultat", score: "Puntuació Cangur", hits: "Encerts", errs: "Errors",
-      blanks: "En blanc", pctmark: "Nota /10", retry: "Tornar a provar", another: "Una altra prova",
+      blank: "En blanc", result: "La teva nota", score: "Puntuació Cangur (s'inicia amb 30 punts)", hits: "Encerts", errs: "Errors",
+      blanks: "En blanc", pct: "% d'encerts", retry: "Tornar a provar", another: "Una altra prova",
       back: "Tornar", noexams: "Encara no hi ha proves per a aquest curs.", loading: "Carregant…",
       of: "de", model: "Model", day: "Dia", start: "Començar" },
     es: { pick_course: "Elige un curso", pick_model: "Elige una prueba", random: "Prueba al azar",
       shuffle: "Mezcla (30 preguntas al azar del curso)", q: "Pregunta", pts: "puntos",
-      clear: "dejar en blanco", submit: "Corregir la prueba", confirm: "Aún tienes preguntas sin responder. ¿Corregir igualmente?",
+      clear: "dejar en blanco", submit: "Finalizar la prueba", confirm: "Aún tienes preguntas sin responder. ¿Finalizar igualmente?",
       time_left: "Tiempo", up: "Tiempo agotado", your: "Tu respuesta", correct: "Correcta",
-      blank: "En blanco", result: "Resultado", score: "Puntuación Cangur", hits: "Aciertos", errs: "Errores",
-      blanks: "En blanco", pctmark: "Nota /10", retry: "Repetir", another: "Otra prueba",
+      blank: "En blanco", result: "Tu nota", score: "Puntuación Cangur (empieza con 30 puntos)", hits: "Aciertos", errs: "Errores",
+      blanks: "En blanco", pct: "% de aciertos", retry: "Repetir", another: "Otra prueba",
       back: "Volver", noexams: "Todavía no hay pruebas para este curso.", loading: "Cargando…",
       of: "de", model: "Modelo", day: "Día", start: "Empezar" },
     en: { pick_course: "Pick a year", pick_model: "Pick a test", random: "Random test",
       shuffle: "Shuffle (30 random questions from this year)", q: "Question", pts: "points",
-      clear: "leave blank", submit: "Submit test", confirm: "Some questions are unanswered. Submit anyway?",
+      clear: "leave blank", submit: "Finish test", confirm: "Some questions are unanswered. Finish anyway?",
       time_left: "Time", up: "Time's up", your: "Your answer", correct: "Correct",
-      blank: "Blank", result: "Result", score: "Cangur score", hits: "Correct", errs: "Wrong",
-      blanks: "Blank", pctmark: "Mark /10", retry: "Try again", another: "Another test",
+      blank: "Blank", result: "Your score", score: "Cangur score (starts at 30 points)", hits: "Correct", errs: "Wrong",
+      blanks: "Blank", pct: "% correct", retry: "Try again", another: "Another test",
       back: "Back", noexams: "No tests for this year yet.", loading: "Loading…",
       of: "of", model: "Model", day: "Day", start: "Start" }
   };
@@ -238,14 +238,16 @@
     }
     s.submitted = true;
     if (this._tick) clearInterval(this._tick);
-    var score = 0, hits = 0, errs = 0, blanks = 0, maxScore = 0;
+    var BASE = 30;                       // la prova s'inicia amb 30 punts
+    var score = BASE, hits = 0, errs = 0, blanks = 0, maxScore = BASE;
     s.questions.forEach(function (q) {
-      maxScore += q.puntuacion;
+      maxScore += q.puntuacion;          // 30 + 120 = 150
       var a = s.answers[q.numero];
       if (a == null) { blanks++; }
       else if (a === q.solucion) { score += q.puntuacion; hits++; }
       else { score -= q.puntuacion / 4; errs++; }
     });
+    if (score < 0) score = 0;            // no pot ser negativa
     this.renderResults({ score: score, hits: hits, errs: errs, blanks: blanks, maxScore: maxScore, n: s.questions.length });
     this.markReview();
   };
@@ -272,7 +274,7 @@
   Engine.prototype.renderResults = function (r) {
     var self = this;
     var pct = Math.round((r.hits / r.n) * 100);
-    var mark = Math.round((r.hits / r.n) * 100) / 10; // nota /10 por aciertos
+    var fillPct = Math.round((r.score / r.maxScore) * 100); // posición de la nota en 0–150
     var box = el("div", "pt-results");
     box.appendChild(el("div", "pt-score-sub", L.result));
     box.appendChild(el("div", "pt-score-big", (Math.round(r.score * 100) / 100) + " <span style='font-size:1.2rem;color:var(--text-faint)'>/ " + r.maxScore + "</span>"));
@@ -284,7 +286,7 @@
     stats.appendChild(stat(r.hits, L.hits, "ok"));
     stats.appendChild(stat(r.errs, L.errs, "bad"));
     stats.appendChild(stat(r.blanks, L.blanks));
-    stats.appendChild(stat(mark, L.pctmark));
+    stats.appendChild(stat(pct + "%", L.pct));
     box.appendChild(stats);
     var act = el("div", "pt-actions"); act.style.justifyContent = "center";
     var again = el("a", "pt-btn pt-btn-primary", "🔁 " + L.another); again.href = "/aula/cangur/prova/test/";
@@ -292,7 +294,7 @@
     box.appendChild(act);
     this.root.insertBefore(box, this.root.firstChild);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(function () { fill.style.width = pct + "%"; }, 80);
+    setTimeout(function () { fill.style.width = Math.max(0, fillPct) + "%"; }, 80);
   };
 
   document.addEventListener("DOMContentLoaded", function () {

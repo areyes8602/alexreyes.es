@@ -33,6 +33,8 @@ def main():
         pc = col.get("prova_cangur")
         if not pc or col.get("tipo_coleccion") != "examen":
             continue
+        if col.get("schema_version", 1) < 3 or col.get("archivado"):
+            continue  # modelos archivados (p.ej. variantes reordenadas de la misma prueba)
         curso = pc.get("curso")
         if not curso:
             continue
