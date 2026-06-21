@@ -58,7 +58,7 @@
   Engine.prototype.boot = function () {
     var self = this;
     this.root.innerHTML = '<p class="pt-faint">' + L.loading + "</p>";
-    fetch("/assets/data/prova-cangur-index.json").then(function (r) { return r.json(); }).then(function (m) {
+    fetch("/assets/data/prova-cangur-index.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (m) {
       self.manifest = m;
       var id = qparam("id"), curso = qparam("curso"), mode = qparam("mode");
       if (id) return self.startById(id);
@@ -127,7 +127,7 @@
   Engine.prototype.startById = function (id) {
     var self = this;
     this.root.innerHTML = '<p class="pt-faint">' + L.loading + "</p>";
-    fetch("/assets/data/ejercicios/" + id + ".json").then(function (r) { return r.json(); }).then(function (col) {
+    fetch("/assets/data/ejercicios/" + id + ".json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (col) {
       self.begin({ titulo: col.titulo, tiempo: (col.prova_cangur && col.prova_cangur.tiempo_min) || 75 },
                  col.ejercicios.map(mapEj));
     });
@@ -139,7 +139,7 @@
     if (!course || !course.models.length) { this.renderLauncher(curso); return; }
     if (mode === "aleatori") return this.startById(course.models[Math.floor(Math.random() * course.models.length)].id);
     this.root.innerHTML = '<p class="pt-faint">' + L.loading + "</p>";
-    Promise.all(course.models.map(function (mm) { return fetch(mm.json).then(function (r) { return r.json(); }); }))
+    Promise.all(course.models.map(function (mm) { return fetch(mm.json, { cache: "no-cache" }).then(function (r) { return r.json(); }); }))
       .then(function (cols) {
         var pool = [];
         cols.forEach(function (col) { col.ejercicios.forEach(function (e) { pool.push(mapEj(e)); }); });

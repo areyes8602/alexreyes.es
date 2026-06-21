@@ -25,7 +25,8 @@ LANGS = [
     {"code": "en", "pfx": "/en", "html": "en"},
 ]
 TX = {
- "es": dict(zoom="Ampliar imagen", doc="Docencia", phd="Doctorado", notes="Notas", contact="Contacto", home="Inicio",
+ "es": dict(notice_title="Solo en catalán", notice_msg="La Prova Cangur solo está disponible en catalán.", notice_btn="Ver en catalán",
+   zoom="Ampliar imagen", doc="Docencia", phd="Doctorado", notes="Notas", contact="Contacto", home="Inicio",
    cangur="Cangur", prova="Prova Cangur", preguntas="Preguntas", pregunta="Pregunta", pts="puntos",
    show="Mostrar respuesta", correct="Respuesta correcta", test="Ponte a prueba",
    prev="Anterior", next="Siguiente", index="Índice", dl="Descargar enunciados (PDF)",
@@ -39,7 +40,8 @@ TX = {
    dlsol="Baixar respostes (PDF)", pend="La solució raonada pas a pas s'afegirà pròximament.",
    practel="Practica aquesta prova completa al", each="Cada targeta obre la pregunta amb la seva resposta.",
    intro="Prova tipus test amb correcció automàtica i puntuació oficial.", tag="Matemàtiques, docència i doctorat", lic="Llicències"),
- "en": dict(zoom="Enlarge image", doc="Teaching", phd="PhD", notes="Notes", contact="Contact", home="Home",
+ "en": dict(notice_title="Only in Catalan", notice_msg="The Cangur Test is only available in Catalan.", notice_btn="View in Catalan",
+   zoom="Enlarge image", doc="Teaching", phd="PhD", notes="Notes", contact="Contact", home="Home",
    cangur="Cangur", prova="Cangur Test", preguntas="Questions", pregunta="Question", pts="points",
    show="Show answer", correct="Correct answer", test="Test yourself",
    prev="Previous", next="Next", index="Index", dl="Download questions (PDF)",
@@ -258,8 +260,46 @@ def write_stub_pages(col):
 LANGS_BY = {l["code"]: l for l in LANGS}
 
 
+def notice_page(code, ca_url, fname=""):
+    """Página (es/en) avisando de que la Prova Cangur solo está en catalán."""
+    t = TX[code]; pfx = "" if code == "es" else "/" + code
+    uip = ca_url.replace("/ca", "", 1)
+    head_html = f'''<!DOCTYPE html>
+<html lang="{LANGS_BY[code]["html"]}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(t["notice_title"])} — Prova Cangur | Àlex Reyes</title>
+<meta name="description" content="{esc(t["notice_msg"])}">
+<meta name="robots" content="noindex, follow">
+<script>(function(){{var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');}})();</script>
+<script src="/assets/js/lang-persist.js?v={V}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/style.css?v={V}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es{ca_url}{fname}">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip</a>'''
+    body = f'''
+{nav(code, pfx, uip, fname)}
+<main id="main">
+  <div class="container" style="padding:5rem 1rem;max-width:560px;text-align:center">
+    <div style="font-size:2.2rem;margin-bottom:0.6rem">🗣️</div>
+    <h1 style="font-size:1.5rem;margin-bottom:0.6rem">{esc(t["notice_title"])}</h1>
+    <p style="color:var(--text-soft);margin-bottom:1.6rem">{esc(t["notice_msg"])}</p>
+    <a href="{ca_url}{fname}" class="pdf-download" style="background:#10b981;color:#fff">{esc(t["notice_btn"])} →</a>
+  </div>
+</main>
+{footer(code)}
+</body>
+</html>'''
+    return head_html + body
+
+
 def main():
-    n_pages = 0; n_stub = 0
+    n_pages = 0; n_stub = 0; n_notice = 0
     for jf in sorted(EJ.glob("*.json")):
         col = json.load(open(jf, encoding="utf-8"))
         if not col.get("prova_cangur"):
@@ -269,14 +309,20 @@ def main():
             print(f"  ⏷ {col['id']}: stubs noindex → canónica")
             continue
         uip = col["url_index"]
+        ca_index = "/ca" + uip
         for L in LANGS:
             outdir = REPO / (L["pfx"].lstrip("/") + uip).lstrip("/") if L["pfx"] else REPO / uip.lstrip("/")
             outdir.mkdir(parents=True, exist_ok=True)
-            (outdir / "index.html").write_text(render_index(col, L["code"]), encoding="utf-8"); n_pages += 1
-            for ej in col["ejercicios"]:
-                (outdir / f"p{ej['numero']}.html").write_text(render_pn(col, ej, L["code"], len(col["ejercicios"])), encoding="utf-8"); n_pages += 1
-        print(f"  ✓ {col['id']}: 3 idiomas × (1 índice + {len(col['ejercicios'])} preguntas)")
-    print(f"OK — {n_pages} páginas trilingües, {n_stub} stubs")
+            if L["code"] == "ca":
+                (outdir / "index.html").write_text(render_index(col, "ca"), encoding="utf-8"); n_pages += 1
+                for ej in col["ejercicios"]:
+                    (outdir / f"p{ej['numero']}.html").write_text(render_pn(col, ej, "ca", len(col["ejercicios"])), encoding="utf-8"); n_pages += 1
+            else:  # es / en → aviso "només en català"
+                (outdir / "index.html").write_text(notice_page(L["code"], ca_index, ""), encoding="utf-8"); n_notice += 1
+                for ej in col["ejercicios"]:
+                    (outdir / f"p{ej['numero']}.html").write_text(notice_page(L["code"], ca_index, f"p{ej['numero']}.html"), encoding="utf-8"); n_notice += 1
+        print(f"  ✓ {col['id']}: ca (real) + es/en (aviso)")
+    print(f"OK — {n_pages} páginas ca, {n_notice} avisos es/en, {n_stub} stubs")
 
 
 if __name__ == "__main__":
