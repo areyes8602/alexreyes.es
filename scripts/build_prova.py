@@ -207,7 +207,8 @@ def render_pn(col, ej, code, n_total):
     next_l = f'<a href="p{n+1}.html" class="exam-nav-btn">{t["next"]} →</a>' if n < n_total else f'<span class="exam-nav-btn is-off">{t["next"]} →</span>'
     cl = "en" if code == "en" else "ca"
     fig = ej.get("figura")
-    fig_html = f'<img class="pt-q-img" src="{fig}" alt="" style="margin-top:0.6rem">' if fig else ""
+    figcls = "pt-q-img fig-right" if ej.get("figura_pos") == "right" else "pt-q-img"
+    fig_html = f'<img class="{figcls}" src="{fig}" alt="" style="margin-top:0.6rem">' if fig else ""
     if ej.get("opciones_tipo") == "imagen" and ej.get("opciones_img"):
         cells = "".join(
             f'<div class="pt-opt-img"><span class="pt-opt-lbl">{o})</span>' +
@@ -233,8 +234,8 @@ def render_pn(col, ej, code, n_total):
     <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.5rem"><span class="section-label">{t["pregunta"]} {n}</span><span class="pt-q-pts">{ej["puntuacion"]} {t["pts"]}</span></div>
     <h1 style="font-size:1.5rem;margin:0.2rem 0 0.8rem">{esc(title)}</h1>
     <div class="ib-chips" style="margin-bottom:1rem">{chips}</div>
-    <p style="font-size:0.98rem;line-height:1.7;color:var(--text)">{esc(enun)}</p>
     {fig_html}
+    <p style="font-size:0.98rem;line-height:1.7;color:var(--text)">{esc(enun)}</p>
     {opts_html}
     <button class="solution-toggle" onclick="var s=document.getElementById('sol');s.hidden=!s.hidden;this.setAttribute('aria-expanded',!s.hidden);">{t["show"]}</button>
     <section class="solution" id="sol" hidden style="margin-top:1rem">

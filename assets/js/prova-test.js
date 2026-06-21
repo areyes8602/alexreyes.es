@@ -43,6 +43,7 @@
       titulo: (CL === "en" ? (e.titulo_en || e.titulo) : e.titulo),
       enunciado: (CL === "en" ? (ap.tarea_en || ap.tarea) : ap.tarea),
       figura: e.figura || null,
+      figpos: e.figura_pos || "center",
       optkind: e.opciones_tipo || "texto",
       opcimg: e.opciones_img || null,
       opctxt: (e.opciones ? (CL === "en" ? e.opciones.en : e.opciones.ca) : null),
@@ -206,8 +207,9 @@
       head.appendChild(el("span", "pt-q-num", L.q + " " + q.numero));
       head.appendChild(el("span", "pt-q-pts", q.puntuacion + " " + L.pts));
       box.appendChild(head);
+      if (q.figura && q.figpos === "right") { var imgR = el("img", "pt-q-img fig-right"); imgR.loading = "lazy"; imgR.alt = ""; imgR.src = q.figura; box.appendChild(imgR); }
       if (q.enunciado) box.appendChild(el("p", "pt-q-text", esc(q.enunciado)));
-      if (q.figura) { var img = el("img", "pt-q-img"); img.loading = "lazy"; img.alt = ""; img.src = q.figura; box.appendChild(img); }
+      if (q.figura && q.figpos !== "right") { var img = el("img", "pt-q-img"); img.loading = "lazy"; img.alt = ""; img.src = q.figura; box.appendChild(img); }
       else if (!q.enunciado && q.imagen) { var im2 = el("img", "pt-q-img"); im2.loading = "lazy"; im2.alt = L.q + " " + q.numero; im2.src = q.imagen; box.appendChild(im2); }
       var imgOpts = (q.optkind === "imagen" && q.opcimg);
       var opts = el("div", imgOpts ? "pt-opts-img" : "pt-opts");
