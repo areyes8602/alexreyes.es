@@ -64,7 +64,7 @@ def write(path, s):
 def card_html(c):
     t1, t2, t3 = c["tags"]
     return (
-        f'    <div data-tags="{c["datatags"]}">\n'
+        f'    <div class="flt-item" data-tag="{c["datatags"]}">\n'
         f'      <a href="{c["url"]}{SLUG}/" class="note-item" style="text-decoration:none;display:flex;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--border)">\n'
         f'        <div class="note-date" style="min-width:5rem;padding-top:.15rem">{c["date"]}</div>\n'
         f'        <div>\n'
@@ -103,22 +103,37 @@ def reveal_lang(code, c):
     # 2) tarjeta en el índice de notas (antes de la de Fibonacci = más reciente arriba)
     s = read(idx)
     if f"{c['url']}{SLUG}/" not in s:
-        anchor = f'    <div data-tags="collatz fibonacci interactivo">'
+        anchor = f'    <div class="flt-item" data-tag="collatz fibonacci interactivo">'
         if anchor not in s:
             raise SystemExit(f"[{code}] ancla del índice de notas no encontrada en {idx}")
         s = s.replace(anchor, card_html(c) + anchor, 1)
         write(idx, s)
 
-    # 3) noticia en la home (antes de la de Fibonacci)
+    # 3) noticia en la home: primer <li> de la tarjeta de notas + sube el contador.
+    #    La tarjeta abre con `<ul class="news-card-list"><li>` (primer item pegado al
+    #    <ul>), así que insertamos justo tras el <ul> en lugar de "antes del <li>".
     s = read(home)
     if f"{c['url']}{SLUG}/" not in s:
         marker = f'{c["url"]}{c["fib"]}/" class="news-text"'
         p = s.find(marker)
         if p < 0:
             raise SystemExit(f"[{code}] noticia de Fibonacci no encontrada en {home}")
-        li_start = s.rfind("<li>", 0, p)
-        line_start = s.rfind("\n", 0, li_start) + 1
-        s = s[:line_start] + news_html(c) + s[line_start:]
+        ul = '<ul class="news-card-list">'
+        ul_pos = s.rfind(ul, 0, p)
+        if ul_pos < 0:
+            raise SystemExit(f"[{code}] <ul> de la tarjeta de notas no encontrado en {home}")
+        insert_at = ul_pos + len(ul)
+        s = s[:insert_at] + news_html(c).strip() + s[insert_at:]
+        # sube el contador de la tarjeta (badge inmediatamente anterior al <ul>)
+        cnt = '<span class="news-card-count">'
+        cp = s.rfind(cnt, 0, ul_pos)
+        if cp >= 0:
+            j = cp + len(cnt)
+            k = j
+            while k < len(s) and s[k].isdigit():
+                k += 1
+            if k > j:
+                s = s[:j] + str(int(s[j:k]) + 1) + s[k:]
         write(home, s)
 
 

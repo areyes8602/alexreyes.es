@@ -128,7 +128,8 @@
     var self = this;
     this.root.innerHTML = '<p class="pt-faint">' + L.loading + "</p>";
     fetch("/assets/data/ejercicios/" + id + ".json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (col) {
-      self.begin({ titulo: col.titulo, tiempo: (col.prova_cangur && col.prova_cangur.tiempo_min) || 75 },
+      self.begin({ titulo: col.titulo, tiempo: (col.prova_cangur && col.prova_cangur.tiempo_min) || 75,
+                   base: (col.prova_cangur && col.prova_cangur.base) || 30 },
                  col.ejercicios.map(mapEj));
     });
   };
@@ -145,7 +146,7 @@
         cols.forEach(function (col) { col.ejercicios.forEach(function (e) { pool.push(mapEj(e)); }); });
         for (var i = pool.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
         var qs = pool.slice(0, 30); qs.forEach(function (q, k) { q.numero = k + 1; });
-        self.begin({ titulo: L.shuffle, tiempo: 75 }, qs);
+        self.begin({ titulo: L.shuffle, tiempo: 75, base: (cols[0].prova_cangur && cols[0].prova_cangur.base) || 30 }, qs);
       });
   };
 
@@ -228,7 +229,7 @@
     if (!auto) { if (s.questions.length - Object.keys(s.answers).length > 0 && !confirm(L.confirm)) return; }
     s.submitted = true;
     if (this._tick) clearInterval(this._tick);
-    var BASE = 30, score = BASE, hits = 0, errs = 0, blanks = 0, maxScore = BASE;
+    var BASE = (s.meta && s.meta.base) || 30, score = BASE, hits = 0, errs = 0, blanks = 0, maxScore = BASE;
     s.questions.forEach(function (q) {
       maxScore += q.puntuacion;
       var a = s.answers[q.numero];
@@ -237,7 +238,7 @@
       else { score -= q.puntuacion / 4; errs++; }
     });
     if (score < 0) score = 0;
-    this.renderResults({ score: score, hits: hits, errs: errs, blanks: blanks, maxScore: maxScore, n: s.questions.length });
+    this.renderResults({ score: score, hits: hits, errs: errs, blanks: blanks, maxScore: maxScore, n: s.questions.length, base: BASE });
     this.markReview();
   };
 
@@ -265,7 +266,7 @@
     var box = el("div", "pt-results");
     box.appendChild(el("div", "pt-score-sub", L.result));
     box.appendChild(el("div", "pt-score-big", (Math.round(r.score * 100) / 100) + " <span style='font-size:1.2rem;color:var(--text-faint)'>/ " + r.maxScore + "</span>"));
-    box.appendChild(el("div", "pt-score-sub", L.score));
+    box.appendChild(el("div", "pt-score-sub", L.score.replace("30", r.base)));
     var track = el("div", "pt-bar-track"); var fill = el("div", "pt-bar-fill"); fill.style.width = "0%"; track.appendChild(fill); box.appendChild(track);
     box.appendChild(el("div", "pt-faint", L.hits + ": " + r.hits + "/" + r.n + " (" + pct + "%)"));
     var stats = el("div", "pt-stats");

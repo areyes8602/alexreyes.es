@@ -58,6 +58,7 @@ def _lastmod(fs_path):
 trilingual_paths = [
     '/', '/cv/', '/contacto/', '/doctorado/', '/doctorado/bibliografia/', '/doctorado/cronologia/', '/notas/',
     '/notas/anillo-de-collatz/', '/notas/fibonacci-collatz/',
+    '/notas/el-hombre-y-la-nota-al-margen/',
     '/docencia/', '/docencia/ejercicios/', '/docencia/apuntes/', '/docencia/mi-examen/', '/docencia/mis-apuntes/',
     '/docencia/ib-ai/', '/docencia/ib-ai/2024-2026/', '/docencia/ib-ai/2025-2027/',
     '/docencia/ccss-1btl/', '/docencia/cangur/', '/docencia/2eso/',
