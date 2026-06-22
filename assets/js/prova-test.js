@@ -234,7 +234,7 @@
       maxScore += q.puntuacion;
       var a = s.answers[q.numero];
       if (a == null) blanks++;
-      else if (a === q.solucion) { score += q.puntuacion; hits++; }
+      else if (q.solucion.indexOf(a) >= 0) { score += q.puntuacion; hits++; }
       else { score -= q.puntuacion / 4; errs++; }
     });
     if (score < 0) score = 0;
@@ -248,15 +248,16 @@
       var n = +box.dataset.n;
       var q = s.questions.filter(function (x) { return x.numero === n; })[0];
       var a = s.answers[n];
+      var solTxt = q.solucion.split("").join(") o ") + ")";
       box.querySelectorAll(".pt-opt").forEach(function (b) {
         b.disabled = true;
-        if (b.dataset.o === q.solucion) b.classList.add("ok");
-        if (a && b.dataset.o === a && a !== q.solucion) b.classList.add("bad");
+        if (q.solucion.indexOf(b.dataset.o) >= 0) b.classList.add("ok");
+        if (a && b.dataset.o === a && q.solucion.indexOf(a) < 0) b.classList.add("bad");
       });
       var v = box.querySelector(".pt-q-verdict");
-      if (a == null) { v.className = "pt-q-verdict blank"; v.textContent = "○ " + L.blank + " · " + L.correct + ": " + q.solucion + ")"; }
-      else if (a === q.solucion) { v.className = "pt-q-verdict ok"; v.textContent = "✓ " + L.correct + ": " + q.solucion + ")"; }
-      else { v.className = "pt-q-verdict bad"; v.textContent = "✗ " + L.your + ": " + a + ") · " + L.correct + ": " + q.solucion + ")"; }
+      if (a == null) { v.className = "pt-q-verdict blank"; v.textContent = "○ " + L.blank + " · " + L.correct + ": " + solTxt; }
+      else if (q.solucion.indexOf(a) >= 0) { v.className = "pt-q-verdict ok"; v.textContent = "✓ " + L.correct + ": " + solTxt; }
+      else { v.className = "pt-q-verdict bad"; v.textContent = "✗ " + L.your + ": " + a + ") · " + L.correct + ": " + solTxt; }
     });
   };
 

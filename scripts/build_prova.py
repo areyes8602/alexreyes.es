@@ -200,6 +200,7 @@ def render_pn(col, ej, code, n_total):
     t = TX[code]; pfx = "" if code == "es" else "/" + code
     uip = col["url_index"]; ID = col["id"]; n = ej["numero"]
     title = q_title(ej, code); sol = ej.get("solucion", ""); imagen = ej.get("imagen")
+    sol_disp = ") o ".join(list(sol)) + ")" if sol else ""
     chips = ""
     dif = (ej.get("tags") or {}).get("dificultad")
     if dif in DIF:
@@ -224,7 +225,7 @@ def render_pn(col, ej, code, n_total):
     <a class="pt-qfull-wrap" href="{imagen}" target="_blank" rel="noopener" title="{t['zoom']}"><img class="pt-qfull" src="{imagen}" alt="{t['pregunta']} {n}"><span class="pt-zoom">🔍</span></a>
     <button class="solution-toggle" style="margin-top:1rem" onclick="var s=document.getElementById('sol');s.hidden=!s.hidden;this.setAttribute('aria-expanded',!s.hidden);">{t["show"]}</button>
     <section class="solution" id="sol" hidden style="margin-top:1rem">
-      <p style="font-size:1.1rem"><strong>{t["correct"]}:</strong> <span class="pt-opt ok sel" style="cursor:default">{sol})</span></p>
+      <p style="font-size:1.1rem"><strong>{t["correct"]}:</strong> <span class="pt-opt ok sel" style="cursor:default">{sol_disp}</span></p>
       <p class="pt-faint" style="margin-top:0.6rem">{t["practel"]} <a href="{pfx}/aula/cangur/prova/test/?id={ID}">«{t["test"]}»</a>.</p>
     </section>
     {navrow.format(m="2rem 0 0")}
