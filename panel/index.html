@@ -137,6 +137,13 @@
   .lcol a.link{display:flex;align-items:center;gap:7px;padding:8px 9px;border-radius:8px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:12.5px;font-weight:600;margin-bottom:5px;word-break:break-all}
   .lcol a.link:hover{border-color:var(--doctorado)}
   .lcol a.link .rm{margin-left:auto;color:#c3c7d1;font-weight:700}
+  .agenda{list-style:none;margin:0;padding:0}
+  .agenda li{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+  .agenda li:first-child{border-top:0}
+  .agenda li.empty{border-top:0;display:block}
+  .agenda .atime{font-variant-numeric:tabular-nums;font-weight:700;font-size:12.5px;min-width:96px;color:var(--muted)}
+  .agenda .aev{font-weight:600;font-size:13.5px;flex:1}
+  .agenda .aloc{font-size:11px;color:var(--muted)}
   .install{display:none;background:#111827;color:#fff;border-radius:12px;padding:11px 14px;font-size:12.5px;margin-bottom:14px;align-items:center;justify-content:space-between;gap:10px}
   .install .close{cursor:pointer;opacity:.7;font-weight:700}
 </style>
@@ -171,6 +178,10 @@
 
   <!-- ============ HOY ============ -->
   <div class="pane on" id="pane-hoy">
+    <div class="card" id="gcalCard">
+      <div class="sectlabel"><h2 style="margin:0">🗓️ Agenda de hoy</h2><span class="tsub" id="gcalRefresh" style="cursor:pointer;color:var(--doctorado)">↻ actualizar</span></div>
+      <ul class="agenda" id="gcalBody"><li class="empty">Cargando…</li></ul>
+    </div>
     <div class="grid2">
       <div class="card focus">
         <h2>🎯 Foco de ahora</h2>
@@ -624,6 +635,39 @@ function renderLaunch(){
   });
 }
 
+// ================= GOOGLE CALENDAR (agenda de hoy) =================
+let gcalState="load";
+async function fetchGcal(){
+  const body=$("#gcalBody");if(!body)return;
+  gcalState="load";body.innerHTML='<li class="empty">Cargando agenda…</li>';
+  const d=new Date();
+  const tmin=new Date(d.getFullYear(),d.getMonth(),d.getDate(),0,0,0).toISOString();
+  const tmax=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1,0,0,0).toISOString();
+  try{
+    const r=await fetch("/panel/api/gcal?timeMin="+encodeURIComponent(tmin)+"&timeMax="+encodeURIComponent(tmax));
+    if(r.status===401){gcalState="auth";return renderGcal(null);}
+    const j=await r.json();
+    if(j&&j.error){gcalState=j.error;return renderGcal(null);}
+    gcalState="ok";renderGcal(j.events||[]);
+  }catch(e){gcalState="err";renderGcal(null);}
+}
+function classifyEv(s){s=(s||"").toLowerCase();if(/collatz|jaume|tesi|doctorad|franch|paper/.test(s))return"doctorado";if(/marismates|departament/.test(s))return"marismates";if(/alexreyes|apunt|ejercici|banco/.test(s))return"web";return"docencia";}
+function fmtT(iso){if(!iso)return"";const d=new Date(iso);return d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});}
+function renderGcal(events){
+  const body=$("#gcalBody");if(!body)return;
+  const msgs={load:"Cargando agenda…",no_gcal:"Conecta tu Google Calendar (cuenta de servicio) para ver aquí tus clases y eventos del día.",not_shared:"Calendario no compartido con la cuenta de servicio.",cal_not_found:"No encuentro el calendario (revisa GCAL_ID).",auth:"Sesión caducada; recarga.",gcal_error:"No pude leer el calendario ahora mismo.",err:"Sin conexión con Google Calendar."};
+  if(gcalState!=="ok"){body.innerHTML='<li class="empty">'+(msgs[gcalState]||msgs.gcal_error)+'</li>';return;}
+  if(!events||!events.length){body.innerHTML='<li class="empty">Sin clases ni eventos hoy. Tu tiempo es propio. 🔬</li>';return;}
+  body.innerHTML="";
+  events.forEach(e=>{
+    const f=FRENTES[classifyEv(e.summary)];
+    const t=e.allDay?"Todo el día":fmtT(e.start)+"–"+fmtT(e.end);
+    const li=document.createElement("li");
+    li.innerHTML=`<span class="atime">${t}</span><span class="dot" style="background:${f.color}"></span><span class="aev">${esc(e.summary)}${e.location?' <span class="aloc">· '+esc(e.location.split(",")[0])+'</span>':''}</span>`;
+    body.appendChild(li);
+  });
+}
+
 // ================= NOTION (doctorado, solo lectura) =================
 let notionData=null, notionState="load";
 async function fetchNotion(){
@@ -722,6 +766,7 @@ function initControls(){
   $("#mTitle").addEventListener("keydown",e=>{if(e.key==="Enter")addMilestone();});
   $("#resetweek").onclick=()=>{if(confirm("¿Reiniciar horas de esta semana?")){S.logged={docencia:0,web:0,doctorado:0,marismates:0};save();renderBudget();}};
   const nr=$("#notionRefresh");if(nr)nr.onclick=fetchNotion;
+  const gr=$("#gcalRefresh");if(gr)gr.onclick=fetchGcal;
   $("#exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="centro-de-mando-"+S.week+".json";a.click();};
   // nav
   document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
@@ -739,7 +784,7 @@ function boot(){
   $("#datesub").textContent=new Date().toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
   initControls();updTimer();drawFilters();showTab(S.tab||"hoy");renderAll();maybeInstallHint();
   if("serviceWorker" in navigator){navigator.serviceWorker.register("/panel/sw.js").catch(()=>{});}
-  setSync("conectando…","wait");pullState();fetchNotion();
+  setSync("conectando…","wait");pullState();fetchNotion();fetchGcal();
   document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")pullState();});
   window.addEventListener("online",pullState);window.addEventListener("focus",pullState);
 }
