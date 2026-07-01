@@ -34,6 +34,12 @@
   .tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .modewrap{display:flex;align-items:center;gap:8px}
   select{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-weight:600;cursor:pointer}
+  .syncst{font-size:11px;font-weight:700;padding:5px 9px;border-radius:999px;background:#eef0f6;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
+  .syncst::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.7}
+  .syncst.ok{background:#e7f6ee;color:#059669}
+  .syncst.wait{background:#fef3e2;color:#d97706}
+  .syncst.err{background:#fdeaea;color:#dc2626}
+  .syncst.off{background:#eef0f6;color:#9ca3af}
   .logout{font-size:12px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:7px 11px;border-radius:10px}
   .logout:hover{background:#fff}
   .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:14px;margin-bottom:14px}
@@ -121,6 +127,7 @@
         <span style="font-size:12px;color:var(--muted);font-weight:700">ÉPOCA</span>
         <select id="mode"></select>
       </div>
+      <span id="syncStatus" class="syncst">—</span>
       <a class="logout" href="/panel/api/logout">Cerrar sesión</a>
     </div>
   </div>
@@ -204,13 +211,63 @@ const MODES = {
 
 const KEY="cm_panel_v1";
 function isoWeek(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const day=(t.getUTCDay()+6)%7;t.setUTCDate(t.getUTCDate()-day+3);const first=new Date(Date.UTC(t.getUTCFullYear(),0,4));const wk=1+Math.round(((t-first)/86400000-3+((first.getUTCDay()+6)%7))/7);return t.getUTCFullYear()+"-W"+String(wk).padStart(2,"0");}
-function defState(){return {mode:"verano", foco:"all", tasks:[], week:isoWeek(new Date()), logged:{docencia:0,web:0,doctorado:0,marismates:0}};}
+function defState(){return {mode:"verano", foco:"all", tasks:[], week:isoWeek(new Date()), logged:{docencia:0,web:0,doctorado:0,marismates:0}, updatedAt:0};}
+function normalize(st){
+  if(!st||typeof st!=="object")st=defState();
+  if(!st.logged)st.logged={docencia:0,web:0,doctorado:0,marismates:0};
+  if(!Array.isArray(st.tasks))st.tasks=[];
+  if(!st.mode)st.mode="verano";
+  if(!st.foco)st.foco="all";
+  if(typeof st.updatedAt!=="number")st.updatedAt=0;
+  const wk=isoWeek(new Date());
+  if(st.week!==wk){st.week=wk;st.logged={docencia:0,web:0,doctorado:0,marismates:0};}
+  return st;
+}
 let S;
-try{S=JSON.parse(localStorage.getItem(KEY))||defState();}catch(e){S=defState();}
-if(!S.logged)S.logged={docencia:0,web:0,doctorado:0,marismates:0};
-if(!S.tasks)S.tasks=[];
-if(S.week!==isoWeek(new Date())){S.week=isoWeek(new Date());S.logged={docencia:0,web:0,doctorado:0,marismates:0};}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+try{S=normalize(JSON.parse(localStorage.getItem(KEY)));}catch(e){S=defState();}
+function persistLocal(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function save(){S.updatedAt=Date.now();persistLocal();schedulePush();}
+
+// ---- Sincronización entre dispositivos (Cloudflare KV) ----
+let syncEnabled=true, pushTimer=null, pulling=false;
+function setSync(txt,cls){const el=$("#syncStatus");if(el){el.textContent=txt;el.className="syncst "+(cls||"");}}
+function schedulePush(){
+  if(!syncEnabled)return;
+  clearTimeout(pushTimer);
+  setSync("guardando…","wait");
+  pushTimer=setTimeout(pushState,1200);
+}
+async function pushState(){
+  if(!syncEnabled)return;
+  try{
+    const r=await fetch("/panel/api/state",{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify(S)});
+    if(r.status===401){setSync("sesión caducada","err");return;}
+    const j=await r.json().catch(()=>({}));
+    if(j&&j.error==="no_kv"){syncEnabled=false;setSync("solo este dispositivo","off");return;}
+    if(!r.ok)throw 0;
+    setSync("sincronizado","ok");
+  }catch(e){setSync("sin conexión","err");}
+}
+async function pullState(){
+  if(!syncEnabled||pulling)return;
+  pulling=true;
+  try{
+    const r=await fetch("/panel/api/state",{method:"GET"});
+    if(r.status===401){setSync("sesión caducada","err");return;}
+    const j=await r.json();
+    if(j&&j.error==="no_kv"){syncEnabled=false;setSync("solo este dispositivo","off");return;}
+    const remote=j&&j.state?normalize(j.state):null;
+    if(remote&&(remote.updatedAt||0)>(S.updatedAt||0)){
+      S=remote;persistLocal();renderAll();setSync("sincronizado","ok");
+    }else if((S.updatedAt||0)>(remote?remote.updatedAt||0:0)&&(S.tasks.length||anyLogged())){
+      pushState();
+    }else{
+      setSync("sincronizado","ok");
+    }
+  }catch(e){setSync("sin conexión","err");}
+  finally{pulling=false;}
+}
+function anyLogged(){return FKEYS.some(k=>(S.logged[k]||0)>0);}
 
 const $=s=>document.querySelector(s);
 const uid=()=>Date.now()+""+Math.random().toString(36).slice(2,6);
@@ -379,12 +436,18 @@ function maybeInstallHint(){
   }
 }
 
-function renderAll(){renderBudget();renderBoard();renderFocus();renderFocoChips();renderSummary();}
+function renderAll(){const ms=$("#mode");if(ms)ms.value=S.mode;renderBudget();renderBoard();renderFocus();renderFocoChips();renderSummary();}
 function boot(){
   const now=new Date();
   $("#datesub").textContent=now.toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
   initControls();updTimer();renderAll();maybeInstallHint();
   if("serviceWorker" in navigator){navigator.serviceWorker.register("/panel/sw.js").catch(()=>{});}
+  // sincronización
+  setSync("conectando…","wait");
+  pullState();
+  document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")pullState();});
+  window.addEventListener("online",()=>{pullState();});
+  window.addEventListener("focus",()=>{pullState();});
 }
 boot();
 </script>
