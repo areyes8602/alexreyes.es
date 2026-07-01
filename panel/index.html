@@ -636,7 +636,7 @@ function renderLaunch(){
 }
 
 // ================= GOOGLE CALENDAR (agenda de hoy) =================
-let gcalState="load";
+let gcalState="load",gcalDetail="",gcalStatus="";
 async function fetchGcal(){
   const body=$("#gcalBody");if(!body)return;
   gcalState="load";body.innerHTML='<li class="empty">Cargando agenda…</li>';
@@ -647,7 +647,7 @@ async function fetchGcal(){
     const r=await fetch("/panel/api/gcal?timeMin="+encodeURIComponent(tmin)+"&timeMax="+encodeURIComponent(tmax));
     if(r.status===401){gcalState="auth";return renderGcal(null);}
     const j=await r.json();
-    if(j&&j.error){gcalState=j.error;return renderGcal(null);}
+    if(j&&j.error){gcalState=j.error;gcalDetail=j.detail||"";gcalStatus=j.status||"";return renderGcal(null);}
     gcalState="ok";renderGcal(j.events||[]);
   }catch(e){gcalState="err";renderGcal(null);}
 }
@@ -656,6 +656,7 @@ function fmtT(iso){if(!iso)return"";const d=new Date(iso);return d.toLocaleTimeS
 function renderGcal(events){
   const body=$("#gcalBody");if(!body)return;
   const msgs={load:"Cargando agenda…",no_gcal:"Conecta tu Google Calendar (cuenta de servicio) para ver aquí tus clases y eventos del día.",not_shared:"Calendario no compartido con la cuenta de servicio.",cal_not_found:"No encuentro el calendario (revisa GCAL_ID).",auth:"Sesión caducada; recarga.",gcal_error:"No pude leer el calendario ahora mismo.",err:"Sin conexión con Google Calendar."};
+  if(gcalState==="gcal_error"){body.innerHTML='<li class="empty">Error de Google ('+esc(String(gcalStatus||"?"))+'): '+esc(gcalDetail||"sin detalle")+'</li>';return;}
   if(gcalState!=="ok"){body.innerHTML='<li class="empty">'+(msgs[gcalState]||msgs.gcal_error)+'</li>';return;}
   if(!events||!events.length){body.innerHTML='<li class="empty">Sin clases ni eventos hoy. Tu tiempo es propio. 🔬</li>';return;}
   body.innerHTML="";

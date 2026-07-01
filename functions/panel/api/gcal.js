@@ -78,6 +78,11 @@ export async function onRequest(context) {
     }));
     return json({ events, fetchedAt: Date.now() });
   } catch (e) {
-    return json({ error: "gcal_error", status: (e && e.status) || 500 }, 200);
+    let detail = "";
+    try {
+      if (e && e.body) detail = e.body.error_description || e.body.error || JSON.stringify(e.body);
+      else detail = (e && e.message) ? e.message : String(e);
+    } catch (_) {}
+    return json({ error: "gcal_error", status: (e && e.status) || 500, where: (e && e.where) || "", detail: (detail || "").slice(0, 240) }, 200);
   }
 }
