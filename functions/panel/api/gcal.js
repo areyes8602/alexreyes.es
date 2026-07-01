@@ -17,7 +17,11 @@ function b64urlStr(s) {
   return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 function pemToDer(pem) {
-  const body = pem.replace(/-----BEGIN [^-]+-----/, "").replace(/-----END [^-]+-----/, "").replace(/\s+/g, "");
+  // Tolerante: convierte \n escapados, quita cualquier cabecera -----...----- y
+  // TODO carácter que no sea base64 (comillas, comas, espacios, saltos) que puedan
+  // haberse colado al copiar desde el JSON.
+  const s = pem.replace(/\\n/g, "\n").replace(/-----[^-]*-----/g, "");
+  const body = s.replace(/[^A-Za-z0-9+/=]/g, "");
   const bin = atob(body); const der = new Uint8Array(bin.length);
   for (let i = 0; i < bin.length; i++) der[i] = bin.charCodeAt(i);
   return der.buffer;
