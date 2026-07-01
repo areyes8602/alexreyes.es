@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Centro de Mando · Àlex Reyes</title>
+<link rel="manifest" href="/panel/manifest.webmanifest">
+<meta name="theme-color" content="#7c3aed">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mando">
+<link rel="apple-touch-icon" href="/panel/icon-180.png">
+<link rel="icon" type="image/png" href="/panel/icon-192.png">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#f6f7fb; --card:#ffffff; --ink:#1a1c23; --muted:#6b7280; --line:#e6e8ef;
+    --docencia:#2563eb; --web:#059669; --doctorado:#7c3aed; --marismates:#ea580c;
+    --shadow:0 1px 3px rgba(20,24,40,.06),0 6px 20px rgba(20,24,40,.05);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;line-height:1.45;padding:16px;
+    padding-top:calc(16px + env(safe-area-inset-top));
+    padding-bottom:calc(24px + env(safe-area-inset-bottom));}
+  h1{font-size:20px;margin:0;font-weight:700;letter-spacing:-.01em}
+  h2{font-size:13px;margin:0 0 10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .wrap{max-width:1180px;margin:0 auto}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+  .topbar .sub{color:var(--muted);font-size:12.5px;margin-top:3px}
+  .tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .modewrap{display:flex;align-items:center;gap:8px}
+  select{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-weight:600;cursor:pointer}
+  .logout{font-size:12px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:7px 11px;border-radius:10px}
+  .logout:hover{background:#fff}
+  .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:14px;margin-bottom:14px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+  .focus{background:linear-gradient(135deg,#fbfaff,#f3f0ff);border-color:#e7e0ff}
+  .focus .rec{font-size:16px;font-weight:700;margin:2px 0 4px}
+  .pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;color:#fff}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .empty{color:var(--muted);font-style:italic;padding:10px 0}
+  .budgetgrid{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center}
+  @media(max-width:520px){.budgetgrid{grid-template-columns:1fr}}
+  .chartbox{position:relative;height:160px}
+  .barrow{margin:9px 0}
+  .barhead{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;margin-bottom:4px}
+  .barhead b{font-weight:700}
+  .barhead .num{color:var(--muted);font-variant-numeric:tabular-nums}
+  .track{height:9px;border-radius:6px;background:#eef0f6;overflow:hidden;position:relative}
+  .fill{height:100%;border-radius:6px;transition:width .3s}
+  .target{position:absolute;top:-3px;width:2px;height:15px;background:#111;opacity:.55}
+  .logbtns{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
+  .mini{font:inherit;font-size:11px;font-weight:700;padding:3px 8px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--muted)}
+  .mini:hover{background:#f3f4f8}
+  .sumrow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line)}
+  .sumrow:first-child{border-top:0}
+  .sumrow .lft{display:flex;align-items:center;gap:8px;font-weight:600}
+  .sumrow .rgt{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12.5px}
+  .badgecount{min-width:20px;text-align:center;font-size:11px;font-weight:800;color:#fff;border-radius:999px;padding:1px 7px}
+  .board{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:980px){.board{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.board{grid-template-columns:1fr}}
+  .col{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:120px}
+  .col .chead{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px}
+  .col .cname{display:flex;align-items:center;gap:7px;font-weight:700;font-size:13px}
+  .col .count{font-size:11px;color:var(--muted);font-weight:700}
+  .tlist{list-style:none;margin:0;padding:0;flex:1}
+  .task{display:flex;gap:8px;align-items:flex-start;padding:7px;border-radius:9px;margin-bottom:5px;background:#fafbfd;border:1px solid var(--line)}
+  .task.p-alta{border-left:3px solid #dc2626}
+  .task.p-media{border-left:3px solid #d97706}
+  .task.p-baja{border-left:3px solid #9ca3af}
+  .task input[type=checkbox]{margin-top:2px;cursor:pointer;width:16px;height:16px;flex:none}
+  .task .txt{flex:1;font-size:13px;word-break:break-word}
+  .task.done .txt{text-decoration:line-through;color:var(--muted)}
+  .task .x{cursor:pointer;color:#c3c7d1;font-weight:700;font-size:15px;line-height:1;padding:0 3px}
+  .task .x:hover{color:#dc2626}
+  .prioset{display:flex;gap:3px;margin-top:3px}
+  .prioset span{font-size:10px;cursor:pointer;padding:1px 7px;border-radius:6px;background:#eef0f6;color:var(--muted);font-weight:700}
+  .prioset span.on{color:#fff}
+  .addrow{display:flex;gap:6px;margin-top:8px}
+  .addrow input{flex:1;font:inherit;padding:8px 9px;border:1px solid var(--line);border-radius:9px}
+  .addrow button{font:inherit;font-weight:700;border:0;border-radius:9px;padding:8px 12px;color:#fff;cursor:pointer}
+  .capture{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
+  .capture input[type=text]{flex:1;min-width:180px;font:inherit;padding:10px 11px;border:1px solid var(--line);border-radius:10px}
+  .capture select{padding:10px}
+  .capture button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 15px;background:var(--ink);color:#fff;cursor:pointer}
+  .focusbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:24px;min-width:80px}
+  .fbtn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;color:#fff}
+  .fbtn.stop{background:#dc2626}.fbtn.go{background:var(--doctorado)}
+  .foothelp{color:var(--muted);font-size:11.5px;margin-top:6px}
+  .switchfoco{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:2px}
+  .chip{font-size:11.5px;font-weight:700;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--muted)}
+  .chip.on{color:#fff;border-color:transparent}
+  .sectlabel{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:2px 0 10px;flex-wrap:wrap}
+  .install{display:none;background:#111827;color:#fff;border-radius:12px;padding:11px 14px;font-size:12.5px;margin-bottom:14px;align-items:center;justify-content:space-between;gap:10px}
+  .install b{font-weight:700}
+  .install .close{cursor:pointer;opacity:.7;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="installHint" class="install">
+    <span>📲 <b>Instálalo como app:</b> pulsa <b>Compartir</b> y luego <b>Añadir a pantalla de inicio</b>.</span>
+    <span class="close" id="installClose">✕</span>
+  </div>
+
+  <div class="topbar">
+    <div>
+      <h1>Centro de Mando</h1>
+      <div class="sub" id="datesub">—</div>
+    </div>
+    <div class="tools">
+      <div class="modewrap">
+        <span style="font-size:12px;color:var(--muted);font-weight:700">ÉPOCA</span>
+        <select id="mode"></select>
+      </div>
+      <a class="logout" href="/panel/api/logout">Cerrar sesión</a>
+    </div>
+  </div>
+
+  <!-- Fila 1: Foco de hoy + Resumen semanal -->
+  <div class="grid">
+    <div class="card focus">
+      <h2>🎯 Foco de ahora</h2>
+      <div id="focusRec"></div>
+      <div class="focusbar" style="margin-top:12px">
+        <div class="timer" id="timer">90:00</div>
+        <button class="fbtn go" id="timerBtn">Iniciar bloque</button>
+        <select id="timerFrente" style="padding:9px 10px"></select>
+      </div>
+      <div class="foothelp">Un bloque de foco protege tu tiempo propio. Al terminar, los minutos se suman al frente elegido.</div>
+    </div>
+
+    <div class="card">
+      <div class="sectlabel"><h2 style="margin:0">📊 Resumen de la semana</h2><span class="count" id="weeksum"></span></div>
+      <div id="summary"></div>
+    </div>
+  </div>
+
+  <!-- Fila 2: Presupuesto de tiempo por época -->
+  <div class="card" style="margin-bottom:14px">
+    <div class="sectlabel">
+      <h2 style="margin:0">⚖️ Presupuesto semanal · <span id="modeName2"></span></h2>
+      <span class="count" id="weeklabel"></span>
+    </div>
+    <div class="budgetgrid">
+      <div class="chartbox"><canvas id="donut"></canvas></div>
+      <div id="bars"></div>
+    </div>
+    <div class="foothelp">La línea negra marca tu objetivo del modo; la barra, lo que ya has registrado. Ajusta con +30/+60 o con los bloques de foco. <span id="resetweek" style="color:var(--doctorado);cursor:pointer;font-weight:700">Reiniciar semana</span></div>
+  </div>
+
+  <!-- Fila 3: Tablero de tareas -->
+  <div class="card">
+    <div class="sectlabel">
+      <h2 style="margin:0">🗂️ Tareas por frente</h2>
+      <div class="switchfoco">
+        <span style="font-size:11.5px;color:var(--muted);font-weight:700">Modo foco:</span>
+        <span class="chip on" data-foco="all">Todos</span>
+      </div>
+    </div>
+    <div class="capture">
+      <input type="text" id="capInput" placeholder="Captura rápida: escribe una tarea y pulsa Enter…">
+      <select id="capFrente"></select>
+      <select id="capPrio">
+        <option value="alta">Alta</option>
+        <option value="media" selected>Media</option>
+        <option value="baja">Baja</option>
+      </select>
+      <button id="capBtn">Añadir</button>
+    </div>
+    <div class="board" id="board" style="margin-top:14px"></div>
+  </div>
+
+  <div class="foothelp" style="text-align:center;margin-top:16px">
+    Tus datos se guardan en este dispositivo. · <span id="exportBtn" style="color:var(--doctorado);cursor:pointer;font-weight:700">Exportar copia</span>
+  </div>
+
+</div>
+
+<script>
+const FRENTES = {
+  docencia:   {name:"Docencia", full:"Docencia · Maristes", color:"#2563eb", emoji:"📘"},
+  web:        {name:"Web",      full:"Web · alexreyes.es",  color:"#059669", emoji:"🌐"},
+  doctorado:  {name:"Doctorado",full:"Doctorado · Collatz", color:"#7c3aed", emoji:"🔬"},
+  marismates: {name:"marismates",full:"marismates.cat",     color:"#ea580c", emoji:"🏫"},
+};
+const FKEYS = Object.keys(FRENTES);
+
+// Reparto recomendado por época. hours = horas de trabajo PROPIO/semana (fuera de clases fijas).
+const MODES = {
+  curso:      {name:"Curso lectivo",  hours:20, split:{docencia:50,web:15,doctorado:25,marismates:10}},
+  evaluacion: {name:"Evaluaciones",   hours:22, split:{docencia:70,web:5, doctorado:15,marismates:10}},
+  verano:     {name:"Verano",         hours:35, split:{docencia:5, web:25,doctorado:45,marismates:25}},
+  hito_doc:   {name:"Hito doctorado", hours:25, split:{docencia:20,web:10,doctorado:60,marismates:10}},
+};
+
+const KEY="cm_panel_v1";
+function isoWeek(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const day=(t.getUTCDay()+6)%7;t.setUTCDate(t.getUTCDate()-day+3);const first=new Date(Date.UTC(t.getUTCFullYear(),0,4));const wk=1+Math.round(((t-first)/86400000-3+((first.getUTCDay()+6)%7))/7);return t.getUTCFullYear()+"-W"+String(wk).padStart(2,"0");}
+function defState(){return {mode:"verano", foco:"all", tasks:[], week:isoWeek(new Date()), logged:{docencia:0,web:0,doctorado:0,marismates:0}};}
+let S;
+try{S=JSON.parse(localStorage.getItem(KEY))||defState();}catch(e){S=defState();}
+if(!S.logged)S.logged={docencia:0,web:0,doctorado:0,marismates:0};
+if(!S.tasks)S.tasks=[];
+if(S.week!==isoWeek(new Date())){S.week=isoWeek(new Date());S.logged={docencia:0,web:0,doctorado:0,marismates:0};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const uid=()=>Date.now()+""+Math.random().toString(36).slice(2,6);
+
+function initControls(){
+  const modeSel=$("#mode");
+  modeSel.innerHTML=Object.entries(MODES).map(([k,m])=>`<option value="${k}">${m.name}</option>`).join("");
+  modeSel.value=S.mode;
+  modeSel.onchange=()=>{S.mode=modeSel.value;save();renderAll();};
+
+  const opts=FKEYS.map(k=>`<option value="${k}">${FRENTES[k].emoji} ${FRENTES[k].name}</option>`).join("");
+  $("#capFrente").innerHTML=opts; $("#timerFrente").innerHTML=opts;
+  $("#capFrente").value="doctorado"; $("#timerFrente").value="doctorado";
+
+  $("#capBtn").onclick=addFromCapture;
+  $("#capInput").addEventListener("keydown",e=>{if(e.key==="Enter")addFromCapture();});
+  $("#resetweek").onclick=()=>{if(confirm("¿Reiniciar horas registradas de esta semana?")){S.logged={docencia:0,web:0,doctorado:0,marismates:0};save();renderBudget();renderSummary();}};
+  $("#exportBtn").onclick=exportData;
+
+  const sf=document.querySelector(".switchfoco");
+  FKEYS.forEach(k=>{const c=document.createElement("span");c.className="chip";c.dataset.foco=k;c.textContent=FRENTES[k].emoji+" "+FRENTES[k].name;sf.appendChild(c);});
+  sf.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{S.foco=c.dataset.foco;save();renderFocoChips();renderBoard();});
+}
+function addFromCapture(){
+  const t=$("#capInput").value.trim();if(!t)return;
+  S.tasks.unshift({id:uid(),text:t,frente:$("#capFrente").value,prio:$("#capPrio").value,done:false});
+  $("#capInput").value="";save();renderBoard();renderFocus();renderSummary();
+}
+function exportData(){
+  const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="centro-de-mando-"+S.week+".json";a.click();
+}
+
+// ---- Presupuesto ----
+let donutChart;
+function renderBudget(){
+  const m=MODES[S.mode];
+  $("#modeName2").textContent=m.name;
+  $("#weeklabel").textContent=m.hours+" h/sem · "+S.week;
+  const targets={},logged={};
+  FKEYS.forEach(k=>{targets[k]=m.hours*(m.split[k]/100);logged[k]=(S.logged[k]||0)/60;});
+
+  $("#bars").innerHTML=FKEYS.map(k=>{
+    const tgt=targets[k],lg=logged[k];const pct=tgt>0?Math.min(100,(lg/tgt)*100):(lg>0?100:0);
+    return `<div class="barrow">
+      <div class="barhead"><b style="color:${FRENTES[k].color}">${FRENTES[k].emoji} ${FRENTES[k].full}</b>
+        <span class="num">${lg.toFixed(1)} / ${tgt.toFixed(1)} h</span></div>
+      <div class="track"><div class="fill" style="width:${pct}%;background:${FRENTES[k].color}"></div><div class="target" style="left:calc(100% - 1px)"></div></div>
+      <div class="logbtns">
+        <button class="mini" data-log="${k}" data-min="30">+30 min</button>
+        <button class="mini" data-log="${k}" data-min="60">+1 h</button>
+        <button class="mini" data-log="${k}" data-min="-30">−30</button>
+      </div></div>`;
+  }).join("");
+  document.querySelectorAll("[data-log]").forEach(b=>b.onclick=()=>{
+    const k=b.dataset.log;S.logged[k]=Math.max(0,(S.logged[k]||0)+parseInt(b.dataset.min));save();renderBudget();renderSummary();
+  });
+
+  const data=FKEYS.map(k=>m.split[k]);
+  const cols=FKEYS.map(k=>FRENTES[k].color);
+  if(donutChart)donutChart.destroy();
+  donutChart=new Chart($("#donut"),{type:"doughnut",
+    data:{labels:FKEYS.map(k=>FRENTES[k].name),datasets:[{data,backgroundColor:cols,borderWidth:2,borderColor:"#fff"}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:"58%",
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.label+": "+c.raw+"% ("+(m.hours*c.raw/100).toFixed(1)+" h)"}}}}});
+}
+
+// ---- Resumen semanal ----
+function renderSummary(){
+  const m=MODES[S.mode];
+  let totLog=0,totTgt=0;
+  const rows=FKEYS.map(k=>{
+    const pend=S.tasks.filter(t=>t.frente===k&&!t.done).length;
+    const lg=(S.logged[k]||0)/60;const tgt=m.hours*(m.split[k]/100);
+    totLog+=lg;totTgt+=tgt;
+    return `<div class="sumrow">
+      <span class="lft"><span class="dot" style="background:${FRENTES[k].color}"></span>${FRENTES[k].emoji} ${FRENTES[k].name}</span>
+      <span class="rgt"><span class="badgecount" style="background:${FRENTES[k].color}">${pend}</span> &nbsp; ${lg.toFixed(1)}/${tgt.toFixed(1)} h</span>
+    </div>`;
+  }).join("");
+  const done=S.tasks.filter(t=>t.done).length;
+  const pend=S.tasks.filter(t=>!t.done).length;
+  $("#weeksum").textContent=pend+" pend · "+done+" hechas";
+  $("#summary").innerHTML=rows+
+    `<div class="sumrow" style="font-weight:700"><span class="lft">Total registrado</span>
+     <span class="rgt">${totLog.toFixed(1)} / ${totTgt.toFixed(1)} h (${totTgt>0?Math.round(totLog/totTgt*100):0}%)</span></div>`;
+}
+
+// ---- Tablero ----
+function renderFocoChips(){document.querySelectorAll(".switchfoco .chip").forEach(c=>{const on=c.dataset.foco===S.foco;c.classList.toggle("on",on);if(on&&c.dataset.foco!=="all")c.style.background=FRENTES[c.dataset.foco].color;else if(c.dataset.foco==="all"&&on)c.style.background="#1a1c23";else c.style.background="";});}
+function renderBoard(){
+  const board=$("#board");board.innerHTML="";
+  const show=S.foco==="all"?FKEYS:[S.foco];
+  const order={alta:0,media:1,baja:2};
+  show.forEach(k=>{
+    const f=FRENTES[k];
+    const list=S.tasks.filter(t=>t.frente===k);
+    const pending=list.filter(t=>!t.done).length;
+    const col=document.createElement("div");col.className="col";
+    col.innerHTML=`<div class="chead"><span class="cname"><span class="dot" style="background:${f.color}"></span>${f.emoji} ${f.name}</span><span class="count">${pending}</span></div>
+      <ul class="tlist"></ul>
+      <div class="addrow"><input type="text" placeholder="+ tarea rápida…"><button style="background:${f.color}">+</button></div>`;
+    const ul=col.querySelector(".tlist");
+    list.sort((a,b)=>(a.done-b.done)||(order[a.prio]-order[b.prio]));
+    list.forEach(t=>ul.appendChild(taskEl(t)));
+    if(list.length===0)ul.innerHTML='<li class="empty" style="font-size:12px">Sin tareas</li>';
+    const inp=col.querySelector("input"),btn=col.querySelector("button");
+    const add=()=>{const v=inp.value.trim();if(!v)return;S.tasks.unshift({id:uid(),text:v,frente:k,prio:"media",done:false});inp.value="";save();renderBoard();renderFocus();renderSummary();};
+    btn.onclick=add;inp.addEventListener("keydown",e=>{if(e.key==="Enter")add();});
+    board.appendChild(col);
+  });
+}
+function taskEl(t){
+  const li=document.createElement("li");li.className="task p-"+t.prio+(t.done?" done":"");
+  const prioColors={alta:"#dc2626",media:"#d97706",baja:"#9ca3af"};
+  li.innerHTML=`<input type="checkbox" ${t.done?"checked":""}>
+    <div class="txt">${t.text.replace(/</g,"&lt;")}
+      <div class="prioset">${["alta","media","baja"].map(p=>`<span data-p="${p}" class="${t.prio===p?"on":""}" style="${t.prio===p?"background:"+prioColors[p]:""}">${p[0].toUpperCase()}</span>`).join("")}</div>
+    </div><span class="x">✕</span>`;
+  li.querySelector("input").onchange=()=>{t.done=!t.done;save();renderBoard();renderFocus();renderSummary();};
+  li.querySelector(".x").onclick=()=>{S.tasks=S.tasks.filter(x=>x.id!==t.id);save();renderBoard();renderFocus();renderSummary();};
+  li.querySelectorAll("[data-p]").forEach(s=>s.onclick=()=>{t.prio=s.dataset.p;save();renderBoard();});
+  return li;
+}
+
+// ---- Foco de ahora ----
+function renderFocus(){
+  const m=MODES[S.mode];
+  const dom=FKEYS.reduce((a,b)=>m.split[b]>m.split[a]?b:a,FKEYS[0]);
+  const order={alta:0,media:1,baja:2};
+  const cand=S.tasks.filter(t=>!t.done&&t.frente===dom).sort((a,b)=>order[a.prio]-order[b.prio])[0]
+          || S.tasks.filter(t=>!t.done).sort((a,b)=>order[a.prio]-order[b.prio])[0];
+  const f=FRENTES[cand?cand.frente:dom];
+  const rec=cand?`<div class="rec">${cand.text.replace(/</g,"&lt;")}</div>`
+                :`<div class="rec">Planifica un bloque de 90 min de ${f.full}</div>`;
+  const pend=S.tasks.filter(t=>!t.done).length;
+  $("#focusRec").innerHTML=`<span class="pill" style="background:${f.color}">${f.emoji} ${f.full}</span> ${rec}
+    <div class="foothelp">Prioridad del modo <b>${m.name}</b>. ${pend} tarea${pend===1?"":"s"} pendiente${pend===1?"":"s"} en total.</div>`;
+  $("#timerFrente").value=cand?cand.frente:dom;
+}
+
+// ---- Timer de foco ----
+let timerInt=null,remaining=90*60,running=false;
+function updTimer(){const m=Math.floor(remaining/60),s=remaining%60;$("#timer").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");}
+$("#timerBtn").onclick=()=>{
+  if(!running){
+    running=true;$("#timerBtn").textContent="Detener";$("#timerBtn").className="fbtn stop";
+    timerInt=setInterval(()=>{remaining--;updTimer();if(remaining<=0)finishBlock();},1000);
+  }else{
+    clearInterval(timerInt);running=false;
+    const elapsed=Math.round((90*60-remaining)/60);
+    if(elapsed>0){const k=$("#timerFrente").value;S.logged[k]=(S.logged[k]||0)+elapsed;save();renderBudget();renderSummary();}
+    remaining=90*60;updTimer();$("#timerBtn").textContent="Iniciar bloque";$("#timerBtn").className="fbtn go";
+  }
+};
+function finishBlock(){clearInterval(timerInt);running=false;const k=$("#timerFrente").value;S.logged[k]=(S.logged[k]||0)+90;save();renderBudget();renderSummary();remaining=90*60;updTimer();$("#timerBtn").textContent="Iniciar bloque";$("#timerBtn").className="fbtn go";try{alert("Bloque de foco completado (+90 min a "+FRENTES[k].name+"). 🎯");}catch(e){}}
+
+// ---- Aviso de instalación iOS ----
+function maybeInstallHint(){
+  const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  const standalone=window.navigator.standalone||window.matchMedia("(display-mode: standalone)").matches;
+  if(isiOS&&!standalone&&localStorage.getItem("cm_hide_install")!=="1"){
+    const el=$("#installHint");el.style.display="flex";
+    $("#installClose").onclick=()=>{el.style.display="none";localStorage.setItem("cm_hide_install","1");};
+  }
+}
+
+function renderAll(){renderBudget();renderBoard();renderFocus();renderFocoChips();renderSummary();}
+function boot(){
+  const now=new Date();
+  $("#datesub").textContent=now.toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+  initControls();updTimer();renderAll();maybeInstallHint();
+  if("serviceWorker" in navigator){navigator.serviceWorker.register("/panel/sw.js").catch(()=>{});}
+}
+boot();
+</script>
+</body>
+</html>

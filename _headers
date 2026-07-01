@@ -15,6 +15,10 @@
 /editor/*
   X-Robots-Tag: noindex, nofollow
 
+# Panel privado (Centro de Mando): sin indexación
+/panel/*
+  X-Robots-Tag: noindex, nofollow
+
 # Cache largo para assets versionados — ajustar cuando se introduzcan hashes en filenames
 /assets/css/*
   Cache-Control: public, max-age=3600
