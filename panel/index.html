@@ -193,6 +193,14 @@
       <div id="upcoming"></div>
     </div>
 
+    <div class="card" id="notionCard">
+      <div class="sectlabel">
+        <h2 style="margin:0">🔬 Doctorado · Notion</h2>
+        <span class="tsub" id="notionRefresh" style="cursor:pointer;color:var(--doctorado)">↻ actualizar</span>
+      </div>
+      <div id="notionBody"><div class="empty">Cargando…</div></div>
+    </div>
+
     <div class="card">
       <div class="sectlabel">
         <h2 style="margin:0">⚖️ Presupuesto semanal · <span id="modeName2"></span></h2>
@@ -616,6 +624,51 @@ function renderLaunch(){
   });
 }
 
+// ================= NOTION (doctorado, solo lectura) =================
+let notionData=null, notionState="load";
+async function fetchNotion(){
+  const body=$("#notionBody");if(!body)return;
+  notionState="load";body.innerHTML='<div class="empty">Cargando desde Notion…</div>';
+  try{
+    const r=await fetch("/panel/api/notion");
+    if(r.status===401){notionState="auth";return renderNotion();}
+    const j=await r.json();
+    if(j&&j.error){notionState=j.error;return renderNotion();}
+    notionData=j;notionState="ok";renderNotion();
+  }catch(e){notionState="err";renderNotion();}
+}
+function daysTxt(ds){const n=daysUntil(ds?ds.slice(0,10):null);if(n===null)return"";return n<0?(-n)+"d tarde":n===0?"hoy":n===1?"mañana":"en "+n+"d";}
+function renderNotion(){
+  const body=$("#notionBody");if(!body)return;
+  const msgs={load:"Cargando desde Notion…",no_notion:"Conecta tu Notion del doctorado (token de integración) para ver aquí tus Tareas y Reuniones.",not_shared:"Notion conectado, pero falta compartir las bases (Tareas y Reuniones) con la integración.",auth:"Sesión caducada; recarga.",notion_error:"No pude leer Notion ahora mismo.",err:"Sin conexión con Notion."};
+  if(notionState!=="ok"){body.innerHTML='<div class="empty">'+(msgs[notionState]||msgs.notion_error)+'</div>';return;}
+  let html="";
+  const m=(notionData.meetings||[])[0];
+  if(m){
+    html+=`<div class="mile" style="border-color:#e7e0ff;background:#faf9ff">
+      <div class="mdate"><div class="d">${m.fecha?m.fecha.slice(8,10):"—"}</div><div class="m">${m.fecha?MESES[+m.fecha.slice(5,7)-1]:""}</div></div>
+      <div class="mmain"><div class="t">🗓️ ${esc(m.title)}${m.personas&&m.personas.length?" · "+esc(m.personas.join(", ")):""}</div>
+        <div class="tmeta"><span class="tsub">${esc(m.tipo||"Reunión")}</span>${m.preparada?'<span class="tsub">✅ preparada</span>':'<span class="tsub">⏳ sin preparar</span>'}</div>
+        ${m.preguntas?'<div class="foothelp" style="margin-top:5px">'+esc(m.preguntas).slice(0,180)+'</div>':''}</div>
+      <a class="mcount soon" href="${encodeURI(m.url||"#")}" target="_blank" rel="noopener" style="text-decoration:none">${daysTxt(m.fecha)}</a></div>`;
+  }
+  const order=["En curso","Esta semana","Bloqueada","Backlog"];
+  const shown=(notionData.tasks||[]).filter(t=>t.estado!=="Backlog");
+  if(shown.length){
+    html+='<ul class="tasklist" style="margin-top:8px">';
+    shown.sort((a,b)=>order.indexOf(a.estado)-order.indexOf(b.estado)).slice(0,12).forEach(t=>{
+      const col=t.prioridad==="Alta"?"#dc2626":t.prioridad==="Media"?"#d97706":"#9ca3af";
+      html+=`<li class="task" style="border-left:3px solid ${col}"><div class="trow" style="padding:8px 10px">
+        <div class="tmain"><div class="ttext">${esc(t.title)}</div>
+        <div class="tmeta"><span class="tag">${esc(t.estado)}</span>${t.tipo?'<span class="tsub">'+esc(t.tipo)+'</span>':''}${t.tiempo?'<span class="tsub">⏱ '+esc(t.tiempo)+'</span>':''}${t.fecha?dueBadge(t.fecha.slice(0,10)):''}</div></div>
+        <a class="texpand" href="${encodeURI(t.url||"#")}" target="_blank" rel="noopener" style="text-decoration:none">↗</a></div></li>`;
+    });
+    html+='</ul>';
+  }
+  if(!m&&!shown.length)html='<div class="empty">Sin reuniones planificadas ni tareas abiertas en Notion. 🎉</div>';
+  body.innerHTML=html;
+}
+
 // ================= PRESUPUESTO =================
 let donutChart;
 function renderBudget(){
@@ -668,6 +721,7 @@ function initControls(){
   $("#mBtn").onclick=addMilestone;
   $("#mTitle").addEventListener("keydown",e=>{if(e.key==="Enter")addMilestone();});
   $("#resetweek").onclick=()=>{if(confirm("¿Reiniciar horas de esta semana?")){S.logged={docencia:0,web:0,doctorado:0,marismates:0};save();renderBudget();}};
+  const nr=$("#notionRefresh");if(nr)nr.onclick=fetchNotion;
   $("#exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="centro-de-mando-"+S.week+".json";a.click();};
   // nav
   document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
@@ -685,7 +739,7 @@ function boot(){
   $("#datesub").textContent=new Date().toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
   initControls();updTimer();drawFilters();showTab(S.tab||"hoy");renderAll();maybeInstallHint();
   if("serviceWorker" in navigator){navigator.serviceWorker.register("/panel/sw.js").catch(()=>{});}
-  setSync("conectando…","wait");pullState();
+  setSync("conectando…","wait");pullState();fetchNotion();
   document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")pullState();});
   window.addEventListener("online",pullState);window.addEventListener("focus",pullState);
 }
