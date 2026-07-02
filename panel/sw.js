@@ -1,5 +1,5 @@
 /* Centro de Mando — service worker (app shell offline, scope /panel/) */
-const CACHE = "cm-v7";
+const CACHE = "cm-v8";
 const SHELL = [
   "/panel/",
   "/panel/index.html",

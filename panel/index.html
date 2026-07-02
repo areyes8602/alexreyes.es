@@ -137,6 +137,13 @@
   .lcol a.link{display:flex;align-items:center;gap:7px;padding:8px 9px;border-radius:8px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:12.5px;font-weight:600;margin-bottom:5px;word-break:break-all}
   .lcol a.link:hover{border-color:var(--doctorado)}
   .lcol a.link .rm{margin-left:auto;color:#c3c7d1;font-weight:700}
+  .wfcard{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;background:#fafbfd}
+  .wfhdr{display:flex;align-items:center;gap:8px;font-size:13.5px;margin-bottom:6px}
+  .wfhdr .wfdel{margin-left:auto}
+  .wfsteps{list-style:none;margin:0 0 6px;padding:0}
+  .wfsteps li{display:flex;gap:8px;align-items:center;padding:4px 0;border-top:1px solid var(--line);font-size:12.5px}
+  .wfsteps li:first-child{border-top:0}
+  .mflow{font-size:11px;padding:4px 6px;max-width:92px}
   .agenda{list-style:none;margin:0;padding:0}
   .agenda li{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
   .agenda li:first-child{border-top:0}
@@ -172,6 +179,7 @@
   <div class="nav" id="nav">
     <button data-tab="hoy" class="on">Hoy</button>
     <button data-tab="tareas">Tareas</button>
+    <button data-tab="rutinas">Rutinas</button>
     <button data-tab="fechas">Fechas</button>
     <button data-tab="accesos">Accesos</button>
   </div>
@@ -182,6 +190,12 @@
       <div class="sectlabel"><h2 style="margin:0">🗓️ Agenda de hoy</h2><span class="tsub" id="gcalRefresh" style="cursor:pointer;color:var(--doctorado)">↻ actualizar</span></div>
       <ul class="agenda" id="gcalBody"><li class="empty">Cargando…</li></ul>
     </div>
+
+    <div class="card" id="habitCard">
+      <div class="sectlabel"><h2 style="margin:0">🔁 Rutinas de esta semana</h2><span class="tsub" id="habitSummary"></span></div>
+      <div id="habitToday"></div>
+    </div>
+
     <div class="grid2">
       <div class="card focus">
         <h2>🎯 Foco de ahora</h2>
@@ -252,6 +266,25 @@
     </div>
   </div>
 
+  <!-- ============ RUTINAS ============ -->
+  <div class="pane" id="pane-rutinas">
+    <div class="card">
+      <h2>➕ Nuevo hábito</h2>
+      <div class="capture">
+        <input type="text" id="hName" placeholder="Ej: subir un examen a marismates.cat">
+        <select id="hFrente"></select>
+        <select id="hCad"><option value="weekly">Semanal</option><option value="weekends">Fin de semana</option><option value="monthly">Mensual</option></select>
+        <select id="hDay"></select>
+        <button id="hBtn">Añadir</button>
+      </div>
+      <div class="foothelp">Hazlos pequeños e inexcusables. Aparecen en "Hoy" y suman racha 🔥 cada periodo que los cumples.</div>
+    </div>
+    <div class="card">
+      <div class="sectlabel"><h2 style="margin:0">🔁 Tus hábitos</h2></div>
+      <div id="habitManage"></div>
+    </div>
+  </div>
+
   <!-- ============ FECHAS ============ -->
   <div class="pane" id="pane-fechas">
     <div class="card">
@@ -260,13 +293,19 @@
         <input type="text" id="mTitle" placeholder="Examen 1BTL, reunión Jaume, entrega paper…">
         <select id="mFrente"></select>
         <input type="date" id="mDate">
+        <select id="mFlow" title="Aplicar flujo al crear"><option value="">Sin flujo</option></select>
         <button id="mBtn">Añadir</button>
       </div>
-      <div class="foothelp">Exámenes, evaluaciones, reuniones con Jaume, PAU/Cangur, entregas… aparecerán en "Hoy → Próximos 14 días".</div>
+      <div class="foothelp">Exámenes, evaluaciones, reuniones con Jaume, PAU/Cangur, entregas… Si eliges un flujo, se generan las subtareas fechadas hacia atrás.</div>
     </div>
     <div class="card">
       <div class="sectlabel"><h2 style="margin:0">🗓️ Calendario de hitos</h2><span class="tsub" id="mCount"></span></div>
       <div id="mileList"></div>
+    </div>
+    <div class="card">
+      <div class="sectlabel"><h2 style="margin:0">🔧 Plantillas de flujo</h2><span class="tsub" id="wfAdd" style="cursor:pointer;color:var(--doctorado)">+ nueva plantilla</span></div>
+      <div id="wfList"></div>
+      <div class="foothelp">Define una vez los pasos de cada tipo de evento (con "días antes"); luego se aplican a cualquier fecha clave.</div>
     </div>
   </div>
 
@@ -312,6 +351,28 @@ const DEFAULT_LINKS = {
   doctorado:[ {label:"Notion doctorado",url:"https://www.notion.so/1f8d5bbe9376801b8ca0d35758702d03"}, {label:"arXiv 2606.02621",url:"https://arxiv.org/abs/2606.02621"}, {label:"Doctorado (web)",url:"https://alexreyes.es/doctorado/"} ],
   marismates:[ {label:"marismates.cat",url:"https://marismates.cat/"}, {label:"Repo marismates",url:"https://github.com/areyes8602/marismates"} ],
 };
+// Plantillas de flujo (planificación inversa). offset = días ANTES de la fecha (negativo = después).
+const DEFAULT_WORKFLOWS=[
+  {id:"wf_examen", name:"Examen", frente:"docencia", steps:[
+    {label:"Acabar y repasar el temario", offset:12, sub:"Evaluación"},
+    {label:"Preparar el examen y las adaptaciones", offset:8, sub:"Evaluación"},
+    {label:"Hacer la pauta de corrección", offset:5, sub:"Evaluación"},
+    {label:"Subir el examen a marismates.cat", offset:2, sub:"General"},
+    {label:"Corregir el examen en clase", offset:-7, sub:"Evaluación"}
+  ]},
+  {id:"wf_reunion", name:"Reunión Jaume", frente:"doctorado", steps:[
+    {label:"Preparar preguntas y material", offset:2, sub:"Reuniones"},
+    {label:"Redactar acta de la reunión", offset:-1, sub:"Reuniones"}
+  ]}
+];
+// Hábitos (rutinas). cadence: weekly (día 0=dom..6=sáb) | weekends | monthly.
+const DEFAULT_HABITS=[
+  {id:"h_marismates_examen", name:"Subir un examen a marismates.cat", frente:"marismates", cadence:"weekly", day:5, history:{}},
+  {id:"h_apuntes", name:"Subir apuntes de la semana a alexreyes.es", frente:"web", cadence:"weekly", day:0, history:{}},
+  {id:"h_sa", name:"Actualizar la SA en esborrany (marismates)", frente:"marismates", cadence:"weekly", day:3, history:{}}
+];
+const clone=x=>JSON.parse(JSON.stringify(x));
+const DIAS=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
 
 // ================= ESTADO =================
 const KEY="cm_panel_v2", OLDKEY="cm_panel_v1";
@@ -320,7 +381,7 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 function isoWeek(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const day=(t.getUTCDay()+6)%7;t.setUTCDate(t.getUTCDate()-day+3);const first=new Date(Date.UTC(t.getUTCFullYear(),0,4));const wk=1+Math.round(((t-first)/86400000-3+((first.getUTCDay()+6)%7))/7);return t.getUTCFullYear()+"-W"+String(wk).padStart(2,"0");}
 function todayStr(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
 function daysUntil(ds){if(!ds)return null;const a=new Date(todayStr()+"T00:00:00"),b=new Date(ds+"T00:00:00");return Math.round((b-a)/86400000);}
-function defState(){return {v:2, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:{docencia:0,web:0,doctorado:0,marismates:0}, updatedAt:0};}
+function defState(){return {v:3, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:{docencia:0,web:0,doctorado:0,marismates:0}, updatedAt:0};}
 function migrateV1(){
   try{
     const old=JSON.parse(localStorage.getItem(OLDKEY));
@@ -342,6 +403,10 @@ function normalize(st){
   FKEYS.forEach(f=>{if(!Array.isArray(st.links[f]))st.links[f]=DEFAULT_LINKS[f].slice();});
   if(!st.logged)st.logged={docencia:0,web:0,doctorado:0,marismates:0};
   st.tasks.forEach(t=>{t.sub=t.sub||"General";t.links=t.links||[];t.subtasks=t.subtasks||[];if(t.due===undefined)t.due=null;if(t.notes===undefined)t.notes="";if(t.recur===undefined)t.recur=null;});
+  if(!Array.isArray(st.workflows))st.workflows=clone(DEFAULT_WORKFLOWS);
+  st.workflows.forEach(w=>{if(!Array.isArray(w.steps))w.steps=[];if(!w.id)w.id=uid();if(!w.frente)w.frente="docencia";});
+  if(!Array.isArray(st.habits))st.habits=clone(DEFAULT_HABITS);
+  st.habits.forEach(h=>{if(!h.history||typeof h.history!=="object")h.history={};if(!h.id)h.id=uid();if(!h.cadence)h.cadence="weekly";if(h.day===undefined)h.day=5;if(!h.frente)h.frente="docencia";});
   if(typeof st.updatedAt!=="number")st.updatedAt=0;
   const wk=isoWeek(new Date());
   if(st.week!==wk){st.week=wk;st.logged={docencia:0,web:0,doctorado:0,marismates:0};}
@@ -407,6 +472,18 @@ function dueBadge(due){
   return `<span class="due ${cls}">📅 ${txt}</span>`;
 }
 const MESES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+function addDays(ds,n){const d=new Date(ds+"T00:00:00");d.setDate(d.getDate()+n);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function monthKey(d){d=d||new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");}
+// ---- hábitos: periodo actual y racha ----
+function habitKey(h,d){d=d||new Date();return h.cadence==="monthly"?monthKey(d):isoWeek(d);}
+function prevDate(h,d){const n=new Date(d);if(h.cadence==="monthly")n.setMonth(n.getMonth()-1);else n.setDate(n.getDate()-7);return n;}
+function habitStreak(h){let n=0,cur=new Date();if(h.history[habitKey(h,cur)]){n++;cur=prevDate(h,cur);}else{cur=prevDate(h,cur);}while(h.history[habitKey(h,cur)]){n++;cur=prevDate(h,cur);}return n;}
+function toggleHabit(h){const k=habitKey(h);if(h.history[k])delete h.history[k];else h.history[k]=true;save();renderHabits();}
+// ---- aplicar flujo: genera subtareas fechadas hacia atrás desde el hito ----
+function applyWorkflow(wf,mile){
+  wf.steps.forEach(st=>{S.tasks.unshift({id:uid(),text:st.label+" · "+mile.title,frente:st.frente||wf.frente,sub:st.sub||"General",prio:"media",done:false,due:addDays(mile.date,-(st.offset||0)),notes:"",links:[],subtasks:[],recur:null,mileId:mile.id,created:Date.now(),updatedAt:Date.now()});});
+  save();renderAll();
+}
 
 // ================= FOCO =================
 function renderFocus(){
@@ -590,8 +667,13 @@ function addFromCapture(){
 function addMilestone(){
   const t=$("#mTitle").value.trim(),date=$("#mDate").value;
   if(!t||!date){if(!date)$("#mDate").focus();return;}
-  S.milestones.push({id:uid(),title:t,frente:$("#mFrente").value,date,notes:""});
-  $("#mTitle").value="";$("#mDate").value="";save();renderMilestones();renderHoy();
+  const mile={id:uid(),title:t,frente:$("#mFrente").value,date,notes:""};
+  S.milestones.push(mile);
+  const flowId=$("#mFlow")?$("#mFlow").value:"";
+  const wf=(S.workflows||[]).find(w=>w.id===flowId);
+  $("#mTitle").value="";$("#mDate").value="";if($("#mFlow"))$("#mFlow").value="";
+  if(wf){applyWorkflow(wf,mile);try{alert("Flujo '"+wf.name+"' aplicado: "+wf.steps.length+" tareas creadas.");}catch(e){}}
+  else{save();renderMilestones();renderHoy();}
 }
 function renderMilestones(){
   const box=$("#mileList");box.innerHTML="";
@@ -607,8 +689,10 @@ function renderMilestones(){
       <div class="mmain"><div class="t">${esc(mi.title)}</div>
       <div class="tmeta"><span class="tag frente" style="background:${f.color}">${f.emoji} ${f.name}</span></div></div>
       <span class="mcount ${past?'over':cls}">${past?(-n)+"d":n===0?"hoy":"en "+n+"d"}</span>
+      ${(S.workflows&&S.workflows.length)?'<select class="mflow"><option value="">flujo…</option>'+S.workflows.map(w=>'<option value="'+w.id+'">'+esc(w.name)+'</option>').join('')+'</select>':''}
       <span class="rm">✕</span>`;
     el.querySelector(".rm").onclick=()=>{S.milestones=S.milestones.filter(x=>x!==mi);save();renderMilestones();renderHoy();};
+    const fs=el.querySelector(".mflow");if(fs)fs.onchange=()=>{const w=S.workflows.find(x=>x.id===fs.value);if(w){applyWorkflow(w,mi);try{alert("Flujo aplicado: "+w.steps.length+" tareas.");}catch(e){}}fs.value="";};
     box.appendChild(el);
   });
 }
@@ -633,6 +717,81 @@ function renderLaunch(){
     col.appendChild(add);
     box.appendChild(col);
   });
+}
+
+// ================= HÁBITOS (rutinas) =================
+function renderHabits(){
+  const habits=S.habits||[];
+  const box=$("#habitToday");
+  if(box){
+    if(!habits.length)box.innerHTML='<div class="empty">Sin hábitos aún. Créalos en la pestaña Rutinas.</div>';
+    else{
+      let done=0;
+      box.innerHTML='<ul class="tasklist">'+habits.map(h=>{
+        const dn=!!h.history[habitKey(h)];if(dn)done++;
+        const f=FRENTES[h.frente]||FRENTES.docencia;const streak=habitStreak(h);
+        const when=h.cadence==="monthly"?"este mes":h.cadence==="weekends"?"este finde":DIAS[h.day];
+        return `<li class="task${dn?' done':''}" data-hid="${h.id}"><div class="trow">
+          <input type="checkbox" ${dn?"checked":""}>
+          <div class="tmain"><div class="ttext">${esc(h.name)}</div>
+          <div class="tmeta"><span class="tag frente" style="background:${f.color}">${f.emoji} ${f.name}</span><span class="tsub">${when}</span>${streak>0?'<span class="tsub">🔥 '+streak+'</span>':''}</div></div></div></li>`;
+      }).join('')+'</ul>';
+      box.querySelectorAll("[data-hid]").forEach(li=>{const h=habits.find(x=>x.id===li.dataset.hid);li.querySelector("input").onchange=()=>toggleHabit(h);});
+      const hs=$("#habitSummary");if(hs)hs.textContent=done+"/"+habits.length+" hechas";
+    }
+  }
+  const manage=$("#habitManage");
+  if(manage){
+    if(!habits.length)manage.innerHTML='<div class="empty">Aún no hay hábitos.</div>';
+    else{
+      manage.innerHTML=habits.map(h=>{
+        const f=FRENTES[h.frente]||FRENTES.docencia;const streak=habitStreak(h);
+        const cad=h.cadence==="monthly"?"Mensual":h.cadence==="weekends"?"Fin de semana":"Semanal · "+DIAS[h.day];
+        return `<div class="mile" data-hid="${h.id}"><span class="dot" style="background:${f.color}"></span>
+          <div class="mmain"><div class="t">${esc(h.name)}</div><div class="tmeta"><span class="tsub">${f.name} · ${cad}</span>${streak>0?'<span class="tsub">🔥 '+streak+' seguidas</span>':''}</div></div>
+          <span class="rm">✕</span></div>`;
+      }).join('');
+      manage.querySelectorAll("[data-hid]").forEach(el=>{const h=habits.find(x=>x.id===el.dataset.hid);el.querySelector(".rm").onclick=()=>{if(confirm("¿Eliminar este hábito?")){S.habits=S.habits.filter(x=>x!==h);save();renderHabits();}};});
+    }
+  }
+}
+function addHabit(){
+  const name=$("#hName").value.trim();if(!name)return;
+  S.habits.push({id:uid(),name,frente:$("#hFrente").value,cadence:$("#hCad").value,day:parseInt($("#hDay").value)||5,history:{}});
+  $("#hName").value="";save();renderHabits();
+}
+
+// ================= FLUJOS (plantillas de trabajo) =================
+function renderWorkflows(){
+  const flowSel=$("#mFlow");
+  if(flowSel){const cur=flowSel.value;flowSel.innerHTML='<option value="">Sin flujo</option>'+(S.workflows||[]).map(w=>`<option value="${w.id}">${esc(w.name)}</option>`).join('');flowSel.value=cur;}
+  const box=$("#wfList");if(!box)return;box.innerHTML="";
+  (S.workflows||[]).forEach(w=>{
+    const f=FRENTES[w.frente]||FRENTES.docencia;
+    const card=document.createElement("div");card.className="wfcard";
+    card.innerHTML=`<div class="wfhdr"><span class="dot" style="background:${f.color}"></span><b>${esc(w.name)}</b> <span class="tsub">${f.name}</span><span class="rm wfdel">✕</span></div>
+      <ul class="wfsteps"></ul>
+      <div class="addmini"><input type="text" class="wf-newlabel" placeholder="+ paso…"><input type="number" class="wf-newoff" value="0" title="días antes (negativo = después)" style="max-width:76px"><button class="wf-add" style="background:${f.color}">+</button></div>`;
+    const ul=card.querySelector(".wfsteps");
+    w.steps.slice().sort((a,b)=>b.offset-a.offset).forEach(st=>{
+      const li=document.createElement("li");
+      const rel=st.offset>0?("−"+st.offset+"d"):st.offset<0?("+"+(-st.offset)+"d"):"día 0";
+      li.innerHTML=`<span class="tsub" style="min-width:50px;font-weight:800">${rel}</span><span style="flex:1">${esc(st.label)} <span class="tsub">· ${esc(st.sub||"")}</span></span><span class="rm">✕</span>`;
+      li.querySelector(".rm").onclick=()=>{w.steps=w.steps.filter(x=>x!==st);save();renderWorkflows();};
+      ul.appendChild(li);
+    });
+    card.querySelector(".wfdel").onclick=()=>{if(confirm("¿Eliminar la plantilla '"+w.name+"'?")){S.workflows=S.workflows.filter(x=>x!==w);save();renderWorkflows();}};
+    const add=()=>{const l=card.querySelector(".wf-newlabel").value.trim();if(!l)return;const off=parseInt(card.querySelector(".wf-newoff").value)||0;w.steps.push({label:l,offset:off,sub:"General"});save();renderWorkflows();};
+    card.querySelector(".wf-add").onclick=add;
+    card.querySelector(".wf-newlabel").addEventListener("keydown",e=>{if(e.key==="Enter")add();});
+    box.appendChild(card);
+  });
+}
+function addWorkflow(){
+  const name=prompt("Nombre de la plantilla (p. ej. 'Entrega paper'):");if(!name)return;
+  let frente=prompt("Frente: docencia / web / doctorado / marismates","docencia");
+  if(!FKEYS.includes(frente))frente="docencia";
+  S.workflows.push({id:uid(),name:name.trim(),frente,steps:[]});save();renderWorkflows();
 }
 
 // ================= GOOGLE CALENDAR (agenda de hoy) =================
@@ -753,7 +912,7 @@ function maybeInstallHint(){
 }
 
 // ================= INIT =================
-function renderAll(){const ms=$("#mode");if(ms)ms.value=S.mode;renderFocus();renderHoy();renderBoard();renderMilestones();renderLaunch();renderBudget();}
+function renderAll(){const ms=$("#mode");if(ms)ms.value=S.mode;renderFocus();renderHoy();renderBoard();renderMilestones();renderWorkflows();renderHabits();renderLaunch();renderBudget();}
 function initControls(){
   const modeSel=$("#mode");modeSel.innerHTML=Object.entries(MODES).map(([k,m])=>`<option value="${k}">${m.name}</option>`).join("");modeSel.value=S.mode;
   modeSel.onchange=()=>{S.mode=modeSel.value;save();renderAll();};
@@ -765,6 +924,10 @@ function initControls(){
   $("#capInput").addEventListener("keydown",e=>{if(e.key==="Enter")addFromCapture();});
   $("#mBtn").onclick=addMilestone;
   $("#mTitle").addEventListener("keydown",e=>{if(e.key==="Enter")addMilestone();});
+  $("#hFrente").innerHTML=optionsFrente();$("#hFrente").value="marismates";
+  $("#hDay").innerHTML=DIAS.map((d,i)=>`<option value="${i}">${d}</option>`).join("");$("#hDay").value="5";
+  $("#hBtn").onclick=addHabit;$("#hName").addEventListener("keydown",e=>{if(e.key==="Enter")addHabit();});
+  const wa=$("#wfAdd");if(wa)wa.onclick=addWorkflow;
   $("#resetweek").onclick=()=>{if(confirm("¿Reiniciar horas de esta semana?")){S.logged={docencia:0,web:0,doctorado:0,marismates:0};save();renderBudget();}};
   const nr=$("#notionRefresh");if(nr)nr.onclick=fetchNotion;
   const gr=$("#gcalRefresh");if(gr)gr.onclick=fetchGcal;
