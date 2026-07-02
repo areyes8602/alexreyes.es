@@ -172,6 +172,7 @@
       <span style="font-size:12px;color:var(--muted);font-weight:700">ÉPOCA</span>
       <select id="mode"></select>
       <span id="syncStatus" class="syncst">—</span>
+      <span id="exportBtn" title="Descargar copia de seguridad" style="cursor:pointer;font-size:14px">⬇️</span>
       <a class="logout" href="/panel/api/logout">Salir</a>
     </div>
   </div>
@@ -383,7 +384,7 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 function isoWeek(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const day=(t.getUTCDay()+6)%7;t.setUTCDate(t.getUTCDate()-day+3);const first=new Date(Date.UTC(t.getUTCFullYear(),0,4));const wk=1+Math.round(((t-first)/86400000-3+((first.getUTCDay()+6)%7))/7);return t.getUTCFullYear()+"-W"+String(wk).padStart(2,"0");}
 function todayStr(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
 function daysUntil(ds){if(!ds)return null;const a=new Date(todayStr()+"T00:00:00"),b=new Date(ds+"T00:00:00");return Math.round((b-a)/86400000);}
-function defState(){return {v:3, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:{docencia:0,web:0,doctorado:0,marismates:0}, updatedAt:0};}
+function defState(){return {v:3, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:{docencia:0,web:0,doctorado:0,marismates:0}, tombs:{}, updatedAt:0};}
 function migrateV1(){
   try{
     const old=JSON.parse(localStorage.getItem(OLDKEY));
@@ -409,6 +410,7 @@ function normalize(st){
   st.workflows.forEach(w=>{if(!Array.isArray(w.steps))w.steps=[];if(!w.id)w.id=uid();if(!w.frente)w.frente="docencia";});
   if(!Array.isArray(st.habits))st.habits=clone(DEFAULT_HABITS);
   st.habits.forEach(h=>{if(!h.history||typeof h.history!=="object")h.history={};if(!h.id)h.id=uid();if(!h.cadence)h.cadence="weekly";if(h.day===undefined)h.day=5;if(!h.frente)h.frente="docencia";});
+  if(!st.tombs||typeof st.tombs!=="object")st.tombs={};
   if(typeof st.updatedAt!=="number")st.updatedAt=0;
   const wk=isoWeek(new Date());
   if(st.week!==wk){st.week=wk;st.logged={docencia:0,web:0,doctorado:0,marismates:0};}
@@ -423,18 +425,52 @@ try{
 function persistLocal(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 function save(){S.updatedAt=Date.now();persistLocal();schedulePush();}
 
-// ================= SYNC (Cloudflare KV) =================
-let syncEnabled=true,pushTimer=null,pulling=false;
+// ================= SYNC (Cloudflare KV, con revisiones y merge) =================
+let syncEnabled=true,pushTimer=null,pulling=false,pushRetried=false;
+let syncRev=parseInt(localStorage.getItem(KEY+"_rev")||"0",10)||0;
+function saveRev(){try{localStorage.setItem(KEY+"_rev",String(syncRev));}catch(e){}}
 function setSync(t,c){const el=$("#syncStatus");if(el){el.textContent=t;el.className="syncst "+(c||"");}}
 function schedulePush(){if(!syncEnabled)return;clearTimeout(pushTimer);setSync("guardando…","wait");pushTimer=setTimeout(pushState,1200);}
+function tomb(id){if(!S.tombs)S.tombs={};if(id)S.tombs[id]=Date.now();}
+function mergeById(a,b){
+  const ts=x=>x.updatedAt||x.created||0,map=new Map();
+  (a||[]).forEach(x=>{if(x&&x.id)map.set(x.id,x);});
+  (b||[]).forEach(x=>{if(!x||!x.id)return;const p=map.get(x.id);if(!p||ts(x)>ts(p))map.set(x.id,x);});
+  return [...map.values()];
+}
+function mergeStates(remote,local){
+  const tombs=Object.assign({},remote.tombs||{},local.tombs||{});
+  const cut=Date.now()-90*86400e3;for(const k in tombs)if(tombs[k]<cut)delete tombs[k];
+  const newer=(remote.updatedAt||0)>=(local.updatedAt||0)?remote:local;
+  const m=normalize(clone(newer));
+  m.tombs=tombs;
+  const alive=arr=>arr.filter(x=>!tombs[x.id]);
+  m.tasks=alive(mergeById(remote.tasks,local.tasks));
+  m.milestones=alive(mergeById(remote.milestones,local.milestones));
+  m.workflows=alive(mergeById(remote.workflows,local.workflows));
+  m.habits=alive(mergeById(remote.habits,local.habits));
+  const hh={};[].concat(remote.habits||[],local.habits||[]).forEach(h=>{if(h&&h.id)hh[h.id]=Object.assign(hh[h.id]||{},h.history||{});});
+  m.habits.forEach(h=>{h.history=Object.assign({},h.history,hh[h.id]||{});});
+  if(remote.week===local.week){FKEYS.forEach(k=>{m.logged[k]=Math.max((remote.logged||{})[k]||0,(local.logged||{})[k]||0);});}
+  m.updatedAt=Math.max(remote.updatedAt||0,local.updatedAt||0);
+  return normalize(m);
+}
 async function pushState(){
   if(!syncEnabled)return;
   try{
-    const r=await fetch("/panel/api/state",{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify(S)});
+    const r=await fetch("/panel/api/state",{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify({__sync:1,baseRev:syncRev,state:S})});
     if(r.status===401){setSync("sesión caducada","err");return;}
     const j=await r.json().catch(()=>({}));
     if(j&&j.error==="no_kv"){syncEnabled=false;setSync("solo este dispositivo","off");return;}
-    if(!r.ok)throw 0; setSync("sincronizado","ok");
+    if(j&&j.error==="conflict"){
+      const remote=normalize(j.state||defState());
+      S=mergeStates(remote,S);syncRev=j.rev||0;saveRev();persistLocal();renderAll();
+      if(!pushRetried){pushRetried=true;return pushState();}
+      pushRetried=false;setSync("conflicto resuelto","ok");return;
+    }
+    pushRetried=false;
+    if(!r.ok||!j.ok)throw 0;
+    syncRev=j.rev||syncRev+1;saveRev();setSync("sincronizado","ok");
   }catch(e){setSync("sin conexión","err");}
 }
 async function pullState(){
@@ -445,13 +481,24 @@ async function pullState(){
     const j=await r.json();
     if(j&&j.error==="no_kv"){syncEnabled=false;setSync("solo este dispositivo","off");return;}
     const remote=j&&j.state?normalize(j.state):null;
-    if(remote&&(remote.updatedAt||0)>(S.updatedAt||0)){S=remote;persistLocal();renderAll();setSync("sincronizado","ok");}
-    else if((S.updatedAt||0)>(remote?remote.updatedAt||0:0)&&(S.tasks.length||S.milestones.length||anyLogged())){pushState();}
-    else setSync("sincronizado","ok");
+    const rev=(j&&j.rev)||0;
+    if(!remote){if(S.tasks.length||S.milestones.length||anyLogged())pushState();else setSync("sincronizado","ok");return;}
+    if(rev===syncRev&&(S.updatedAt||0)<=(remote.updatedAt||0)&&JSON.stringify(S)===JSON.stringify(remote)){setSync("sincronizado","ok");return;}
+    const before=JSON.stringify(S);
+    S=mergeStates(remote,S);syncRev=rev;saveRev();persistLocal();
+    if(JSON.stringify(S)!==before)renderAll();
+    if(JSON.stringify(S)!==JSON.stringify(remote))schedulePush();else setSync("sincronizado","ok");
   }catch(e){setSync("sin conexión","err");}
   finally{pulling=false;}
 }
 function anyLogged(){return FKEYS.some(k=>(S.logged[k]||0)>0);}
+function exportBackup(){
+  const d=new Date(),p=n=>String(n).padStart(2,"0");
+  const name="centro-mando-"+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+".json";
+  const blob=new Blob([JSON.stringify(S,null,1)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),5000);
+}
 
 // ================= NAV =================
 function showTab(name){
@@ -657,7 +704,7 @@ function buildDetail(d,t){
     t.notes=d.querySelector(".d-notes").value;
     save();renderAll();
   };
-  d.querySelector(".d-del").onclick=()=>{if(confirm("¿Eliminar esta tarea?")){S.tasks=S.tasks.filter(x=>x!==t);save();renderAll();}};
+  d.querySelector(".d-del").onclick=()=>{if(confirm("¿Eliminar esta tarea?")){tomb(t.id);S.tasks=S.tasks.filter(x=>x!==t);save();renderAll();}};
 }
 function addFromCapture(){
   const inp=$("#capInput");const v=inp.value.trim();if(!v)return;
@@ -693,7 +740,7 @@ function renderMilestones(){
       <span class="mcount ${past?'over':cls}">${past?(-n)+"d":n===0?"hoy":"en "+n+"d"}</span>
       ${(S.workflows&&S.workflows.length)?'<select class="mflow"><option value="">flujo…</option>'+S.workflows.map(w=>'<option value="'+w.id+'">'+esc(w.name)+'</option>').join('')+'</select>':''}
       <span class="rm">✕</span>`;
-    el.querySelector(".rm").onclick=()=>{S.milestones=S.milestones.filter(x=>x!==mi);save();renderMilestones();renderHoy();};
+    el.querySelector(".rm").onclick=()=>{tomb(mi.id);S.milestones=S.milestones.filter(x=>x!==mi);save();renderMilestones();renderHoy();};
     const fs=el.querySelector(".mflow");if(fs)fs.onchange=()=>{const w=S.workflows.find(x=>x.id===fs.value);if(w){applyWorkflow(w,mi);try{alert("Flujo aplicado: "+w.steps.length+" tareas.");}catch(e){}}fs.value="";};
     box.appendChild(el);
   });
@@ -753,7 +800,7 @@ function renderHabits(){
           <div class="mmain"><div class="t">${esc(h.name)}</div><div class="tmeta"><span class="tsub">${f.name} · ${cad}</span>${streak>0?'<span class="tsub">🔥 '+streak+' seguidas</span>':''}</div></div>
           <span class="rm">✕</span></div>`;
       }).join('');
-      manage.querySelectorAll("[data-hid]").forEach(el=>{const h=habits.find(x=>x.id===el.dataset.hid);el.querySelector(".rm").onclick=()=>{if(confirm("¿Eliminar este hábito?")){S.habits=S.habits.filter(x=>x!==h);save();renderHabits();}};});
+      manage.querySelectorAll("[data-hid]").forEach(el=>{const h=habits.find(x=>x.id===el.dataset.hid);el.querySelector(".rm").onclick=()=>{if(confirm("¿Eliminar este hábito?")){tomb(h.id);S.habits=S.habits.filter(x=>x!==h);save();renderHabits();}};});
     }
   }
 }
@@ -782,7 +829,7 @@ function renderWorkflows(){
       li.querySelector(".rm").onclick=()=>{w.steps=w.steps.filter(x=>x!==st);save();renderWorkflows();};
       ul.appendChild(li);
     });
-    card.querySelector(".wfdel").onclick=()=>{if(confirm("¿Eliminar la plantilla '"+w.name+"'?")){S.workflows=S.workflows.filter(x=>x!==w);save();renderWorkflows();}};
+    card.querySelector(".wfdel").onclick=()=>{if(confirm("¿Eliminar la plantilla '"+w.name+"'?")){tomb(w.id);S.workflows=S.workflows.filter(x=>x!==w);save();renderWorkflows();}};
     const add=()=>{const l=card.querySelector(".wf-newlabel").value.trim();if(!l)return;const off=parseInt(card.querySelector(".wf-newoff").value)||0;w.steps.push({label:l,offset:off,sub:"General"});save();renderWorkflows();};
     card.querySelector(".wf-add").onclick=add;
     card.querySelector(".wf-newlabel").addEventListener("keydown",e=>{if(e.key==="Enter")add();});
@@ -984,6 +1031,7 @@ function initControls(){
   $("#resetweek").onclick=()=>{if(confirm("¿Reiniciar horas de esta semana?")){S.logged={docencia:0,web:0,doctorado:0,marismates:0};save();renderBudget();}};
   const nr=$("#notionRefresh");if(nr)nr.onclick=fetchNotion;
   const gr=$("#gcalRefresh");if(gr)gr.onclick=()=>fetchGcal(true);
+  const xb=$("#exportBtn");if(xb)xb.onclick=exportBackup;
   $("#exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="centro-de-mando-"+S.week+".json";a.click();};
   // nav
   document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
