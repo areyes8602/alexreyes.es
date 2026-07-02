@@ -189,6 +189,8 @@
     <div class="card" id="gcalCard">
       <div class="sectlabel"><h2 style="margin:0">🗓️ Agenda de hoy</h2><span class="tsub" id="gcalRefresh" style="cursor:pointer;color:var(--doctorado)">↻ actualizar</span></div>
       <ul class="agenda" id="gcalBody"><li class="empty">Cargando…</li></ul>
+      <div class="sectlabel" style="margin-top:12px"><h2 style="margin:0;font-size:14px">⛳ Huecos de hoy</h2></div>
+      <ul class="agenda" id="gapsBody"></ul>
     </div>
 
     <div class="card" id="habitCard">
@@ -816,8 +818,42 @@ async function fetchGcal(fresh){
     const j=await r.json();
     if(j&&j.error){gcalState=j.error;gcalDetail=j.detail||"";gcalStatus=j.status||"";return renderGcal(null);}
     agendaSources=j.sources||[];
-    gcalState="ok";renderGcal((j.events||[]).filter(isToday));
+    todayEvents=(j.events||[]).filter(isToday);
+    gcalState="ok";renderGcal(todayEvents);renderGaps();
   }catch(e){gcalState="err";renderGcal(null);}
+}
+// ---- Huecos libres del día (entre eventos con hora) ----
+let todayEvents=[];
+const GAP_START=8,GAP_END=21,GAP_MIN=45;
+function renderGaps(){
+  const box=$("#gapsBody");if(!box)return;
+  const d=new Date();
+  const dayStart=new Date(d.getFullYear(),d.getMonth(),d.getDate(),GAP_START).getTime();
+  const dayEnd=new Date(d.getFullYear(),d.getMonth(),d.getDate(),GAP_END).getTime();
+  const from=Math.max(dayStart,Date.now());
+  if(from>=dayEnd){box.innerHTML='<li class="empty">Día cerrado. Mañana habrá huecos nuevos. 🌙</li>';return;}
+  const busy=todayEvents.filter(e=>!e.allDay&&e.start&&e.end).map(e=>[Date.parse(e.start),Date.parse(e.end)]).filter(([a,b])=>b>a).sort((a,b)=>a[0]-b[0]);
+  const gaps=[];let cur=from;
+  for(const [s,en] of busy){if(s>cur&&cur<dayEnd)gaps.push([cur,Math.min(s,dayEnd)]);cur=Math.max(cur,en);if(cur>=dayEnd)break;}
+  if(cur<dayEnd)gaps.push([cur,dayEnd]);
+  const good=gaps.filter(([a,b])=>(b-a)/60000>=GAP_MIN);
+  if(!good.length){box.innerHTML='<li class="empty">Sin huecos de ≥'+GAP_MIN+' min hasta las '+GAP_END+':00.</li>';return;}
+  box.innerHTML="";
+  good.forEach(([a,b])=>{
+    const mins=Math.floor((b-a)/60000),blk=Math.min(90,mins);
+    const dur=(mins>=60?Math.floor(mins/60)+"h":"")+(mins%60?String(mins%60).padStart(2,"0")+"m":"");
+    const li=document.createElement("li");
+    li.innerHTML=`<span class="atime">${fmtT(new Date(a).toISOString())}–${fmtT(new Date(b).toISOString())}</span><span class="aev" style="color:var(--muted)">libre · ${dur}</span>`;
+    const btn=document.createElement("button");btn.className="fbtn go";btn.style.cssText="padding:5px 11px;font-size:12px";btn.textContent="🎯 Bloque de "+blk+" min";
+    btn.onclick=()=>startGapBlock(blk);
+    li.appendChild(btn);box.appendChild(li);
+  });
+}
+function startGapBlock(mins){
+  if(running){alert("Ya hay un bloque en marcha; detenlo antes.");return;}
+  blockLen=mins*60;remaining=blockLen;updTimer();
+  $("#timerBtn").click();
+  const fc=document.querySelector(".card.focus");if(fc)fc.scrollIntoView({behavior:"smooth",block:"center"});
 }
 function classifyEv(s){s=(s||"").toLowerCase();if(/collatz|jaume|tesi|doctorad|franch|paper/.test(s))return"doctorado";if(/marismates|departament/.test(s))return"marismates";if(/alexreyes|apunt|ejercici|banco/.test(s))return"web";return"docencia";}
 function fmtT(iso){if(!iso)return"";const d=new Date(iso);return d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});}
@@ -908,15 +944,15 @@ function renderBudget(){
 }
 
 // ================= TIMER =================
-let timerInt=null,remaining=90*60,running=false;
+let timerInt=null,blockLen=90*60,remaining=90*60,running=false;
 function updTimer(){const m=Math.floor(remaining/60),s=remaining%60;$("#timer").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");}
 function bindTimer(){
   $("#timerBtn").onclick=()=>{
     if(!running){running=true;$("#timerBtn").textContent="Detener";$("#timerBtn").className="fbtn stop";timerInt=setInterval(()=>{remaining--;updTimer();if(remaining<=0)finishBlock();},1000);}
-    else{clearInterval(timerInt);running=false;const el=Math.round((90*60-remaining)/60);if(el>0){const k=$("#timerFrente").value;S.logged[k]=(S.logged[k]||0)+el;save();renderBudget();}remaining=90*60;updTimer();$("#timerBtn").textContent="Iniciar bloque";$("#timerBtn").className="fbtn go";}
+    else{clearInterval(timerInt);running=false;const el=Math.round((blockLen-remaining)/60);if(el>0){const k=$("#timerFrente").value;S.logged[k]=(S.logged[k]||0)+el;save();renderBudget();}blockLen=90*60;remaining=blockLen;updTimer();$("#timerBtn").textContent="Iniciar bloque";$("#timerBtn").className="fbtn go";}
   };
 }
-function finishBlock(){clearInterval(timerInt);running=false;const k=$("#timerFrente").value;S.logged[k]=(S.logged[k]||0)+90;save();renderBudget();remaining=90*60;updTimer();$("#timerBtn").textContent="Iniciar bloque";$("#timerBtn").className="fbtn go";try{alert("Bloque completado (+90 min a "+FRENTES[k].name+"). 🎯");}catch(e){}}
+function finishBlock(){clearInterval(timerInt);running=false;const k=$("#timerFrente").value;const mins=Math.round(blockLen/60);S.logged[k]=(S.logged[k]||0)+mins;save();renderBudget();blockLen=90*60;remaining=blockLen;updTimer();$("#timerBtn").textContent="Iniciar bloque";$("#timerBtn").className="fbtn go";try{alert("Bloque completado (+"+mins+" min a "+FRENTES[k].name+"). 🎯");}catch(e){}}
 
 // ================= INSTALL HINT =================
 function maybeInstallHint(){
