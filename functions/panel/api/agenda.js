@@ -245,17 +245,25 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const fresh = url.searchParams.get("fresh") === "1";
 
+  // Ventana: por defecto -6h..+8d; o timeMin/timeMax del cliente (máx. 70 días) para la vista mensual.
+  const now = Date.now();
+  let timeMin = new Date(now - 6 * 3600e3).toISOString();
+  let timeMax = new Date(now + 8 * 86400e3).toISOString();
+  let custom = false;
+  const qMin = Date.parse(url.searchParams.get("timeMin") || "");
+  const qMax = Date.parse(url.searchParams.get("timeMax") || "");
+  if (!isNaN(qMin) && !isNaN(qMax) && qMax > qMin && qMax - qMin <= 70 * 86400e3) {
+    timeMin = new Date(qMin).toISOString(); timeMax = new Date(qMax).toISOString(); custom = true;
+  }
+  const cacheKey = custom ? CACHE_KEY + ":" + timeMin.slice(0, 10) + ":" + timeMax.slice(0, 10) : CACHE_KEY;
+
   // Caché KV
   if (!fresh && env.PANEL_KV) {
     try {
-      const c = await env.PANEL_KV.get(CACHE_KEY, "json");
-      if (c && Date.now() - c.ts < CACHE_TTL) return json({ ...c.payload, cached: true });
+      const c = await env.PANEL_KV.get(cacheKey, "json");
+      if (c && Date.now() - c.ts < (custom ? 2 * CACHE_TTL : CACHE_TTL)) return json({ ...c.payload, cached: true });
     } catch (_) {}
   }
-
-  const now = Date.now();
-  const timeMin = new Date(now - 6 * 3600e3).toISOString();
-  const timeMax = new Date(now + 8 * 86400e3).toISOString();
 
   const { google, ics } = parseSources(env, user);
   const sources = []; let events = [];
@@ -299,12 +307,12 @@ export async function onRequest(context) {
 
   const anyOk = sources.some(s => s.ok);
   if (anyOk && env.PANEL_KV) {
-    try { await env.PANEL_KV.put(CACHE_KEY, JSON.stringify({ ts: Date.now(), payload }), { expirationTtl: 3600 }); } catch (_) {}
+    try { await env.PANEL_KV.put(cacheKey, JSON.stringify({ ts: Date.now(), payload }), { expirationTtl: custom ? 1800 : 3600 }); } catch (_) {}
   }
   if (!anyOk && env.PANEL_KV) {
     // Todo caído: sirve la última caché aunque esté caducada.
     try {
-      const c = await env.PANEL_KV.get(CACHE_KEY, "json");
+      const c = await env.PANEL_KV.get(cacheKey, "json");
       if (c) return json({ ...c.payload, cached: true, stale: true, sources });
     } catch (_) {}
   }

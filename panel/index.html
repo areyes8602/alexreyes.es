@@ -144,6 +144,19 @@
   .wfsteps li{display:flex;gap:8px;align-items:center;padding:4px 0;border-top:1px solid var(--line);font-size:12.5px}
   .wfsteps li:first-child{border-top:0}
   .mflow{font-size:11px;padding:4px 6px;max-width:92px}
+  /* mes */
+  .mescal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .mescal .mwd{font-size:11px;font-weight:800;color:var(--muted);text-align:center;padding:2px 0}
+  .mday{background:#f7f8fb;border:1px solid var(--line);border-radius:8px;min-height:66px;padding:4px;cursor:pointer;overflow:hidden}
+  .mday.out{opacity:.4}
+  .mday.today{border-color:var(--doctorado);background:#fff}
+  .mday.sel{outline:2px solid var(--doctorado)}
+  .mday .n{font-size:11px;font-weight:800;color:var(--muted)}
+  .mev{font-size:10px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:3px}
+  .mev .d{width:6px;height:6px;border-radius:50%;flex:none}
+  .mdots{display:none;gap:2px;flex-wrap:wrap;margin-top:2px}
+  .mdots span{width:6px;height:6px;border-radius:50%}
+  @media(max-width:640px){.mday{min-height:46px}.mev{display:none}.mdots{display:flex}}
   /* semana */
   .weekgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
   @media(max-width:900px){.weekgrid{grid-template-columns:1fr}}
@@ -193,6 +206,7 @@
   <div class="nav" id="nav">
     <button data-tab="hoy" class="on">Hoy</button>
     <button data-tab="semana">Semana</button>
+    <button data-tab="mes">Mes</button>
     <button data-tab="tareas">Tareas</button>
     <button data-tab="rutinas">Rutinas</button>
     <button data-tab="fechas">Fechas</button>
@@ -263,6 +277,23 @@
       <div class="sectlabel"><h2 style="margin:0">📆 Próximos 7 días</h2><span class="tsub" id="weekRefresh" style="cursor:pointer;color:var(--doctorado)">↻ actualizar</span></div>
       <div class="weekgrid" id="weekGrid"><div class="empty">Cargando…</div></div>
       <div class="foothelp">Eventos de todos los calendarios + tareas con fecha + hitos + rutinas del día.</div>
+    </div>
+  </div>
+
+  <!-- ============ MES ============ -->
+  <div class="pane" id="pane-mes">
+    <div class="card">
+      <div class="sectlabel">
+        <h2 style="margin:0;display:flex;gap:10px;align-items:center">
+          <span id="mesPrev" style="cursor:pointer;user-select:none">←</span>
+          <span id="mesTitle" style="min-width:150px;text-align:center">—</span>
+          <span id="mesNext" style="cursor:pointer;user-select:none">→</span>
+        </h2>
+        <span><span class="tsub" id="mesHoy" style="cursor:pointer;color:var(--doctorado);margin-right:12px">hoy</span><span class="tsub" id="mesRefresh" style="cursor:pointer;color:var(--doctorado)">↻ actualizar</span></span>
+      </div>
+      <div class="mescal" id="mesGrid"><div class="empty">Cargando…</div></div>
+      <div id="mesDetail"></div>
+      <div class="foothelp">Toca un día para ver su detalle. Ojo: los calendarios de Outlook (ICS) publican un rango limitado de pasado; Google llega tan atrás como quieras.</div>
     </div>
   </div>
 
@@ -599,6 +630,7 @@ function showTab(name){
   document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("on",p.id==="pane-"+name));
   if(name==="hoy")renderBudget();
   if(name==="semana")renderSemana();
+  if(name==="mes")fetchMes();
 }
 
 // ================= HELPERS UI =================
@@ -1063,6 +1095,73 @@ function renderSemana(){
     col.innerHTML=html;grid.appendChild(col);
   }
 }
+// ---- Vista mensual (pasado y futuro) ----
+const MESES_FULL=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+let mesRef=new Date(),mesSel=null,mesCache={},mesLoading=false;
+function mesKey(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");}
+function mesGridStart(d){const first=new Date(d.getFullYear(),d.getMonth(),1);const s=new Date(first);s.setDate(1-((first.getDay()+6)%7));return s;}
+function dstr(d){const p=n=>String(n).padStart(2,"0");return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());}
+async function fetchMes(force){
+  const k=mesKey(mesRef);
+  if(mesCache[k]&&!force)return renderMes();
+  mesLoading=true;renderMes();
+  const start=mesGridStart(mesRef);
+  const end=new Date(start.getFullYear(),start.getMonth(),start.getDate()+42);
+  try{
+    const r=await fetch("/panel/api/agenda?timeMin="+encodeURIComponent(start.toISOString())+"&timeMax="+encodeURIComponent(end.toISOString())+(force?"&fresh=1":""));
+    const j=await r.json();
+    if(j&&j.sources)agendaSources=j.sources;
+    mesCache[k]=(j&&j.events)||[];
+  }catch(e){mesCache[k]=mesCache[k]||[];}
+  mesLoading=false;renderMes();
+}
+function mesItemsOf(d){
+  const ds=dstr(d),k=mesKey(mesRef);
+  const evs=(mesCache[k]||[]).filter(e=>isOnDay(e,d)).sort((a,b)=>String(a.start).localeCompare(String(b.start)));
+  const miles=(S.milestones||[]).filter(m=>m.date===ds);
+  const tasks=(S.tasks||[]).filter(t=>t.due===ds);
+  return {evs,miles,tasks};
+}
+function renderMes(){
+  const grid=$("#mesGrid");if(!grid)return;
+  $("#mesTitle").textContent=MESES_FULL[mesRef.getMonth()]+" "+mesRef.getFullYear();
+  if(mesLoading&&!mesCache[mesKey(mesRef)]){grid.innerHTML='<div class="empty" style="grid-column:1/-1">Cargando mes…</div>';return;}
+  const start=mesGridStart(mesRef),today=dstr(new Date());
+  let html=["L","M","X","J","V","S","D"].map(x=>'<div class="mwd">'+x+'</div>').join("");
+  const cells=[];
+  for(let i=0;i<42;i++){
+    const d=new Date(start.getFullYear(),start.getMonth(),start.getDate()+i);
+    const ds=dstr(d);cells.push(ds);
+    const {evs,miles,tasks}=mesItemsOf(d);
+    const items=[];
+    miles.forEach(m=>items.push('<div class="mev">⭐<span>'+esc(m.title)+'</span></div>'));
+    evs.forEach(e=>items.push('<div class="mev"><span class="d" style="background:'+srcColor(e.cal)+'"></span><span>'+(e.allDay?"":fmtT(e.start)+" ")+esc(e.summary)+'</span></div>'));
+    tasks.forEach(t=>{const f=FRENTES[t.frente]||FRENTES.docencia;items.push('<div class="mev"'+(t.done?' style="opacity:.5;text-decoration:line-through"':'')+'><span class="d" style="background:'+f.color+'"></span><span>'+esc(t.text)+'</span></div>');});
+    const extra=items.length>3?'<div class="mev" style="color:var(--muted)">+'+(items.length-3)+' más</div>':"";
+    const dots=items.length?'<div class="mdots">'+evs.slice(0,6).map(e=>'<span style="background:'+srcColor(e.cal)+'"></span>').join("")+(miles.length?"⭐":"")+(tasks.length?'<span style="background:#111"></span>':"")+'</div>':"";
+    html+='<div class="mday'+(d.getMonth()!==mesRef.getMonth()?" out":"")+(ds===today?" today":"")+(ds===mesSel?" sel":"")+'" data-ds="'+ds+'" data-i="'+i+'"><div class="n">'+d.getDate()+'</div>'+items.slice(0,3).join("")+extra+dots+'</div>';
+  }
+  grid.innerHTML=html;
+  grid.querySelectorAll(".mday").forEach(el=>el.onclick=()=>{mesSel=el.dataset.ds;renderMes();});
+  renderMesDetail();
+}
+function renderMesDetail(){
+  const box=$("#mesDetail");if(!box)return;
+  if(!mesSel){box.innerHTML="";return;}
+  const d=new Date(mesSel+"T00:00:00");
+  const {evs,miles,tasks}=mesItemsOf(d);
+  const DIAS_FULL=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+  let html='<div style="margin-top:12px;font-weight:800">'+DIAS_FULL[d.getDay()]+" "+d.getDate()+" de "+MESES_FULL[d.getMonth()].toLowerCase()+" de "+d.getFullYear()+'</div><ul class="agenda">';
+  if(!evs.length&&!miles.length&&!tasks.length)html+='<li class="empty">Nada este día.</li>';
+  miles.forEach(m=>{html+='<li><span class="atime">⭐</span><span class="aev"><b>'+esc(m.title)+'</b></span></li>';});
+  evs.forEach(e=>{
+    const t=e.allDay?"Todo el día":fmtT(e.start)+"–"+fmtT(e.end);
+    html+='<li><span class="atime">'+t+'</span><span class="dot" style="background:'+srcColor(e.cal)+'"></span><span class="aev">'+esc(e.summary)+(e.location?' <span class="aloc">· '+esc(e.location.split(",")[0])+'</span>':'')+' <span class="aloc">['+esc(e.cal||"")+']</span></span></li>';
+  });
+  tasks.forEach(t=>{const f=FRENTES[t.frente]||FRENTES.docencia;html+='<li><span class="atime">'+(t.done?"✓ hecha":"tarea")+'</span><span class="dot" style="background:'+f.color+'"></span><span class="aev"'+(t.done?' style="text-decoration:line-through;color:var(--muted)"':'')+'>'+esc(t.text)+'</span></li>';});
+  box.innerHTML=html+"</ul>";
+}
+function mesNav(n){mesRef=new Date(mesRef.getFullYear(),mesRef.getMonth()+n,1);mesSel=null;fetchMes();}
 // Blinda el bloque en el calendario (best-effort, silencioso si falla)
 function blockToCalendar(){
   try{
@@ -1216,6 +1315,10 @@ function initControls(){
   const wr=$("#weekRefresh");if(wr)wr.onclick=()=>fetchGcal(true);
   const pb=$("#pushBtn");if(pb)pb.onclick=togglePush;
   const ma=$("#mAdd");if(ma)ma.onclick=addMetric;
+  const mp=$("#mesPrev");if(mp)mp.onclick=()=>mesNav(-1);
+  const mn=$("#mesNext");if(mn)mn.onclick=()=>mesNav(1);
+  const mh=$("#mesHoy");if(mh)mh.onclick=()=>{mesRef=new Date();mesSel=dstr(new Date());fetchMes();};
+  const mr=$("#mesRefresh");if(mr)mr.onclick=()=>fetchMes(true);
   updateBellUI();handleAddParam();
   $("#exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="centro-de-mando-"+S.week+".json";a.click();};
   // nav
