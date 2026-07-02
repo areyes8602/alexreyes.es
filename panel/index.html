@@ -196,6 +196,7 @@
     <div class="tools">
       <span style="font-size:12px;color:var(--muted);font-weight:700">ÉPOCA</span>
       <select id="mode"></select>
+      <span id="autoEpoca" class="tsub" style="cursor:pointer;font-weight:700">auto</span>
       <span id="syncStatus" class="syncst">—</span>
       <span id="exportBtn" title="Descargar copia de seguridad" style="cursor:pointer;font-size:14px">⬇️</span>
       <span id="pushBtn" title="Notificaciones" style="cursor:pointer;font-size:14px">🔕</span>
@@ -220,6 +221,16 @@
       <ul class="agenda" id="gcalBody"><li class="empty">Cargando…</li></ul>
       <div class="sectlabel" style="margin-top:12px"><h2 style="margin:0;font-size:14px">⛳ Huecos de hoy</h2></div>
       <ul class="agenda" id="gapsBody"></ul>
+    </div>
+
+    <div class="card" id="guardCard" style="display:none;border-left:4px solid #7c3aed">
+      <div id="guardBody"></div>
+    </div>
+
+    <div class="card" id="reviewCard" style="display:none">
+      <div class="sectlabel"><h2 style="margin:0">🧭 Revisión semanal</h2><span class="tsub" id="reviewStreak"></span></div>
+      <div id="reviewBody"></div>
+      <div class="foothelp">Ritual de domingo: 10 minutos para que la semana entrante no te pase por encima.</div>
     </div>
 
     <div class="card" id="habitCard">
@@ -452,7 +463,7 @@ const DEFAULT_METRICS=[
   {id:"m_peso",name:"Peso",unit:"kg",entries:{}},
   {id:"m_gym",name:"Gym",unit:"sesión (1)",entries:{}}
 ];
-function defState(){return {v:3, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:zeroLogged(), weekHist:[], metrics:clone(DEFAULT_METRICS), tombs:{}, updatedAt:0};}
+function defState(){return {v:3, mode:"verano", autoEpoca:true, review:{}, ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:zeroLogged(), weekHist:[], metrics:clone(DEFAULT_METRICS), tombs:{}, updatedAt:0};}
 function migrateV1(){
   try{
     const old=JSON.parse(localStorage.getItem(OLDKEY));
@@ -481,6 +492,8 @@ function normalize(st){
   st.habits.forEach(h=>{if(!h.history||typeof h.history!=="object")h.history={};if(!h.id)h.id=uid();if(!h.cadence)h.cadence="weekly";if(h.day===undefined)h.day=5;if(!h.frente)h.frente="docencia";});
   if(!st.tombs||typeof st.tombs!=="object")st.tombs={};
   if(!Array.isArray(st.weekHist))st.weekHist=[];
+  if(!st.review||typeof st.review!=="object")st.review={};
+  if(typeof st.autoEpoca!=="boolean")st.autoEpoca=true;
   if(!Array.isArray(st.metrics))st.metrics=clone(DEFAULT_METRICS);
   st.metrics.forEach(m=>{if(!m.id)m.id=uid();if(!m.entries||typeof m.entries!=="object")m.entries={};if(!m.unit)m.unit="";});
   if(typeof st.updatedAt!=="number")st.updatedAt=0;
@@ -535,6 +548,7 @@ function mergeStates(remote,local){
   m.metrics=alive(mergeById(remote.metrics,local.metrics));
   const me={};[].concat(remote.metrics||[],local.metrics||[]).forEach(x=>{if(x&&x.id)me[x.id]=Object.assign(me[x.id]||{},x.entries||{});});
   m.metrics.forEach(x=>{x.entries=Object.assign({},x.entries,me[x.id]||{});});
+  m.review={};[remote.review||{},local.review||{}].forEach(src=>{for(const w in src)m.review[w]=Object.assign({},m.review[w]||{},src[w]);});
   m.updatedAt=Math.max(remote.updatedAt||0,local.updatedAt||0);
   return normalize(m);
 }
@@ -1045,19 +1059,24 @@ async function fetchGcal(fresh){
 // ---- Huecos libres del día (entre eventos con hora) ----
 let todayEvents=[];
 const GAP_START=8,GAP_END=21,GAP_MIN=45;
-function renderGaps(){
-  const box=$("#gapsBody");if(!box)return;
+function computeGaps(){
   const d=new Date();
   const dayStart=new Date(d.getFullYear(),d.getMonth(),d.getDate(),GAP_START).getTime();
   const dayEnd=new Date(d.getFullYear(),d.getMonth(),d.getDate(),GAP_END).getTime();
   const from=Math.max(dayStart,Date.now());
-  if(from>=dayEnd){box.innerHTML='<li class="empty">Día cerrado. Mañana habrá huecos nuevos. 🌙</li>';return;}
+  if(from>=dayEnd)return{closed:true,gaps:[]};
   const busy=todayEvents.filter(e=>!e.allDay&&e.start&&e.end).map(e=>[Date.parse(e.start),Date.parse(e.end)]).filter(([a,b])=>b>a).sort((a,b)=>a[0]-b[0]);
   const gaps=[];let cur=from;
   for(const [s,en] of busy){if(s>cur&&cur<dayEnd)gaps.push([cur,Math.min(s,dayEnd)]);cur=Math.max(cur,en);if(cur>=dayEnd)break;}
   if(cur<dayEnd)gaps.push([cur,dayEnd]);
-  const good=gaps.filter(([a,b])=>(b-a)/60000>=GAP_MIN);
-  if(!good.length){box.innerHTML='<li class="empty">Sin huecos de ≥'+GAP_MIN+' min hasta las '+GAP_END+':00.</li>';return;}
+  return{closed:false,gaps:gaps.filter(([a,b])=>(b-a)/60000>=GAP_MIN)};
+}
+function renderGaps(){
+  const box=$("#gapsBody");if(!box)return;
+  const g=computeGaps();
+  if(g.closed){box.innerHTML='<li class="empty">Día cerrado. Mañana habrá huecos nuevos. 🌙</li>';renderGuardian();return;}
+  const good=g.gaps;
+  if(!good.length){box.innerHTML='<li class="empty">Sin huecos de ≥'+GAP_MIN+' min hasta las '+GAP_END+':00.</li>';renderGuardian();return;}
   box.innerHTML="";
   good.forEach(([a,b])=>{
     const mins=Math.floor((b-a)/60000),blk=Math.min(90,mins);
@@ -1068,6 +1087,83 @@ function renderGaps(){
     btn.onclick=()=>startGapBlock(blk);
     li.appendChild(btn);box.appendChild(li);
   });
+  renderGuardian();
+}
+// ---- Guardián del doctorado: aviso si la tesis se queda sin horas ----
+function renderGuardian(){
+  const card=$("#guardCard"),body=$("#guardBody");if(!card||!body)return;
+  const m=MODES[S.mode];const tgt=m.hours*((m.split.doctorado||0)/100);
+  const d=new Date();const isoDay=d.getDay()===0?7:d.getDay();
+  const lg=(S.logged.doctorado||0)/60;
+  const prorata=tgt*isoDay/7;
+  if(!(tgt>0&&isoDay>=3&&lg<0.5*prorata)){card.style.display="none";return;}
+  const g=computeGaps();const gap=g.gaps&&g.gaps[0];
+  let sug="Hoy ya no quedan huecos: protégelo mañana a primera hora.";
+  if(gap){
+    const mins=Math.min(90,Math.floor((gap[1]-gap[0])/60000));
+    sug=`Tienes hueco ${fmtT(new Date(gap[0]).toISOString())}–${fmtT(new Date(gap[1]).toISOString())}: <button class="mini" id="guardGo" style="font-weight:700">🎯 bloque de ${mins} min de tesis</button>`;
+  }
+  card.style.display="";
+  body.innerHTML=`<b style="color:#7c3aed">🔬 Guardián del doctorado</b> — llevas <b>${lg.toFixed(1)} h</b> de las ~${prorata.toFixed(1)} h que tocarían a estas alturas de la semana (objetivo: ${tgt.toFixed(1)} h). ${sug}`;
+  const gg=$("#guardGo");
+  if(gg&&gap)gg.onclick=()=>{$("#timerFrente").value="doctorado";startGapBlock(Math.min(90,Math.floor((gap[1]-gap[0])/60000)));};
+}
+// ---- Revisión semanal guiada (sáb/dom, o lunes si quedó pendiente) ----
+const REVIEW_STEPS=[
+  {id:"inbox",label:()=>"Procesar el inbox ("+S.tasks.filter(t=>!t.done&&!t.due).length+" tareas sin fecha)"},
+  {id:"vencidas",label:()=>"Repasar vencidas ("+S.tasks.filter(t=>!t.done&&t.due&&t.due<todayStr()).length+")"},
+  {id:"semana",label:()=>"Mirar la semana entrante (pestaña Semana)"},
+  {id:"hitos",label:()=>"Revisar hitos próximos y aplicar flujos"},
+  {id:"metricas",label:()=>"Apuntar métricas (peso, gym…)"}
+];
+function reviewStreak(){
+  const doneWk=w=>S.review[w]&&S.review[w].done;
+  let n=0,d=new Date();
+  if(doneWk(isoWeek(d)))n++;
+  d.setDate(d.getDate()-7);
+  while(doneWk(isoWeek(d))){n++;d.setDate(d.getDate()-7);}
+  return n;
+}
+function renderReview(){
+  const card=$("#reviewCard");if(!card)return;
+  const wd=new Date().getDay(),wk=isoWeek(new Date());
+  const st=S.review[wk]||{};
+  const visible=(wd===0||wd===6)||(wd===1&&!st.done);
+  if(!visible){card.style.display="none";return;}
+  card.style.display="";
+  const strk=reviewStreak();
+  $("#reviewStreak").textContent=(st.done?"✅ hecha":"pendiente")+(strk?" · 🔥 "+strk:"");
+  const body=$("#reviewBody");body.innerHTML="";
+  REVIEW_STEPS.forEach(s=>{
+    const row=document.createElement("label");
+    row.style.cssText="display:flex;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--line);cursor:pointer;font-weight:600;font-size:13.5px";
+    row.innerHTML=`<input type="checkbox" ${st[s.id]?"checked":""}><span${st[s.id]?' style="text-decoration:line-through;color:var(--muted)"':''}>${s.label()}</span>`;
+    row.querySelector("input").onchange=e=>{
+      S.review[wk]=S.review[wk]||{};S.review[wk][s.id]=e.target.checked;
+      S.review[wk].done=REVIEW_STEPS.every(x=>S.review[wk][x.id]);
+      save();renderReview();
+    };
+    body.appendChild(row);
+  });
+}
+// ---- Época automática según calendario escolar (edita SEASONS a tu gusto) ----
+const SEASONS=[["01-08","curso"],["02-16","evaluacion"],["03-08","curso"],["05-18","evaluacion"],["06-08","curso"],["06-20","verano"],["09-08","curso"],["11-17","evaluacion"],["12-07","curso"],["12-20","verano"]];
+function seasonNow(){
+  const d=new Date(),md=String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  let cur=SEASONS[SEASONS.length-1][1];
+  for(const [from,mode] of SEASONS){if(md>=from)cur=mode;}
+  return cur;
+}
+function applyAutoMode(){
+  if(!S.autoEpoca)return;
+  const m=seasonNow();
+  if(MODES[m]&&S.mode!==m){S.mode=m;save();}
+}
+function renderAutoChip(){
+  const c=$("#autoEpoca");if(!c)return;
+  c.textContent=S.autoEpoca?"auto ✓":"auto";
+  c.style.color=S.autoEpoca?"var(--doctorado)":"var(--muted)";
+  c.title=S.autoEpoca?"Época automática según calendario escolar (toca para desactivar)":"Activar época automática";
 }
 // ---- Vista semanal: eventos + tareas + hitos + rutinas ----
 function renderSemana(){
@@ -1292,10 +1388,11 @@ function maybeInstallHint(){
 }
 
 // ================= INIT =================
-function renderAll(){const ms=$("#mode");if(ms)ms.value=S.mode;renderFocus();renderHoy();renderBoard();renderMilestones();renderWorkflows();renderHabits();renderMetrics();renderLaunch();renderBudget();renderSemana();}
+function renderAll(){applyAutoMode();renderAutoChip();const ms=$("#mode");if(ms)ms.value=S.mode;renderFocus();renderHoy();renderBoard();renderMilestones();renderWorkflows();renderHabits();renderMetrics();renderLaunch();renderBudget();renderSemana();renderGuardian();renderReview();}
 function initControls(){
   const modeSel=$("#mode");modeSel.innerHTML=Object.entries(MODES).map(([k,m])=>`<option value="${k}">${m.name}</option>`).join("");modeSel.value=S.mode;
-  modeSel.onchange=()=>{S.mode=modeSel.value;save();renderAll();};
+  modeSel.onchange=()=>{S.mode=modeSel.value;S.autoEpoca=false;save();renderAll();};
+  const ae=$("#autoEpoca");if(ae)ae.onclick=()=>{S.autoEpoca=!S.autoEpoca;save();renderAll();};
   $("#capFrente").innerHTML=optionsFrente();$("#timerFrente").innerHTML=optionsFrente();$("#mFrente").innerHTML=optionsFrente();
   $("#capFrente").value="doctorado";$("#timerFrente").value="doctorado";$("#mFrente").value="docencia";
   fillSubs($("#capFrente").value,$("#capSub"));

@@ -50,6 +50,20 @@ export async function onRequest(context) {
       return due && !(h.history && h.history[wk]);
     });
     if (habits.length) parts.push("🔁 " + habits.map(h => h.name).join(" · "));
+
+    // Guardián del doctorado (mantener splits en sync con MODES del panel)
+    const DOC = { curso: [24, 20], evaluacion: [26, 10], verano: [40, 35], hito_doc: [28, 50] };
+    const isoDay = now.weekday === 0 ? 7 : now.weekday;
+    const cfg = DOC[state.mode];
+    if (cfg && isoDay >= 3) {
+      const tgt = cfg[0] * cfg[1] / 100, lg = ((state.logged || {}).doctorado || 0) / 60, pro = tgt * isoDay / 7;
+      if (lg < 0.5 * pro) parts.push("🔬 Doctorado en riesgo: " + lg.toFixed(1) + " h de ~" + pro.toFixed(1) + " h — protege un hueco hoy");
+    }
+    // Revisión semanal (sáb/dom)
+    if (isoDay >= 6) {
+      const rw = (state.review || {})[wk];
+      if (!(rw && rw.done)) parts.push("🧭 Revisión semanal pendiente (10 min)");
+    }
   }
   // Eventos de hoy que quedan (de la caché de agenda, si existe)
   try {
