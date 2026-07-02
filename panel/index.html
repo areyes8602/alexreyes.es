@@ -827,11 +827,14 @@ function renderGcal(events){
   if(gcalState!=="ok"){body.innerHTML='<li class="empty">'+(msgs[gcalState]||msgs.gcal_error)+'</li>';return;}
   body.innerHTML="";
   if(!events||!events.length){body.innerHTML='<li class="empty">Sin clases ni eventos hoy. Tu tiempo es propio. 🔬</li>';}
+  const SRC_COLORS=["#4f6ef7","#e15759","#2ca02c","#ff9f40","#9467bd","#17a2b8","#d63384","#8c564b"];
+  const srcLabels=[...new Set(agendaSources.map(s=>s.label))].sort();
+  const srcColor=l=>{const i=srcLabels.indexOf(l);return SRC_COLORS[(i>=0?i:8+String(l).length)%SRC_COLORS.length];};
   (events||[]).forEach(e=>{
-    const f=FRENTES[classifyEv(e.summary)];
+    const c=srcColor(e.cal);
     const t=e.allDay?"Todo el día":fmtT(e.start)+"–"+fmtT(e.end);
     const li=document.createElement("li");
-    li.innerHTML=`<span class="atime">${t}</span><span class="dot" style="background:${f.color}"></span><span class="aev">${esc(e.summary)}${e.location?' <span class="aloc">· '+esc(e.location.split(",")[0])+'</span>':''}${e.cal?' <span class="aloc">['+esc(e.cal)+']</span>':''}</span>`;
+    li.innerHTML=`<span class="atime">${t}</span><span class="dot" style="background:${c}"></span><span class="aev">${esc(e.summary)}${e.location?' <span class="aloc">· '+esc(e.location.split(",")[0])+'</span>':''}${e.cal?' <span class="aloc" style="color:${c}">['+esc(e.cal)+']</span>':''}</span>`;
     body.appendChild(li);
   });
   const bad=agendaSources.filter(s=>!s.ok);
