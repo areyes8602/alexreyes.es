@@ -1,4 +1,4 @@
-// GET /panel/api/agenda — agenda unificada multi-calendario.
+// GET /panel/api/agenda — agenda unificada multi-calendario. (redeploy: aplicar GCAL_IDS)
 // Fusiona: N calendarios de Google (cuenta de servicio, GCAL_IDS) + N calendarios ICS
 // (Hotmail / Outlook corporativo publicados como .ics, ICS_URLS).
 // Ventana fija: desde hace 6h hasta +8 días. El cliente filtra por día.
