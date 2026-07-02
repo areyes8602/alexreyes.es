@@ -185,6 +185,7 @@
       <select id="mode"></select>
       <span id="syncStatus" class="syncst">—</span>
       <span id="exportBtn" title="Descargar copia de seguridad" style="cursor:pointer;font-size:14px">⬇️</span>
+      <span id="pushBtn" title="Notificaciones" style="cursor:pointer;font-size:14px">🔕</span>
       <a class="logout" href="/panel/api/logout">Salir</a>
     </div>
   </div>
@@ -356,6 +357,7 @@ const FRENTES = {
   web:       {name:"Web",      full:"Web · alexreyes.es",  color:"#059669", emoji:"🌐"},
   doctorado: {name:"Doctorado",full:"Doctorado · Collatz", color:"#7c3aed", emoji:"🔬"},
   marismates:{name:"marismates",full:"marismates.cat",     color:"#ea580c", emoji:"🏫"},
+  personal:  {name:"Personal", full:"Personal · Vida",     color:"#db2777", emoji:"🏡"},
 };
 const FKEYS = Object.keys(FRENTES);
 const SUBS = {
@@ -363,18 +365,20 @@ const SUBS = {
   web:       ["Idea","Redactar","Traducir","Publicar","Banco D1","Notas","Mantenimiento"],
   doctorado: ["Paper 2","Líneas","Reuniones","Lectura","Experimentos","Bibliografía","General"],
   marismates:["Desarrollo","Departamentos","Coordinación","Despliegue","General"],
+  personal:  ["Familia","Gym","Salud/Peso","Aficiones","Casa","Objetivos","General"],
 };
 const MODES = {
-  curso:      {name:"Curso lectivo",  hours:20, split:{docencia:50,web:15,doctorado:25,marismates:10}},
-  evaluacion: {name:"Evaluaciones",   hours:22, split:{docencia:70,web:5, doctorado:15,marismates:10}},
-  verano:     {name:"Verano",         hours:35, split:{docencia:5, web:25,doctorado:45,marismates:25}},
-  hito_doc:   {name:"Hito doctorado", hours:25, split:{docencia:20,web:10,doctorado:60,marismates:10}},
+  curso:      {name:"Curso lectivo",  hours:24, split:{docencia:45,web:10,doctorado:20,marismates:10,personal:15}},
+  evaluacion: {name:"Evaluaciones",   hours:26, split:{docencia:60,web:5, doctorado:10,marismates:10,personal:15}},
+  verano:     {name:"Verano",         hours:40, split:{docencia:5, web:20,doctorado:35,marismates:15,personal:25}},
+  hito_doc:   {name:"Hito doctorado", hours:28, split:{docencia:20,web:5, doctorado:50,marismates:10,personal:15}},
 };
 const DEFAULT_LINKS = {
   docencia:[ {label:"Aula (/aula)",url:"https://alexreyes.es/aula/"}, {label:"Docencia",url:"https://alexreyes.es/docencia/"} ],
   web:[ {label:"alexreyes.es",url:"https://alexreyes.es/"}, {label:"Notas",url:"https://alexreyes.es/notas/"}, {label:"Repo web (GitHub)",url:"https://github.com/areyes8602/alexreyes.es"} ],
   doctorado:[ {label:"Notion doctorado",url:"https://www.notion.so/1f8d5bbe9376801b8ca0d35758702d03"}, {label:"arXiv 2606.02621",url:"https://arxiv.org/abs/2606.02621"}, {label:"Doctorado (web)",url:"https://alexreyes.es/doctorado/"} ],
   marismates:[ {label:"marismates.cat",url:"https://marismates.cat/"}, {label:"Repo marismates",url:"https://github.com/areyes8602/marismates"} ],
+  personal:[],
 };
 // Plantillas de flujo (planificación inversa). offset = días ANTES de la fecha (negativo = después).
 const DEFAULT_WORKFLOWS=[
@@ -406,7 +410,8 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 function isoWeek(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const day=(t.getUTCDay()+6)%7;t.setUTCDate(t.getUTCDate()-day+3);const first=new Date(Date.UTC(t.getUTCFullYear(),0,4));const wk=1+Math.round(((t-first)/86400000-3+((first.getUTCDay()+6)%7))/7);return t.getUTCFullYear()+"-W"+String(wk).padStart(2,"0");}
 function todayStr(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
 function daysUntil(ds){if(!ds)return null;const a=new Date(todayStr()+"T00:00:00"),b=new Date(ds+"T00:00:00");return Math.round((b-a)/86400000);}
-function defState(){return {v:3, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:{docencia:0,web:0,doctorado:0,marismates:0}, tombs:{}, updatedAt:0};}
+function zeroLogged(){const o={};FKEYS.forEach(k=>o[k]=0);return o;}
+function defState(){return {v:3, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:zeroLogged(), tombs:{}, updatedAt:0};}
 function migrateV1(){
   try{
     const old=JSON.parse(localStorage.getItem(OLDKEY));
@@ -426,7 +431,8 @@ function normalize(st){
   if(!Array.isArray(st.milestones))st.milestones=[];
   if(!st.links||typeof st.links!=="object")st.links=JSON.parse(JSON.stringify(DEFAULT_LINKS));
   FKEYS.forEach(f=>{if(!Array.isArray(st.links[f]))st.links[f]=DEFAULT_LINKS[f].slice();});
-  if(!st.logged)st.logged={docencia:0,web:0,doctorado:0,marismates:0};
+  if(!st.logged)st.logged=zeroLogged();
+  FKEYS.forEach(k=>{if(typeof st.logged[k]!=="number")st.logged[k]=0;});
   st.tasks.forEach(t=>{t.sub=t.sub||"General";t.links=t.links||[];t.subtasks=t.subtasks||[];if(t.due===undefined)t.due=null;if(t.notes===undefined)t.notes="";if(t.recur===undefined)t.recur=null;});
   if(!Array.isArray(st.workflows))st.workflows=clone(DEFAULT_WORKFLOWS);
   st.workflows.forEach(w=>{if(!Array.isArray(w.steps))w.steps=[];if(!w.id)w.id=uid();if(!w.frente)w.frente="docencia";});
@@ -435,7 +441,7 @@ function normalize(st){
   if(!st.tombs||typeof st.tombs!=="object")st.tombs={};
   if(typeof st.updatedAt!=="number")st.updatedAt=0;
   const wk=isoWeek(new Date());
-  if(st.week!==wk){st.week=wk;st.logged={docencia:0,web:0,doctorado:0,marismates:0};}
+  if(st.week!==wk){st.week=wk;st.logged=zeroLogged();}
   return st;
 }
 let S;
@@ -514,6 +520,46 @@ async function pullState(){
   finally{pulling=false;}
 }
 function anyLogged(){return FKEYS.some(k=>(S.logged[k]||0)>0);}
+// ---- Captura rápida: /panel/?add=Texto[&frente=personal] (Atajos de iOS) ----
+function handleAddParam(){
+  try{
+    const u=new URL(location.href);const txt=(u.searchParams.get("add")||"").trim();
+    if(!txt)return;
+    let fr=u.searchParams.get("frente");if(!FKEYS.includes(fr))fr=classifyEv(txt);
+    S.tasks.unshift({id:uid(),text:txt,frente:fr,sub:"General",prio:"media",done:false,due:u.searchParams.get("due")||null,notes:"",links:[],subtasks:[],recur:null,created:Date.now(),updatedAt:Date.now()});
+    save();history.replaceState(null,"",location.pathname);
+    showTab("tareas");renderAll();
+    setSync("tarea capturada ✓","ok");
+  }catch(e){}
+}
+// ---- Notificaciones push (Web Push, iOS 16.4+ con PWA instalada) ----
+const VAPID_PUB="BPABCM-v9dTAmuAq8Vp7bP-qrB50j-GI2TuIWUlAvgWfT7mM6UgJjtxZYCb_MHqz-pxIiwUWhqh-ECcJosvCpQ8";
+function b64ToU8(s){const p="=".repeat((4-s.length%4)%4);const b=atob((s+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from(b,c=>c.charCodeAt(0));}
+async function updateBellUI(on){
+  const b=$("#pushBtn");if(!b)return;
+  if(on===undefined){try{const reg=await navigator.serviceWorker.ready;on=!!(await reg.pushManager.getSubscription());}catch(e){on=false;}}
+  b.textContent=on?"🔔":"🔕";
+  b.title=on?"Notificaciones activadas · toca para desactivar":"Activar notificaciones en este dispositivo";
+}
+async function togglePush(){
+  try{
+    if(!("serviceWorker" in navigator)||!("PushManager" in window)||!("Notification" in window)){
+      alert("Este navegador no soporta notificaciones. En iPhone/iPad: instala el panel en la pantalla de inicio (Compartir → Añadir a pantalla de inicio) y actívalas desde la app instalada.");return;
+    }
+    const reg=await navigator.serviceWorker.ready;
+    let sub=await reg.pushManager.getSubscription();
+    if(sub){
+      await fetch("/panel/api/push",{method:"DELETE",headers:{"content-type":"application/json"},body:JSON.stringify({endpoint:sub.endpoint})}).catch(()=>{});
+      await sub.unsubscribe();updateBellUI(false);return;
+    }
+    const perm=await Notification.requestPermission();
+    if(perm!=="granted"){alert("Permiso de notificaciones denegado.");return;}
+    sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64ToU8(VAPID_PUB)});
+    const r=await fetch("/panel/api/push",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({subscription:sub.toJSON()})});
+    if(!r.ok)throw new Error("registro falló");
+    updateBellUI(true);
+  }catch(e){alert("No pude activar las notificaciones: "+(e&&e.message||e));}
+}
 function exportBackup(){
   const d=new Date(),p=n=>String(n).padStart(2,"0");
   const name="centro-mando-"+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+".json";
@@ -861,7 +907,7 @@ function renderWorkflows(){
 }
 function addWorkflow(){
   const name=prompt("Nombre de la plantilla (p. ej. 'Entrega paper'):");if(!name)return;
-  let frente=prompt("Frente: docencia / web / doctorado / marismates","docencia");
+  let frente=prompt("Frente: docencia / web / doctorado / marismates / personal","docencia");
   if(!FKEYS.includes(frente))frente="docencia";
   S.workflows.push({id:uid(),name:name.trim(),frente,steps:[]});save();renderWorkflows();
 }
@@ -938,9 +984,9 @@ function renderSemana(){
     evs.forEach(e=>{html+='<div class="witem"><span class="wdot" style="background:'+srcColor(e.cal)+'"></span><span class="wt">'+(e.allDay?"día":fmtT(e.start))+'</span><span class="txt">'+esc(e.summary)+'</span></div>';});
     (S.milestones||[]).filter(m=>m.date===ds).forEach(m=>{html+='<div class="witem">⭐<span class="txt"><b>'+esc(m.title)+'</b></span></div>';});
     (S.tasks||[]).filter(t=>!t.done&&t.due===ds).forEach(t=>{const f=FRENTES[t.frente]||FRENTES.docencia;html+='<div class="witem wtask"><span class="wdot" style="background:'+f.color+'"></span><span class="txt">'+esc(t.text)+'</span></div>';});
-    const iso=(d.getDay()+6)%7+1;
+    const wd=d.getDay(); // 0=dom..6=sáb, igual que h.day
     (S.habits||[]).forEach(h=>{
-      const hit=h.cadence==="weekly"?iso===h.day:h.cadence==="weekends"?iso>=6:h.cadence==="monthly"?d.getDate()===h.day:false;
+      const hit=h.cadence==="weekly"?wd===h.day:h.cadence==="weekends"?(wd===0||wd===6):false;
       if(!hit)return;
       const done=!!h.history[habitKey(h,d)];
       html+='<div class="witem'+(done?" wdone":"")+'">🔁<span class="txt">'+esc(h.name)+'</span></div>';
@@ -955,7 +1001,7 @@ function startGapBlock(mins){
   $("#timerBtn").click();
   const fc=document.querySelector(".card.focus");if(fc)fc.scrollIntoView({behavior:"smooth",block:"center"});
 }
-function classifyEv(s){s=(s||"").toLowerCase();if(/collatz|jaume|tesi|doctorad|franch|paper/.test(s))return"doctorado";if(/marismates|departament/.test(s))return"marismates";if(/alexreyes|apunt|ejercici|banco/.test(s))return"web";return"docencia";}
+function classifyEv(s){s=(s||"").toLowerCase();if(/collatz|jaume|tesi|doctorad|franch|paper/.test(s))return"doctorado";if(/marismates|departament/.test(s))return"marismates";if(/alexreyes|apunt|ejercici|banco/.test(s))return"web";if(/gym|gimnas|médic|medic|cumple|aniversari|famili|laia|dentista|entren/.test(s))return"personal";return"docencia";}
 function fmtT(iso){if(!iso)return"";const d=new Date(iso);return d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});}
 function renderGcal(events){
   const body=$("#gcalBody");if(!body)return;
@@ -1083,6 +1129,8 @@ function initControls(){
   const gr=$("#gcalRefresh");if(gr)gr.onclick=()=>fetchGcal(true);
   const xb=$("#exportBtn");if(xb)xb.onclick=exportBackup;
   const wr=$("#weekRefresh");if(wr)wr.onclick=()=>fetchGcal(true);
+  const pb=$("#pushBtn");if(pb)pb.onclick=togglePush;
+  updateBellUI();handleAddParam();
   $("#exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="centro-de-mando-"+S.week+".json";a.click();};
   // nav
   document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));

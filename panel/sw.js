@@ -1,5 +1,5 @@
-/* Centro de Mando — service worker (app shell offline, scope /panel/) */
-const CACHE = "cm-v8";
+/* Centro de Mando — service worker (app shell offline + push, scope /panel/) */
+const CACHE = "cm-v9";
 const SHELL = [
   "/panel/",
   "/panel/index.html",
@@ -19,6 +19,33 @@ self.addEventListener("activate", (e) => {
     caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
   );
   self.clients.claim();
+});
+
+// Push sin payload: al despertar, pedimos el resumen al servidor (con la cookie de sesión).
+self.addEventListener("push", (e) => {
+  e.waitUntil((async () => {
+    let title = "Centro de Mando", body = "Toca para abrir tu panel.";
+    try {
+      const r = await fetch("/panel/api/digest", { credentials: "same-origin" });
+      if (r.ok) {
+        const j = await r.json();
+        if (j && j.title) { title = j.title; body = j.body || body; }
+      }
+    } catch (_) {}
+    await self.registration.showNotification(title, {
+      body, icon: "/panel/icon-192.png", badge: "/panel/icon-192.png",
+      tag: "cm-digest", data: { url: "/panel/" }
+    });
+  })());
+});
+
+self.addEventListener("notificationclick", (e) => {
+  e.notification.close();
+  e.waitUntil((async () => {
+    const wins = await clients.matchAll({ type: "window", includeUncontrolled: true });
+    for (const w of wins) if (w.url.includes("/panel/")) return w.focus();
+    return clients.openWindow("/panel/");
+  })());
 });
 
 self.addEventListener("fetch", (e) => {
