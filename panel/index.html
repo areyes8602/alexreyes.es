@@ -144,6 +144,18 @@
   .wfsteps li{display:flex;gap:8px;align-items:center;padding:4px 0;border-top:1px solid var(--line);font-size:12.5px}
   .wfsteps li:first-child{border-top:0}
   .mflow{font-size:11px;padding:4px 6px;max-width:92px}
+  /* semana */
+  .weekgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  @media(max-width:900px){.weekgrid{grid-template-columns:1fr}}
+  .wday{background:#f7f8fb;border:1px solid var(--line);border-radius:12px;padding:8px;min-height:70px}
+  .wday.today{background:#fff;border-color:var(--doctorado);box-shadow:var(--shadow)}
+  .wdhead{font-weight:800;font-size:12px;color:var(--muted);margin-bottom:6px;text-transform:capitalize}
+  .wday.today .wdhead{color:var(--doctorado)}
+  .witem{display:flex;gap:5px;align-items:baseline;font-size:11.5px;font-weight:600;padding:2.5px 0;line-height:1.25}
+  .witem .wt{font-variant-numeric:tabular-nums;color:var(--muted);font-size:10.5px;white-space:nowrap}
+  .witem .wdot{width:7px;height:7px;border-radius:50%;flex:none;position:relative;top:0.5px}
+  .witem.wtask .txt{}
+  .witem.wdone .txt{text-decoration:line-through;color:var(--muted)}
   .agenda{list-style:none;margin:0;padding:0}
   .agenda li{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
   .agenda li:first-child{border-top:0}
@@ -179,6 +191,7 @@
 
   <div class="nav" id="nav">
     <button data-tab="hoy" class="on">Hoy</button>
+    <button data-tab="semana">Semana</button>
     <button data-tab="tareas">Tareas</button>
     <button data-tab="rutinas">Rutinas</button>
     <button data-tab="fechas">Fechas</button>
@@ -239,6 +252,15 @@
         <div id="bars"></div>
       </div>
       <div class="foothelp">La línea negra marca tu objetivo del modo; la barra, lo registrado. <span id="resetweek" style="color:var(--doctorado);cursor:pointer;font-weight:700">Reiniciar semana</span></div>
+    </div>
+  </div>
+
+  <!-- ============ SEMANA ============ -->
+  <div class="pane" id="pane-semana">
+    <div class="card">
+      <div class="sectlabel"><h2 style="margin:0">📆 Próximos 7 días</h2><span class="tsub" id="weekRefresh" style="cursor:pointer;color:var(--doctorado)">↻ actualizar</span></div>
+      <div class="weekgrid" id="weekGrid"><div class="empty">Cargando…</div></div>
+      <div class="foothelp">Eventos de todos los calendarios + tareas con fecha + hitos + rutinas del día.</div>
     </div>
   </div>
 
@@ -506,6 +528,7 @@ function showTab(name){
   document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===name));
   document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("on",p.id==="pane-"+name));
   if(name==="hoy")renderBudget();
+  if(name==="semana")renderSemana();
 }
 
 // ================= HELPERS UI =================
@@ -844,18 +867,21 @@ function addWorkflow(){
 }
 
 // ================= AGENDA (multi-calendario: Google + ICS) =================
-let gcalState="load",gcalDetail="",gcalStatus="",agendaSources=[];
-function isToday(e){
-  const d=new Date(),p=n=>String(n).padStart(2,"0");
-  const todayStr=d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());
+let gcalState="load",gcalDetail="",gcalStatus="",agendaSources=[],allEvents=[];
+const SRC_COLORS=["#4f6ef7","#e15759","#2ca02c","#ff9f40","#9467bd","#17a2b8","#d63384","#8c564b"];
+function srcColor(l){const labels=[...new Set(agendaSources.map(s=>s.label))].sort();const i=labels.indexOf(l);return SRC_COLORS[(i>=0?i:8+String(l).length)%SRC_COLORS.length];}
+function isOnDay(e,d){
+  const p=n=>String(n).padStart(2,"0");
+  const dayStr=d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());
   if(e.allDay){
     const s=String(e.start).slice(0,10),en=e.end?String(e.end).slice(0,10):null;
-    return en&&en!==s?(s<=todayStr&&todayStr<en):s===todayStr;
+    return en&&en!==s?(s<=dayStr&&dayStr<en):s===dayStr;
   }
   const dayStart=new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime(),dayEnd=dayStart+864e5;
   const st=Date.parse(e.start),et=e.end?Date.parse(e.end):st;
   return et>dayStart&&st<dayEnd;
 }
+function isToday(e){return isOnDay(e,new Date());}
 async function fetchGcal(fresh){
   const body=$("#gcalBody");if(!body)return;
   gcalState="load";body.innerHTML='<li class="empty">Cargando agenda…</li>';
@@ -865,8 +891,9 @@ async function fetchGcal(fresh){
     const j=await r.json();
     if(j&&j.error){gcalState=j.error;gcalDetail=j.detail||"";gcalStatus=j.status||"";return renderGcal(null);}
     agendaSources=j.sources||[];
-    todayEvents=(j.events||[]).filter(isToday);
-    gcalState="ok";renderGcal(todayEvents);renderGaps();
+    allEvents=j.events||[];
+    todayEvents=allEvents.filter(isToday);
+    gcalState="ok";renderGcal(todayEvents);renderGaps();renderSemana();
   }catch(e){gcalState="err";renderGcal(null);}
 }
 // ---- Huecos libres del día (entre eventos con hora) ----
@@ -896,6 +923,32 @@ function renderGaps(){
     li.appendChild(btn);box.appendChild(li);
   });
 }
+// ---- Vista semanal: eventos + tareas + hitos + rutinas ----
+function renderSemana(){
+  const grid=$("#weekGrid");if(!grid)return;
+  const now=new Date(),p=n=>String(n).padStart(2,"0");
+  const DIAS=["dom","lun","mar","mié","jue","vie","sáb"];
+  grid.innerHTML="";
+  for(let i=0;i<7;i++){
+    const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);
+    const ds=d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());
+    const col=document.createElement("div");col.className="wday"+(i===0?" today":"");
+    let html='<div class="wdhead">'+DIAS[d.getDay()]+" "+d.getDate()+" "+MESES[d.getMonth()]+(i===0?" · hoy":"")+'</div>';
+    const evs=(allEvents||[]).filter(e=>isOnDay(e,d)).sort((a,b)=>String(a.start).localeCompare(String(b.start)));
+    evs.forEach(e=>{html+='<div class="witem"><span class="wdot" style="background:'+srcColor(e.cal)+'"></span><span class="wt">'+(e.allDay?"día":fmtT(e.start))+'</span><span class="txt">'+esc(e.summary)+'</span></div>';});
+    (S.milestones||[]).filter(m=>m.date===ds).forEach(m=>{html+='<div class="witem">⭐<span class="txt"><b>'+esc(m.title)+'</b></span></div>';});
+    (S.tasks||[]).filter(t=>!t.done&&t.due===ds).forEach(t=>{const f=FRENTES[t.frente]||FRENTES.docencia;html+='<div class="witem wtask"><span class="wdot" style="background:'+f.color+'"></span><span class="txt">'+esc(t.text)+'</span></div>';});
+    const iso=(d.getDay()+6)%7+1;
+    (S.habits||[]).forEach(h=>{
+      const hit=h.cadence==="weekly"?iso===h.day:h.cadence==="weekends"?iso>=6:h.cadence==="monthly"?d.getDate()===h.day:false;
+      if(!hit)return;
+      const done=!!h.history[habitKey(h,d)];
+      html+='<div class="witem'+(done?" wdone":"")+'">🔁<span class="txt">'+esc(h.name)+'</span></div>';
+    });
+    if(html.indexOf("witem")<0)html+='<div class="witem" style="color:var(--muted)">—</div>';
+    col.innerHTML=html;grid.appendChild(col);
+  }
+}
 function startGapBlock(mins){
   if(running){alert("Ya hay un bloque en marcha; detenlo antes.");return;}
   blockLen=mins*60;remaining=blockLen;updTimer();
@@ -910,9 +963,6 @@ function renderGcal(events){
   if(gcalState!=="ok"){body.innerHTML='<li class="empty">'+(msgs[gcalState]||msgs.gcal_error)+'</li>';return;}
   body.innerHTML="";
   if(!events||!events.length){body.innerHTML='<li class="empty">Sin clases ni eventos hoy. Tu tiempo es propio. 🔬</li>';}
-  const SRC_COLORS=["#4f6ef7","#e15759","#2ca02c","#ff9f40","#9467bd","#17a2b8","#d63384","#8c564b"];
-  const srcLabels=[...new Set(agendaSources.map(s=>s.label))].sort();
-  const srcColor=l=>{const i=srcLabels.indexOf(l);return SRC_COLORS[(i>=0?i:8+String(l).length)%SRC_COLORS.length];};
   (events||[]).forEach(e=>{
     const c=srcColor(e.cal);
     const t=e.allDay?"Todo el día":fmtT(e.start)+"–"+fmtT(e.end);
@@ -1012,7 +1062,7 @@ function maybeInstallHint(){
 }
 
 // ================= INIT =================
-function renderAll(){const ms=$("#mode");if(ms)ms.value=S.mode;renderFocus();renderHoy();renderBoard();renderMilestones();renderWorkflows();renderHabits();renderLaunch();renderBudget();}
+function renderAll(){const ms=$("#mode");if(ms)ms.value=S.mode;renderFocus();renderHoy();renderBoard();renderMilestones();renderWorkflows();renderHabits();renderLaunch();renderBudget();renderSemana();}
 function initControls(){
   const modeSel=$("#mode");modeSel.innerHTML=Object.entries(MODES).map(([k,m])=>`<option value="${k}">${m.name}</option>`).join("");modeSel.value=S.mode;
   modeSel.onchange=()=>{S.mode=modeSel.value;save();renderAll();};
@@ -1032,6 +1082,7 @@ function initControls(){
   const nr=$("#notionRefresh");if(nr)nr.onclick=fetchNotion;
   const gr=$("#gcalRefresh");if(gr)gr.onclick=()=>fetchGcal(true);
   const xb=$("#exportBtn");if(xb)xb.onclick=exportBackup;
+  const wr=$("#weekRefresh");if(wr)wr.onclick=()=>fetchGcal(true);
   $("#exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="centro-de-mando-"+S.week+".json";a.click();};
   // nav
   document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
