@@ -794,38 +794,52 @@ function addWorkflow(){
   S.workflows.push({id:uid(),name:name.trim(),frente,steps:[]});save();renderWorkflows();
 }
 
-// ================= GOOGLE CALENDAR (agenda de hoy) =================
-let gcalState="load",gcalDetail="",gcalStatus="";
-async function fetchGcal(){
+// ================= AGENDA (multi-calendario: Google + ICS) =================
+let gcalState="load",gcalDetail="",gcalStatus="",agendaSources=[];
+function isToday(e){
+  const d=new Date(),p=n=>String(n).padStart(2,"0");
+  const todayStr=d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());
+  if(e.allDay){
+    const s=String(e.start).slice(0,10),en=e.end?String(e.end).slice(0,10):null;
+    return en&&en!==s?(s<=todayStr&&todayStr<en):s===todayStr;
+  }
+  const dayStart=new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime(),dayEnd=dayStart+864e5;
+  const st=Date.parse(e.start),et=e.end?Date.parse(e.end):st;
+  return et>dayStart&&st<dayEnd;
+}
+async function fetchGcal(fresh){
   const body=$("#gcalBody");if(!body)return;
   gcalState="load";body.innerHTML='<li class="empty">Cargando agenda…</li>';
-  const d=new Date();
-  const tmin=new Date(d.getFullYear(),d.getMonth(),d.getDate(),0,0,0).toISOString();
-  const tmax=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1,0,0,0).toISOString();
   try{
-    const r=await fetch("/panel/api/gcal?timeMin="+encodeURIComponent(tmin)+"&timeMax="+encodeURIComponent(tmax));
+    const r=await fetch("/panel/api/agenda"+(fresh===true?"?fresh=1":""));
     if(r.status===401){gcalState="auth";return renderGcal(null);}
     const j=await r.json();
     if(j&&j.error){gcalState=j.error;gcalDetail=j.detail||"";gcalStatus=j.status||"";return renderGcal(null);}
-    gcalState="ok";renderGcal(j.events||[]);
+    agendaSources=j.sources||[];
+    gcalState="ok";renderGcal((j.events||[]).filter(isToday));
   }catch(e){gcalState="err";renderGcal(null);}
 }
 function classifyEv(s){s=(s||"").toLowerCase();if(/collatz|jaume|tesi|doctorad|franch|paper/.test(s))return"doctorado";if(/marismates|departament/.test(s))return"marismates";if(/alexreyes|apunt|ejercici|banco/.test(s))return"web";return"docencia";}
 function fmtT(iso){if(!iso)return"";const d=new Date(iso);return d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});}
 function renderGcal(events){
   const body=$("#gcalBody");if(!body)return;
-  const msgs={load:"Cargando agenda…",no_gcal:"Conecta tu Google Calendar (cuenta de servicio) para ver aquí tus clases y eventos del día.",not_shared:"Calendario no compartido con la cuenta de servicio.",cal_not_found:"No encuentro el calendario (revisa GCAL_ID).",auth:"Sesión caducada; recarga.",gcal_error:"No pude leer el calendario ahora mismo.",err:"Sin conexión con Google Calendar."};
-  if(gcalState==="gcal_error"){body.innerHTML='<li class="empty">Error de Google ('+esc(String(gcalStatus||"?"))+'): '+esc(gcalDetail||"sin detalle")+'</li>';return;}
+  const msgs={load:"Cargando agenda…",no_sources:"Configura tus calendarios (GCAL_IDS y/o ICS_URLS) para ver aquí la agenda unificada.",no_gcal:"Conecta tus calendarios (cuenta de servicio Google y/o ICS_URLS).",auth:"Sesión caducada; recarga.",gcal_error:"No pude leer los calendarios ahora mismo.",err:"Sin conexión con la agenda."};
   if(gcalState!=="ok"){body.innerHTML='<li class="empty">'+(msgs[gcalState]||msgs.gcal_error)+'</li>';return;}
-  if(!events||!events.length){body.innerHTML='<li class="empty">Sin clases ni eventos hoy. Tu tiempo es propio. 🔬</li>';return;}
   body.innerHTML="";
-  events.forEach(e=>{
+  if(!events||!events.length){body.innerHTML='<li class="empty">Sin clases ni eventos hoy. Tu tiempo es propio. 🔬</li>';}
+  (events||[]).forEach(e=>{
     const f=FRENTES[classifyEv(e.summary)];
     const t=e.allDay?"Todo el día":fmtT(e.start)+"–"+fmtT(e.end);
     const li=document.createElement("li");
-    li.innerHTML=`<span class="atime">${t}</span><span class="dot" style="background:${f.color}"></span><span class="aev">${esc(e.summary)}${e.location?' <span class="aloc">· '+esc(e.location.split(",")[0])+'</span>':''}</span>`;
+    li.innerHTML=`<span class="atime">${t}</span><span class="dot" style="background:${f.color}"></span><span class="aev">${esc(e.summary)}${e.location?' <span class="aloc">· '+esc(e.location.split(",")[0])+'</span>':''}${e.cal?' <span class="aloc">['+esc(e.cal)+']</span>':''}</span>`;
     body.appendChild(li);
   });
+  const bad=agendaSources.filter(s=>!s.ok);
+  if(bad.length){
+    const li=document.createElement("li");li.className="empty";
+    li.textContent="⚠️ Sin acceso a: "+bad.map(s=>s.label+" ("+(s.error||"?")+")").join(", ");
+    body.appendChild(li);
+  }
 }
 
 // ================= NOTION (doctorado, solo lectura) =================
@@ -930,7 +944,7 @@ function initControls(){
   const wa=$("#wfAdd");if(wa)wa.onclick=addWorkflow;
   $("#resetweek").onclick=()=>{if(confirm("¿Reiniciar horas de esta semana?")){S.logged={docencia:0,web:0,doctorado:0,marismates:0};save();renderBudget();}};
   const nr=$("#notionRefresh");if(nr)nr.onclick=fetchNotion;
-  const gr=$("#gcalRefresh");if(gr)gr.onclick=fetchGcal;
+  const gr=$("#gcalRefresh");if(gr)gr.onclick=()=>fetchGcal(true);
   $("#exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="centro-de-mando-"+S.week+".json";a.click();};
   // nav
   document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
