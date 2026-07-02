@@ -253,6 +253,7 @@
         <div id="bars"></div>
       </div>
       <div class="foothelp">La línea negra marca tu objetivo del modo; la barra, lo registrado. <span id="resetweek" style="color:var(--doctorado);cursor:pointer;font-weight:700">Reiniciar semana</span></div>
+      <div id="weekHistBox"></div>
     </div>
   </div>
 
@@ -308,6 +309,11 @@
     <div class="card">
       <div class="sectlabel"><h2 style="margin:0">🔁 Tus hábitos</h2></div>
       <div id="habitManage"></div>
+    </div>
+    <div class="card">
+      <div class="sectlabel"><h2 style="margin:0">📊 Métricas personales</h2><span class="tsub" id="mAdd" style="cursor:pointer;color:var(--doctorado)">+ nueva métrica</span></div>
+      <div id="metricsBox"></div>
+      <div class="foothelp">Apunta el valor de hoy y mira la tendencia. Peso, sesiones de gym, páginas leídas… lo que quieras medir.</div>
     </div>
   </div>
 
@@ -411,7 +417,11 @@ function isoWeek(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.get
 function todayStr(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
 function daysUntil(ds){if(!ds)return null;const a=new Date(todayStr()+"T00:00:00"),b=new Date(ds+"T00:00:00");return Math.round((b-a)/86400000);}
 function zeroLogged(){const o={};FKEYS.forEach(k=>o[k]=0);return o;}
-function defState(){return {v:3, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:zeroLogged(), tombs:{}, updatedAt:0};}
+const DEFAULT_METRICS=[
+  {id:"m_peso",name:"Peso",unit:"kg",entries:{}},
+  {id:"m_gym",name:"Gym",unit:"sesión (1)",entries:{}}
+];
+function defState(){return {v:3, mode:"verano", ff:"all", sf:"pend", tab:"hoy", tasks:[], milestones:[], workflows:clone(DEFAULT_WORKFLOWS), habits:clone(DEFAULT_HABITS), links:JSON.parse(JSON.stringify(DEFAULT_LINKS)), week:isoWeek(new Date()), logged:zeroLogged(), weekHist:[], metrics:clone(DEFAULT_METRICS), tombs:{}, updatedAt:0};}
 function migrateV1(){
   try{
     const old=JSON.parse(localStorage.getItem(OLDKEY));
@@ -439,9 +449,16 @@ function normalize(st){
   if(!Array.isArray(st.habits))st.habits=clone(DEFAULT_HABITS);
   st.habits.forEach(h=>{if(!h.history||typeof h.history!=="object")h.history={};if(!h.id)h.id=uid();if(!h.cadence)h.cadence="weekly";if(h.day===undefined)h.day=5;if(!h.frente)h.frente="docencia";});
   if(!st.tombs||typeof st.tombs!=="object")st.tombs={};
+  if(!Array.isArray(st.weekHist))st.weekHist=[];
+  if(!Array.isArray(st.metrics))st.metrics=clone(DEFAULT_METRICS);
+  st.metrics.forEach(m=>{if(!m.id)m.id=uid();if(!m.entries||typeof m.entries!=="object")m.entries={};if(!m.unit)m.unit="";});
   if(typeof st.updatedAt!=="number")st.updatedAt=0;
   const wk=isoWeek(new Date());
-  if(st.week!==wk){st.week=wk;st.logged=zeroLogged();}
+  if(st.week!==wk){
+    const tot=FKEYS.reduce((a,k)=>a+(st.logged&&st.logged[k]||0),0);
+    if(tot>0){st.weekHist.push({week:st.week,mode:st.mode,logged:st.logged});st.weekHist=st.weekHist.slice(-60);}
+    st.week=wk;st.logged=zeroLogged();
+  }
   return st;
 }
 let S;
@@ -480,6 +497,13 @@ function mergeStates(remote,local){
   const hh={};[].concat(remote.habits||[],local.habits||[]).forEach(h=>{if(h&&h.id)hh[h.id]=Object.assign(hh[h.id]||{},h.history||{});});
   m.habits.forEach(h=>{h.history=Object.assign({},h.history,hh[h.id]||{});});
   if(remote.week===local.week){FKEYS.forEach(k=>{m.logged[k]=Math.max((remote.logged||{})[k]||0,(local.logged||{})[k]||0);});}
+  const whSum=o=>FKEYS.reduce((a,k)=>a+((o.logged||{})[k]||0),0);
+  const wh=new Map();
+  [].concat(remote.weekHist||[],local.weekHist||[]).forEach(w=>{if(!w||!w.week)return;const p=wh.get(w.week);if(!p||whSum(w)>whSum(p))wh.set(w.week,w);});
+  m.weekHist=[...wh.values()].sort((a,b)=>String(a.week).localeCompare(String(b.week))).slice(-60);
+  m.metrics=alive(mergeById(remote.metrics,local.metrics));
+  const me={};[].concat(remote.metrics||[],local.metrics||[]).forEach(x=>{if(x&&x.id)me[x.id]=Object.assign(me[x.id]||{},x.entries||{});});
+  m.metrics.forEach(x=>{x.entries=Object.assign({},x.entries,me[x.id]||{});});
   m.updatedAt=Math.max(remote.updatedAt||0,local.updatedAt||0);
   return normalize(m);
 }
@@ -597,6 +621,50 @@ function habitKey(h,d){d=d||new Date();return h.cadence==="monthly"?monthKey(d):
 function prevDate(h,d){const n=new Date(d);if(h.cadence==="monthly")n.setMonth(n.getMonth()-1);else n.setDate(n.getDate()-7);return n;}
 function habitStreak(h){let n=0,cur=new Date();if(h.history[habitKey(h,cur)]){n++;cur=prevDate(h,cur);}else{cur=prevDate(h,cur);}while(h.history[habitKey(h,cur)]){n++;cur=prevDate(h,cur);}return n;}
 function toggleHabit(h){const k=habitKey(h);if(h.history[k])delete h.history[k];else h.history[k]=true;save();renderHabits();}
+// ---- métricas personales (peso, gym, ...) ----
+function todayStr(){const d=new Date(),p=n=>String(n).padStart(2,"0");return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());}
+function sparkline(entries){
+  const keys=Object.keys(entries).sort().slice(-30);
+  if(keys.length<2)return"";
+  const vals=keys.map(k=>+entries[k]);
+  const min=Math.min(...vals),max=Math.max(...vals),rng=(max-min)||1;
+  const W=140,H=34,pts=vals.map((v,i)=>(i/(vals.length-1)*W).toFixed(1)+","+(H-3-((v-min)/rng)*(H-8)).toFixed(1)).join(" ");
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="flex:none"><polyline points="${pts}" fill="none" stroke="#db2777" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+function renderMetrics(){
+  const box=$("#metricsBox");if(!box)return;
+  box.innerHTML="";
+  if(!(S.metrics||[]).length){box.innerHTML='<div class="empty">Sin métricas. Crea la primera con "+ nueva métrica".</div>';return;}
+  S.metrics.forEach(mt=>{
+    const keys=Object.keys(mt.entries).sort();
+    const last=keys.length?keys[keys.length-1]:null;
+    const lastV=last?mt.entries[last]:null;
+    const prev=keys.length>1?+mt.entries[keys[keys.length-2]]:null;
+    const delta=(lastV!==null&&prev!==null)?(+lastV-prev):null;
+    const dTxt=delta===null?"":` <span style="color:${delta>0?"#dc2626":delta<0?"#059669":"var(--muted)"};font-size:11px;font-weight:700">${delta>0?"▲":delta<0?"▼":"="} ${Math.abs(delta).toFixed(1)}</span>`;
+    const row=document.createElement("div");
+    row.style.cssText="display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);flex-wrap:wrap";
+    row.innerHTML=`<b style="min-width:80px">${esc(mt.name)}</b>
+      <span style="min-width:110px">${lastV!==null?"<b>"+esc(String(lastV))+"</b> "+esc(mt.unit)+dTxt:'<span class="tsub">sin datos</span>'}</span>
+      ${sparkline(mt.entries)}
+      <span style="display:flex;gap:6px;align-items:center;margin-left:auto">
+        <input type="number" step="any" placeholder="hoy" style="width:74px;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px" class="mval">
+        <button class="mini msave">Apuntar</button><span class="rm" style="cursor:pointer">✕</span></span>`;
+    row.querySelector(".msave").onclick=()=>{
+      const v=parseFloat(row.querySelector(".mval").value);
+      if(isNaN(v))return;
+      mt.entries[todayStr()]=v;save();renderMetrics();
+    };
+    row.querySelector(".mval").addEventListener("keydown",e=>{if(e.key==="Enter")row.querySelector(".msave").click();});
+    row.querySelector(".rm").onclick=()=>{if(confirm("¿Eliminar la métrica '"+mt.name+"' y su historial?")){tomb(mt.id);S.metrics=S.metrics.filter(x=>x!==mt);save();renderMetrics();}};
+    box.appendChild(row);
+  });
+}
+function addMetric(){
+  const name=prompt("Nombre de la métrica (ej: Peso, Gym, Km corriendo):");if(!name)return;
+  const unit=prompt("Unidad (ej: kg, sesión, km):","")||"";
+  S.metrics.push({id:uid(),name:name.trim(),unit:unit.trim(),entries:{}});save();renderMetrics();
+}
 // ---- aplicar flujo: genera subtareas fechadas hacia atrás desde el hito ----
 function applyWorkflow(wf,mile){
   wf.steps.forEach(st=>{S.tasks.unshift({id:uid(),text:st.label+" · "+mile.title,frente:st.frente||wf.frente,sub:st.sub||"General",prio:"media",done:false,due:addDays(mile.date,-(st.offset||0)),notes:"",links:[],subtasks:[],recur:null,mileId:mile.id,created:Date.now(),updatedAt:Date.now()});});
@@ -995,6 +1063,14 @@ function renderSemana(){
     col.innerHTML=html;grid.appendChild(col);
   }
 }
+// Blinda el bloque en el calendario (best-effort, silencioso si falla)
+function blockToCalendar(){
+  try{
+    const k=$("#timerFrente").value,f=FRENTES[k];
+    fetch("/panel/api/block",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({mins:Math.round(blockLen/60),frente:f?f.name:k})})
+      .then(r=>r.json()).then(j=>{if(j&&j.ok)setSync("bloque en calendario ✓","ok");}).catch(()=>{});
+  }catch(e){}
+}
 function startGapBlock(mins){
   if(running){alert("Ya hay un bloque en marcha; detenlo antes.");return;}
   blockLen=mins*60;remaining=blockLen;updTimer();
@@ -1081,6 +1157,15 @@ function renderBudget(){
       <div class="logbtns"><button class="mini" data-log="${k}" data-min="30">+30 min</button><button class="mini" data-log="${k}" data-min="60">+1 h</button><button class="mini" data-log="${k}" data-min="-30">−30</button></div></div>`;
   }).join("");
   document.querySelectorAll("[data-log]").forEach(b=>b.onclick=()=>{const k=b.dataset.log;S.logged[k]=Math.max(0,(S.logged[k]||0)+parseInt(b.dataset.min));save();renderBudget();});
+  const hb=$("#weekHistBox");
+  if(hb){
+    const hist=(S.weekHist||[]).slice(-8).reverse();
+    hb.innerHTML=hist.length?'<div style="margin-top:10px;font-weight:800;font-size:12.5px;color:var(--muted)">📈 SEMANAS ANTERIORES</div>'+hist.map(w=>{
+      const tot=FKEYS.reduce((a,k)=>a+((w.logged||{})[k]||0),0);
+      const chips=FKEYS.filter(k=>(w.logged||{})[k]>0).map(k=>`<span style="color:${FRENTES[k].color};font-weight:700">${FRENTES[k].emoji}${((w.logged[k]||0)/60).toFixed(1)}h</span>`).join(" ");
+      return `<div style="display:flex;gap:10px;align-items:baseline;padding:4px 0;border-top:1px solid var(--line);font-size:12.5px"><b style="min-width:76px">${esc(w.week)}</b><span style="min-width:52px">${(tot/60).toFixed(1)} h</span><span>${chips}</span></div>`;
+    }).join(""):"";
+  }
   const data=FKEYS.map(k=>m.split[k]),cols=FKEYS.map(k=>FRENTES[k].color);
   if(donutChart)donutChart.destroy();
   const cv=$("#donut");if(cv)donutChart=new Chart(cv,{type:"doughnut",data:{labels:FKEYS.map(k=>FRENTES[k].name),datasets:[{data,backgroundColor:cols,borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,cutout:"58%",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.label+": "+c.raw+"% ("+(m.hours*c.raw/100).toFixed(1)+" h)"}}}}});
@@ -1091,7 +1176,7 @@ let timerInt=null,blockLen=90*60,remaining=90*60,running=false;
 function updTimer(){const m=Math.floor(remaining/60),s=remaining%60;$("#timer").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");}
 function bindTimer(){
   $("#timerBtn").onclick=()=>{
-    if(!running){running=true;$("#timerBtn").textContent="Detener";$("#timerBtn").className="fbtn stop";timerInt=setInterval(()=>{remaining--;updTimer();if(remaining<=0)finishBlock();},1000);}
+    if(!running){running=true;$("#timerBtn").textContent="Detener";$("#timerBtn").className="fbtn stop";timerInt=setInterval(()=>{remaining--;updTimer();if(remaining<=0)finishBlock();},1000);blockToCalendar();}
     else{clearInterval(timerInt);running=false;const el=Math.round((blockLen-remaining)/60);if(el>0){const k=$("#timerFrente").value;S.logged[k]=(S.logged[k]||0)+el;save();renderBudget();}blockLen=90*60;remaining=blockLen;updTimer();$("#timerBtn").textContent="Iniciar bloque";$("#timerBtn").className="fbtn go";}
   };
 }
@@ -1108,7 +1193,7 @@ function maybeInstallHint(){
 }
 
 // ================= INIT =================
-function renderAll(){const ms=$("#mode");if(ms)ms.value=S.mode;renderFocus();renderHoy();renderBoard();renderMilestones();renderWorkflows();renderHabits();renderLaunch();renderBudget();renderSemana();}
+function renderAll(){const ms=$("#mode");if(ms)ms.value=S.mode;renderFocus();renderHoy();renderBoard();renderMilestones();renderWorkflows();renderHabits();renderMetrics();renderLaunch();renderBudget();renderSemana();}
 function initControls(){
   const modeSel=$("#mode");modeSel.innerHTML=Object.entries(MODES).map(([k,m])=>`<option value="${k}">${m.name}</option>`).join("");modeSel.value=S.mode;
   modeSel.onchange=()=>{S.mode=modeSel.value;save();renderAll();};
@@ -1130,6 +1215,7 @@ function initControls(){
   const xb=$("#exportBtn");if(xb)xb.onclick=exportBackup;
   const wr=$("#weekRefresh");if(wr)wr.onclick=()=>fetchGcal(true);
   const pb=$("#pushBtn");if(pb)pb.onclick=togglePush;
+  const ma=$("#mAdd");if(ma)ma.onclick=addMetric;
   updateBellUI();handleAddParam();
   $("#exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="centro-de-mando-"+S.week+".json";a.click();};
   // nav
