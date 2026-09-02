@@ -27,6 +27,9 @@ LABELS = {
         "year_picker_label": "Curso",
         "year_picker_current": "actual",
         "year_picker_empty": "No hay cursos archivados todavía.",
+        "year_picker_archived": "archivado",
+        "units_empty_year": "El temario de este curso todavía no está publicado. Ir\u00e1 apareciendo a lo largo del a\u00f1o.",
+        "archived_year_notice": "Est\u00e1s viendo un curso ya cerrado. Su contenido no se actualiza.",
         "units_h2_regular": "Unidades didácticas",
         "ib_blocks_h2": "Buscar por syllabus IB",
         "units_help_regular": "Cada unidad contiene los apuntes de clase, las fichas de ejercicios con sus soluciones, y los exámenes realizados.",
@@ -78,6 +81,9 @@ LABELS = {
         "year_picker_label": "Curs",
         "year_picker_current": "actual",
         "year_picker_empty": "Encara no hi ha cursos arxivats.",
+        "year_picker_archived": "arxivat",
+        "units_empty_year": "El temari d'aquest curs encara no est\u00e0 publicat. Anir\u00e0 apareixent al llarg de l'any.",
+        "archived_year_notice": "Est\u00e0s veient un curs ja tancat. El seu contingut no s'actualitza.",
         "units_h2_regular": "Unitats didàctiques",
         "ib_blocks_h2": "Cercar pel syllabus IB",
         "units_help_regular": "Cada unitat conté els apunts de classe, les fitxes d'exercicis amb les seves solucions, i els exàmens realitzats.",
@@ -129,6 +135,9 @@ LABELS = {
         "year_picker_label": "Year",
         "year_picker_current": "current",
         "year_picker_empty": "No archived years yet.",
+        "year_picker_archived": "archived",
+        "units_empty_year": "This year's syllabus is not published yet. It will appear over the course of the year.",
+        "archived_year_notice": "You are viewing a closed academic year. Its content is no longer updated.",
         "units_h2_regular": "Teaching units",
         "ib_blocks_h2": "Search by IB syllabus",
         "units_help_regular": "Each unit contains the class notes, exercise sheets with solutions, and the exams from that unit.",
@@ -195,59 +204,69 @@ SUBJ_2ESO = {
         "en": "Groups A and E &middot; LOMLOE curriculum",
     },
     "section_label": "ESO",
-    "tag_year": "2025–26",
+    "tag_year": "2026–27",
     "info_grid": [
         {"label_key": "year_picker_label", "value": "2n ESO"},
         {"label": {"es": "Grupos", "ca": "Grups", "en": "Groups"}, "value": "A &middot; E"},
         {"label": {"es": "Idioma", "ca": "Idioma", "en": "Language"}, "value": {"es":"Català","ca":"Català","en":"Catalan"}, "small": True},
         {"label": {"es": "Unidades", "ca": "Unitats", "en": "Units"}, "value": "10"},
     ],
-    "year_current": "2025–26",
+    "year_current": "2026–27",
     "materia_filter": "eso-2",
     # Units in language of instruction (Catalan), descriptions in language of instruction
-    "units": [
-        {"num":"01","slug":"fraccions","title":"Nombres fraccionaris","llibre":"U3","inici":"9 set","final":"1 oct","trimestre":"1a",
-         "desc_l":{"ca":"Fraccions equivalents, ordenació, operacions amb fraccions, decimals i potències.",
-                   "es":"Fracciones equivalentes, ordenación, operaciones con fracciones, decimales y potencias.",
-                   "en":"Equivalent fractions, ordering, operations with fractions, decimals and powers."},
-         "apunts":"/aula/eso-2/apuntes/u-fraccions/"},
-        {"num":"02","slug":"decimals","title":"Nombres decimals","llibre":"U4","inici":"7 oct","final":"17 oct","trimestre":"1a",
-         "desc_l":{"ca":"Decimals exactes i periòdics, fracció generatriu, aproximacions.",
-                   "es":"Decimales exactos y periódicos, fracción generatriz, aproximaciones.",
-                   "en":"Exact and periodic decimals, generating fraction, approximations."}},
-        {"num":"03","slug":"probabilitat","title":"Probabilitat","llibre":"U15","inici":"21 oct","final":"7 nov","trimestre":"1a",
-         "desc_l":{"ca":"Experiments aleatoris, regla de Laplace i probabilitat.",
-                   "es":"Experimentos aleatorios, regla de Laplace y probabilidad.",
-                   "en":"Random experiments, Laplace's rule and probability."}},
-        {"num":"04","slug":"proporcionalitat","title":"Proporcionalitat","llibre":"U5","inici":"11 nov","final":"28 nov","trimestre":"1a",
-         "desc_l":{"ca":"Magnituds proporcionals, regla de tres i percentatges.",
-                   "es":"Magnitudes proporcionales, regla de tres y porcentajes.",
-                   "en":"Proportional magnitudes, rule of three and percentages."}},
-        {"num":"05","slug":"funcions","title":"Funcions i funcions elementals","llibre":"U8–U9","inici":"5 des","final":"23 gen","trimestre":"2a",
-         "desc_l":{"ca":"Concepte de funció, funció lineal, afí, quadràtica i de proporcionalitat inversa.",
-                   "es":"Concepto de función, función lineal, afín, cuadrática y de proporcionalidad inversa.",
-                   "en":"Function concept, linear, affine, quadratic and inverse proportionality functions."}},
-        {"num":"06","slug":"pitagores","title":"Pitàgores","llibre":"U10","inici":"27 gen","final":"30 gen","trimestre":"2a",
-         "desc_l":{"ca":"Teorema de Pitàgores i les seves aplicacions.",
-                   "es":"Teorema de Pitágoras y sus aplicaciones.",
-                   "en":"Pythagorean theorem and its applications."}},
-        {"num":"07","slug":"poliedres","title":"Poliedres","llibre":"U12","inici":"3 feb","final":"27 feb","trimestre":"2a",
-         "desc_l":{"ca":"Prismes, piràmides, àrees i volums.",
-                   "es":"Prismas, pirámides, áreas y volúmenes.",
-                   "en":"Prisms, pyramids, areas and volumes."}},
-        {"num":"08","slug":"cossos-revolucio","title":"Cossos de revolució","llibre":"U13","inici":"3 mar","final":"10 mar","trimestre":"2a",
-         "desc_l":{"ca":"Cilindre, con i esfera. Àrees i volums.",
-                   "es":"Cilindro, cono y esfera. Áreas y volúmenes.",
-                   "en":"Cylinder, cone and sphere. Areas and volumes."},
-         "apunts":"/aula/eso-2/apuntes/u-cossos-revolucio/"},
-        {"num":"09","slug":"algebra","title":"Llenguatge algebraic","llibre":"U6","inici":"17 mar","final":"28 abr","trimestre":"3a",
-         "desc_l":{"ca":"Expressions algebraiques, monomis i polinomis.",
-                   "es":"Expresiones algebraicas, monomios y polinomios.",
-                   "en":"Algebraic expressions, monomials and polynomials."}},
-        {"num":"10","slug":"equacions","title":"Equacions i sistemes","llibre":"U7","inici":"29 abr","final":"29 mai","trimestre":"3a",
-         "desc_l":{"ca":"Equacions de 1r grau, sistemes 2×2 i resolució de problemes.",
-                   "es":"Ecuaciones de 1er grado, sistemas 2×2 y resolución de problemas.",
-                   "en":"1st degree equations, 2×2 systems and problem solving."}},
+    # El temario del curso 2026–27 todavía no está publicado.
+    "units": [],
+    # Cursos anteriores. Se sirven en /docencia/<code>/<slug>/ y se listan en el
+    # selector de curso de la página viva. Su temario ya no cambia.
+    "archived_years": [
+        {
+            "year": "2025–26",
+            "slug": "2025-2026",
+            "units": [
+                {"num":"01","slug":"fraccions","title":"Nombres fraccionaris","llibre":"U3","inici":"9 set","final":"1 oct","trimestre":"1a",
+                 "desc_l":{"ca":"Fraccions equivalents, ordenació, operacions amb fraccions, decimals i potències.",
+                           "es":"Fracciones equivalentes, ordenación, operaciones con fracciones, decimales y potencias.",
+                           "en":"Equivalent fractions, ordering, operations with fractions, decimals and powers."},
+                 "apunts":"/aula/eso-2/apuntes/u-fraccions/"},
+                {"num":"02","slug":"decimals","title":"Nombres decimals","llibre":"U4","inici":"7 oct","final":"17 oct","trimestre":"1a",
+                 "desc_l":{"ca":"Decimals exactes i periòdics, fracció generatriu, aproximacions.",
+                           "es":"Decimales exactos y periódicos, fracción generatriz, aproximaciones.",
+                           "en":"Exact and periodic decimals, generating fraction, approximations."}},
+                {"num":"03","slug":"probabilitat","title":"Probabilitat","llibre":"U15","inici":"21 oct","final":"7 nov","trimestre":"1a",
+                 "desc_l":{"ca":"Experiments aleatoris, regla de Laplace i probabilitat.",
+                           "es":"Experimentos aleatorios, regla de Laplace y probabilidad.",
+                           "en":"Random experiments, Laplace's rule and probability."}},
+                {"num":"04","slug":"proporcionalitat","title":"Proporcionalitat","llibre":"U5","inici":"11 nov","final":"28 nov","trimestre":"1a",
+                 "desc_l":{"ca":"Magnituds proporcionals, regla de tres i percentatges.",
+                           "es":"Magnitudes proporcionales, regla de tres y porcentajes.",
+                           "en":"Proportional magnitudes, rule of three and percentages."}},
+                {"num":"05","slug":"funcions","title":"Funcions i funcions elementals","llibre":"U8–U9","inici":"5 des","final":"23 gen","trimestre":"2a",
+                 "desc_l":{"ca":"Concepte de funció, funció lineal, afí, quadràtica i de proporcionalitat inversa.",
+                           "es":"Concepto de función, función lineal, afín, cuadrática y de proporcionalidad inversa.",
+                           "en":"Function concept, linear, affine, quadratic and inverse proportionality functions."}},
+                {"num":"06","slug":"pitagores","title":"Pitàgores","llibre":"U10","inici":"27 gen","final":"30 gen","trimestre":"2a",
+                 "desc_l":{"ca":"Teorema de Pitàgores i les seves aplicacions.",
+                           "es":"Teorema de Pitágoras y sus aplicaciones.",
+                           "en":"Pythagorean theorem and its applications."}},
+                {"num":"07","slug":"poliedres","title":"Poliedres","llibre":"U12","inici":"3 feb","final":"27 feb","trimestre":"2a",
+                 "desc_l":{"ca":"Prismes, piràmides, àrees i volums.",
+                           "es":"Prismas, pirámides, áreas y volúmenes.",
+                           "en":"Prisms, pyramids, areas and volumes."}},
+                {"num":"08","slug":"cossos-revolucio","title":"Cossos de revolució","llibre":"U13","inici":"3 mar","final":"10 mar","trimestre":"2a",
+                 "desc_l":{"ca":"Cilindre, con i esfera. Àrees i volums.",
+                           "es":"Cilindro, cono y esfera. Áreas y volúmenes.",
+                           "en":"Cylinder, cone and sphere. Areas and volumes."},
+                 "apunts":"/aula/eso-2/apuntes/u-cossos-revolucio/"},
+                {"num":"09","slug":"algebra","title":"Llenguatge algebraic","llibre":"U6","inici":"17 mar","final":"28 abr","trimestre":"3a",
+                 "desc_l":{"ca":"Expressions algebraiques, monomis i polinomis.",
+                           "es":"Expresiones algebraicas, monomios y polinomios.",
+                           "en":"Algebraic expressions, monomials and polynomials."}},
+                {"num":"10","slug":"equacions","title":"Equacions i sistemes","llibre":"U7","inici":"29 abr","final":"29 mai","trimestre":"3a",
+                 "desc_l":{"ca":"Equacions de 1r grau, sistemes 2×2 i resolució de problemes.",
+                           "es":"Ecuaciones de 1er grado, sistemas 2×2 y resolución de problemas.",
+                           "en":"1st degree equations, 2×2 systems and problem solving."}},
+            ],
+        },
     ],
 }
 
@@ -263,14 +282,14 @@ SUBJ_1BTL = {
         "en": "1st year Bachillerato &middot; LOMLOE curriculum",
     },
     "section_label": {"es": "Bachillerato", "ca": "Batxillerat", "en": "Bachillerato"},
-    "tag_year": "2025–26",
+    "tag_year": "2026–27",
     "info_grid": [
         {"label_key": "year_picker_label", "value": {"es":"1º Bachillerato","ca":"1r Batxillerat","en":"1st Bachillerato"}},
         {"label": {"es":"Modalidad","ca":"Modalitat","en":"Track"}, "value":{"es":"Ciencias Sociales","ca":"Ciències Socials","en":"Social Sciences"}, "small": True},
         {"label": {"es":"Calculadora","ca":"Calculadora","en":"Calculator"}, "value":{"es":"Científica (no gráfica)","ca":"Científica (no gràfica)","en":"Scientific (non-graphic)"}, "small": True},
         {"label": {"es":"Unidades","ca":"Unitats","en":"Units"}, "value":"10"},
     ],
-    "year_current": "2025–26",
+    "year_current": "2026–27",
     "materia_filter": "ccss-1btl",
     # Avís temporal (es mostra mentre `new Date() < expire_iso`).
     # `expire_iso` és en hora local del navegador (sense Z), així que l'avís
@@ -285,51 +304,61 @@ SUBJ_1BTL = {
     },
     # Units in language of instruction (Catalan), descriptions per language.
     # Keep keys aligned with SUBJ_2ESO so the regular hub renderer can use them.
-    "units": [
-        {"num":"01","slug":"nombres-reals","title":"Nombres reals","llibre":"Baula 1","inici":"16 sep 2025","final":"7 oct 2025","trimestre":"1a",
-         "desc_l":{"ca":"Nombres reals, intervals, valor absolut, aproximació i errors.",
-                   "es":"Números reales, intervalos, valor absoluto, aproximación y errores.",
-                   "en":"Real numbers, intervals, absolute value, approximation and errors."},
-         "apunts":"/aula/ccss-1btl/apuntes/u-nombres-reals/"},
-        {"num":"02","slug":"polinomis","title":"Polinomis","llibre":"—","inici":"8 oct 2025","final":"28 oct 2025","trimestre":"1a",
-         "desc_l":{"ca":"Operacions amb polinomis, divisió, regla de Ruffini i factorització.",
-                   "es":"Operaciones con polinomios, división, regla de Ruffini y factorización.",
-                   "en":"Polynomial operations, division, Ruffini's rule and factorization."}},
-        {"num":"03","slug":"equacions-sistemes","title":"Equacions i sistemes d'equacions","llibre":"Baula 3","inici":"29 oct 2025","final":"11 nov 2025","trimestre":"1a",
-         "desc_l":{"ca":"Equacions de 1r i 2n grau, exponencials, logarítmiques i sistemes lineals i no lineals.",
-                   "es":"Ecuaciones de primer y segundo grado, exponenciales, logarítmicas y sistemas lineales y no lineales.",
-                   "en":"First and second degree, exponential and logarithmic equations and linear/non-linear systems."},
-         "fitxes":"/aula/ccss-1btl/ejercicios/u-equacions-pol-bi-rac/"},
-        {"num":"04","slug":"inequacions","title":"Inequacions i sistemes d'inequacions","llibre":"Baula 4","inici":"12 nov 2025","final":"19 nov 2025","trimestre":"1a",
-         "desc_l":{"ca":"Inequacions lineals i quadràtiques, sistemes d'inequacions i resolució de problemes.",
-                   "es":"Inecuaciones lineales y cuadráticas, sistemas de inecuaciones y resolución de problemas.",
-                   "en":"Linear and quadratic inequalities, systems of inequalities and problem solving."}},
-        {"num":"05","slug":"funcions-reals","title":"Funcions reals de variable real","llibre":"Baula 5","inici":"2 dic 2025","final":"13 ene 2026","trimestre":"2a",
-         "desc_l":{"ca":"Concepte de funció, domini, recorregut, simetries i operacions amb funcions.",
-                   "es":"Concepto de función, dominio, recorrido, simetrías y operaciones con funciones.",
-                   "en":"Function concept, domain, range, symmetries and operations with functions."}},
-        {"num":"06","slug":"representacio-funcions","title":"Estudi i representació de funcions","llibre":"Baula 8","inici":"14 ene 2026","final":"30 ene 2026","trimestre":"2a",
-         "desc_l":{"ca":"Estudi analític i representació gràfica de funcions elementals.",
-                   "es":"Estudio analítico y representación gráfica de funciones elementales.",
-                   "en":"Analytical study and graphical representation of elementary functions."}},
-        {"num":"07","slug":"derivades","title":"Derivada d'una funció","llibre":"Baula 7","inici":"3 feb 2026","final":"20 feb 2026","trimestre":"2a",
-         "desc_l":{"ca":"Taxa de variació, concepte de derivada, regles de derivació i aplicacions.",
-                   "es":"Tasa de variación, concepto de derivada, reglas de derivación y aplicaciones.",
-                   "en":"Rate of change, derivative concept, differentiation rules and applications."}},
-        {"num":"08","slug":"estadistica","title":"Estadística","llibre":"Baula 9","inici":"3 mar 2026","final":"10 abr 2026","trimestre":"3a",
-         "desc_l":{"ca":"Estadística descriptiva, paràmetres i distribucions bidimensionals.",
-                   "es":"Estadística descriptiva, parámetros y distribuciones bidimensionales.",
-                   "en":"Descriptive statistics, parameters and two-dimensional distributions."}},
-        {"num":"09","slug":"probabilitat","title":"Probabilitat","llibre":"Baula 10","inici":"14 abr 2026","final":"15 may 2026","trimestre":"3a",
-         "desc_l":{"ca":"Successos, probabilitat condicionada i teorema de Bayes.",
-                   "es":"Sucesos, probabilidad condicionada y teorema de Bayes.",
-                   "en":"Events, conditional probability and Bayes' theorem."},
-         "apunts":"/aula/ccss-1btl/apuntes/u-probabilitat/"},
-        {"num":"10","slug":"distribucions","title":"Distribucions discretes i contínues. Distribució binomial i normal","llibre":"Baula 11","inici":"19 may 2026","final":"29 may 2026","trimestre":"3a",
-         "desc_l":{"ca":"Distribucions discretes i contínues. Binomial i normal.",
-                   "es":"Distribuciones discretas y continuas. Binomial y normal.",
-                   "en":"Discrete and continuous distributions. Binomial and normal."},
-         "apunts":"/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/"},
+    # El temario del curso 2026–27 todavía no está publicado.
+    "units": [],
+    # Cursos anteriores. Se sirven en /docencia/<code>/<slug>/ y se listan en el
+    # selector de curso de la página viva. Su temario ya no cambia.
+    "archived_years": [
+        {
+            "year": "2025–26",
+            "slug": "2025-2026",
+            "units": [
+                {"num":"01","slug":"nombres-reals","title":"Nombres reals","llibre":"Baula 1","inici":"16 sep 2025","final":"7 oct 2025","trimestre":"1a",
+                 "desc_l":{"ca":"Nombres reals, intervals, valor absolut, aproximació i errors.",
+                           "es":"Números reales, intervalos, valor absoluto, aproximación y errores.",
+                           "en":"Real numbers, intervals, absolute value, approximation and errors."},
+                 "apunts":"/aula/ccss-1btl/apuntes/u-nombres-reals/"},
+                {"num":"02","slug":"polinomis","title":"Polinomis","llibre":"—","inici":"8 oct 2025","final":"28 oct 2025","trimestre":"1a",
+                 "desc_l":{"ca":"Operacions amb polinomis, divisió, regla de Ruffini i factorització.",
+                           "es":"Operaciones con polinomios, división, regla de Ruffini y factorización.",
+                           "en":"Polynomial operations, division, Ruffini's rule and factorization."}},
+                {"num":"03","slug":"equacions-sistemes","title":"Equacions i sistemes d'equacions","llibre":"Baula 3","inici":"29 oct 2025","final":"11 nov 2025","trimestre":"1a",
+                 "desc_l":{"ca":"Equacions de 1r i 2n grau, exponencials, logarítmiques i sistemes lineals i no lineals.",
+                           "es":"Ecuaciones de primer y segundo grado, exponenciales, logarítmicas y sistemas lineales y no lineales.",
+                           "en":"First and second degree, exponential and logarithmic equations and linear/non-linear systems."},
+                 "fitxes":"/aula/ccss-1btl/ejercicios/u-equacions-pol-bi-rac/"},
+                {"num":"04","slug":"inequacions","title":"Inequacions i sistemes d'inequacions","llibre":"Baula 4","inici":"12 nov 2025","final":"19 nov 2025","trimestre":"1a",
+                 "desc_l":{"ca":"Inequacions lineals i quadràtiques, sistemes d'inequacions i resolució de problemes.",
+                           "es":"Inecuaciones lineales y cuadráticas, sistemas de inecuaciones y resolución de problemas.",
+                           "en":"Linear and quadratic inequalities, systems of inequalities and problem solving."}},
+                {"num":"05","slug":"funcions-reals","title":"Funcions reals de variable real","llibre":"Baula 5","inici":"2 dic 2025","final":"13 ene 2026","trimestre":"2a",
+                 "desc_l":{"ca":"Concepte de funció, domini, recorregut, simetries i operacions amb funcions.",
+                           "es":"Concepto de función, dominio, recorrido, simetrías y operaciones con funciones.",
+                           "en":"Function concept, domain, range, symmetries and operations with functions."}},
+                {"num":"06","slug":"representacio-funcions","title":"Estudi i representació de funcions","llibre":"Baula 8","inici":"14 ene 2026","final":"30 ene 2026","trimestre":"2a",
+                 "desc_l":{"ca":"Estudi analític i representació gràfica de funcions elementals.",
+                           "es":"Estudio analítico y representación gráfica de funciones elementales.",
+                           "en":"Analytical study and graphical representation of elementary functions."}},
+                {"num":"07","slug":"derivades","title":"Derivada d'una funció","llibre":"Baula 7","inici":"3 feb 2026","final":"20 feb 2026","trimestre":"2a",
+                 "desc_l":{"ca":"Taxa de variació, concepte de derivada, regles de derivació i aplicacions.",
+                           "es":"Tasa de variación, concepto de derivada, reglas de derivación y aplicaciones.",
+                           "en":"Rate of change, derivative concept, differentiation rules and applications."}},
+                {"num":"08","slug":"estadistica","title":"Estadística","llibre":"Baula 9","inici":"3 mar 2026","final":"10 abr 2026","trimestre":"3a",
+                 "desc_l":{"ca":"Estadística descriptiva, paràmetres i distribucions bidimensionals.",
+                           "es":"Estadística descriptiva, parámetros y distribuciones bidimensionales.",
+                           "en":"Descriptive statistics, parameters and two-dimensional distributions."}},
+                {"num":"09","slug":"probabilitat","title":"Probabilitat","llibre":"Baula 10","inici":"14 abr 2026","final":"15 may 2026","trimestre":"3a",
+                 "desc_l":{"ca":"Successos, probabilitat condicionada i teorema de Bayes.",
+                           "es":"Sucesos, probabilidad condicionada y teorema de Bayes.",
+                           "en":"Events, conditional probability and Bayes' theorem."},
+                 "apunts":"/aula/ccss-1btl/apuntes/u-probabilitat/"},
+                {"num":"10","slug":"distribucions","title":"Distribucions discretes i contínues. Distribució binomial i normal","llibre":"Baula 11","inici":"19 may 2026","final":"29 may 2026","trimestre":"3a",
+                 "desc_l":{"ca":"Distribucions discretes i contínues. Binomial i normal.",
+                           "es":"Distribuciones discretas y continuas. Binomial y normal.",
+                           "en":"Discrete and continuous distributions. Binomial and normal."},
+                 "apunts":"/aula/ccss-1btl/apuntes/u-distribucions-probabilitat/"},
+            ],
+        },
     ],
 }
 
@@ -533,6 +562,60 @@ def footer_html(L):
 
 
 # ─── Render: regular subject hub (2eso, ccss-1btl) ───────────────
+def year_picker_html(s, lang, L):
+    """Selector de curso: el vivo primero, luego los archivados (más reciente antes).
+
+    Se renderiza igual para la página viva y para la de un año archivado; sólo
+    cambia cuál lleva la clase `active`.
+    """
+    live_code = s.get("live_code", s["code"])
+    if not s.get("year_current"):
+        return ""
+    viewing = s["year_current"]
+    live_year = s.get("live_year", viewing)
+    pre = lang_prefix(lang)
+
+    rows = [(live_year, f"{pre}/docencia/{live_code}/", L["year_picker_current"])]
+    for a in s.get("archived_years", []):
+        rows.append((a["year"], f"{pre}/docencia/{live_code}/{a['slug']}/",
+                     L["year_picker_archived"]))
+
+    parts = []
+    for year, href, note in rows:
+        cls = ' class="active"' if year == viewing else ''
+        parts.append(f'\n        <a href="{href}"{cls}>{year} ({note})</a>')
+    items = "".join(parts)
+    empty = f'\n        <p class="year-empty">{L["year_picker_empty"]}</p>' if len(rows) == 1 else ""
+    return f"""    <details class="year-picker">
+      <summary>📅 {L['year_picker_label']} {viewing}</summary>
+      <div class="year-menu">{items}{empty}
+      </div>
+    </details>
+"""
+
+
+def archived_variant(s, a):
+    """Deriva la asignatura de un año archivado a partir de la viva.
+
+    El truco es el `code` compuesto ("2eso/2025-2026"): todas las URLs del
+    render se construyen como /docencia/{code}/..., así que la variante cae
+    sola en su subcarpeta, con su canonical, su info/ y su lang switcher.
+    """
+    v = dict(s)
+    v["code"] = f"{s['code']}/{a['slug']}"
+    v["live_code"] = s["code"]
+    v["live_year"] = s["year_current"]
+    v["year_current"] = a["year"]
+    v["tag_year"] = a["year"]
+    v["units"] = a["units"]
+    v["archived"] = True
+    if "notice" in a:
+        v["notice"] = a["notice"]
+    else:
+        v.pop("notice", None)
+    return v
+
+
 def render_regular_hub(s, lang):
     L = LABELS[lang]
     code = s["code"]
@@ -552,18 +635,24 @@ def render_regular_hub(s, lang):
     # comparando el lang del documento destino con la preferencia del usuario.
     units_json = json.dumps(units_for_js, ensure_ascii=False)
 
-    # Year picker
-    if s.get("year_current"):
-        year_picker = f"""    <details class="year-picker">
-      <summary>📅 {L['year_picker_label']} {s['year_current']}</summary>
-      <div class="year-menu">
-        <a href="{lang_prefix(lang)}/docencia/{code}/" class="active">{s['year_current']} ({L['year_picker_current']})</a>
-        <p class="year-empty">{L['year_picker_empty']}</p>
-      </div>
-    </details>
-"""
-    else:
-        year_picker = ""
+    # Year picker: curso vivo arriba + un enlace por año archivado.
+    # `s` puede ser la asignatura viva o la variante derivada de un año archivado
+    # (misma función de render, distinto `code` y distintas unidades).
+    year_picker = year_picker_html(s, lang, L)
+
+    # Sin unidades (curso vivo aún sin temario): estado vacío en vez de hueco mudo.
+    units_empty = ("" if s["units"] else
+                   f'<p style="color:var(--text-faint);font-size:0.92rem;'
+                   f'padding:0.75rem 0">{L["units_empty_year"]}</p>')
+
+    # Página de un año ya cerrado: dejarlo claro arriba del todo.
+    archived_banner = ("" if not s.get("archived") else
+                       f'    <aside class="curso-banner" role="status" style="display:flex;'
+                       f'gap:.75rem;align-items:flex-start;padding:.85rem 1rem;margin-bottom:1.25rem;'
+                       f'border:1px solid var(--border);border-left:3px solid #6b7280;'
+                       f'border-radius:var(--radius-sm,6px);background:var(--bg-subtle)">'
+                       f'<span aria-hidden="true">🗄️</span><span style="font-size:.92rem;'
+                       f'color:var(--text-soft)">{L["archived_year_notice"]}</span></aside>\n')
 
     breadcrumb = (
         f'<a href="{lang_prefix(lang)}/">{L["home"]}</a>'
@@ -601,7 +690,7 @@ def render_regular_hub(s, lang):
 
     <div class="breadcrumb">{breadcrumb}</div>
 
-{year_picker}    <div class="page-header">
+{archived_banner}{year_picker}    <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">{section_label}</span>
         <span class="tag tag-orange">{s['tag_year']}</span>
@@ -625,7 +714,7 @@ def render_regular_hub(s, lang):
 
     <h2 style="font-size:1.1rem;margin:0 0 0.4rem">{L['units_h2_regular']}</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['units_help_regular']}</p>
-    <div class="chapter-list" id="units-list"></div>
+    <div class="chapter-list" id="units-list">{units_empty}</div>
 
     <section style="margin-top:3rem">
       <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
@@ -1137,8 +1226,18 @@ def write_with_retry(path, content, max_retries=20, delay=1.5):
             time.sleep(delay)
 
 
-def main():
+def all_renderables():
+    """Asignaturas vivas + una variante por cada año archivado."""
+    out = []
     for s in SUBJECTS:
+        out.append(s)
+        for a in s.get("archived_years", []):
+            out.append(archived_variant(s, a))
+    return out
+
+
+def main():
+    for s in all_renderables():
         for lang in LANGS:
             if lang == "es":
                 out = REPO / "docencia" / s["code"] / "index.html"
@@ -1154,7 +1253,7 @@ def main():
     # generado en /ca/docencia/<code>/index.html, reescribimos los enlaces internos
     # /ca/... → / (sin prefijo) y lo escribimos sobre /docencia/<code>/index.html.
     import re as _re
-    for s in SUBJECTS:
+    for s in all_renderables():
         if s["type"] == "ib":
             continue
         code = s["code"]
