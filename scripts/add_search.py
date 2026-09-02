@@ -5,10 +5,10 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 TAG = '<script defer src="/assets/js/search.js"></script>'
-# "panel" y "tutoria" son zonas privadas con gate de servidor: no llevan
-# SEO, ni buscador, ni nada que las haga descubribles.
+# "panel" es zona privada con gate de servidor: no lleva SEO, ni buscador,
+# ni nada que la haga descubrible.
 SKIP_DIRS = {"node_modules", ".git", "templates", "editor", "scripts", "assets",
-             "panel", "tutoria"}
+             "panel"}
 
 
 def main():
