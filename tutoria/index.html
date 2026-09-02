@@ -5,58 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
-<title>Tutoria 2n ESO E — Àlex Reyes</title>
+<title>Tutoria 2n ESO E</title>
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <style>
-  .tut-bar { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem; }
-  .tut-bar input { flex:1; min-width:200px; padding:0.55rem 0.8rem; border:1px solid var(--border);
-    border-radius:var(--radius-sm); background:var(--bg); color:var(--text); font-size:0.95rem; }
+  .tut-top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
+    flex-wrap:wrap; margin-bottom:1.5rem; }
+  .tut-bar { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; margin-bottom:1.5rem; }
+  .tut-bar input[type=search] { flex:1; min-width:190px; padding:.55rem .8rem;
+    border:1px solid var(--border); border-radius:var(--radius-sm);
+    background:var(--bg); color:var(--text); font-size:.95rem; }
+  .vistes { display:inline-flex; border:1px solid var(--border); border-radius:var(--radius-sm);
+    overflow:hidden; }
+  .vistes button { padding:.5rem .85rem; border:0; background:var(--bg); color:var(--text-soft);
+    font:inherit; font-size:.85rem; cursor:pointer; border-left:1px solid var(--border); }
+  .vistes button:first-child { border-left:0; }
+  .vistes button[aria-pressed="true"] { background:#0f766e; color:#fff; font-weight:600; }
+  .cnt { font-size:.85rem; color:var(--text-faint); font-variant-numeric:tabular-nums; }
+
+  /* Vista orla — fotos grandes */
   .orla { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:1rem; }
-  .al { display:block; text-decoration:none; color:inherit; background:var(--bg-subtle);
-    border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
-    transition:border-color .15s, transform .15s; }
-  .al:hover { border-color:var(--border-strong); transform:translateY(-2px); }
-  .al-foto { width:100%; aspect-ratio:127/192; object-fit:cover; display:block; background:var(--bg); }
-  .al-buit { display:flex; align-items:center; justify-content:center; font-size:2rem; color:var(--text-faint); }
-  .al-cos { padding:0.6rem 0.7rem; }
-  .al-num { font-family:var(--mono); font-size:0.72rem; color:var(--text-faint); }
-  .al-nom { font-size:0.88rem; font-weight:600; line-height:1.25; margin:0.15rem 0 0; }
-  .al-cog { font-size:0.8rem; color:var(--text-soft); line-height:1.25; }
-  .al-marca { font-family:var(--mono); font-size:0.68rem; color:#b45309; }
-  .avis { display:flex; gap:.7rem; padding:.8rem 1rem; margin-bottom:1.5rem; font-size:.88rem;
-    border:1px solid var(--border); border-left:3px solid #0f766e; border-radius:var(--radius-sm);
-    background:var(--bg-subtle); color:var(--text-soft); }
-  .buit { padding:2.5rem; text-align:center; color:var(--text-faint); border:1px dashed var(--border);
-    border-radius:var(--radius); }
+  .orla .al-foto { width:100%; aspect-ratio:127/192; object-fit:cover; display:block; background:var(--bg); }
+
+  /* Vista fitxes — tarjeta compacta, foto pequeña al lado del nombre */
+  .fitxes { display:grid; grid-template-columns:repeat(auto-fill,minmax(238px,1fr)); gap:.7rem; }
+  .fitxes .al { display:grid; grid-template-columns:46px 1fr; gap:.7rem; align-items:center;
+    padding:.6rem .75rem; }
+  .fitxes .al-foto { width:46px; height:60px; object-fit:cover; border-radius:4px;
+    display:block; background:var(--bg); }
+  .fitxes .al-cos { padding:0; min-width:0; }
+
+  .al { background:var(--bg-subtle); border:1px solid var(--border);
+    border-radius:var(--radius); overflow:hidden; text-decoration:none; color:inherit;
+    transition:border-color .15s, transform .15s; display:block; }
+  .al:hover { border-color:#0f766e; transform:translateY(-1px); }
+  .al-cos { padding:.55rem .7rem; }
+  .al-num { font-family:var(--mono); font-size:.72rem; color:var(--text-faint); }
+  .al-nom { font-size:.88rem; font-weight:600; line-height:1.25; margin:.1rem 0 0;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .al-cog { font-size:.79rem; color:var(--text-soft); line-height:1.25;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .al-buit { display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; color:var(--text-faint); }
+
+  /* Vista llista */
+  .taula-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius); }
+  table.llista { border-collapse:collapse; width:100%; font-size:.9rem; min-width:44rem; }
+  table.llista th { text-align:left; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--text-faint); font-weight:600; padding:.65rem .8rem; border-bottom:1px solid var(--border);
+    background:var(--bg-subtle); white-space:nowrap; }
+  table.llista th.num, table.llista td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  table.llista td { padding:.5rem .8rem; border-bottom:1px solid var(--border); vertical-align:middle; }
+  table.llista tr:last-child td { border-bottom:none; }
+  table.llista tbody tr { cursor:pointer; }
+  table.llista tbody tr:hover { background:var(--bg-subtle); }
+  .mini { width:30px; height:39px; object-fit:cover; border-radius:3px; display:block;
+    background:var(--bg-subtle); }
+  .mini-buit { display:flex; align-items:center; justify-content:center; font-size:.9rem;
+    color:var(--text-faint); border:1px solid var(--border); }
+
+  /* Señales */
+  .nota { font-family:var(--mono); font-weight:600; font-variant-numeric:tabular-nums; }
+  .n-sus { color:#dc2626; } .n-just { color:#b45309; } .n-be { color:var(--text); }
+  .n-exc { color:#059669; }
+  .chip { display:inline-block; font-size:.68rem; font-family:var(--mono); padding:.1rem .38rem;
+    border-radius:99px; border:1px solid currentColor; line-height:1.5; }
+  .chip-r { color:#b45309; } .chip-p { color:#dc2626; }
+  .punt { display:inline-block; width:6px; height:6px; border-radius:50%; background:#0f766e;
+    margin-left:.3rem; vertical-align:middle; }
+  .buit { padding:2.5rem; text-align:center; color:var(--text-faint);
+    border:1px dashed var(--border); border-radius:var(--radius); }
 </style>
 </head>
 <body>
 <main>
   <div class="container" style="padding-top:2.5rem;padding-bottom:4rem">
 
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap">
+    <div class="tut-top">
       <div>
         <span class="section-label">Tutoria · Curs 2026&ndash;27</span>
-        <h1 style="margin:0.3rem 0 0.4rem">2n ESO E</h1>
+        <h1 style="margin:.3rem 0 0">2n ESO E</h1>
       </div>
-      <a href="/tutoria/api/logout" style="font-size:0.88rem">Tancar sessió</a>
-    </div>
-
-    <div class="avis">
-      <span aria-hidden="true">🔒</span>
-      <span>Dades personals de menors. No comparteixis captures ni deixis la sessió
-      oberta en equips compartits.</span>
+      <a href="/tutoria/api/logout" style="font-size:.88rem">Tancar sessió</a>
     </div>
 
     <div class="tut-bar">
-      <input id="q" type="search" placeholder="Cerca per nom o cognom…" autocomplete="off">
-      <span id="cnt" style="font-size:0.85rem;color:var(--text-faint)"></span>
+      <input id="q" type="search" placeholder="Cerca per nom o cognom&hellip;" autocomplete="off">
+      <div class="vistes" role="group" aria-label="Vista">
+        <button data-vista="orla" aria-pressed="true">Orla</button>
+        <button data-vista="fitxes" aria-pressed="false">Fitxes</button>
+        <button data-vista="llista" aria-pressed="false">Llista</button>
+      </div>
+      <span class="cnt" id="cnt"></span>
     </div>
 
-    <div id="orla" class="orla"></div>
-    <p id="estat" style="color:var(--text-faint);font-size:0.9rem">Carregant…</p>
+    <div id="cos"><p style="color:var(--text-faint)">Carregant&hellip;</p></div>
 
   </div>
 </main>
@@ -64,60 +108,170 @@
 <script>
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const norm = s => String(s || "").normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
 
 let ALUMNES = [];
+let VISTA = "orla";
+try { VISTA = localStorage.getItem("tutoria:vista") || "orla"; } catch (e) {}
 
-function pinta(list) {
-  const cont = document.getElementById("orla");
-  document.getElementById("cnt").textContent =
-    list.length === ALUMNES.length ? `${list.length} alumnes` : `${list.length} de ${ALUMNES.length}`;
-  if (!list.length) {
-    cont.innerHTML = '<p class="buit">Cap alumne coincideix amb la cerca.</p>';
-    return;
-  }
-  cont.innerHTML = list.map(a => {
-    const foto = a.foto
-      ? `<img class="al-foto" src="/tutoria/api/foto?id=${encodeURIComponent(a.id)}" alt="" loading="lazy">`
-      : `<div class="al-foto al-buit" aria-hidden="true">👤</div>`;
-    const marca = a.marca ? ` <span class="al-marca">${esc(a.marca)}</span>` : "";
-    return `<a class="al" href="/tutoria/fitxa/?id=${encodeURIComponent(a.id)}">
-      ${foto}
+// ── Notas del curso anterior ────────────────────────────────────
+// Las notas llegan como lista ordenada [{clau, nom, t:{1,2,3,0}}]: el orden
+// es el del butlletí y el nombre viene del propio PDF, así que las materias
+// que aparezcan de nuevas se pintan solas.
+function notes(a) {
+  if (!a.notes_anteriors) return null;
+  try {
+    const v = JSON.parse(a.notes_anteriors);
+    return Array.isArray(v) ? v : null;
+  } catch (e) { return null; }
+}
+// Nota final (ordinaria); si no la hay, la última evaluación con nota.
+function ultima(t) {
+  for (const k of ["0", "3", "2", "1"]) if (t && k in t) return t[k];
+  return null;
+}
+function final(llista, clau) {
+  const e = llista && llista.find(x => x.clau === clau);
+  return e ? ultima(e.t) : null;
+}
+function mitjana(llista) {
+  if (!llista) return null;
+  const v = llista.map(e => ultima(e.t)).filter(n => n !== null);
+  return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null;
+}
+function classeNota(n) {
+  if (n === null) return "";
+  return n < 5 ? "n-sus" : n < 6 ? "n-just" : n < 8 ? "n-be" : "n-exc";
+}
+function pintaNota(n, dec) {
+  if (n === null) return '<span style="color:var(--text-faint)">&mdash;</span>';
+  const txt = dec ? n.toFixed(1) : n;
+  return `<span class="nota ${classeNota(n)}">${txt}</span>`;
+}
+function foto(a, cls) {
+  return a.foto
+    ? `<img class="${cls}" src="/tutoria/api/foto?id=${encodeURIComponent(a.id)}" alt="" loading="lazy">`
+    : `<div class="${cls} ${cls === "mini" ? "mini-buit" : "al-buit"}" aria-hidden="true">&#128100;</div>`;
+}
+function senyals(a) {
+  let s = "";
+  if (a.marca) s += ` <span class="chip chip-r">R</span>`;
+  if (a.pendents > 0) s += ` <span class="chip chip-p">${a.pendents} pend.</span>`;
+  if (a.te_seguiment) s += `<span class="punt" title="Amb seguiment"></span>`;
+  return s;
+}
+
+// ── Vistas ──────────────────────────────────────────────────────
+function vistaOrla(list) {
+  return `<div class="orla">` + list.map(a => `
+    <a class="al" href="/tutoria/fitxa/?id=${encodeURIComponent(a.id)}">
+      ${foto(a, "al-foto")}
       <div class="al-cos">
-        <span class="al-num">${a.num}</span>${marca}
+        <span class="al-num">${a.num}</span>${senyals(a)}
         <p class="al-nom">${esc(a.nom)}</p>
         <div class="al-cog">${esc(a.cognoms)}</div>
       </div>
+    </a>`).join("") + `</div>`;
+}
+
+function vistaFitxes(list) {
+  return `<div class="fitxes">` + list.map(a => {
+    const t = notes(a);
+    return `<a class="al" href="/tutoria/fitxa/?id=${encodeURIComponent(a.id)}">
+      ${foto(a, "al-foto")}
+      <div class="al-cos">
+        <span class="al-num">${a.num}</span>${senyals(a)}
+        <p class="al-nom">${esc(a.nom)}</p>
+        <div class="al-cog">${esc(a.cognoms)}</div>
+        <div style="font-size:.74rem;color:var(--text-faint);margin-top:.2rem">
+          Mat. ${pintaNota(final(t, "mates"))} &middot; mitj. ${pintaNota(mitjana(t), true)}
+        </div>
+      </div>
     </a>`;
+  }).join("") + `</div>`;
+}
+
+function vistaLlista(list) {
+  const files = list.map(a => {
+    const t = notes(a);
+    return `<tr data-id="${esc(a.id)}">
+      <td class="num">${a.num}</td>
+      <td>${foto(a, "mini")}</td>
+      <td><strong>${esc(a.cognoms)}</strong>, ${esc(a.nom)}${senyals(a)}</td>
+      <td>${esc(a.curs_anterior || "—")}</td>
+      <td class="num">${pintaNota(final(t, "mates"))}</td>
+      <td class="num">${pintaNota(final(t, "cat"))}</td>
+      <td class="num">${pintaNota(final(t, "cast"))}</td>
+      <td class="num">${pintaNota(final(t, "angles"))}</td>
+      <td class="num">${pintaNota(mitjana(t), true)}</td>
+      <td class="num">${a.pendents ?? "—"}</td>
+    </tr>`;
   }).join("");
+  return `<div class="taula-wrap"><table class="llista">
+    <thead><tr>
+      <th class="num">Nº</th><th></th><th>Alumne</th><th>Curs ant.</th>
+      <th class="num" title="Matemàtiques">Mat.</th>
+      <th class="num" title="Llengua catalana">Cat.</th>
+      <th class="num" title="Llengua castellana">Cast.</th>
+      <th class="num" title="Anglès">Angl.</th>
+      <th class="num">Mitjana</th><th class="num">Pend.</th>
+    </tr></thead><tbody>${files}</tbody></table></div>`;
 }
 
-function norm(s) {
-  return String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+// ── Pintar ──────────────────────────────────────────────────────
+function pinta() {
+  const q = norm(document.getElementById("q").value.trim());
+  const list = !q ? ALUMNES
+    : ALUMNES.filter(a => norm(a.nom + " " + a.cognoms).includes(q));
+
+  document.getElementById("cnt").textContent =
+    list.length === ALUMNES.length ? `${list.length} alumnes`
+                                   : `${list.length} de ${ALUMNES.length}`;
+  const cos = document.getElementById("cos");
+  if (!list.length) {
+    cos.innerHTML = '<p class="buit">Cap alumne coincideix amb la cerca.</p>';
+    return;
+  }
+  cos.innerHTML = VISTA === "llista" ? vistaLlista(list)
+                : VISTA === "fitxes" ? vistaFitxes(list)
+                : vistaOrla(list);
 }
 
-document.getElementById("q").addEventListener("input", e => {
-  const q = norm(e.target.value.trim());
-  pinta(!q ? ALUMNES
-          : ALUMNES.filter(a => norm(a.nom + " " + a.cognoms).includes(q)));
+document.querySelectorAll(".vistes button").forEach(b => {
+  b.addEventListener("click", () => {
+    VISTA = b.dataset.vista;
+    try { localStorage.setItem("tutoria:vista", VISTA); } catch (e) {}
+    document.querySelectorAll(".vistes button").forEach(x =>
+      x.setAttribute("aria-pressed", String(x.dataset.vista === VISTA)));
+    pinta();
+  });
+});
+document.getElementById("q").addEventListener("input", pinta);
+
+// En la lista, la fila entera lleva a la ficha.
+document.getElementById("cos").addEventListener("click", e => {
+  const tr = e.target.closest("tr[data-id]");
+  if (tr) location.href = "/tutoria/fitxa/?id=" + encodeURIComponent(tr.dataset.id);
 });
 
 fetch("/tutoria/api/alumnes?grup=2ESO-E", { cache: "no-store" })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(d => {
     ALUMNES = d.alumnes || [];
-    document.getElementById("estat").remove();
+    document.querySelectorAll(".vistes button").forEach(x =>
+      x.setAttribute("aria-pressed", String(x.dataset.vista === VISTA)));
     if (!ALUMNES.length) {
-      document.getElementById("orla").innerHTML =
+      document.getElementById("cos").innerHTML =
         '<p class="buit">Encara no hi ha alumnes carregats.<br>' +
         'Executa <code>scripts/tutoria_import_orla.py</code> amb l\'orla del centre.</p>';
       return;
     }
-    pinta(ALUMNES);
+    pinta();
   })
   .catch(err => {
-    document.getElementById("estat").textContent =
-      err === 401 ? "La sessió ha caducat. Torna a entrar."
-                  : "No s'han pogut carregar les dades.";
+    document.getElementById("cos").innerHTML = '<p class="buit">' +
+      (err === 401 ? "La sessió ha caducat. Torna a entrar."
+                   : "No s'han pogut carregar les dades.") + "</p>";
   });
 </script>
 </body>
