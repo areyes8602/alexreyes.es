@@ -170,6 +170,10 @@ def main():
     ap.add_argument("--curs", default="2026-27")
     ap.add_argument("--db", default="tutoria", help="nombre de la base D1")
     ap.add_argument("--bucket", default="tutoria-fotos", help="nombre del bucket R2")
+    ap.add_argument("--jurisdiction", "-J", default="",
+                    help="jurisdicción del bucket ('eu' si lo creaste en la Unión "
+                         "Europea). Sin esto, wrangler mira en el espacio de nombres "
+                         "por defecto y dice que el bucket no existe.")
     ap.add_argument("--out", help="directorio de salida (por defecto, un temporal)")
     ap.add_argument("--dry-run", action="store_true", help="solo listar, no escribir")
     args = ap.parse_args()
@@ -228,6 +232,9 @@ def main():
     # borrar las fotos de quien ya no está: R2 no tiene "borrar lo que sobra",
     # y sin esto las imágenes de alumnos de cursos pasados se quedarían ahí
     # para siempre. Son datos de menores: no deben acumularse.
+    # Un bucket creado con jurisdicción vive en un espacio de nombres aparte:
+    # sin -J, wrangler no lo encuentra aunque se vea en el panel.
+    jur = f" -J {args.jurisdiction}" if args.jurisdiction else ""
     con_foto = [sid for n, sid, c in rows if n in photos]
     (out / "_roster.txt").write_text("\n".join(sorted(con_foto)) + "\n", encoding="utf-8")
 
@@ -240,12 +247,12 @@ def main():
         "",
         "# 2) Fotos que sobran de la carga anterior. Si no hay _roster.txt en el",
         "#    bucket (primera vez), no hay nada que limpiar y seguimos.",
-        f"if npx wrangler r2 object get {args.bucket}/_roster.txt \\",
+        f"if npx wrangler r2 object get {args.bucket}/_roster.txt{jur} \\",
         "     --file=_roster_previo.txt --remote >/dev/null 2>&1; then",
         '  sobran=$(grep -vxF -f _roster.txt _roster_previo.txt || true)',
         '  for sid in $sobran; do',
         '    echo "  - sobra: $sid"',
-        f'    npx wrangler r2 object delete {args.bucket}/$sid.jpg --remote',
+        f'    npx wrangler r2 object delete {args.bucket}/$sid.jpg{jur} --remote',
         "  done",
         "fi",
         "",
@@ -253,11 +260,11 @@ def main():
     ]
     for sid in con_foto:
         subir.append(f"npx wrangler r2 object put {args.bucket}/{sid}.jpg "
-                     f"--file=fotos/{sid}.jpg --content-type=image/jpeg --remote")
+                     f"--file=fotos/{sid}.jpg --content-type=image/jpeg{jur} --remote")
     subir += [
         "",
         "# 4) Dejar constancia de qué hay ahora, para la próxima limpieza.",
-        f"npx wrangler r2 object put {args.bucket}/_roster.txt \\",
+        f"npx wrangler r2 object put {args.bucket}/_roster.txt{jur} \\",
         "  --file=_roster.txt --content-type=text/plain --remote",
         "",
         'echo ""',

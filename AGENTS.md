@@ -335,10 +335,16 @@ que ayuda contra fuerza bruta pero no salva a una contraseña mala.
 Al empezar curso, o al cambiar la orla:
 
 ```
-python3 scripts/tutoria_import_orla.py Orla_2ESO_E.pdf --grup 2ESO-E --curs 2026-27
+python3 scripts/tutoria_import_orla.py Orla_2ESO_E.pdf --grup 2ESO-E --curs 2026-27 -J eu
 bash <dir que te indique>/subir.sh
 rm -rf <ese dir>
 ```
+
+El `-J eu` es obligatorio porque el bucket se creó con jurisdicción europea:
+esos buckets viven en un espacio de nombres aparte y, sin el flag, wrangler
+responde «the specified bucket does not exist» aunque el bucket se vea en el
+panel. El binding de Pages también tiene que llevar la jurisdicción. D1 no
+usa jurisdicciones: solo afecta a los comandos de R2.
 
 El importador se niega a escribir dentro del repo.
 
