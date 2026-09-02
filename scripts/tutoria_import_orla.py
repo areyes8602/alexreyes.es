@@ -223,15 +223,47 @@ def main():
         )
     (out / "alumnes.sql").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    subir = ["#!/bin/sh", "set -e",
-             'cd "$(dirname "$0")"',
-             f"npx wrangler d1 execute {args.db} --remote --file=alumnes.sql"]
-    for n, sid, c in rows:
-        if n in photos:
-            subir.append(f"npx wrangler r2 object put {args.bucket}/{sid}.jpg "
-                         f"--file=fotos/{sid}.jpg --content-type=image/jpeg --remote")
-    subir.append('echo "Listo. Borra este directorio cuando termines:"')
-    subir.append(f'echo "  rm -rf {out}"')
+    # Lista de los alumnos con foto en ESTA carga. Se sube al bucket como
+    # _roster.txt para que la próxima ejecución sepa qué había antes y pueda
+    # borrar las fotos de quien ya no está: R2 no tiene "borrar lo que sobra",
+    # y sin esto las imágenes de alumnos de cursos pasados se quedarían ahí
+    # para siempre. Son datos de menores: no deben acumularse.
+    con_foto = [sid for n, sid, c in rows if n in photos]
+    (out / "_roster.txt").write_text("\n".join(sorted(con_foto)) + "\n", encoding="utf-8")
+
+    subir = [
+        "#!/bin/sh", "set -e",
+        'cd "$(dirname "$0")"',
+        "",
+        "# 1) Fichas: el SQL borra primero las filas de este grupo y curso.",
+        f"npx wrangler d1 execute {args.db} --remote --file=alumnes.sql",
+        "",
+        "# 2) Fotos que sobran de la carga anterior. Si no hay _roster.txt en el",
+        "#    bucket (primera vez), no hay nada que limpiar y seguimos.",
+        f"if npx wrangler r2 object get {args.bucket}/_roster.txt \\",
+        "     --file=_roster_previo.txt --remote >/dev/null 2>&1; then",
+        '  sobran=$(grep -vxF -f _roster.txt _roster_previo.txt || true)',
+        '  for sid in $sobran; do',
+        '    echo "  - sobra: $sid"',
+        f'    npx wrangler r2 object delete {args.bucket}/$sid.jpg --remote',
+        "  done",
+        "fi",
+        "",
+        "# 3) Fotos de esta carga.",
+    ]
+    for sid in con_foto:
+        subir.append(f"npx wrangler r2 object put {args.bucket}/{sid}.jpg "
+                     f"--file=fotos/{sid}.jpg --content-type=image/jpeg --remote")
+    subir += [
+        "",
+        "# 4) Dejar constancia de qué hay ahora, para la próxima limpieza.",
+        f"npx wrangler r2 object put {args.bucket}/_roster.txt \\",
+        "  --file=_roster.txt --content-type=text/plain --remote",
+        "",
+        'echo ""',
+        'echo "Listo. Borra este directorio cuando termines:"',
+        f'echo "  rm -rf {out}"',
+    ]
     (out / "subir.sh").write_text("\n".join(subir) + "\n", encoding="utf-8")
     (out / "subir.sh").chmod(0o755)
 

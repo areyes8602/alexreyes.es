@@ -342,6 +342,12 @@ rm -rf <ese dir>
 
 El importador se niega a escribir dentro del repo.
 
+`subir.sh` mantiene un `_roster.txt` en el bucket con los alumnos de la
+última carga. En la siguiente, borra de R2 las fotos de quien ya no está
+antes de subir las nuevas: R2 no tiene «borra lo que sobra», y sin esto
+las imágenes de alumnos de cursos pasados se acumularían indefinidamente.
+Son datos de menores; la retención importa tanto como el acceso.
+
 `scripts/tutoria_orla_local.py` genera, de la misma orla, un HTML
 autocontenido en `~/Tutoria` que funciona sin conexión. Sirve como copia
 de trabajo o respaldo, pero **cada copia es otro sitio donde hay datos de
