@@ -68,7 +68,6 @@ function loginPage(err) {
  button:hover{background:#0b5d56}
  .err{color:#dc2626;font-size:13px;font-weight:600;margin:12px 0 0}
  .ok{color:#059669;font-size:13px;font-weight:600;margin:12px 0 0}
- .foot{margin:16px 0 0;font-size:11px;color:#9ca3af;line-height:1.4}
 </style></head><body>
 <form class="card" method="POST" action="/tutoria/api/login">
   <div class="badge">🎓</div>
@@ -80,8 +79,6 @@ function loginPage(err) {
   <input id="pass" name="pass" type="password" autocomplete="current-password" required>
   <button type="submit">Entrar</button>
   ${msg}
-  <p class="foot">Contiene datos personales de menores. No compartas el acceso
-  ni dejes la sesión abierta en equipos ajenos.</p>
 </form></body></html>`;
 }
 

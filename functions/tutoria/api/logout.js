@@ -4,6 +4,9 @@ import { clearCookie, privateHeaders } from "../_auth.js";
 export async function onRequest(context) {
   const headers = new Headers(privateHeaders());
   headers.append("Set-Cookie", clearCookie());
-  headers.set("Location", new URL("/tutoria/?e=out", context.request.url).toString());
+  // Volver a la página pública de la asignatura, no al login: cerrar sesión
+  // es salir del área privada, no reintentar la entrada.
+  headers.set("Location",
+    new URL("/docencia/tutoria-2eso/", context.request.url).toString());
   return new Response(null, { status: 303, headers });
 }
