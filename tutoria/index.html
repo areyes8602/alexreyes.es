@@ -255,7 +255,14 @@ document.getElementById("cos").addEventListener("click", e => {
 });
 
 fetch("/tutoria/api/alumnes?grup=2ESO-E", { cache: "no-store" })
-  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(async r => {
+    if (r.ok) return r.json();
+    // Arrastrar el motivo hasta la pantalla: un error de esquema es
+    // accionable, y "no s'han pogut carregar" no dice qué hacer.
+    let detall = "";
+    try { detall = (await r.json()).detall || ""; } catch (e) {}
+    throw Object.assign(new Error(detall), { status: r.status });
+  })
   .then(d => {
     ALUMNES = d.alumnes || [];
     document.querySelectorAll(".vistes button").forEach(x =>
@@ -269,9 +276,22 @@ fetch("/tutoria/api/alumnes?grup=2ESO-E", { cache: "no-store" })
     pinta();
   })
   .catch(err => {
-    document.getElementById("cos").innerHTML = '<p class="buit">' +
-      (err === 401 ? "La sessió ha caducat. Torna a entrar."
-                   : "No s'han pogut carregar les dades.") + "</p>";
+    const cos = document.getElementById("cos");
+    if (err.status === 401) {
+      cos.innerHTML = '<p class="buit">La sessió ha caducat. <a href="/tutoria/">Torna a entrar</a>.</p>';
+      return;
+    }
+    const esquema = /no such column|no such table/i.test(err.message || "");
+    cos.innerHTML = `<div class="buit" style="text-align:left">
+      <p style="margin:0 0 .6rem"><strong>${esquema
+        ? "La base de dades encara té l'esquema antic."
+        : "No s'han pogut carregar les dades."}</strong></p>
+      ${err.message ? `<p style="margin:0 0 .8rem;font-family:var(--mono);font-size:.82rem">${
+        esc(err.message)}</p>` : ""}
+      ${esquema ? `<p style="margin:0;font-size:.88rem">Recrea la taula i torna a carregar
+        l'orla:</p><pre style="font-size:.78rem;overflow-x:auto;margin:.5rem 0 0">npx wrangler d1 execute tutoria --remote --command "DROP TABLE tutoria_alumnes"
+npx wrangler d1 execute tutoria --remote --file=scripts/sql/tutoria_schema.sql</pre>` : ""}
+    </div>`;
   });
 </script>
 </body>

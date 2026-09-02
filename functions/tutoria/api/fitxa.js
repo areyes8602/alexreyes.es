@@ -22,10 +22,15 @@ export async function onRequestGet(context) {
   const id = new URL(request.url).searchParams.get("id");
   if (!id) return json({ error: "missing_id" }, 400);
 
-  const row = await env.TUTORIA_DB
-    .prepare(`SELECT * FROM tutoria_alumnes WHERE id = ?`)
-    .bind(id)
-    .first();
+  let row;
+  try {
+    row = await env.TUTORIA_DB
+      .prepare(`SELECT * FROM tutoria_alumnes WHERE id = ?`)
+      .bind(id)
+      .first();
+  } catch (e) {
+    return json({ error: "db", detall: String(e && e.message || e) }, 500);
+  }
   if (!row) return json({ error: "not_found" }, 404);
 
   // Vecinos por nº de lista, para poder pasar de ficha en ficha sin volver.
