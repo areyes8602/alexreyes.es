@@ -41,6 +41,8 @@ SUBJECTS = [
     },
     {
         "code": "eso-3",
+        "schedule": [(0, "10:00–11:00"), (2, "16:30–17:30"), (3, "16:30–17:30")],
+        "grup": "3r ESO C",
         "block": "ESO",
         "title": {"es": "Matemàtiques 3r ESO", "ca": "Matemàtiques 3r ESO", "en": "Maths 3rd ESO"},
         "h1":    {"es": "Matemàtiques 3r ESO", "ca": "Matemàtiques 3r ESO", "en": "Maths 3rd ESO"},
@@ -53,6 +55,8 @@ SUBJECTS = [
     },
     {
         "code": "eso-4",
+        "schedule": [(0, "15:30–16:30"), (1, "9:00–10:00"), (2, "11:30–12:25"), (3, "15:30–16:30")],
+        "grup": "4t ESO D",
         "block": "ESO",
         "title": {"es": "Matemàtiques 4t ESO", "ca": "Matemàtiques 4t ESO", "en": "Maths 4th ESO"},
         "h1":    {"es": "Matemàtiques 4t ESO", "ca": "Matemàtiques 4t ESO", "en": "Maths 4th ESO"},
@@ -107,6 +111,8 @@ SUBJECTS = [
     },
     {
         "code": "projectes-2eso",
+        "schedule": [(4, "16:30–17:30")],
+        "grup": "2n ESO E",
         "block": "ESO",
         "title": {"es": "Projectes 2n ESO", "ca": "Projectes 2n ESO", "en": "Projects 2nd ESO"},
         "h1":    {"es": "Projectes 2n ESO", "ca": "Projectes 2n ESO", "en": "Projects 2nd ESO"},
@@ -119,6 +125,8 @@ SUBJECTS = [
     },
     {
         "code": "tutoria-2eso",
+        "schedule": [(3, "9:00–10:00")],
+        "grup": "2n ESO E",
         "block": "ESO",
         "title": {"es": "Tutoría 2n ESO E", "ca": "Tutoria 2n ESO E", "en": "Form tutor 2nd ESO E"},
         "h1":    {"es": "Tutoría 2n ESO E", "ca": "Tutoria 2n ESO E", "en": "Form tutor 2nd ESO E"},
@@ -155,6 +163,11 @@ LABELS = {
         "meta_desc_active": "curso 2026\u20132027.",
         "courses_label": "Cursos",
         "curs_label": "Curso",
+        "days": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
+        "horari_h2": "Horario",
+        "horari_help": "Sesiones semanales del curso 2026\u201327.",
+        "grup_label": "Grupo",
+        "hores_label": "Horas/semana",
         "footer_brand": "Matemáticas, docencia y doctorado",
     },
     "ca": {
@@ -178,6 +191,11 @@ LABELS = {
         "meta_desc_active": "curs 2026\u20132027.",
         "courses_label": "Cursos",
         "curs_label": "Curs",
+        "days": ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres"],
+        "horari_h2": "Horari",
+        "horari_help": "Sessions setmanals del curs 2026\u201327.",
+        "grup_label": "Grup",
+        "hores_label": "Hores/setmana",
         "footer_brand": "Matemàtiques, docència i doctorat",
     },
     "en": {
@@ -201,6 +219,11 @@ LABELS = {
         "meta_desc_active": "2026\u20132027 academic year.",
         "courses_label": "Years",
         "curs_label": "Year",
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "horari_h2": "Timetable",
+        "horari_help": "Weekly sessions for the 2026\u201327 academic year.",
+        "grup_label": "Group",
+        "hores_label": "Hours/week",
         "footer_brand": "Mathematics, teaching and research",
     },
 }
@@ -249,6 +272,25 @@ def render_landing(s, lang):
     empty_p = L["no_years_p_active"] if is_active else L["no_years_p"]
     meta_desc = L["meta_desc_active"] if is_active else L["meta_desc_archived"]
     v = asset_version()
+    # Horario semanal (solo asignaturas activas que lo tienen cargado)
+    horari_html = ""
+    hores_card = ""
+    if s.get("schedule"):
+        hores_card = (f'<div class="info-card"><div class="info-card-label">{L["hores_label"]}'
+                      f'</div><div class="info-card-value">{len(s["schedule"])}</div></div>')
+        rows = "".join(
+            f'<div class="schedule-day"><span>{L["days"][di]}</span>'
+            f'<strong>{hora}</strong></div>'
+            for di, hora in s["schedule"]
+        )
+        horari_html = (
+            f'\n    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L["horari_h2"]}</h2>'
+            f'\n    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">'
+            f'{L["horari_help"]}</p>'
+            f'\n    <div class="schedule-grid"><div class="schedule-card">'
+            f'<h4>{s.get("grup", curs)}</h4>{rows}</div></div>\n'
+        )
+
     base_url = f"{lang_prefix(lang)}/docencia/{code}/"
     canonical = f"https://alexreyes.es{base_url}"
     es_canon = f"https://alexreyes.es/docencia/{code}/"
@@ -312,6 +354,13 @@ def render_landing(s, lang):
   .empty-state {{ text-align:center; padding:2.5rem 1.5rem; background:var(--bg-subtle); border:1px dashed var(--border); border-radius:var(--radius); }}
   .empty-state h3 {{ margin:0 0 0.5rem; font-size:1rem; font-weight:600; color:var(--text); }}
   .empty-state p {{ margin:0; font-size:0.9rem; color:var(--text-soft); max-width:36rem; margin-left:auto; margin-right:auto; }}
+  /* Horario — mismas reglas que las info pages de asignatura */
+  .schedule-grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }}
+  .schedule-card {{ background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); padding:0.9rem 1.1rem; }}
+  .schedule-card h4 {{ margin:0 0 0.6rem; font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }}
+  .schedule-day {{ display:flex; justify-content:space-between; padding:0.3rem 0; font-size:0.92rem; border-bottom:1px solid var(--border); }}
+  .schedule-day:last-child {{ border-bottom:none; }}
+  .schedule-day strong {{ font-family:var(--mono); color:var(--text); }}
 </style>
 <script defer src="/assets/js/curso-banner.js{v}"></script>
 </head>
@@ -349,8 +398,10 @@ def render_landing(s, lang):
       <div class="info-card"><div class="info-card-label">{L['curs_label']}</div><div class="info-card-value">{curs}</div></div>
       <div class="info-card"><div class="info-card-label">{L['estado_label']}</div><div class="info-card-value" style="font-size:0.88rem">{estado_value}</div></div>
       <div class="info-card"><div class="info-card-label">{L['courses_label']}</div><div class="info-card-value" id="years-count">—</div></div>
+      {hores_card}
     </div>
 
+{horari_html}
     <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L['years_h2']}</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['years_help']}</p>
     <div id="years-container">
