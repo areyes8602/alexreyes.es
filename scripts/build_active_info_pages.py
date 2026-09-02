@@ -170,8 +170,10 @@ SUBJ_2ESO = {
     "subtitle_short": {"es": "Mat. 2n ESO", "ca": "Mat. 2n ESO", "en": "Maths 2n ESO"},
     "is_ib": False,
     # Schedule per group
-    # El horario y los criterios del curso 2026–27 todavía no están publicados.
-    "schedule": [],
+    # Horario 2026–27 (Untis). Los criterios de evaluación aún no están publicados.
+    "schedule": [
+        {"name": "Grup E", "days": [(1, "12:25–13:20"), (2, "15:30–16:30"), (4, "11:30–12:25")]},
+    ],
     "aval": [],
     "documents": None,
     # Cursos anteriores: se sirven en /docencia/<code>/<slug>/info/.
@@ -224,8 +226,12 @@ SUBJ_1BTL = {
     "tag_year": "2026–27",
     "is_ib": False,
     # Single group (no group letter), 3 weekly sessions
-    # El horario y los criterios del curso 2026–27 todavía no están publicados.
-    "schedule": [],
+    # Horario 2026–27 (Untis): matèria de modalitat OP-3 de 1r BTX A, aula 314.
+    "schedule": [
+        {"name": {"es": "Grupo 1r BTX A · aula 314", "ca": "Grup 1r BTX A · aula 314",
+                  "en": "Group 1r BTX A · room 314"},
+         "days": [(0, "16:30–17:30"), (2, "12:25–13:20"), (3, "10:00–11:00"), (4, "10:00–11:00")]},
+    ],
     "aval": [],
     "documents": None,
     # Cursos anteriores: se sirven en /docencia/<code>/<slug>/info/.
@@ -286,6 +292,12 @@ SUBJ_IB_2527 = {
     "exam_year": 2027,
     "extra_breadcrumb": True,
     "promo": "2025-2027",
+    # Horario 2026–27 (Untis), 2n de Batxillerat.
+    "schedule": [
+        {"name": {"es": "Grupo 2n BTX IB", "ca": "Grup 2n BTX IB", "en": "Group 2n BTX IB"},
+         "days": [(0, "11:30–12:25"), (1, "10:00–11:00"), (2, "10:00–11:00"),
+                  (3, "13:20–14:15"), (4, "9:00–10:00")]},
+    ],
 }
 
 SUBJECTS = [SUBJ_2ESO, SUBJ_1BTL, SUBJ_IB_2426, SUBJ_IB_2527]
@@ -470,6 +482,8 @@ def render_info_page(s, lang):
         # Replace the placeholder for "May" / "Mai" / "May" word
         exam_word = {"es": "mayo", "ca": "maig", "en": "May"}[lang]
         blocks = render_ib_blocks(s, L).replace("{exam_word}", exam_word)
+        if s.get("schedule"):
+            blocks = render_horari_block(s, L, lang) + "\n\n" + blocks
     elif not s["aval"] and not s["schedule"]:
         # Curso vivo sin datos todavía: una sola tarjeta, con salida al año anterior.
         prev = (s.get("archived_years") or [{}])[0]

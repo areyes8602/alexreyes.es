@@ -28,6 +28,13 @@
   .empty-state { text-align:center; padding:2.5rem 1.5rem; background:var(--bg-subtle); border:1px dashed var(--border); border-radius:var(--radius); }
   .empty-state h3 { margin:0 0 0.5rem; font-size:1rem; font-weight:600; color:var(--text); }
   .empty-state p { margin:0; font-size:0.9rem; color:var(--text-soft); max-width:36rem; margin-left:auto; margin-right:auto; }
+  /* Horario — mismas reglas que las info pages de asignatura */
+  .schedule-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+  .schedule-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); padding:0.9rem 1.1rem; }
+  .schedule-card h4 { margin:0 0 0.6rem; font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
+  .schedule-day { display:flex; justify-content:space-between; padding:0.3rem 0; font-size:0.92rem; border-bottom:1px solid var(--border); }
+  .schedule-day:last-child { border-bottom:none; }
+  .schedule-day strong { font-family:var(--mono); color:var(--text); }
 </style>
 <script defer src="/assets/js/curso-banner.js?v=202606221623"></script>
 <meta property="og:type" content="website">
@@ -47,13 +54,7 @@
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
-    <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docencia</a>
-      <a href="/doctorado/">Doctorado</a>
-      <a href="/notas/">Notas</a>
-      <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacto</a>
-    </div>
+    <div class="nav-links"><a href="/docencia/" class="nav-active">Docencia</a><a href="/doctorado/">Doctorado</a><a href="/notas/">Notas</a><a href="/cv/">CV</a><a href="/contacto/">Contacto</a></div>
     <div class="nav-right">
       <div class="lang-sw"><a href="/docencia/projectes-2eso/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/docencia/projectes-2eso/">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/projectes-2eso/">EN</a></div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
@@ -83,7 +84,13 @@
       <div class="info-card"><div class="info-card-label">Curso</div><div class="info-card-value">2º ESO</div></div>
       <div class="info-card"><div class="info-card-label">Estado</div><div class="info-card-value" style="font-size:0.88rem">Activa</div></div>
       <div class="info-card"><div class="info-card-label">Cursos</div><div class="info-card-value" id="years-count">—</div></div>
+      <div class="info-card"><div class="info-card-label">Horas/semana</div><div class="info-card-value">1</div></div>
     </div>
+
+
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Horario</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Sesiones semanales del curso 2026–27.</p>
+    <div class="schedule-grid"><div class="schedule-card"><h4>2n ESO E</h4><div class="schedule-day"><span>Viernes</span><strong>16:30–17:30</strong></div></div></div>
 
     <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Cursos impartidos</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada curso contiene los apuntes, fichas, soluciones y exámenes de aquel año académico.</p>
