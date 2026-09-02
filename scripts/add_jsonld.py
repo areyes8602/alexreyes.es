@@ -24,10 +24,10 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 BASE = "https://alexreyes.es"
 AUTHOR = {"@type": "Person", "name": "Àlex Reyes", "url": f"{BASE}/cv/"}
-# "panel" y "tutoria" son zonas privadas con gate de servidor: no llevan
-# SEO, ni buscador, ni nada que las haga descubribles.
+# "panel" es zona privada con gate de servidor: no lleva SEO, ni buscador,
+# ni nada que la haga descubrible.
 SKIP_DIRS = {"node_modules", ".git", "templates", "editor", "scripts", "assets",
-             "panel", "tutoria"}
+             "panel"}
 
 LANG_RE = re.compile(r'<html\s+[^>]*lang="([^"]+)"', re.I)
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)

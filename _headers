@@ -19,14 +19,6 @@
 /panel/*
   X-Robots-Tag: noindex, nofollow
 
-# Tutoría: datos personales de menores. Además del gate de servidor
-# (functions/tutoria/_middleware.js), nada se indexa ni se cachea en
-# ningún punto intermedio.
-/tutoria/*
-  X-Robots-Tag: noindex, nofollow, noarchive
-  Cache-Control: no-store, no-cache, must-revalidate, private
-  Referrer-Policy: no-referrer
-
 # Cache largo para assets versionados — ajustar cuando se introduzcan hashes en filenames
 /assets/css/*
   Cache-Control: public, max-age=3600
