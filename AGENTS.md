@@ -218,7 +218,7 @@ script — añade ahí los hubs nuevos.
 1. Edita `style.css` o `assets/css/*.css`.
 2. Ejecuta `python3 scripts/bump-css-version.py` para que todos los HTML
    apunten a la nueva versión.
-3. Commit + push. Cloudflare Pages auto-deploya.
+3. Commit + push. Cloudflare Pages auto-deploya (proyecto `alexreyes-web`).
 4. Si hace falta forzar el purge del CDN: panel Cloudflare → Caché → Purgar todo.
 
 ## Workflow: añadir una NOTA divulgativa (/notas/)
@@ -351,6 +351,18 @@ Los scripts de post-proceso (`add_og_tags`, `add_jsonld`, `add_hreflang`,
 `add_search`, `add_skiplink`, `add-lang-persist-script`) **saltan** `panel/`
 y `tutoria/`. `robots.txt` las excluye y `_headers` les pone `noindex` +
 `no-store`.
+
+## Cloudflare: qué es qué
+
+- **Pages `alexreyes-web`** — el proyecto que sirve alexreyes.es y despliega
+  este repo en cada push a `main`. Aquí viven las variables de entorno y los
+  bindings de las Functions (`/panel/`, `/tutoria/`). Existe otro proyecto
+  llamado `alexreyes-es`: **no es este**. Si dudas, mira cuál tiene el dominio
+  `alexreyes.es` en Custom domains y un deploy reciente.
+- **Worker `panel-push`** — avisos Web Push del Centro de Mando. Se despliega
+  aparte con `npx wrangler deploy` desde `workers/panel-push/`.
+- **D1 y R2** — `tutoria` (fichas) y `tutoria-fotos` (imágenes), enlazados a
+  Pages como `TUTORIA_DB` y `TUTORIA_FOTOS`.
 
 ## Reglas de seguridad recurrentes
 
