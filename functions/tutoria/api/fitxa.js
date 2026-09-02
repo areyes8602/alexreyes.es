@@ -10,7 +10,10 @@ const EDITABLES = {
   naixement: 40, idioma: 120, adreca: 400, telefon: 120, email: 200,
   recull: 600, suport: 4000, contacte: 2000, notes: 20000,
   acords: 4000, extraescolars: 600, carrec: 120,
+  tutor_anterior: 120, traspas: 20000, derivacio: 60, derivacio_nota: 2000,
 };
+// Casillas: se guardan como 0/1 y no como texto.
+const BANDERES = ["pi_contingut", "pi_metodologic", "acollida"];
 // Campos de lista, guardados como JSON.
 const LLISTES = { familia: 40, entrevistes: 400, incidencies: 400 };
 
@@ -66,6 +69,11 @@ export async function onRequestPost(context) {
     camps.push(`${camp} = ?`);
     valors.push(JSON.stringify(llista));
   }
+  for (const camp of BANDERES) {
+    if (!(camp in body)) continue;
+    camps.push(`${camp} = ?`);
+    valors.push(body[camp] ? 1 : 0);
+  }
   if ("imatge_ok" in body) {
     camps.push("imatge_ok = ?");
     valors.push(body.imatge_ok === null ? null : (body.imatge_ok ? 1 : 0));
@@ -76,10 +84,15 @@ export async function onRequestPost(context) {
   valors.push(new Date().toISOString());
   valors.push(id);
 
-  const res = await env.TUTORIA_DB
-    .prepare(`UPDATE tutoria_alumnes SET ${camps.join(", ")} WHERE id = ?`)
-    .bind(...valors)
-    .run();
+  let res;
+  try {
+    res = await env.TUTORIA_DB
+      .prepare(`UPDATE tutoria_alumnes SET ${camps.join(", ")} WHERE id = ?`)
+      .bind(...valors)
+      .run();
+  } catch (e) {
+    return json({ error: "db", detall: String(e && e.message || e) }, 500);
+  }
 
   if (!res.meta || res.meta.changes === 0) return json({ error: "not_found" }, 404);
   return json({ ok: true, updated_at: valors[valors.length - 2] });
