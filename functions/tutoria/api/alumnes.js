@@ -14,17 +14,25 @@ export async function onRequestGet(context) {
   if (!env.TUTORIA_DB) return json({ error: "no_db", alumnes: [] }, 503);
 
   const grup = new URL(request.url).searchParams.get("grup") || "2ESO-E";
-  const { results } = await env.TUTORIA_DB
-    .prepare(
-      `SELECT id, num, grup, curs, cognoms, nom, marca, foto, sexe,
-              curs_anterior, notes_anteriors, pendents,
-              contacte, notes, entrevistes, incidencies
-         FROM tutoria_alumnes
-        WHERE grup = ?
-        ORDER BY num`
-    )
-    .bind(grup)
-    .all();
+  let results;
+  try {
+    ({ results } = await env.TUTORIA_DB
+      .prepare(
+        `SELECT id, num, grup, curs, cognoms, nom, marca, foto, sexe,
+                curs_anterior, notes_anteriors, pendents,
+                contacte, notes, entrevistes, incidencies
+           FROM tutoria_alumnes
+          WHERE grup = ?
+          ORDER BY num`
+      )
+      .bind(grup)
+      .all());
+  } catch (e) {
+    // Casi siempre es la tabla con el esquema antiguo: decirlo, en vez de
+    // dejar un "no se han podido cargar las dades" que no lleva a ninguna
+    // parte. El mensaje solo lo ve quien ya ha pasado el login.
+    return json({ error: "db", detall: String(e && e.message || e) }, 500);
+  }
 
   // El cliente solo necesita saber si hay seguimiento, no su contenido:
   // así la lista no arrastra las notas de tutoría de los 25 en cada carga.
