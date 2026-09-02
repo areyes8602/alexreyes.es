@@ -51,6 +51,13 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             y es coherente. Usa i18n-baseline.txt (fallos conocidos);
                             solo falla ante regresiones. --strict = auditoría completa.
   build_sitemap.py       ← regenera sitemap.xml con todas las páginas vivas
+  build_archived_subjects.py ← landings simples de asignatura (es/ca/en). Cada
+                            entrada de SUBJECTS lleva "status": "archived" (por
+                            defecto) o "active" + "year" (materia que imparto
+                            este curso pero sin temario propio publicado: chip
+                            verde con el curso en vez de "Archivada"). Las
+                            asignaturas con temario y unidades van en
+                            build_active_subjects.py, no aquí.
   build_ejercicios.py    ← reconstruye el índice del banco. Emite DOS ficheros:
                             ejercicios-index.json (búsqueda/filtros, ligero) y
                             ejercicios-apartados.json (los apartados, cargados aparte
@@ -111,6 +118,29 @@ ejecuta `python3 scripts/build_ejercicios.py` para refrescar el índice.
    python3 scripts/sync-aula-chrome.py
    ```
 4. Idempotente: correrlo dos veces seguidas no rompe nada.
+
+## Workflow: cambiar las asignaturas de un curso académico
+
+Al empezar curso hay que tocar, en este orden:
+
+1. `scripts/build_archived_subjects.py` — mueve asignaturas entre
+   `"status": "archived"` y `"status": "active"` (+ `"year"`), y añade las
+   nuevas que aún no tengan temario. Ejecútalo.
+2. `/docencia/index.html`, `/ca/…`, `/en/…` — la etiqueta `Curso XXXX–YY`, las
+   tarjetas de la rejilla de activas y la lista del bloque Archivo. Es HTML a
+   mano en los 3 idiomas.
+3. `scripts/build_active_subjects.py` — `tag_year` y `year_current` de las
+   asignaturas CON temario, más sus unidades y fechas del curso nuevo.
+4. `scripts/build_contact_feedback.py` — la lista curada `COURSES`.
+5. `scripts/build_sitemap.py` — añade los hubs nuevos a `trilingual_paths`.
+6. Home (`index.html` ×3): la línea de "Ahora mismo" con el curso en marcha.
+7. Pasos finales de siempre: `add_og_tags.py`, `add_jsonld.py`,
+   `add_hreflang.py`, `add_skiplink.py --apply`, `add_search.py`,
+   `add-lang-persist-script.py`, `build_sitemap.py`, `check_i18n.py`.
+
+⚠️ Estos scripts corren sobre TODO el repo y arrastran cambios pendientes de
+otras pasadas (p. ej. `add_search.py` tocando ~1800 exámenes). Revisa
+`git status` y revierte lo que quede fuera del cambio que estás haciendo.
 
 ## Workflow: añadir un hub nuevo (página índice de materia o sección)
 

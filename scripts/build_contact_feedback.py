@@ -34,6 +34,8 @@ COURSES = [
     {"es": "Matemáticas 2.º ESO",          "ca": "Matemàtiques 2n ESO",          "en": "Maths · 2n ESO"},
     {"es": "Matemáticas 3.º ESO",          "ca": "Matemàtiques 3r ESO",          "en": "Maths · 3r ESO"},
     {"es": "Matemáticas 4.º ESO",          "ca": "Matemàtiques 4t ESO",          "en": "Maths · 4t ESO"},
+    {"es": "Projectes 2n ESO",             "ca": "Projectes 2n ESO",             "en": "Projects · 2n ESO"},
+    {"es": "Tutoría 2n ESO",               "ca": "Tutoria 2n ESO",               "en": "Form tutor · 2n ESO"},
     {"es": "Cangur",                       "ca": "Cangur",                       "en": "Cangur"},
     {"es": "Selectividad (PAU)",           "ca": "Selectivitat (PAU)",           "en": "University entrance (PAU)"},
 ]

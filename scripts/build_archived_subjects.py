@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
-"""Build archived (non-active) subject landings in 3 languages.
+"""Build simple subject landings in 3 languages.
 
-For each archived subject, generates:
+Cubre dos casos, distinguidos por la clave "status" de cada asignatura:
+  - "archived" (por defecto): materia impartida en cursos anteriores.
+  - "active": materia que imparto este curso pero que todavía no tiene
+    temario publicado (o cuyo material vive en el archivo por años).
+    Requiere la clave "year" (p. ej. "2026–27").
+
+For each subject, generates:
   /docencia/<code>/index.html        (Spanish landing)
   /ca/docencia/<code>/index.html     (Catalan landing)
   /en/docencia/<code>/index.html     (English landing)
@@ -15,6 +21,7 @@ per language. Year cards link to the same-language year hub.
 Re-run after editing the SUBJECTS or LABELS dicts to keep all 3 langs in sync.
 """
 import json
+import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -41,6 +48,8 @@ SUBJECTS = [
                   "ca": "Tercer d'ESO &mdash; currículum LOMLOE.",
                   "en": "3rd year of ESO &mdash; LOMLOE curriculum."},
         "curs":  {"es": "3º ESO", "ca": "3r ESO", "en": "3rd ESO"},
+        "status": "active",
+        "year": "2026–27",
     },
     {
         "code": "eso-4",
@@ -51,6 +60,8 @@ SUBJECTS = [
                   "ca": "Quart d'ESO &mdash; currículum LOMLOE.",
                   "en": "4th year of ESO &mdash; LOMLOE curriculum."},
         "curs":  {"es": "4º ESO", "ca": "4t ESO", "en": "4th ESO"},
+        "status": "active",
+        "year": "2026–27",
     },
     {
         "code": "ccss-2btl",
@@ -94,6 +105,30 @@ SUBJECTS = [
                   "en": "2nd year of Bachillerato &mdash; Science &amp; Technology track."},
         "curs":  {"es": "2º Bachillerato", "ca": "2n Batxillerat", "en": "2nd Bachillerato"},
     },
+    {
+        "code": "projectes-2eso",
+        "block": "ESO",
+        "title": {"es": "Projectes 2n ESO", "ca": "Projectes 2n ESO", "en": "Projects 2nd ESO"},
+        "h1":    {"es": "Projectes 2n ESO", "ca": "Projectes 2n ESO", "en": "Projects 2nd ESO"},
+        "desc":  {"es": "Segundo de ESO &mdash; trabajo por proyectos interdisciplinares.",
+                  "ca": "Segon d'ESO &mdash; treball per projectes interdisciplinaris.",
+                  "en": "2nd year of ESO &mdash; interdisciplinary project-based work."},
+        "curs":  {"es": "2º ESO", "ca": "2n ESO", "en": "2nd ESO"},
+        "status": "active",
+        "year": "2026–27",
+    },
+    {
+        "code": "tutoria-2eso",
+        "block": "ESO",
+        "title": {"es": "Tutoría 2n ESO E", "ca": "Tutoria 2n ESO E", "en": "Form tutor 2nd ESO E"},
+        "h1":    {"es": "Tutoría 2n ESO E", "ca": "Tutoria 2n ESO E", "en": "Form tutor 2nd ESO E"},
+        "desc":  {"es": "Tutoría del grupo 2n ESO E &mdash; acción tutorial y acompañamiento.",
+                  "ca": "Tutoria del grup 2n ESO E &mdash; acció tutorial i acompanyament.",
+                  "en": "Form tutor for group 2n ESO E &mdash; tutorial and pastoral work."},
+        "curs":  {"es": "2º ESO &middot; grupo E", "ca": "2n ESO &middot; grup E", "en": "2nd ESO &middot; group E"},
+        "status": "active",
+        "year": "2026–27",
+    },
 ]
 
 LANGS = ["es", "ca", "en"]
@@ -113,6 +148,11 @@ LABELS = {
         "archived_tag": "Archivada",
         "estado_label": "Estado",
         "estado_value": "Archivada",
+        "estado_value_active": "Activa",
+        "no_years_h_active": "Curso en marcha",
+        "no_years_p_active": "Estoy impartiendo esta asignatura durante el curso 2026\u20132027. El material se ir\u00e1 publicando a lo largo del a\u00f1o.",
+        "meta_desc_archived": "hist\u00f3rico docente.",
+        "meta_desc_active": "curso 2026\u20132027.",
         "courses_label": "Cursos",
         "curs_label": "Curso",
         "footer_brand": "Matemáticas, docencia y doctorado",
@@ -131,6 +171,11 @@ LABELS = {
         "archived_tag": "Arxivada",
         "estado_label": "Estat",
         "estado_value": "Arxivada",
+        "estado_value_active": "Activa",
+        "no_years_h_active": "Curs en marxa",
+        "no_years_p_active": "Estic impartint aquesta assignatura durant el curs 2026\u20132027. El material es publicar\u00e0 al llarg de l'any.",
+        "meta_desc_archived": "hist\u00f2ric docent.",
+        "meta_desc_active": "curs 2026\u20132027.",
         "courses_label": "Cursos",
         "curs_label": "Curs",
         "footer_brand": "Matemàtiques, docència i doctorat",
@@ -149,11 +194,31 @@ LABELS = {
         "archived_tag": "Archived",
         "estado_label": "Status",
         "estado_value": "Archived",
+        "estado_value_active": "Active",
+        "no_years_h_active": "Course in progress",
+        "no_years_p_active": "I am teaching this subject during the 2026\u20132027 academic year. Material will be published throughout the year.",
+        "meta_desc_archived": "teaching history.",
+        "meta_desc_active": "2026\u20132027 academic year.",
         "courses_label": "Years",
         "curs_label": "Year",
         "footer_brand": "Mathematics, teaching and research",
     },
 }
+
+
+def asset_version():
+    """?v= de cache-busting vigente en el sitio.
+
+    Se lee de /docencia/index.html en vez de fijarlo aquí, para que las
+    landings generadas queden alineadas con el resto de páginas sin tener
+    que correr bump-css-version.py sobre todo el repo.
+    """
+    ref = REPO / "docencia" / "index.html"
+    if ref.exists():
+        m = re.search(r"/style\.css\?v=(\d+)", ref.read_text(encoding="utf-8"))
+        if m:
+            return "?v=" + m.group(1)
+    return ""
 
 
 def lang_prefix(lang):
@@ -175,17 +240,30 @@ def render_landing(s, lang):
     desc = s["desc"][lang]
     curs = s["curs"][lang]
     block = s["block"][lang] if isinstance(s["block"], dict) else s["block"]
+    is_active = s.get("status") == "active"
+    # Materia activa: chip verde con el curso; archivada: chip gris "Archivada".
+    status_tag = (f'<span class="tag tag-green">{s["year"]}</span>' if is_active
+                  else f'<span class="tag tag-gray">{L["archived_tag"]}</span>')
+    estado_value = L["estado_value_active"] if is_active else L["estado_value"]
+    empty_h = L["no_years_h_active"] if is_active else L["no_years_h"]
+    empty_p = L["no_years_p_active"] if is_active else L["no_years_p"]
+    meta_desc = L["meta_desc_active"] if is_active else L["meta_desc_archived"]
+    v = asset_version()
     base_url = f"{lang_prefix(lang)}/docencia/{code}/"
     canonical = f"https://alexreyes.es{base_url}"
     es_canon = f"https://alexreyes.es/docencia/{code}/"
     ca_canon = f"https://alexreyes.es/ca/docencia/{code}/"
     en_canon = f"https://alexreyes.es/en/docencia/{code}/"
     # Lang switcher links (this same page in other langs)
-    lang_switch = (
-        f'<a href="/docencia/{code}/" class="{ "lang-active" if lang=="es" else "" }">ES</a><span class="lang-sep">&middot;</span>'
-        f'<a href="/ca/docencia/{code}/" class="{ "lang-active" if lang=="ca" else "" }">CA</a><span class="lang-sep">&middot;</span>'
-        f'<a href="/en/docencia/{code}/" class="{ "lang-active" if lang=="en" else "" }">EN</a>'
-    )
+    def _lsw(code_lang, href):
+        cls = ' class="lang-active"' if lang == code_lang else ''
+        return f'<a href="{href}"{cls}>{code_lang.upper()}</a>'
+
+    lang_switch = '<span class="lang-sep">&middot;</span>'.join([
+        _lsw("es", f"/docencia/{code}/"),
+        _lsw("ca", f"/ca/docencia/{code}/"),
+        _lsw("en", f"/en/docencia/{code}/"),
+    ])
 
     nav_links = (
         f'<a href="{nav_path(lang,"docencia")}" class="nav-active">{L["docencia"]}</a>'
@@ -210,11 +288,12 @@ def render_landing(s, lang):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} — Àlex Reyes</title>
-<meta name="description" content="{title} — històric docent.">
+<meta name="description" content="{title} — {meta_desc}">
 <script>(function(){{var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');}})();</script>
+<script src="/assets/js/lang-persist.js{v}"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css{v}">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="{canonical}">
 <link rel="alternate" hreflang="es" href="{es_canon}">
@@ -234,6 +313,7 @@ def render_landing(s, lang):
   .empty-state h3 {{ margin:0 0 0.5rem; font-size:1rem; font-weight:600; color:var(--text); }}
   .empty-state p {{ margin:0; font-size:0.9rem; color:var(--text-soft); max-width:36rem; margin-left:auto; margin-right:auto; }}
 </style>
+<script defer src="/assets/js/curso-banner.js{v}"></script>
 </head>
 <body>
 <nav>
@@ -259,7 +339,7 @@ def render_landing(s, lang):
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">{block}</span>
-        <span class="tag tag-gray">{L['archived_tag']}</span>
+        {status_tag}
       </div>
       <h1 style="margin:0.3rem 0 0.6rem">{h1}</h1>
       <p style="font-size:0.98rem;color:var(--text-soft)">{desc}</p>
@@ -267,7 +347,7 @@ def render_landing(s, lang):
 
     <div class="info-grid">
       <div class="info-card"><div class="info-card-label">{L['curs_label']}</div><div class="info-card-value">{curs}</div></div>
-      <div class="info-card"><div class="info-card-label">{L['estado_label']}</div><div class="info-card-value" style="font-size:0.88rem">{L['estado_value']}</div></div>
+      <div class="info-card"><div class="info-card-label">{L['estado_label']}</div><div class="info-card-value" style="font-size:0.88rem">{estado_value}</div></div>
       <div class="info-card"><div class="info-card-label">{L['courses_label']}</div><div class="info-card-value" id="years-count">—</div></div>
     </div>
 
@@ -294,8 +374,8 @@ function toggleMenu(){{document.querySelector("nav").classList.toggle("open");}}
 function toggleTheme(){{var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}}
 function escHtml(s){{ return String(s||'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c])); }}
 
-const NO_YEARS_H = {json.dumps(L['no_years_h'])};
-const NO_YEARS_P = {json.dumps(L['no_years_p'])};
+const NO_YEARS_H = {json.dumps(empty_h)};
+const NO_YEARS_P = {json.dumps(empty_p)};
 const BASE_URL = {json.dumps(base_url)};
 
 fetch('/assets/data/archive/{code}.json', {{ cache: 'no-cache' }})
@@ -328,6 +408,7 @@ fetch('/assets/data/archive/{code}.json', {{ cache: 'no-cache' }})
     console.error('archive years:', err);
   }});
 </script>
+<script defer src="/assets/js/search.js{v}"></script>
 </body>
 </html>
 """
