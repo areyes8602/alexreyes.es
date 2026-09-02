@@ -300,6 +300,50 @@ Terminología matemática:
 - Eventualmente: las 3 lenguas para todas las páginas. No es prioridad
   inmediata.
 
+## /tutoria/ — datos personales de menores
+
+Área privada con las fichas de los alumnos de tutoría. Regla que no se
+negocia: **los datos NO viven en el repositorio.** Este repo es público y
+tiene forks; cualquier cosa commiteada aquí es permanente y pública.
+
+Reparto:
+
+```
+functions/tutoria/_middleware.js  gate de servidor: sin sesión no sale NADA
+functions/tutoria/_auth.js        cookie propia (8 h) + TUTORIA_SECRET
+functions/tutoria/api/            login · logout · alumnes · fitxa · foto
+tutoria/index.html                orla; pinta lo que devuelve la API
+tutoria/fitxa/index.html          ficha individual, editable
+scripts/tutoria_import_orla.py    carga la orla del centro → D1 + R2
+scripts/sql/tutoria_schema.sql    esquema de D1
+```
+
+Los nombres van a **D1** (`TUTORIA_DB`) y las fotos a **R2** (`TUTORIA_FOTOS`),
+ambos privados. Las fotos no son ficheros estáticos: salen por
+`/tutoria/api/foto`, que exige sesión. Sin cookie válida no hay URL que las
+alcance.
+
+Variables en Cloudflare Pages: `TUTORIA_USER`, `TUTORIA_PASS`,
+`TUTORIA_SECRET`. Si falta cualquiera, el middleware sirve una página de
+setup y nada más — nunca el contenido.
+
+Al empezar curso, o al cambiar la orla:
+
+```
+python3 scripts/tutoria_import_orla.py Orla_2ESO_E.pdf --grup 2ESO-E --curs 2026-27
+bash <dir que te indique>/subir.sh
+rm -rf <ese dir>
+```
+
+El importador se niega a escribir dentro del repo. `.gitignore` cubre
+`Orla*.pdf`, `alumnes.sql`, `tutoria-*/` y similares, pero es una red de
+seguridad, no la defensa: la defensa es no traer nunca esos ficheros aquí.
+
+Los scripts de post-proceso (`add_og_tags`, `add_jsonld`, `add_hreflang`,
+`add_search`, `add_skiplink`, `add-lang-persist-script`) **saltan** `panel/`
+y `tutoria/`: son zonas privadas, no llevan SEO ni buscador. `robots.txt`
+las excluye y `_headers` les pone `noindex` + `no-store`.
+
 ## Reglas de seguridad recurrentes
 
 - Nada de credenciales en el repo (`.gitignore` ya cubre `.env`, `*.key`).

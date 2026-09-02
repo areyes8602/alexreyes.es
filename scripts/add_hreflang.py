@@ -21,7 +21,10 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 BASE = "https://alexreyes.es"
-SKIP_DIRS = {"node_modules", ".git", "templates", "editor", "scripts", "assets"}
+# "panel" y "tutoria" son zonas privadas con gate de servidor: no llevan
+# SEO, ni buscador, ni nada que las haga descubribles.
+SKIP_DIRS = {"node_modules", ".git", "templates", "editor", "scripts", "assets",
+             "panel", "tutoria"}
 
 HREFLANG_LINE_RE = re.compile(r'[ \t]*<link\s+rel="alternate"\s+hreflang="[^"]*"[^>]*>\n?')
 CANON_RE = re.compile(r'<link\s+rel="canonical"\s+href="[^"]*"\s*/?>')
