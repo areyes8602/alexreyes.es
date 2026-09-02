@@ -169,8 +169,6 @@ LABELS = {
         "horari_help": "Sesiones semanales del curso 2026\u201327.",
         "grup_label": "Grupo",
         "privat_h": "Área privada",
-        "privat_p": "Fichas de los alumnos del grupo. Requiere acceso.",
-        "privat_cta": "Entrar \u2192",
         "hores_label": "Horas/semana",
         "footer_brand": "Matemáticas, docencia y doctorado",
     },
@@ -200,8 +198,6 @@ LABELS = {
         "horari_help": "Sessions setmanals del curs 2026\u201327.",
         "grup_label": "Grup",
         "privat_h": "\u00c0rea privada",
-        "privat_p": "Fitxes dels alumnes del grup. Requereix acc\u00e9s.",
-        "privat_cta": "Entrar \u2192",
         "hores_label": "Hores/setmana",
         "footer_brand": "Matemàtiques, docència i doctorat",
     },
@@ -231,8 +227,6 @@ LABELS = {
         "horari_help": "Weekly sessions for the 2026\u201327 academic year.",
         "grup_label": "Group",
         "privat_h": "Private area",
-        "privat_p": "Student records for this form group. Requires sign-in.",
-        "privat_cta": "Sign in \u2192",
         "hores_label": "Hours/week",
         "footer_brand": "Mathematics, teaching and research",
     },
@@ -283,15 +277,22 @@ def render_landing(s, lang):
     meta_desc = L["meta_desc_active"] if is_active else L["meta_desc_archived"]
     v = asset_version()
     # Horario semanal (solo asignaturas activas que lo tienen cargado)
-    # Enlace al área privada (solo tutoría). El contenido no está aquí: vive
-    # tras el gate de servidor de functions/tutoria/.
-    privat_html = ""
+    # Botón al área privada (solo tutoría), junto al título. El contenido no
+    # está aquí: vive tras el gate de servidor de functions/tutoria/.
+    # Sin botón, el título va suelto como en el resto de asignaturas; con él,
+    # comparten fila y se apilan en pantallas estrechas.
+    titol_html = f'<h1 style="margin:0.3rem 0 0.6rem">{h1}</h1>'
+    privat_btn = ""
     if s.get("privat_url"):
-        privat_html = (
-            f'\n    <a href="{s["privat_url"]}" class="info-cta" rel="nofollow">'
-            f'<span class="info-cta-icon">🔒</span><div class="info-cta-body">'
-            f'<h3>{L["privat_h"]}</h3><p>{L["privat_p"]}</p></div>'
-            f'<span class="info-cta-arrow">{L["privat_cta"]}</span></a>\n'
+        privat_btn = (
+            f'<a href="{s["privat_url"]}" class="btn btn-secondary" rel="nofollow" '
+            f'style="flex:none;text-decoration:none">'
+            f'<span aria-hidden="true">🔒</span>{L["privat_h"]}</a>'
+        )
+        titol_html = (
+            '<div style="display:flex;align-items:center;justify-content:space-between;'
+            'gap:1rem;flex-wrap:wrap;margin:0.3rem 0 0.6rem">'
+            f'<h1 style="margin:0">{h1}</h1>{privat_btn}</div>'
         )
 
     horari_html = ""
@@ -411,7 +412,7 @@ def render_landing(s, lang):
         <span class="section-label">{block}</span>
         {status_tag}
       </div>
-      <h1 style="margin:0.3rem 0 0.6rem">{h1}</h1>
+      {titol_html}
       <p style="font-size:0.98rem;color:var(--text-soft)">{desc}</p>
     </div>
 
@@ -422,7 +423,7 @@ def render_landing(s, lang):
       {hores_card}
     </div>
 
-{horari_html}{privat_html}
+{horari_html}
     <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L['years_h2']}</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['years_help']}</p>
     <div id="years-container">
