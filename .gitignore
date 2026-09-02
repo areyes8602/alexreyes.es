@@ -54,3 +54,14 @@ build/
 
 # LibreOffice lock files
 .~lock.*#
+
+# Tutoría — datos personales de menores.
+# Nunca deben entrar en el repositorio: viven en Cloudflare D1 (fichas) y
+# R2 (fotos), y se cargan con scripts/tutoria_import_orla.py, que escribe
+# fuera del repo. Esto es solo una red de seguridad.
+Orla*.pdf
+orla*.pdf
+tutoria-*/
+alumnes.sql
+/tutoria/fotos/
+**/fotos-alumnes/

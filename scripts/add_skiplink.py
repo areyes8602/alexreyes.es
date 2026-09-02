@@ -63,8 +63,11 @@ def process(s):
 
 def main():
     changed = []
+    # "panel" y "tutoria" son zonas privadas: llevan su propio chrome y no
+    # pasan por los scripts del sitio público.
+    SKIP_TOP = {".git", "panel", "tutoria", "templates", "node_modules"}
     for f in sorted(ROOT.rglob("*.html")):
-        if ".git/" in str(f.relative_to(ROOT)):
+        if f.relative_to(ROOT).parts[0] in SKIP_TOP:
             continue
         s = f.read_text(encoding="utf-8")
         out = process(s)

@@ -232,6 +232,8 @@ def main():
         'User-agent: *\n'
         'Allow: /\n'
         'Disallow: /editor/\n'
+        'Disallow: /panel/\n'
+        'Disallow: /tutoria/\n'
         '\n'
         f'Sitemap: {BASE}/sitemap.xml\n'
     )
