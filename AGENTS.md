@@ -300,34 +300,57 @@ Terminología matemática:
 - Eventualmente: las 3 lenguas para todas las páginas. No es prioridad
   inmediata.
 
-## Tutoría — datos de alumnos: NO van en la web
+## /tutoria/ — datos personales de menores
 
-Las fichas de los alumnos de tutoría (nombres, fotos, seguimiento) **no
-están en este sitio ni en ningún servidor.** Se trabajan en un HTML local
-que se abre desde el propio equipo:
+Área privada con las fichas de los alumnos de tutoría. Regla que no se
+negocia: **los datos NO viven en el repositorio.** Este repo es público y
+tiene forks; cualquier cosa commiteada aquí es permanente y pública.
 
 ```
-python3 scripts/tutoria_orla_local.py Orla_2ESO_E.pdf --grup 2ESO-E --curs 2026-27
+functions/tutoria/_middleware.js  gate de servidor: sin sesión no sale NADA
+functions/tutoria/_auth.js        cookie propia (8 h) + TUTORIA_SECRET
+functions/tutoria/api/            login · logout · alumnes · fitxa · foto
+tutoria/index.html                orla; pinta lo que devuelve la API
+tutoria/fitxa/index.html          ficha individual, editable
+scripts/tutoria_import_orla.py    carga la orla del centro → D1 + R2
+scripts/sql/tutoria_schema.sql    esquema de D1
+scripts/tutoria_orla_local.py     alternativa offline: un HTML autocontenido
 ```
 
-Genera un único `orla-2ESO-E.html` autocontenido —las fotos van incrustadas
-como data: URI— en `~/Tutoria` por defecto, o donde diga `--out`, siempre
-**fuera del repositorio**; el script se niega a escribir dentro. Se abre con doble clic: orla del grupo, buscador y
-una ficha por alumno con contacto y seguimiento editables.
+Los nombres van a **D1** (`TUTORIA_DB`) y las fotos a **R2**
+(`TUTORIA_FOTOS`), ambos privados. Las fotos no son ficheros estáticos:
+salen por `/tutoria/api/foto`, que exige sesión. Sin cookie válida no hay
+URL que las alcance.
 
-Las notas se guardan en el `localStorage` de ese navegador, con botones de
-exportar e importar JSON porque ese almacenamiento se puede perder (borrar
-datos de navegación, otro equipo, modo privado). Si el navegador no deja
-guardar, la página lo avisa.
+Variables en Cloudflare Pages (proyecto `alexreyes-web`): `TUTORIA_USER`,
+`TUTORIA_PASS`, `TUTORIA_SECRET`. Si falta cualquiera, el middleware sirve
+una página de setup y nada más — nunca el contenido.
 
-Por qué no está en alexreyes.es: son datos personales de menores y este
-repositorio es público con forks. Se llegó a construir un área protegida en
-`/tutoria/` con gate de servidor, D1 y R2, y se retiró: mantener los datos
-fuera de internet es más simple y más seguro que custodiarlos bien dentro.
+**`TUTORIA_PASS` es el punto débil de todo el diseño.** El resto (gate en
+el edge, bucket privado, cookie firmada, noindex) es sólido; una
+contraseña reutilizada o corta lo anula entero. Larga, aleatoria, de
+gestor, y usada solo aquí. El login frena un segundo por intento fallido,
+que ayuda contra fuerza bruta pero no salva a una contraseña mala.
 
-`.gitignore` cubre `Orla*.pdf`, `orla-*.html`, `fitxes-*.json` y
-directorios de fotos. Es una red de seguridad, no la defensa: la defensa es
-no traer nunca esos ficheros al repo.
+Al empezar curso, o al cambiar la orla:
+
+```
+python3 scripts/tutoria_import_orla.py Orla_2ESO_E.pdf --grup 2ESO-E --curs 2026-27
+bash <dir que te indique>/subir.sh
+rm -rf <ese dir>
+```
+
+El importador se niega a escribir dentro del repo.
+
+`scripts/tutoria_orla_local.py` genera, de la misma orla, un HTML
+autocontenido en `~/Tutoria` que funciona sin conexión. Sirve como copia
+de trabajo o respaldo, pero **cada copia es otro sitio donde hay datos de
+menores**: si la generas, no la dejes olvidada ni sin cifrar.
+
+Los scripts de post-proceso (`add_og_tags`, `add_jsonld`, `add_hreflang`,
+`add_search`, `add_skiplink`, `add-lang-persist-script`) **saltan** `panel/`
+y `tutoria/`. `robots.txt` las excluye y `_headers` les pone `noindex` +
+`no-store`.
 
 ## Reglas de seguridad recurrentes
 
