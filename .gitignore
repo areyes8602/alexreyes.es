@@ -56,12 +56,13 @@ build/
 .~lock.*#
 
 # Tutoría — datos personales de menores.
-# Nunca deben entrar en el repositorio. Se trabajan en un HTML local que
-# genera scripts/tutoria_orla_local.py fuera del repo. Esto es solo una
-# red de seguridad.
+# Nunca deben entrar en el repositorio: viven en Cloudflare D1 y R2, y los
+# scripts que los manejan escriben fuera del repo. Esto es solo una red de
+# seguridad.
 Orla*.pdf
 orla*.pdf
 orla-*.html
 fitxes-*.json
 tutoria-*/
+alumnes.sql
 **/fotos-alumnes/

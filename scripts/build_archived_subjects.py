@@ -125,6 +125,7 @@ SUBJECTS = [
     },
     {
         "code": "tutoria-2eso",
+        "privat_url": "/tutoria/",
         "schedule": [(3, "9:00–10:00")],
         "grup": "2n ESO E",
         "block": "ESO",
@@ -167,6 +168,9 @@ LABELS = {
         "horari_h2": "Horario",
         "horari_help": "Sesiones semanales del curso 2026\u201327.",
         "grup_label": "Grupo",
+        "privat_h": "Área privada",
+        "privat_p": "Fichas de los alumnos del grupo. Requiere acceso.",
+        "privat_cta": "Entrar \u2192",
         "hores_label": "Horas/semana",
         "footer_brand": "Matemáticas, docencia y doctorado",
     },
@@ -195,6 +199,9 @@ LABELS = {
         "horari_h2": "Horari",
         "horari_help": "Sessions setmanals del curs 2026\u201327.",
         "grup_label": "Grup",
+        "privat_h": "\u00c0rea privada",
+        "privat_p": "Fitxes dels alumnes del grup. Requereix acc\u00e9s.",
+        "privat_cta": "Entrar \u2192",
         "hores_label": "Hores/setmana",
         "footer_brand": "Matemàtiques, docència i doctorat",
     },
@@ -223,6 +230,9 @@ LABELS = {
         "horari_h2": "Timetable",
         "horari_help": "Weekly sessions for the 2026\u201327 academic year.",
         "grup_label": "Group",
+        "privat_h": "Private area",
+        "privat_p": "Student records for this form group. Requires sign-in.",
+        "privat_cta": "Sign in \u2192",
         "hores_label": "Hours/week",
         "footer_brand": "Mathematics, teaching and research",
     },
@@ -273,6 +283,17 @@ def render_landing(s, lang):
     meta_desc = L["meta_desc_active"] if is_active else L["meta_desc_archived"]
     v = asset_version()
     # Horario semanal (solo asignaturas activas que lo tienen cargado)
+    # Enlace al área privada (solo tutoría). El contenido no está aquí: vive
+    # tras el gate de servidor de functions/tutoria/.
+    privat_html = ""
+    if s.get("privat_url"):
+        privat_html = (
+            f'\n    <a href="{s["privat_url"]}" class="info-cta" rel="nofollow">'
+            f'<span class="info-cta-icon">🔒</span><div class="info-cta-body">'
+            f'<h3>{L["privat_h"]}</h3><p>{L["privat_p"]}</p></div>'
+            f'<span class="info-cta-arrow">{L["privat_cta"]}</span></a>\n'
+        )
+
     horari_html = ""
     hores_card = ""
     if s.get("schedule"):
@@ -401,7 +422,7 @@ def render_landing(s, lang):
       {hores_card}
     </div>
 
-{horari_html}
+{horari_html}{privat_html}
     <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L['years_h2']}</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['years_help']}</p>
     <div id="years-container">
