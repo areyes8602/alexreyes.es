@@ -142,6 +142,40 @@ Al empezar curso hay que tocar, en este orden:
 otras pasadas (p. ej. `add_search.py` tocando ~1800 exámenes). Revisa
 `git status` y revierte lo que quede fuera del cambio que estás haciendo.
 
+## Workflow: archivar el curso anterior de una asignatura activa
+
+Las asignaturas con temario (`build_active_subjects.py` + `build_active_info_pages.py`)
+guardan sus cursos pasados en la clave `archived_years` de la propia asignatura:
+
+```python
+"year_current": "2026–27",
+"units": [],                      # el temario del curso vivo
+"archived_years": [
+    {"year": "2025–26", "slug": "2025-2026", "units": [ ... ]},
+],
+```
+
+El truco de render es el **`code` compuesto**: la variante archivada se genera
+con `code = "2eso/2025-2026"`, y como todas las URLs se construyen igual
+(`/docencia/{code}/…`), la página, su `info/`, su canonical y su lang switcher
+caen solas en la subcarpeta. Es el mismo esquema que ya usan las promociones IB
+(`ib-ai/2024-2026`).
+
+Para archivar un curso al terminarlo:
+
+1. Mueve `units` (y `schedule`/`aval`/`documents` en las info pages) a una
+   entrada nueva de `archived_years`, con su `year` y su `slug` (`AAAA-AAAA`,
+   sin guion largo: va en una URL).
+2. Deja el curso vivo con `units: []` y sube `tag_year` / `year_current`.
+3. Ejecuta los dos builders. Generan el curso vivo (con estado "temario aún no
+   publicado") y una página por año archivado, con aviso de curso cerrado y el
+   selector de curso enlazando ambos.
+4. Añade las rutas nuevas a `trilingual_paths` en `build_sitemap.py`.
+5. Pasos finales de siempre (OG, JSON-LD, hreflang, skip-link, sitemap).
+
+El material en sí (`/aula/…`) **no se mueve**: las unidades del año archivado
+siguen apuntando a las mismas rutas.
+
 ## Workflow: añadir un hub nuevo (página índice de materia o sección)
 
 1. Crea el `index.html` del hub en `/{path}/` (raíz), `/ca/{path}/` y `/en/{path}/`.

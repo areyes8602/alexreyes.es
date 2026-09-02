@@ -58,6 +58,10 @@ LABELS = {
         "days": ["Lunes","Martes","Miércoles","Jueves","Viernes"],
         "groups_label": "Grupos",
         "tag_year_word": "Curso",
+        "info_pending_h": "Todavía sin publicar",
+        "info_pending_p": "El horario, los criterios de evaluación y el material del curso 2026\u201327 se publicarán al empezar el curso. Mientras tanto, puedes consultar los del curso anterior.",
+        "info_prev_year": "Ver la información del curso 2025\u201326 →",
+        "info_archived_notice": "Informaci\u00f3n de un curso ya cerrado.",
         "official_exams": "Exámenes oficiales",
     },
     "ca": {
@@ -101,6 +105,10 @@ LABELS = {
         "days": ["Dilluns","Dimarts","Dimecres","Dijous","Divendres"],
         "groups_label": "Grups",
         "tag_year_word": "Curs",
+        "info_pending_h": "Encara sense publicar",
+        "info_pending_p": "L'horari, els criteris d'avaluaci\u00f3 i el material del curs 2026\u201327 es publicaran en comen\u00e7ar el curs. Mentrestant, pots consultar els del curs anterior.",
+        "info_prev_year": "Veure la informaci\u00f3 del curs 2025\u201326 →",
+        "info_archived_notice": "Informaci\u00f3 d'un curs ja tancat.",
         "official_exams": "Exàmens oficials",
     },
     "en": {
@@ -144,6 +152,10 @@ LABELS = {
         "days": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
         "groups_label": "Groups",
         "tag_year_word": "Year",
+        "info_pending_h": "Not published yet",
+        "info_pending_p": "The timetable, assessment criteria and materials for 2026\u201327 will be published when the year starts. In the meantime, you can consult last year's.",
+        "info_prev_year": "See the 2025\u201326 information →",
+        "info_archived_notice": "Information for a closed academic year.",
         "official_exams": "Official exams",
     },
 }
@@ -154,43 +166,54 @@ SUBJ_2ESO = {
     "code": "2eso",
     "title": {"es": "Matemàtiques 2n ESO", "ca": "Matemàtiques 2n ESO", "en": "Mathematics 2n ESO"},
     "section_label": "ESO",
-    "tag_year": "2025–26",
+    "tag_year": "2026–27",
     "subtitle_short": {"es": "Mat. 2n ESO", "ca": "Mat. 2n ESO", "en": "Maths 2n ESO"},
     "is_ib": False,
     # Schedule per group
-    "schedule": [
-        {"name": "Grup A", "days": [(0, "10:00"), (2, "12:25"), (4, "12:25")]},  # Mon, Wed, Fri (idx in days[])
-        {"name": "Grup E", "days": [(1, "11:30"), (3, "16:30"), (4, "10:00")]},  # Tue, Thu, Fri
-    ],
-    # Evaluation breakdown per term
-    "aval": [
-        {"num": "1", "until": {"es": "3 dic", "ca": "3 des", "en": "3 Dec"}, "units_line": "U01–U04",
-         "proves": [
-            {"nom": {"es":"Fracciones (previo)","ca":"Fraccions (previ)","en":"Fractions (preview)"}, "pes": 20},
-            {"nom": {"es":"Fracciones y decimales","ca":"Fraccions i decimals","en":"Fractions and decimals"}, "pes": 20},
-            {"nom": {"es":"Probabilidad","ca":"Probabilitat","en":"Probability"}, "pes": 10},
-            {"nom": {"es":"Proporcionalidad","ca":"Proporcionalitat","en":"Proportionality"}, "pes": 20},
-            {"nom": {"es":"Global 1ª","ca":"Global 1a","en":"1st term comprehensive"}, "pes": 30, "global": True},
-         ]},
-        {"num": "2", "until": {"es": "13 mar", "ca": "13 mar", "en": "13 Mar"}, "units_line": "U05–U08",
-         "proves": [
-            {"nom": {"es":"Gráficas de funciones","ca":"Gràfiques de funcions","en":"Function graphs"}, "pes": 15},
-            {"nom": {"es":"Funciones y funciones elementales","ca":"Funcions i funcions elementals","en":"Functions and elementary functions"}, "pes": 25},
-            {"nom": {"es":"Pitágoras y poliedros","ca":"Pitàgores i poliedres","en":"Pythagoras and polyhedra"}, "pes": 20},
-            {"nom": {"es":"Proyecto Monumento 3.0","ca":"Projecte Monument 3.0","en":"Monument 3.0 project"}, "pes": 10},
-            {"nom": {"es":"Global 2ª","ca":"Global 2a","en":"2nd term comprehensive"}, "pes": 30, "global": True},
-         ]},
-        {"num": "3", "until": {"es": "5 jun", "ca": "5 jun", "en": "5 Jun"}, "units_line": "U09–U10",
-         "proves": [
-            {"nom": {"es":"Expresiones algebraicas (previo)","ca":"Expressions algebraiques (previ)","en":"Algebraic expressions (preview)"}, "pes": 20},
-            {"nom": {"es":"Expresiones algebraicas","ca":"Expressions algebraiques","en":"Algebraic expressions"}, "pes": 25},
-            {"nom": {"es":"Problemas de ecuaciones y sistemas","ca":"Problemes d'equacions i sistemes","en":"Equations and systems problems"}, "pes": 25},
-            {"nom": {"es":"Global 3ª","ca":"Global 3a","en":"3rd term comprehensive"}, "pes": 30, "global": True},
-         ]},
-    ],
-    "documents": [
-        {"href": "/assets/docs/2eso/temari-2526.pdf", "icon": "📘", "title_key": "doc_temari", "meta_key": "doc_temari_meta"},
-        {"href": "/assets/docs/2eso/calendari-2eso-e-2526.xlsx", "icon": "🗓️", "title_key": "doc_calendari", "meta_key": "doc_calendari_meta"},
+    # El horario y los criterios del curso 2026–27 todavía no están publicados.
+    "schedule": [],
+    "aval": [],
+    "documents": None,
+    # Cursos anteriores: se sirven en /docencia/<code>/<slug>/info/.
+    "archived_years": [
+        {
+            "year": "2025–26",
+            "slug": "2025-2026",
+            "schedule": [
+                {"name": "Grup A", "days": [(0, "10:00"), (2, "12:25"), (4, "12:25")]},  # Mon, Wed, Fri (idx in days[])
+                {"name": "Grup E", "days": [(1, "11:30"), (3, "16:30"), (4, "10:00")]},  # Tue, Thu, Fri
+            ],
+            # Evaluation breakdown per term
+            "aval": [
+                {"num": "1", "until": {"es": "3 dic", "ca": "3 des", "en": "3 Dec"}, "units_line": "U01–U04",
+                 "proves": [
+                    {"nom": {"es":"Fracciones (previo)","ca":"Fraccions (previ)","en":"Fractions (preview)"}, "pes": 20},
+                    {"nom": {"es":"Fracciones y decimales","ca":"Fraccions i decimals","en":"Fractions and decimals"}, "pes": 20},
+                    {"nom": {"es":"Probabilidad","ca":"Probabilitat","en":"Probability"}, "pes": 10},
+                    {"nom": {"es":"Proporcionalidad","ca":"Proporcionalitat","en":"Proportionality"}, "pes": 20},
+                    {"nom": {"es":"Global 1ª","ca":"Global 1a","en":"1st term comprehensive"}, "pes": 30, "global": True},
+                 ]},
+                {"num": "2", "until": {"es": "13 mar", "ca": "13 mar", "en": "13 Mar"}, "units_line": "U05–U08",
+                 "proves": [
+                    {"nom": {"es":"Gráficas de funciones","ca":"Gràfiques de funcions","en":"Function graphs"}, "pes": 15},
+                    {"nom": {"es":"Funciones y funciones elementales","ca":"Funcions i funcions elementals","en":"Functions and elementary functions"}, "pes": 25},
+                    {"nom": {"es":"Pitágoras y poliedros","ca":"Pitàgores i poliedres","en":"Pythagoras and polyhedra"}, "pes": 20},
+                    {"nom": {"es":"Proyecto Monumento 3.0","ca":"Projecte Monument 3.0","en":"Monument 3.0 project"}, "pes": 10},
+                    {"nom": {"es":"Global 2ª","ca":"Global 2a","en":"2nd term comprehensive"}, "pes": 30, "global": True},
+                 ]},
+                {"num": "3", "until": {"es": "5 jun", "ca": "5 jun", "en": "5 Jun"}, "units_line": "U09–U10",
+                 "proves": [
+                    {"nom": {"es":"Expresiones algebraicas (previo)","ca":"Expressions algebraiques (previ)","en":"Algebraic expressions (preview)"}, "pes": 20},
+                    {"nom": {"es":"Expresiones algebraicas","ca":"Expressions algebraiques","en":"Algebraic expressions"}, "pes": 25},
+                    {"nom": {"es":"Problemas de ecuaciones y sistemas","ca":"Problemes d'equacions i sistemes","en":"Equations and systems problems"}, "pes": 25},
+                    {"nom": {"es":"Global 3ª","ca":"Global 3a","en":"3rd term comprehensive"}, "pes": 30, "global": True},
+                 ]},
+            ],
+            "documents": [
+                {"href": "/assets/docs/2eso/temari-2526.pdf", "icon": "📘", "title_key": "doc_temari", "meta_key": "doc_temari_meta"},
+                {"href": "/assets/docs/2eso/calendari-2eso-e-2526.xlsx", "icon": "🗓️", "title_key": "doc_calendari", "meta_key": "doc_calendari_meta"},
+            ],
+        },
     ],
 }
 
@@ -198,38 +221,49 @@ SUBJ_1BTL = {
     "code": "ccss-1btl",
     "title": {"es": "Mat. Aplicadas CCSS 1º BTL", "ca": "Mat. Aplicades CCSS 1r BTL", "en": "Applied Math. Social Sciences 1st BTL"},
     "section_label": {"es": "Bachillerato", "ca": "Batxillerat", "en": "Bachillerato"},
-    "tag_year": "2025–26",
+    "tag_year": "2026–27",
     "is_ib": False,
     # Single group (no group letter), 3 weekly sessions
-    "schedule": [
-        {"name": {"es": "Grupo único", "ca": "Grup únic", "en": "Single group"},
-         "days": [(1, "10:00"), (2, "10:00"), (4, "13:20")]},  # Tue, Wed, Fri
-    ],
-    # Per criteris d'avaluació: 60% seguiment + 40% global (mín. 3,5).
-    # Material acumulativa: la 2a global inclou la 1a; la 3a global inclou tot el curs.
-    "aval": [
-        {"num": "1", "until": {"es": "28 nov", "ca": "28 nov", "en": "28 Nov"},
-         "units_line": "U01–U04 · Nombres reals, Polinomis, Equacions i sistemes, Inequacions",
-         "proves": [
-            {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60},
-            {"nom": {"es": "Global 1ª (mín. 3,5)", "ca": "Global 1a (mín. 3,5)", "en": "1st comprehensive (min. 3.5)"}, "pes": 40, "global": True},
-         ]},
-        {"num": "2", "until": {"es": "27 feb", "ca": "27 feb", "en": "27 Feb"},
-         "units_line": "U05–U07 · Funcions reals, Estudi i representació de funcions, Introducció a la derivada",
-         "proves": [
-            {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60},
-            {"nom": {"es": "Global 2ª (mín. 3,5 · acumulativa)", "ca": "Global 2a (mín. 3,5 · acumulativa)", "en": "2nd comprehensive (min. 3.5 · cumulative)"}, "pes": 40, "global": True},
-         ]},
-        {"num": "3", "until": {"es": "5 jun", "ca": "5 jun", "en": "5 Jun"},
-         "units_line": "U08–U10 · Estadística, Probabilitat, Distribució de probabilitat",
-         "proves": [
-            {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60,},
-            {"nom": {"es": "Global 3ª (mín. 3,5 · todo el curso)", "ca": "Global 3a (mín. 3,5 · tot el curs)", "en": "3rd comprehensive (min. 3.5 · whole course)"}, "pes": 40, "global": True},
-         ]},
-    ],
-    # Documents and "Material necesario" are hand-edited in the rendered HTML
-    # (richer than the generator schema supports — see /docencia/ccss-1btl/info/).
+    # El horario y los criterios del curso 2026–27 todavía no están publicados.
+    "schedule": [],
+    "aval": [],
     "documents": None,
+    # Cursos anteriores: se sirven en /docencia/<code>/<slug>/info/.
+    "archived_years": [
+        {
+            "year": "2025–26",
+            "slug": "2025-2026",
+            "schedule": [
+                {"name": {"es": "Grupo único", "ca": "Grup únic", "en": "Single group"},
+                 "days": [(1, "10:00"), (2, "10:00"), (4, "13:20")]},  # Tue, Wed, Fri
+            ],
+            # Per criteris d'avaluació: 60% seguiment + 40% global (mín. 3,5).
+            # Material acumulativa: la 2a global inclou la 1a; la 3a global inclou tot el curs.
+            "aval": [
+                {"num": "1", "until": {"es": "28 nov", "ca": "28 nov", "en": "28 Nov"},
+                 "units_line": "U01–U04 · Nombres reals, Polinomis, Equacions i sistemes, Inequacions",
+                 "proves": [
+                    {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60},
+                    {"nom": {"es": "Global 1ª (mín. 3,5)", "ca": "Global 1a (mín. 3,5)", "en": "1st comprehensive (min. 3.5)"}, "pes": 40, "global": True},
+                 ]},
+                {"num": "2", "until": {"es": "27 feb", "ca": "27 feb", "en": "27 Feb"},
+                 "units_line": "U05–U07 · Funcions reals, Estudi i representació de funcions, Introducció a la derivada",
+                 "proves": [
+                    {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60},
+                    {"nom": {"es": "Global 2ª (mín. 3,5 · acumulativa)", "ca": "Global 2a (mín. 3,5 · acumulativa)", "en": "2nd comprehensive (min. 3.5 · cumulative)"}, "pes": 40, "global": True},
+                 ]},
+                {"num": "3", "until": {"es": "5 jun", "ca": "5 jun", "en": "5 Jun"},
+                 "units_line": "U08–U10 · Estadística, Probabilitat, Distribució de probabilitat",
+                 "proves": [
+                    {"nom": {"es": "Pruebas de seguimiento (≥ 2)", "ca": "Proves de seguiment (≥ 2)", "en": "Progress assessments (≥ 2)"}, "pes": 60,},
+                    {"nom": {"es": "Global 3ª (mín. 3,5 · todo el curso)", "ca": "Global 3a (mín. 3,5 · tot el curs)", "en": "3rd comprehensive (min. 3.5 · whole course)"}, "pes": 40, "global": True},
+                 ]},
+            ],
+            # Documents and "Material necesario" are hand-edited in the rendered HTML
+            # (richer than the generator schema supports — see /docencia/ccss-1btl/info/).
+            "documents": None,
+        },
+    ],
 }
 
 SUBJ_IB_2426 = {
@@ -436,6 +470,18 @@ def render_info_page(s, lang):
         # Replace the placeholder for "May" / "Mai" / "May" word
         exam_word = {"es": "mayo", "ca": "maig", "en": "May"}[lang]
         blocks = render_ib_blocks(s, L).replace("{exam_word}", exam_word)
+    elif not s["aval"] and not s["schedule"]:
+        # Curso vivo sin datos todavía: una sola tarjeta, con salida al año anterior.
+        prev = (s.get("archived_years") or [{}])[0]
+        prev_link = ""
+        if prev.get("slug"):
+            href = f'{lang_prefix(lang)}/docencia/{s["code"]}/{prev["slug"]}/info/'
+            prev_link = (f'\n      <p style="margin-top:0.9rem"><a href="{href}" '
+                         f'style="font-size:0.9rem">{L["info_prev_year"]}</a></p>')
+        blocks = f"""    <div class="info-block">
+      <h3>🗓️ {L['info_pending_h']}</h3>
+      <p class="empty-line">{L['info_pending_p']}</p>{prev_link}
+    </div>"""
     else:
         blocks = "\n\n".join([
             render_horari_block(s, L, lang),
@@ -554,8 +600,29 @@ function toggleTheme(){{var h=document.documentElement,n=h.getAttribute('data-th
 """
 
 
-def main():
+def all_renderables():
+    """Asignaturas vivas + una variante por cada año archivado.
+
+    Igual que en build_active_subjects.py: el `code` compuesto
+    ("2eso/2025-2026") hace que todas las URLs caigan en su subcarpeta.
+    """
+    out = []
     for s in SUBJECTS:
+        out.append(s)
+        for a in s.get("archived_years", []):
+            v = dict(s)
+            v["code"] = f"{s['code']}/{a['slug']}"
+            v["tag_year"] = a["year"]
+            v["schedule"] = a["schedule"]
+            v["aval"] = a["aval"]
+            v["documents"] = a.get("documents")
+            v.pop("archived_years", None)
+            out.append(v)
+    return out
+
+
+def main():
+    for s in all_renderables():
         for lang in LANGS:
             if lang == "es":
                 out = REPO / "docencia" / s["code"] / "info" / "index.html"

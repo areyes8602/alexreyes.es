@@ -6,9 +6,10 @@
 <title>Mathematics 2n ESO — Àlex Reyes</title>
 <meta name="description" content="Groups A and E &middot; LOMLOE curriculum">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css?v=202606221623">
+<link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/en/docencia/2eso/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/docencia/2eso/">
@@ -38,7 +39,6 @@
 <meta name="twitter:description" content="Groups A and E &middot; LOMLOE curriculum">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"Mathematics 2n ESO","item":"https://alexreyes.es/en/docencia/2eso/"}]}</script>
-  <script defer src="/assets/js/curso-banner.js?v=202606221623"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -63,16 +63,16 @@
     <div class="breadcrumb"><a href="/en/">Home</a><span class="sep">/</span><a href="/en/docencia/">Teaching</a><span class="sep">/</span><span class="current">Mathematics 2n ESO</span></div>
 
     <details class="year-picker">
-      <summary>📅 Year 2025–26</summary>
+      <summary>📅 Year 2026–27</summary>
       <div class="year-menu">
-        <a href="/en/docencia/2eso/" class="active">2025–26 (current)</a>
-        <p class="year-empty">No archived years yet.</p>
+        <a href="/en/docencia/2eso/" class="active">2026–27 (current)</a>
+        <a href="/en/docencia/2eso/2025-2026/">2025–26 (archived)</a>
       </div>
     </details>
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">ESO</span>
-        <span class="tag tag-orange">2025–26</span>
+        <span class="tag tag-orange">2026–27</span>
       </div>
       <h1 style="margin:0.3rem 0 0.6rem">Mathematics 2n ESO</h1>
       <p style="font-size:0.98rem;color:var(--text-soft)">Groups A and E &middot; LOMLOE curriculum</p>
@@ -96,7 +96,7 @@
 
     <h2 style="font-size:1.1rem;margin:0 0 0.4rem">Teaching units</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Each unit contains the class notes, exercise sheets with solutions, and the exams from that unit.</p>
-    <div class="chapter-list" id="units-list"></div>
+    <div class="chapter-list" id="units-list"><p style="color:var(--text-faint);font-size:0.92rem;padding:0.75rem 0">This year's syllabus is not published yet. It will appear over the course of the year.</p></div>
 
     <section style="margin-top:3rem">
       <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
@@ -124,7 +124,7 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
-const UNITS = [{"num": "01", "slug": "fraccions", "title": "Nombres fraccionaris", "llibre": "U3", "inici": "9 set", "final": "1 oct", "trimestre": "1a", "apunts": "/aula/eso-2/apuntes/u-fraccions/", "desc": "Equivalent fractions, ordering, operations with fractions, decimals and powers."}, {"num": "02", "slug": "decimals", "title": "Nombres decimals", "llibre": "U4", "inici": "7 oct", "final": "17 oct", "trimestre": "1a", "desc": "Exact and periodic decimals, generating fraction, approximations."}, {"num": "03", "slug": "probabilitat", "title": "Probabilitat", "llibre": "U15", "inici": "21 oct", "final": "7 nov", "trimestre": "1a", "desc": "Random experiments, Laplace's rule and probability."}, {"num": "04", "slug": "proporcionalitat", "title": "Proporcionalitat", "llibre": "U5", "inici": "11 nov", "final": "28 nov", "trimestre": "1a", "desc": "Proportional magnitudes, rule of three and percentages."}, {"num": "05", "slug": "funcions", "title": "Funcions i funcions elementals", "llibre": "U8–U9", "inici": "5 des", "final": "23 gen", "trimestre": "2a", "desc": "Function concept, linear, affine, quadratic and inverse proportionality functions."}, {"num": "06", "slug": "pitagores", "title": "Pitàgores", "llibre": "U10", "inici": "27 gen", "final": "30 gen", "trimestre": "2a", "desc": "Pythagorean theorem and its applications."}, {"num": "07", "slug": "poliedres", "title": "Poliedres", "llibre": "U12", "inici": "3 feb", "final": "27 feb", "trimestre": "2a", "desc": "Prisms, pyramids, areas and volumes."}, {"num": "08", "slug": "cossos-revolucio", "title": "Cossos de revolució", "llibre": "U13", "inici": "3 mar", "final": "10 mar", "trimestre": "2a", "apunts": "/aula/eso-2/apuntes/u-cossos-revolucio/", "desc": "Cylinder, cone and sphere. Areas and volumes."}, {"num": "09", "slug": "algebra", "title": "Llenguatge algebraic", "llibre": "U6", "inici": "17 mar", "final": "28 abr", "trimestre": "3a", "desc": "Algebraic expressions, monomials and polynomials."}, {"num": "10", "slug": "equacions", "title": "Equacions i sistemes", "llibre": "U7", "inici": "29 abr", "final": "29 mai", "trimestre": "3a", "desc": "1st degree equations, 2×2 systems and problem solving."}];
+const UNITS = [];
 const MATERIA = "eso-2";
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "no_exams_unit": "No exams published for this unit yet.", "exams_unit_title": "Exams from this unit", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "section_card_apunts": "Notes", "section_card_fitxes": "Exercise list", "section_card_solucions": "Solutions", "unit_meta_book": "Book", "unit_meta_dates": "Dates", "unit_meta_trim": "term", "examens_count_one": "exam", "examens_count_many": "exams", "trimestre_tag": "term", "summary_exams_label": "Exams", "summary_fitxes_label": "Lists", "summary_apunts_label": "Notes", "summary_yes": "Yes", "summary_no": "No"};
@@ -223,6 +223,6 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     console.error('exams:', err);
   });
 </script>
-<script defer src="/assets/js/search.js?v=202606221623"></script>
+<script defer src="/assets/js/search.js"></script>
 </body>
 </html>

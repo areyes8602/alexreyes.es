@@ -67,6 +67,9 @@ trilingual_paths = [
     '/docencia/projectes-2eso/', '/docencia/tutoria-2eso/',
     # Subject info subpages (per asignatura)
     '/docencia/2eso/info/', '/docencia/ccss-1btl/info/',
+    # Cursos archivados de las asignaturas activas
+    '/docencia/2eso/2025-2026/', '/docencia/2eso/2025-2026/info/',
+    '/docencia/ccss-1btl/2025-2026/', '/docencia/ccss-1btl/2025-2026/info/',
     '/docencia/ib-ai/2024-2026/info/', '/docencia/ib-ai/2025-2027/info/',
     # Cangur: hub de pruebas Copa y problemas por tema (trilingües)
     '/aula/cangur/copa/', '/aula/cangur/temes/',
