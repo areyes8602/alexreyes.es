@@ -311,8 +311,8 @@ python3 scripts/tutoria_orla_local.py Orla_2ESO_E.pdf --grup 2ESO-E --curs 2026-
 ```
 
 Genera un único `orla-2ESO-E.html` autocontenido —las fotos van incrustadas
-como data: URI— en un directorio **fuera del repositorio**; el script se
-niega a escribir dentro. Se abre con doble clic: orla del grupo, buscador y
+como data: URI— en `~/Tutoria` por defecto, o donde diga `--out`, siempre
+**fuera del repositorio**; el script se niega a escribir dentro. Se abre con doble clic: orla del grupo, buscador y
 una ficha por alumno con contacto y seguimiento editables.
 
 Las notas se guardan en el `localStorage` de ese navegador, con botones de

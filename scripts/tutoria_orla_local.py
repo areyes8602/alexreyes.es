@@ -16,8 +16,9 @@ Uso
     python3 scripts/tutoria_orla_local.py Orla_2ESO_E.pdf \\
         --grup 2ESO-E --curs 2026-27 [--out DIR]
 
-Genera DIR/orla-2ESO-E.html. Ábrelo en el navegador: verás la orla, y al
-pulsar en un alumno, su ficha con contacto y seguimiento editables.
+Sin --out escribe en ~/Tutoria (se crea si no existe). Genera ahí
+orla-2ESO-E.html: ábrelo en el navegador y verás la orla; al pulsar en un
+alumno, su ficha con contacto y seguimiento editables.
 
 Las notas se guardan en el almacenamiento local del navegador. Como eso
 puede perderse (borrar datos de navegación, otro equipo, otro navegador),
@@ -37,7 +38,6 @@ import html
 import json
 import re
 import sys
-import tempfile
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -391,7 +391,7 @@ def main():
     ap.add_argument("pdf", help="orla en PDF (no la copies dentro del repo)")
     ap.add_argument("--grup", default="2ESO-E")
     ap.add_argument("--curs", default="2026-27")
-    ap.add_argument("--out", help="directorio de salida (por defecto, un temporal)")
+    ap.add_argument("--out", help="directorio de salida (por defecto, ~/Tutoria)")
     ap.add_argument("--dry-run", action="store_true", help="solo listar, no escribir")
     args = ap.parse_args()
 
@@ -426,7 +426,9 @@ def main():
         return
 
     repo = Path(__file__).resolve().parent.parent
-    out = Path(args.out).resolve() if args.out else Path(tempfile.mkdtemp(prefix="tutoria-"))
+    # Por defecto, ~/Tutoria: es un fichero que se usa todo el curso, así que
+    # no puede vivir en un temporal que el sistema limpia.
+    out = Path(args.out).resolve() if args.out else (Path.home() / "Tutoria")
     if out == repo or repo in out.parents:
         sys.exit(f"El directorio de salida está dentro del repositorio ({out}).\n"
                  "Elige uno fuera: estos datos no deben acabar en git.")
@@ -444,8 +446,10 @@ def main():
 
     mida = dest.stat().st_size / 1024
     print(f"\nEscrito: {dest}  ({mida:.0f} KB)")
-    print("Ábrelo con doble clic. Las fotos van dentro del propio fichero,")
-    print("así que puedes moverlo o copiarlo y sigue funcionando.")
+    print("\nÁbrelo con doble clic. Las fotos van dentro del propio fichero, así que")
+    print("puedes moverlo o copiarlo y sigue funcionando, también sin conexión.")
+    print("\nLas notas se guardan en el navegador con que lo abras: usa siempre el")
+    print("mismo, y de vez en cuando pulsa «Exportar còpia» para tener un respaldo.")
     print("\nNo lo subas a la web, ni al correo, ni a ninguna nube.")
 
 
