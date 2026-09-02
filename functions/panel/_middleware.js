@@ -84,8 +84,9 @@ function setupPage() {
 <style>body{font-family:-apple-system,system-ui,sans-serif;max-width:560px;margin:60px auto;padding:0 20px;color:#1a1c23;line-height:1.5}
 code{background:#f3f0ff;padding:2px 6px;border-radius:6px}h1{font-size:20px}</style></head><body>
 <h1>Falta configurar el acceso</h1>
-<p>El panel está desplegado pero necesita sus credenciales. En el panel de Cloudflare Pages
-(proyecto <b>alexreyes.es</b> → Settings → Environment variables) añade:</p>
+<p>El panel está desplegado pero necesita sus credenciales. En Cloudflare Pages,
+proyecto <b>alexreyes-web</b> (el que sirve alexreyes.es; no lo confundas con
+<i>alexreyes-es</i>) → Settings → Environment variables, añade:</p>
 <ul>
 <li><code>PANEL_USER</code> — tu usuario</li>
 <li><code>PANEL_PASS</code> — tu contraseña</li>

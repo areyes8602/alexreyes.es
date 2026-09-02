@@ -91,7 +91,8 @@ function setupPage() {
 <style>body{font-family:-apple-system,system-ui,sans-serif;max-width:600px;margin:60px auto;padding:0 20px;color:#1a1c23;line-height:1.55}
 code{background:#ecfdf5;padding:2px 6px;border-radius:6px}h1{font-size:20px}</style></head><body>
 <h1>Falta configurar el acceso a Tutoría</h1>
-<p>En Cloudflare Pages (proyecto <b>alexreyes.es</b> → Settings → Environment variables) añade:</p>
+<p>En Cloudflare Pages, proyecto <b>alexreyes-web</b> (el que sirve alexreyes.es;
+no lo confundas con <i>alexreyes-es</i>) → Settings → Environment variables:</p>
 <ul>
 <li><code>TUTORIA_USER</code> — usuario</li>
 <li><code>TUTORIA_PASS</code> — contraseña <b>larga y aleatoria</b>, de gestor de
@@ -100,7 +101,7 @@ de internet: no reutilices ninguna que tengas en otro sitio.</li>
 <li><code>TUTORIA_SECRET</code> — otra cadena larga y aleatoria, distinta de la
 anterior (firma la cookie de sesión; cambiarla cierra todas las sesiones)</li>
 </ul>
-<p>Y en Settings → Functions → Bindings:</p>
+<p>Y en el mismo proyecto, Settings → Functions → Bindings:</p>
 <ul>
 <li><code>TUTORIA_DB</code> — base de datos D1 con las fichas</li>
 <li><code>TUTORIA_FOTOS</code> — bucket R2 con las fotos</li>
