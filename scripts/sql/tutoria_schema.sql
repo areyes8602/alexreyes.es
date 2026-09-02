@@ -40,6 +40,15 @@ CREATE TABLE IF NOT EXISTS tutoria_alumnes (
   suport          TEXT,          -- PI, adaptaciones, refuerzos
   repetidor       INTEGER DEFAULT 0,
 
+  -- ── Traspàs del tutor anterior ──
+  tutor_anterior TEXT,           -- quién la tuvo el curso pasado
+  traspas        TEXT,           -- lo que te contó en el traspaso
+  derivacio      TEXT,           -- EAP, CSMIJ, serveis socials, privat…
+  derivacio_nota TEXT,
+  pi_contingut   INTEGER DEFAULT 0,   -- pla individualitzat de continguts
+  pi_metodologic INTEGER DEFAULT 0,   -- adaptació metodològica
+  acollida       INTEGER DEFAULT 0,   -- aula d'acollida
+
   -- ── Seguimiento de tutoría ──
   contacte     TEXT,             -- teléfono/correo de contacto rápido
   notes        TEXT,             -- observaciones libres

@@ -22,6 +22,38 @@
     border:1px solid currentColor; }
   .chip-r { color:#b45309; } .chip-p { color:#dc2626; } .chip-n { color:var(--text-faint); }
 
+  /* Pestañas */
+  .pestanyes { display:flex; gap:.15rem; flex-wrap:wrap; border-bottom:1px solid var(--border);
+    margin-bottom:1.8rem; }
+  .pestanyes button { padding:.55rem .9rem; border:0; background:none; color:var(--text-soft);
+    font:inherit; font-size:.9rem; cursor:pointer; border-bottom:2px solid transparent;
+    margin-bottom:-1px; display:flex; align-items:center; gap:.4rem; }
+  .pestanyes button:hover { color:var(--text); }
+  .pestanyes button[aria-selected="true"] { color:#0f766e; border-bottom-color:#0f766e;
+    font-weight:600; }
+  .pestanyes .avis-punt { width:6px; height:6px; border-radius:50%; background:#b45309; }
+  .sec[hidden] { display:none; }
+
+  /* Resumen de notas del traspaso */
+  .resum { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1rem;
+    padding:1rem; border:1px solid var(--border); border-radius:var(--radius);
+    background:var(--bg-subtle); margin-bottom:1.2rem; }
+  .resum-dada { }
+  .resum-dada .et { display:block; font-size:.68rem; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--text-faint); margin-bottom:.15rem; }
+  .resum-dada .vl { font-family:var(--mono); font-size:1.35rem; font-weight:600; }
+  .suspeses { grid-column:1/-1; font-size:.88rem; color:var(--text-soft); }
+  .suspeses strong { color:#dc2626; }
+
+  /* Casillas */
+  .casella { display:flex; align-items:flex-start; gap:.6rem; padding:.6rem .75rem;
+    border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--bg); }
+  .casella input { width:1.1rem; height:1.1rem; margin:.15rem 0 0; accent-color:#0f766e;
+    flex:none; cursor:pointer; }
+  .casella div { min-width:0; }
+  .casella b { display:block; font-size:.92rem; font-weight:600; }
+  .casella span { font-size:.8rem; color:var(--text-faint); line-height:1.4; }
+
   .sec { margin-bottom:2.4rem; }
   .sec > h2 { font-size:1.05rem; margin:0 0 .3rem; display:flex; align-items:baseline; gap:.5rem; }
   .sec > h2 .lb { font-size:.7rem; font-family:var(--mono); color:var(--text-faint);
@@ -141,6 +173,39 @@ function taulaNotes(a) {
     </div>`;
 }
 
+// Resumen corto del curso anterior, para leerlo de un vistazo al hacer
+// el traspaso sin tener que ir a la tabla completa.
+function resumNotes(a) {
+  const t = parseJSON(a.notes_anteriors, null);
+  if (!Array.isArray(t) || !t.length) {
+    return `<p class="ajut">Sense notes del curs anterior.${
+      a.marca ? " És normal en un alumne repetidor: no estava en aquest nivell." : ""}</p>`;
+  }
+  const finals = t.map(e => ({ nom: e.nom, n: e.t["0"] ?? e.t["3"] }))
+                  .filter(x => x.n != null);
+  const mitj = finals.length
+    ? finals.reduce((s, x) => s + x.n, 0) / finals.length : null;
+  const susp = finals.filter(x => x.n < 5);
+  return `<div class="resum">
+    <div class="resum-dada"><span class="et">Mitjana</span>
+      <span class="vl ${classeNota(mitj)}">${mitj == null ? "—" : mitj.toFixed(2)}</span></div>
+    <div class="resum-dada"><span class="et">Suspeses</span>
+      <span class="vl ${susp.length ? "n-sus" : "n-exc"}">${susp.length}</span></div>
+    <div class="resum-dada"><span class="et">Pendents</span>
+      <span class="vl">${a.pendents ?? "—"}</span></div>
+    <div class="resum-dada"><span class="et">Grup</span>
+      <span class="vl" style="font-size:1.05rem">${esc(a.curs_anterior || "—")}</span></div>
+    ${susp.length ? `<p class="suspeses">Va suspendre: ${
+      susp.map(x => `<strong>${esc(x.nom)}</strong> (${x.n})`).join(", ")}.</p>` : ""}
+  </div>`;
+}
+
+const casella = (k, et, ajuda, marcat) => `
+  <label class="casella">
+    <input type="checkbox" id="f-${k}" data-bandera="${k}"${marcat ? " checked" : ""}>
+    <div><b>${et}</b><span>${ajuda}</span></div>
+  </label>`;
+
 // ── Listas dinámicas ────────────────────────────────────────────
 const PLANTILLES = {
   familia: { titol: "Familiar", camps: [
@@ -211,61 +276,87 @@ function pinta(a, veins) {
     </div>
   </div>
 
-  <section class="sec">
-    <h2><span class="lb">01</span> Dades personals</h2>
-    <p class="ajut">El que necessites tenir a mà per contactar o per conèixer-lo.</p>
+  <div class="pestanyes" role="tablist">
+    <button role="tab" data-sec="traspas" aria-selected="true">Traspàs${
+      (a.derivacio && a.derivacio !== "cap") || a.pi_contingut || a.pi_metodologic || a.acollida
+        ? '<span class="avis-punt" title="Té mesures"></span>' : ""}</button>
+    <button role="tab" data-sec="academic" aria-selected="false">Acadèmic</button>
+    <button role="tab" data-sec="familia" aria-selected="false">Família</button>
+    <button role="tab" data-sec="seguiment" aria-selected="false">Seguiment</button>
+    <button role="tab" data-sec="personal" aria-selected="false">Personal</button>
+  </div>
+
+  <section class="sec" data-sec="traspas">
+    <h2>Traspàs del curs anterior</h2>
+    <p class="ajut">Qui la va tenir, com va acabar el curs i tot el que et va explicar.
+      És el primer que vols mirar al setembre.</p>
+    ${resumNotes(a)}
+    <div class="graella">
+      ${camp("tutor_anterior", "Tutor/a del curs anterior", "text", a.tutor_anterior, true)}
+      ${camp("traspas", "Què em va dir el tutor/a anterior", "area", a.traspas, true)}
+    </div>
+
+    <h3 style="font-size:.95rem;margin:1.8rem 0 .3rem">Mesures i suports</h3>
+    <p class="ajut">Marca el que tingui reconegut. Val la pena tenir-ho clar abans de la
+      primera avaluació.</p>
+    <div class="graella">
+      ${casella("pi_contingut", "PI de contingut",
+        "Pla individualitzat amb objectius i continguts adaptats", a.pi_contingut)}
+      ${casella("pi_metodologic", "PI metodològic",
+        "Mateixos continguts, adaptacions en com s'avalua i es treballa", a.pi_metodologic)}
+      ${casella("acollida", "Aula d'Acollida",
+        "Suport lingüístic per a alumnat nouvingut", a.acollida)}
+    </div>
+    <div class="graella" style="margin-top:1rem">
+      <div class="camp"><label for="f-derivacio">Derivació</label>
+        <select id="f-derivacio" data-camp="derivacio">
+          ${["", "Cap", "EAP", "CSMIJ", "Serveis Socials", "Extern privat", "Altres"]
+            .map(v => `<option value="${esc(v)}"${(a.derivacio || "") === v ? " selected" : ""}>${
+              v || "Sense dada"}</option>`).join("")}
+        </select></div>
+      ${camp("derivacio_nota", "Detall de la derivació", "text", a.derivacio_nota)}
+      ${camp("suport", "Altres suports i reforços", "area", a.suport, true)}
+    </div>
+  </section>
+
+  <section class="sec" data-sec="academic" hidden>
+    <h2>Notes del curs anterior</h2>
+    <p class="ajut">Les tres avaluacions i l'ordinària, tal com van sortir de la junta.
+      Matemàtiques va destacada. No s'edita: ve dels butlletins del centre.</p>
+    ${taulaNotes(a)}
+  </section>
+
+  <section class="sec" data-sec="familia" hidden>
+    <h2>Família</h2>
+    <p class="ajut">Qui atén les trucades i qui pot recollir-la.</p>
+    <div id="l-familia">${pintaLlista("familia")}</div>
+    <div class="graella" style="margin-top:1rem">
+      ${camp("contacte", "Contacte ràpid", "text", a.contacte, true)}
+      ${camp("recull", "Qui la pot recollir · autoritzacions", "area", a.recull, true)}
+    </div>
+  </section>
+
+  <section class="sec" data-sec="seguiment" hidden>
+    <h2>Seguiment</h2>
+    <p class="ajut">Entrevistes, incidències i el que vagi passant durant el curs.</p>
+    <h3 style="font-size:.95rem;margin:1.4rem 0 .6rem">Entrevistes</h3>
+    <div id="l-entrevistes">${pintaLlista("entrevistes")}</div>
+    <h3 style="font-size:.95rem;margin:1.8rem 0 .6rem">Incidències</h3>
+    <div id="l-incidencies">${pintaLlista("incidencies")}</div>
+    <div class="graella" style="margin-top:1.6rem">
+      ${camp("acords", "Compromisos vigents", "area", a.acords, true)}
+      ${camp("notes", "Observacions", "area", a.notes, true)}
+    </div>
+  </section>
+
+  <section class="sec" data-sec="personal" hidden>
+    <h2>Dades personals</h2>
     <div class="graella">
       ${camp("naixement", "Data de naixement", "date", a.naixement)}
       ${camp("idioma", "Llengua familiar", "text", a.idioma)}
       ${camp("telefon", "Telèfon de l'alumne", "tel", a.telefon)}
       ${camp("email", "Correu de l'alumne", "email", a.email)}
       ${camp("adreca", "Adreça", "text", a.adreca, true)}
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2><span class="lb">02</span> Família</h2>
-    <p class="ajut">Qui atén les trucades i qui pot recollir-lo.</p>
-    <div id="l-familia">${pintaLlista("familia")}</div>
-    <div class="graella" style="margin-top:1rem">
-      ${camp("recull", "Qui el pot recollir · autoritzacions", "area", a.recull, true)}
-      ${camp("contacte", "Contacte ràpid", "text", a.contacte, true)}
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2><span class="lb">03</span> Acadèmic <span class="lb">curs anterior</span></h2>
-    <p class="ajut">Notes de les tres avaluacions i l'ordinària, tal com van sortir de la junta.
-      Matemàtiques va destacada. Aquest apartat no s'edita: ve dels butlletins del centre.</p>
-    ${taulaNotes(a)}
-    <div class="graella" style="margin-top:1.2rem">
-      ${camp("suport", "Suports, adaptacions i reforços", "area", a.suport, true)}
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2><span class="lb">04</span> Entrevistes</h2>
-    <p class="ajut">Cada reunió amb la família o amb l'alumne, amb el que es va acordar.</p>
-    <div id="l-entrevistes">${pintaLlista("entrevistes")}</div>
-  </section>
-
-  <section class="sec">
-    <h2><span class="lb">05</span> Incidències</h2>
-    <p class="ajut">Fets puntuals que convé tenir datats.</p>
-    <div id="l-incidencies">${pintaLlista("incidencies")}</div>
-  </section>
-
-  <section class="sec">
-    <h2><span class="lb">06</span> Seguiment</h2>
-    <div class="graella">
-      ${camp("acords", "Compromisos vigents", "area", a.acords, true)}
-      ${camp("notes", "Observacions", "area", a.notes, true)}
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2><span class="lb">07</span> Altres</h2>
-    <div class="graella">
       ${camp("extraescolars", "Extraescolars", "text", a.extraescolars)}
       ${camp("carrec", "Càrrec al grup", "text", a.carrec)}
       <div class="camp"><label for="f-imatge">Autorització d'imatge</label>
@@ -287,7 +378,23 @@ function pinta(a, veins) {
     </span>
   </div>`;
 
+  // La pestaña elegida se recuerda: al pasar de alumno con las flechas del
+  // pie sigues en la misma, que es como se revisa un grupo entero.
+  let sec = "traspas";
+  try { sec = localStorage.getItem("tutoria:sec") || "traspas"; } catch (e) {}
+  function mostra(quina) {
+    if (!cos.querySelector(`section[data-sec="${quina}"]`)) quina = "traspas";
+    sec = quina;
+    try { localStorage.setItem("tutoria:sec", sec); } catch (e) {}
+    cos.querySelectorAll("section[data-sec]").forEach(x => { x.hidden = x.dataset.sec !== sec; });
+    cos.querySelectorAll('.pestanyes button').forEach(b =>
+      b.setAttribute("aria-selected", String(b.dataset.sec === sec)));
+  }
+  mostra(sec);
+
   cos.addEventListener("click", e => {
+    const pest = e.target.closest(".pestanyes button");
+    if (pest) { mostra(pest.dataset.sec); return; }
     const add = e.target.closest("[data-afegeix]");
     if (add) {
       const clau = add.dataset.afegeix;
@@ -328,6 +435,9 @@ async function desa() {
   const dades = { id };
   document.querySelectorAll("[data-camp]").forEach(el => { dades[el.dataset.camp] = el.value; });
   for (const clau of Object.keys(PLANTILLES)) dades[clau] = parseJSON(ALUMNE[clau], []) || [];
+  document.querySelectorAll("[data-bandera]").forEach(el => {
+    dades[el.dataset.bandera] = el.checked;
+  });
   const im = document.getElementById("f-imatge").value;
   dades.imatge_ok = im === "" ? null : im === "1";
 
@@ -336,7 +446,15 @@ async function desa() {
       method: "POST", headers: { "content-type": "application/json" },
       body: JSON.stringify(dades),
     });
-    if (!r.ok) throw new Error(r.status === 401 ? "Sessió caducada" : "Error " + r.status);
+    if (!r.ok) {
+      let detall = "";
+      try { detall = (await r.json()).detall || ""; } catch (e) {}
+      if (r.status === 401) throw new Error("Sessió caducada");
+      // Falta la migració del traspàs: dir-ho, en lloc d'un "Error 500".
+      throw new Error(/no such column/i.test(detall)
+        ? "Falta migrar la base: executa scripts/sql/tutoria_traspas.sql"
+        : detall || "Error " + r.status);
+    }
     est.className = "estat ok"; est.textContent = "Desat";
   } catch (e) {
     est.className = "estat err"; est.textContent = e.message;
