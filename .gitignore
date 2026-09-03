@@ -64,5 +64,10 @@ orla*.pdf
 orla-*.html
 fitxes-*.json
 tutoria-*/
+# …pero /docencia/tutoria-*/ es la parte pública de la tutoría (horario
+# del grupo, presentación): HTML generado, sin ningún dato de alumnos.
+!docencia/tutoria-*/
+!ca/docencia/tutoria-*/
+!en/docencia/tutoria-*/
 alumnes.sql
 **/fotos-alumnes/

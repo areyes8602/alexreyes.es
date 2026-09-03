@@ -111,7 +111,8 @@ SUBJECTS = [
     },
     {
         "code": "projectes-2eso",
-        "schedule": [(4, "16:30–17:30")],
+        # Bloque doble de viernes tarde: 15:30–17:30 seguidas.
+        "schedule": [(4, "15:30–16:30"), (4, "16:30–17:30")],
         "grup": "2n ESO E",
         "block": "ESO",
         "title": {"es": "Projectes 2n ESO", "ca": "Projectes 2n ESO", "en": "Projects 2nd ESO"},
@@ -126,6 +127,7 @@ SUBJECTS = [
     {
         "code": "tutoria-2eso",
         "privat_url": "/tutoria/",
+        "horari_url": "horari/",
         "schedule": [(3, "9:00–10:00")],
         "grup": "2n ESO E",
         "block": "ESO",
@@ -145,6 +147,7 @@ LANGS = ["es", "ca", "en"]
 LABELS = {
     "es": {
         "html_lang": "es",
+        "skip": "Saltar al contenido",
         "home": "Inicio", "docencia": "Docencia",
         "doctorado_nav": "Doctorado", "notas_nav": "Notas", "cv_nav": "CV", "contacto_nav": "Contacto",
         "lang_label": "ES",
@@ -169,11 +172,13 @@ LABELS = {
         "horari_help": "Sesiones semanales del curso 2026\u201327.",
         "grup_label": "Grupo",
         "privat_h": "Área privada",
+        "horari_classe_h": "Horario de clase",
         "hores_label": "Horas/semana",
         "footer_brand": "Matemáticas, docencia y doctorado",
     },
     "ca": {
         "html_lang": "ca",
+        "skip": "Salta al contingut",
         "home": "Inici", "docencia": "Docència",
         "doctorado_nav": "Doctorat", "notas_nav": "Notes", "cv_nav": "CV", "contacto_nav": "Contacte",
         "lang_label": "CA",
@@ -198,11 +203,13 @@ LABELS = {
         "horari_help": "Sessions setmanals del curs 2026\u201327.",
         "grup_label": "Grup",
         "privat_h": "\u00c0rea privada",
+        "horari_classe_h": "Horari de classe",
         "hores_label": "Hores/setmana",
         "footer_brand": "Matemàtiques, docència i doctorat",
     },
     "en": {
         "html_lang": "en",
+        "skip": "Skip to content",
         "home": "Home", "docencia": "Teaching",
         "doctorado_nav": "PhD", "notas_nav": "Notes", "cv_nav": "CV", "contacto_nav": "Contact",
         "lang_label": "EN",
@@ -227,6 +234,7 @@ LABELS = {
         "horari_help": "Weekly sessions for the 2026\u201327 academic year.",
         "grup_label": "Group",
         "privat_h": "Private area",
+        "horari_classe_h": "Class timetable",
         "hores_label": "Hours/week",
         "footer_brand": "Mathematics, teaching and research",
     },
@@ -259,6 +267,34 @@ def nav_path(lang, page):
     return f"{pre}/{page}/"
 
 
+def merge_slots(schedule):
+    """Franjas contiguas del mismo día como un solo bloque.
+
+    Projectes son dos sesiones seguidas el viernes: se muestran como
+    "15:30–17:30", no como dos filas. El recuento de horas/semana sigue
+    usando la lista sin fusionar.
+    """
+    per_day = {}
+    for di, hora in schedule:
+        ini, fi = hora.split("\u2013")
+        per_day.setdefault(di, []).append((ini.strip(), fi.strip()))
+    out = []
+    for di in sorted(per_day):
+        blocs = []
+        for ini, fi in sorted(per_day[di], key=lambda t: _minuts(t[0])):
+            if blocs and blocs[-1][1] == ini:
+                blocs[-1] = (blocs[-1][0], fi)
+            else:
+                blocs.append((ini, fi))
+        out.extend((di, f"{a}\u2013{b}") for a, b in blocs)
+    return out
+
+
+def _minuts(hhmm):
+    h, m = hhmm.split(":")
+    return int(h) * 60 + int(m)
+
+
 def render_landing(s, lang):
     L = LABELS[lang]
     code = s["code"]
@@ -282,17 +318,26 @@ def render_landing(s, lang):
     # Sin botón, el título va suelto como en el resto de asignaturas; con él,
     # comparten fila y se apilan en pantallas estrechas.
     titol_html = f'<h1 style="margin:0.3rem 0 0.6rem">{h1}</h1>'
-    privat_btn = ""
+    botons = []
+    if s.get("horari_url"):
+        botons.append(
+            f'<a href="{s["horari_url"]}" class="btn btn-secondary" '
+            f'style="flex:none;text-decoration:none">'
+            f'<span aria-hidden="true">🗓️</span>{L["horari_classe_h"]}</a>'
+        )
     if s.get("privat_url"):
-        privat_btn = (
+        botons.append(
             f'<a href="{s["privat_url"]}" class="btn btn-secondary" rel="nofollow" '
             f'style="flex:none;text-decoration:none">'
             f'<span aria-hidden="true">🔒</span>{L["privat_h"]}</a>'
         )
+    if botons:
+        botons_html = ('<div style="display:flex;align-items:center;gap:0.6rem;'
+                       'flex-wrap:wrap">' + "".join(botons) + '</div>')
         titol_html = (
             '<div style="display:flex;align-items:center;justify-content:space-between;'
             'gap:1rem;flex-wrap:wrap;margin:0.3rem 0 0.6rem">'
-            f'<h1 style="margin:0">{h1}</h1>{privat_btn}</div>'
+            f'<h1 style="margin:0">{h1}</h1>{botons_html}</div>'
         )
 
     horari_html = ""
@@ -303,7 +348,7 @@ def render_landing(s, lang):
         rows = "".join(
             f'<div class="schedule-day"><span>{L["days"][di]}</span>'
             f'<strong>{hora}</strong></div>'
-            for di, hora in s["schedule"]
+            for di, hora in merge_slots(s["schedule"])
         )
         horari_html = (
             f'\n    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L["horari_h2"]}</h2>'
@@ -387,6 +432,7 @@ def render_landing(s, lang):
 <script defer src="/assets/js/curso-banner.js{v}"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">{L['skip']}</a>
 <nav>
   <div class="nav-inner">
     {nav_brand}
@@ -402,7 +448,7 @@ def render_landing(s, lang):
   </div>
 </nav>
 
-<main>
+<main id="main">
   <div class="container" style="padding-top:3rem;padding-bottom:5rem">
 
     <div class="breadcrumb">{breadcrumb}</div>
