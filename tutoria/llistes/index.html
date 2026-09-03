@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Llistes de control · Tutoria</title>
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
+    flex-wrap:wrap; margin-bottom:1.5rem; }
+  .llista-card { display:block; padding:1rem 1.1rem; border:1px solid var(--border);
+    border-radius:var(--radius); background:var(--bg-subtle); text-decoration:none;
+    color:inherit; margin-bottom:.7rem; transition:border-color .15s; }
+  .llista-card:hover { border-color:#0f766e; }
+  .llista-card h3 { margin:0 0 .2rem; font-size:1rem; }
+  .llista-card p { margin:0; font-size:.85rem; color:var(--text-soft); }
+  .barra { height:5px; border-radius:99px; background:var(--border); margin-top:.6rem;
+    overflow:hidden; }
+  .barra i { display:block; height:100%; background:#0f766e; }
+  .compte { font-family:var(--mono); font-size:.8rem; color:var(--text-faint); }
+
+  .nova { border:1px dashed var(--border); border-radius:var(--radius); padding:1rem 1.1rem; }
+  .nova input { width:100%; padding:.55rem .7rem; border:1px solid var(--border);
+    border-radius:var(--radius-sm); background:var(--bg); color:var(--text);
+    font:inherit; font-size:.93rem; margin-bottom:.6rem; }
+  .btn { padding:.55rem 1.1rem; border:0; border-radius:var(--radius-sm); cursor:pointer;
+    background:#0f766e; color:#fff; font:inherit; font-size:.9rem; font-weight:600; }
+  .btn:hover { background:#0b5d56; } .btn[disabled] { opacity:.5; cursor:default; }
+  .btn-suau { background:var(--bg-subtle); color:var(--text); border:1px solid var(--border); }
+  .btn-suau:hover { background:var(--bg-subtle); border-color:var(--text-faint); }
+
+  /* Rejilla de marcado */
+  table.marca { border-collapse:collapse; width:100%; font-size:.92rem; }
+  table.marca th { text-align:left; font-size:.68rem; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--text-faint); font-weight:600;
+    padding:.6rem .7rem; border-bottom:1px solid var(--border); background:var(--bg-subtle); }
+  table.marca td { padding:.45rem .7rem; border-bottom:1px solid var(--border); }
+  table.marca tr:last-child td { border-bottom:none; }
+  table.marca tr.fet { background:rgba(15,118,110,.05); }
+  table.marca input[type=checkbox] { width:1.15rem; height:1.15rem; accent-color:#0f766e;
+    cursor:pointer; }
+  table.marca input[type=text], table.marca input[type=date] { width:100%; padding:.3rem .5rem;
+    border:1px solid var(--border); border-radius:4px; background:var(--bg); color:var(--text);
+    font:inherit; font-size:.85rem; }
+  .num { text-align:right; font-variant-numeric:tabular-nums; color:var(--text-faint);
+    font-family:var(--mono); font-size:.8rem; }
+  .peu { position:sticky; bottom:0; background:var(--bg); border-top:1px solid var(--border);
+    padding:.9rem 0; display:flex; gap:.8rem; align-items:center; flex-wrap:wrap; margin-top:1rem; }
+  .estat { font-size:.85rem; color:var(--text-faint); }
+  .estat.ok { color:#059669; } .estat.err { color:#dc2626; }
+  .buit { padding:2rem; text-align:center; color:var(--text-faint);
+    border:1px dashed var(--border); border-radius:var(--radius); }
+</style>
+</head>
+<body>
+<main>
+  <div class="container" style="padding-top:2.5rem;padding-bottom:3rem;max-width:900px">
+    <div class="breadcrumb">
+      <a href="/tutoria/">Tutoria 2n ESO E</a><span class="sep">/</span>
+      <span class="current" id="bc">Llistes de control</span>
+    </div>
+    <div id="cos" style="margin-top:1.5rem">
+      <p style="color:var(--text-faint)">Carregant&hellip;</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const cos = document.getElementById("cos");
+const GRUP = "2ESO-E", CURS = "2026-27";
+let ALUMNES = [], LLISTA = null;
+
+const api = async (url, opcions) => {
+  const r = await fetch(url, { cache: "no-store", ...opcions });
+  if (!r.ok) {
+    let detall = "";
+    try { detall = (await r.json()).detall || ""; } catch (e) {}
+    throw Object.assign(new Error(detall || "Error " + r.status), { status: r.status });
+  }
+  return r.json();
+};
+
+// ── Índex ───────────────────────────────────────────────────────
+async function pintaIndex() {
+  document.getElementById("bc").textContent = "Llistes de control";
+  const { llistes } = await api("/tutoria/api/llistes?grup=" + GRUP);
+  const total = ALUMNES.length || 1;
+  cos.innerHTML = `
+    <div class="top">
+      <div><h1 style="margin:0 0 .2rem;font-size:1.5rem">Llistes de control</h1>
+        <p style="margin:0;color:var(--text-soft);font-size:.93rem">Entregues,
+          autoritzacions i tot el que calgui anar marcant.</p></div>
+      <a class="btn btn-suau" href="/tutoria/imprimir/" style="text-decoration:none">Imprimir llistats</a>
+    </div>
+    ${llistes.length ? llistes.map(l => `
+      <a class="llista-card" href="?id=${encodeURIComponent(l.id)}">
+        <h3>${esc(l.nom)}</h3>
+        ${l.descripcio ? `<p>${esc(l.descripcio)}</p>` : ""}
+        <div class="barra"><i style="width:${Math.round(l.fets / total * 100)}%"></i></div>
+        <span class="compte">${l.fets} de ${total}</span>
+      </a>`).join("")
+      : '<p class="buit">Encara no hi ha cap llista. Crea la primera aquí sota.</p>'}
+
+    <div class="nova" style="margin-top:1.5rem">
+      <h3 style="margin:0 0 .6rem;font-size:.95rem">Nova llista</h3>
+      <input id="n-nom" type="text" placeholder="Nom — p. ex. Normes de convivència signades">
+      <input id="n-desc" type="text" placeholder="Descripció (opcional)">
+      <button class="btn" id="n-crea">Crear</button>
+      <span class="estat" id="n-estat"></span>
+    </div>`;
+
+  document.getElementById("n-crea").onclick = async () => {
+    const nom = document.getElementById("n-nom").value.trim();
+    const est = document.getElementById("n-estat");
+    if (!nom) { est.className = "estat err"; est.textContent = "Posa-li un nom."; return; }
+    try {
+      const r = await api("/tutoria/api/llistes", {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ nom, descripcio: document.getElementById("n-desc").value,
+                               grup: GRUP, curs: CURS, dades: {} }),
+      });
+      location.search = "?id=" + encodeURIComponent(r.id);
+    } catch (e) { est.className = "estat err"; est.textContent = e.message; }
+  };
+}
+
+// ── Una llista ──────────────────────────────────────────────────
+async function pintaLlista(id) {
+  const { llista } = await api("/tutoria/api/llistes?id=" + encodeURIComponent(id));
+  LLISTA = llista;
+  let dades = {};
+  try { dades = JSON.parse(llista.dades || "{}"); } catch (e) {}
+  document.getElementById("bc").textContent = llista.nom;
+  document.title = llista.nom + " · Tutoria";
+
+  cos.innerHTML = `
+    <div class="top">
+      <div><h1 style="margin:0 0 .2rem;font-size:1.5rem">${esc(llista.nom)}</h1>
+        ${llista.descripcio ? `<p style="margin:0;color:var(--text-soft);font-size:.93rem">${
+          esc(llista.descripcio)}</p>` : ""}</div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <a class="btn btn-suau" href="/tutoria/imprimir/?llista=${encodeURIComponent(id)}"
+           style="text-decoration:none">Imprimir</a>
+        <a class="btn btn-suau" href="/tutoria/llistes/" style="text-decoration:none">Totes</a>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:.6rem;margin-bottom:1rem;flex-wrap:wrap;align-items:center">
+      <button class="btn btn-suau" id="tots">Marcar tots</button>
+      <button class="btn btn-suau" id="cap">Desmarcar tots</button>
+      <span class="compte" id="compte"></span>
+    </div>
+
+    <table class="marca"><thead><tr>
+      <th class="num">Nº</th><th>Alumne</th><th style="width:3rem">Fet</th>
+      <th style="width:9rem">Data</th><th>Observació</th>
+    </tr></thead><tbody>${ALUMNES.map(a => {
+      const d = dades[a.id] || {};
+      return `<tr data-id="${esc(a.id)}" class="${d.fet ? "fet" : ""}">
+        <td class="num">${a.num}</td>
+        <td><strong>${esc(a.cognoms)}</strong>, ${esc(a.nom)}</td>
+        <td><input type="checkbox" data-k="fet"${d.fet ? " checked" : ""}></td>
+        <td><input type="date" data-k="data" value="${esc(d.data || "")}"></td>
+        <td><input type="text" data-k="nota" value="${esc(d.nota || "")}"
+              placeholder="—"></td>
+      </tr>`;
+    }).join("")}</tbody></table>
+
+    <div class="peu">
+      <button class="btn" id="desa">Desar</button>
+      <span class="estat" id="estat">${llista.updated_at
+        ? "Desat: " + esc(String(llista.updated_at).slice(0, 16).replace("T", " ")) : ""}</span>
+      <button class="btn btn-suau" id="esborra" style="margin-left:auto">Esborrar llista</button>
+    </div>`;
+
+  const compte = () => {
+    const n = cos.querySelectorAll('input[data-k="fet"]:checked').length;
+    document.getElementById("compte").textContent = `${n} de ${ALUMNES.length}`;
+  };
+  compte();
+
+  cos.addEventListener("change", e => {
+    const c = e.target.closest('input[data-k="fet"]');
+    if (!c) return;
+    const fila = c.closest("tr");
+    fila.classList.toggle("fet", c.checked);
+    // Al marcar, posar la data d'avui si encara no n'hi ha cap: és el que
+    // vols el 90% de les vegades i estalvia el clic al calendari.
+    const data = fila.querySelector('input[data-k="data"]');
+    if (c.checked && !data.value) data.value = new Date().toISOString().slice(0, 10);
+    compte();
+  });
+
+  const totes = (valor) => {
+    cos.querySelectorAll('input[data-k="fet"]').forEach(c => {
+      if (c.checked !== valor) { c.checked = valor; c.dispatchEvent(new Event("change", { bubbles: true })); }
+    });
+  };
+  document.getElementById("tots").onclick = () => totes(true);
+  document.getElementById("cap").onclick = () => totes(false);
+  document.getElementById("desa").onclick = desa;
+  document.getElementById("esborra").onclick = async () => {
+    if (!confirm(`Esborrar la llista "${llista.nom}"? No es pot desfer.`)) return;
+    await api("/tutoria/api/llistes?esborra=" + encodeURIComponent(id), { method: "POST" });
+    location.search = "";
+  };
+}
+
+async function desa() {
+  const btn = document.getElementById("desa"), est = document.getElementById("estat");
+  btn.disabled = true; est.className = "estat"; est.textContent = "Desant…";
+  const dades = {};
+  cos.querySelectorAll("tr[data-id]").forEach(fila => {
+    const fet = fila.querySelector('input[data-k="fet"]').checked;
+    const data = fila.querySelector('input[data-k="data"]').value;
+    const nota = fila.querySelector('input[data-k="nota"]').value;
+    // Només guardem qui té alguna cosa: una llista buida no ha d'ocupar 25 files.
+    if (fet || data || nota) dades[fila.dataset.id] = { fet: fet ? 1 : 0, data, nota };
+  });
+  try {
+    await api("/tutoria/api/llistes", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: LLISTA.id, nom: LLISTA.nom, descripcio: LLISTA.descripcio,
+                             grup: GRUP, curs: CURS, dades }),
+    });
+    est.className = "estat ok"; est.textContent = "Desat";
+  } catch (e) { est.className = "estat err"; est.textContent = e.message; }
+  finally { btn.disabled = false; }
+}
+
+// ── Arrencada ───────────────────────────────────────────────────
+(async () => {
+  try {
+    const d = await api("/tutoria/api/alumnes?grup=" + GRUP);
+    ALUMNES = d.alumnes || [];
+    const id = new URLSearchParams(location.search).get("id");
+    if (id) await pintaLlista(id); else await pintaIndex();
+  } catch (e) {
+    cos.innerHTML = `<p class="buit">${e.status === 401
+      ? 'La sessió ha caducat. <a href="/tutoria/">Torna a entrar</a>.'
+      : esc(e.message || "No s'han pogut carregar les dades.")}</p>`;
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Imprimir llistat · Tutoria</title>
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .opcions { border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem;
+    background:var(--bg-subtle); margin-bottom:2rem; }
+  .opcions h2 { margin:0 0 .8rem; font-size:.95rem; }
+  .fila { display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end; margin-bottom:.9rem; }
+  .op { flex:1; min-width:150px; }
+  .op label { display:block; font-size:.7rem; font-weight:600; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--text-soft); margin-bottom:.25rem; }
+  .op input, .op select { width:100%; padding:.45rem .6rem; border:1px solid var(--border);
+    border-radius:var(--radius-sm); background:var(--bg); color:var(--text);
+    font:inherit; font-size:.9rem; }
+  .marca-op { display:flex; align-items:center; gap:.45rem; font-size:.9rem; cursor:pointer; }
+  .marca-op input { width:1.05rem; height:1.05rem; accent-color:#0f766e; }
+  .btn { padding:.6rem 1.3rem; border:0; border-radius:var(--radius-sm); cursor:pointer;
+    background:#0f766e; color:#fff; font:inherit; font-size:.93rem; font-weight:600; }
+  .btn:hover { background:#0b5d56; }
+  .ajut { font-size:.85rem; color:var(--text-faint); margin:.6rem 0 0; }
+
+  /* ── El full ── */
+  .full { border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem;
+    background:#fff; color:#111; }
+  .full h1 { font-size:1.15rem; margin:0 0 .2rem; color:#111; }
+  .full .sub { font-size:.85rem; color:#555; margin:0 0 1.2rem; }
+  table.llistat { border-collapse:collapse; width:100%; font-size:.88rem; }
+  table.llistat th, table.llistat td { border:1px solid #999; padding:.32rem .5rem;
+    color:#111; }
+  table.llistat th { background:#eee; font-size:.72rem; text-transform:uppercase;
+    letter-spacing:.04em; font-weight:700; text-align:center; }
+  table.llistat th.esq, table.llistat td.esq { text-align:left; }
+  table.llistat td.n { text-align:right; width:2rem; font-variant-numeric:tabular-nums; }
+  table.llistat td.buida { height:1.55rem; }
+  table.llistat img { width:26px; height:34px; object-fit:cover; display:block; }
+  .marca-si { text-align:center; font-weight:700; }
+
+  @media print {
+    nav, .breadcrumb, .opcions, .no-print { display:none !important; }
+    body { background:#fff; }
+    .full { border:0; padding:0; border-radius:0; }
+    .container { max-width:none; padding:0 !important; }
+    table.llistat { font-size:.82rem; }
+    tr { break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="container" style="padding-top:2.5rem;padding-bottom:3rem;max-width:900px">
+    <div class="breadcrumb">
+      <a href="/tutoria/">Tutoria 2n ESO E</a><span class="sep">/</span>
+      <span class="current">Imprimir llistat</span>
+    </div>
+
+    <div class="opcions no-print" id="opcions">
+      <h2>Què vols imprimir</h2>
+      <div class="fila">
+        <div class="op"><label for="titol">Títol</label>
+          <input id="titol" type="text" value="2n ESO E"></div>
+        <div class="op"><label for="subtitol">Subtítol</label>
+          <input id="subtitol" type="text" placeholder="Sortida a…, control de…"></div>
+      </div>
+      <div class="fila">
+        <div class="op"><label for="cols">Columnes en blanc</label>
+          <input id="cols" type="number" min="0" max="12" value="4"></div>
+        <div class="op"><label for="capcalera">Capçalera de les columnes</label>
+          <input id="capcalera" type="text" placeholder="Ex: 1, 2, 3, 4  ·  o  Anada, Tornada"></div>
+        <div class="op"><label for="llista">Afegir una llista de control</label>
+          <select id="llista"><option value="">Cap</option></select></div>
+      </div>
+      <div class="fila">
+        <label class="marca-op"><input type="checkbox" id="fotos"> Amb fotos</label>
+        <label class="marca-op"><input type="checkbox" id="ratlles" checked> Files alternes</label>
+        <button class="btn" id="imprimir" style="margin-left:auto">Imprimir o desar en PDF</button>
+      </div>
+      <p class="ajut">S'obre el diàleg d'impressió del navegador. Per desar-ho en PDF,
+        tria <em>Destinació → Desa com a PDF</em> (a Mac, el botó <em>PDF</em> de baix a
+        l'esquerra).</p>
+    </div>
+
+    <div id="full" class="full"><p style="color:#666">Carregant…</p></div>
+  </div>
+</main>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const GRUP = "2ESO-E";
+let ALUMNES = [], DADES_LLISTA = null;
+
+function pinta() {
+  const titol = document.getElementById("titol").value;
+  const subtitol = document.getElementById("subtitol").value;
+  const nCols = Math.max(0, Math.min(12, Number(document.getElementById("cols").value) || 0));
+  const caps = document.getElementById("capcalera").value.split(",").map(s => s.trim());
+  const ambFotos = document.getElementById("fotos").checked;
+  const ratlles = document.getElementById("ratlles").checked;
+
+  const capsHTML = Array.from({ length: nCols }, (_, i) =>
+    `<th style="width:2.4rem">${esc(caps[i] || "")}</th>`).join("");
+
+  const files = ALUMNES.map((a, i) => {
+    const d = DADES_LLISTA ? (DADES_LLISTA[a.id] || {}) : null;
+    return `<tr${ratlles && i % 2 ? ' style="background:#f6f6f6"' : ""}>
+      <td class="n">${a.num}</td>
+      ${ambFotos ? `<td>${a.foto
+        ? `<img src="/tutoria/api/foto?id=${encodeURIComponent(a.id)}" alt="">`
+        : ""}</td>` : ""}
+      <td class="esq"><strong>${esc(a.cognoms)}</strong>, ${esc(a.nom)}</td>
+      ${DADES_LLISTA ? `<td class="marca-si">${d && d.fet ? "✓" : ""}</td>
+        <td style="font-size:.8rem">${esc((d && d.data) || "")}</td>` : ""}
+      ${Array.from({ length: nCols }, () => '<td class="buida"></td>').join("")}
+    </tr>`;
+  }).join("");
+
+  document.getElementById("full").innerHTML = `
+    <h1>${esc(titol)}</h1>
+    <p class="sub">${esc(subtitol) || "&nbsp;"} &nbsp;·&nbsp; ${ALUMNES.length} alumnes
+      &nbsp;·&nbsp; ${new Date().toLocaleDateString("ca-ES")}</p>
+    <table class="llistat"><thead><tr>
+      <th style="width:2rem">Nº</th>
+      ${ambFotos ? '<th style="width:2.4rem"></th>' : ""}
+      <th class="esq">Alumne</th>
+      ${DADES_LLISTA ? '<th style="width:2.4rem">Fet</th><th style="width:5.5rem">Data</th>' : ""}
+      ${capsHTML}
+    </tr></thead><tbody>${files}</tbody></table>`;
+}
+
+document.getElementById("opcions").addEventListener("input", pinta);
+document.getElementById("imprimir").onclick = () => window.print();
+
+document.getElementById("llista").addEventListener("change", async e => {
+  const id = e.target.value;
+  if (!id) { DADES_LLISTA = null; pinta(); return; }
+  const r = await fetch("/tutoria/api/llistes?id=" + encodeURIComponent(id), { cache: "no-store" });
+  if (!r.ok) { DADES_LLISTA = null; pinta(); return; }
+  const { llista } = await r.json();
+  try { DADES_LLISTA = JSON.parse(llista.dades || "{}"); } catch (err) { DADES_LLISTA = {}; }
+  if (!document.getElementById("subtitol").value) {
+    document.getElementById("subtitol").value = llista.nom;
+  }
+  pinta();
+});
+
+(async () => {
+  try {
+    const d = await (await fetch("/tutoria/api/alumnes?grup=" + GRUP, { cache: "no-store" })).json();
+    ALUMNES = d.alumnes || [];
+    const ll = await (await fetch("/tutoria/api/llistes?grup=" + GRUP, { cache: "no-store" })).json();
+    const sel = document.getElementById("llista");
+    (ll.llistes || []).forEach(l => {
+      const o = document.createElement("option");
+      o.value = l.id; o.textContent = l.nom;
+      sel.appendChild(o);
+    });
+    const prese = new URLSearchParams(location.search).get("llista");
+    if (prese) { sel.value = prese; sel.dispatchEvent(new Event("change")); } else pinta();
+  } catch (e) {
+    document.getElementById("full").innerHTML =
+      '<p style="color:#666">No s\'han pogut carregar les dades.</p>';
+  }
+})();
+</script>
+</body>
+</html>
