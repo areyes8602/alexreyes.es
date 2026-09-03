@@ -126,6 +126,11 @@ function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
 const UNITS = [];
 const MATERIA = "eso-3";
+// Curs d'aquesta pàgina, en el format de l'etiqueta del banc. Els exàmens
+// s'enganxen a la unitat pel seu NÚMERO, i els números canvien d'un curs a
+// l'altre: sense aquest filtre, un examen de la 09 de l'any passat sortiria
+// aquest any sota la unitat que ara porta el número 09, que és una altra.
+const CURS = "2026-2027";
 const MONTHS = ["gen", "feb", "mar\u00e7", "abr", "maig", "juny", "jul", "ag", "set", "oct", "nov", "des"];
 const LABELS_JS = {"exam_questions": "preguntes", "exam_question": "pregunta", "exam_points": "punts", "exam_btn_pdf": "PDF", "exam_btn_html": "Veure enunciats i correccions", "no_exams_unit": "No hi ha exàmens publicats d'aquesta unitat encara.", "exams_unit_title": "Exàmens d'aquesta unitat", "globals_empty": "Encara no hi ha exàmens globals publicats.", "globals_load_error": "No s'ha pogut carregar el llistat d'exàmens.", "section_card_apunts": "Apunts", "section_card_fitxes": "Llista d'exercicis", "section_card_solucions": "Solucions", "unit_meta_book": "Llibre", "unit_meta_dates": "Dates", "unit_meta_trim": "avaluació", "examens_count_one": "examen", "examens_count_many": "exàmens", "trimestre_tag": "avaluació", "summary_exams_label": "Exàmens", "summary_fitxes_label": "Llistat", "summary_apunts_label": "Apunts", "summary_yes": "Sí", "summary_no": "No"};
 
@@ -182,6 +187,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     for (const e of (idx.ejercicios || [])) {
       const c = e.coleccion || {};
       if (e.tags && e.tags.materia !== MATERIA) continue;
+      if (CURS && (!e.tags || e.tags.curso_academico !== CURS)) continue;
       // Només mostrem exàmens al hub: les pràctiques/exercicis de classe es llisten a /aula/<materia>/apuntes/
       if (c.tipo && c.tipo !== 'examen') continue;
       if (!cols.has(c.id)) cols.set(c.id, { col: c, ejs: [] });

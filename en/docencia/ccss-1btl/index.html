@@ -131,6 +131,11 @@ function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
 const UNITS = [];
 const MATERIA = "ccss-1btl";
+// Curs d'aquesta pàgina, en el format de l'etiqueta del banc. Els exàmens
+// s'enganxen a la unitat pel seu NÚMERO, i els números canvien d'un curs a
+// l'altre: sense aquest filtre, un examen de la 09 de l'any passat sortiria
+// aquest any sota la unitat que ara porta el número 09, que és una altra.
+const CURS = "2026-2027";
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "no_exams_unit": "No exams published for this unit yet.", "exams_unit_title": "Exams from this unit", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "section_card_apunts": "Notes", "section_card_fitxes": "Exercise list", "section_card_solucions": "Solutions", "unit_meta_book": "Book", "unit_meta_dates": "Dates", "unit_meta_trim": "term", "examens_count_one": "exam", "examens_count_many": "exams", "trimestre_tag": "term", "summary_exams_label": "Exams", "summary_fitxes_label": "Lists", "summary_apunts_label": "Notes", "summary_yes": "Yes", "summary_no": "No"};
 
@@ -187,6 +192,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     for (const e of (idx.ejercicios || [])) {
       const c = e.coleccion || {};
       if (e.tags && e.tags.materia !== MATERIA) continue;
+      if (CURS && (!e.tags || e.tags.curso_academico !== CURS)) continue;
       // Només mostrem exàmens al hub: les pràctiques/exercicis de classe es llisten a /aula/<materia>/apuntes/
       if (c.tipo && c.tipo !== 'examen') continue;
       if (!cols.has(c.id)) cols.set(c.id, { col: c, ejs: [] });
