@@ -6,6 +6,7 @@
 <title>Horario de clase 2n ESO E — Àlex Reyes</title>
 <meta name="description" content="Horario semanal del grupo 2n ESO E, curso 2026–2027, con las materias y el profesorado de cada franja.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('horari-meu')!=='0')d.classList.add('h-meu');if(localStorage.getItem('horari-colors')==='1')d.classList.add('h-colors');}catch(e){d.classList.add('h-meu');}})();</script>
 <script src="/assets/js/lang-persist.js?v=202606221623"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
@@ -30,15 +31,29 @@
   .mat { display:block; font-weight:600; color:var(--text); font-size:0.84rem; }
   .profs { display:block; margin-top:0.2rem; }
   .prof { display:block; font-size:0.72rem; color:var(--text-faint); }
-  td.cell-meu { background:var(--bg-subtle); box-shadow:inset 3px 0 0 var(--focus); }
-  td.cell-meu .mat { color:var(--focus); }
+  /* Resaltado de mis materias y color por materia: opcionales, los activa
+     una clase en <html> puesta antes del primer pintado (ver script del head). */
+  .h-meu td.cell-meu { box-shadow:inset 3px 0 0 var(--focus); }
+  .h-meu:not(.h-colors) td.cell-meu { background:var(--bg-subtle); }
+  .h-meu:not(.h-colors) td.cell-meu .mat { color:var(--focus); }
+  .h-colors td.cell { background:var(--mc-l); }
+  .h-colors td.cell .prof { color:#555; }
+  .h-colors[data-theme="dark"] td.cell, [data-theme="dark"] .h-colors td.cell { background:var(--mc-d); }
+  .h-colors[data-theme="dark"] td.cell .prof, [data-theme="dark"] .h-colors td.cell .prof { color:var(--text-faint); }
+  .h-colors table.mat-taula th.mat-nom::before { content:""; display:inline-block; width:0.72rem; height:0.72rem; border-radius:2px; background:var(--mc-l); border:1px solid var(--border-strong); margin-right:0.5rem; vertical-align:-1px; }
+  .h-colors[data-theme="dark"] table.mat-taula th.mat-nom::before, [data-theme="dark"] .h-colors table.mat-taula th.mat-nom::before { background:var(--mc-d); }
   tr.row-break td { text-align:center; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-faint); background:var(--bg-subtle); }
   .d-short { display:none; }
   table.mat-taula th[scope="row"] { font-weight:500; font-size:0.86rem; }
-  table.mat-taula .mat-meu { color:var(--focus); font-weight:600; }
+  .h-meu table.mat-taula .mat-meu { color:var(--focus); font-weight:600; }
   table.mat-taula .num { text-align:center; font-family:var(--mono); width:5rem; }
-  .horari-actions { display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; margin:0 0 0.5rem; }
-  .legend { display:flex; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--text-soft); }
+  .horari-actions { display:flex; align-items:center; gap:0.75rem 1.1rem; flex-wrap:wrap; margin:0 0 0.5rem; }
+  .opcions { display:flex; align-items:center; gap:1.1rem; flex-wrap:wrap; }
+  .opcio { display:inline-flex; align-items:center; gap:0.42rem; font-size:0.86rem; color:var(--text-soft); cursor:pointer; user-select:none; }
+  .opcio input { width:1rem; height:1rem; accent-color:var(--focus); cursor:pointer; margin:0; }
+  .opcio:hover { color:var(--text); }
+  .legend { display:none; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--text-soft); }
+  .h-meu .legend { display:flex; }
   .legend i { width:0.9rem; height:0.9rem; border-radius:3px; background:var(--bg-subtle); border:1px solid var(--border); box-shadow:inset 3px 0 0 var(--focus); display:inline-block; flex:none; }
   @media (max-width:560px) {
     table.horari { min-width:560px; font-size:0.78rem; }
@@ -62,8 +77,14 @@
     table.horari th, table.horari td { border:0.4pt solid #999; padding:1.6mm 1.4mm; }
     table.horari thead th { background:#eee !important; color:#000; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     th.hora, tr.row-break td { background:#f6f6f6 !important; color:#000; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-    td.cell-meu { background:#f0f0f0 !important; box-shadow:none; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-    td.cell-meu .mat, .mat { color:#000; }
+    .h-meu:not(.h-colors) td.cell-meu { background:#f0f0f0 !important; }
+    .h-meu td.cell-meu { box-shadow:inset 3px 0 0 #555 !important; }
+    /* En papel siempre la paleta clara, aunque se navegue en modo oscuro. */
+    .h-colors td.cell, .h-colors[data-theme="dark"] td.cell { background:var(--mc-l) !important; }
+    td.cell .mat { color:#000 !important; }
+    .h-colors td.cell .prof { color:#444; }
+    td.cell, td.cell-meu { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    td.cell-meu .mat, .mat { color:#000 !important; }
     .prof { color:#444; font-size:7pt; }
     .d-long { display:inline; } .d-short { display:none; }
     h2, .mat-taula, .legend, .mat-taula-wrap { display:none !important; }
@@ -123,6 +144,10 @@
       <button type="button" class="btn btn-primary" onclick="window.print()">
         <span aria-hidden="true">🖨️</span> Descargar en PDF
       </button>
+      <div class="opcions">
+        <label class="opcio"><input type="checkbox" id="op-meu"> Destacar mis materias</label>
+        <label class="opcio"><input type="checkbox" id="op-colors"> Color por materia</label>
+      </div>
       <span class="legend"><i aria-hidden="true"></i>Materias que imparto yo</span>
     </div>
     <p class="no-print" style="font-size:0.82rem;color:var(--text-faint);margin:0 0 1.1rem">Se abre el diálogo de impresión del navegador: elige «Guardar como PDF». Recomendado en horizontal.</p>
@@ -132,14 +157,14 @@
     <caption class="print-only">Horario 2n ESO E · curso 2026–2027</caption>
     <thead><tr><th scope="col" class="hora-h">Hora</th><th scope="col"><span class="d-long">Lunes</span><span class="d-short">Lun</span></th><th scope="col"><span class="d-long">Martes</span><span class="d-short">Mar</span></th><th scope="col"><span class="d-long">Miércoles</span><span class="d-short">Mié</span></th><th scope="col"><span class="d-long">Jueves</span><span class="d-short">Jue</span></th><th scope="col"><span class="d-long">Viernes</span><span class="d-short">Vie</span></th></tr></thead>
     <tbody>
-      <tr><th scope="row" class="hora">9:00<span>10:00</span></th><td class="cell"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell"><span class="mat">Música</span><span class="profs"><span class="prof">Zaidín, Lluïsa</span></span></td><td class="cell"><span class="mat">Castellano</span><span class="profs"><span class="prof">Ruedas, Mónica</span></span></td><td class="cell cell-meu"><span class="mat">Tutoría</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell"><span class="mat">Castellano</span><span class="profs"><span class="prof">Ruedas, Mónica</span></span></td></tr>
-      <tr><th scope="row" class="hora">10:00<span>11:00</span></th><td class="cell"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell"><span class="mat">Natación</span><span class="profs"><span class="prof">Barrero, Oriol</span><span class="prof">Boch, Xavier</span></span></td><td class="cell"><span class="mat">Religión</span><span class="profs"><span class="prof">Alcolea, Mireia</span></span></td><td class="cell"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td></tr>
+      <tr><th scope="row" class="hora">9:00<span>10:00</span></th><td class="cell" style="--mc-l:#dbeafe;--mc-d:#1c3a5e"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell" style="--mc-l:#ede9fe;--mc-d:#2f2a5e"><span class="mat">Música</span><span class="profs"><span class="prof">Zaidín, Lluïsa</span></span></td><td class="cell" style="--mc-l:#ffedd5;--mc-d:#4a3319"><span class="mat">Castellano</span><span class="profs"><span class="prof">Ruedas, Mónica</span></span></td><td class="cell cell-meu" style="--mc-l:#fce7f3;--mc-d:#4a2138"><span class="mat">Tutoría</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell" style="--mc-l:#ffedd5;--mc-d:#4a3319"><span class="mat">Castellano</span><span class="profs"><span class="prof">Ruedas, Mónica</span></span></td></tr>
+      <tr><th scope="row" class="hora">10:00<span>11:00</span></th><td class="cell" style="--mc-l:#fef9c3;--mc-d:#44400f"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell" style="--mc-l:#cffafe;--mc-d:#0e4650"><span class="mat">Natación</span><span class="profs"><span class="prof">Barrero, Oriol</span><span class="prof">Boch, Xavier</span></span></td><td class="cell" style="--mc-l:#e0e7ff;--mc-d:#232a57"><span class="mat">Religión</span><span class="profs"><span class="prof">Alcolea, Mireia</span></span></td><td class="cell" style="--mc-l:#fef9c3;--mc-d:#44400f"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell" style="--mc-l:#d1fae5;--mc-d:#0f4030"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td></tr>
       <tr class="row-break"><th scope="row" class="hora">11:00<span>11:30</span></th><td colspan="5">Patio</td></tr>
-      <tr><th scope="row" class="hora">11:30<span>12:25</span></th><td class="cell"><span class="mat">Educación Física</span><span class="profs"><span class="prof">Barrero, Oriol</span></span></td><td class="cell"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td><td class="cell"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td><td class="cell cell-meu"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
-      <tr><th scope="row" class="hora">12:25<span>13:20</span></th><td class="cell"><span class="mat">Física y Química</span><span class="profs"><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell"><span class="mat">Física y Química</span><span class="profs"><span class="prof">Ramos, Mayte</span></span></td><td class="cell"><span class="mat">Taller de Robótica</span><span class="profs"><span class="prof">González, David</span><span class="prof">Villena, Jorge</span></span></td><td class="cell"><span class="mat">Tecnología</span><span class="profs"><span class="prof">González, David</span></span></td></tr>
+      <tr><th scope="row" class="hora">11:30<span>12:25</span></th><td class="cell" style="--mc-l:#ecfccb;--mc-d:#2c3d18"><span class="mat">Educación Física</span><span class="profs"><span class="prof">Barrero, Oriol</span></span></td><td class="cell" style="--mc-l:#dbeafe;--mc-d:#1c3a5e"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell" style="--mc-l:#d1fae5;--mc-d:#0f4030"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td><td class="cell" style="--mc-l:#d1fae5;--mc-d:#0f4030"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td><td class="cell cell-meu" style="--mc-l:#fee2e2;--mc-d:#4a1d1d"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
+      <tr><th scope="row" class="hora">12:25<span>13:20</span></th><td class="cell" style="--mc-l:#ccfbf1;--mc-d:#0f453e"><span class="mat">Física y Química</span><span class="profs"><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu" style="--mc-l:#fee2e2;--mc-d:#4a1d1d"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell" style="--mc-l:#ccfbf1;--mc-d:#0f453e"><span class="mat">Física y Química</span><span class="profs"><span class="prof">Ramos, Mayte</span></span></td><td class="cell" style="--mc-l:#e2e8f0;--mc-d:#2a3240"><span class="mat">Taller de Robótica</span><span class="profs"><span class="prof">González, David</span><span class="prof">Villena, Jorge</span></span></td><td class="cell" style="--mc-l:#e7e5e4;--mc-d:#38352f"><span class="mat">Tecnología</span><span class="profs"><span class="prof">González, David</span></span></td></tr>
       <tr class="row-break"><th scope="row" class="hora">13:20<span>15:30</span></th><td colspan="5">Mediodía</td></tr>
-      <tr><th scope="row" class="hora">15:30<span>16:30</span></th><td class="cell"><span class="mat">Tecnología</span><span class="profs"><span class="prof">González, David</span></span></td><td class="cell"><span class="mat">Taller de Robótica</span><span class="profs"><span class="prof">González, David</span><span class="prof">Villena, Jorge</span></span></td><td class="cell cell-meu"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell"><span class="mat">Taller / Laboratorio</span><span class="profs"><span class="prof">González, David</span><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu"><span class="mat">Proyectos</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
-      <tr><th scope="row" class="hora">16:30<span>17:30</span></th><td class="cell"><span class="mat">Música</span><span class="profs"><span class="prof">Zaidín, Lluïsa</span></span></td><td class="cell"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell"><span class="mat">Taller / Laboratorio</span><span class="profs"><span class="prof">González, David</span><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu"><span class="mat">Proyectos</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
+      <tr><th scope="row" class="hora">15:30<span>16:30</span></th><td class="cell" style="--mc-l:#e7e5e4;--mc-d:#38352f"><span class="mat">Tecnología</span><span class="profs"><span class="prof">González, David</span></span></td><td class="cell" style="--mc-l:#e2e8f0;--mc-d:#2a3240"><span class="mat">Taller de Robótica</span><span class="profs"><span class="prof">González, David</span><span class="prof">Villena, Jorge</span></span></td><td class="cell cell-meu" style="--mc-l:#fee2e2;--mc-d:#4a1d1d"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell" style="--mc-l:#ded7c8;--mc-d:#3b3324"><span class="mat">Taller / Laboratorio</span><span class="profs"><span class="prof">González, David</span><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu" style="--mc-l:#f5d0fe;--mc-d:#43214a"><span class="mat">Proyectos</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
+      <tr><th scope="row" class="hora">16:30<span>17:30</span></th><td class="cell" style="--mc-l:#ede9fe;--mc-d:#2f2a5e"><span class="mat">Música</span><span class="profs"><span class="prof">Zaidín, Lluïsa</span></span></td><td class="cell" style="--mc-l:#fef9c3;--mc-d:#44400f"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell" style="--mc-l:#dbeafe;--mc-d:#1c3a5e"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell" style="--mc-l:#ded7c8;--mc-d:#3b3324"><span class="mat">Taller / Laboratorio</span><span class="profs"><span class="prof">González, David</span><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu" style="--mc-l:#f5d0fe;--mc-d:#43214a"><span class="mat">Proyectos</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
     </tbody>
   </table>
 </div>
@@ -148,7 +173,7 @@
 <div class="horari-wrap mat-taula-wrap">
   <table class="mat-taula">
     <thead><tr><th scope="col">Materia</th><th scope="col">Profesorado</th><th scope="col" class="num">Sesiones</th></tr></thead>
-    <tbody><tr><th scope="row">Castellano</th><td>Ruedas, Mónica</td><td class="num">2</td></tr><tr><th scope="row">Catalán</th><td>Navarro, Montse</td><td class="num">3</td></tr><tr><th scope="row">Educación Física</th><td>Barrero, Oriol</td><td class="num">1</td></tr><tr><th scope="row">Física y Química</th><td>Ramos, Mayte</td><td class="num">2</td></tr><tr><th scope="row">Inglés</th><td>Rubio, Enric</td><td class="num">3</td></tr><tr><th scope="row" class="mat-meu">Matemáticas</th><td>Reyes, Àlex</td><td class="num">3</td></tr><tr><th scope="row">Música</th><td>Zaidín, Lluïsa</td><td class="num">2</td></tr><tr><th scope="row">Natación</th><td>Barrero, Oriol &middot; Boch, Xavier</td><td class="num">1</td></tr><tr><th scope="row" class="mat-meu">Proyectos</th><td>Reyes, Àlex</td><td class="num">2</td></tr><tr><th scope="row">Religión</th><td>Alcolea, Mireia</td><td class="num">1</td></tr><tr><th scope="row">Sociales</th><td>Ríos, Jaume</td><td class="num">3</td></tr><tr><th scope="row">Taller / Laboratorio</th><td>González, David &middot; Ramos, Mayte</td><td class="num">2</td></tr><tr><th scope="row">Taller de Robótica</th><td>González, David &middot; Villena, Jorge</td><td class="num">2</td></tr><tr><th scope="row">Tecnología</th><td>González, David</td><td class="num">2</td></tr><tr><th scope="row" class="mat-meu">Tutoría</th><td>Reyes, Àlex</td><td class="num">1</td></tr></tbody>
+    <tbody><tr><th scope="row" class="mat-nom" style="--mc-l:#ffedd5;--mc-d:#4a3319">Castellano</th><td>Ruedas, Mónica</td><td class="num">2</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#fef9c3;--mc-d:#44400f">Catalán</th><td>Navarro, Montse</td><td class="num">3</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#ecfccb;--mc-d:#2c3d18">Educación Física</th><td>Barrero, Oriol</td><td class="num">1</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#ccfbf1;--mc-d:#0f453e">Física y Química</th><td>Ramos, Mayte</td><td class="num">2</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#dbeafe;--mc-d:#1c3a5e">Inglés</th><td>Rubio, Enric</td><td class="num">3</td></tr><tr><th scope="row" class="mat-nom mat-meu" style="--mc-l:#fee2e2;--mc-d:#4a1d1d">Matemáticas</th><td>Reyes, Àlex</td><td class="num">3</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#ede9fe;--mc-d:#2f2a5e">Música</th><td>Zaidín, Lluïsa</td><td class="num">2</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#cffafe;--mc-d:#0e4650">Natación</th><td>Barrero, Oriol &middot; Boch, Xavier</td><td class="num">1</td></tr><tr><th scope="row" class="mat-nom mat-meu" style="--mc-l:#f5d0fe;--mc-d:#43214a">Proyectos</th><td>Reyes, Àlex</td><td class="num">2</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#e0e7ff;--mc-d:#232a57">Religión</th><td>Alcolea, Mireia</td><td class="num">1</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#d1fae5;--mc-d:#0f4030">Sociales</th><td>Ríos, Jaume</td><td class="num">3</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#ded7c8;--mc-d:#3b3324">Taller / Laboratorio</th><td>González, David &middot; Ramos, Mayte</td><td class="num">2</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#e2e8f0;--mc-d:#2a3240">Taller de Robótica</th><td>González, David &middot; Villena, Jorge</td><td class="num">2</td></tr><tr><th scope="row" class="mat-nom" style="--mc-l:#e7e5e4;--mc-d:#38352f">Tecnología</th><td>González, David</td><td class="num">2</td></tr><tr><th scope="row" class="mat-nom mat-meu" style="--mc-l:#fce7f3;--mc-d:#4a2138">Tutoría</th><td>Reyes, Àlex</td><td class="num">1</td></tr></tbody>
   </table>
 </div>
 
@@ -171,6 +196,21 @@
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+// Interruptores de vista. La clase ya está puesta por el script del head;
+// aquí solo se sincroniza la casilla y se recuerda la elección.
+(function(){
+  var d = document.documentElement;
+  [['op-meu','h-meu','horari-meu','1'],
+   ['op-colors','h-colors','horari-colors','0']].forEach(function(o){
+    var box = document.getElementById(o[0]);
+    if (!box) return;
+    box.checked = d.classList.contains(o[1]);
+    box.addEventListener('change', function(){
+      d.classList.toggle(o[1], box.checked);
+      try { localStorage.setItem(o[2], box.checked ? '1' : '0'); } catch(e) {}
+    });
+  });
+})();
 </script>
 <script defer src="/assets/js/search.js?v=202606221623"></script>
 </body>

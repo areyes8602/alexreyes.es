@@ -153,11 +153,24 @@ ningún dato de alumnos.
   imparto yo (Matemàtiques, Tutoria, Projectes).
 - `GRID` — una entrada por franja: `(ini, fi, [lun…vie])`, o
   `("break", "pati"|"migdia", (ini, fi))` para patio y mediodía.
+- `"col"` — pareja de pastel (claro, oscuro) por materia. Se emite como
+  variables CSS `--mc-l` / `--mc-d` en cada celda, así no hacen falta 15
+  reglas duplicadas por tema.
+- Dos vistas opcionales, con casilla y recordadas en `localStorage`:
+  destacar mis materias (`h-meu`, por defecto ON) y color por materia
+  (`h-colors`, por defecto OFF). Las clases las pone un script del `<head>`
+  sobre `<html>`, antes del primer pintado, para que no parpadee.
+  ⚠️ `data-theme` vive en ese MISMO `<html>`: para el tema oscuro hace falta
+  `.h-colors[data-theme="dark"]` (sin espacio), no un selector descendente.
 - El PDF se hace desde el navegador: `@media print` + `window.print()`, igual
   que `/tutoria/imprimir/`. Cabe en una A4 horizontal; si añades filas,
-  comprueba que sigue siendo 1 página.
+  comprueba que sigue siendo 1 página. En papel se fuerza siempre la paleta
+  clara y `print-color-adjust:exact`, se navegue en el tema que se navegue.
 - No subir la foto/captura del horario Untis: la rejilla es HTML para que sea
   accesible, traducible y buscable.
+
+El enlace al horario vive en el CUERPO del hub de tutoría (`link-card`), no
+como botón de cabecera: la derecha del título queda reservada al área privada.
 
 Si cambia el horario, edita `GRID` y ejecuta el script; y revisa que las horas
 de `schedule` en `build_archived_subjects.py` / `build_active_info_pages.py`

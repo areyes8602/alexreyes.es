@@ -29,37 +29,37 @@ LANGS = ["es", "ca", "en"]
 # ─── Materias: nombre por idioma + profesorado ───────────────────
 # "meu": la imparto yo (se resalta en la rejilla).
 SUBJECTS = {
-    "angles":    {"es": "Inglés", "ca": "Anglès", "en": "English",
+    "angles":    {"col": ("#dbeafe", "#1c3a5e"), "es": "Inglés", "ca": "Anglès", "en": "English",
                   "prof": ["Rubio, Enric"]},
-    "musica":    {"es": "Música", "ca": "Música", "en": "Music",
+    "musica":    {"col": ("#ede9fe", "#2f2a5e"), "es": "Música", "ca": "Música", "en": "Music",
                   "prof": ["Zaidín, Lluïsa"]},
-    "castella":  {"es": "Castellano", "ca": "Castellà", "en": "Spanish",
+    "castella":  {"col": ("#ffedd5", "#4a3319"), "es": "Castellano", "ca": "Castellà", "en": "Spanish",
                   "prof": ["Ruedas, Mónica"]},
-    "tutoria":   {"es": "Tutoría", "ca": "Tutoria", "en": "Form tutor",
+    "tutoria":   {"col": ("#fce7f3", "#4a2138"), "es": "Tutoría", "ca": "Tutoria", "en": "Form tutor",
                   "prof": ["Reyes, Àlex"], "meu": True},
-    "catala":    {"es": "Catalán", "ca": "Català", "en": "Catalan",
+    "catala":    {"col": ("#fef9c3", "#44400f"), "es": "Catalán", "ca": "Català", "en": "Catalan",
                   "prof": ["Navarro, Montse"]},
-    "natacio":   {"es": "Natación", "ca": "Natació", "en": "Swimming",
+    "natacio":   {"col": ("#cffafe", "#0e4650"), "es": "Natación", "ca": "Natació", "en": "Swimming",
                   "prof": ["Barrero, Oriol", "Boch, Xavier"]},
-    "religio":   {"es": "Religión", "ca": "Religió", "en": "Religion",
+    "religio":   {"col": ("#e0e7ff", "#232a57"), "es": "Religión", "ca": "Religió", "en": "Religion",
                   "prof": ["Alcolea, Mireia"]},
-    "socials":   {"es": "Sociales", "ca": "Socials", "en": "Social Sciences",
+    "socials":   {"col": ("#d1fae5", "#0f4030"), "es": "Sociales", "ca": "Socials", "en": "Social Sciences",
                   "prof": ["Ríos, Jaume"]},
-    "ef":        {"es": "Educación Física", "ca": "Educació Física",
+    "ef":        {"col": ("#ecfccb", "#2c3d18"), "es": "Educación Física", "ca": "Educació Física",
                   "en": "Physical Education", "prof": ["Barrero, Oriol"]},
-    "mates":     {"es": "Matemáticas", "ca": "Matemàtiques", "en": "Mathematics",
+    "mates":     {"col": ("#fee2e2", "#4a1d1d"), "es": "Matemáticas", "ca": "Matemàtiques", "en": "Mathematics",
                   "prof": ["Reyes, Àlex"], "meu": True},
-    "fq":        {"es": "Física y Química", "ca": "Física i Química",
+    "fq":        {"col": ("#ccfbf1", "#0f453e"), "es": "Física y Química", "ca": "Física i Química",
                   "en": "Physics & Chemistry", "prof": ["Ramos, Mayte"]},
-    "robotica":  {"es": "Taller de Robótica", "ca": "Taller de Robòtica",
+    "robotica":  {"col": ("#e2e8f0", "#2a3240"), "es": "Taller de Robótica", "ca": "Taller de Robòtica",
                   "en": "Robotics workshop",
                   "prof": ["González, David", "Villena, Jorge"]},
-    "tecnologia": {"es": "Tecnología", "ca": "Tecnologia", "en": "Technology",
+    "tecnologia": {"col": ("#e7e5e4", "#38352f"), "es": "Tecnología", "ca": "Tecnologia", "en": "Technology",
                    "prof": ["González, David"]},
-    "tallerlab": {"es": "Taller / Laboratorio", "ca": "Taller / Laboratori",
+    "tallerlab": {"col": ("#ded7c8", "#3b3324"), "es": "Taller / Laboratorio", "ca": "Taller / Laboratori",
                   "en": "Workshop / Lab",
                   "prof": ["González, David", "Ramos, Mayte"]},
-    "projectes": {"es": "Proyectos", "ca": "Projectes", "en": "Projects",
+    "projectes": {"col": ("#f5d0fe", "#43214a"), "es": "Proyectos", "ca": "Projectes", "en": "Projects",
                   "prof": ["Reyes, Àlex"], "meu": True},
 }
 
@@ -80,6 +80,8 @@ GRID = [
 LABELS = {
     "es": {
         "html_lang": "es",
+        "op_meu": "Destacar mis materias",
+        "op_colors": "Color por materia",
         "skip": "Saltar al contenido",
         "home": "Inicio", "docencia": "Docencia",
         "doctorado_nav": "Doctorado", "notas_nav": "Notas", "cv_nav": "CV",
@@ -113,6 +115,8 @@ LABELS = {
     },
     "ca": {
         "html_lang": "ca",
+        "op_meu": "Destacar les meves matèries",
+        "op_colors": "Color per matèria",
         "skip": "Salta al contingut",
         "home": "Inici", "docencia": "Docència",
         "doctorado_nav": "Doctorat", "notas_nav": "Notes", "cv_nav": "CV",
@@ -146,6 +150,8 @@ LABELS = {
     },
     "en": {
         "html_lang": "en",
+        "op_meu": "Highlight my subjects",
+        "op_colors": "Colour by subject",
         "skip": "Skip to content",
         "home": "Home", "docencia": "Teaching",
         "doctorado_nav": "PhD", "notas_nav": "Notes", "cv_nav": "CV",
@@ -209,6 +215,16 @@ def session_counts():
     return counts
 
 
+def col_vars(s):
+    """Color pastel de la materia, como variables CSS en la propia celda.
+
+    Dos valores (claro/oscuro) para que el tema del sitio elija; así no hacen
+    falta 15 reglas duplicadas en la hoja de estilos.
+    """
+    clar, fosc = s["col"]
+    return f"--mc-l:{clar};--mc-d:{fosc}"
+
+
 def render_grid(L, lang):
     """Rejilla semanal: una fila por franja, una columna por día."""
     head = "".join(
@@ -231,7 +247,8 @@ def render_grid(L, lang):
             s = SUBJECTS[key]
             profs = "".join(f'<span class="prof">{p}</span>' for p in s["prof"])
             cls = " cell-meu" if s.get("meu") else ""
-            tds += (f'<td class="cell{cls}"><span class="mat">{s[lang]}</span>'
+            tds += (f'<td class="cell{cls}" style="{col_vars(s)}">'
+                    f'<span class="mat">{s[lang]}</span>'
                     f'<span class="profs">{profs}</span></td>')
         rows.append(
             f'<tr><th scope="row" class="hora">{ini}<span>{fi}</span></th>{tds}</tr>'
@@ -254,8 +271,9 @@ def render_subject_table(L, lang):
     rows = ""
     for key, s in order:
         profs = " &middot; ".join(s["prof"])
-        cls = ' class="mat-meu"' if s.get("meu") else ""
-        rows += (f'<tr><th scope="row"{cls}>{s[lang]}</th>'
+        cls = " mat-meu" if s.get("meu") else ""
+        rows += (f'<tr><th scope="row" class="mat-nom{cls}" style="{col_vars(s)}">'
+                 f'{s[lang]}</th>'
                  f'<td>{profs}</td><td class="num">{counts.get(key, 0)}</td></tr>')
     return (
         '<div class="horari-wrap mat-taula-wrap">\n'
@@ -315,6 +333,7 @@ def render_page(lang):
 <title>{title} — Àlex Reyes</title>
 <meta name="description" content="{L['meta_desc']}">
 <script>(function(){{var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');}})();</script>
+<script>(function(){{var d=document.documentElement;try{{if(localStorage.getItem('horari-meu')!=='0')d.classList.add('h-meu');if(localStorage.getItem('horari-colors')==='1')d.classList.add('h-colors');}}catch(e){{d.classList.add('h-meu');}}}})();</script>
 <script src="/assets/js/lang-persist.js{v}"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
@@ -339,15 +358,29 @@ def render_page(lang):
   .mat {{ display:block; font-weight:600; color:var(--text); font-size:0.84rem; }}
   .profs {{ display:block; margin-top:0.2rem; }}
   .prof {{ display:block; font-size:0.72rem; color:var(--text-faint); }}
-  td.cell-meu {{ background:var(--bg-subtle); box-shadow:inset 3px 0 0 var(--focus); }}
-  td.cell-meu .mat {{ color:var(--focus); }}
+  /* Resaltado de mis materias y color por materia: opcionales, los activa
+     una clase en <html> puesta antes del primer pintado (ver script del head). */
+  .h-meu td.cell-meu {{ box-shadow:inset 3px 0 0 var(--focus); }}
+  .h-meu:not(.h-colors) td.cell-meu {{ background:var(--bg-subtle); }}
+  .h-meu:not(.h-colors) td.cell-meu .mat {{ color:var(--focus); }}
+  .h-colors td.cell {{ background:var(--mc-l); }}
+  .h-colors td.cell .prof {{ color:#555; }}
+  .h-colors[data-theme="dark"] td.cell, [data-theme="dark"] .h-colors td.cell {{ background:var(--mc-d); }}
+  .h-colors[data-theme="dark"] td.cell .prof, [data-theme="dark"] .h-colors td.cell .prof {{ color:var(--text-faint); }}
+  .h-colors table.mat-taula th.mat-nom::before {{ content:""; display:inline-block; width:0.72rem; height:0.72rem; border-radius:2px; background:var(--mc-l); border:1px solid var(--border-strong); margin-right:0.5rem; vertical-align:-1px; }}
+  .h-colors[data-theme="dark"] table.mat-taula th.mat-nom::before, [data-theme="dark"] .h-colors table.mat-taula th.mat-nom::before {{ background:var(--mc-d); }}
   tr.row-break td {{ text-align:center; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-faint); background:var(--bg-subtle); }}
   .d-short {{ display:none; }}
   table.mat-taula th[scope="row"] {{ font-weight:500; font-size:0.86rem; }}
-  table.mat-taula .mat-meu {{ color:var(--focus); font-weight:600; }}
+  .h-meu table.mat-taula .mat-meu {{ color:var(--focus); font-weight:600; }}
   table.mat-taula .num {{ text-align:center; font-family:var(--mono); width:5rem; }}
-  .horari-actions {{ display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; margin:0 0 0.5rem; }}
-  .legend {{ display:flex; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--text-soft); }}
+  .horari-actions {{ display:flex; align-items:center; gap:0.75rem 1.1rem; flex-wrap:wrap; margin:0 0 0.5rem; }}
+  .opcions {{ display:flex; align-items:center; gap:1.1rem; flex-wrap:wrap; }}
+  .opcio {{ display:inline-flex; align-items:center; gap:0.42rem; font-size:0.86rem; color:var(--text-soft); cursor:pointer; user-select:none; }}
+  .opcio input {{ width:1rem; height:1rem; accent-color:var(--focus); cursor:pointer; margin:0; }}
+  .opcio:hover {{ color:var(--text); }}
+  .legend {{ display:none; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--text-soft); }}
+  .h-meu .legend {{ display:flex; }}
   .legend i {{ width:0.9rem; height:0.9rem; border-radius:3px; background:var(--bg-subtle); border:1px solid var(--border); box-shadow:inset 3px 0 0 var(--focus); display:inline-block; flex:none; }}
   @media (max-width:560px) {{
     table.horari {{ min-width:560px; font-size:0.78rem; }}
@@ -371,8 +404,14 @@ def render_page(lang):
     table.horari th, table.horari td {{ border:0.4pt solid #999; padding:1.6mm 1.4mm; }}
     table.horari thead th {{ background:#eee !important; color:#000; -webkit-print-color-adjust:exact; print-color-adjust:exact; }}
     th.hora, tr.row-break td {{ background:#f6f6f6 !important; color:#000; -webkit-print-color-adjust:exact; print-color-adjust:exact; }}
-    td.cell-meu {{ background:#f0f0f0 !important; box-shadow:none; -webkit-print-color-adjust:exact; print-color-adjust:exact; }}
-    td.cell-meu .mat, .mat {{ color:#000; }}
+    .h-meu:not(.h-colors) td.cell-meu {{ background:#f0f0f0 !important; }}
+    .h-meu td.cell-meu {{ box-shadow:inset 3px 0 0 #555 !important; }}
+    /* En papel siempre la paleta clara, aunque se navegue en modo oscuro. */
+    .h-colors td.cell, .h-colors[data-theme="dark"] td.cell {{ background:var(--mc-l) !important; }}
+    td.cell .mat {{ color:#000 !important; }}
+    .h-colors td.cell .prof {{ color:#444; }}
+    td.cell, td.cell-meu {{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }}
+    td.cell-meu .mat, .mat {{ color:#000 !important; }}
     .prof {{ color:#444; font-size:7pt; }}
     .d-long {{ display:inline; }} .d-short {{ display:none; }}
     h2, .mat-taula, .legend, .mat-taula-wrap {{ display:none !important; }}
@@ -421,6 +460,10 @@ def render_page(lang):
       <button type="button" class="btn btn-primary" onclick="window.print()">
         <span aria-hidden="true">🖨️</span> {L['print_btn']}
       </button>
+      <div class="opcions">
+        <label class="opcio"><input type="checkbox" id="op-meu"> {L['op_meu']}</label>
+        <label class="opcio"><input type="checkbox" id="op-colors"> {L['op_colors']}</label>
+      </div>
       <span class="legend"><i aria-hidden="true"></i>{L['meu_legend']}</span>
     </div>
     <p class="no-print" style="font-size:0.82rem;color:var(--text-faint);margin:0 0 1.1rem">{L['print_help']}</p>
@@ -449,6 +492,21 @@ def render_page(lang):
 <script>
 function toggleMenu(){{document.querySelector("nav").classList.toggle("open");}}
 function toggleTheme(){{var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}}
+// Interruptores de vista. La clase ya está puesta por el script del head;
+// aquí solo se sincroniza la casilla y se recuerda la elección.
+(function(){{
+  var d = document.documentElement;
+  [['op-meu','h-meu','horari-meu','1'],
+   ['op-colors','h-colors','horari-colors','0']].forEach(function(o){{
+    var box = document.getElementById(o[0]);
+    if (!box) return;
+    box.checked = d.classList.contains(o[1]);
+    box.addEventListener('change', function(){{
+      d.classList.toggle(o[1], box.checked);
+      try {{ localStorage.setItem(o[2], box.checked ? '1' : '0'); }} catch(e) {{}}
+    }});
+  }});
+}})();
 </script>
 <script defer src="/assets/js/search.js{v}"></script>
 </body>
