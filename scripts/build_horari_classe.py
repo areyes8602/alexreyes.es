@@ -348,11 +348,15 @@ def render_page(lang):
   .print-only {{ display:none; }}
   .horari-wrap {{ overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg); }}
   table.horari, table.mat-taula {{ width:100%; border-collapse:collapse; font-size:0.86rem; }}
-  table.horari {{ min-width:660px; table-layout:fixed; }}
+  table.horari {{ min-width:42rem; table-layout:fixed; }}
+  /* Con table-layout:fixed, una palabra más ancha que su columna se sale
+     de la celda en vez de partirse. Pasaba con «Matemàtiques» al subir el
+     tamaño de letra en el móvil. */
+  table.horari th, table.horari td {{ overflow-wrap:anywhere; hyphens:auto; }}
   table.horari th, table.horari td, table.mat-taula th, table.mat-taula td {{ border:1px solid var(--border); padding:0.5rem 0.55rem; text-align:left; vertical-align:top; }}
   table.horari thead th, table.mat-taula thead th {{ background:var(--bg-subtle); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; text-align:center; }}
   table.horari .hora-h {{ width:5.2rem; }}
-  th.hora {{ width:5.2rem; font-family:var(--mono); font-size:0.76rem; font-weight:500; color:var(--text-soft); background:var(--bg-subtle); white-space:nowrap; }}
+  th.hora {{ width:5.2rem; font-family:var(--mono); font-size:0.76rem; font-weight:500; color:var(--text-soft); background:var(--bg-subtle); }}
   th.hora span {{ display:block; color:var(--text-faint); }}
   td.cell {{ line-height:1.3; }}
   .mat {{ display:block; font-weight:600; color:var(--text); font-size:0.84rem; }}
@@ -383,7 +387,10 @@ def render_page(lang):
   .h-meu .legend {{ display:flex; }}
   .legend i {{ width:0.9rem; height:0.9rem; border-radius:3px; background:var(--bg-subtle); border:1px solid var(--border); box-shadow:inset 3px 0 0 var(--focus); display:inline-block; flex:none; }}
   @media (max-width:560px) {{
-    table.horari {{ min-width:560px; font-size:0.78rem; }}
+    table.horari {{ min-width:35rem; font-size:0.78rem; }}
+    /* La columna de horas cede ancho a las materias en pantalla estrecha:
+       menos palabras partidas por la mitad. */
+    table.horari .hora-h, th.hora {{ width:4.4rem; }}
     .d-long {{ display:none; }} .d-short {{ display:inline; }}
     .prof {{ font-size:0.66rem; }}
   }}
