@@ -26,11 +26,13 @@
 
   /* ── Plànol ── */
   .plan-wrap { border:1px solid var(--border); border-radius:var(--radius); background:#fff;
-    padding:1.2rem; }
+    padding:1.2rem; overflow-x:auto; }
+  /* En pantalla estreta el plànol no s'encongeix: amb sis files de cinc les
+     targetes quedarien una sobre l'altra. Millor que llisqui de costat. */
 
   /* Plànol de l'aula de 2n ESO E: pissarra i taula del professor a dalt,
      finestres a l'esquerra i porta a baix a l'esquerra. */
-  .aula { --mur:1.5rem; }
+  .aula { --mur:1.5rem; min-width:600px; }
   .mur-dalt { display:flex; gap:3px; margin-left:var(--mur); }
   .taula-prof, .pissarra { font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
     color:#444; text-align:center; padding:.4rem .3rem; border:1px solid #bbb;
@@ -49,21 +51,26 @@
     border:1px solid #bbb; border-top:0; border-radius:0 0 3px 3px; }
   .mur-baix .resta { flex:1; border-top:1px solid #bbb; }
 
-  .plan { position:relative; flex:1; aspect-ratio:4/3; background:
+  .plan { position:relative; flex:1; aspect-ratio:5/6; background:
     repeating-linear-gradient(0deg,#fafafa 0 24px,#f2f2f2 24px 25px),
     repeating-linear-gradient(90deg,#fafafa 0 24px,#f2f2f2 24px 25px);
     border:1px solid #bbb; overflow:hidden; touch-action:none; }
+  /* Amplada en % del plànol perquè hi càpiguen 5 pupitres per fila sigui
+     quina sigui la mida de la pantalla. */
   .seient { position:absolute; transform:translate(-50%,-50%); cursor:grab;
-    background:#fff; border:1px solid #999; border-radius:5px; padding:.25rem;
-    text-align:center; user-select:none; width:76px; box-shadow:0 1px 2px rgba(0,0,0,.12); }
+    background:#fff; border:1px solid #999; border-radius:5px; padding:.22rem;
+    text-align:center; user-select:none; width:15%; min-width:54px;
+    box-shadow:0 1px 2px rgba(0,0,0,.12); }
   .seient.arrossegant { cursor:grabbing; box-shadow:0 6px 16px rgba(0,0,0,.25); z-index:10; }
-  .seient img { width:100%; aspect-ratio:127/192; object-fit:cover; display:block;
-    border-radius:3px; margin-bottom:.2rem; background:#eee; }
+  /* Retall apaisat centrat a la cara: amb la foto sencera la targeta era
+     més alta que la separació entre files i les sis files es trepitjaven. */
+  .seient img { width:100%; aspect-ratio:4/3; object-fit:cover; object-position:50% 20%;
+    display:block; border-radius:3px; margin-bottom:.15rem; background:#eee; }
   .seient .nom { font-size:.66rem; line-height:1.2; color:#111; font-weight:600;
     overflow:hidden; text-overflow:ellipsis; }
   .seient .cog { font-size:.6rem; line-height:1.2; color:#555;
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .plan.sense-fotos .seient { width:92px; }
+  .plan.sense-fotos .seient { width:17%; }
   .plan.sense-fotos .seient img { display:none; }
 
   .banqueta { border:1px dashed var(--border); border-radius:var(--radius);
@@ -71,7 +78,7 @@
   .banqueta h3 { margin:0 0 .5rem; font-size:.8rem; text-transform:uppercase;
     letter-spacing:.06em; color:var(--text-soft); }
   .banqueta .fitxes { display:flex; gap:.4rem; flex-wrap:wrap; }
-  .banqueta .seient { position:static; transform:none; }
+  .banqueta .seient { position:static; transform:none; width:74px; }
   .ajut { font-size:.85rem; color:var(--text-faint); }
 
   @media print {
@@ -219,11 +226,13 @@ document.getElementById("fotos").onchange = pinta;
 document.getElementById("ordena").onclick = () => {
   // Files de 5, per ordre de llista: un punt de partida raonable per anar
   // movent des d'aquí en comptes de col·locar-los un a un.
+  // Sis files de cinc: la capacitat de l'aula. Els que sobrin van a la fila
+  // següent, i ja els mouràs tu.
   const perFila = 5;
   ALUMNES.forEach((a, i) => {
     POS[a.id] = {
-      x: 11 + (i % perFila) * 19.5,
-      y: 13 + Math.floor(i / perFila) * 17.5,
+      x: 12 + (i % perFila) * 19,
+      y: 9 + Math.floor(i / perFila) * 14.6,
     };
   });
   pinta();
