@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Distribució de l'aula · Tutoria</title>
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .barra { display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem; }
+  .barra select, .barra input[type=text] { padding:.45rem .6rem; border:1px solid var(--border);
+    border-radius:var(--radius-sm); background:var(--bg); color:var(--text);
+    font:inherit; font-size:.9rem; }
+  .btn { padding:.5rem 1rem; border:0; border-radius:var(--radius-sm); cursor:pointer;
+    background:#0f766e; color:#fff; font:inherit; font-size:.88rem; font-weight:600; }
+  .btn:hover { background:#0b5d56; } .btn[disabled] { opacity:.5; cursor:default; }
+  .btn-suau { background:var(--bg-subtle); color:var(--text); border:1px solid var(--border); }
+  .btn-suau:hover { border-color:var(--text-faint); }
+  .marca-op { display:flex; align-items:center; gap:.4rem; font-size:.88rem; cursor:pointer; }
+  .marca-op input { width:1.05rem; height:1.05rem; accent-color:#0f766e; }
+  .estat { font-size:.85rem; color:var(--text-faint); }
+  .estat.ok { color:#059669; } .estat.err { color:#dc2626; }
+
+  /* ── Plànol ── */
+  .plan-wrap { border:1px solid var(--border); border-radius:var(--radius); background:#fff;
+    padding:1.2rem; }
+
+  /* Plànol de l'aula de 2n ESO E: pissarra i taula del professor a dalt,
+     finestres a l'esquerra i porta a baix a l'esquerra. */
+  .aula { --mur:1.5rem; }
+  .mur-dalt { display:flex; gap:3px; margin-left:var(--mur); }
+  .taula-prof, .pissarra { font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+    color:#444; text-align:center; padding:.4rem .3rem; border:1px solid #bbb;
+    border-radius:3px 3px 0 0; border-bottom:0; }
+  .taula-prof { flex:0 0 26%; background:#dfe7e6; font-weight:700; }
+  .pissarra { flex:1; background:#3f4a48; color:#e8efed; border-color:#3f4a48; }
+  .cos { display:flex; }
+  .mur-esq { flex:0 0 var(--mur); border:1px solid #bbb; border-right:0;
+    border-radius:3px 0 0 3px; display:flex; align-items:center; justify-content:center;
+    background:repeating-linear-gradient(0deg,#dbeafe 0 14px,#bfdbfe 14px 16px); }
+  .mur-esq span { font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
+    color:#1e40af; writing-mode:vertical-rl; transform:rotate(180deg); }
+  .mur-baix { display:flex; margin-left:var(--mur); }
+  .porta { flex:0 0 22%; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+    color:#7c2d12; text-align:center; padding:.3rem; background:#fed7aa;
+    border:1px solid #bbb; border-top:0; border-radius:0 0 3px 3px; }
+  .mur-baix .resta { flex:1; border-top:1px solid #bbb; }
+
+  .plan { position:relative; flex:1; aspect-ratio:4/3; background:
+    repeating-linear-gradient(0deg,#fafafa 0 24px,#f2f2f2 24px 25px),
+    repeating-linear-gradient(90deg,#fafafa 0 24px,#f2f2f2 24px 25px);
+    border:1px solid #bbb; overflow:hidden; touch-action:none; }
+  .seient { position:absolute; transform:translate(-50%,-50%); cursor:grab;
+    background:#fff; border:1px solid #999; border-radius:5px; padding:.25rem;
+    text-align:center; user-select:none; width:76px; box-shadow:0 1px 2px rgba(0,0,0,.12); }
+  .seient.arrossegant { cursor:grabbing; box-shadow:0 6px 16px rgba(0,0,0,.25); z-index:10; }
+  .seient img { width:100%; aspect-ratio:127/192; object-fit:cover; display:block;
+    border-radius:3px; margin-bottom:.2rem; background:#eee; }
+  .seient .nom { font-size:.66rem; line-height:1.2; color:#111; font-weight:600;
+    overflow:hidden; text-overflow:ellipsis; }
+  .seient .cog { font-size:.6rem; line-height:1.2; color:#555;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .plan.sense-fotos .seient { width:92px; }
+  .plan.sense-fotos .seient img { display:none; }
+
+  .banqueta { border:1px dashed var(--border); border-radius:var(--radius);
+    padding:.8rem; margin-top:1rem; }
+  .banqueta h3 { margin:0 0 .5rem; font-size:.8rem; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--text-soft); }
+  .banqueta .fitxes { display:flex; gap:.4rem; flex-wrap:wrap; }
+  .banqueta .seient { position:static; transform:none; }
+  .ajut { font-size:.85rem; color:var(--text-faint); }
+
+  @media print {
+    nav, .breadcrumb, .barra, .banqueta, .no-print { display:none !important; }
+    .plan-wrap { border:0; padding:0; }
+    .container { max-width:none; padding:0 !important; }
+    .plan { aspect-ratio:auto; height:16cm; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="container" style="padding-top:2.5rem;padding-bottom:3rem;max-width:1000px">
+    <div class="breadcrumb">
+      <a href="/tutoria/">Tutoria 2n ESO E</a><span class="sep">/</span>
+      <span class="current">Distribució de l'aula</span>
+    </div>
+
+    <div class="barra no-print" style="margin-top:1.5rem">
+      <select id="quina"></select>
+      <input id="nom-nova" type="text" placeholder="Nom d'una distribució nova">
+      <button class="btn btn-suau" id="crea">Crear</button>
+      <label class="marca-op"><input type="checkbox" id="fotos" checked> Amb fotos</label>
+      <button class="btn btn-suau" id="ordena">Col·locar en files</button>
+      <button class="btn" id="desa">Desar</button>
+      <button class="btn btn-suau" id="imprimir">Imprimir</button>
+      <span class="estat" id="estat"></span>
+    </div>
+
+    <div class="plan-wrap">
+      <div class="aula">
+        <div class="mur-dalt">
+          <div class="taula-prof">Taula prof.</div>
+          <div class="pissarra">Pissarra</div>
+        </div>
+        <div class="cos">
+          <div class="mur-esq"><span>Finestres</span></div>
+          <div class="plan" id="plan"></div>
+        </div>
+        <div class="mur-baix">
+          <div class="porta">Porta</div>
+          <div class="resta"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banqueta no-print">
+      <h3>Sense lloc assignat</h3>
+      <div class="fitxes" id="banqueta"></div>
+      <p class="ajut" style="margin:.6rem 0 0">Arrossega'ls al plànol. Per treure'n un,
+        torna'l a arrossegar aquí sota.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const GRUP = "2ESO-E", CURS = "2026-27";
+const plan = document.getElementById("plan");
+const banqueta = document.getElementById("banqueta");
+const estat = document.getElementById("estat");
+let ALUMNES = [], POS = {}, AULA = null;
+
+const api = async (url, o) => {
+  const r = await fetch(url, { cache: "no-store", ...o });
+  if (!r.ok) {
+    let d = ""; try { d = (await r.json()).detall || ""; } catch (e) {}
+    throw Object.assign(new Error(d || "Error " + r.status), { status: r.status });
+  }
+  return r.json();
+};
+
+function fitxa(a) {
+  const el = document.createElement("div");
+  el.className = "seient";
+  el.dataset.id = a.id;
+  el.innerHTML = `${a.foto
+      ? `<img src="/tutoria/api/foto?id=${encodeURIComponent(a.id)}" alt="" draggable="false">`
+      : `<img alt="" draggable="false">`}
+    <div class="nom">${esc(a.nom)}</div>
+    <div class="cog">${esc(a.cognoms.split(" ")[0])}</div>`;
+  return el;
+}
+
+function pinta() {
+  plan.innerHTML = ""; banqueta.innerHTML = "";
+  plan.classList.toggle("sense-fotos", !document.getElementById("fotos").checked);
+  for (const a of ALUMNES) {
+    const el = fitxa(a);
+    const p = POS[a.id];
+    if (p) {
+      el.style.left = p.x + "%"; el.style.top = p.y + "%";
+      plan.appendChild(el);
+    } else {
+      banqueta.appendChild(el);
+    }
+  }
+}
+
+// ── Arrossegar ──────────────────────────────────────────────────
+// Amb Pointer Events: funciona igual amb ratolí i amb dit, i no cal el
+// drag-and-drop d'HTML5, que a tauleta no va.
+let mou = null;
+document.addEventListener("pointerdown", e => {
+  const el = e.target.closest(".seient");
+  if (!el) return;
+  e.preventDefault();
+  const r = el.getBoundingClientRect();
+  mou = { el, dx: e.clientX - (r.left + r.width / 2), dy: e.clientY - (r.top + r.height / 2) };
+  el.classList.add("arrossegant");
+  el.setPointerCapture?.(e.pointerId);
+});
+document.addEventListener("pointermove", e => {
+  if (!mou) return;
+  const c = plan.getBoundingClientRect();
+  // Mentre s'arrossega la targeta viu al plànol, encara que vingui de la
+  // banqueta: així se segueix el dit sense saltar.
+  if (mou.el.parentNode !== plan) { plan.appendChild(mou.el); }
+  const x = ((e.clientX - mou.dx - c.left) / c.width) * 100;
+  const y = ((e.clientY - mou.dy - c.top) / c.height) * 100;
+  mou.el.style.left = Math.min(100, Math.max(0, x)) + "%";
+  mou.el.style.top = Math.min(100, Math.max(0, y)) + "%";
+});
+document.addEventListener("pointerup", e => {
+  if (!mou) return;
+  const { el } = mou; mou = null;
+  el.classList.remove("arrossegant");
+  const c = plan.getBoundingClientRect();
+  const fora = e.clientY > c.bottom || e.clientX < c.left || e.clientX > c.right
+            || e.clientY < c.top;
+  if (fora) {
+    delete POS[el.dataset.id];
+    el.style.left = el.style.top = "";
+    banqueta.appendChild(el);
+  } else {
+    POS[el.dataset.id] = { x: parseFloat(el.style.left), y: parseFloat(el.style.top) };
+  }
+  estat.className = "estat"; estat.textContent = "Sense desar";
+});
+
+// ── Accions ─────────────────────────────────────────────────────
+document.getElementById("fotos").onchange = pinta;
+
+document.getElementById("ordena").onclick = () => {
+  // Files de 5, per ordre de llista: un punt de partida raonable per anar
+  // movent des d'aquí en comptes de col·locar-los un a un.
+  const perFila = 5;
+  ALUMNES.forEach((a, i) => {
+    POS[a.id] = {
+      x: 11 + (i % perFila) * 19.5,
+      y: 13 + Math.floor(i / perFila) * 17.5,
+    };
+  });
+  pinta();
+  estat.className = "estat"; estat.textContent = "Sense desar";
+};
+
+document.getElementById("imprimir").onclick = () => window.print();
+
+document.getElementById("desa").onclick = async () => {
+  if (!AULA) { estat.className = "estat err"; estat.textContent = "Crea una distribució primer."; return; }
+  const b = document.getElementById("desa");
+  b.disabled = true; estat.className = "estat"; estat.textContent = "Desant…";
+  try {
+    await api("/tutoria/api/aula", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: AULA.id, nom: AULA.nom, grup: GRUP, curs: CURS, posicions: POS }),
+    });
+    estat.className = "estat ok"; estat.textContent = "Desat";
+  } catch (e) { estat.className = "estat err"; estat.textContent = e.message; }
+  finally { b.disabled = false; }
+};
+
+document.getElementById("crea").onclick = async () => {
+  const nom = document.getElementById("nom-nova").value.trim();
+  if (!nom) { estat.className = "estat err"; estat.textContent = "Posa-li un nom."; return; }
+  try {
+    const r = await api("/tutoria/api/aula", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ nom, grup: GRUP, curs: CURS, posicions: {} }),
+    });
+    await carregaLlista(r.id);
+    document.getElementById("nom-nova").value = "";
+  } catch (e) { estat.className = "estat err"; estat.textContent = e.message; }
+};
+
+document.getElementById("quina").onchange = e => obre(e.target.value);
+
+async function obre(id) {
+  if (!id) { AULA = null; POS = {}; pinta(); return; }
+  const { aula } = await api("/tutoria/api/aula?id=" + encodeURIComponent(id));
+  AULA = aula;
+  try { POS = JSON.parse(aula.posicions || "{}"); } catch (e) { POS = {}; }
+  pinta();
+  estat.className = "estat";
+  estat.textContent = aula.updated_at
+    ? "Desat: " + String(aula.updated_at).slice(0, 16).replace("T", " ") : "";
+}
+
+async function carregaLlista(seleccionar) {
+  const { aules } = await api("/tutoria/api/aula?grup=" + GRUP);
+  const sel = document.getElementById("quina");
+  sel.innerHTML = aules.length
+    ? aules.map(a => `<option value="${esc(a.id)}">${esc(a.nom)}</option>`).join("")
+    : '<option value="">— cap distribució —</option>';
+  if (seleccionar) sel.value = seleccionar;
+  await obre(sel.value);
+}
+
+(async () => {
+  try {
+    const d = await api("/tutoria/api/alumnes?grup=" + GRUP);
+    ALUMNES = d.alumnes || [];
+    await carregaLlista();
+  } catch (e) {
+    plan.innerHTML = `<p style="padding:1rem;color:#666">${e.status === 401
+      ? "La sessió ha caducat." : esc(e.message)}</p>`;
+  }
+})();
+</script>
+</body>
+</html>
