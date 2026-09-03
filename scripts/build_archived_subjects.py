@@ -128,6 +128,7 @@ SUBJECTS = [
         "code": "tutoria-2eso",
         "privat_url": "/tutoria/",
         "horari_url": "horari/",
+        "prova_url": "normes/",
         "schedule": [(3, "9:00–10:00")],
         "grup": "2n ESO E",
         "block": "ESO",
@@ -173,6 +174,8 @@ LABELS = {
         "grup_label": "Grupo",
         "privat_h": "Área privada",
         "horari_classe_h": "Horario de clase",
+        "prova_h": "Prueba de normas de convivencia",
+        "prova_p": "Test y situaciones sobre las normas del centro. Se hace en clase con el código que da el tutor.",
         "horari_classe_p": "Rejilla semanal completa del grupo, con todas las materias y su profesorado. Se puede descargar en PDF.",
         "hores_label": "Horas/semana",
         "footer_brand": "Matemáticas, docencia y doctorado",
@@ -205,6 +208,8 @@ LABELS = {
         "grup_label": "Grup",
         "privat_h": "\u00c0rea privada",
         "horari_classe_h": "Horari de classe",
+        "prova_h": "Prova de normes de convivència",
+        "prova_p": "Test i situacions sobre les normes del centre. Es fa a classe amb el codi que dona el tutor.",
         "horari_classe_p": "Graella setmanal completa del grup, amb totes les matèries i el seu professorat. Es pot descarregar en PDF.",
         "hores_label": "Hores/setmana",
         "footer_brand": "Matemàtiques, docència i doctorat",
@@ -237,6 +242,8 @@ LABELS = {
         "grup_label": "Group",
         "privat_h": "Private area",
         "horari_classe_h": "Class timetable",
+        "prova_h": "Code of conduct quiz",
+        "prova_p": "Multiple-choice and scenario questions on the school rules. Taken in class with the tutor's code.",
         "horari_classe_p": "Full weekly grid for the group, with every subject and its teacher. Downloadable as PDF.",
         "hores_label": "Hours/week",
         "footer_brand": "Mathematics, teaching and research",
@@ -336,18 +343,25 @@ def render_landing(s, lang):
 
     # El horario de clase del grupo va en el cuerpo, como tarjeta enlazada,
     # no como botón de cabecera: no es una zona restringida, es contenido.
-    horari_link_html = ""
-    if s.get("horari_url"):
-        horari_link_html = f"""
-    <a href="{s['horari_url']}" class="link-card">
-      <span class="link-card-icon" aria-hidden="true">🗓️</span>
+    def _link_card(url, icona, titol, text):
+        return f"""
+    <a href="{url}" class="link-card">
+      <span class="link-card-icon" aria-hidden="true">{icona}</span>
       <span class="link-card-body">
-        <strong>{L['horari_classe_h']}</strong>
-        <span>{L['horari_classe_p']}</span>
+        <strong>{titol}</strong>
+        <span>{text}</span>
       </span>
       <span class="link-card-arrow" aria-hidden="true">&rarr;</span>
     </a>
 """
+
+    horari_link_html = ""
+    if s.get("horari_url"):
+        horari_link_html += _link_card(s["horari_url"], "🗓️",
+                                       L["horari_classe_h"], L["horari_classe_p"])
+    if s.get("prova_url"):
+        horari_link_html += _link_card(s["prova_url"], "📋",
+                                       L["prova_h"], L["prova_p"])
 
     horari_html = ""
     hores_card = ""
