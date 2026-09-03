@@ -95,6 +95,8 @@
   table.notes td { padding:.45rem .8rem; border-bottom:1px solid var(--border); }
   table.notes tr:last-child td { border-bottom:none; }
   table.notes tr.destaca td { background:rgba(15,118,110,.07); font-weight:600; }
+  table.notes tr.arrossega td { background:rgba(180,83,9,.07); font-style:italic; }
+  table.notes tr.arrossega td:first-child { border-left:2px solid #b45309; }
   table.notes td.n span { font-family:var(--mono); font-weight:600; }
   .n-sus { color:#dc2626; } .n-just { color:#b45309; } .n-be { color:var(--text); }
   .n-exc { color:#059669; } .n-cap { color:var(--text-faint); }
@@ -147,11 +149,13 @@ function taulaNotes(a) {
         ? '<span class="n-cap">&middot;</span>'
         : `<span class="${classeNota(n)}">${n}</span>`}</td>`;
     };
-    return `<tr class="${e.clau === "mates" ? "destaca" : ""}">
+    return `<tr class="${e.clau === "mates" ? "destaca" : ""}${
+      e.pendent ? " arrossega" : ""}">
       <td>${esc(e.nom)}</td>${cel("1")}${cel("2")}${cel("3")}${cel("0")}</tr>`;
   }).join("");
 
-  const finals = t.map(e => e.t["0"] ?? e.t["3"]).filter(n => n != null);
+  const finals = t.filter(e => !e.pendent).map(e => e.t["0"] ?? e.t["3"])
+                  .filter(n => n != null);
   const mitj = finals.length ? (finals.reduce((x, y) => x + y, 0) / finals.length) : null;
   const susp = finals.filter(n => n < 5).length;
 
@@ -181,8 +185,13 @@ function resumNotes(a) {
     return `<p class="ajut">Sense notes del curs anterior.${
       a.marca ? " És normal en un alumne repetidor: no estava en aquest nivell." : ""}</p>`;
   }
-  const finals = t.map(e => ({ nom: e.nom, n: e.t["0"] ?? e.t["3"] }))
+  // Una pendiente de un curso anterior no es del año que resumimos: ni
+  // promedia con las demás ni cuenta como suspensa de este curso.
+  const finals = t.filter(e => !e.pendent)
+                  .map(e => ({ nom: e.nom, n: e.t["0"] ?? e.t["3"] }))
                   .filter(x => x.n != null);
+  const pend = t.filter(e => e.pendent)
+                .map(e => ({ nom: e.nom.replace(/ \(pendent.*$/, ""), n: e.t["0"] ?? null }));
   const mitj = finals.length
     ? finals.reduce((s, x) => s + x.n, 0) / finals.length : null;
   const susp = finals.filter(x => x.n < 5);
@@ -197,6 +206,9 @@ function resumNotes(a) {
       <span class="vl" style="font-size:1.05rem">${esc(a.curs_anterior || "—")}</span></div>
     ${susp.length ? `<p class="suspeses">Va suspendre: ${
       susp.map(x => `<strong>${esc(x.nom)}</strong> (${x.n})`).join(", ")}.</p>` : ""}
+    ${pend.length ? `<p class="suspeses">Arrossegava de cursos anteriors: ${
+      pend.map(x => `<strong>${esc(x.nom)}</strong>${x.n == null ? "" : ` (${x.n})`}`)
+          .join(", ")}.</p>` : ""}
   </div>`;
 }
 

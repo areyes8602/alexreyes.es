@@ -64,7 +64,11 @@ CLAUS = [
     ("competenciaemprenedoria", "comp_emprenedoria"),
     ("competenciaciutadana", "comp_ciutadana"), ("auladacollida", "acollida"),
     ("manati", "manati"), ("projectemaristes", "projecte"),
-    ("digitalitzem", "digital"),
+    ("digitalitzem", "digital"), ("lectura", "lectura"),
+    ("lescorts", "les_corts"), ("edatmoderna", "edat_moderna"),
+    # Comodín al final: una columna de pendents repite "estrangera" sin el
+    # "Llengua" delante, y sin esto se quedaba sin reconocer.
+    ("estrangera", "angles"),
 ]
 
 
@@ -186,6 +190,8 @@ NOMS = {
     "acollida": "Aula d'Acollida", "comp_personal": "Competència personal i social",
     "comp_digital": "Competència digital", "comp_emprenedoria": "Competència emprenedoria",
     "comp_ciutadana": "Competència ciutadana",
+    "lectura": "Lectura", "les_corts": "Les Corts: present, passat i futur",
+    "edat_moderna": "Edat Moderna, comença l'espectacle",
 }
 
 
@@ -193,8 +199,13 @@ def neteja(clau, etiqueta):
     """Nombre legible de una materia."""
     if clau in NOMS:
         return NOMS[clau]
-    # Materia nueva: el PDF la da por palabras enteras, basta con normalizar.
     t = re.sub(r"\s+", " ", etiqueta).strip()
+    trossos = t.split(" ")
+    # Si el PDF la ha dado carácter a carácter, los espacios son ruido: unir
+    # y separar por mayúsculas deja algo legible en vez de "L e s C o rt s".
+    if len(trossos) > 4 and sum(1 for x in trossos if len(x) <= 2) / len(trossos) > 0.6:
+        junt = "".join(trossos)
+        return re.sub(r"(?<=[a-zà-ú])(?=[A-ZÀ-Ú])", " ", junt).replace(":", ": ").strip()
     return re.sub(r"([a-zà-ú])i (l|L)", r"\1 i \2", t)
 
 
@@ -221,15 +232,27 @@ def files_de(pagina):
 
 def llegir_notes(path):
     """{nom complet: {'grup', 'sexe', 'pendents', 'aval': {1|2|3|0: {materia: nota}}}}"""
-    alumnes, grup, columnes = {}, None, []
+    alumnes, grup = {}, None
     # `actual` vive fuera del bucle de páginas: las cuatro filas de un alumno
     # pueden partirse entre dos páginas, y reiniciarlo en cada una perdía las
     # que quedaban al otro lado del corte.
     actual = None
+    # La tabla no cabe a lo ancho de una página: continúa en páginas
+    # posteriores con OTRAS materias, y al final repite algunas — son las
+    # pendientes del curso anterior, solo con nota ordinaria. Por eso las
+    # columnas se detectan en cada página, y cada juego de columnas es un
+    # "bloque": la misma materia en dos bloques distintos no es la misma nota.
+    blocs, ordre_blocs = {}, []
     with pdfplumber.open(path) as pdf:
         for pagina in pdf.pages:
+            columnes = detecta_columnes(pagina)
             if not columnes:
-                columnes = detecta_columnes(pagina)
+                continue
+            firma = tuple(c for _, c, _ in columnes)
+            if firma not in blocs:
+                blocs[firma] = len(blocs)
+                ordre_blocs.append(columnes)
+            bloc = blocs[firma]
             if grup is None:
                 tot = " ".join(w["text"] for w in pagina.extract_words())
                 m = re.search(r"(\dESO-[A-E])", tot)
@@ -255,10 +278,11 @@ def llegir_notes(path):
                         continue
                     c = columna(w["x0"], columnes)
                     if c and re.fullmatch(r"\d{1,2}", w["text"]):
-                        notes[c] = int(w["text"])
+                        notes[f"{bloc}:{c}"] = int(w["text"])
                 a = alumnes.setdefault(actual, {"grup": grup, "aval": {},
-                                                 "columnes": columnes})
-                a["aval"][aval] = notes
+                                                 "blocs": ordre_blocs})
+                a["blocs"] = ordre_blocs
+                a["aval"].setdefault(aval, {}).update(notes)
                 sexe = next((w["text"] for w in fila if w["x0"] > 800), None)
                 if sexe:
                     a["sexe"] = sexe
@@ -333,7 +357,13 @@ def main():
     print(f"Emparejados: {len(trobats)} de {len(orla)}\n")
     for sid, (clau, dades, p) in sorted(trobats.items()):
         aval = dades["aval"]
-        mates = [aval.get(t, {}).get("mates", "·") for t in ("1", "2", "3", "0")]
+        # Las notas van con el bloque delante ("0:mates"): la de matemáticas
+        # del curso es la del primer bloque donde aparece; las repetidas en
+        # bloques posteriores son pendientes y no van en este resumen.
+        cel = next((k for k in sorted(
+            {k for n in aval.values() for k in n}) if k.endswith(":mates")), None)
+        mates = [aval.get(t, {}).get(cel, "·") for t in ("1", "2", "3", "0")] if cel \
+            else ["·"] * 4
         print(f"  {sid:<40} [{dades['grup']}]  mates {mates}")
     if sense:
         print("\nSin notas del curso anterior:")
@@ -357,14 +387,24 @@ def main():
         # materia: así la ficha muestra "Taller 1 Robòtica" aunque el año que
         # viene aparezcan asignaturas que hoy no existen. Solo van las que
         # tienen alguna nota.
+        #
+        # Una materia que reaparece en un bloque posterior es una PENDIENTE
+        # del curso anterior: el boletín repite la columna al final y solo la
+        # califica en la ordinaria. No es la misma nota, así que va aparte.
         amb_nota = {m for notes in dades["aval"].values() for m in notes}
-        taula = []
-        for _, clau, nom in dades.get("columnes", []):
-            if clau not in amb_nota:
-                continue
-            t = {av: dades["aval"][av][clau] for av in ("1", "2", "3", "0")
-                 if av in dades["aval"] and clau in dades["aval"][av]}
-            taula.append({"clau": clau, "nom": nom, "t": t})
+        taula, vistes = [], set()
+        for i, columnes in enumerate(dades.get("blocs", [])):
+            for _, clau, nom in columnes:
+                cel = f"{i}:{clau}"
+                if cel not in amb_nota:
+                    continue
+                t = {av: dades["aval"][av][cel] for av in ("1", "2", "3", "0")
+                     if av in dades["aval"] and cel in dades["aval"][av]}
+                pendent = clau in vistes
+                vistes.add(clau)
+                taula.append({"clau": clau + ("_pendent" if pendent else ""),
+                              "nom": nom + (" (pendent del curs anterior)" if pendent else ""),
+                              "t": t, **({"pendent": True} if pendent else {})})
         linies.append(
             "UPDATE tutoria_alumnes SET "
             f"curs_anterior = {sql_str(dades['grup'])}, "
