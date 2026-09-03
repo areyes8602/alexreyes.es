@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matemàtiques 4t ESO — Àlex Reyes</title>
-<meta name="description" content="Matemàtiques 4t ESO — curso 2026–2027.">
+<meta name="description" content="Grup D &middot; Currículum LOMLOE">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
-<script src="/assets/js/lang-persist.js?v=202606221623"></script>
+<script src="/assets/js/lang-persist.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css?v=202606221623">
+<link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://alexreyes.es/docencia/eso-4/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/docencia/eso-4/">
@@ -17,46 +17,37 @@
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/eso-4/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/eso-4/">
 <style>
-  .year-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
-  .year-card { background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem 1.25rem; text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; display:flex; flex-direction:column; gap:0.4rem; }
-  .year-card:hover { border-color:var(--border-strong); transform:translateY(-1px); }
-  .year-card-head { display:flex; align-items:center; justify-content:space-between; gap:0.5rem; }
-  .year-card-year { font-family:var(--mono); font-size:1.05rem; font-weight:600; color:var(--text); }
-  .year-card-meta { font-size:0.78rem; color:var(--text-faint); }
-  .year-card-center { font-size:0.85rem; color:var(--text-soft); margin:0; }
-  .year-card-arrow { font-size:0.9rem; color:var(--text-faint); }
-  .empty-state { text-align:center; padding:2.5rem 1.5rem; background:var(--bg-subtle); border:1px dashed var(--border); border-radius:var(--radius); }
-  .empty-state h3 { margin:0 0 0.5rem; font-size:1rem; font-weight:600; color:var(--text); }
-  .empty-state p { margin:0; font-size:0.9rem; color:var(--text-soft); max-width:36rem; margin-left:auto; margin-right:auto; }
-  /* Horario — mismas reglas que las info pages de asignatura */
-  .schedule-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
-  .schedule-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); padding:0.9rem 1.1rem; }
-  .schedule-card h4 { margin:0 0 0.6rem; font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
-  .schedule-day { display:flex; justify-content:space-between; padding:0.3rem 0; font-size:0.92rem; border-bottom:1px solid var(--border); }
-  .schedule-day:last-child { border-bottom:none; }
-  .schedule-day strong { font-family:var(--mono); color:var(--text); }
+  .info-cta { display:flex; align-items:center; gap:1.2rem; padding:1.2rem 1.5rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; margin-bottom:2rem; }
+  .info-cta:hover { border-color:var(--border-strong); transform:translateY(-1px); }
+  .info-cta-icon { font-size:2rem; flex:0 0 auto; }
+  .info-cta-body { flex:1; min-width:0; }
+  .info-cta-body h3 { margin:0 0 0.25rem; font-size:1.05rem; font-weight:600; color:var(--text); }
+  .info-cta-body p { margin:0; font-size:0.88rem; color:var(--text-soft); }
+  .info-cta-arrow { font-size:1.2rem; color:var(--text-faint); flex:0 0 auto; }
+  .unit-meta { display:flex; gap:0.7rem; flex-wrap:wrap; font-size:0.75rem; color:var(--text-faint); margin-bottom:0.6rem; }
+  .unit-meta span { display:inline-flex; align-items:center; gap:0.3rem; }
+
 </style>
-<script defer src="/assets/js/curso-banner.js?v=202606221623"></script>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/docencia/eso-4/">
 <meta property="og:title" content="Matemàtiques 4t ESO — Àlex Reyes">
-<meta property="og:description" content="Matemàtiques 4t ESO — curso 2026–2027.">
+<meta property="og:description" content="Grup D &middot; Currículum LOMLOE">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Matemàtiques 4t ESO — Àlex Reyes">
-<meta name="twitter:description" content="Matemàtiques 4t ESO — curso 2026–2027.">
+<meta name="twitter:description" content="Grup D &middot; Currículum LOMLOE">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"Matemàtiques 4t ESO","item":"https://alexreyes.es/docencia/eso-4/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docència","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"Matemàtiques 4t ESO","item":"https://alexreyes.es/docencia/eso-4/"}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#main">Saltar al contenido</a>
+<a class="skip-link" href="#main">Salta al contingut</a>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
-    <div class="nav-links"><a href="/docencia/" class="nav-active">Docencia</a><a href="/doctorado/">Doctorado</a><a href="/notas/">Notas</a><a href="/cv/">CV</a><a href="/contacto/">Contacto</a></div>
+    <div class="nav-links"><a href="/docencia/" class="nav-active">Docència</a><a href="/doctorado/">Doctorat</a><a href="/notas/">Notes</a><a href="/cv/">CV</a><a href="/contacto/">Contacte</a></div>
     <div class="nav-right">
-      <div class="lang-sw"><a href="/docencia/eso-4/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/docencia/eso-4/">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/eso-4/">EN</a></div>
+      <div class="lang-sw"><a href="/docencia/eso-4/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/docencia/eso-4/">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/eso-4/">EN</a></div>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
       <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -69,34 +60,52 @@
 <main id="main">
   <div class="container" style="padding-top:3rem;padding-bottom:5rem">
 
-    <div class="breadcrumb"><a href="/">Inicio</a><span class="sep">/</span><a href="/docencia/">Docencia</a><span class="sep">/</span><span class="current">Matemàtiques 4t ESO</span></div>
+    <div class="breadcrumb"><a href="/">Inici</a><span class="sep">/</span><a href="/docencia/">Docència</a><span class="sep">/</span><span class="current">Matemàtiques 4t ESO</span></div>
 
+    <details class="year-picker">
+      <summary>📅 Curs 2026–27</summary>
+      <div class="year-menu">
+        <a href="/docencia/eso-4/" class="active">2026–27 (actual)</a>
+        <p class="year-empty">Encara no hi ha cursos arxivats.</p>
+      </div>
+    </details>
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">ESO</span>
-        <span class="tag tag-green">2026–27</span>
+        <span class="tag tag-orange">2026–27</span>
       </div>
       <h1 style="margin:0.3rem 0 0.6rem">Matemàtiques 4t ESO</h1>
-      <p style="font-size:0.98rem;color:var(--text-soft)">Cuarto de ESO &mdash; currículum LOMLOE.</p>
+      <p style="font-size:0.98rem;color:var(--text-soft)">Grup D &middot; Currículum LOMLOE</p>
     </div>
 
     <div class="info-grid">
-      <div class="info-card"><div class="info-card-label">Curso</div><div class="info-card-value">4º ESO</div></div>
-      <div class="info-card"><div class="info-card-label">Estado</div><div class="info-card-value" style="font-size:0.88rem">Activa</div></div>
-      <div class="info-card"><div class="info-card-label">Cursos</div><div class="info-card-value" id="years-count">—</div></div>
-      <div class="info-card"><div class="info-card-label">Horas/semana</div><div class="info-card-value">4</div></div>
+      <div class="info-card"><div class="info-card-label">Curs</div><div class="info-card-value">4t ESO</div></div>
+      <div class="info-card"><div class="info-card-label">Grup</div><div class="info-card-value">D</div></div>
+      <div class="info-card"><div class="info-card-label">Idioma</div><div class="info-card-value" style="font-size:0.88rem">Català</div></div>
+      <div class="info-card"><div class="info-card-label">Unitats</div><div class="info-card-value">—</div></div>
     </div>
 
+    <a href="/docencia/eso-4/info/" class="info-cta">
+      <span class="info-cta-icon">📋</span>
+      <div class="info-cta-body">
+        <h3>Informació de l'assignatura</h3>
+        <p>Horari, criteris d'avaluació, temari, calendari i material necessari.</p>
+      </div>
+      <span class="info-cta-arrow">→</span>
+    </a>
 
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Horario</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Sesiones semanales del curso 2026–27.</p>
-    <div class="schedule-grid"><div class="schedule-card"><h4>4t ESO D</h4><div class="schedule-day"><span>Lunes</span><strong>15:30–16:30</strong></div><div class="schedule-day"><span>Martes</span><strong>9:00–10:00</strong></div><div class="schedule-day"><span>Miércoles</span><strong>11:30–12:25</strong></div><div class="schedule-day"><span>Jueves</span><strong>15:30–16:30</strong></div></div></div>
+    <h2 style="font-size:1.1rem;margin:0 0 0.4rem">Unitats didàctiques</h2>
+    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada unitat conté els apunts de classe, les fitxes d'exercicis amb les seves solucions, i els exàmens realitzats.</p>
+    <div class="chapter-list" id="units-list"><p style="color:var(--text-faint);font-size:0.92rem;padding:0.75rem 0">El temari d'aquest curs encara no està publicat. Anirà apareixent al llarg de l'any.</p></div>
 
-    <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">Cursos impartidos</h2>
-    <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada curso contiene los apuntes, fichas, soluciones y exámenes de aquel año académico.</p>
-    <div id="years-container">
-      <p style="color:var(--text-faint);font-size:0.9rem;padding:0.5rem 0">Cargando…</p>
-    </div>
+    <section style="margin-top:3rem">
+      <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <h2 style="font-size:1.2rem;margin:0">Exàmens globals</h2>
+        <span class="tag tag-gray" id="globals-count" style="font-size:0.7rem">carregant…</span>
+      </div>
+      <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Globals d'avaluació, simulacres, recuperacions i exàmens finals — proves que cobreixen diverses unitats.</p>
+      <div id="globals-list" class="exam-list"></div>
+    </section>
 
   </div>
 </main>
@@ -104,7 +113,7 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
       <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
     </div>
   </div>
@@ -113,42 +122,107 @@
 <script>
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
-function escHtml(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
-const NO_YEARS_H = "Curso en marcha";
-const NO_YEARS_P = "Estoy impartiendo esta asignatura durante el curso 2026\u20132027. El material se ir\u00e1 publicando a lo largo del a\u00f1o.";
-const BASE_URL = "/docencia/eso-4/";
+const UNITS = [];
+const MATERIA = "eso-4";
+const MONTHS = ["gen", "feb", "mar\u00e7", "abr", "maig", "juny", "jul", "ag", "set", "oct", "nov", "des"];
+const LABELS_JS = {"exam_questions": "preguntes", "exam_question": "pregunta", "exam_points": "punts", "exam_btn_pdf": "PDF", "exam_btn_html": "Veure enunciats i correccions", "no_exams_unit": "No hi ha exàmens publicats d'aquesta unitat encara.", "exams_unit_title": "Exàmens d'aquesta unitat", "globals_empty": "Encara no hi ha exàmens globals publicats.", "globals_load_error": "No s'ha pogut carregar el llistat d'exàmens.", "section_card_apunts": "Apunts", "section_card_fitxes": "Llista d'exercicis", "section_card_solucions": "Solucions", "unit_meta_book": "Llibre", "unit_meta_dates": "Dates", "unit_meta_trim": "avaluació", "examens_count_one": "examen", "examens_count_many": "exàmens", "trimestre_tag": "avaluació", "summary_exams_label": "Exàmens", "summary_fitxes_label": "Llistat", "summary_apunts_label": "Apunts", "summary_yes": "Sí", "summary_no": "No"};
 
-fetch('/assets/data/archive/eso-4.json', { cache: 'no-cache' })
+function unitNumOf(colId) { const m=(colId||'').match(/-u(\d{1,2})\b/); return m ? m[1].padStart(2,'0') : null; }
+function isGlobal(colId) { if(!colId) return false; if(unitNumOf(colId)) return false; return /-g\d+\b|-final\b|-rec\b|-simulacre\b/.test(colId); }
+function fmtFecha(iso) { if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${parseInt(d,10)} ${MONTHS[parseInt(m,10)-1]} ${y}`; }
+function escHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function renderExamCard(col, ejs) {
+  const ptos = ejs.reduce((s,e) => s + (e.puntuacion||0), 0);
+  const npreg = ejs.length;
+  const pdfBtn = col.pdf_enunciados ? `<a class="exam-card-btn pdf" href="${escHtml(col.pdf_enunciados)}" target="_blank" rel="noopener" title="${LABELS_JS.exam_btn_pdf}">📄 ${LABELS_JS.exam_btn_pdf}</a>` : '';
+  const idxBtn = col.url_index ? `<a class="exam-card-btn html" href="${escHtml(col.url_index)}">📋 ${LABELS_JS.exam_btn_html}</a>` : '';
+  return `<article class="exam-card"><div class="exam-card-head"><span class="exam-card-date">${escHtml(fmtFecha(col.fecha))}</span>${col.grupo?`<span class="tag tag-orange" style="font-size:0.7rem">${escHtml(col.grupo)}</span>`:''}</div><h3 class="exam-card-title">${escHtml(col.titulo||col.id)}</h3><p class="exam-card-meta">${npreg} ${npreg===1?LABELS_JS.exam_question:LABELS_JS.exam_questions} &middot; ${ptos} ${LABELS_JS.exam_points}</p><div class="exam-card-actions">${idxBtn}${pdfBtn}</div></article>`;
+}
+function buildSectionCard(href, icon, label) {
+  if (href) return `<a href="${href}" class="chapter-section available" style="text-decoration:none"><span>${icon}</span><span>${label}</span></a>`;
+  return `<div class="chapter-section empty"><span>${icon}</span><span>${label}</span></div>`;
+}
+const TRIM_CLASS = { '1a':'tag-orange', '2a':'tag-purple', '3a':'tag-gray' };
+function summaryBadge(label, value, color, hasContent) {
+  const cls = hasContent ? `tag ${color}` : 'tag tag-gray';
+  const sty = hasContent ? 'font-size:0.65rem;font-weight:500' : 'font-size:0.65rem;font-weight:500;opacity:0.55';
+  return `<span class="${cls}" style="${sty}">${label}: ${value}</span>`;
+}
+function buildUnit(u, examsByUnit) {
+  // Dins d'una unitat ordenem per data ascendent: Parcial 1 abans del Parcial 2, simulacre abans del global, etc.
+  const exs = (examsByUnit[u.num]||[]).sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
+  const examCount = exs.length;
+  const fitxesCount = u.fitxes ? 1 : 0;
+  const hasApunts = !!u.apunts;
+  const sections = [
+    buildSectionCard(u.apunts, '📄', LABELS_JS.section_card_apunts),
+    buildSectionCard(u.fitxes, '📝', LABELS_JS.section_card_fitxes),
+    buildSectionCard(u.solucions, '✅', LABELS_JS.section_card_solucions),
+  ].join('');
+  const examsBox = examCount > 0
+    ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">${LABELS_JS.exams_unit_title} (${examCount})</h4><div class="exam-list">${exs.map(({col,ejs}) => renderExamCard(col, ejs)).join('')}</div></div>`
+    : `<p style="font-size:0.82rem;color:var(--text-faint);margin:1rem 0 0">${LABELS_JS.no_exams_unit}</p>`;
+  // Resum visible al header (abans de desplegar): exàmens, llistat d'exercicis i apunts.
+  const summaryBadges = [
+    summaryBadge(LABELS_JS.summary_exams_label, examCount, 'tag-purple', examCount > 0),
+    summaryBadge(LABELS_JS.summary_fitxes_label, fitxesCount, 'tag-orange', fitxesCount > 0),
+    summaryBadge(LABELS_JS.summary_apunts_label, hasApunts ? LABELS_JS.summary_yes : LABELS_JS.summary_no, 'tag-green', hasApunts),
+  ].join('');
+  const headerBadges = `<span class="unit-summary-badges" style="margin-left:auto;display:inline-flex;gap:0.3rem;flex-wrap:wrap;align-items:center">${summaryBadges}</span>`;
+  const meta = (u.llibre || u.inici) ? `<div class="unit-meta">${u.llibre?`<span>📖 ${LABELS_JS.unit_meta_book} ${escHtml(u.llibre)}</span>`:''}${u.inici?`<span>📅 ${escHtml(u.inici)} → ${escHtml(u.final||'')}</span>`:''}${u.trimestre?`<span>🎯 ${u.trimestre} ${LABELS_JS.unit_meta_trim}</span>`:''}</div>` : '';
+  return `<div class="chapter-item"><div class="chapter-header" onclick="toggleChapter(this)"><span class="chapter-num">${u.num}</span><span class="chapter-title">${escHtml(u.title)}</span>${headerBadges}<span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${meta}<p style="font-size:0.88rem;color:var(--text-soft);margin:0 0 1rem">${escHtml(u.desc)}</p><div class="chapter-sections">${sections}</div>${examsBox}</div></div>`;
+}
+
+fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
-  .then(data => {
-    const years = (data.years || []).slice().sort((a,b) => (b.year||'').localeCompare(a.year||''));
-    document.getElementById('years-count').textContent = years.length || '0';
-    const cont = document.getElementById('years-container');
-    if (years.length === 0) {
-      cont.innerHTML = `<div class="empty-state"><h3>${escHtml(NO_YEARS_H)}</h3><p>${escHtml(NO_YEARS_P)}</p></div>`;
-      return;
+  .then(idx => {
+    const cols = new Map();
+    for (const e of (idx.ejercicios || [])) {
+      const c = e.coleccion || {};
+      if (e.tags && e.tags.materia !== MATERIA) continue;
+      // Només mostrem exàmens al hub: les pràctiques/exercicis de classe es llisten a /aula/<materia>/apuntes/
+      if (c.tipo && c.tipo !== 'examen') continue;
+      if (!cols.has(c.id)) cols.set(c.id, { col: c, ejs: [] });
+      cols.get(c.id).ejs.push(e);
     }
-    cont.innerHTML = '<div class="year-grid">' + years.map(y => {
-      const center = y.center ? `<p class="year-card-center">${escHtml(y.center)}</p>` : '';
-      const note = y.note ? `<span class="year-card-meta">${escHtml(y.note)}</span>` : '';
-      return `
-        <a href="${BASE_URL}${escHtml(y.year)}/" class="year-card">
-          <div class="year-card-head">
-            <span class="year-card-year">${escHtml(y.year)}</span>
-            <span class="year-card-arrow">→</span>
-          </div>
-          ${center}
-          ${note}
-        </a>`;
-    }).join('') + '</div>';
+    const byUnit = {};
+    const globals = [];
+    for (const entry of cols.values()) {
+      // Si la col·lecció declara `unidades_implicadas`, l'examen apareix sota cadascuna.
+      const ui = Array.isArray(entry.col.unidades_implicadas) ? entry.col.unidades_implicadas : null;
+      if (ui && ui.length > 0) {
+        for (const num of ui) {
+          const k = String(num).padStart(2,'0');
+          (byUnit[k] = byUnit[k] || []).push(entry);
+        }
+        continue;
+      }
+      const u = unitNumOf(entry.col.id);
+      if (u) { (byUnit[u] = byUnit[u] || []).push(entry); }
+      else { globals.push(entry); }
+    }
+    if (UNITS.length) document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, byUnit)).join('');
+    // Globals també ordenats cronològicament (ASC) perquè Global 1a sortí abans que Global 2a, etc.
+    globals.sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
+    const cont = document.getElementById('globals-list');
+    const count = document.getElementById('globals-count');
+    if (globals.length === 0) {
+      count.textContent = '0';
+      cont.innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${LABELS_JS.globals_empty}</p>`;
+    } else {
+      count.textContent = globals.length + (globals.length===1 ? ' ' + LABELS_JS.examens_count_one : ' ' + LABELS_JS.examens_count_many);
+      cont.innerHTML = globals.map(({col,ejs}) => renderExamCard(col, ejs)).join('');
+    }
   })
   .catch(err => {
-    document.getElementById('years-count').textContent = '0';
-    document.getElementById('years-container').innerHTML = `<div class="empty-state"><h3>${escHtml(NO_YEARS_H)}</h3><p>${escHtml(NO_YEARS_P)}</p></div>`;
-    console.error('archive years:', err);
+    if (UNITS.length) document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, {})).join('');
+    document.getElementById('globals-count').textContent = 'error';
+    document.getElementById('globals-list').innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem">${LABELS_JS.globals_load_error}</p>`;
+    console.error('exams:', err);
   });
 </script>
-<script defer src="/assets/js/search.js?v=202606221623"></script>
+<script defer src="/assets/js/search.js"></script>
 </body>
 </html>

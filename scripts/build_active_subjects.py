@@ -270,6 +270,57 @@ SUBJ_2ESO = {
     ],
 }
 
+# 3r ESO — language of instruction: Catalan
+# Assignatura nova d'aquest curs: l'estructura hi és, el temari encara no.
+SUBJ_3ESO = {
+    "code": "eso-3",
+    "type": "regular",
+    "lang_taught": "ca",
+    "title": {"es": "Matemàtiques 3r ESO", "ca": "Matemàtiques 3r ESO", "en": "Mathematics 3r ESO"},
+    "subtitle": {
+        "es": "Grupo C &middot; Currículum LOMLOE",
+        "ca": "Grup C &middot; Currículum LOMLOE",
+        "en": "Group C &middot; LOMLOE curriculum",
+    },
+    "section_label": "ESO",
+    "tag_year": "2026–27",
+    "info_grid": [
+        {"label_key": "year_picker_label", "value": "3r ESO"},
+        {"label": {"es": "Grupo", "ca": "Grup", "en": "Group"}, "value": "C"},
+        {"label": {"es": "Idioma", "ca": "Idioma", "en": "Language"}, "value": {"es":"Català","ca":"Català","en":"Catalan"}, "small": True},
+        {"label": {"es": "Unidades", "ca": "Unitats", "en": "Units"}, "value": "—"},
+    ],
+    "year_current": "2026–27",
+    "materia_filter": "eso-3",
+    "units": [],
+    "archived_years": [],
+}
+
+# 4t ESO — language of instruction: Catalan
+SUBJ_4ESO = {
+    "code": "eso-4",
+    "type": "regular",
+    "lang_taught": "ca",
+    "title": {"es": "Matemàtiques 4t ESO", "ca": "Matemàtiques 4t ESO", "en": "Mathematics 4t ESO"},
+    "subtitle": {
+        "es": "Grupo D &middot; Currículum LOMLOE",
+        "ca": "Grup D &middot; Currículum LOMLOE",
+        "en": "Group D &middot; LOMLOE curriculum",
+    },
+    "section_label": "ESO",
+    "tag_year": "2026–27",
+    "info_grid": [
+        {"label_key": "year_picker_label", "value": "4t ESO"},
+        {"label": {"es": "Grupo", "ca": "Grup", "en": "Group"}, "value": "D"},
+        {"label": {"es": "Idioma", "ca": "Idioma", "en": "Language"}, "value": {"es":"Català","ca":"Català","en":"Catalan"}, "small": True},
+        {"label": {"es": "Unidades", "ca": "Unitats", "en": "Units"}, "value": "—"},
+    ],
+    "year_current": "2026–27",
+    "materia_filter": "eso-4",
+    "units": [],
+    "archived_years": [],
+}
+
 # 1r BTL MACS — language of instruction: Spanish
 SUBJ_1BTL = {
     "code": "ccss-1btl",
@@ -447,7 +498,7 @@ SUBJ_IBAI_2426 = make_ib_subject("2024-2026", 2026)
 SUBJ_IBAI_2527 = make_ib_subject("2025-2027", 2027)
 
 
-SUBJECTS = [SUBJ_2ESO, SUBJ_1BTL, SUBJ_IBAI_2426, SUBJ_IBAI_2527]
+SUBJECTS = [SUBJ_2ESO, SUBJ_3ESO, SUBJ_4ESO, SUBJ_1BTL, SUBJ_IBAI_2426, SUBJ_IBAI_2527]
 
 
 # ─── Rendering helpers ───────────────────────────────────────────
@@ -814,7 +865,7 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
       if (u) {{ (byUnit[u] = byUnit[u] || []).push(entry); }}
       else {{ globals.push(entry); }}
     }}
-    document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, byUnit)).join('');
+    if (UNITS.length) document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, byUnit)).join('');
     // Globals també ordenats cronològicament (ASC) perquè Global 1a sortí abans que Global 2a, etc.
     globals.sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
     const cont = document.getElementById('globals-list');
@@ -828,7 +879,7 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
     }}
   }})
   .catch(err => {{
-    document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, {{}})).join('');
+    if (UNITS.length) document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, {{}})).join('');
     document.getElementById('globals-count').textContent = 'error';
     document.getElementById('globals-list').innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem">${{LABELS_JS.globals_load_error}}</p>`;
     console.error('exams:', err);

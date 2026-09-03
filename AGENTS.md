@@ -192,6 +192,35 @@ datos. Está negado para `docencia/tutoria-*/` (y sus `ca/`, `en/`), que es
 sitio público generado. Si creas otra subpágina pública ahí, comprueba con
 `git check-ignore -v <ruta>` que no queda ignorada.
 
+## Workflow: pasar una asignatura de landing simple a hub con temario
+
+Dos scripts escriben `docencia/<code>/index.html`, así que una asignatura
+está en uno **o** en el otro, nunca en los dos: el último que corra gana y el
+resultado depende del orden, que es justo lo que no quieres descubrir en
+producción.
+
+- `build_archived_subjects.py` — landing simple: descripción, horario y la
+  rejilla de años. Para asignaturas sin temario propio.
+- `build_active_subjects.py` — hub completo: unidades didácticas desplegables
+  con apuntes, listado de ejercicios y los exámenes, que se enganchan solos
+  desde `assets/data/ejercicios-index.json` filtrando por `tags.materia`.
+
+Para promover una (lo que se hizo con 3r y 4t ESO):
+
+1. Quitar su entrada de `SUBJECTS` en `build_archived_subjects.py`.
+2. Añadir el `SUBJ_…` en `build_active_subjects.py` y meterlo en `SUBJECTS`.
+   `materia_filter` debe casar con el `tags.materia` del banco (`eso-2`,
+   `eso-3`, `ccss-1btl`…) o los exámenes no aparecerán nunca.
+3. Añadir su config en `build_active_info_pages.py`: el hub enlaza a
+   `<code>/info/` y sin esto es un 404.
+4. `build_sitemap.py` — añadir `/docencia/<code>/info/` a `trilingual_paths`.
+5. Borrar el `assets/data/archive/<code>.json` que dejó la landing: el hub no
+   lo lee y queda huérfano.
+
+Una asignatura con `"units": []` enseña el estado vacío («el temario todavía
+no está publicado»). Ese texto lo pinta el servidor dentro de `#units-list`;
+el JS solo debe sobrescribirlo si hay unidades, o queda un hueco mudo.
+
 ## Workflow: archivar el curso anterior de una asignatura activa
 
 Las asignaturas con temario (`build_active_subjects.py` + `build_active_info_pages.py`)
