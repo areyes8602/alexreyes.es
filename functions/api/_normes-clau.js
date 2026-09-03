@@ -8,7 +8,7 @@ export const TOTAL = 32;
 export const CLAU = {
   "t01": {
     "c": 1,
-    "norma": "Dins la classe no pots ni menjar ni beure i això inclou xiclets i llaminadures."
+    "norma": "El començament de les classes ha d'ésser puntual i àgil. És el teu dret i el teu deure mantenir un clima de silenci i de treball."
   },
   "t02": {
     "c": 2,

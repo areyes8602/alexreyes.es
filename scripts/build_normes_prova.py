@@ -34,14 +34,19 @@ GRUPS = ["2n ESO A", "2n ESO B", "2n ESO C", "2n ESO D", "2n ESO E"]
 # norma: cita literal del document oficial que justifica la resposta
 PREGUNTES = [
   # ── TEST ───────────────────────────────────────────────────────
+  # El menjar i beure a l'aula queda fora: la norma és taxativa però a la
+  # pràctica es deixa beure aigua, i una pregunta que xoca amb el que passa
+  # cada dia a classe no mesura res. Al seu lloc, el clima de treball, que
+  # la normativa planteja alhora com a dret i com a deure i no es preguntava
+  # enlloc.
   dict(id="t01", tipus="test", bloc="Treball a classe",
-    q="Què diu la norma sobre menjar i beure dins de l'aula?",
-    o=["Es pot beure aigua, però no es pot menjar res de res",
-       "No es pot menjar ni beure mai, xiclets inclosos",
-       "Es pot menjar a la classe just abans d'anar al pati",
-       "Es pot menjar si el professor hi dona permís"],
+    q="Mantenir a classe un clima de silenci i de treball és…",
+    o=["Un deure teu, mentre que el dret és del professorat",
+       "Alhora un dret i un deure de cada alumne",
+       "Una recomanació del centre, però no una norma",
+       "Responsabilitat del delegat o delegada de classe"],
     c=1,
-    norma="Dins la classe no pots ni menjar ni beure i això inclou xiclets i llaminadures."),
+    norma="El començament de les classes ha d'ésser puntual i àgil. És el teu dret i el teu deure mantenir un clima de silenci i de treball."),
 
   dict(id="t02", tipus="test", bloc="Treball a classe",
     q="Sortir de l'aula per anar al lavabo durant la classe…",
