@@ -214,8 +214,54 @@ SUBJ_2ESO = {
     "year_current": "2026–27",
     "materia_filter": "eso-2",
     # Units in language of instruction (Catalan), descriptions in language of instruction
-    # El temario del curso 2026–27 todavía no está publicado.
-    "units": [],
+    # Curs 2026–27: les mateixes deu unitats de l'any passat, però el
+    # llenguatge algebraic i les equacions passen davant de les funcions.
+    # Sense dates ni trimestre encara: amb la seqüència canviada, els de
+    # l'any passat ja no valen.
+    "units": [
+                {"num":"01","slug":"fraccions","title":"Nombres fraccionaris","llibre":"U3",
+                 "desc_l":{"ca":"Fraccions equivalents, ordenació, operacions amb fraccions, decimals i potències.",
+                           "es":"Fracciones equivalentes, ordenación, operaciones con fracciones, decimales y potencias.",
+                           "en":"Equivalent fractions, ordering, operations with fractions, decimals and powers."},
+                 "apunts":"/aula/eso-2/apuntes/u-fraccions/"},
+                {"num":"02","slug":"decimals","title":"Nombres decimals","llibre":"U4",
+                 "desc_l":{"ca":"Decimals exactes i periòdics, fracció generatriu, aproximacions.",
+                           "es":"Decimales exactos y periódicos, fracción generatriz, aproximaciones.",
+                           "en":"Exact and periodic decimals, generating fraction, approximations."}},
+                {"num":"03","slug":"probabilitat","title":"Probabilitat","llibre":"U15",
+                 "desc_l":{"ca":"Experiments aleatoris, regla de Laplace i probabilitat.",
+                           "es":"Experimentos aleatorios, regla de Laplace y probabilidad.",
+                           "en":"Random experiments, Laplace's rule and probability."}},
+                {"num":"04","slug":"proporcionalitat","title":"Proporcionalitat","llibre":"U5",
+                 "desc_l":{"ca":"Magnituds proporcionals, regla de tres i percentatges.",
+                           "es":"Magnitudes proporcionales, regla de tres y porcentajes.",
+                           "en":"Proportional magnitudes, rule of three and percentages."}},
+                {"num":"05","slug":"algebra","title":"Llenguatge algebraic","llibre":"U6",
+                 "desc_l":{"ca":"Expressions algebraiques, monomis i polinomis.",
+                           "es":"Expresiones algebraicas, monomios y polinomios.",
+                           "en":"Algebraic expressions, monomials and polynomials."}},
+                {"num":"06","slug":"equacions","title":"Equacions i sistemes","llibre":"U7",
+                 "desc_l":{"ca":"Equacions de 1r grau, sistemes 2×2 i resolució de problemes.",
+                           "es":"Ecuaciones de 1er grado, sistemas 2×2 y resolución de problemas.",
+                           "en":"1st degree equations, 2×2 systems and problem solving."}},
+                {"num":"07","slug":"funcions","title":"Funcions i funcions elementals","llibre":"U8–U9",
+                 "desc_l":{"ca":"Concepte de funció, funció lineal, afí, quadràtica i de proporcionalitat inversa.",
+                           "es":"Concepto de función, función lineal, afín, cuadrática y de proporcionalidad inversa.",
+                           "en":"Function concept, linear, affine, quadratic and inverse proportionality functions."}},
+                {"num":"08","slug":"pitagores","title":"Pitàgores","llibre":"U10",
+                 "desc_l":{"ca":"Teorema de Pitàgores i les seves aplicacions.",
+                           "es":"Teorema de Pitágoras y sus aplicaciones.",
+                           "en":"Pythagorean theorem and its applications."}},
+                {"num":"09","slug":"poliedres","title":"Poliedres","llibre":"U12",
+                 "desc_l":{"ca":"Prismes, piràmides, àrees i volums.",
+                           "es":"Prismas, pirámides, áreas y volúmenes.",
+                           "en":"Prisms, pyramids, areas and volumes."}},
+                {"num":"10","slug":"cossos-revolucio","title":"Cossos de revolució","llibre":"U13",
+                 "desc_l":{"ca":"Cilindre, con i esfera. Àrees i volums.",
+                           "es":"Cilindro, cono y esfera. Áreas y volúmenes.",
+                           "en":"Cylinder, cone and sphere. Areas and volumes."},
+                 "apunts":"/aula/eso-2/apuntes/u-cossos-revolucio/"},
+    ],
     # Cursos anteriores. Se sirven en /docencia/<code>/<slug>/ y se listan en el
     # selector de curso de la página viva. Su temario ya no cambia.
     "archived_years": [
