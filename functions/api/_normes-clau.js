@@ -120,7 +120,7 @@ export const CLAU = {
   },
   "s11": {
     "c": 3,
-    "norma": "En cas d'acumular 3 faltes lleus […] rebràs una NOTIFICACIÓ D'ACTITUD DE CARÀCTER GREU, amb les mesures sancionadores corresponents."
+    "norma": "Si no respectes alguna d'aquestes normes farem arribar a la teva família una NOTIFICACIÓ D'ACTITUD amb la sanció que hauràs de complir."
   },
   "s12": {
     "c": 3,
