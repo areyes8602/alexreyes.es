@@ -192,6 +192,50 @@ datos. Está negado para `docencia/tutoria-*/` (y sus `ca/`, `en/`), que es
 sitio público generado. Si creas otra subpágina pública ahí, comprueba con
 `git check-ignore -v <ruta>` que no queda ignorada.
 
+## Prova de normes de convivència (/docencia/tutoria-2eso/normes/)
+
+La primera tutoria del curso, en vez de leer las normas, los alumnos de TODO
+2n ESO (A–E, ~125) hacen una prueba sobre ellas. En catalán, en su propio
+dispositivo, con un código que el tutor escribe en la pizarra.
+
+```
+scripts/build_normes_prova.py     el banco de preguntas — FUENTE ÚNICA
+scripts/build_normes_pagina.py    el HTML de la prueba (lo llama el anterior)
+scripts/sql/normes_schema.sql     normes_sessions + normes_respostes
+functions/api/normes.js           PÚBLICO: corrige y guarda
+functions/api/_normes-clau.js     GENERADO: la clave. Solo servidor.
+functions/tutoria/api/normes.js   privado: sesiones, resultados, estadísticas
+tutoria/normes/                   el panel con las gráficas
+```
+
+De `PREGUNTES` salen tres ficheros a la vez para que no puedan divergir: los
+enunciados públicos (`assets/data/normes-preguntes.json`, **sin respuestas**),
+la clave del servidor y la página. Tras tocar el banco, reejecutar el script.
+
+Reglas que sostienen todo esto:
+
+- **La clave no viaja al navegador nunca.** La corrección la hace la Function.
+  Si las respuestas correctas estuvieran en el HTML la prueba no valdría nada.
+- **La corrección detallada es opcional por sesión** (`correccio`, por defecto
+  0). Mientras la prueba está abierta el alumno solo ve su nota: si se
+  devolviera el detalle al instante, bastaría una entrega con nombre inventado
+  para leer las 32 respuestas buenas y volver a entrar con el nombre real.
+  El tutor la abre desde el panel cuando ha acabado todo el mundo.
+- `/api/normes` es **el único punto público del sitio que escribe en la D1 de
+  tutoría**. Solo escribe: no hay ningún GET que devuelva respuestas de nadie.
+  Sin código de sesión abierto no acepta nada, y valida y recorta todo lo que
+  llega (nombre, grupo contra lista blanca, forma de las respuestas).
+- Se guardan **todos los intentos**; cuenta el primero (`intent = 1`) y el
+  panel marca en ámbar a quien ha enviado más de uno.
+- Las opciones de cada pregunta se barajan en el generador con un hash del id
+  (la respuesta correcta caía 19 veces de 32 en la segunda opción), y el orden
+  de las preguntas se baraja en el navegador para cada alumno.
+
+Las gráficas del panel son de una sola serie, así que un solo tono
+(`#2a78d6` claro / `#3987e5` oscuro, validados con el skill de dataviz) y sin
+leyenda. Las barras llevan `display:block` a mano: son `<span>` dentro de
+`<span>`, y un elemento en línea ignora `width` y `height`.
+
 ## Workflow: archivar el curso anterior de una asignatura activa
 
 Las asignaturas con temario (`build_active_subjects.py` + `build_active_info_pages.py`)
