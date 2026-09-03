@@ -142,6 +142,37 @@ Al empezar curso hay que tocar, en este orden:
 otras pasadas (p. ej. `add_search.py` tocando ~1800 exámenes). Revisa
 `git status` y revierte lo que quede fuera del cambio que estás haciendo.
 
+## Workflow: el horario de clase de 2n ESO E
+
+`scripts/build_horari_classe.py` genera `/docencia/tutoria-2eso/horari/` en los
+3 idiomas: la rejilla semanal COMPLETA del grupo (todas las materias y su
+profesorado), no solo mis horas. Es la parte pública de la tutoría; no hay
+ningún dato de alumnos.
+
+- `SUBJECTS` — nombre por idioma + profesorado. `"meu": True` resalta las que
+  imparto yo (Matemàtiques, Tutoria, Projectes).
+- `GRID` — una entrada por franja: `(ini, fi, [lun…vie])`, o
+  `("break", "pati"|"migdia", (ini, fi))` para patio y mediodía.
+- El PDF se hace desde el navegador: `@media print` + `window.print()`, igual
+  que `/tutoria/imprimir/`. Cabe en una A4 horizontal; si añades filas,
+  comprueba que sigue siendo 1 página.
+- No subir la foto/captura del horario Untis: la rejilla es HTML para que sea
+  accesible, traducible y buscable.
+
+Si cambia el horario, edita `GRID` y ejecuta el script; y revisa que las horas
+de `schedule` en `build_archived_subjects.py` / `build_active_info_pages.py`
+sigan cuadrando con la rejilla (son dos fuentes distintas: la hoja Untis del
+profesor y la del grupo).
+
+Franjas contiguas del mismo día se muestran fusionadas (`merge_slots()` en
+`build_archived_subjects.py`): Projectes son dos sesiones seguidas el viernes y
+sale como "Viernes 15:30–17:30", pero cuentan 2 en horas/semana.
+
+⚠️ `.gitignore` tiene `tutoria-*/` como red de seguridad contra volcados de
+datos. Está negado para `docencia/tutoria-*/` (y sus `ca/`, `en/`), que es
+sitio público generado. Si creas otra subpágina pública ahí, comprueba con
+`git check-ignore -v <ruta>` que no queda ignorada.
+
 ## Workflow: archivar el curso anterior de una asignatura activa
 
 Las asignaturas con temario (`build_active_subjects.py` + `build_active_info_pages.py`)

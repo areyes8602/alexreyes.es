@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horario de clase 2n ESO E — Àlex Reyes</title>
+<meta name="description" content="Horario semanal del grupo 2n ESO E, curso 2026–2027, con las materias y el profesorado de cada franja.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202606221623"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/style.css?v=202606221623">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/docencia/tutoria-2eso/horari/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/docencia/tutoria-2eso/horari/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/docencia/tutoria-2eso/horari/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/docencia/tutoria-2eso/horari/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/docencia/tutoria-2eso/horari/">
+<style>
+  .print-only { display:none; }
+  .horari-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg); }
+  table.horari, table.mat-taula { width:100%; border-collapse:collapse; font-size:0.86rem; }
+  table.horari { min-width:660px; table-layout:fixed; }
+  table.horari th, table.horari td, table.mat-taula th, table.mat-taula td { border:1px solid var(--border); padding:0.5rem 0.55rem; text-align:left; vertical-align:top; }
+  table.horari thead th, table.mat-taula thead th { background:var(--bg-subtle); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; text-align:center; }
+  table.horari .hora-h { width:5.2rem; }
+  th.hora { width:5.2rem; font-family:var(--mono); font-size:0.76rem; font-weight:500; color:var(--text-soft); background:var(--bg-subtle); white-space:nowrap; }
+  th.hora span { display:block; color:var(--text-faint); }
+  td.cell { line-height:1.3; }
+  .mat { display:block; font-weight:600; color:var(--text); font-size:0.84rem; }
+  .profs { display:block; margin-top:0.2rem; }
+  .prof { display:block; font-size:0.72rem; color:var(--text-faint); }
+  td.cell-meu { background:var(--bg-subtle); box-shadow:inset 3px 0 0 var(--focus); }
+  td.cell-meu .mat { color:var(--focus); }
+  tr.row-break td { text-align:center; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-faint); background:var(--bg-subtle); }
+  .d-short { display:none; }
+  table.mat-taula th[scope="row"] { font-weight:500; font-size:0.86rem; }
+  table.mat-taula .mat-meu { color:var(--focus); font-weight:600; }
+  table.mat-taula .num { text-align:center; font-family:var(--mono); width:5rem; }
+  .horari-actions { display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; margin:0 0 0.5rem; }
+  .legend { display:flex; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--text-soft); }
+  .legend i { width:0.9rem; height:0.9rem; border-radius:3px; background:var(--bg-subtle); border:1px solid var(--border); box-shadow:inset 3px 0 0 var(--focus); display:inline-block; flex:none; }
+  @media (max-width:560px) {
+    table.horari { min-width:560px; font-size:0.78rem; }
+    .d-long { display:none; } .d-short { display:inline; }
+    .prof { font-size:0.66rem; }
+  }
+  @media print {
+    @page { size:A4 landscape; margin:10mm; }
+    nav, footer, .breadcrumb, .horari-actions, .no-print, .curso-banner,
+    .gs-fab, .gs-ov { display:none !important; }
+    .print-only { display:table-caption; }
+    html, body { height:auto; min-height:0; }
+    body { background:#fff; color:#000; }
+    main, .container { padding:0 !important; margin:0 !important; max-width:none !important; }
+    .page-header { margin:0 0 3mm !important; padding:0 !important; border:none !important; }
+    .page-header h1 { font-size:15pt; margin:0; }
+    .page-header p, .info-grid { display:none !important; }
+    .horari-wrap { overflow:visible; border:none; border-radius:0; }
+    table.horari { min-width:0; width:100%; font-size:8.5pt; page-break-inside:avoid; }
+    table.horari caption { font-size:11pt; font-weight:700; text-align:left; padding:0 0 3mm; }
+    table.horari th, table.horari td { border:0.4pt solid #999; padding:1.6mm 1.4mm; }
+    table.horari thead th { background:#eee !important; color:#000; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    th.hora, tr.row-break td { background:#f6f6f6 !important; color:#000; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    td.cell-meu { background:#f0f0f0 !important; box-shadow:none; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    td.cell-meu .mat, .mat { color:#000; }
+    .prof { color:#444; font-size:7pt; }
+    .d-long { display:inline; } .d-short { display:none; }
+    h2, .mat-taula, .legend, .mat-taula-wrap { display:none !important; }
+  }
+</style>
+<script defer src="/assets/js/curso-banner.js?v=202606221623"></script>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/docencia/tutoria-2eso/horari/">
+<meta property="og:title" content="Horario de clase 2n ESO E — Àlex Reyes">
+<meta property="og:description" content="Horario semanal del grupo 2n ESO E, curso 2026–2027, con las materias y el profesorado de cada franja.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Horario de clase 2n ESO E — Àlex Reyes">
+<meta name="twitter:description" content="Horario semanal del grupo 2n ESO E, curso 2026–2027, con las materias y el profesorado de cada franja.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"Tutoría 2n ESO E","item":"https://alexreyes.es/docencia/tutoria-2eso/"},{"@type":"ListItem","position":4,"name":"Horario de clase","item":"https://alexreyes.es/docencia/tutoria-2eso/horari/"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links"><a href="/docencia/" class="nav-active">Docencia</a><a href="/doctorado/">Doctorado</a><a href="/notas/">Notas</a><a href="/cv/">CV</a><a href="/contacto/">Contacto</a></div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/docencia/tutoria-2eso/horari/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/docencia/tutoria-2eso/horari/">CA</a><span class="lang-sep">&middot;</span><a href="/en/docencia/tutoria-2eso/horari/">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+
+    <div class="breadcrumb"><a href="/">Inicio</a><span class="sep">/</span><a href="/docencia/">Docencia</a><span class="sep">/</span><a href="/docencia/tutoria-2eso/">Tutoría 2n ESO E</a><span class="sep">/</span><span class="current">Horario de clase</span></div>
+
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+        <span class="section-label">Tutoría 2n ESO E</span>
+        <span class="tag tag-green">2026–27</span>
+      </div>
+      <h1 style="margin:0.3rem 0 0.6rem">Horario de clase &middot; 2n ESO E</h1>
+      <p style="font-size:0.98rem;color:var(--text-soft)">Horario semanal completo del grupo <strong>2n ESO E</strong> durante el curso 2026–2027, con el profesorado de cada materia.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-label">Curso</div><div class="info-card-value" style="font-size:0.88rem">2º ESO · grupo E</div></div>
+      <div class="info-card"><div class="info-card-label">Año académico</div><div class="info-card-value" style="font-size:0.88rem">2026–27</div></div>
+      <div class="info-card"><div class="info-card-label">Sesiones/semana</div><div class="info-card-value">30</div></div>
+    </div>
+
+    <div class="horari-actions" style="margin-top:2.5rem">
+      <button type="button" class="btn btn-primary" onclick="window.print()">
+        <span aria-hidden="true">🖨️</span> Descargar en PDF
+      </button>
+      <span class="legend"><i aria-hidden="true"></i>Materias que imparto yo</span>
+    </div>
+    <p class="no-print" style="font-size:0.82rem;color:var(--text-faint);margin:0 0 1.1rem">Se abre el diálogo de impresión del navegador: elige «Guardar como PDF». Recomendado en horizontal.</p>
+
+<div class="horari-wrap">
+  <table class="horari">
+    <caption class="print-only">Horario 2n ESO E · curso 2026–2027</caption>
+    <thead><tr><th scope="col" class="hora-h">Hora</th><th scope="col"><span class="d-long">Lunes</span><span class="d-short">Lun</span></th><th scope="col"><span class="d-long">Martes</span><span class="d-short">Mar</span></th><th scope="col"><span class="d-long">Miércoles</span><span class="d-short">Mié</span></th><th scope="col"><span class="d-long">Jueves</span><span class="d-short">Jue</span></th><th scope="col"><span class="d-long">Viernes</span><span class="d-short">Vie</span></th></tr></thead>
+    <tbody>
+      <tr><th scope="row" class="hora">9:00<span>10:00</span></th><td class="cell"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell"><span class="mat">Música</span><span class="profs"><span class="prof">Zaidín, Lluïsa</span></span></td><td class="cell"><span class="mat">Castellano</span><span class="profs"><span class="prof">Ruedas, Mónica</span></span></td><td class="cell cell-meu"><span class="mat">Tutoría</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell"><span class="mat">Castellano</span><span class="profs"><span class="prof">Ruedas, Mónica</span></span></td></tr>
+      <tr><th scope="row" class="hora">10:00<span>11:00</span></th><td class="cell"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell"><span class="mat">Natación</span><span class="profs"><span class="prof">Barrero, Oriol</span><span class="prof">Boch, Xavier</span></span></td><td class="cell"><span class="mat">Religión</span><span class="profs"><span class="prof">Alcolea, Mireia</span></span></td><td class="cell"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td></tr>
+      <tr class="row-break"><th scope="row" class="hora">11:00<span>11:30</span></th><td colspan="5">Patio</td></tr>
+      <tr><th scope="row" class="hora">11:30<span>12:25</span></th><td class="cell"><span class="mat">Educación Física</span><span class="profs"><span class="prof">Barrero, Oriol</span></span></td><td class="cell"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td><td class="cell"><span class="mat">Sociales</span><span class="profs"><span class="prof">Ríos, Jaume</span></span></td><td class="cell cell-meu"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
+      <tr><th scope="row" class="hora">12:25<span>13:20</span></th><td class="cell"><span class="mat">Física y Química</span><span class="profs"><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell"><span class="mat">Física y Química</span><span class="profs"><span class="prof">Ramos, Mayte</span></span></td><td class="cell"><span class="mat">Taller de Robótica</span><span class="profs"><span class="prof">González, David</span><span class="prof">Villena, Jorge</span></span></td><td class="cell"><span class="mat">Tecnología</span><span class="profs"><span class="prof">González, David</span></span></td></tr>
+      <tr class="row-break"><th scope="row" class="hora">13:20<span>15:30</span></th><td colspan="5">Mediodía</td></tr>
+      <tr><th scope="row" class="hora">15:30<span>16:30</span></th><td class="cell"><span class="mat">Tecnología</span><span class="profs"><span class="prof">González, David</span></span></td><td class="cell"><span class="mat">Taller de Robótica</span><span class="profs"><span class="prof">González, David</span><span class="prof">Villena, Jorge</span></span></td><td class="cell cell-meu"><span class="mat">Matemáticas</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td><td class="cell"><span class="mat">Taller / Laboratorio</span><span class="profs"><span class="prof">González, David</span><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu"><span class="mat">Proyectos</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
+      <tr><th scope="row" class="hora">16:30<span>17:30</span></th><td class="cell"><span class="mat">Música</span><span class="profs"><span class="prof">Zaidín, Lluïsa</span></span></td><td class="cell"><span class="mat">Catalán</span><span class="profs"><span class="prof">Navarro, Montse</span></span></td><td class="cell"><span class="mat">Inglés</span><span class="profs"><span class="prof">Rubio, Enric</span></span></td><td class="cell"><span class="mat">Taller / Laboratorio</span><span class="profs"><span class="prof">González, David</span><span class="prof">Ramos, Mayte</span></span></td><td class="cell cell-meu"><span class="mat">Proyectos</span><span class="profs"><span class="prof">Reyes, Àlex</span></span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+    <h2 style="font-size:1.1rem;margin:2.5rem 0 1rem">Materias y profesorado</h2>
+<div class="horari-wrap mat-taula-wrap">
+  <table class="mat-taula">
+    <thead><tr><th scope="col">Materia</th><th scope="col">Profesorado</th><th scope="col" class="num">Sesiones</th></tr></thead>
+    <tbody><tr><th scope="row">Castellano</th><td>Ruedas, Mónica</td><td class="num">2</td></tr><tr><th scope="row">Catalán</th><td>Navarro, Montse</td><td class="num">3</td></tr><tr><th scope="row">Educación Física</th><td>Barrero, Oriol</td><td class="num">1</td></tr><tr><th scope="row">Física y Química</th><td>Ramos, Mayte</td><td class="num">2</td></tr><tr><th scope="row">Inglés</th><td>Rubio, Enric</td><td class="num">3</td></tr><tr><th scope="row" class="mat-meu">Matemáticas</th><td>Reyes, Àlex</td><td class="num">3</td></tr><tr><th scope="row">Música</th><td>Zaidín, Lluïsa</td><td class="num">2</td></tr><tr><th scope="row">Natación</th><td>Barrero, Oriol &middot; Boch, Xavier</td><td class="num">1</td></tr><tr><th scope="row" class="mat-meu">Proyectos</th><td>Reyes, Àlex</td><td class="num">2</td></tr><tr><th scope="row">Religión</th><td>Alcolea, Mireia</td><td class="num">1</td></tr><tr><th scope="row">Sociales</th><td>Ríos, Jaume</td><td class="num">3</td></tr><tr><th scope="row">Taller / Laboratorio</th><td>González, David &middot; Ramos, Mayte</td><td class="num">2</td></tr><tr><th scope="row">Taller de Robótica</th><td>González, David &middot; Villena, Jorge</td><td class="num">2</td></tr><tr><th scope="row">Tecnología</th><td>González, David</td><td class="num">2</td></tr><tr><th scope="row" class="mat-meu">Tutoría</th><td>Reyes, Àlex</td><td class="num">1</td></tr></tbody>
+  </table>
+</div>
+
+    <p class="no-print" style="margin-top:2.5rem">
+      <a href="/docencia/tutoria-2eso/" style="font-size:0.9rem">&larr; Volver a Tutoría 2n ESO E</a>
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202606221623"></script>
+</body>
+</html>

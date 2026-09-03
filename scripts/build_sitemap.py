@@ -65,6 +65,8 @@ trilingual_paths = [
     # Asignaturas activas del curso 2026–27 sin temario propio todavía
     '/docencia/eso-3/', '/docencia/eso-4/',
     '/docencia/projectes-2eso/', '/docencia/tutoria-2eso/',
+    # Horario de clase del grupo de tutoría (parte pública)
+    '/docencia/tutoria-2eso/horari/',
     # Subject info subpages (per asignatura)
     '/docencia/2eso/info/', '/docencia/ccss-1btl/info/',
     # Cursos archivados de las asignaturas activas
