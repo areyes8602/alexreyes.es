@@ -173,6 +173,7 @@ LABELS = {
         "grup_label": "Grupo",
         "privat_h": "Área privada",
         "horari_classe_h": "Horario de clase",
+        "horari_classe_p": "Rejilla semanal completa del grupo, con todas las materias y su profesorado. Se puede descargar en PDF.",
         "hores_label": "Horas/semana",
         "footer_brand": "Matemáticas, docencia y doctorado",
     },
@@ -204,6 +205,7 @@ LABELS = {
         "grup_label": "Grup",
         "privat_h": "\u00c0rea privada",
         "horari_classe_h": "Horari de classe",
+        "horari_classe_p": "Graella setmanal completa del grup, amb totes les matèries i el seu professorat. Es pot descarregar en PDF.",
         "hores_label": "Hores/setmana",
         "footer_brand": "Matemàtiques, docència i doctorat",
     },
@@ -235,6 +237,7 @@ LABELS = {
         "grup_label": "Group",
         "privat_h": "Private area",
         "horari_classe_h": "Class timetable",
+        "horari_classe_p": "Full weekly grid for the group, with every subject and its teacher. Downloadable as PDF.",
         "hores_label": "Hours/week",
         "footer_brand": "Mathematics, teaching and research",
     },
@@ -318,27 +321,33 @@ def render_landing(s, lang):
     # Sin botón, el título va suelto como en el resto de asignaturas; con él,
     # comparten fila y se apilan en pantallas estrechas.
     titol_html = f'<h1 style="margin:0.3rem 0 0.6rem">{h1}</h1>'
-    botons = []
-    if s.get("horari_url"):
-        botons.append(
-            f'<a href="{s["horari_url"]}" class="btn btn-secondary" '
-            f'style="flex:none;text-decoration:none">'
-            f'<span aria-hidden="true">🗓️</span>{L["horari_classe_h"]}</a>'
-        )
     if s.get("privat_url"):
-        botons.append(
+        # La derecha del título queda reservada al área privada, y solo a eso.
+        privat_btn = (
             f'<a href="{s["privat_url"]}" class="btn btn-secondary" rel="nofollow" '
             f'style="flex:none;text-decoration:none">'
             f'<span aria-hidden="true">🔒</span>{L["privat_h"]}</a>'
         )
-    if botons:
-        botons_html = ('<div style="display:flex;align-items:center;gap:0.6rem;'
-                       'flex-wrap:wrap">' + "".join(botons) + '</div>')
         titol_html = (
             '<div style="display:flex;align-items:center;justify-content:space-between;'
             'gap:1rem;flex-wrap:wrap;margin:0.3rem 0 0.6rem">'
-            f'<h1 style="margin:0">{h1}</h1>{botons_html}</div>'
+            f'<h1 style="margin:0">{h1}</h1>{privat_btn}</div>'
         )
+
+    # El horario de clase del grupo va en el cuerpo, como tarjeta enlazada,
+    # no como botón de cabecera: no es una zona restringida, es contenido.
+    horari_link_html = ""
+    if s.get("horari_url"):
+        horari_link_html = f"""
+    <a href="{s['horari_url']}" class="link-card">
+      <span class="link-card-icon" aria-hidden="true">🗓️</span>
+      <span class="link-card-body">
+        <strong>{L['horari_classe_h']}</strong>
+        <span>{L['horari_classe_p']}</span>
+      </span>
+      <span class="link-card-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+"""
 
     horari_html = ""
     hores_card = ""
@@ -428,6 +437,14 @@ def render_landing(s, lang):
   .schedule-day {{ display:flex; justify-content:space-between; padding:0.3rem 0; font-size:0.92rem; border-bottom:1px solid var(--border); }}
   .schedule-day:last-child {{ border-bottom:none; }}
   .schedule-day strong {{ font-family:var(--mono); color:var(--text); }}
+  /* Tarjeta de enlace del cuerpo (horario de clase del grupo) */
+  .link-card {{ display:flex; align-items:center; gap:0.9rem; margin:1.6rem 0 0; padding:1rem 1.25rem; background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color 0.15s, transform 0.15s; }}
+  .link-card:hover {{ border-color:var(--border-strong); transform:translateY(-1px); opacity:1; }}
+  .link-card-icon {{ font-size:1.35rem; line-height:1; flex:none; }}
+  .link-card-body {{ display:flex; flex-direction:column; gap:0.15rem; flex:1; min-width:0; }}
+  .link-card-body strong {{ font-size:0.95rem; font-weight:600; }}
+  .link-card-body span {{ font-size:0.86rem; color:var(--text-soft); }}
+  .link-card-arrow {{ flex:none; color:var(--text-faint); font-size:1rem; }}
 </style>
 <script defer src="/assets/js/curso-banner.js{v}"></script>
 </head>
@@ -469,7 +486,7 @@ def render_landing(s, lang):
       {hores_card}
     </div>
 
-{horari_html}
+{horari_html}{horari_link_html}
     <h2 style="font-size:1.1rem;margin:2.5rem 0 0.4rem">{L['years_h2']}</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">{L['years_help']}</p>
     <div id="years-container">
