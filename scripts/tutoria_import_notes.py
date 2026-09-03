@@ -338,9 +338,21 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    fitxers = [f for p in args.notes for f in glob.glob(p)]
+    # El shell suele expandir los comodines antes de llegar aquí. Cuando lo
+    # ha hecho, la ruta ya es un fichero y NO hay que volver a pasarla por
+    # glob: el butlletí del centro se llama "**Juntes Les Corts…", y esos dos
+    # asteriscos son parte del nombre. Interpretarlos como comodines hacía
+    # que el fichero dejara de encontrarse.
+    fitxers = []
+    for patro in args.notes:
+        if Path(patro).is_file():
+            fitxers.append(patro)
+        else:
+            fitxers.extend(glob.glob(patro))
+    fitxers = sorted(set(fitxers))
     if not fitxers:
-        sys.exit("No se ha encontrado ningún boletín en --notes.")
+        sys.exit("No se ha encontrado ningún boletín en --notes.\n"
+                 "Comprueba la ruta:  ls ~/Downloads/*.pdf")
 
     totes = {}
     for f in sorted(fitxers):
