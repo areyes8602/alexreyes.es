@@ -51,7 +51,7 @@
     border:1px solid #bbb; border-top:0; border-radius:0 0 3px 3px; }
   .mur-baix .resta { flex:1; border-top:1px solid #bbb; }
 
-  .plan { position:relative; flex:1; aspect-ratio:4/3; background:
+  .plan { position:relative; flex:1; aspect-ratio:4/5; background:
     repeating-linear-gradient(0deg,#fafafa 0 24px,#f2f2f2 24px 25px),
     repeating-linear-gradient(90deg,#fafafa 0 24px,#f2f2f2 24px 25px);
     border:1px solid #bbb; overflow:hidden; touch-action:none; }
@@ -61,21 +61,21 @@
      sobre, la targeta era massa alta perquè hi cabessin sis files, i
      encongir-la de dalt a baix desfigurava les cares. */
   .seient { position:absolute; transform:translate(-50%,-50%); cursor:grab;
-    background:#fff; border:1px solid #999; border-radius:5px; padding:.2rem .3rem;
-    user-select:none; width:var(--fitxa,17%); min-width:76px;
-    display:flex; align-items:center; gap:.3rem; text-align:left;
+    background:#fff; border:1px solid #999; border-radius:5px; padding:.18rem .26rem;
+    user-select:none; width:var(--fitxa,16%); min-width:66px;
+    display:flex; align-items:center; gap:.25rem; text-align:left;
     box-shadow:0 1px 2px rgba(0,0,0,.12); }
   .seient.arrossegant { cursor:grabbing; box-shadow:0 6px 16px rgba(0,0,0,.25); z-index:10; }
   /* Miniatura amb la proporció de la foto original: no es deforma, només
      es fa petita. */
-  .seient img { flex:none; width:26px; aspect-ratio:127/192; object-fit:cover;
+  .seient img { flex:none; width:22px; aspect-ratio:127/192; object-fit:cover;
     display:block; border-radius:2px; background:#eee; }
   .seient .txt { min-width:0; }
-  .seient .nom { font-size:.68rem; line-height:1.15; color:#111; font-weight:600;
+  .seient .nom { font-size:.65rem; line-height:1.15; color:#111; font-weight:600;
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .seient .cog { font-size:.6rem; line-height:1.15; color:#555;
+  .seient .cog { font-size:.58rem; line-height:1.15; color:#555;
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .plan.sense-fotos .seient { width:calc(var(--fitxa,17%) - 3%); min-width:64px; }
+  .plan.sense-fotos .seient { width:calc(var(--fitxa,16%) - 3%); min-width:56px; }
   .plan.sense-fotos .seient img { display:none; }
 
   .banqueta { border:1px dashed var(--border); border-radius:var(--radius);
@@ -108,8 +108,8 @@
       <button class="btn btn-suau" id="crea">Crear</button>
       <label class="marca-op"><input type="checkbox" id="fotos" checked> Amb fotos</label>
       <select id="mida" title="Mida de les targetes">
-        <option value="14">Targetes petites</option>
-        <option value="17" selected>Mitjanes</option>
+        <option value="13">Targetes petites</option>
+        <option value="16" selected>Mitjanes</option>
         <option value="18">Grans</option>
       </select>
       <button class="btn btn-suau" id="ordena">Col·locar en files</button>
@@ -239,7 +239,7 @@ document.getElementById("fotos").onchange = pinta;
 // La mida es recorda: segons la pantalla i si projectes o no, vols unes
 // targetes o unes altres, i no té sentit tornar-ho a triar cada vegada.
 const mida = document.getElementById("mida");
-try { mida.value = localStorage.getItem("tutoria:mida") || "17"; } catch (e) {}
+try { mida.value = localStorage.getItem("tutoria:mida") || "16"; } catch (e) {}
 function aplicaMida() {
   plan.style.setProperty("--fitxa", mida.value + "%");
   try { localStorage.setItem("tutoria:mida", mida.value); } catch (e) {}
@@ -255,8 +255,8 @@ document.getElementById("ordena").onclick = () => {
   const perFila = 5;
   ALUMNES.forEach((a, i) => {
     POS[a.id] = {
-      x: 12 + (i % perFila) * 19,
-      y: 11 + Math.floor(i / perFila) * 14.6,
+      x: 11 + (i % perFila) * 19.5,
+      y: 10 + Math.floor(i / perFila) * 15,
     };
   });
   pinta();
