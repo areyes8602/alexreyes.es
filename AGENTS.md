@@ -162,6 +162,12 @@ ningún dato de alumnos.
   sobre `<html>`, antes del primer pintado, para que no parpadee.
   ⚠️ `data-theme` vive en ese MISMO `<html>`: para el tema oscuro hace falta
   `.h-colors[data-theme="dark"]` (sin espacio), no un selector descendente.
+- La tabla es `table-layout:fixed`: una palabra más ancha que su columna se
+  SALE de la celda en vez de partirse. Por eso `overflow-wrap:anywhere` +
+  `hyphens:auto` en todas las celdas, y `min-width` en `rem` y no en `px`
+  (si el lector sube el tamaño de letra en el móvil, la tabla crece con él).
+  Para comprobarlo hay que medir `scrollWidth > clientWidth` del `<span>`:
+  su caja es `display:block` y nunca desborda, lo que desborda es el texto.
 - El PDF se hace desde el navegador: `@media print` + `window.print()`, igual
   que `/tutoria/imprimir/`. Cabe en una A4 horizontal; si añades filas,
   comprueba que sigue siendo 1 página. En papel se fuerza siempre la paleta
