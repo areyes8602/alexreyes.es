@@ -192,6 +192,24 @@ datos. Está negado para `docencia/tutoria-*/` (y sus `ca/`, `en/`), que es
 sitio público generado. Si creas otra subpágina pública ahí, comprueba con
 `git check-ignore -v <ruta>` que no queda ignorada.
 
+## Los exámenes se enganchan por NÚMERO de unidad
+
+En el hub, cada examen del banco cae bajo su unidad por el número que lleva
+en el id de la colección (`2526-2eso-u01-a` → unidad 01) o por
+`unidades_implicadas`. **El número, no el slug.**
+
+Eso importa cada vez que se reordena un temario: si la unidad 09 del curso
+pasado era álgebra y este año es poliedros, el examen de álgebra aparecería
+bajo poliedros. Por eso el hub filtra además por `tags.curso_academico`,
+comparándolo con `CURS`, que sale de `any_tag(year_current)`
+(`"2026–27"` → `"2026-2027"`). Los años archivados traen su propio año, así
+que siguen enseñando lo suyo.
+
+Al empezar un curso, la página nueva arranca **vacía**: ni apuntes ni
+exámenes heredados. El material del año anterior se queda en su curso
+archivado, que es donde tiene sentido. Si un apunte sirve igual este año,
+se vuelve a enlazar a mano en la unidad que toque.
+
 ## Workflow: pasar una asignatura de landing simple a hub con temario
 
 Dos scripts escriben `docencia/<code>/index.html`, así que una asignatura

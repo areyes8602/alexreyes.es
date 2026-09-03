@@ -10,6 +10,7 @@ UI chrome (nav, headings, button labels, descriptions) is translated.
 Re-run after editing data/labels to keep all 3 langs in sync.
 """
 import json
+import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -222,8 +223,7 @@ SUBJ_2ESO = {
                 {"num":"01","slug":"fraccions","title":"Nombres fraccionaris","llibre":"U3",
                  "desc_l":{"ca":"Fraccions equivalents, ordenació, operacions amb fraccions, decimals i potències.",
                            "es":"Fracciones equivalentes, ordenación, operaciones con fracciones, decimales y potencias.",
-                           "en":"Equivalent fractions, ordering, operations with fractions, decimals and powers."},
-                 "apunts":"/aula/eso-2/apuntes/u-fraccions/"},
+                           "en":"Equivalent fractions, ordering, operations with fractions, decimals and powers."}},
                 {"num":"02","slug":"decimals","title":"Nombres decimals","llibre":"U4",
                  "desc_l":{"ca":"Decimals exactes i periòdics, fracció generatriu, aproximacions.",
                            "es":"Decimales exactos y periódicos, fracción generatriz, aproximaciones.",
@@ -259,8 +259,7 @@ SUBJ_2ESO = {
                 {"num":"10","slug":"cossos-revolucio","title":"Cossos de revolució","llibre":"U13",
                  "desc_l":{"ca":"Cilindre, con i esfera. Àrees i volums.",
                            "es":"Cilindro, cono y esfera. Áreas y volúmenes.",
-                           "en":"Cylinder, cone and sphere. Areas and volumes."},
-                 "apunts":"/aula/eso-2/apuntes/u-cossos-revolucio/"},
+                           "en":"Cylinder, cone and sphere. Areas and volumes."}},
     ],
     # Cursos anteriores. Se sirven en /docencia/<code>/<slug>/ y se listan en el
     # selector de curso de la página viva. Su temario ya no cambia.
@@ -713,6 +712,14 @@ def archived_variant(s, a):
     return v
 
 
+def any_tag(year):
+    """"2026–27" → "2026-2027", que és com el banc etiqueta el curs."""
+    if not year:
+        return None
+    m = re.match(r"^(\d{4})\s*[–-]\s*(\d{2})$", year.strip())
+    return f"{m.group(1)}-{m.group(1)[:2]}{m.group(2)}" if m else None
+
+
 def render_regular_hub(s, lang):
     L = LABELS[lang]
     code = s["code"]
@@ -720,6 +727,11 @@ def render_regular_hub(s, lang):
     subtitle = picker_lang_value(s["subtitle"], lang)
     section_label = picker_lang_value(s["section_label"], lang)
     info_url = f"{lang_prefix(lang)}/docencia/{code}/info/"
+
+    # Etiqueta del curs tal com l'escriu el banc d'exercicis: "2026-2027".
+    # `year_current` fa servir any curt i guionet mig ("2026–27"); les variants
+    # d'anys arxivats hi porten el seu propi any.
+    curs_tag_json = json.dumps(any_tag(s.get("year_current")))
 
     # Build UNITS JSON for JS (descriptions in current language)
     units_for_js = []
@@ -834,6 +846,11 @@ function toggleChapter(h){{h.parentElement.classList.toggle('open');}}
 
 const UNITS = {units_json};
 const MATERIA = {json.dumps(s['materia_filter'])};
+// Curs d'aquesta pàgina, en el format de l'etiqueta del banc. Els exàmens
+// s'enganxen a la unitat pel seu NÚMERO, i els números canvien d'un curs a
+// l'altre: sense aquest filtre, un examen de la 09 de l'any passat sortiria
+// aquest any sota la unitat que ara porta el número 09, que és una altra.
+const CURS = {curs_tag_json};
 const MONTHS = {months_js};
 const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','no_exams_unit','exams_unit_title','globals_empty','globals_load_error','section_card_apunts','section_card_fitxes','section_card_solucions','unit_meta_book','unit_meta_dates','unit_meta_trim','examens_count_one','examens_count_many','trimestre_tag','summary_exams_label','summary_fitxes_label','summary_apunts_label','summary_yes','summary_no']}, ensure_ascii=False)};
 
@@ -890,6 +907,7 @@ fetch('/assets/data/ejercicios-index.json', {{ cache: 'no-cache' }})
     for (const e of (idx.ejercicios || [])) {{
       const c = e.coleccion || {{}};
       if (e.tags && e.tags.materia !== MATERIA) continue;
+      if (CURS && (!e.tags || e.tags.curso_academico !== CURS)) continue;
       // Només mostrem exàmens al hub: les pràctiques/exercicis de classe es llisten a /aula/<materia>/apuntes/
       if (c.tipo && c.tipo !== 'examen') continue;
       if (!cols.has(c.id)) cols.set(c.id, {{ col: c, ejs: [] }});
