@@ -51,26 +51,31 @@
     border:1px solid #bbb; border-top:0; border-radius:0 0 3px 3px; }
   .mur-baix .resta { flex:1; border-top:1px solid #bbb; }
 
-  .plan { position:relative; flex:1; aspect-ratio:5/6; background:
+  .plan { position:relative; flex:1; aspect-ratio:4/3; background:
     repeating-linear-gradient(0deg,#fafafa 0 24px,#f2f2f2 24px 25px),
     repeating-linear-gradient(90deg,#fafafa 0 24px,#f2f2f2 24px 25px);
     border:1px solid #bbb; overflow:hidden; touch-action:none; }
   /* Amplada en % del plànol perquè hi càpiguen 5 pupitres per fila sigui
      quina sigui la mida de la pantalla. */
+  /* Targeta horitzontal: la foto petita al costat del nom. Amb la foto a
+     sobre, la targeta era massa alta perquè hi cabessin sis files, i
+     encongir-la de dalt a baix desfigurava les cares. */
   .seient { position:absolute; transform:translate(-50%,-50%); cursor:grab;
-    background:#fff; border:1px solid #999; border-radius:5px; padding:.22rem;
-    text-align:center; user-select:none; width:15%; min-width:54px;
+    background:#fff; border:1px solid #999; border-radius:5px; padding:.2rem .3rem;
+    user-select:none; width:var(--fitxa,17%); min-width:76px;
+    display:flex; align-items:center; gap:.3rem; text-align:left;
     box-shadow:0 1px 2px rgba(0,0,0,.12); }
   .seient.arrossegant { cursor:grabbing; box-shadow:0 6px 16px rgba(0,0,0,.25); z-index:10; }
-  /* Retall apaisat centrat a la cara: amb la foto sencera la targeta era
-     més alta que la separació entre files i les sis files es trepitjaven. */
-  .seient img { width:100%; aspect-ratio:4/3; object-fit:cover; object-position:50% 20%;
-    display:block; border-radius:3px; margin-bottom:.15rem; background:#eee; }
-  .seient .nom { font-size:.66rem; line-height:1.2; color:#111; font-weight:600;
-    overflow:hidden; text-overflow:ellipsis; }
-  .seient .cog { font-size:.6rem; line-height:1.2; color:#555;
+  /* Miniatura amb la proporció de la foto original: no es deforma, només
+     es fa petita. */
+  .seient img { flex:none; width:26px; aspect-ratio:127/192; object-fit:cover;
+    display:block; border-radius:2px; background:#eee; }
+  .seient .txt { min-width:0; }
+  .seient .nom { font-size:.68rem; line-height:1.15; color:#111; font-weight:600;
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .plan.sense-fotos .seient { width:17%; }
+  .seient .cog { font-size:.6rem; line-height:1.15; color:#555;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .plan.sense-fotos .seient { width:calc(var(--fitxa,17%) - 3%); min-width:64px; }
   .plan.sense-fotos .seient img { display:none; }
 
   .banqueta { border:1px dashed var(--border); border-radius:var(--radius);
@@ -78,7 +83,7 @@
   .banqueta h3 { margin:0 0 .5rem; font-size:.8rem; text-transform:uppercase;
     letter-spacing:.06em; color:var(--text-soft); }
   .banqueta .fitxes { display:flex; gap:.4rem; flex-wrap:wrap; }
-  .banqueta .seient { position:static; transform:none; width:74px; }
+  .banqueta .seient { position:static; transform:none; width:auto; min-width:0; }
   .ajut { font-size:.85rem; color:var(--text-faint); }
 
   @media print {
@@ -102,6 +107,11 @@
       <input id="nom-nova" type="text" placeholder="Nom d'una distribució nova">
       <button class="btn btn-suau" id="crea">Crear</button>
       <label class="marca-op"><input type="checkbox" id="fotos" checked> Amb fotos</label>
+      <select id="mida" title="Mida de les targetes">
+        <option value="14">Targetes petites</option>
+        <option value="17" selected>Mitjanes</option>
+        <option value="18">Grans</option>
+      </select>
       <button class="btn btn-suau" id="ordena">Col·locar en files</button>
       <button class="btn" id="desa">Desar</button>
       <button class="btn btn-suau" id="imprimir">Imprimir</button>
@@ -159,14 +169,17 @@ function fitxa(a) {
   el.innerHTML = `${a.foto
       ? `<img src="/tutoria/api/foto?id=${encodeURIComponent(a.id)}" alt="" draggable="false">`
       : `<img alt="" draggable="false">`}
-    <div class="nom">${esc(a.nom)}</div>
-    <div class="cog">${esc(a.cognoms.split(" ")[0])}</div>`;
+    <div class="txt">
+      <div class="nom">${esc(a.nom.split(" ")[0])}</div>
+      <div class="cog">${esc(a.cognoms.split(" ")[0])}</div>
+    </div>`;
   return el;
 }
 
 function pinta() {
   plan.innerHTML = ""; banqueta.innerHTML = "";
   plan.classList.toggle("sense-fotos", !document.getElementById("fotos").checked);
+  plan.style.setProperty("--fitxa", document.getElementById("mida").value + "%");
   for (const a of ALUMNES) {
     const el = fitxa(a);
     const p = POS[a.id];
@@ -223,6 +236,17 @@ document.addEventListener("pointerup", e => {
 // ── Accions ─────────────────────────────────────────────────────
 document.getElementById("fotos").onchange = pinta;
 
+// La mida es recorda: segons la pantalla i si projectes o no, vols unes
+// targetes o unes altres, i no té sentit tornar-ho a triar cada vegada.
+const mida = document.getElementById("mida");
+try { mida.value = localStorage.getItem("tutoria:mida") || "17"; } catch (e) {}
+function aplicaMida() {
+  plan.style.setProperty("--fitxa", mida.value + "%");
+  try { localStorage.setItem("tutoria:mida", mida.value); } catch (e) {}
+}
+mida.onchange = aplicaMida;
+aplicaMida();
+
 document.getElementById("ordena").onclick = () => {
   // Files de 5, per ordre de llista: un punt de partida raonable per anar
   // movent des d'aquí en comptes de col·locar-los un a un.
@@ -232,7 +256,7 @@ document.getElementById("ordena").onclick = () => {
   ALUMNES.forEach((a, i) => {
     POS[a.id] = {
       x: 12 + (i % perFila) * 19,
-      y: 9 + Math.floor(i / perFila) * 14.6,
+      y: 11 + Math.floor(i / perFila) * 14.6,
     };
   });
   pinta();
