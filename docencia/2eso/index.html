@@ -203,7 +203,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
       if (u) { (byUnit[u] = byUnit[u] || []).push(entry); }
       else { globals.push(entry); }
     }
-    document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, byUnit)).join('');
+    if (UNITS.length) document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, byUnit)).join('');
     // Globals també ordenats cronològicament (ASC) perquè Global 1a sortí abans que Global 2a, etc.
     globals.sort((a,b) => (a.col.fecha||'').localeCompare(b.col.fecha||''));
     const cont = document.getElementById('globals-list');
@@ -217,7 +217,7 @@ fetch('/assets/data/ejercicios-index.json', { cache: 'no-cache' })
     }
   })
   .catch(err => {
-    document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, {})).join('');
+    if (UNITS.length) document.getElementById('units-list').innerHTML = UNITS.map(u => buildUnit(u, {})).join('');
     document.getElementById('globals-count').textContent = 'error';
     document.getElementById('globals-list').innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem">${LABELS_JS.globals_load_error}</p>`;
     console.error('exams:', err);

@@ -219,6 +219,39 @@ SUBJ_2ESO = {
     ],
 }
 
+SUBJ_3ESO = {
+    "code": "eso-3",
+    "title": {"es": "Matemàtiques 3r ESO", "ca": "Matemàtiques 3r ESO", "en": "Mathematics 3r ESO"},
+    "section_label": "ESO",
+    "tag_year": "2026–27",
+    "subtitle_short": {"es": "Mat. 3r ESO", "ca": "Mat. 3r ESO", "en": "Maths 3r ESO"},
+    "is_ib": False,
+    # Horari 2026–27 (Untis). Criteris d'avaluació encara sense publicar.
+    "schedule": [
+        {"name": {"es": "Grupo 3r ESO C", "ca": "Grup 3r ESO C", "en": "Group 3r ESO C"},
+         "days": [(0, "10:00–11:00"), (2, "16:30–17:30"), (3, "16:30–17:30")]},
+    ],
+    "aval": [],
+    "documents": None,
+    "archived_years": [],
+}
+
+SUBJ_4ESO = {
+    "code": "eso-4",
+    "title": {"es": "Matemàtiques 4t ESO", "ca": "Matemàtiques 4t ESO", "en": "Mathematics 4t ESO"},
+    "section_label": "ESO",
+    "tag_year": "2026–27",
+    "subtitle_short": {"es": "Mat. 4t ESO", "ca": "Mat. 4t ESO", "en": "Maths 4t ESO"},
+    "is_ib": False,
+    "schedule": [
+        {"name": {"es": "Grupo 4t ESO D", "ca": "Grup 4t ESO D", "en": "Group 4t ESO D"},
+         "days": [(0, "15:30–16:30"), (1, "9:00–10:00"), (2, "11:30–12:25"), (3, "15:30–16:30")]},
+    ],
+    "aval": [],
+    "documents": None,
+    "archived_years": [],
+}
+
 SUBJ_1BTL = {
     "code": "ccss-1btl",
     "title": {"es": "Mat. Aplicadas CCSS 1º BTL", "ca": "Mat. Aplicades CCSS 1r BTL", "en": "Applied Math. Social Sciences 1st BTL"},
@@ -300,7 +333,7 @@ SUBJ_IB_2527 = {
     ],
 }
 
-SUBJECTS = [SUBJ_2ESO, SUBJ_1BTL, SUBJ_IB_2426, SUBJ_IB_2527]
+SUBJECTS = [SUBJ_2ESO, SUBJ_3ESO, SUBJ_4ESO, SUBJ_1BTL, SUBJ_IB_2426, SUBJ_IB_2527]
 
 
 # ─── Helpers ─────────────────────────────────────────────────────

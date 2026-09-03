@@ -69,6 +69,7 @@ trilingual_paths = [
     '/docencia/tutoria-2eso/horari/',
     # Subject info subpages (per asignatura)
     '/docencia/2eso/info/', '/docencia/ccss-1btl/info/',
+    '/docencia/eso-3/info/', '/docencia/eso-4/info/',
     # Cursos archivados de las asignaturas activas
     '/docencia/2eso/2025-2026/', '/docencia/2eso/2025-2026/info/',
     '/docencia/ccss-1btl/2025-2026/', '/docencia/ccss-1btl/2025-2026/info/',
