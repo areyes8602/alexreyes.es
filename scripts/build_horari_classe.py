@@ -51,9 +51,14 @@ SUBJECTS = {
                   "prof": ["Reyes, Àlex"], "meu": True},
     "fq":        {"col": ("#ccfbf1", "#0f453e"), "es": "Física y Química", "ca": "Física i Química",
                   "en": "Physics & Chemistry", "prof": ["Ramos, Mayte"]},
-    "robotica":  {"col": ("#e2e8f0", "#2a3240"), "es": "Taller de Robótica", "ca": "Taller de Robòtica",
-                  "en": "Robotics workshop",
-                  "prof": ["González, David", "Villena, Jorge"]},
+    # Dues franges, però només una és de robòtica: l'altra és el taller de
+    # castellà. Mentre no se sàpiga quina és quina, les dues porten l'etiqueta
+    # doble i cap professor, que és el que se sap del cert.
+    "robotica":  {"col": ("#e2e8f0", "#2a3240"),
+                  "es": "Taller Robótica / Castellano",
+                  "ca": "Taller Robòtica / Castellà",
+                  "en": "Robotics / Spanish workshop",
+                  "prof": []},
     "tecnologia": {"col": ("#e7e5e4", "#38352f"), "es": "Tecnología", "ca": "Tecnologia", "en": "Technology",
                    "prof": ["González, David"]},
     "tallerlab": {"col": ("#ded7c8", "#3b3324"), "es": "Taller / Laboratorio", "ca": "Taller / Laboratori",
@@ -80,6 +85,7 @@ GRID = [
 LABELS = {
     "es": {
         "html_lang": "es",
+        "per_assignar": "por asignar",
         "op_meu": "Destacar mis materias",
         "op_colors": "Color por materia",
         "skip": "Saltar al contenido",
@@ -115,6 +121,7 @@ LABELS = {
     },
     "ca": {
         "html_lang": "ca",
+        "per_assignar": "per assignar",
         "op_meu": "Destacar les meves matèries",
         "op_colors": "Color per matèria",
         "skip": "Salta al contingut",
@@ -150,6 +157,7 @@ LABELS = {
     },
     "en": {
         "html_lang": "en",
+        "per_assignar": "to be assigned",
         "op_meu": "Highlight my subjects",
         "op_colors": "Colour by subject",
         "skip": "Skip to content",
@@ -245,7 +253,8 @@ def render_grid(L, lang):
         tds = ""
         for key in cells:
             s = SUBJECTS[key]
-            profs = "".join(f'<span class="prof">{p}</span>' for p in s["prof"])
+            profs = ("".join(f'<span class="prof">{p}</span>' for p in s["prof"])
+                     or f'<span class="prof prof-buit">{L["per_assignar"]}</span>')
             cls = " cell-meu" if s.get("meu") else ""
             tds += (f'<td class="cell{cls}" style="{col_vars(s)}">'
                     f'<span class="mat">{s[lang]}</span>'
@@ -270,7 +279,7 @@ def render_subject_table(L, lang):
     order = sorted(SUBJECTS.items(), key=lambda kv: kv[1][lang].lower())
     rows = ""
     for key, s in order:
-        profs = " &middot; ".join(s["prof"])
+        profs = " &middot; ".join(s["prof"]) or f'<span class="prof-buit">{L["per_assignar"]}</span>' 
         cls = " mat-meu" if s.get("meu") else ""
         rows += (f'<tr><th scope="row" class="mat-nom{cls}" style="{col_vars(s)}">'
                  f'{s[lang]}</th>'
@@ -362,6 +371,7 @@ def render_page(lang):
   .mat {{ display:block; font-weight:600; color:var(--text); font-size:0.84rem; }}
   .profs {{ display:block; margin-top:0.2rem; }}
   .prof {{ display:block; font-size:0.72rem; color:var(--text-faint); }}
+  .prof-buit {{ font-style:italic; opacity:0.75; }}
   /* Resaltado de mis materias y color por materia: opcionales, los activa
      una clase en <html> puesta antes del primer pintado (ver script del head). */
   .h-meu td.cell-meu {{ box-shadow:inset 3px 0 0 var(--focus); }}
