@@ -461,6 +461,42 @@ Los scripts de post-proceso (`add_og_tags`, `add_jsonld`, `add_hreflang`,
 y `tutoria/`. `robots.txt` las excluye y `_headers` les pone `noindex` +
 `no-store`.
 
+## Importadores de tutoría: los datos NO pasan por el repo
+
+Tres scripts leen los PDF que da el centro y dejan el resultado en D1:
+
+```
+tutoria_import_orla.py       la orla → fichas + fotos (R2)
+tutoria_import_notes.py      las juntas de evaluación → notas del curso anterior
+tutoria_import_contactes.py  el listado de direcciones y teléfonos
+```
+
+Todos siguen las mismas reglas, que no son opcionales:
+
+- **Escriben fuera del repositorio.** El SQL intermedio va a un directorio
+  temporal y se comprueba: si `--out` cae dentro del repo, el script se
+  niega y sale con error. Este repo es público y tiene forks.
+- **No sacan datos por pantalla.** Informan de recuentos («25 leídos, 25 con
+  dirección»), nunca de nombres, direcciones ni teléfonos: el historial de
+  la terminal es otro sitio donde no deben quedarse.
+- El SQL se sube con `wrangler d1 execute` y se borra a continuación.
+
+### Formas que hay que respetar al escribir en una ficha
+
+- `familia` es una **lista JSON**, no texto: `[{nom, relacio, telefon,
+  email, notes}]`. La plantilla está en `tutoria/fitxa/index.html`; una
+  cadena ahí deja la pestaña Família en blanco.
+- `naixement` alimenta un `<input type="date">`: tiene que ir en ISO
+  (`aaaa-mm-dd`). El formato dd/mm/aaaa de los listados no se ve.
+- `telefon` es el **del alumno**. Los teléfonos del listado de direcciones
+  son de la familia y van a `contacte` («contacte ràpid»): el listado da
+  Tel 1, Tel 2 y Mòbil sin decir de quién es cada uno, así que repartirlos
+  entre padre y madre sería inventar.
+- La clave de la ficha es `slug("Cognoms Nom")`, la misma que genera
+  `tutoria_import_orla.py`. Si un nombre no cuadra con el de la orla, el
+  UPDATE no encuentra nada y falla en silencio: por eso los scripts cuentan
+  a cuántos han llegado.
+
 ## Cloudflare: qué es qué
 
 - **Pages `alexreyes-web`** — el proyecto que sirve alexreyes.es y despliega
