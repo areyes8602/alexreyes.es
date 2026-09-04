@@ -11,6 +11,12 @@ const EDITABLES = {
   recull: 600, suport: 4000, contacte: 2000, notes: 20000,
   acords: 4000, extraescolars: 600, carrec: 120,
   tutor_anterior: 120, traspas: 20000, derivacio: 60, derivacio_nota: 2000,
+  // Fitxa que omple l'alumne el primer dia de tutoria
+  ciutat: 120, escola_primaria: 200,
+  situacio_familiar: 200, situacio_amb_qui: 200, situacio_nota: 2000,
+  germans_nombre: 40, germans: 600, salut: 2000,
+  amics_classe: 600, amics_nivell: 600,
+  mat_millor: 400, mat_pitjor: 400, virtuts: 600, millorar: 600,
 };
 // Casillas: se guardan como 0/1 y no como texto.
 const BANDERES = ["pi_contingut", "pi_metodologic", "acollida"];
