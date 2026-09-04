@@ -295,6 +295,7 @@ function pinta(a, veins) {
     <button role="tab" data-sec="academic" aria-selected="false">Acadèmic</button>
     <button role="tab" data-sec="familia" aria-selected="false">Família</button>
     <button role="tab" data-sec="seguiment" aria-selected="false">Seguiment</button>
+    <button role="tab" data-sec="inicial" aria-selected="false">Fitxa inicial</button>
     <button role="tab" data-sec="personal" aria-selected="false">Personal</button>
   </div>
 
@@ -361,6 +362,38 @@ function pinta(a, veins) {
     </div>
   </section>
 
+  <section class="sec" data-sec="inicial" hidden>
+    <h2>Fitxa inicial</h2>
+    <p class="ajut">El que va escriure ell mateix la primera tutoria.${
+      a.fitxa_inicial ? ` Omplerta el ${esc((a.fitxa_inicial || "").slice(0, 10))}.`
+                      : " <b>Encara no l'ha omplert.</b>"}</p>
+
+    <h3 style="font-size:.95rem;margin:1.4rem 0 .6rem">Escola i família</h3>
+    <div class="graella">
+      ${camp("escola_primaria", "Escola de primària", "text", a.escola_primaria)}
+      ${camp("situacio_familiar", "Situació familiar", "text", a.situacio_familiar)}
+      ${camp("situacio_amb_qui", "Si els pares estan separats, viu amb", "text", a.situacio_amb_qui)}
+      ${camp("germans_nombre", "Quants germans", "text", a.germans_nombre)}
+      ${camp("situacio_nota", "Com és aquesta situació", "area", a.situacio_nota, true)}
+      ${camp("germans", "Germans: noms i edats", "area", a.germans, true)}
+      ${camp("salut", "Qüestions de salut: malalties, al·lèrgies, medicació", "area", a.salut, true)}
+    </div>
+
+    <h3 style="font-size:.95rem;margin:1.8rem 0 .6rem">Amistats</h3>
+    <div class="graella">
+      ${camp("amics_classe", "Millors amics i amigues de la classe", "area", a.amics_classe, true)}
+      ${camp("amics_nivell", "I d'altres classes de 2n d'ESO", "area", a.amics_nivell, true)}
+    </div>
+
+    <h3 style="font-size:.95rem;margin:1.8rem 0 .6rem">Com es veu ell mateix</h3>
+    <div class="graella">
+      ${camp("mat_millor", "Assignatures que li van millor", "text", a.mat_millor)}
+      ${camp("mat_pitjor", "I quines pitjor", "text", a.mat_pitjor)}
+      ${camp("virtuts", "Les seves millors virtuts", "area", a.virtuts, true)}
+      ${camp("millorar", "Què li agradaria canviar o millorar", "area", a.millorar, true)}
+    </div>
+  </section>
+
   <section class="sec" data-sec="personal" hidden>
     <h2>Dades personals</h2>
     <div class="graella">
@@ -369,6 +402,7 @@ function pinta(a, veins) {
       ${camp("telefon", "Telèfon de l'alumne", "tel", a.telefon)}
       ${camp("email", "Correu de l'alumne", "email", a.email)}
       ${camp("adreca", "Adreça", "text", a.adreca, true)}
+      ${camp("ciutat", "Ciutat on viu", "text", a.ciutat)}
       ${camp("extraescolars", "Extraescolars", "text", a.extraescolars)}
       ${camp("carrec", "Càrrec al grup", "text", a.carrec)}
       <div class="camp"><label for="f-imatge">Autorització d'imatge</label>

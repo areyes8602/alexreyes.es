@@ -469,6 +469,7 @@ Tres scripts leen los PDF que da el centro y dejan el resultado en D1:
 tutoria_import_orla.py       la orla → fichas + fotos (R2)
 tutoria_import_notes.py      las juntas de evaluación → notas del curso anterior
 tutoria_import_contactes.py  el listado de direcciones y teléfonos
+tutoria_import_fitxa.py      el Forms de la ficha del alumno del primer día
 ```
 
 Todos siguen las mismas reglas, que no son opcionales:
@@ -496,6 +497,27 @@ Todos siguen las mismas reglas, que no son opcionales:
   `tutoria_import_orla.py`. Si un nombre no cuadra con el de la orla, el
   UPDATE no encuentra nada y falla en silencio: por eso los scripts cuentan
   a cuántos han llegado.
+
+
+### La ficha inicial la rellena el alumno, no el tutor
+
+La primera tutoría el alumno contesta un Microsoft Forms (las preguntas
+están en `scripts/tutoria_import_fitxa.py`, en `CAMPS`, en el mismo orden).
+La exportación a Excel se pasa por el importador y acaba en la pestaña
+«Fitxa inicial» de la ficha. Tres cosas que no son negociables:
+
+- Los UPDATE van con `COALESCE(NULLIF(<valor>, ''), <columna>)`: una
+  pregunta que el alumno deja en blanco **no borra** lo que ya había. Si
+  vuelve a enviar el formulario, el importador avisa de los duplicados y
+  gana el último envío.
+- Las columnas se emparejan por el **número de pregunta** (`1.`, `2.`…),
+  no por el texto: Forms añade sus propias columnas («Nombre», «Correo
+  electrónico») y buscar por subcadena hace que «Nom» case con «Nombre».
+- `salut` guarda alergias y enfermedades, y `situacio_nota` cosas de casa:
+  es lo más sensible de toda la base. Vive detrás del gate como el resto
+  de la ficha y no sale ni en volcados ni en la copia local.
+
+Las columnas nuevas se crean con `scripts/sql/tutoria_fitxa_inicial.sql`.
 
 ## Cloudflare: qué es qué
 
