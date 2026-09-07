@@ -14,6 +14,11 @@ CREATE TABLE IF NOT EXISTS tutoria_aules (
   -- JSON {id_alumne: {"x": 0-100, "y": 0-100}} en % del plano, para que
   -- se vea igual en el portátil, en el proyector y en papel.
   posicions  TEXT DEFAULT '{}',
+  -- Com es mira: JSON {"mida", "fotos", "girada"}. Va amb la distribució
+  -- perquè la de treballar a la pantalla i la del full de la taula no es
+  -- volen veure igual. A les taules que ja existien s'afegeix amb
+  -- scripts/sql/tutoria_aula_vista.sql.
+  vista      TEXT,
   creada     TEXT,
   updated_at TEXT
 );

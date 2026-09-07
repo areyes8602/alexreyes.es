@@ -137,10 +137,12 @@
     .plan-wrap { border:0; padding:0; overflow:visible; }
     .container { max-width:none; padding:0 !important; }
     .aula { min-width:0; }
-    .plan { aspect-ratio:auto; height:16cm; }
-    /* Amb foto gran el plànol s'estira fins a omplir el foli: cada
-       centímetre que guanya d'alçada és cara. */
-    .plan.foto-gran { height:23cm; }
+    /* El plànol conserva la proporció de la pantalla (4:5, l'aula és més
+       fonda que ampla). Abans se li fixava l'alçada en centímetres i al
+       paper sortia més ample que alt: les files s'arrapaven quasi un terç
+       respecte de les columnes i el full no s'assemblava al que veies.
+       Deixant-ho a la proporció, l'alçada la mana l'amplada del foli i
+       imprimeixes exactament el que tens a la pantalla. */
     /* La pissarra, les finestres i la porta són la referència per situar-se
        al full: han de sortir impreses encara que el navegador tregui els
        fons per estalviar tinta. */
@@ -402,14 +404,39 @@ function aplicaEstil() {
   plan.classList.toggle("sense-fotos", !gran && !fotos.checked);
   plan.style.setProperty("--fitxa", (gran ? ampleFoto() : mida.value) + "%");
   aula.classList.toggle("vista-prof", vistaProf.checked);
+  // El navegador en fa de recanvi: és el que val per a una distribució que
+  // encara no té vista desada, i per si obres la pàgina sense cap.
   try {
     localStorage.setItem("tutoria:mida", mida.value);
     localStorage.setItem("tutoria:vista-prof", vistaProf.checked ? "1" : "0");
   } catch (e) {}
 }
-mida.onchange = aplicaEstil;
-fotos.onchange = aplicaEstil;
-vistaProf.onchange = aplicaEstil;
+
+// Com es veu ara mateix, per desar-ho amb la distribució.
+const vistaActual = () => ({
+  mida: mida.value, fotos: fotos.checked, girada: vistaProf.checked });
+
+// La vista que ve de la base. Si la distribució no en té —encara no s'ha
+// desat, o no s'ha passat tutoria_aula_vista.sql— es queda la del navegador.
+function aplicaVistaDesada(txt) {
+  let v = null;
+  try { v = JSON.parse(txt || "null"); } catch (e) {}
+  if (v && typeof v === "object") {
+    if (v.mida) mida.value = v.mida;
+    if ("fotos" in v) fotos.checked = !!v.fotos;
+    if ("girada" in v) vistaProf.checked = !!v.girada;
+  }
+  aplicaEstil();
+}
+
+// Canviar com es mira és un canvi de la distribució, com moure una targeta.
+const canviaEstil = () => {
+  aplicaEstil();
+  if (AULA) { estat.className = "estat"; estat.textContent = "Sense desar"; }
+};
+mida.onchange = canviaEstil;
+fotos.onchange = canviaEstil;
+vistaProf.onchange = canviaEstil;
 aplicaEstil();
 
 // Per ordre de llista, com a punt de partida per anar movent des d'aquí en
@@ -444,7 +471,8 @@ document.getElementById("desa").onclick = async () => {
   try {
     await api("/tutoria/api/aula", {
       method: "POST", headers: { "content-type": "application/json" },
-      body: JSON.stringify({ id: AULA.id, nom: AULA.nom, grup: GRUP, curs: CURS, posicions: POS }),
+      body: JSON.stringify({ id: AULA.id, nom: AULA.nom, grup: GRUP, curs: CURS,
+                             posicions: POS, vista: vistaActual() }),
     });
     estat.className = "estat ok"; estat.textContent = "Desat";
   } catch (e) { estat.className = "estat err"; estat.textContent = e.message; }
@@ -471,6 +499,7 @@ async function obre(id) {
   const { aula } = await api("/tutoria/api/aula?id=" + encodeURIComponent(id));
   AULA = aula;
   try { POS = JSON.parse(aula.posicions || "{}"); } catch (e) { POS = {}; }
+  aplicaVistaDesada(aula.vista);
   pinta();
   estat.className = "estat";
   estat.textContent = aula.updated_at

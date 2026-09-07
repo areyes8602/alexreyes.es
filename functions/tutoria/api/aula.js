@@ -81,7 +81,23 @@ export async function onRequestPost(context) {
     ).bind(id, (body.grup || "2ESO-E").toString(), (body.curs || "2026-27").toString(),
            nom, JSON.stringify(pos), ara, ara).run();
 
-    return json({ ok: true, id, updated_at: ara });
+    // Com es mira la distribució, a part: la columna `vista` és posterior a
+    // la taula i pot no existir encara (scripts/sql/tutoria_aula_vista.sql).
+    // Si falla, les posicions ja s'han desat, que és el que no es pot perdre.
+    let vista = false;
+    if (body.vista && typeof body.vista === "object") {
+      try {
+        await env.TUTORIA_DB.prepare(`UPDATE tutoria_aules SET vista = ? WHERE id = ?`)
+          .bind(JSON.stringify({
+            mida: String(body.vista.mida || "16").slice(0, 8),
+            fotos: !!body.vista.fotos,
+            girada: !!body.vista.girada,
+          }), id).run();
+        vista = true;
+      } catch (e) { /* sense columna: es queda al navegador i prou */ }
+    }
+
+    return json({ ok: true, id, updated_at: ara, vista });
   } catch (e) {
     return json({ error: "db", detall: String(e && e.message || e) }, 500);
   }
