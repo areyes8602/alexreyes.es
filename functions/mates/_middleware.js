@@ -1,13 +1,12 @@
-// Guarda /tutoria/*: sense sessió vàlida no se serveix RES, ni HTML ni fotos.
-// El porter és a functions/_zona.js, compartit amb /mates/.
+// Guarda /mates/*: sense sessió vàlida no se serveix res.
 import { porta } from "../_zona.js";
 import { requireSession } from "./_auth.js";
 
 export const ZONA = {
-  base: "/tutoria",
-  titol: "Tutoría",
+  base: "/mates",
+  titol: "Matemàtiques 2n ESO",
   subtitol: "Acceso privado",
-  emoji: "🎓",
+  emoji: "📐",
   requireSession,
 };
 

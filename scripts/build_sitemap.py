@@ -237,6 +237,7 @@ def main():
         'Disallow: /editor/\n'
         'Disallow: /panel/\n'
         'Disallow: /tutoria/\n'
+        'Disallow: /mates/\n'
         '\n'
         f'Sitemap: {BASE}/sitemap.xml\n'
     )

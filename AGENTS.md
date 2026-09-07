@@ -550,8 +550,9 @@ de 2º ESO E quiere saber a qué grupo de mates va, con quién y en qué aula.
 ```
 scripts/sql/mates_schema.sql       mates_grups · mates_alumnes · mates_activitats · mates_notes
 scripts/mates_import_nivells.py    el Excel de niveles → D1
-functions/tutoria/api/mates.js     la API
-tutoria/mates/                     el cuaderno de notas de su grupo
+functions/mates/                   la zona privada: gate, login y la API del cuaderno
+functions/tutoria/api/mates.js     solo lectura: a qué grupo va cada tutorando
+mates/                             el cuaderno de notas de su grupo
 ```
 
 Cosas que no son negociables:
@@ -561,7 +562,7 @@ Cosas que no son negociables:
   tutoría sepa el grupo de mates sin duplicar columnas. Si un nombre no cuadra,
   la ficha dice «Encara no assignat» y calla: por eso el importador cuenta
   cuántos ha leído de cada clase.
-- **El aula no viene del centro**: la pone él desde `/tutoria/mates/`, es del
+- **El aula no viene del centro**: la pone él desde `/mates/`, es del
   grupo entero y volver a pasar el importador no la borra. En la ficha del
   alumno sale en solo lectura, que editarla 27 veces sería absurdo.
 - **Las notas son TEXT**, no números: ahí tiene que caber un 7,5 y también un
@@ -571,9 +572,30 @@ Cosas que no son negociables:
   tecleado**. Si no, escribías una columna de notas, añadías la siguiente
   actividad y las perdías todas.
 
-El área vive bajo `/tutoria/` a propósito: el gate de `functions/tutoria/_middleware.js`
-cubre todo lo que cuelga de ahí, así que es el mismo usuario y la misma
-contraseña sin tocar nada de autenticación.
+### Dos zonas privadas, un solo usuario
+
+`/tutoria/` y `/mates/` son zonas **separadas**, cada una con su gate y su
+cookie (`tutoria_session` con `Path=/tutoria`, `mates_session` con
+`Path=/mates`). Lo que comparten son las credenciales y el secreto que firma
+el testigo: `TUTORIA_USER`, `TUTORIA_PASS` y `TUTORIA_SECRET` valen para las
+dos, porque es la misma persona entrando a dos cosas suyas.
+
+Consecuencias que hay que respetar:
+
+- Se entra y se sale de cada una por separado. Una sesión de mates no abre la
+  tutoría ni al revés, y ninguna de las dos cookies viaja a la parte pública.
+- El porter y la página de login están una sola vez, en `functions/_zona.js`,
+  parametrizados por zona; las piezas de sesión, en `functions/_sessio.js`.
+  Añadir una tercera zona es un `_auth.js` y un `_middleware.js` de diez
+  líneas cada uno.
+- **Las notas solo se tocan desde `/mates/`.** La tutoría tiene su propio
+  endpoint de solo lectura (`functions/tutoria/api/mates.js`) que responde a
+  qué grupo va cada alumno y nada más: con una sesión de tutoría no se puede
+  escribir una nota.
+- Al añadir una zona hay que meterla en las listas de salto de los seis
+  scripts de post-proceso, en `robots.txt`, en el `robots.txt` que genera
+  `build_sitemap.py` y en `_headers`. Si no, el post-proceso le mete OG y
+  skip-links a páginas que no los quieren.
 
 ## Cloudflare: qué es qué
 
