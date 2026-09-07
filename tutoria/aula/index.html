@@ -80,6 +80,37 @@
   .plan.sense-fotos .seient { width:calc(var(--fitxa,16%) - 3%); min-width:56px; }
   .plan.sense-fotos .seient img { display:none; }
 
+  /* Foto gran: la targeta és la fotografia i el nom va en una franja a
+     sobre. Per al full que es queda a la taula el que compta és reconèixer
+     la cara des de mig metre, no llegir el cognom sencer, i posant el nom
+     al damunt la cara es fa un terç més gran. */
+  .plan.foto-gran .seient { display:block; padding:0; overflow:hidden; border-radius:4px; }
+  .plan.foto-gran .seient img { width:100%; height:auto; border-radius:0; }
+  .plan.foto-gran .seient .txt { position:absolute; left:0; right:0; bottom:0;
+    text-align:center; padding:.08rem .1rem; background:rgba(255,255,255,.92);
+    border-top:1px solid rgba(0,0,0,.14);
+    print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+  .plan.foto-gran .seient .nom { font-size:.7rem; }
+  .plan.foto-gran .seient .cog { font-size:.6rem; }
+  /* Qui no té fotografia es queda amb el nom centrat al requadre, perquè
+     el seu lloc a l'aula es vegi igual. */
+  .plan.foto-gran .seient.sense-foto { aspect-ratio:127/192; background:#f0f0f0;
+    display:flex; align-items:center; print-color-adjust:exact; }
+  .plan.foto-gran .seient.sense-foto img { display:none; }
+  .plan.foto-gran .seient.sense-foto .txt { position:static; width:100%;
+    background:none; border:0; }
+
+  /* Vista des de la taula del professor: mira la classe des de l'altre
+     costat, o sigui que qui té a la seva esquerra li surt a la dreta del
+     plànol. Es gira l'aula mitja volta i es redrecen els rètols i les
+     targetes: el paper li queda com el que veu aixecant el cap. El retolet
+     de les finestres, en vertical, queda llegible sense tocar-lo. */
+  .aula.vista-prof { transform:rotate(180deg); }
+  .aula.vista-prof .taula-prof,
+  .aula.vista-prof .pissarra,
+  .aula.vista-prof .porta { transform:rotate(180deg); }
+  .aula.vista-prof .seient { transform:translate(-50%,-50%) rotate(180deg); }
+
   .banqueta { border:1px dashed var(--border); border-radius:var(--radius);
     padding:.8rem; margin-top:1rem; }
   .banqueta h3 { margin:0 0 .5rem; font-size:.8rem; text-transform:uppercase;
@@ -88,11 +119,21 @@
   .banqueta .seient { position:static; transform:none; width:auto; min-width:0; }
   .ajut { font-size:.85rem; color:var(--text-faint); }
 
+  @page { size:A4 portrait; margin:10mm; }
   @media print {
     nav, .breadcrumb, .barra, .banqueta, .no-print { display:none !important; }
-    .plan-wrap { border:0; padding:0; }
+    .plan-wrap { border:0; padding:0; overflow:visible; }
     .container { max-width:none; padding:0 !important; }
+    .aula { min-width:0; }
     .plan { aspect-ratio:auto; height:16cm; }
+    /* Amb foto gran el plànol s'estira fins a omplir el foli: cada
+       centímetre que guanya d'alçada és cara. */
+    .plan.foto-gran { height:23cm; }
+    /* La pissarra, les finestres i la porta són la referència per situar-se
+       al full: han de sortir impreses encara que el navegador tregui els
+       fons per estalviar tinta. */
+    .taula-prof, .pissarra, .mur-esq, .porta, .seient img {
+      print-color-adjust:exact; -webkit-print-color-adjust:exact; }
   }
 </style>
 </head>
@@ -109,11 +150,14 @@
       <input id="nom-nova" type="text" placeholder="Nom d'una distribució nova">
       <button class="btn btn-suau" id="crea">Crear</button>
       <label class="marca-op"><input type="checkbox" id="fotos" checked> Amb fotos</label>
-      <select id="mida" title="Mida de les targetes">
+      <select id="mida" title="Mida i estil de les targetes">
         <option value="13">Targetes petites</option>
         <option value="16" selected>Mitjanes</option>
         <option value="18">Grans</option>
+        <option value="foto">Amb foto gran</option>
       </select>
+      <label class="marca-op" title="Com ho veus des de la teva taula, mirant la classe">
+        <input type="checkbox" id="vista-prof"> Vista des de la taula</label>
       <span class="grup-b">Col·locar:
         <button class="btn btn-suau" id="ordena">En files</button>
         <button class="btn btn-suau" id="ordena-col">En columnes</button>
@@ -169,7 +213,7 @@ const api = async (url, o) => {
 
 function fitxa(a) {
   const el = document.createElement("div");
-  el.className = "seient";
+  el.className = a.foto ? "seient" : "seient sense-foto";
   el.dataset.id = a.id;
   el.innerHTML = `${a.foto
       ? `<img src="/tutoria/api/foto?id=${encodeURIComponent(a.id)}" alt="" draggable="false">`
@@ -183,8 +227,7 @@ function fitxa(a) {
 
 function pinta() {
   plan.innerHTML = ""; banqueta.innerHTML = "";
-  plan.classList.toggle("sense-fotos", !document.getElementById("fotos").checked);
-  plan.style.setProperty("--fitxa", document.getElementById("mida").value + "%");
+  aplicaEstil();
   for (const a of ALUMNES) {
     const el = fitxa(a);
     const p = POS[a.id];
@@ -216,8 +259,11 @@ document.addEventListener("pointermove", e => {
   // Mentre s'arrossega la targeta viu al plànol, encara que vingui de la
   // banqueta: així se segueix el dit sense saltar.
   if (mou.el.parentNode !== plan) { plan.appendChild(mou.el); }
-  const x = ((e.clientX - mou.dx - c.left) / c.width) * 100;
-  const y = ((e.clientY - mou.dy - c.top) / c.height) * 100;
+  let x = ((e.clientX - mou.dx - c.left) / c.width) * 100;
+  let y = ((e.clientY - mou.dy - c.top) / c.height) * 100;
+  // Amb la vista girada, el que el dit veu a dalt a l'esquerra és a baix a
+  // la dreta del plànol de debò, que és el que es desa.
+  if (aula.classList.contains("vista-prof")) { x = 100 - x; y = 100 - y; }
   mou.el.style.left = Math.min(100, Math.max(0, x)) + "%";
   mou.el.style.top = Math.min(100, Math.max(0, y)) + "%";
 });
@@ -235,22 +281,62 @@ document.addEventListener("pointerup", e => {
   } else {
     POS[el.dataset.id] = { x: parseFloat(el.style.left), y: parseFloat(el.style.top) };
   }
+  aplicaEstil();          // amb la foto gran, les cares s'ajusten al nou lloc
   estat.className = "estat"; estat.textContent = "Sense desar";
 });
 
 // ── Accions ─────────────────────────────────────────────────────
-document.getElementById("fotos").onchange = pinta;
-
-// La mida es recorda: segons la pantalla i si projectes o no, vols unes
-// targetes o unes altres, i no té sentit tornar-ho a triar cada vegada.
+// L'estil de les targetes i la vista es recorden: segons si treballes a la
+// pantalla, projectes o imprimeixes vols una cosa o una altra, i no té sentit
+// tornar-ho a triar cada vegada.
 const mida = document.getElementById("mida");
-try { mida.value = localStorage.getItem("tutoria:mida") || "16"; } catch (e) {}
-function aplicaMida() {
-  plan.style.setProperty("--fitxa", mida.value + "%");
-  try { localStorage.setItem("tutoria:mida", mida.value); } catch (e) {}
+const fotos = document.getElementById("fotos");
+const vistaProf = document.getElementById("vista-prof");
+const aula = document.querySelector(".aula");
+try {
+  mida.value = localStorage.getItem("tutoria:mida") || "16";
+  vistaProf.checked = localStorage.getItem("tutoria:vista-prof") === "1";
+} catch (e) {}
+
+// Amb la foto gran l'amplada no és fixa: es busca la més gran amb què cap
+// parella de cares se sobreposi. Si les files van separades les cares es fan
+// grosses, i si n'ajuntes dues s'encongeixen soles. El plànol és 4:5 i la
+// fotografia fa 192/127 d'alt per ample, o sigui que una targeta de F%
+// d'ample n'ocupa F·1,21% d'alt.
+const ALT_FOTO = (192 / 127) * (4 / 5);
+function ampleFoto() {
+  const p = Object.values(POS);
+  if (p.length < 2) return 19;
+  // El terra de 9% és a posta: si dos llocs queden l'un damunt de l'altre
+  // val més que aquelles dues cares es toquin que no pas que les vint-i-cinc
+  // es facin diminutes per una targeta mal deixada.
+  for (let f = 19; f > 9; f -= 0.25) {
+    const alt = f * ALT_FOTO;
+    let xoc = false;
+    for (let i = 0; i < p.length && !xoc; i++)
+      for (let j = i + 1; j < p.length; j++)
+        if (Math.abs(p[i].x - p[j].x) < f && Math.abs(p[i].y - p[j].y) < alt) { xoc = true; break; }
+    if (!xoc) return f;
+  }
+  return 9;
 }
-mida.onchange = aplicaMida;
-aplicaMida();
+
+function aplicaEstil() {
+  const gran = mida.value === "foto";
+  fotos.disabled = gran;                 // amb foto gran, treure-les no té sentit
+  plan.classList.toggle("foto-gran", gran);
+  plan.classList.toggle("sense-fotos", !gran && !fotos.checked);
+  plan.style.setProperty("--fitxa", (gran ? ampleFoto() : mida.value) + "%");
+  aula.classList.toggle("vista-prof", vistaProf.checked);
+  try {
+    localStorage.setItem("tutoria:mida", mida.value);
+    localStorage.setItem("tutoria:vista-prof", vistaProf.checked ? "1" : "0");
+  } catch (e) {}
+}
+mida.onchange = aplicaEstil;
+fotos.onchange = aplicaEstil;
+vistaProf.onchange = aplicaEstil;
+aplicaEstil();
 
 // Sis files de cinc: la capacitat de l'aula.
 const PER_FILA = 5, FILES = 6;
