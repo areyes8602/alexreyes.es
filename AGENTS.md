@@ -540,6 +540,27 @@ está, las posiciones se guardan igual y la vista se queda en el navegador. Se
 añade con `scripts/sql/tutoria_aula_vista.sql`.
 
 
+
+### Grupos y optativas: `/tutoria/grups/`
+
+La clase no va junta a todas partes: se reparte por niveles en matemáticas y
+en inglés, y cada uno elige sus optativas. Eso vive en su propia sección, no
+en la vista general de la orla: ahí el grupo era ruido sobre la foto.
+
+Las columnas son **datos, no esquema**: él crea «Anglès», «Optativa 1r
+trimestre» o lo que haga falta ese curso, y el valor de cada casilla es texto
+libre, porque «Grup B», «Robòtica» y «Amb la Núria» son todas respuestas
+válidas. Tablas en `scripts/sql/tutoria_grups.sql`.
+
+Matemáticas es la excepción: **no es una columna de esa tabla**. Se lee de
+`mates_alumnes` y va de solo lectura, porque viene del reparto del
+departamento y se cambia en `/mates-2eso/`.
+
+Un detalle que costó un 500: el id de una columna se construía con el segundo
+de creación, así que dos columnas hechas dentro del mismo segundo chocaban de
+clave primaria. Ahora lleva además una cola al azar. Lo mismo pasaba en el
+cuaderno de notas.
+
 ## Matemáticas de 2º de ESO: los grupos de nivel
 
 Los cinco grupos-clase de 2º se reparten en seis grupos de nivel (Alt, Mig 1,
@@ -566,8 +587,13 @@ Cosas que no son negociables:
   grupo entero y volver a pasar el importador no la borra. En la ficha del
   alumno sale en solo lectura, que editarla 27 veces sería absurdo.
 - **Las notas son TEXT**, no números: ahí tiene que caber un 7,5 y también un
-  «NP». La media solo promedia lo que es número y dice de cuántas sale;
-  esconderlo sería peor que no hacerla.
+  «NP». La media solo promedia lo que es número.
+- El peso de cada columna es el **porcentaje de la nota final** que vale, no
+  un peso relativo. A mitad de curso la nota se reparte entre el porcentaje
+  ya puesto —un 7 sobre el 40% hecho es un 7, no un 2,8— y se dice cuánto
+  cubre («6,80 del 100 %»). Debajo de la tabla, la suma de los porcentajes,
+  en verde si dan 100. Una columna nueva nace con 0 %: es él quien decide
+  cuánto vale, y el aviso se ve enseguida.
 - Añadir o borrar una columna recarga la tabla, así que **antes se guarda lo
   tecleado**. Si no, escribías una columna de notas, añadías la siguiente
   actividad y las perdías todas.

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Grups i optatives · Tutoria</title>
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
+    flex-wrap:wrap; margin-bottom:1.2rem; }
+  .btn { padding:.55rem 1.1rem; border:0; border-radius:var(--radius-sm); cursor:pointer;
+    background:#0f766e; color:#fff; font:inherit; font-size:.9rem; font-weight:600; }
+  .btn:hover { background:#0b5d56; } .btn[disabled] { opacity:.5; cursor:default; }
+  .btn-suau { background:var(--bg-subtle); color:var(--text); border:1px solid var(--border); }
+  .btn-suau:hover { background:var(--bg-subtle); border-color:var(--text-faint); }
+  .estat { font-size:.85rem; color:var(--text-faint); }
+  .estat.ok { color:#059669; } .estat.err { color:#dc2626; }
+  .buit { padding:2rem; text-align:center; color:var(--text-faint);
+    border:1px dashed var(--border); border-radius:var(--radius); }
+
+  .graella { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius); }
+  table.ag { border-collapse:separate; border-spacing:0; font-size:.9rem; background:var(--bg); }
+  table.ag th, table.ag td { padding:.45rem .6rem; border-bottom:1px solid var(--border);
+    white-space:nowrap; }
+  table.ag thead th { background:var(--bg-subtle); font-size:.68rem; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--text-faint); font-weight:600; text-align:left;
+    vertical-align:bottom; }
+  /* El nom es queda a la vista mentre es desplaça de costat. */
+  table.ag .qui { position:sticky; left:0; z-index:2; background:var(--bg);
+    border-right:1px solid var(--border); min-width:14rem; }
+  table.ag thead .qui { background:var(--bg-subtle); z-index:3; }
+  table.ag tbody tr:nth-child(even) .qui, table.ag tbody tr:nth-child(even) td {
+    background:var(--bg-subtle); }
+  table.ag tbody tr:hover .qui, table.ag tbody tr:hover td { background:rgba(15,118,110,.06); }
+  table.ag .num { color:var(--text-faint); font-family:var(--mono); font-size:.78rem;
+    margin-right:.4rem; }
+  .cap-col { display:flex; align-items:center; gap:.2rem; }
+  .cap-col input { width:8rem; font-size:.82rem; font-weight:600; text-transform:none;
+    letter-spacing:0; color:var(--text); padding:.3rem .45rem;
+    border:1px solid var(--border); border-radius:var(--radius-sm);
+    background:var(--bg); font-family:inherit; }
+  .cap-col .treu { flex:none; border:0; background:none; cursor:pointer;
+    color:var(--text-faint); font-size:1rem; line-height:1; padding:.1rem .3rem;
+    border-radius:4px; }
+  .cap-col .treu:hover { color:#dc2626; background:rgba(220,38,38,.1); }
+  input.val { width:8rem; padding:.3rem .45rem; border:1px solid var(--border);
+    border-radius:4px; background:var(--bg); color:var(--text); font:inherit; font-size:.86rem; }
+  /* Matemàtiques ve del repartiment del departament: no s'escriu aquí. */
+  td.fix { font-weight:600; }
+  td.fix small { display:block; font-weight:400; font-size:.72rem; color:var(--text-faint); }
+  td.fix.cap-dada { font-weight:400; color:var(--text-faint); }
+  .peu { position:sticky; bottom:0; background:var(--bg); border-top:1px solid var(--border);
+    padding:.9rem 0; display:flex; gap:.8rem; align-items:center; flex-wrap:wrap; margin-top:1rem; }
+  @media print {
+    nav, .breadcrumb, .peu, .no-print { display:none !important; }
+    .graella { overflow:visible; border:0; }
+    .cap-col .treu { display:none; }
+    input.val { border:0; padding:0; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="container" style="padding-top:2.5rem;padding-bottom:3rem;max-width:1100px">
+    <div class="breadcrumb">
+      <a href="/tutoria/">Tutoria 2n ESO E</a><span class="sep">/</span>
+      <span class="current">Grups i optatives</span>
+    </div>
+    <div id="cos" style="margin-top:1.5rem">
+      <p style="color:var(--text-faint)">Carregant&hellip;</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const cos = document.getElementById("cos");
+const GRUP = "2ESO-E";
+let DADES = null, ORIGINAL = new Map();
+
+const api = async (url, o) => {
+  const r = await fetch(url, { cache: "no-store", ...o });
+  if (!r.ok) {
+    let d = ""; try { d = (await r.json()).detall || ""; } catch (e) {}
+    throw Object.assign(new Error(d || "Error " + r.status), { status: r.status });
+  }
+  return r.json();
+};
+const post = (c) => api("/tutoria/api/grups", {
+  method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(c) });
+
+const clau = (col, al) => col + "|" + al;
+function estat(text, mena) {
+  const e = document.getElementById("estat");
+  if (e) { e.className = "estat" + (mena ? " " + mena : ""); e.textContent = text; }
+}
+
+addEventListener("beforeunload", e => {
+  if (canvis().length || capsCanviades().length) { e.preventDefault(); e.returnValue = ""; }
+});
+
+function canvis() {
+  const fora = [];
+  document.querySelectorAll("input.val").forEach(i => {
+    const k = clau(i.dataset.col, i.dataset.alumne);
+    if ((ORIGINAL.get(k) ?? "") !== i.value.trim())
+      fora.push({ columna: i.dataset.col, alumne: i.dataset.alumne, valor: i.value.trim() });
+  });
+  return fora;
+}
+function capsCanviades() {
+  const fora = [];
+  document.querySelectorAll("[data-col-id]").forEach(cap => {
+    const c = DADES.columnes.find(x => x.id === cap.dataset.colId);
+    const nom = cap.querySelector("input").value.trim();
+    if (c && nom && nom !== c.nom) fora.push({ accio: "columna", id: c.id, nom });
+  });
+  return fora;
+}
+
+function pinta() {
+  const mates = new Map(DADES.mates.map(m => [m.id, m]));
+  const cols = DADES.columnes;
+  cos.innerHTML = `
+    <div class="top">
+      <div>
+        <h1 style="margin:0 0 .2rem;font-size:1.5rem">Grups i optatives</h1>
+        <p style="margin:0;color:var(--text-soft);font-size:.93rem">
+          La classe no va junta a tot arreu. Aquí, on va cadascú: el grup de
+          matemàtiques ve del repartiment del departament, la resta la poses tu.</p>
+      </div>
+    </div>
+
+    <div class="graella"><table class="ag">
+      <thead><tr>
+        <th class="qui">Alumne</th>
+        <th title="Ve del repartiment del departament. Es canvia a Matemàtiques.">Matemàtiques</th>
+        ${cols.map(c => `<th data-col-id="${esc(c.id)}"><div class="cap-col">
+          <input type="text" value="${esc(c.nom)}" maxlength="60">
+          <button class="treu no-print" data-id="${esc(c.id)}"
+                  title="Esborrar aquesta columna i el que hi hagi escrit">×</button>
+        </div></th>`).join("")}
+      </tr></thead>
+      <tbody>${DADES.alumnes.map(a => {
+        const m = mates.get(a.id);
+        return `<tr>
+          <td class="qui"><span class="num">${a.num}</span>${esc(a.cognoms)}, ${esc(a.nom)}</td>
+          <td class="fix${m ? "" : " cap-dada"}">${m
+            ? `${esc(m.nivell)}<small>${esc(m.professor || "")}${
+                m.aula ? " · " + esc(m.aula) : ""}</small>`
+            : "—"}</td>
+          ${cols.map(c => `<td><input class="val" type="text" maxlength="80"
+            data-col="${esc(c.id)}" data-alumne="${esc(a.id)}"
+            value="${esc(DADES.mapa.get(clau(c.id, a.id)) || "")}"></td>`).join("")}
+        </tr>`;
+      }).join("")}</tbody>
+    </table></div>
+    ${cols.length ? "" : `<p class="buit" style="margin-top:1rem">
+      Encara no hi ha cap columna. Afegeix-ne una: «Anglès», «Optativa 1r
+      trimestre», «Desdoblament»&hellip; el que necessitis aquest curs.</p>`}
+
+    <div class="peu">
+      <button class="btn" id="desa">Desar</button>
+      <button class="btn btn-suau" id="nova">+ Columna</button>
+      <button class="btn btn-suau" id="imprimir">Imprimir</button>
+      <span class="estat" id="estat"></span>
+    </div>`;
+
+  document.getElementById("desa").onclick = desa;
+  document.getElementById("nova").onclick = novaColumna;
+  document.getElementById("imprimir").onclick = () => window.print();
+  document.querySelectorAll("input.val, .cap-col input").forEach(i => {
+    i.oninput = () => estat("Sense desar");
+  });
+  document.querySelectorAll(".treu").forEach(b => { b.onclick = () => esborraColumna(b.dataset.id); });
+}
+
+// Tot el que hi ha escrit cap a la base, sense recarregar.
+async function desaCanvis() {
+  for (const cap of capsCanviades()) await post(cap);
+  const valors = canvis();
+  if (valors.length) await post({ accio: "valors", grup: GRUP, valors });
+  return valors.length;
+}
+
+// Afegir o treure una columna repinta la taula: primer es desa el que hi ha
+// escrit, que si no s'esvaeix.
+async function novaColumna() {
+  const nom = prompt("Nom de la columna (p. ex. «Anglès» o «Optativa 1r trimestre»):");
+  if (!nom || !nom.trim()) return;
+  estat("Desant…");
+  try {
+    await desaCanvis();
+    await post({ accio: "columna", grup: GRUP, nom: nom.trim() });
+    await carrega();
+    estat("Columna afegida", "ok");
+  } catch (e) { estat(e.message, "err"); }
+}
+
+async function esborraColumna(id) {
+  const c = DADES.columnes.find(x => x.id === id);
+  if (!c) return;
+  if (!confirm(`Esborrar «${c.nom}» i tot el que hi hagi escrit? No es pot desfer.`)) return;
+  estat("Desant…");
+  try {
+    await desaCanvis();
+    await post({ accio: "esborra-columna", id });
+    await carrega();
+    estat("Columna esborrada", "ok");
+  } catch (e) { estat(e.message, "err"); }
+}
+
+async function desa() {
+  const b = document.getElementById("desa");
+  b.disabled = true; estat("Desant…");
+  try {
+    const n = await desaCanvis();
+    await carrega();
+    estat(`Desat${n ? " · " + n + " caselles" : ""}`, "ok");
+  } catch (e) { estat(e.message, "err"); }
+  finally { b.disabled = false; }
+}
+
+async function carrega() {
+  const d = await api("/tutoria/api/grups?grup=" + encodeURIComponent(GRUP));
+  d.mapa = new Map(d.valors.map(v => [clau(v.agrupament, v.alumne), v.valor]));
+  ORIGINAL = new Map(d.mapa);
+  DADES = d;
+  pinta();
+}
+
+(async () => {
+  try { await carrega(); }
+  catch (e) {
+    cos.innerHTML = `<p class="buit">${e.status === 401
+      ? 'La sessió ha caducat. <a href="/tutoria/">Torna a entrar</a>.'
+      : esc(e.message)}</p>`;
+  }
+})();
+</script>
+</body>
+</html>
