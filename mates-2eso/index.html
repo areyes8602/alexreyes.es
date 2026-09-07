@@ -61,12 +61,20 @@
   table.notes tbody tr:hover .qui, table.notes tbody tr:hover td { background:rgba(15,118,110,.06); }
   .origen { font-size:.72rem; color:var(--text-faint); font-family:var(--mono); }
   .cap-act { display:flex; flex-direction:column; gap:.25rem; min-width:6.5rem; }
+  .cap-act .dalt { display:flex; align-items:center; gap:.2rem; }
   .cap-act input.nom-act { width:7.5rem; font-size:.82rem; font-weight:600;
     text-transform:none; letter-spacing:0; color:var(--text); }
-  .cap-act .sota { display:flex; gap:.25rem; align-items:center; }
-  .cap-act input.pes { width:3.2rem; font-size:.75rem; padding:.2rem .3rem; }
-  .cap-act .treu { border:0; background:none; cursor:pointer; color:var(--text-faint);
-    font-size:1rem; line-height:1; padding:.1rem .3rem; border-radius:4px; }
+  /* El pes porta la seva etiqueta: un "1" solt es llegeix com un percentatge
+     o com un número d'ordre, i no és cap de les dues coses. */
+  .cap-act .pes-camp { display:flex; align-items:center; gap:.3rem;
+    font-size:.66rem; letter-spacing:.04em; color:var(--text-faint); }
+  .cap-act input.pes { width:3.2rem; font-size:.75rem; padding:.2rem .3rem;
+    letter-spacing:0; }
+  /* La creu d'esborrar va amunt, amb el nom: si va al costat del pes sembla
+     un signe de multiplicar. */
+  .cap-act .treu { flex:none; border:0; background:none; cursor:pointer;
+    color:var(--text-faint); font-size:1rem; line-height:1; padding:.1rem .3rem;
+    border-radius:4px; }
   .cap-act .treu:hover { color:#dc2626; background:rgba(220,38,38,.1); }
   input.nota { width:3.4rem; text-align:center; font-variant-numeric:tabular-nums;
     padding:.3rem .2rem; font-size:.9rem; }
@@ -80,7 +88,7 @@
   @media print {
     nav, .breadcrumb, .peu, .aules, .no-print { display:none !important; }
     .quadern { overflow:visible; border:0; }
-    .cap-act .treu, .cap-act input.pes { display:none; }
+    .cap-act .treu, .cap-act .pes-camp { display:none; }
   }
 </style>
 </head>
@@ -269,12 +277,15 @@ function quadern() {
     <thead><tr>
       <th class="qui">Alumne</th>
       ${acts.map(a => `<th data-act-id="${esc(a.id)}"><div class="cap-act">
-        <input class="nom-act" type="text" value="${esc(a.nom)}" maxlength="80">
-        <div class="sota">
+        <div class="dalt">
+          <input class="nom-act" type="text" value="${esc(a.nom)}" maxlength="80">
+          <button class="treu no-print" data-id="${esc(a.id)}"
+                  title="Esborrar aquesta columna i les seves notes">×</button>
+        </div>
+        <label class="pes-camp" title="Quant compta a la mitjana comparat amb la resta: 1 com les altres, 2 el doble, 0,5 la meitat. No és un percentatge.">pes
           <input class="pes" type="number" min="0" max="10" step="0.5"
-                 value="${esc(a.pes ?? 1)}" title="Pes a la mitjana">
-          <button class="treu no-print" data-id="${esc(a.id)}" title="Esborrar la columna">×</button>
-        </div></div></th>`).join("")}
+                 value="${esc(a.pes ?? 1)}">
+        </label></div></th>`).join("")}
       <th style="text-align:right">Mitjana</th>
     </tr></thead>
     <tbody>${DADES.alumnes.map(al => `<tr>
