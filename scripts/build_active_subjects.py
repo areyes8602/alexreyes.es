@@ -24,6 +24,7 @@ LABELS = {
         "home": "Inicio", "docencia": "Docencia",
         "doctorado_nav": "Doctorado", "notas_nav": "Notas", "cv_nav": "CV", "contacto_nav": "Contacto",
         "info_cta_h": "Información de la asignatura",
+        "privat_h": "Área privada",
         "info_cta_p": "Horario, criterios de evaluación, temario, calendario y material necesario.",
         "year_picker_label": "Curso",
         "year_picker_current": "actual",
@@ -78,6 +79,7 @@ LABELS = {
         "home": "Inici", "docencia": "Docència",
         "doctorado_nav": "Doctorat", "notas_nav": "Notes", "cv_nav": "CV", "contacto_nav": "Contacte",
         "info_cta_h": "Informació de l'assignatura",
+        "privat_h": "Àrea privada",
         "info_cta_p": "Horari, criteris d'avaluació, temari, calendari i material necessari.",
         "year_picker_label": "Curs",
         "year_picker_current": "actual",
@@ -132,6 +134,7 @@ LABELS = {
         "home": "Home", "docencia": "Teaching",
         "doctorado_nav": "PhD", "notas_nav": "Notes", "cv_nav": "CV", "contacto_nav": "Contact",
         "info_cta_h": "Subject information",
+        "privat_h": "Private area",
         "info_cta_p": "Schedule, assessment criteria, syllabus, calendar and required material.",
         "year_picker_label": "Year",
         "year_picker_current": "current",
@@ -196,6 +199,10 @@ MONTHS = {
 # 2n ESO — language of instruction: Catalan
 SUBJ_2ESO = {
     "code": "2eso",
+    # El quadern de notes i els grups de nivell, darrere del gate de
+    # functions/mates-2eso/. Aquí només hi va el botó: el contingut no és
+    # públic ni ho ha de ser.
+    "privat_url": "/mates-2eso/",
     "type": "regular",
     "lang_taught": "ca",
     "title": {"es": "Matemàtiques 2n ESO", "ca": "Matemàtiques 2n ESO", "en": "Mathematics 2n ESO"},
@@ -705,6 +712,9 @@ def archived_variant(s, a):
     v["tag_year"] = a["year"]
     v["units"] = a["units"]
     v["archived"] = True
+    # El área privada es la del curso en marcha: en el archivo del año pasado
+    # el botón llevaría a un cuaderno que ya no habla de esos alumnos.
+    v.pop("privat_url", None)
     if "notice" in a:
         v["notice"] = a["notice"]
     else:
@@ -725,6 +735,19 @@ def render_regular_hub(s, lang):
     code = s["code"]
     title = picker_lang_value(s["title"], lang)
     subtitle = picker_lang_value(s["subtitle"], lang)
+    # Botón al área privada, junto al título y solo si la asignatura la tiene.
+    # El contenido no está aquí: vive tras el gate de functions/<zona>/. Mismo
+    # markup que en build_archived_subjects.py, para que se vean iguales.
+    titol_html = f'<h1 style="margin:0.3rem 0 0.6rem">{title}</h1>'
+    if s.get("privat_url"):
+        titol_html = (
+            '<div style="display:flex;align-items:center;justify-content:space-between;'
+            'gap:1rem;flex-wrap:wrap;margin:0.3rem 0 0.6rem">'
+            f'<h1 style="margin:0">{title}</h1>'
+            f'<a href="{s["privat_url"]}" class="btn btn-secondary" rel="nofollow" '
+            'style="flex:none;text-decoration:none">'
+            f'<span aria-hidden="true">\U0001F512</span>{L["privat_h"]}</a></div>'
+        )
     section_label = picker_lang_value(s["section_label"], lang)
     info_url = f"{lang_prefix(lang)}/docencia/{code}/info/"
 
@@ -804,7 +827,7 @@ def render_regular_hub(s, lang):
         <span class="section-label">{section_label}</span>
         <span class="tag tag-orange">{s['tag_year']}</span>
       </div>
-      <h1 style="margin:0.3rem 0 0.6rem">{title}</h1>
+      {titol_html}
       <p style="font-size:0.98rem;color:var(--text-soft)">{subtitle}</p>
     </div>
 {notice_html}
