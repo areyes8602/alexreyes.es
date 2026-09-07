@@ -86,7 +86,8 @@ export async function onRequestPost(context) {
         const nom = txt(body.nom, 80).trim();
         if (!nom) return json({ error: "falta_nom" }, 400);
         const nivell = txt(body.nivell, 40);
-        const pes = Math.min(10, Math.max(0, Number(body.pes) || 1));
+        // El pes és el percentatge de la nota final que val la columna.
+        const pes = Math.min(100, Math.max(0, Number(body.pes) || 0));
         const data = /^\d{4}-\d{2}-\d{2}$/.test(body.data || "") ? body.data : null;
         if (body.id) {
           if (!SAFE_ID.test(body.id)) return json({ error: "bad_id" }, 400);
@@ -97,8 +98,11 @@ export async function onRequestPost(context) {
           return json({ ok: true, id: body.id });
         }
         // L'ordre el marca l'hora de creació: les columnes noves van al final.
+        // L'identificador porta a més una cua a l'atzar, que dues activitats
+        // fetes dins del mateix segon xocaven de clau primària.
         const seg = Math.floor(Date.now() / 1000);
-        const id = `${curs.replace("-", "")}-${nivell.toLowerCase().replace(/[^a-z0-9]+/g, "")}-${seg}`;
+        const cua = Math.random().toString(36).slice(2, 6);
+        const id = `${curs.replace("-", "")}-${nivell.toLowerCase().replace(/[^a-z0-9]+/g, "")}-${seg}${cua}`;
         if (!SAFE_ID.test(id)) return json({ error: "bad_id" }, 400);
         await db.prepare(
           `INSERT INTO mates_activitats (id, curs, nivell, nom, data, pes, ordre, creada)

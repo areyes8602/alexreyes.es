@@ -72,10 +72,6 @@
   .chip { display:inline-block; font-size:.68rem; font-family:var(--mono); padding:.1rem .38rem;
     border-radius:99px; border:1px solid currentColor; line-height:1.5; }
   .chip-r { color:#b45309; } .chip-p { color:#dc2626; }
-  /* El grup de mates. El seu va ple, que és el que busca a la llista. */
-  .chip-m { color:var(--text-faint); }
-  .chip-m.meu { color:#fff; background:#0f766e; border-color:#0f766e; }
-  .cela-mates b { font-weight:600; } .cela-mates span { color:var(--text-faint); }
   .punt { display:inline-block; width:6px; height:6px; border-radius:50%; background:#0f766e;
     margin-left:.3rem; vertical-align:middle; }
   .buit { padding:2.5rem; text-align:center; color:var(--text-faint);
@@ -92,6 +88,7 @@
         <h1 style="margin:.3rem 0 0">2n ESO E</h1>
       </div>
       <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+        <a href="/tutoria/grups/" style="font-size:.88rem">Grups i optatives</a>
         <a href="/mates-2eso/" style="font-size:.88rem">Matemàtiques</a>
         <a href="/tutoria/llistes/" style="font-size:.88rem">Llistes de control</a>
         <a href="/tutoria/aula/" style="font-size:.88rem">Aula</a>
@@ -165,25 +162,6 @@ function foto(a, cls) {
 }
 // A quin grup de mates va cadascú. Es demana a part perquè viu en una altra
 // taula, i si encara no s'ha carregat el repartiment la llista es pinta igual.
-let MATES = new Map();
-// A la taula hi cap tot: grup, qui el fa i on.
-function mates(a) {
-  const m = MATES.get(a.id);
-  if (!m) return '<span style="color:var(--text-faint)">—</span>';
-  return `<div class="cela-mates"><b${m.nivell === MEU_MATES
-    ? ' style="color:#0f766e"' : ""}>${esc(m.nivell)}</b>
-    <span>${esc(m.professor || "")}${m.aula ? " · " + esc(m.aula) : ""}</span></div>`;
-}
-
-function grupMates(a) {
-  const m = MATES.get(a.id);
-  if (!m) return "";
-  const meu = m.nivell === MEU_MATES;
-  return ` <span class="chip chip-m${meu ? " meu" : ""}" title="${
-    esc(m.professor || "sense professor")}${m.aula ? " · aula " + esc(m.aula) : ""}">${
-    esc(m.nivell)}</span>`;
-}
-
 function senyals(a) {
   let s = "";
   if (a.marca) s += ` <span class="chip chip-r">R</span>`;
@@ -198,7 +176,7 @@ function vistaOrla(list) {
     <a class="al" href="/tutoria/fitxa/?id=${encodeURIComponent(a.id)}">
       ${foto(a, "al-foto")}
       <div class="al-cos">
-        <span class="al-num">${a.num}</span>${senyals(a)}${grupMates(a)}
+        <span class="al-num">${a.num}</span>${senyals(a)}
         <p class="al-nom">${esc(a.nom)}</p>
         <div class="al-cog">${esc(a.cognoms)}</div>
       </div>
@@ -211,7 +189,7 @@ function vistaFitxes(list) {
     return `<a class="al" href="/tutoria/fitxa/?id=${encodeURIComponent(a.id)}">
       ${foto(a, "al-foto")}
       <div class="al-cos">
-        <span class="al-num">${a.num}</span>${senyals(a)}${grupMates(a)}
+        <span class="al-num">${a.num}</span>${senyals(a)}
         <p class="al-nom">${esc(a.nom)}</p>
         <div class="al-cog">${esc(a.cognoms)}</div>
         <div style="font-size:.74rem;color:var(--text-faint);margin-top:.2rem">
@@ -230,7 +208,6 @@ function vistaLlista(list) {
       <td>${foto(a, "mini")}</td>
       <td><strong>${esc(a.cognoms)}</strong>, ${esc(a.nom)}${senyals(a)}</td>
       <td>${esc(a.curs_anterior || "—")}</td>
-      <td>${mates(a)}</td>
       <td class="num">${pintaNota(final(t, "mates"))}</td>
       <td class="num">${pintaNota(final(t, "cat"))}</td>
       <td class="num">${pintaNota(final(t, "cast"))}</td>
@@ -242,7 +219,6 @@ function vistaLlista(list) {
   return `<div class="taula-wrap"><table class="llista">
     <thead><tr>
       <th class="num">Nº</th><th></th><th>Alumne</th><th>Curs ant.</th>
-      <th title="Grup de matemàtiques d'aquest curs">Mates</th>
       <th class="num" title="Matemàtiques">Mat.</th>
       <th class="num" title="Llengua catalana">Cat.</th>
       <th class="num" title="Llengua castellana">Cast.</th>
@@ -286,19 +262,6 @@ document.getElementById("cos").addEventListener("click", e => {
   const tr = e.target.closest("tr[data-id]");
   if (tr) location.href = "/tutoria/fitxa/?id=" + encodeURIComponent(tr.dataset.id);
 });
-
-// El grup de nivell que fa ell: a la llista es marca, que és el que busca.
-const MEU_MATES = "Mig 3";
-
-// El repartiment de mates, a part i sense bloquejar: si no hi és o falla,
-// la llista es pinta igual i simplement no surt el grup.
-fetch("/tutoria/api/mates?origen=2ESO-E", { cache: "no-store" })
-  .then(r => r.ok ? r.json() : { alumnes: [] })
-  .then(d => {
-    MATES = new Map((d.alumnes || []).map(m => [m.id, m]));
-    if (MATES.size && ALUMNES.length) pinta();
-  })
-  .catch(() => {});
 
 fetch("/tutoria/api/alumnes?grup=2ESO-E", { cache: "no-store" })
   .then(async r => {
