@@ -539,6 +539,42 @@ la tabla, así que la API la escribe **aparte y a prueba de fallos**: si no
 está, las posiciones se guardan igual y la vista se queda en el navegador. Se
 añade con `scripts/sql/tutoria_aula_vista.sql`.
 
+
+## Matemáticas de 2º de ESO: los grupos de nivel
+
+Los cinco grupos-clase de 2º se reparten en seis grupos de nivel (Alt, Mig 1,
+Mig 2, Mig 3, Baix 1, Baix 2), uno por profesor. Àlex lleva **Mig 3**. Vive en
+la misma base que tutoría porque las dos cosas se miran juntas: de cada alumno
+de 2º ESO E quiere saber a qué grupo de mates va, con quién y en qué aula.
+
+```
+scripts/sql/mates_schema.sql       mates_grups · mates_alumnes · mates_activitats · mates_notes
+scripts/mates_import_nivells.py    el Excel de niveles → D1
+functions/tutoria/api/mates.js     la API
+tutoria/mates/                     el cuaderno de notas de su grupo
+```
+
+Cosas que no son negociables:
+
+- **La clave que cruza las dos tablas es el slug** `slug("Cognoms Nom")`, el
+  mismo que genera `tutoria_import_orla.py`. Es lo que permite que la ficha de
+  tutoría sepa el grupo de mates sin duplicar columnas. Si un nombre no cuadra,
+  la ficha dice «Encara no assignat» y calla: por eso el importador cuenta
+  cuántos ha leído de cada clase.
+- **El aula no viene del centro**: la pone él desde `/tutoria/mates/`, es del
+  grupo entero y volver a pasar el importador no la borra. En la ficha del
+  alumno sale en solo lectura, que editarla 27 veces sería absurdo.
+- **Las notas son TEXT**, no números: ahí tiene que caber un 7,5 y también un
+  «NP». La media solo promedia lo que es número y dice de cuántas sale;
+  esconderlo sería peor que no hacerla.
+- Añadir o borrar una columna recarga la tabla, así que **antes se guarda lo
+  tecleado**. Si no, escribías una columna de notas, añadías la siguiente
+  actividad y las perdías todas.
+
+El área vive bajo `/tutoria/` a propósito: el gate de `functions/tutoria/_middleware.js`
+cubre todo lo que cuelga de ahí, así que es el mismo usuario y la misma
+contraseña sin tocar nada de autenticación.
+
 ## Cloudflare: qué es qué
 
 - **Pages `alexreyes-web`** — el proyecto que sirve alexreyes.es y despliega

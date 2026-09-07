@@ -70,6 +70,13 @@
   .camp input:focus, .camp textarea:focus, .camp select:focus { outline:none;
     border-color:#0f766e; box-shadow:0 0 0 3px rgba(15,118,110,.15); }
   .camp.ample { grid-column:1/-1; }
+  .mates-grup { display:flex; gap:2rem; flex-wrap:wrap; padding:.9rem 1.1rem;
+    border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-subtle); }
+  .mates-grup div { min-width:6rem; }
+  .mates-grup dt { font-size:.7rem; font-weight:600; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--text-faint); margin:0 0 .15rem; }
+  .mates-grup dd { margin:0; font-size:1rem; font-weight:600; }
+  .mates-grup dd.buit { font-weight:400; color:var(--text-faint); }
 
   /* Listas dinámicas: familia, entrevistas, incidencias */
   .item { border:1px solid var(--border); border-radius:var(--radius-sm); padding:.8rem;
@@ -262,6 +269,31 @@ const camp = (k, et, tipus, valor, ample) => `
   </div>`;
 
 // ── Ficha ───────────────────────────────────────────────────────
+// El grup de matemàtiques viu a la seva pròpia taula: es demana a part i
+// s'omple quan arriba, que la fitxa no ha d'esperar-lo per pintar-se.
+async function pintaMates(id, grup) {
+  const on = document.getElementById("mates-grup");
+  if (!on) return;
+  try {
+    const r = await fetch("/tutoria/api/mates?origen=" + encodeURIComponent(grup || ""),
+                          { cache: "no-store" });
+    if (!r.ok) throw new Error("no");
+    const { alumnes } = await r.json();
+    const m = (alumnes || []).find(x => x.id === id);
+    if (!m) {
+      on.innerHTML = '<div><dt>Grup</dt><dd class="buit">Encara no assignat</dd></div>';
+      return;
+    }
+    const c = (et, v, on2) => `<div><dt>${et}</dt>${v
+      ? `<dd>${on2 ? `<a href="${on2}">${esc(v)}</a>` : esc(v)}</dd>`
+      : '<dd class="buit">Per posar</dd>'}</div>`;
+    on.innerHTML = c("Grup", m.nivell) + c("Professor", m.professor)
+                 + c("Aula", m.aula, "/tutoria/mates/");
+  } catch (e) {
+    on.innerHTML = '<div><dt>Grup</dt><dd class="buit">No s\'ha pogut carregar</dd></div>';
+  }
+}
+
 function pinta(a, veins) {
   ALUMNE = a;
   document.title = `${a.nom} ${a.cognoms} — Tutoria`;
@@ -333,7 +365,13 @@ function pinta(a, veins) {
   </section>
 
   <section class="sec" data-sec="academic" hidden>
-    <h2>Notes del curs anterior</h2>
+    <h2>Matemàtiques d'aquest curs</h2>
+    <p class="ajut">A quin grup de nivell va, amb qui i on. Ve del repartiment
+      del departament; l'aula la poses a
+      <a href="/tutoria/mates/">Matemàtiques</a>, que és de tot el grup.</p>
+    <dl id="mates-grup" class="mates-grup">Carregant&hellip;</dl>
+
+    <h2 style="margin-top:2rem">Notes del curs anterior</h2>
     <p class="ajut">Les tres avaluacions i l'ordinària, tal com van sortir de la junta.
       Matemàtiques va destacada. No s'edita: ve dels butlletins del centre.</p>
     ${taulaNotes(a)}
@@ -512,7 +550,7 @@ if (!id) {
 } else {
   fetch("/tutoria/api/fitxa?id=" + encodeURIComponent(id), { cache: "no-store" })
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(d => pinta(d.alumne, d.veins || []))
+    .then(d => { pinta(d.alumne, d.veins || []); pintaMates(d.alumne.id, d.alumne.grup); })
     .catch(err => {
       cos.innerHTML = err === 401
         ? '<p>La sessió ha caducat. <a href="/tutoria/">Torna a entrar</a>.</p>'
