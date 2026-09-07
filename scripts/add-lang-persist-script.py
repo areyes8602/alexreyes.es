@@ -16,9 +16,11 @@ import re
 import sys
 from pathlib import Path
 
+from _zones_privades import ZONES_PRIVADES
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SKIP_TOP = {"templates", "scripts", "node_modules", ".git", "outputs",
-            "panel", "tutoria", "mates"}
+SKIP_TOP = {"templates", "scripts", "node_modules", ".git",
+            "outputs"} | ZONES_PRIVADES
 
 SCRIPT_TAG = '<script src="/assets/js/lang-persist.js"></script>'
 

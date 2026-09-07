@@ -28,9 +28,13 @@
   Referrer-Policy: no-referrer
 
 # Matemáticas 2º ESO: notas de menores, y el mismo trato. Zona privada
-# aparte, con su propio gate (functions/mates/_middleware.js) y su propia
-# sesión, aunque el usuario y la contraseña sean los de tutoría.
-/mates/*
+# aparte, con su propio gate (functions/mates-2eso/_middleware.js) y su
+# propia sesión, aunque el usuario y la contraseña sean los de tutoría.
+#
+# Al añadir otra asignatura, copia este bloque con su carpeta y añádela a
+# scripts/_zones_privades.py, que es de donde salen el post-proceso y el
+# robots.txt.
+/mates-2eso/*
   X-Robots-Tag: noindex, nofollow, noarchive
   Cache-Control: no-store, no-cache, must-revalidate, private
   Referrer-Policy: no-referrer

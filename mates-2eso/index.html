@@ -91,7 +91,7 @@
       <span class="on">Matemàtiques · 2n d'ESO</span>
       <span class="enllacos">
         <a href="/tutoria/">Tutoria 2n ESO E</a>
-        <a href="/mates/api/logout">Tancar sessió</a>
+        <a href="/mates-2eso/api/logout">Tancar sessió</a>
       </span>
     </div>
     <div id="cos" style="margin-top:1.5rem">
@@ -121,7 +121,7 @@ const api = async (url, opcions) => {
   }
   return r.json();
 };
-const post = (cos) => api("/mates/api/quadern", {
+const post = (cos) => api("/mates-2eso/api/quadern", {
   method: "POST", headers: { "content-type": "application/json" },
   body: JSON.stringify(cos) });
 
@@ -345,7 +345,7 @@ async function desa() {
 
 // ── Càrrega ─────────────────────────────────────────────────────
 async function carrega() {
-  const { grups } = await api("/mates/api/quadern?grups=1");
+  const { grups } = await api("/mates-2eso/api/quadern?grups=1");
   GRUPS = grups;
   if (!GRUPS.length) {
     cos.innerHTML = `<p class="buit">Encara no hi ha cap grup de matemàtiques.
@@ -353,7 +353,7 @@ async function carrega() {
     return;
   }
   if (!GRUPS.some(g => g.nivell === NIVELL)) NIVELL = GRUPS[0].nivell;
-  const d = await api("/mates/api/quadern?nivell=" + encodeURIComponent(NIVELL));
+  const d = await api("/mates-2eso/api/quadern?nivell=" + encodeURIComponent(NIVELL));
   d.mapa = new Map(d.notes.map(n => [clau(n.activitat, n.alumne), n.nota]));
   ORIGINAL = new Map(d.mapa);
   DADES = d;
@@ -365,7 +365,7 @@ async function carrega() {
   try { await carrega(); }
   catch (e) {
     cos.innerHTML = `<p class="buit">${e.status === 401
-      ? 'La sessió ha caducat. <a href="/mates/">Torna a entrar</a>.'
+      ? 'La sessió ha caducat. <a href="/mates-2eso/">Torna a entrar</a>.'
       : esc(e.message)}</p>`;
   }
 })();

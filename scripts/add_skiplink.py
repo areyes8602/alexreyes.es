@@ -23,6 +23,8 @@ import re
 import sys
 import pathlib
 
+from _zones_privades import ZONES_PRIVADES
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 APPLY = "--apply" in sys.argv
 
@@ -63,9 +65,9 @@ def process(s):
 
 def main():
     changed = []
-    # "panel", "tutoria" y "mates" son zonas privadas: llevan su propio chrome y no
-    # pasan por los scripts del sitio público.
-    SKIP_TOP = {".git", "panel", "tutoria", "mates", "templates", "node_modules"}
+    # Las zonas privadas llevan su propio chrome y no pasan por los scripts
+    # del sitio público. La lista, en scripts/_zones_privades.py.
+    SKIP_TOP = {".git", "templates", "node_modules"} | ZONES_PRIVADES
     for f in sorted(ROOT.rglob("*.html")):
         if f.relative_to(ROOT).parts[0] in SKIP_TOP:
             continue
