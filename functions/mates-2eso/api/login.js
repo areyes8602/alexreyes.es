@@ -1,4 +1,4 @@
-// POST /mates/api/login — valida credencials i obre sessió.
+// POST /mates-2eso/api/login — valida credencials i obre sessió.
 // Les credencials són les de la tutoria: la mateixa persona, dues zones.
 import { makeToken, sessionCookie, timingEqual, privateHeaders } from "../_auth.js";
 
@@ -21,17 +21,17 @@ export async function onRequestPost(context) {
     // Fre al provat de contrasenyes, com a la tutoria: un segon per intent
     // fallat. No substitueix una contrasenya llarga i aleatòria, la completa.
     await new Promise((r) => setTimeout(r, 1000));
-    headers.set("Location", new URL("/mates/?e=1", request.url).toString());
+    headers.set("Location", new URL("/mates-2eso/?e=1", request.url).toString());
     return new Response(null, { status: 303, headers });
   }
   headers.append("Set-Cookie", sessionCookie(await makeToken(user, env.TUTORIA_SECRET)));
-  headers.set("Location", new URL("/mates/", request.url).toString());
+  headers.set("Location", new URL("/mates-2eso/", request.url).toString());
   return new Response(null, { status: 303, headers });
 }
 
 export async function onRequestGet(context) {
   return new Response(null, {
     status: 303,
-    headers: { Location: new URL("/mates/", context.request.url).toString() },
+    headers: { Location: new URL("/mates-2eso/", context.request.url).toString() },
   });
 }

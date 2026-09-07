@@ -26,7 +26,7 @@ encontraría su grupo de mates: por eso el script cuenta cuántos ha leído de
 cada clase, para que veas si falta alguien.
 
 El aula NO viene en el Excel y no se toca: la vas poniendo tú desde
-/mates/, y volver a pasar el importador no la borra.
+/mates-2eso/, y volver a pasar el importador no la borra.
 """
 import argparse
 import re

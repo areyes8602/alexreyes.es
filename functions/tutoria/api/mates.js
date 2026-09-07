@@ -3,7 +3,7 @@
 //   GET /tutoria/api/mates?origen=2ESO-E
 //
 // Només llegeix. El quadern de notes és a l'altra zona
-// (functions/mates/api/quadern.js) i no s'hi arriba des d'aquí: amb una
+// (functions/mates-2eso/api/quadern.js) i no s'hi arriba des d'aquí: amb una
 // sessió de tutoria es pot veure a quin grup va cadascú, mai tocar-li una nota.
 import { requireSession, unauthorized, json } from "../_auth.js";
 

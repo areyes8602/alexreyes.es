@@ -1,4 +1,4 @@
-// GET/POST /mates/api/logout — tanca la sessió d'aquesta zona.
+// GET/POST /mates-2eso/api/logout — tanca la sessió d'aquesta zona.
 // No toca la de tutoria: són sessions separades.
 import { clearCookie, privateHeaders } from "../_auth.js";
 

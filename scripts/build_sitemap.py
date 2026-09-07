@@ -83,6 +83,8 @@ trilingual_paths = [
 # Pages that exist only in ES (aula materials for a specific cohort).
 # Exam index pages are auto-detected by scanning aula/.
 import os as _os
+
+from _zones_privades import ZONES_PRIVADES
 _REPO = Path(__file__).resolve().parent.parent
 
 def _is_retired(html_path: Path) -> bool:
@@ -231,14 +233,15 @@ def main():
     )
     (REPO_ROOT / 'sitemap.xml').write_text(sitemap, encoding='utf-8')
 
+    # Las zonas privadas salen de scripts/_zones_privades.py: añadir una
+    # asignatura no debe obligar a acordarse de tocar el robots.txt.
+    privades = ''.join(f'Disallow: /{z}/\n' for z in sorted(ZONES_PRIVADES))
     robots = (
         'User-agent: *\n'
         'Allow: /\n'
         'Disallow: /editor/\n'
-        'Disallow: /panel/\n'
-        'Disallow: /tutoria/\n'
-        'Disallow: /mates/\n'
-        '\n'
+        + privades
+        + '\n'
         f'Sitemap: {BASE}/sitemap.xml\n'
     )
     (REPO_ROOT / 'robots.txt').write_text(robots, encoding='utf-8')

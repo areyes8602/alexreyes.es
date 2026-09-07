@@ -19,12 +19,15 @@ import re
 import sys
 from pathlib import Path
 
+from _zones_privades import ZONES_PRIVADES
+
 REPO = Path(__file__).resolve().parent.parent
 BASE = "https://alexreyes.es"
-# "panel", "tutoria" y "mates" son zonas privadas con gate de servidor: no llevan
-# SEO, ni buscador, ni nada que las haga descubribles.
-SKIP_DIRS = {"node_modules", ".git", "templates", "editor", "scripts", "assets",
-             "panel", "tutoria", "mates"}
+# Las zonas privadas (panel, tutoria, mates-2eso…) tienen gate de servidor:
+# no llevan SEO, ni buscador, ni nada que las haga descubribles. La lista
+# está en scripts/_zones_privades.py, para no repetirla en seis ficheros.
+SKIP_DIRS = {"node_modules", ".git", "templates", "editor", "scripts",
+             "assets"} | ZONES_PRIVADES
 
 HREFLANG_LINE_RE = re.compile(r'[ \t]*<link\s+rel="alternate"\s+hreflang="[^"]*"[^>]*>\n?')
 CANON_RE = re.compile(r'<link\s+rel="canonical"\s+href="[^"]*"\s*/?>')

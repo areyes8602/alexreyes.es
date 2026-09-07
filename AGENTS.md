@@ -550,9 +550,9 @@ de 2º ESO E quiere saber a qué grupo de mates va, con quién y en qué aula.
 ```
 scripts/sql/mates_schema.sql       mates_grups · mates_alumnes · mates_activitats · mates_notes
 scripts/mates_import_nivells.py    el Excel de niveles → D1
-functions/mates/                   la zona privada: gate, login y la API del cuaderno
+functions/mates-2eso/              la zona privada: gate, login y la API del cuaderno
 functions/tutoria/api/mates.js     solo lectura: a qué grupo va cada tutorando
-mates/                             el cuaderno de notas de su grupo
+mates-2eso/                        el cuaderno de notas de su grupo
 ```
 
 Cosas que no son negociables:
@@ -562,7 +562,7 @@ Cosas que no son negociables:
   tutoría sepa el grupo de mates sin duplicar columnas. Si un nombre no cuadra,
   la ficha dice «Encara no assignat» y calla: por eso el importador cuenta
   cuántos ha leído de cada clase.
-- **El aula no viene del centro**: la pone él desde `/mates/`, es del
+- **El aula no viene del centro**: la pone él desde `/mates-2eso/`, es del
   grupo entero y volver a pasar el importador no la borra. En la ficha del
   alumno sale en solo lectura, que editarla 27 veces sería absurdo.
 - **Las notas son TEXT**, no números: ahí tiene que caber un 7,5 y también un
@@ -572,13 +572,32 @@ Cosas que no son negociables:
   tecleado**. Si no, escribías una columna de notas, añadías la siguiente
   actividad y las perdías todas.
 
-### Dos zonas privadas, un solo usuario
+### Zonas privadas: una por asignatura, un solo usuario
 
-`/tutoria/` y `/mates/` son zonas **separadas**, cada una con su gate y su
-cookie (`tutoria_session` con `Path=/tutoria`, `mates_session` con
-`Path=/mates`). Lo que comparten son las credenciales y el secreto que firma
-el testigo: `TUTORIA_USER`, `TUTORIA_PASS` y `TUTORIA_SECRET` valen para las
-dos, porque es la misma persona entrando a dos cosas suyas.
+Cada zona privada es una carpeta de primer nivel con su gate y su cookie.
+Ahora mismo `/tutoria/` y `/mates-2eso/`, y van a venir más: la idea es una
+por asignatura que lleve, con el nombre **`<materia>-<curso>`** para que
+escale (`mates-3eso`, `mates-4eso`…).
+
+Lo que comparten es el usuario, la contraseña y el secreto que firma el
+testigo: `TUTORIA_USER`, `TUTORIA_PASS` y `TUTORIA_SECRET` valen para todas,
+porque es la misma persona entrando a varias cosas suyas. Lo que NO comparten
+es la sesión: cada una tiene su cookie con `Path` a su carpeta
+(`tutoria_session`, `mates2eso_session`…).
+
+**Para añadir una asignatura nueva** hacen falta cinco cosas, y ninguna es
+tocar la autenticación:
+
+1. `functions/<zona>/_auth.js` — diez líneas: `fesSessio("<zona>_session", "/<zona>")`.
+2. `functions/<zona>/_middleware.js` — diez líneas: `porta(context, ZONA)`.
+3. `functions/<zona>/api/login.js` y `logout.js` — copia de los de mates,
+   cambiando la ruta de vuelta.
+4. La carpeta `<zona>/` con la página, y su bloque en `_headers`.
+5. **La línea en `scripts/_zones_privades.py`**, que es de donde salen los
+   seis scripts de post-proceso y el `robots.txt` que genera
+   `build_sitemap.py`. Si se olvida, el post-proceso le mete OG y skip-links
+   a páginas que no los quieren, y la zona acaba en el `robots.txt` público
+   sin `Disallow`.
 
 Consecuencias que hay que respetar:
 
@@ -588,7 +607,7 @@ Consecuencias que hay que respetar:
   parametrizados por zona; las piezas de sesión, en `functions/_sessio.js`.
   Añadir una tercera zona es un `_auth.js` y un `_middleware.js` de diez
   líneas cada uno.
-- **Las notas solo se tocan desde `/mates/`.** La tutoría tiene su propio
+- **Las notas solo se tocan desde `/mates-2eso/`.** La tutoría tiene su propio
   endpoint de solo lectura (`functions/tutoria/api/mates.js`) que responde a
   qué grupo va cada alumno y nada más: con una sesión de tutoría no se puede
   escribir una nota.

@@ -1,4 +1,4 @@
-// Sessió de /mates/ — la seva pròpia cookie, amb Path=/mates.
+// Sessió de /mates-2eso/ — la seva pròpia cookie, amb Path=/mates-2eso.
 //
 // Mateix usuari, mateixa contrasenya i mateix secret que la tutoria: és la
 // mateixa persona entrant a dues coses seves. El que no comparteixen és la
@@ -9,8 +9,8 @@ import { fesSessio } from "../_sessio.js";
 export { makeToken, verifyToken, timingEqual, privateHeaders, json, unauthorized, MAX_AGE }
   from "../_sessio.js";
 
-export const COOKIE = "mates_session";
-const sessio = fesSessio(COOKIE, "/mates");
+export const COOKIE = "mates2eso_session";
+const sessio = fesSessio(COOKIE, "/mates-2eso");
 
 export const getSessionCookie = sessio.getSessionCookie;
 export const sessionCookie = sessio.sessionCookie;

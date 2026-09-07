@@ -1,4 +1,4 @@
-// El porter de les zones privades: /tutoria/ i /mates/.
+// El porter de les zones privades: /tutoria/, /mates-2eso/ i les que vinguin.
 //
 // Corre a l'edge de Cloudflare abans de lliurar res, o sigui que ni les
 // pàgines ni les fotos són abastables per URL directa sense haver passat pel
@@ -91,8 +91,8 @@ function setupPage(zona) {
 <style>body{font-family:-apple-system,system-ui,sans-serif;max-width:600px;margin:60px auto;padding:0 20px;color:#1a1c23;line-height:1.55}
 code{background:#ecfdf5;padding:2px 6px;border-radius:6px}h1{font-size:20px}</style></head><body>
 <h1>Falta configurar el acceso a ${zona.titol}</h1>
-<p>Las dos zonas privadas (<code>/tutoria/</code> y <code>/mates/</code>) usan las
-mismas credenciales, así que esto se configura una sola vez.</p>
+<p>Todas las zonas privadas (<code>/tutoria/</code>, <code>/mates-2eso/</code>…)
+usan las mismas credenciales, así que esto se configura una sola vez.</p>
 <p>En Cloudflare Pages, proyecto <b>alexreyes-web</b> (el que sirve alexreyes.es;
 no lo confundas con <i>alexreyes-es</i>) → Settings → Environment variables:</p>
 <ul>

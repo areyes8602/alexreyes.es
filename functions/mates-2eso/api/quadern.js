@@ -1,8 +1,8 @@
 // Matemàtiques de 2n d'ESO: grups de nivell i quadern de notes.
 //
-//   GET  /mates/api/quadern?nivell=Mig 3   el grup, els seus alumnes i les notes
-//   GET  /mates/api/quadern?grups=1        els sis grups (nivell, professor, aula)
-//   POST /mates/api/quadern                desar aula, activitats i notes
+//   GET  /mates-2eso/api/quadern?nivell=Mig 3   el grup, els seus alumnes i les notes
+//   GET  /mates-2eso/api/quadern?grups=1        els sis grups (nivell, professor, aula)
+//   POST /mates-2eso/api/quadern                desar aula, activitats i notes
 //
 // Viu a la zona de mates, no a la de tutoria: les notes són de l'assignatura.
 // La tutoria només consulta a quin grup va cada alumne, i ho fa pel seu propi
