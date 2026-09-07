@@ -27,6 +27,14 @@
   Cache-Control: no-store, no-cache, must-revalidate, private
   Referrer-Policy: no-referrer
 
+# Matemáticas 2º ESO: notas de menores, y el mismo trato. Zona privada
+# aparte, con su propio gate (functions/mates/_middleware.js) y su propia
+# sesión, aunque el usuario y la contraseña sean los de tutoría.
+/mates/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store, no-cache, must-revalidate, private
+  Referrer-Policy: no-referrer
+
 # Cache largo para assets versionados — ajustar cuando se introduzcan hashes en filenames
 /assets/css/*
   Cache-Control: public, max-age=3600

@@ -18,7 +18,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SKIP_TOP = {"templates", "scripts", "node_modules", ".git", "outputs",
-            "panel", "tutoria"}
+            "panel", "tutoria", "mates"}
 
 SCRIPT_TAG = '<script src="/assets/js/lang-persist.js"></script>'
 

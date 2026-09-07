@@ -5,11 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
-<title>Matemàtiques 2n ESO · Tutoria</title>
+<title>Matemàtiques 2n ESO · Privat</title>
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <style>
+  /* Capçalera de la zona: això no penja de la tutoria, és la seva. */
+  .barra-zona { display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    flex-wrap:wrap; padding-bottom:.8rem; border-bottom:1px solid var(--border);
+    font-size:.88rem; }
+  .barra-zona .on { font-weight:600; }
+  .barra-zona .enllacos { display:flex; gap:1.1rem; }
   .top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
     flex-wrap:wrap; margin-bottom:1.2rem; }
   .btn { padding:.55rem 1.1rem; border:0; border-radius:var(--radius-sm); cursor:pointer;
@@ -81,9 +87,12 @@
 <body>
 <main>
   <div class="container" style="padding-top:2.5rem;padding-bottom:3rem;max-width:1100px">
-    <div class="breadcrumb">
-      <a href="/tutoria/">Tutoria 2n ESO E</a><span class="sep">/</span>
-      <span class="current">Matemàtiques</span>
+    <div class="barra-zona no-print">
+      <span class="on">Matemàtiques · 2n d'ESO</span>
+      <span class="enllacos">
+        <a href="/tutoria/">Tutoria 2n ESO E</a>
+        <a href="/mates/api/logout">Tancar sessió</a>
+      </span>
     </div>
     <div id="cos" style="margin-top:1.5rem">
       <p style="color:var(--text-faint)">Carregant&hellip;</p>
@@ -112,7 +121,7 @@ const api = async (url, opcions) => {
   }
   return r.json();
 };
-const post = (cos) => api("/tutoria/api/mates", {
+const post = (cos) => api("/mates/api/quadern", {
   method: "POST", headers: { "content-type": "application/json" },
   body: JSON.stringify(cos) });
 
@@ -336,7 +345,7 @@ async function desa() {
 
 // ── Càrrega ─────────────────────────────────────────────────────
 async function carrega() {
-  const { grups } = await api("/tutoria/api/mates?grups=1");
+  const { grups } = await api("/mates/api/quadern?grups=1");
   GRUPS = grups;
   if (!GRUPS.length) {
     cos.innerHTML = `<p class="buit">Encara no hi ha cap grup de matemàtiques.
@@ -344,7 +353,7 @@ async function carrega() {
     return;
   }
   if (!GRUPS.some(g => g.nivell === NIVELL)) NIVELL = GRUPS[0].nivell;
-  const d = await api("/tutoria/api/mates?nivell=" + encodeURIComponent(NIVELL));
+  const d = await api("/mates/api/quadern?nivell=" + encodeURIComponent(NIVELL));
   d.mapa = new Map(d.notes.map(n => [clau(n.activitat, n.alumne), n.nota]));
   ORIGINAL = new Map(d.mapa);
   DADES = d;
@@ -356,7 +365,7 @@ async function carrega() {
   try { await carrega(); }
   catch (e) {
     cos.innerHTML = `<p class="buit">${e.status === 401
-      ? 'La sessió ha caducat. <a href="/tutoria/">Torna a entrar</a>.'
+      ? 'La sessió ha caducat. <a href="/mates/">Torna a entrar</a>.'
       : esc(e.message)}</p>`;
   }
 })();

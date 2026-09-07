@@ -288,7 +288,7 @@ async function pintaMates(id, grup) {
       ? `<dd>${on2 ? `<a href="${on2}">${esc(v)}</a>` : esc(v)}</dd>`
       : '<dd class="buit">Per posar</dd>'}</div>`;
     on.innerHTML = c("Grup", m.nivell) + c("Professor", m.professor)
-                 + c("Aula", m.aula, "/tutoria/mates/");
+                 + c("Aula", m.aula, "/mates/");
   } catch (e) {
     on.innerHTML = '<div><dt>Grup</dt><dd class="buit">No s\'ha pogut carregar</dd></div>';
   }
@@ -368,7 +368,7 @@ function pinta(a, veins) {
     <h2>Matemàtiques d'aquest curs</h2>
     <p class="ajut">A quin grup de nivell va, amb qui i on. Ve del repartiment
       del departament; l'aula la poses a
-      <a href="/tutoria/mates/">Matemàtiques</a>, que és de tot el grup.</p>
+      <a href="/mates/">Matemàtiques</a>, que és de tot el grup.</p>
     <dl id="mates-grup" class="mates-grup">Carregant&hellip;</dl>
 
     <h2 style="margin-top:2rem">Notes del curs anterior</h2>
