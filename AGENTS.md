@@ -519,6 +519,26 @@ La exportación a Excel se pasa por el importador y acaba en la pestaña
 
 Las columnas nuevas se crean con `scripts/sql/tutoria_fitxa_inicial.sql`.
 
+
+### El plano del aula: lo que se ve es lo que se imprime
+
+Las posiciones van en % del plano, y el plano mantiene la proporción 4:5
+**también al imprimir**. Si le fijas una altura en centímetros, el folio sale
+más ancho que alto, las filas se apelotonan casi un tercio respecto a las
+columnas y el papel deja de parecerse a la pantalla. La altura la manda el
+ancho del folio: así entra en un A4 y es fiel.
+
+Los sitios son fijos —cinco por fila, seis filas— tanto con los botones de
+colocar como arrastrando. Un plano torcido no se lee de un vistazo, que es
+justo para lo que sirve la hoja.
+
+Cómo se mira cada distribución (estilo de tarjeta, vista desde la mesa) se
+guarda con ella en la columna `vista`, no solo en el navegador: la de trabajar
+en pantalla y la del papel no se quieren ver igual. La columna es posterior a
+la tabla, así que la API la escribe **aparte y a prueba de fallos**: si no
+está, las posiciones se guardan igual y la vista se queda en el navegador. Se
+añade con `scripts/sql/tutoria_aula_vista.sql`.
+
 ## Cloudflare: qué es qué
 
 - **Pages `alexreyes-web`** — el proyecto que sirve alexreyes.es y despliega
