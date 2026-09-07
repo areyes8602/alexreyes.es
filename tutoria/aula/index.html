@@ -18,7 +18,9 @@
     background:#0f766e; color:#fff; font:inherit; font-size:.88rem; font-weight:600; }
   .btn:hover { background:#0b5d56; } .btn[disabled] { opacity:.5; cursor:default; }
   .btn-suau { background:var(--bg-subtle); color:var(--text); border:1px solid var(--border); }
-  .btn-suau:hover { border-color:var(--text-faint); }
+  .btn-suau:hover { background:var(--bg-subtle); border-color:var(--text-faint); }
+  .grup-b { display:flex; align-items:center; gap:.4rem; font-size:.88rem;
+    color:var(--text-soft); }
   .marca-op { display:flex; align-items:center; gap:.4rem; font-size:.88rem; cursor:pointer; }
   .marca-op input { width:1.05rem; height:1.05rem; accent-color:#0f766e; }
   .estat { font-size:.85rem; color:var(--text-faint); }
@@ -112,7 +114,10 @@
         <option value="16" selected>Mitjanes</option>
         <option value="18">Grans</option>
       </select>
-      <button class="btn btn-suau" id="ordena">Col·locar en files</button>
+      <span class="grup-b">Col·locar:
+        <button class="btn btn-suau" id="ordena">En files</button>
+        <button class="btn btn-suau" id="ordena-col">En columnes</button>
+      </span>
       <button class="btn" id="desa">Desar</button>
       <button class="btn btn-suau" id="imprimir">Imprimir</button>
       <span class="estat" id="estat"></span>
@@ -247,21 +252,31 @@ function aplicaMida() {
 mida.onchange = aplicaMida;
 aplicaMida();
 
-document.getElementById("ordena").onclick = () => {
-  // Files de 5, per ordre de llista: un punt de partida raonable per anar
-  // movent des d'aquí en comptes de col·locar-los un a un.
-  // Sis files de cinc: la capacitat de l'aula. Els que sobrin van a la fila
-  // següent, i ja els mouràs tu.
-  const perFila = 5;
+// Sis files de cinc: la capacitat de l'aula.
+const PER_FILA = 5, FILES = 6;
+
+// Per ordre de llista, com a punt de partida per anar movent des d'aquí en
+// comptes de col·locar-los un a un. El quadrat és el mateix en els dos casos;
+// el que canvia és per on avança la llista. Per files, el 1 i el 2 queden de
+// costat; per columnes, un darrere l'altre. Amb els germans, els que xerren o
+// els repetits de cognom, saber quina de les dues et deixa la classe més
+// tranquil·la estalvia mitja hora d'arrossegar targetes.
+function colloca(perColumnes) {
+  // Files que ocupa realment el grup: amb 25 alumnes són cinc, i per columnes
+  // en surten cinc de cinc en comptes de quatre de sis i una cua.
+  const files = Math.min(FILES, Math.max(1, Math.ceil(ALUMNES.length / PER_FILA)));
   ALUMNES.forEach((a, i) => {
-    POS[a.id] = {
-      x: 11 + (i % perFila) * 19.5,
-      y: 10 + Math.floor(i / perFila) * 15,
-    };
+    // Els que no caben dins l'aula van a la fila de sota, i ja els mouràs tu.
+    const [col, fila] = perColumnes && i < files * PER_FILA
+      ? [Math.floor(i / files), i % files]
+      : [i % PER_FILA, Math.floor(i / PER_FILA)];
+    POS[a.id] = { x: 11 + col * 19.5, y: 10 + fila * 15 };
   });
   pinta();
   estat.className = "estat"; estat.textContent = "Sense desar";
-};
+}
+document.getElementById("ordena").onclick = () => colloca(false);
+document.getElementById("ordena-col").onclick = () => colloca(true);
 
 document.getElementById("imprimir").onclick = () => window.print();
 
