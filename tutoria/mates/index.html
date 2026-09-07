@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Matemàtiques 2n ESO · Tutoria</title>
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
+    flex-wrap:wrap; margin-bottom:1.2rem; }
+  .btn { padding:.55rem 1.1rem; border:0; border-radius:var(--radius-sm); cursor:pointer;
+    background:#0f766e; color:#fff; font:inherit; font-size:.9rem; font-weight:600; }
+  .btn:hover { background:#0b5d56; } .btn[disabled] { opacity:.5; cursor:default; }
+  .btn-suau { background:var(--bg-subtle); color:var(--text); border:1px solid var(--border); }
+  .btn-suau:hover { background:var(--bg-subtle); border-color:var(--text-faint); }
+  .estat { font-size:.85rem; color:var(--text-faint); }
+  .estat.ok { color:#059669; } .estat.err { color:#dc2626; }
+  .buit { padding:2rem; text-align:center; color:var(--text-faint);
+    border:1px dashed var(--border); border-radius:var(--radius); }
+  select, input[type=text], input[type=date], input[type=number] {
+    padding:.45rem .6rem; border:1px solid var(--border); border-radius:var(--radius-sm);
+    background:var(--bg); color:var(--text); font:inherit; font-size:.9rem; }
+
+  /* ── Les aules dels sis grups ── */
+  .aules { border:1px solid var(--border); border-radius:var(--radius);
+    background:var(--bg-subtle); padding:1rem 1.1rem; margin-bottom:1.5rem; }
+  .aules > summary { cursor:pointer; font-size:.95rem; font-weight:600; }
+  .aules .fila { display:grid; grid-template-columns:5.5rem 1fr 9rem; gap:.6rem;
+    align-items:center; margin-top:.6rem; font-size:.9rem; }
+  .aules .fila b { font-weight:600; }
+  .aules .fila span { color:var(--text-soft); }
+  .aules .fila input { width:100%; }
+  .aules .meu { color:#0f766e; }
+
+  /* ── El quadern ── */
+  .quadern { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius); }
+  table.notes { border-collapse:separate; border-spacing:0; font-size:.9rem;
+    background:var(--bg); }
+  table.notes th, table.notes td { padding:.45rem .6rem; border-bottom:1px solid var(--border);
+    white-space:nowrap; }
+  table.notes thead th { background:var(--bg-subtle); font-size:.68rem; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--text-faint); font-weight:600; text-align:left;
+    vertical-align:bottom; border-bottom:1px solid var(--border); }
+  /* El nom es queda a la vista mentre es desplaça de costat: amb deu columnes
+     de notes, si no, no saps de qui estàs posant el 4. */
+  table.notes .qui { position:sticky; left:0; z-index:2; background:var(--bg);
+    border-right:1px solid var(--border); min-width:13rem; }
+  table.notes thead .qui { background:var(--bg-subtle); z-index:3; }
+  table.notes tbody tr:nth-child(even) .qui,
+  table.notes tbody tr:nth-child(even) td { background:var(--bg-subtle); }
+  table.notes tbody tr:hover .qui, table.notes tbody tr:hover td { background:rgba(15,118,110,.06); }
+  .origen { font-size:.72rem; color:var(--text-faint); font-family:var(--mono); }
+  .cap-act { display:flex; flex-direction:column; gap:.25rem; min-width:6.5rem; }
+  .cap-act input.nom-act { width:7.5rem; font-size:.82rem; font-weight:600;
+    text-transform:none; letter-spacing:0; color:var(--text); }
+  .cap-act .sota { display:flex; gap:.25rem; align-items:center; }
+  .cap-act input.pes { width:3.2rem; font-size:.75rem; padding:.2rem .3rem; }
+  .cap-act .treu { border:0; background:none; cursor:pointer; color:var(--text-faint);
+    font-size:1rem; line-height:1; padding:.1rem .3rem; border-radius:4px; }
+  .cap-act .treu:hover { color:#dc2626; background:rgba(220,38,38,.1); }
+  input.nota { width:3.4rem; text-align:center; font-variant-numeric:tabular-nums;
+    padding:.3rem .2rem; font-size:.9rem; }
+  input.nota.dolenta { border-color:#dc2626; }
+  td.mitjana { text-align:right; font-variant-numeric:tabular-nums; font-weight:600;
+    font-family:var(--mono); border-left:1px solid var(--border); }
+  td.mitjana small { font-weight:400; color:var(--text-faint); }
+  .peu { position:sticky; bottom:0; background:var(--bg); border-top:1px solid var(--border);
+    padding:.9rem 0; display:flex; gap:.8rem; align-items:center; flex-wrap:wrap; margin-top:1rem; }
+
+  @media print {
+    nav, .breadcrumb, .peu, .aules, .no-print { display:none !important; }
+    .quadern { overflow:visible; border:0; }
+    .cap-act .treu, .cap-act input.pes { display:none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="container" style="padding-top:2.5rem;padding-bottom:3rem;max-width:1100px">
+    <div class="breadcrumb">
+      <a href="/tutoria/">Tutoria 2n ESO E</a><span class="sep">/</span>
+      <span class="current">Matemàtiques</span>
+    </div>
+    <div id="cos" style="margin-top:1.5rem">
+      <p style="color:var(--text-faint)">Carregant&hellip;</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const cos = document.getElementById("cos");
+const CURS = "2026-27";
+// El grup que fa ell. La resta es poden mirar, però aquest és el de sortida.
+const MEU = "Mig 3";
+
+let NIVELL = MEU, GRUPS = [], DADES = null;
+// Notes tal com estan a la base, per saber què ha canviat de debò.
+let ORIGINAL = new Map();
+
+const api = async (url, opcions) => {
+  const r = await fetch(url, { cache: "no-store", ...opcions });
+  if (!r.ok) {
+    let detall = "";
+    try { detall = (await r.json()).detall || ""; } catch (e) {}
+    throw Object.assign(new Error(detall || "Error " + r.status), { status: r.status });
+  }
+  return r.json();
+};
+const post = (cos) => api("/tutoria/api/mates", {
+  method: "POST", headers: { "content-type": "application/json" },
+  body: JSON.stringify(cos) });
+
+const clau = (act, al) => act + "|" + al;
+// Accepta el 7,5 escrit amb coma, que és com s'escriu aquí.
+const aNumero = v => {
+  const n = parseFloat(String(v).replace(",", "."));
+  return Number.isFinite(n) ? n : null;
+};
+
+function estat(text, mena) {
+  const e = document.getElementById("estat");
+  if (e) { e.className = "estat" + (mena ? " " + mena : ""); e.textContent = text; }
+}
+function marcaCanvi() { estat("Sense desar"); }
+
+// Avisar abans de marxar amb notes sense desar: perdre una columna sencera
+// de notes acabades de teclejar seria molt pitjor que un diàleg de més.
+addEventListener("beforeunload", e => {
+  if (canvis().length || capsCanviades().length) { e.preventDefault(); e.returnValue = ""; }
+});
+
+function canvis() {
+  const fora = [];
+  document.querySelectorAll("input.nota").forEach(i => {
+    const k = clau(i.dataset.act, i.dataset.alumne);
+    if ((ORIGINAL.get(k) ?? "") !== i.value.trim())
+      fora.push({ activitat: i.dataset.act, alumne: i.dataset.alumne, nota: i.value.trim() });
+  });
+  return fora;
+}
+function capsCanviades() {
+  const fora = [];
+  document.querySelectorAll("[data-act-id]").forEach(cap => {
+    const a = DADES.activitats.find(x => x.id === cap.dataset.actId);
+    if (!a) return;
+    const nom = cap.querySelector(".nom-act").value.trim();
+    const pes = cap.querySelector(".pes").value;
+    if (nom !== a.nom || String(a.pes ?? 1) !== String(pes))
+      fora.push({ accio: "activitat", id: a.id, nivell: NIVELL, nom, pes, data: a.data });
+  });
+  return fora;
+}
+
+// ── Mitjana ─────────────────────────────────────────────────────
+// Només compta les notes que són números: un "NP" o un "A" es respecten a la
+// casella però no es poden promitjar. La pàgina diu de quantes surt.
+function mitjana(alumne) {
+  let suma = 0, pesos = 0, n = 0;
+  for (const a of DADES.activitats) {
+    const i = document.querySelector(`input.nota[data-act="${a.id}"][data-alumne="${alumne}"]`);
+    const v = aNumero(i ? i.value : "");
+    if (v === null) continue;
+    // El pes es llegeix de la casella, no del que hi ha desat: si el canvies,
+    // la mitjana s'ha de moure abans de desar, no després.
+    const cap = document.querySelector(`[data-act-id="${a.id}"] .pes`);
+    const p = Number(cap ? cap.value : a.pes) || 1;
+    suma += v * p; pesos += p; n++;
+  }
+  return pesos ? { valor: suma / pesos, n } : null;
+}
+function repintaMitjanes() {
+  for (const al of DADES.alumnes) {
+    const td = document.querySelector(`td.mitjana[data-alumne="${al.id}"]`);
+    if (!td) continue;
+    const m = mitjana(al.id);
+    td.innerHTML = m
+      ? `${m.valor.toFixed(2).replace(".", ",")} <small>de ${m.n}</small>`
+      : '<small>—</small>';
+  }
+}
+
+// ── Pintar ──────────────────────────────────────────────────────
+function pinta() {
+  const g = DADES.grup, meu = g.nivell === MEU;
+  cos.innerHTML = `
+    <div class="top">
+      <div>
+        <h1 style="margin:0 0 .2rem;font-size:1.5rem">Matemàtiques · 2n d'ESO</h1>
+        <p style="margin:0;color:var(--text-soft);font-size:.93rem">
+          Grup <b>${esc(g.nivell)}</b> · ${esc(g.professor || "sense professor")}
+          ${g.aula ? "· aula " + esc(g.aula) : ""} · ${DADES.alumnes.length} alumnes</p>
+      </div>
+      <div class="no-print">
+        <select id="tria">${GRUPS.map(x => `<option value="${esc(x.nivell)}"${
+          x.nivell === NIVELL ? " selected" : ""}>${esc(x.nivell)}${
+          x.nivell === MEU ? " (el meu)" : ""}</option>`).join("")}</select>
+      </div>
+    </div>
+
+    <details class="aules no-print"${GRUPS.some(x => !x.aula) ? " open" : ""}>
+      <summary>Aules dels sis grups</summary>
+      <p style="margin:.5rem 0 0;font-size:.85rem;color:var(--text-faint)">
+        No venen del centre. El que posis aquí surt també a la fitxa dels teus
+        alumnes de tutoria, cadascun amb la del seu grup.</p>
+      ${GRUPS.map(x => `
+        <div class="fila">
+          <b class="${x.nivell === MEU ? "meu" : ""}">${esc(x.nivell)}</b>
+          <span>${esc(x.professor || "—")}</span>
+          <input type="text" data-aula="${esc(x.nivell)}" value="${esc(x.aula || "")}"
+                 placeholder="Aula" maxlength="60">
+        </div>`).join("")}
+    </details>
+
+    ${DADES.alumnes.length ? quadern() : '<p class="buit">Aquest grup no té cap alumne.</p>'}
+
+    <div class="peu">
+      <button class="btn" id="desa">Desar</button>
+      <button class="btn btn-suau" id="nova">+ Activitat</button>
+      <button class="btn btn-suau" id="imprimir">Imprimir</button>
+      <span class="estat" id="estat"></span>
+    </div>`;
+
+  document.getElementById("tria").onchange = async e => {
+    if (canvis().length || capsCanviades().length) {
+      if (!confirm("Hi ha notes sense desar. Vols canviar de grup igualment?")) {
+        e.target.value = NIVELL; return;
+      }
+    }
+    NIVELL = e.target.value;
+    try { localStorage.setItem("mates:nivell", NIVELL); } catch (err) {}
+    await carrega();
+  };
+  document.getElementById("desa").onclick = desa;
+  document.getElementById("nova").onclick = novaActivitat;
+  document.getElementById("imprimir").onclick = () => window.print();
+  document.querySelectorAll("input.nota").forEach(i => {
+    i.oninput = () => {
+      i.classList.toggle("dolenta", i.value.trim() !== "" && aNumero(i.value) === null
+        && i.value.trim().length > 4);
+      repintaMitjanes(); marcaCanvi();
+    };
+  });
+  document.querySelectorAll(".nom-act, [data-aula]").forEach(i => { i.oninput = marcaCanvi; });
+  document.querySelectorAll(".pes").forEach(i => {
+    i.oninput = () => { repintaMitjanes(); marcaCanvi(); };
+  });
+  document.querySelectorAll(".treu").forEach(b => { b.onclick = () => esborraActivitat(b.dataset.id); });
+  repintaMitjanes();
+}
+
+function quadern() {
+  const acts = DADES.activitats;
+  return `<div class="quadern"><table class="notes">
+    <thead><tr>
+      <th class="qui">Alumne</th>
+      ${acts.map(a => `<th data-act-id="${esc(a.id)}"><div class="cap-act">
+        <input class="nom-act" type="text" value="${esc(a.nom)}" maxlength="80">
+        <div class="sota">
+          <input class="pes" type="number" min="0" max="10" step="0.5"
+                 value="${esc(a.pes ?? 1)}" title="Pes a la mitjana">
+          <button class="treu no-print" data-id="${esc(a.id)}" title="Esborrar la columna">×</button>
+        </div></div></th>`).join("")}
+      <th style="text-align:right">Mitjana</th>
+    </tr></thead>
+    <tbody>${DADES.alumnes.map(al => `<tr>
+      <td class="qui">${esc(al.cognoms)}, ${esc(al.nom)}
+        <span class="origen">${esc(al.grup_origen || "")}</span></td>
+      ${acts.map(a => `<td><input class="nota" type="text" inputmode="decimal" maxlength="12"
+        data-act="${esc(a.id)}" data-alumne="${esc(al.id)}"
+        value="${esc(DADES.mapa.get(clau(a.id, al.id)) || "")}"></td>`).join("")}
+      <td class="mitjana" data-alumne="${esc(al.id)}"><small>—</small></td>
+    </tr>`).join("")}</tbody>
+  </table></div>
+  ${acts.length ? "" : '<p class="buit" style="margin-top:1rem">Encara no hi ha cap activitat. Afegeix-ne una aquí sota.</p>'}`;
+}
+
+// ── Accions ─────────────────────────────────────────────────────
+// Tot el que hi ha teclejat cap a la base. Sense recarregar: qui crida
+// decideix si després cal tornar a demanar les dades.
+async function desaCanvis() {
+  for (const cap of capsCanviades()) await post(cap);
+  for (const i of document.querySelectorAll("[data-aula]")) {
+    const g = GRUPS.find(x => x.nivell === i.dataset.aula);
+    if (g && (g.aula || "") !== i.value.trim())
+      await post({ accio: "aula", nivell: g.nivell, aula: i.value.trim() });
+  }
+  const notes = canvis();
+  if (notes.length) await post({ accio: "notes", notes });
+  return notes.length;
+}
+
+// Afegir o treure una columna torna a demanar-ho tot i repinta la taula, o
+// sigui que primer es desa el que hi hagi escrit: si no, teclejaves una
+// columna de notes, afegies la següent activitat i les perdies totes.
+async function novaActivitat() {
+  const nom = prompt("Nom de l'activitat (p. ex. «Prova U1»):");
+  if (!nom || !nom.trim()) return;
+  estat("Desant…");
+  try {
+    await desaCanvis();
+    await post({ accio: "activitat", nivell: NIVELL, nom: nom.trim(), pes: 1 });
+    await carrega();
+    estat("Activitat afegida", "ok");
+  } catch (e) { estat(e.message, "err"); }
+}
+
+async function esborraActivitat(id) {
+  const a = DADES.activitats.find(x => x.id === id);
+  if (!a) return;
+  if (!confirm(`Esborrar «${a.nom}» i totes les seves notes? No es pot desfer.`)) return;
+  estat("Desant…");
+  try {
+    await desaCanvis();
+    await post({ accio: "esborra-activitat", id });
+    await carrega();
+    estat("Activitat esborrada", "ok");
+  } catch (e) { estat(e.message, "err"); }
+}
+
+async function desa() {
+  const b = document.getElementById("desa");
+  b.disabled = true; estat("Desant…");
+  try {
+    const n = await desaCanvis();
+    await carrega();
+    estat(`Desat${n ? " · " + n + " notes" : ""}`, "ok");
+  } catch (e) { estat(e.message, "err"); }
+  finally { b.disabled = false; }
+}
+
+// ── Càrrega ─────────────────────────────────────────────────────
+async function carrega() {
+  const { grups } = await api("/tutoria/api/mates?grups=1");
+  GRUPS = grups;
+  if (!GRUPS.length) {
+    cos.innerHTML = `<p class="buit">Encara no hi ha cap grup de matemàtiques.
+      Passa <code>scripts/mates_import_nivells.py</code> amb el full de nivells.</p>`;
+    return;
+  }
+  if (!GRUPS.some(g => g.nivell === NIVELL)) NIVELL = GRUPS[0].nivell;
+  const d = await api("/tutoria/api/mates?nivell=" + encodeURIComponent(NIVELL));
+  d.mapa = new Map(d.notes.map(n => [clau(n.activitat, n.alumne), n.nota]));
+  ORIGINAL = new Map(d.mapa);
+  DADES = d;
+  pinta();
+}
+
+(async () => {
+  try { NIVELL = localStorage.getItem("mates:nivell") || MEU; } catch (e) {}
+  try { await carrega(); }
+  catch (e) {
+    cos.innerHTML = `<p class="buit">${e.status === 401
+      ? 'La sessió ha caducat. <a href="/tutoria/">Torna a entrar</a>.'
+      : esc(e.message)}</p>`;
+  }
+})();
+</script>
+</body>
+</html>
