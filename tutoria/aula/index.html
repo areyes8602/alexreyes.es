@@ -111,6 +111,18 @@
   .aula.vista-prof .porta { transform:rotate(180deg); }
   .aula.vista-prof .seient { transform:translate(-50%,-50%) rotate(180deg); }
 
+  /* Els pupitres. Es dibuixen fluixos perquè, arrossegant, vegis on pots
+     deixar algú i quins llocs queden buits. Al paper no hi surten: allà
+     només compta qui seu on. L'alçada és la de la targeta de cada estil,
+     mesurada, perquè el requadre i qui l'ocupa coincideixin. */
+  .lloc { position:absolute; transform:translate(-50%,-50%); pointer-events:none;
+    width:var(--fitxa,16%); min-width:66px; height:2.56rem;
+    border:1px dashed #cfcfcf; border-radius:5px; }
+  .plan.sense-fotos .lloc { width:calc(var(--fitxa,16%) - 3%); min-width:56px;
+    height:1.9rem; }
+  .plan.foto-gran .lloc { height:auto; aspect-ratio:127/192; }
+  .lloc.diana { border:1px solid #0f766e; background:rgba(15,118,110,.1); }
+
   .banqueta { border:1px dashed var(--border); border-radius:var(--radius);
     padding:.8rem; margin-top:1rem; }
   .banqueta h3 { margin:0 0 .5rem; font-size:.8rem; text-transform:uppercase;
@@ -121,7 +133,7 @@
 
   @page { size:A4 portrait; margin:10mm; }
   @media print {
-    nav, .breadcrumb, .barra, .banqueta, .no-print { display:none !important; }
+    nav, .breadcrumb, .barra, .banqueta, .no-print, .lloc { display:none !important; }
     .plan-wrap { border:0; padding:0; overflow:visible; }
     .container { max-width:none; padding:0 !important; }
     .aula { min-width:0; }
@@ -202,6 +214,35 @@ const banqueta = document.getElementById("banqueta");
 const estat = document.getElementById("estat");
 let ALUMNES = [], POS = {}, AULA = null;
 
+// ── Els llocs de l'aula ─────────────────────────────────────────
+// Sis files de cinc: la capacitat. Els pupitres són fixos i sempre els
+// mateixos, tant si col·loques amb els botons com si arrossegues a mà. Així
+// el plànol no acaba tort per haver deixat una targeta dos píxels més avall,
+// i imprès es llegeix de cop.
+const PER_FILA = 5, FILES = 6;
+const lloc = (col, fila) => ({ x: 11 + col * 19.5, y: 10 + fila * 15 });
+const LLOCS = [];
+for (let f = 0; f < FILES; f++)
+  for (let c = 0; c < PER_FILA; c++) LLOCS.push(lloc(c, f));
+const clau = p => Math.round(p.x) + ":" + Math.round(p.y);
+
+// Qui seu en aquest pupitre, si hi ha algú, sense comptar-hi `tret`.
+const ocupant = (l, tret) =>
+  Object.keys(POS).find(i => i !== tret && clau(POS[i]) === clau(l));
+
+// El pupitre més proper al punt on s'ha deixat anar la targeta. Amb
+// `lliures`, només es miren els que no té ningú; si no en queda cap, torna
+// null i qui crida decideix.
+function llocProper(x, y, lliures, tret) {
+  let millor = null, d = Infinity;
+  for (const l of LLOCS) {
+    if (lliures && ocupant(l, tret)) continue;
+    const dd = (l.x - x) ** 2 + (l.y - y) ** 2;
+    if (dd < d) { d = dd; millor = l; }
+  }
+  return millor;
+}
+
 const api = async (url, o) => {
   const r = await fetch(url, { cache: "no-store", ...o });
   if (!r.ok) {
@@ -225,8 +266,25 @@ function fitxa(a) {
   return el;
 }
 
+let DIANES = [];
+function pintaLlocs() {
+  DIANES = LLOCS.map(l => {
+    const d = document.createElement("div");
+    d.className = "lloc";
+    d.style.left = l.x + "%"; d.style.top = l.y + "%";
+    plan.appendChild(d);
+    return d;
+  });
+}
+// Il·lumina el pupitre on cauria la targeta que s'està arrossegant.
+function marcaDiana(l) {
+  DIANES.forEach((d, i) =>
+    d.classList.toggle("diana", !!l && clau(LLOCS[i]) === clau(l)));
+}
+
 function pinta() {
   plan.innerHTML = ""; banqueta.innerHTML = "";
+  pintaLlocs();
   aplicaEstil();
   for (const a of ALUMNES) {
     const el = fitxa(a);
@@ -264,13 +322,16 @@ document.addEventListener("pointermove", e => {
   // Amb la vista girada, el que el dit veu a dalt a l'esquerra és a baix a
   // la dreta del plànol de debò, que és el que es desa.
   if (aula.classList.contains("vista-prof")) { x = 100 - x; y = 100 - y; }
-  mou.el.style.left = Math.min(100, Math.max(0, x)) + "%";
-  mou.el.style.top = Math.min(100, Math.max(0, y)) + "%";
+  x = Math.min(100, Math.max(0, x)); y = Math.min(100, Math.max(0, y));
+  mou.el.style.left = x + "%";
+  mou.el.style.top = y + "%";
+  marcaDiana(llocProper(x, y, false));
 });
 document.addEventListener("pointerup", e => {
   if (!mou) return;
   const { el } = mou; mou = null;
   el.classList.remove("arrossegant");
+  marcaDiana(null);
   const c = plan.getBoundingClientRect();
   const fora = e.clientY > c.bottom || e.clientX < c.left || e.clientX > c.right
             || e.clientY < c.top;
@@ -279,7 +340,20 @@ document.addEventListener("pointerup", e => {
     el.style.left = el.style.top = "";
     banqueta.appendChild(el);
   } else {
-    POS[el.dataset.id] = { x: parseFloat(el.style.left), y: parseFloat(el.style.top) };
+    // La targeta cau al pupitre, no on hagi quedat el dit. Si el pupitre ja
+    // té algú s'intercanvien, que és el que vols quan mous dos alumnes de
+    // lloc. Si venia de la banqueta no hi ha ningú amb qui bescanviar-se, o
+    // sigui que busca el pupitre lliure més proper i no treu ningú.
+    const id = el.dataset.id, venia = POS[id];
+    const x = parseFloat(el.style.left), y = parseFloat(el.style.top);
+    const on = venia ? llocProper(x, y, false)
+                     : llocProper(x, y, true, id) || llocProper(x, y, false);
+    const altre = ocupant(on, id);
+    // Sense pupitre de sortida no hi ha bescanvi possible: només passa si
+    // l'aula està plena, i aleshores val més deixar-los junts que treure'n un.
+    if (altre && venia) POS[altre] = venia;
+    POS[id] = on;
+    pinta();
   }
   aplicaEstil();          // amb la foto gran, les cares s'ajusten al nou lloc
   estat.className = "estat"; estat.textContent = "Sense desar";
@@ -338,9 +412,6 @@ fotos.onchange = aplicaEstil;
 vistaProf.onchange = aplicaEstil;
 aplicaEstil();
 
-// Sis files de cinc: la capacitat de l'aula.
-const PER_FILA = 5, FILES = 6;
-
 // Per ordre de llista, com a punt de partida per anar movent des d'aquí en
 // comptes de col·locar-los un a un. El quadrat és el mateix en els dos casos;
 // el que canvia és per on avança la llista. Per files, el 1 i el 2 queden de
@@ -356,7 +427,7 @@ function colloca(perColumnes) {
     const [col, fila] = perColumnes && i < files * PER_FILA
       ? [Math.floor(i / files), i % files]
       : [i % PER_FILA, Math.floor(i / PER_FILA)];
-    POS[a.id] = { x: 11 + col * 19.5, y: 10 + fila * 15 };
+    POS[a.id] = lloc(col, fila);
   });
   pinta();
   estat.className = "estat"; estat.textContent = "Sense desar";
