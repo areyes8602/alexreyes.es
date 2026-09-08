@@ -51,14 +51,22 @@ SUBJECTS = {
                   "prof": ["Reyes, Àlex"], "meu": True},
     "fq":        {"col": ("#ccfbf1", "#0f453e"), "es": "Física y Química", "ca": "Física i Química",
                   "en": "Physics & Chemistry", "prof": ["Ramos, Mayte"]},
-    # Dues franges, però només una és de robòtica: l'altra és el taller de
-    # castellà. Mentre no se sàpiga quina és quina, les dues porten l'etiqueta
-    # doble i cap professor, que és el que se sap del cert.
+    # Els dos tallers de 2n. Del full d'optatives i tallers del centre: el
+    # taller 1 és dimarts a les 15:30 i el 2 dijous a les 12:25, i a 2n ESO E
+    # toquen robòtica al primer i castellà al segon. Tots dos a la seva aula.
     "robotica":  {"col": ("#e2e8f0", "#2a3240"),
-                  "es": "Taller Robótica / Castellano",
-                  "ca": "Taller Robòtica / Castellà",
-                  "en": "Robotics / Spanish workshop",
-                  "prof": []},
+                  "es": "Taller Robótica y Programación",
+                  "ca": "Taller Robòtica i Programació",
+                  "en": "Robotics & Programming workshop",
+                  "prof": ["González, David"]},
+    # Comparteix família de color amb Castellà: amb els colors posats es veu
+    # d'un cop d'ull quantes hores de castellà hi ha a la setmana, que és per
+    # a això que hi són.
+    "tallercast": {"col": ("#fed7aa", "#533a1d"),
+                   "es": "Taller Castellano",
+                   "ca": "Taller Castellà",
+                   "en": "Spanish workshop",
+                   "prof": ["Villanueva, Belén"]},
     "tecnologia": {"col": ("#e7e5e4", "#38352f"), "es": "Tecnología", "ca": "Tecnologia", "en": "Technology",
                    "prof": ["González, David"]},
     "tallerlab": {"col": ("#ded7c8", "#3b3324"), "es": "Taller / Laboratorio", "ca": "Taller / Laboratori",
@@ -76,7 +84,7 @@ GRID = [
     ("10:00", "11:00", ["catala", "natacio", "religio", "catala", "socials"]),
     ("break", "pati", ("11:00", "11:30")),
     ("11:30", "12:25", ["ef", "angles", "socials", "socials", "mates"]),
-    ("12:25", "13:20", ["fq", "mates", "fq", "robotica", "tecnologia"]),
+    ("12:25", "13:20", ["fq", "mates", "fq", "tallercast", "tecnologia"]),
     ("break", "migdia", ("13:20", "15:30")),
     ("15:30", "16:30", ["tecnologia", "robotica", "mates", "tallerlab", "projectes"]),
     ("16:30", "17:30", ["musica", "catala", "angles", "tallerlab", "projectes"]),
