@@ -8,8 +8,16 @@
 -- i el pare i la mare dins de `familia`) no es repeteixen aquí: el formulari
 -- els torna a preguntar, però van a la seva columna de sempre.
 --
--- D1 no té ALTER TABLE ... IF NOT EXISTS: si una columna ja hi és, la seva
--- línia peta i les altres segueixen. Es pot executar sencer sense por.
+-- OJO: D1 no té ALTER TABLE ... IF NOT EXISTS, i `wrangler d1 execute --file`
+-- s'atura al primer error, NO segueix amb la resta. O sigui que si el fitxer
+-- ja s'ha passat un cop, tornar-lo a executar peta a la primera línia
+-- ("duplicate column name: ciutat") i no fa res més. No és cap desastre —no
+-- hi ha res a mitges— però no serveix per completar una migració parcial:
+-- per a això, executa a mà només les línies que falten.
+--
+-- Per saber si ja hi és:
+--   npx wrangler d1 execute tutoria --remote --command \
+--     "SELECT COUNT(*) FROM pragma_table_info('tutoria_alumnes') WHERE name='ciutat'"
 
 ALTER TABLE tutoria_alumnes ADD COLUMN ciutat            TEXT;
 ALTER TABLE tutoria_alumnes ADD COLUMN escola_primaria   TEXT;

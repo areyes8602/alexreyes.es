@@ -661,6 +661,29 @@ Consecuencias que hay que respetar:
   `build_sitemap.py` y en `_headers`. Si no, el post-proceso le mete OG y
   skip-links a páginas que no los quieren.
 
+
+### Migraciones de D1: `--file` se para al primer error
+
+`wrangler d1 execute --file` **aborta en el primer error y no ejecuta el
+resto**. Y D1 no tiene `ALTER TABLE ... IF NOT EXISTS`, así que un fichero de
+`ALTER` ya aplicado revienta en su primera línea («duplicate column name») sin
+tocar nada más. No deja nada a medias, pero **no sirve para completar una
+migración parcial**: para eso hay que lanzar a mano las líneas que falten.
+
+Los ficheros de `CREATE TABLE IF NOT EXISTS` sí son idempotentes y se pueden
+repasar cuando se quiera.
+
+Para saber qué hay puesto sin adivinar:
+
+```
+npx wrangler d1 execute tutoria --remote --command "SELECT
+ (SELECT COUNT(*) FROM pragma_table_info('tutoria_alumnes') WHERE name='reunions') AS reunions,
+ (SELECT COUNT(*) FROM pragma_table_info('tutoria_alumnes') WHERE name='ciutat') AS fitxa_inicial,
+ (SELECT COUNT(*) FROM pragma_table_info('tutoria_aules') WHERE name='vista') AS aula_vista,
+ (SELECT COUNT(*) FROM sqlite_master WHERE name='tutoria_agrupaments') AS grups,
+ (SELECT COUNT(*) FROM sqlite_master WHERE name='mates_alumnes') AS mates"
+```
+
 ## Cloudflare: qué es qué
 
 - **Pages `alexreyes-web`** — el proyecto que sirve alexreyes.es y despliega
