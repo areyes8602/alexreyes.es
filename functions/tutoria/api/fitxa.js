@@ -22,6 +22,10 @@ const EDITABLES = {
 const BANDERES = ["pi_contingut", "pi_metodologic", "acollida"];
 // Campos de lista, guardados como JSON.
 const LLISTES = { familia: 40, entrevistes: 400, incidencies: 400 };
+// `reunions` es posterior a la tabla y puede no existir todavía
+// (scripts/sql/tutoria_reunions.sql). Va aparte para que, si falta la
+// columna, no se caiga el guardado de TODA la ficha por una sola lista.
+const LLISTES_NOVES = { reunions: 400 };
 
 export async function onRequestGet(context) {
   const { request, env } = context;
@@ -101,5 +105,20 @@ export async function onRequestPost(context) {
   }
 
   if (!res.meta || res.meta.changes === 0) return json({ error: "not_found" }, 404);
-  return json({ ok: true, updated_at: valors[valors.length - 2] });
+
+  // Las listas nuevas, una a una y sin tumbar lo ya guardado.
+  const noves = {};
+  for (const [camp, maxItems] of Object.entries(LLISTES_NOVES)) {
+    if (!(camp in body)) continue;
+    const llista = Array.isArray(body[camp]) ? body[camp].slice(0, maxItems) : [];
+    try {
+      await env.TUTORIA_DB
+        .prepare(`UPDATE tutoria_alumnes SET ${camp} = ? WHERE id = ?`)
+        .bind(JSON.stringify(llista), id)
+        .run();
+      noves[camp] = true;
+    } catch (e) { noves[camp] = false; }   // sin columna: se queda sin guardar
+  }
+
+  return json({ ok: true, updated_at: valors[valors.length - 2], noves });
 }
