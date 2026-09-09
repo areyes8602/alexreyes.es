@@ -3,10 +3,12 @@
 //   GET  /tutoria/api/grups?grup=2ESO-E   columnes, valors i el grup de mates
 //   POST /tutoria/api/grups               crear/renombrar/esborrar columna, desar valors
 //
-// Matemàtiques no és una columna d'aquí: es llegeix de mates_alumnes i va de
-// només lectura. La resta —anglès, optatives, desdoblaments— les crea ell,
-// perquè cada curs són unes altres.
+// Els grups de nivell —matemàtiques, anglès— no són columnes d'aquí: venen
+// del repartiment dels departaments i van de només lectura, tret de l'aula.
+// La resta —optatives, desdoblaments— les crea ell, perquè cada curs són
+// unes altres.
 import { requireSession, unauthorized, json } from "../_auth.js";
+import { llegeixNivells } from "../_nivells.js";
 
 const CURS = "2026-27", GRUP = "2ESO-E";
 const SAFE_ID = /^[a-z0-9-]{1,80}$/;
@@ -33,19 +35,11 @@ export async function onRequestGet(context) {
          JOIN tutoria_agrupaments a ON a.id = v.agrupament
         WHERE a.curs = ? AND a.grup = ?`).bind(curs, grup).all();
 
-    // El grup de mates ve de l'altra taula. Si encara no s'ha carregat el
-    // repartiment, la pàgina s'ha de poder fer servir igual.
-    let mates = [];
-    try {
-      const r = await db.prepare(
-        `SELECT a.id, a.nivell, g.professor, g.aula
-           FROM mates_alumnes a LEFT JOIN mates_grups g
-             ON g.curs = a.curs AND g.nivell = a.nivell
-          WHERE a.curs = ? AND a.grup_origen = ?`).bind(curs, grup).all();
-      mates = r.results;
-    } catch (e) { /* sense taules de mates encara */ }
+    // Els grups de nivell venen d'altres taules. Si encara no s'ha carregat
+    // cap repartiment, la pàgina s'ha de poder fer servir igual.
+    const nivells = await llegeixNivells(db, curs, grup);
 
-    return json({ alumnes, columnes, valors, mates });
+    return json({ alumnes, columnes, valors, ...nivells });
   } catch (e) {
     return json({ error: "db", detall: String(e && e.message || e) }, 500);
   }
@@ -122,6 +116,23 @@ export async function onRequestPost(context) {
           }
         }
         return json({ ok: true, desats, esborrats });
+      }
+
+      // L'aula d'un grup d'una altra matèria. El professor i el nivell no
+      // es toquen des d'aquí: els reparteix el departament. La de mates
+      // tampoc, que aquella es posa a /mates-2eso/ i és la mateixa taula que
+      // el quadern de notes.
+      case "materia-aula": {
+        const materia = (body.materia || "").toString().trim().slice(0, 40);
+        const gr = (body.grup_nivell || "").toString().trim().slice(0, 80);
+        if (!materia || !gr) return json({ error: "falta_grup" }, 400);
+        const aula = (body.aula || "").toString().trim().slice(0, 60);
+        const r = await db.prepare(
+          `UPDATE tutoria_materia_grups SET aula = ?, updated_at = ?
+            WHERE curs = ? AND materia = ? AND grup = ?`)
+          .bind(aula || null, ara, curs, materia, gr).run();
+        if (!r.meta || r.meta.changes === 0) return json({ error: "not_found" }, 404);
+        return json({ ok: true });
       }
 
       default:
