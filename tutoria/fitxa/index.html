@@ -235,6 +235,9 @@ const PLANTILLES = {
     ["data", "Data", "date"], ["amb", "Amb qui", "text"], ["resum", "Resum i acords", "area"]] },
   incidencies: { titol: "Incidència", camps: [
     ["data", "Data", "date"], ["tipus", "Tipus", "text"], ["descripcio", "Descripció", "area"]] },
+  reunions: { titol: "Reunió", camps: [
+    ["data", "Data", "date"], ["reunio", "Quina reunió", "text"],
+    ["resum", "Què s'ha dit i què fem", "area"]] },
 };
 
 function pintaLlista(clau) {
@@ -324,6 +327,7 @@ function pinta(a, veins) {
     <button role="tab" data-sec="traspas" aria-selected="true">Traspàs${
       (a.derivacio && a.derivacio !== "cap") || a.pi_contingut || a.pi_metodologic || a.acollida
         ? '<span class="avis-punt" title="Té mesures"></span>' : ""}</button>
+    <button role="tab" data-sec="reunions" aria-selected="false">Reunions de nivell</button>
     <button role="tab" data-sec="academic" aria-selected="false">Acadèmic</button>
     <button role="tab" data-sec="familia" aria-selected="false">Família</button>
     <button role="tab" data-sec="seguiment" aria-selected="false">Seguiment</button>
@@ -362,6 +366,14 @@ function pinta(a, veins) {
       ${camp("derivacio_nota", "Detall de la derivació", "text", a.derivacio_nota)}
       ${camp("suport", "Altres suports i reforços", "area", a.suport, true)}
     </div>
+  </section>
+
+  <section class="sec" data-sec="reunions" hidden>
+    <h2>Reunions de nivell</h2>
+    <p class="ajut">Què s'ha dit d'ell a cada reunió de l'equip docent, amb la
+      data. Al març ningú recorda què es va acordar al novembre si no queda
+      escrit en algun lloc.</p>
+    <div id="l-reunions">${pintaLlista("reunions")}</div>
   </section>
 
   <section class="sec" data-sec="academic" hidden>
@@ -538,6 +550,16 @@ async function desa() {
       throw new Error(/no such column/i.test(detall)
         ? "Falta migrar la base: executa scripts/sql/tutoria_traspas.sql"
         : detall || "Error " + r.status);
+    }
+    // Les llistes noves es desen a part i poden fallar per falta de columna.
+    // Callar-ho seria perdre unes notes de reunió acabades d'escriure.
+    const { noves } = await r.json();
+    const falten = Object.entries(noves || {}).filter(([, ok]) => !ok).map(([k]) => k);
+    if (falten.length) {
+      est.className = "estat err";
+      est.textContent = `Desat, però ${falten.join(" i ")} NO: falta migrar la base `
+        + `(scripts/sql/tutoria_reunions.sql). No tanquis sense copiar-ho.`;
+      return;
     }
     est.className = "estat ok"; est.textContent = "Desat";
   } catch (e) {

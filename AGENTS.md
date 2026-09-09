@@ -541,6 +541,25 @@ añade con `scripts/sql/tutoria_aula_vista.sql`.
 
 
 
+
+### Reuniones de nivel: una lista más en la ficha
+
+Lo que el equipo docente dice de cada alumno en las reuniones de nivel va en
+su ficha, con fecha, en la pestaña junto a Traspàs. Es una lista JSON como
+`entrevistes` e `incidencies`, así que reutiliza `PLANTILLES` y `pintaLlista`:
+añadir un apartado de este tipo es una entrada en `PLANTILLES`, una pestaña,
+una sección y la columna.
+
+La columna `reunions` es posterior a la tabla, y ahí hay una diferencia que
+importa: las listas de siempre van en el UPDATE principal, pero si `reunions`
+fuera con ellas y faltara la columna, **se caería el guardado de toda la
+ficha**. Va aparte, en `LLISTES_NOVES`, con su try. Y como lo que se pierde
+son notas recién escritas en una reunión, la respuesta lleva un `noves` que
+dice si cada lista se guardó, y la página avisa en rojo — «Desat, però
+reunions NO» — en vez de decir «Desat» y perderlas en silencio.
+
+Se añade con `scripts/sql/tutoria_reunions.sql`.
+
 ### Grupos y optativas: `/tutoria/grups/`
 
 La clase no va junta a todas partes: se reparte por niveles en matemáticas y
