@@ -571,9 +571,32 @@ trimestre» o lo que haga falta ese curso, y el valor de cada casilla es texto
 libre, porque «Grup B», «Robòtica» y «Amb la Núria» son todas respuestas
 válidas. Tablas en `scripts/sql/tutoria_grups.sql`.
 
-Matemáticas es la excepción: **no es una columna de esa tabla**. Se lee de
-`mates_alumnes` y va de solo lectura, porque viene del reparto del
-departamento y se cambia en `/mates-2eso/`.
+Los **grupos de nivel** son la excepción: **no son columnas de esa tabla**,
+porque no los decide él. Matemáticas se lee de `mates_alumnes`; el resto de
+materias que reparten la clase —inglés, de momento— de
+`tutoria_materia_grups` y `tutoria_materia_alumne`
+(`scripts/sql/tutoria_materies.sql`).
+
+Por qué inglés no va también a `mates_alumnes`: matemáticas tiene tablas
+propias porque encima cuelga el cuaderno de notas de `/mates-2eso/`. De
+inglés no lleva las notas, solo a qué grupo va cada alumno suyo, con quién y
+dónde — y eso vale para cualquier materia que reparta la clase. Por eso la
+tabla lleva el nombre de la materia **dentro**, en vez de una tabla por
+materia: añadir tecnología el curso que viene son INSERTs, no un `ALTER`.
+
+Otra cosa que la tabla de mates no podía dar: **la clave es `grup`, no
+`nivell`**. Inglés tiene tres grupos «Standard» y dos «Baix», así que el
+nivel solo no distingue de cuál se habla.
+
+Lo único editable desde tutoría es **el aula**, que cambia y el reparto no.
+La de mates tampoco: esa fila es la misma que usa el cuaderno de notas y se
+pone en `/mates-2eso/`; aquí solo se ve. Una sesión de tutoría puede mirar a
+qué grupo va cada uno, nunca tocarle una nota.
+
+Las dos páginas que lo miran —la ficha de un alumno y la parrilla de
+grupos— lo piden **para la clase entera de una sola vez**, con
+`functions/tutoria/_nivells.js`. Son veintisiete alumnos: veintisiete
+peticiones para pintar una tabla no tienen ningún sentido.
 
 Un detalle que costó un 500: el id de una columna se construía con el segundo
 de creación, así que dos columnas hechas dentro del mismo segundo chocaban de
@@ -591,7 +614,8 @@ de 2º ESO E quiere saber a qué grupo de mates va, con quién y en qué aula.
 scripts/sql/mates_schema.sql       mates_grups · mates_alumnes · mates_activitats · mates_notes
 scripts/mates_import_nivells.py    el Excel de niveles → D1
 functions/mates-2eso/              la zona privada: gate, login y la API del cuaderno
-functions/tutoria/api/mates.js     solo lectura: a qué grupo va cada tutorando
+functions/tutoria/_nivells.js      lectura compartida: mates + el resto de materias
+functions/tutoria/api/nivells.js   solo lectura: a qué grupo va cada tutorando
 mates-2eso/                        el cuaderno de notas de su grupo
 ```
 
@@ -653,7 +677,7 @@ Consecuencias que hay que respetar:
   Añadir una tercera zona es un `_auth.js` y un `_middleware.js` de diez
   líneas cada uno.
 - **Las notas solo se tocan desde `/mates-2eso/`.** La tutoría tiene su propio
-  endpoint de solo lectura (`functions/tutoria/api/mates.js`) que responde a
+  endpoint de solo lectura (`functions/tutoria/api/nivells.js`) que responde a
   qué grupo va cada alumno y nada más: con una sesión de tutoría no se puede
   escribir una nota.
 - Al añadir una zona hay que meterla en las listas de salto de los seis
@@ -681,7 +705,8 @@ npx wrangler d1 execute tutoria --remote --command "SELECT
  (SELECT COUNT(*) FROM pragma_table_info('tutoria_alumnes') WHERE name='ciutat') AS fitxa_inicial,
  (SELECT COUNT(*) FROM pragma_table_info('tutoria_aules') WHERE name='vista') AS aula_vista,
  (SELECT COUNT(*) FROM sqlite_master WHERE name='tutoria_agrupaments') AS grups,
- (SELECT COUNT(*) FROM sqlite_master WHERE name='mates_alumnes') AS mates"
+ (SELECT COUNT(*) FROM sqlite_master WHERE name='mates_alumnes') AS mates,
+ (SELECT COUNT(*) FROM sqlite_master WHERE name='tutoria_materia_grups') AS materies"
 ```
 
 ## Cloudflare: qué es qué

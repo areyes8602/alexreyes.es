@@ -6,7 +6,7 @@
 //
 // Viu a la zona de mates, no a la de tutoria: les notes són de l'assignatura.
 // La tutoria només consulta a quin grup va cada alumne, i ho fa pel seu propi
-// endpoint de només lectura (functions/tutoria/api/mates.js): així una sessió
+// endpoint de només lectura (functions/tutoria/api/nivells.js): així una sessió
 // de tutoria no pot escriure cap nota.
 import { requireSession, unauthorized, json } from "../_auth.js";
 

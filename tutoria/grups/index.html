@@ -49,14 +49,29 @@
   .cap-col .treu:hover { color:#dc2626; background:rgba(220,38,38,.1); }
   input.val { width:8rem; padding:.3rem .45rem; border:1px solid var(--border);
     border-radius:4px; background:var(--bg); color:var(--text); font:inherit; font-size:.86rem; }
-  /* Matemàtiques ve del repartiment del departament: no s'escriu aquí. */
+  /* Els grups de nivell vénen del repartiment dels departaments: no s'escriuen aquí. */
   td.fix { font-weight:600; }
   td.fix small { display:block; font-weight:400; font-size:.72rem; color:var(--text-faint); }
   td.fix.cap-dada { font-weight:400; color:var(--text-faint); }
+
+  .aules { margin:1rem 0; border:1px solid var(--border); border-radius:var(--radius);
+    padding:.7rem 1.1rem; background:var(--bg-subtle); }
+  .aules summary { cursor:pointer; font-size:.9rem; font-weight:600; }
+  .aules h3 { margin:1rem 0 .4rem; font-size:.7rem; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--text-faint); }
+  .aules ul { list-style:none; margin:0; padding:0; display:grid; gap:.4rem;
+    grid-template-columns:repeat(auto-fill, minmax(19rem, 1fr)); }
+  .aules li { display:flex; align-items:center; gap:.5rem; font-size:.86rem; }
+  .aules li b { font-weight:600; min-width:5rem; }
+  .aules li span { color:var(--text-faint); flex:1; }
+  .aules li input { width:7rem; padding:.25rem .4rem; border:1px solid var(--border);
+    border-radius:4px; background:var(--bg); color:var(--text); font:inherit; font-size:.84rem; }
+  .aules li em { font-style:normal; color:var(--text-faint); font-size:.84rem;
+    min-width:7rem; padding:.25rem .4rem; border:1px dashed var(--border); border-radius:4px; }
   .peu { position:sticky; bottom:0; background:var(--bg); border-top:1px solid var(--border);
     padding:.9rem 0; display:flex; gap:.8rem; align-items:center; flex-wrap:wrap; margin-top:1rem; }
   @media print {
-    nav, .breadcrumb, .peu, .no-print { display:none !important; }
+    nav, .breadcrumb, .peu, .no-print, .aules { display:none !important; }
     .graella { overflow:visible; border:0; }
     .cap-col .treu { display:none; }
     input.val { border:0; padding:0; }
@@ -101,7 +116,9 @@ function estat(text, mena) {
 }
 
 addEventListener("beforeunload", e => {
-  if (canvis().length || capsCanviades().length) { e.preventDefault(); e.returnValue = ""; }
+  if (canvis().length || capsCanviades().length || aulesCanviades().length) {
+    e.preventDefault(); e.returnValue = "";
+  }
 });
 
 function canvis() {
@@ -110,6 +127,17 @@ function canvis() {
     const k = clau(i.dataset.col, i.dataset.alumne);
     if ((ORIGINAL.get(k) ?? "") !== i.value.trim())
       fora.push({ columna: i.dataset.col, alumne: i.dataset.alumne, valor: i.value.trim() });
+  });
+  return fora;
+}
+function aulesCanviades() {
+  const fora = [];
+  document.querySelectorAll("[data-aula]").forEach(i => {
+    const g = DADES.materies.find(
+      x => x.materia === i.dataset.materia && x.grup === i.dataset.aula);
+    if (g && (g.aula || "") !== i.value.trim())
+      fora.push({ accio: "materia-aula", materia: g.materia,
+                  grup_nivell: g.grup, aula: i.value.trim() });
   });
   return fora;
 }
@@ -123,23 +151,39 @@ function capsCanviades() {
   return fora;
 }
 
+// Una casella de grup de nivell: el nivell a dalt i, a sota i petit, amb qui
+// i on. Si no hi ha grup assignat, un guió: val més que dir-hi res.
+const cellaNivell = (nivell, professor, aula) => nivell
+  ? `<td class="fix">${esc(nivell)}<small>${esc(professor || "")}${
+       aula ? " · " + esc(aula) : ""}</small></td>`
+  : `<td class="fix cap-dada">—</td>`;
+
 function pinta() {
   const mates = new Map(DADES.mates.map(m => [m.id, m]));
+  // Les matèries surten en columnes, en l'ordre que arriben; de cadascuna,
+  // els seus grups, per a poder anar de l'alumne al grup en una passada.
+  const materies = [...new Set(DADES.materies.map(m => m.materia))];
+  const grups = new Map(DADES.materies.map(g => [g.materia + "|" + g.grup, g]));
+  const asg = new Map(DADES.assignacions.map(a => [a.materia + "|" + a.alumne, a.grup]));
   const cols = DADES.columnes;
+
   cos.innerHTML = `
     <div class="top">
       <div>
         <h1 style="margin:0 0 .2rem;font-size:1.5rem">Grups i optatives</h1>
         <p style="margin:0;color:var(--text-soft);font-size:.93rem">
-          La classe no va junta a tot arreu. Aquí, on va cadascú: el grup de
-          matemàtiques ve del repartiment del departament, la resta la poses tu.</p>
+          La classe no va junta a tot arreu. Aquí, on va cadascú: els grups de
+          nivell venen del repartiment dels departaments, la resta la poses tu.</p>
       </div>
     </div>
+
+    ${panellAules(materies)}
 
     <div class="graella"><table class="ag">
       <thead><tr>
         <th class="qui">Alumne</th>
-        <th title="Ve del repartiment del departament. Es canvia a Matemàtiques.">Matemàtiques</th>
+        <th title="Ve del repartiment del departament. L'aula es posa a Matemàtiques.">Matemàtiques</th>
+        ${materies.map(m => `<th title="Ve del repartiment del departament.">${esc(m)}</th>`).join("")}
         ${cols.map(c => `<th data-col-id="${esc(c.id)}"><div class="cap-col">
           <input type="text" value="${esc(c.nom)}" maxlength="60">
           <button class="treu no-print" data-id="${esc(c.id)}"
@@ -150,10 +194,11 @@ function pinta() {
         const m = mates.get(a.id);
         return `<tr>
           <td class="qui"><span class="num">${a.num}</span>${esc(a.cognoms)}, ${esc(a.nom)}</td>
-          <td class="fix${m ? "" : " cap-dada"}">${m
-            ? `${esc(m.nivell)}<small>${esc(m.professor || "")}${
-                m.aula ? " · " + esc(m.aula) : ""}</small>`
-            : "—"}</td>
+          ${cellaNivell(m && m.nivell, m && m.professor, m && m.aula)}
+          ${materies.map(mat => {
+            const g = grups.get(mat + "|" + asg.get(mat + "|" + a.id));
+            return cellaNivell(g && (g.nivell || g.grup), g && g.professor, g && g.aula);
+          }).join("")}
           ${cols.map(c => `<td><input class="val" type="text" maxlength="80"
             data-col="${esc(c.id)}" data-alumne="${esc(a.id)}"
             value="${esc(DADES.mapa.get(clau(c.id, a.id)) || "")}"></td>`).join("")}
@@ -161,7 +206,7 @@ function pinta() {
       }).join("")}</tbody>
     </table></div>
     ${cols.length ? "" : `<p class="buit" style="margin-top:1rem">
-      Encara no hi ha cap columna. Afegeix-ne una: «Anglès», «Optativa 1r
+      Encara no hi ha cap columna teva. Afegeix-ne una: «Optativa 1r
       trimestre», «Desdoblament»&hellip; el que necessitis aquest curs.</p>`}
 
     <div class="peu">
@@ -174,15 +219,42 @@ function pinta() {
   document.getElementById("desa").onclick = desa;
   document.getElementById("nova").onclick = novaColumna;
   document.getElementById("imprimir").onclick = () => window.print();
-  document.querySelectorAll("input.val, .cap-col input").forEach(i => {
+  document.querySelectorAll("input.val, .cap-col input, [data-aula]").forEach(i => {
     i.oninput = () => estat("Sense desar");
   });
   document.querySelectorAll(".treu").forEach(b => { b.onclick = () => esborraColumna(b.dataset.id); });
 }
 
+// Les aules canvien i el repartiment no: per això l'aula sí que s'escriu
+// aquí. La de mates no, que és la mateixa fila que fa servir el quadern de
+// notes i es posa allà; aquí només es veu.
+function panellAules(materies) {
+  const mates = [...new Map(DADES.mates
+    .filter(m => m.nivell)
+    .map(m => [m.nivell, m])).values()];
+  if (!mates.length && !materies.length) return "";
+  const fila = (m) => `<li><b>${esc(m.nivell || m.grup)}</b>
+    <span>${esc(m.professor || "sense professor")}</span>`;
+  return `<details class="aules no-print"${
+      DADES.materies.some(g => !g.aula) ? " open" : ""}>
+    <summary>Aules dels grups de nivell</summary>
+    ${materies.map(mat => `<h3>${esc(mat)}</h3><ul>${DADES.materies
+      .filter(g => g.materia === mat).map(g => fila(g)
+        + `<input type="text" maxlength="60" value="${esc(g.aula || "")}"
+             data-aula="${esc(g.grup)}" data-materia="${esc(mat)}"
+             placeholder="aula"></li>`).join("")}</ul>`).join("")}
+    ${mates.length ? `<h3>Matemàtiques</h3><ul>${mates.map(m => fila(m)
+      + `<em>${m.aula ? esc(m.aula) : "—"}</em></li>`).join("")}</ul>
+      <p style="margin:.6rem 0 0;font-size:.8rem;color:var(--text-faint)">
+        L'aula de mates es posa a <a href="/mates-2eso/">Matemàtiques</a>:
+        és la mateixa que fa servir el quadern de notes.</p>` : ""}
+  </details>`;
+}
+
 // Tot el que hi ha escrit cap a la base, sense recarregar.
 async function desaCanvis() {
   for (const cap of capsCanviades()) await post(cap);
+  for (const aula of aulesCanviades()) await post(aula);
   const valors = canvis();
   if (valors.length) await post({ accio: "valors", grup: GRUP, valors });
   return valors.length;
