@@ -377,6 +377,13 @@ def build_for_collection(json_path: Path) -> int:
         if not url.startswith("/aula/"):
             print(f"  ⚠ {ej_id}: url_enunciado no apunta a /aula/, salto")
             continue
+        # url_enunciado ha de ser una pàgina pròpia, no una àncora dins l'apunt.
+        # Si porta "#", el fragment acabaria formant part del NOM del fitxer
+        # (04-mcd-mcm.html#ex-1) i, si el tragués sense més, out_path seria
+        # l'apunt mateix i el sobreescriuria. L'exercici ja es llegeix a l'apunt.
+        if "#" in url:
+            print(f"  ⏭  {ej_id}: url_enunciado és una àncora ({url}), no es genera pàgina")
+            continue
         # Resol l'apunt origen
         if "#" not in source:
             print(f"  ⚠ {ej_id}: source_apunt sense ancora")
