@@ -231,7 +231,9 @@ SUBJ_2ESO = {
                  "desc_l":{"ca":"Fraccions equivalents, ordenació, operacions amb fraccions, decimals i potències.",
                            "es":"Fracciones equivalentes, ordenación, operaciones con fracciones, decimales y potencias.",
                            "en":"Equivalent fractions, ordering, operations with fractions, decimals and powers."},
-                 "apunts":"/aula/eso-2/apuntes/u-fraccions/"},
+                 # Apunts d'aquest curs. Els de 2025–26 es queden al seu any arxivat,
+                 # a /aula/eso-2/apuntes/u-fraccions/: cada curs té els seus.
+                 "apunts":"/aula/eso-2/apuntes/2627-u-fraccions/"},
                 {"num":"02","slug":"decimals","title":"Nombres decimals","llibre":"U4",
                  "desc_l":{"ca":"Decimals exactes i periòdics, fracció generatriu, aproximacions.",
                            "es":"Decimales exactos y periódicos, fracción generatriz, aproximaciones.",

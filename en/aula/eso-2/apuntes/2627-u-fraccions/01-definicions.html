@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. Definitions and types of fractions — Fractions — 2n ESO</title>
+<meta name="description" content="Fractions notes for 2n ESO, 2026-27: what a fraction is, numerator and denominator, and proper and improper fractions.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202606221623"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606221623">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606221623">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.6rem 0; border-bottom: 1px dashed var(--border); }
+.example-row:last-child { border-bottom: none; }
+.example-row .frac-display { min-width: 3.5rem; text-align: center; font-size: 1.1rem; }
+.example-row .verdict { flex: 1; min-width: 12rem; }
+.frac-svg { display: block; height: 38px; }
+.frac-svg .cell { fill: none; stroke: #1d4ed8; stroke-width: 2; }
+.frac-svg .cell.filled { fill: #ec4899; fill-opacity: 0.85; }
+.parts-diagram { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; padding: 1rem; background: var(--bg-subtle); border-radius: 8px; }
+.parts-diagram .arrow-label { font-size: 0.92rem; }
+.parts-diagram .arrow-label .lbl { font-weight: 600; }
+.parts-diagram .arrow-label .num { color: #06b6d4; }
+.parts-diagram .arrow-label .den { color: #ec4899; }
+.numberline-wrap { margin: 1.2rem 0; overflow-x: auto; }
+.numberline-svg { display: block; width: 100%; min-width: 340px; max-width: 580px; height: auto; margin: 0 auto; color: var(--text); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">
+<meta property="og:title" content="1. Definitions and types of fractions — Fractions — 2n ESO">
+<meta property="og:description" content="Fractions notes for 2n ESO, 2026-27: what a fraction is, numerator and denominator, and proper and improper fractions.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="1. Definitions and types of fractions — Fractions — 2n ESO">
+<meta name="twitter:description" content="Fractions notes for 2n ESO, 2026-27: what a fraction is, numerator and denominator, and proper and improper fractions.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/en/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fractions","item":"https://alexreyes.es/en/aula/eso-2/apuntes/2627-u-fraccions/"},{"@type":"ListItem","position":5,"name":"01 · Definitions and types","item":"https://alexreyes.es/en/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html"}]},{"@type":"LearningResource","name":"01 · Definitions and types","url":"https://alexreyes.es/en/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Fractions notes for 2n ESO, 2026-27: what a fraction is, numerator and denominator, and proper and improper fractions."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/2eso/">2n ESO</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/eso-2/apuntes/2627-u-fraccions/">Fractions</a>
+      <span class="sep">/</span>
+      <span class="current">01 &middot; Definitions and types</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">2n ESO &middot; Fractions</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">9 Sep 2026</span>
+      </div>
+      <h1 style="margin:0">1. Definitions and types of fractions</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">What a fraction is, what its parts are, and what types there are.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Definition</h2>
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p><strong>Fractional numbers</strong> are a set of numbers that arise from the <strong>need to share out</strong>.</p>
+          <p>They have the form $\dfrac{a}{b}$, where $a$ and $b$ are <strong>integers</strong> and $b \neq 0$.</p>
+        </div>
+        <p class="note">The denominator cannot be $0$, because you cannot share something into zero parts.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Parts of a fraction</h2>
+
+        <div class="parts-diagram">
+          <div class="math-block" style="margin:0;padding:0;background:none;border:none;text-align:center;min-width:5rem">
+            $$\dfrac{\textcolor{#06b6d4}{a}}{\textcolor{#ec4899}{b}}$$
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <span class="arrow-label num">→ <span class="lbl">Numerator</span> ($a$): the parts taken.</span>
+            <span class="arrow-label den">→ <span class="lbl">Denominator</span> ($b$): the parts the unit is divided into.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Example</h2>
+
+        <div class="example-row">
+          <span class="frac-display">$\dfrac{2}{5}$</span>
+          <span class="verdict">The unit is cut into $5$ pieces and we shade $2$.</span>
+          <svg class="frac-svg" viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg">
+            <rect class="cell filled" x="1" y="2" width="30.2" height="32"/>
+            <rect class="cell filled" x="32.2" y="2" width="30.2" height="32"/>
+            <rect class="cell" x="63.4" y="2" width="30.2" height="32"/>
+            <rect class="cell" x="94.6" y="2" width="30.2" height="32"/>
+            <rect class="cell" x="125.8" y="2" width="30.2" height="32"/>
+          </svg>
+        </div>
+
+        <div class="example-row">
+          <span class="frac-display">$\dfrac{4}{10}$</span>
+          <span class="verdict">The same unit is cut into $10$ pieces and we shade $4$.</span>
+          <svg class="frac-svg" viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg">
+            <rect class="cell filled" x="1" y="2" width="14.6" height="32"/>
+            <rect class="cell filled" x="16.6" y="2" width="14.6" height="32"/>
+            <rect class="cell filled" x="32.2" y="2" width="14.6" height="32"/>
+            <rect class="cell filled" x="47.8" y="2" width="14.6" height="32"/>
+            <rect class="cell" x="63.4" y="2" width="14.6" height="32"/>
+            <rect class="cell" x="79" y="2" width="14.6" height="32"/>
+            <rect class="cell" x="94.6" y="2" width="14.6" height="32"/>
+            <rect class="cell" x="110.2" y="2" width="14.6" height="32"/>
+            <rect class="cell" x="125.8" y="2" width="14.6" height="32"/>
+            <rect class="cell" x="141.4" y="2" width="14.6" height="32"/>
+          </svg>
+        </div>
+
+        <p class="note" style="margin-top:0.8rem">Notice that the shaded portion is <strong>the same</strong> in both drawings.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Types of fractions</h2>
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>By comparing the numerator $N$ with the denominator $D$:</p>
+          <p>&rarr; If $N &lt; D$ they are <strong>proper fractions</strong>. They are worth <strong>less than one unit</strong>.</p>
+          <p>&rarr; If $N = D$ the fraction is worth <strong>exactly one unit</strong>.</p>
+          <p>&rarr; If $N &gt; D$ they are <strong>improper fractions</strong>. They are worth <strong>more than one unit</strong>.</p>
+        </div>
+
+        <div class="example-row">
+          <span class="frac-display">$\dfrac{2}{5}$</span>
+          <span class="verdict"><strong>Proper</strong>: $2 &lt; 5$.</span>
+          <svg class="frac-svg" viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg">
+            <rect class="cell filled" x="1" y="2" width="30.2" height="32"/>
+            <rect class="cell filled" x="32.2" y="2" width="30.2" height="32"/>
+            <rect class="cell" x="63.4" y="2" width="30.2" height="32"/>
+            <rect class="cell" x="94.6" y="2" width="30.2" height="32"/>
+            <rect class="cell" x="125.8" y="2" width="30.2" height="32"/>
+          </svg>
+        </div>
+
+        <div class="example-row">
+          <span class="frac-display">$\dfrac{3}{3}$</span>
+          <span class="verdict">$3 = 3$: it fills <strong>one whole unit</strong>.</span>
+          <svg class="frac-svg" viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg">
+            <rect class="cell filled" x="1" y="2" width="51" height="32"/>
+            <rect class="cell filled" x="53" y="2" width="51" height="32"/>
+            <rect class="cell filled" x="105" y="2" width="51" height="32"/>
+          </svg>
+        </div>
+
+        <div class="example-row">
+          <span class="frac-display">$\dfrac{5}{3}$</span>
+          <span class="verdict"><strong>Improper</strong>: $5 &gt; 3$, <strong>two</strong> units are needed.</span>
+          <svg class="frac-svg" style="height:74px" viewBox="0 0 160 72" xmlns="http://www.w3.org/2000/svg">
+            <!-- unit 1: 3/3 shaded -->
+            <rect class="cell filled" x="1" y="2" width="51" height="32"/>
+            <rect class="cell filled" x="53" y="2" width="51" height="32"/>
+            <rect class="cell filled" x="105" y="2" width="51" height="32"/>
+            <!-- unit 2: 2/3 shaded -->
+            <rect class="cell filled" x="1" y="38" width="51" height="32"/>
+            <rect class="cell filled" x="53" y="38" width="51" height="32"/>
+            <rect class="cell" x="105" y="38" width="51" height="32"/>
+          </svg>
+        </div>
+
+        <p class="note" style="margin-top:0.8rem">In every drawing <strong>the unit is the same size</strong>. What changes is how many pieces we cut it into and how many we shade.</p>
+
+        <div class="def-box">
+          <h3>Careful!</h3>
+          <p>If the fraction is <strong>negative</strong>, the comparison is made <strong>in absolute value</strong>: $-\dfrac{5}{3}$ is also improper, because $5 &gt; 3$.</p>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/eso-2/apuntes/2627-u-fraccions/">Unit index</a>
+        <a class="next" href="/en/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">Next section &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js"></script>
+</body>
+</html>

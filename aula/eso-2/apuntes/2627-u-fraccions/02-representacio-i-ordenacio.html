@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2. Representació a la recta real i ordenació · Fraccions · 2n ESO</title>
+<meta name="description" content="Apunts de fraccions de 2n d'ESO, curs 2026-27: com situar una fracció a la recta real i els símbols per ordenar-les.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202606221623"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606221623">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606221623">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.6rem 0; border-bottom: 1px dashed var(--border); }
+.example-row:last-child { border-bottom: none; }
+.example-row .frac-display { min-width: 3.5rem; text-align: center; font-size: 1.1rem; }
+.example-row .verdict { flex: 1; min-width: 12rem; }
+.frac-svg { display: block; height: 38px; }
+.frac-svg .cell { fill: none; stroke: #1d4ed8; stroke-width: 2; }
+.frac-svg .cell.filled { fill: #ec4899; fill-opacity: 0.85; }
+.parts-diagram { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; padding: 1rem; background: var(--bg-subtle); border-radius: 8px; }
+.parts-diagram .arrow-label { font-size: 0.92rem; }
+.parts-diagram .arrow-label .lbl { font-weight: 600; }
+.parts-diagram .arrow-label .num { color: #06b6d4; }
+.parts-diagram .arrow-label .den { color: #ec4899; }
+.numberline-wrap { margin: 1.2rem 0; overflow-x: auto; }
+.numberline-svg { display: block; width: 100%; min-width: 340px; max-width: 580px; height: auto; margin: 0 auto; color: var(--text); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">
+<meta property="og:title" content="2. Representació a la recta real i ordenació · Fraccions · 2n ESO">
+<meta property="og:description" content="Apunts de fraccions de 2n d'ESO, curs 2026-27: com situar una fracció a la recta real i els símbols per ordenar-les.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2. Representació a la recta real i ordenació · Fraccions · 2n ESO">
+<meta name="twitter:description" content="Apunts de fraccions de 2n d'ESO, curs 2026-27: com situar una fracció a la recta real i els símbols per ordenar-les.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fraccions","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/"},{"@type":"ListItem","position":5,"name":"02 · Recta real i ordenació","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html"}]},{"@type":"LearningResource","name":"02 · Recta real i ordenació","url":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apunts de fraccions de 2n d'ESO, curs 2026-27: com situar una fracció a la recta real i els símbols per ordenar-les."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Salta al contingut</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docència</a>
+      <a href="/doctorado/">Doctorat</a>
+      <a href="/notas/">Notes</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-2/apuntes/2627-u-fraccions/02-representacio-i-ordenacio.html">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/2eso/">2n ESO</a>
+      <span class="sep">/</span>
+      <a href="/aula/eso-2/apuntes/2627-u-fraccions/">Fraccions</a>
+      <span class="sep">/</span>
+      <span class="current">02 · Recta real i ordenació</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">2n ESO · Fraccions</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">9 set 2026</span>
+      </div>
+      <h1 style="margin:0">2. Representació a la recta real i ordenació</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Com situar una fracció a la recta i com es comparen entre elles.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Representació de fraccions a la recta real</h2>
+
+        <div class="def-box">
+          <h3>Procediment</h3>
+          <p>&rarr; El <strong>denominador</strong> diu en quantes parts iguals partim cada tram entre dos enters.</p>
+          <p>&rarr; El <strong>numerador</strong> diu quantes d'aquestes parts comptem a partir del $0$.</p>
+        </div>
+
+        <p style="font-size:0.95rem;margin-bottom:0.4rem"><strong>Exemple.</strong> Representem $\dfrac{7}{3}$: partim cada unitat en $3$ trossos i en comptem $7$ des del $0$.</p>
+
+        <div class="numberline-wrap">
+          <svg class="numberline-svg" viewBox="0 0 580 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Recta numèrica de 0 a 4 dividida en terços, amb el punt set terços marcat entre el 2 i el 3">
+            <!-- recta -->
+            <line x1="40" y1="62" x2="570" y2="62" stroke="#1d4ed8" stroke-width="2"/>
+            <polygon points="570,62 558,56 558,68" fill="#1d4ed8"/>
+
+            <!-- divisions en terços (pas = 40) -->
+            <g stroke="#dc2626" stroke-width="1.5">
+              <line x1="100" y1="56" x2="100" y2="68"/>
+              <line x1="140" y1="56" x2="140" y2="68"/>
+              <line x1="220" y1="56" x2="220" y2="68"/>
+              <line x1="260" y1="56" x2="260" y2="68"/>
+              <line x1="340" y1="56" x2="340" y2="68"/>
+              <line x1="380" y1="56" x2="380" y2="68"/>
+              <line x1="460" y1="56" x2="460" y2="68"/>
+              <line x1="500" y1="56" x2="500" y2="68"/>
+            </g>
+
+            <!-- enters (separació 120) -->
+            <g stroke="#1d4ed8" stroke-width="2.5">
+              <line x1="60" y1="52" x2="60" y2="72"/>
+              <line x1="180" y1="52" x2="180" y2="72"/>
+              <line x1="300" y1="52" x2="300" y2="72"/>
+              <line x1="420" y1="52" x2="420" y2="72"/>
+              <line x1="540" y1="52" x2="540" y2="72"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="15" fill="currentColor" text-anchor="middle">
+              <text x="60" y="90">0</text>
+              <text x="180" y="90">1</text>
+              <text x="300" y="90">2</text>
+              <text x="420" y="90">3</text>
+              <text x="540" y="90">4</text>
+            </g>
+
+            <!-- punt 7/3 = 7 terços des del 0 -> x = 60 + 7*40 = 340 -->
+            <line x1="340" y1="48" x2="340" y2="56" stroke="#b45309" stroke-width="1.5"/>
+            <circle cx="340" cy="62" r="5.5" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/>
+            <g font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">
+              <text x="340" y="22">7</text>
+              <text x="340" y="44">3</text>
+            </g>
+            <line x1="331" y1="28" x2="349" y2="28" stroke="#b45309" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <p class="note">Cada tram entre dos enters queda partit en <strong>3</strong> parts, perquè el denominador és $3$. Comptant $7$ terços des del $0$ arribem entre el $2$ i el $3$.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Ordenació de fraccions</h2>
+
+        <div class="def-box">
+          <h3>Símbols</h3>
+          <p>$&lt;$ &nbsp; vol dir <strong>més petit</strong> que.</p>
+          <p>$&gt;$ &nbsp; vol dir <strong>més gran</strong> que.</p>
+        </div>
+
+        <p class="note">Aquest apartat continuarà a classe.</p>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/eso-2/apuntes/2627-u-fraccions/01-definicions.html">&larr; Apartat anterior</a>
+        <a class="index" href="/aula/eso-2/apuntes/2627-u-fraccions/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js"></script>
+</body>
+</html>
