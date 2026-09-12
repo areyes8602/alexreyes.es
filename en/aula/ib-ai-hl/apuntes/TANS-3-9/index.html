@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sinusoidal models · TANS 3.9 · IB Math AI HL</title>
+<meta name="description" content="IB Math AI HL notes: the four parameters of f(x)=a·sin(b(x−c))+d, how to read them off a graph, and a worked exercise finding the function from its maximum and minimum.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202606221623"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606221623">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202606221623">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606221623">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.fig-svg { display:block; width:100%; max-width:480px; height:auto; margin:1.1rem auto; }
+.intervals-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.92rem; }
+.intervals-table th, .intervals-table td { padding:0.5rem 0.6rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle; }
+.intervals-table th { background:var(--bg-subtle); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-9/">
+<meta property="og:title" content="Sinusoidal models · TANS 3.9 · IB Math AI HL">
+<meta property="og:description" content="IB Math AI HL notes: the four parameters of f(x)=a·sin(b(x−c))+d, how to read them off a graph, and a worked exercise finding the function from its maximum and minimum.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sinusoidal models · TANS 3.9 · IB Math AI HL">
+<meta name="twitter:description" content="IB Math AI HL notes: the four parameters of f(x)=a·sin(b(x−c))+d, how to read them off a graph, and a worked exercise finding the function from its maximum and minimum.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Notes","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Sinusoidal models","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-9/"}]},{"@type":"LearningResource","name":"Sinusoidal models","url":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-9/","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"IB Math AI HL notes: the four parameters of f(x)=a·sin(b(x−c))+d, how to read them off a graph, and a worked exercise finding the function from its maximum and minimum."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-9/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-9/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-3-9/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-9/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-9/">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ib-ai-hl/apuntes/TANS-3-9/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/apuntes/TANS-3-9/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/apuntes/TANS-3-9/" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a><span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a><span class="sep">/</span>
+      <a href="/en/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a href="/en/aula/ib-ai-hl/apuntes/">Notes</a><span class="sep">/</span>
+      <span class="current">Sinusoidal models</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem;align-items:center">
+        <span class="section-label">IB Math AI HL · U08 · Waves and phasors</span>
+        <span class="tag tag-orange">TANS 3.9 · Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">2025–2027 cohort</span>
+      </div>
+      <h1 style="margin:0">Sinusoidal models</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        What each of the four parameters of $f(x)=a\sin\big(b(x-c)\big)+d$ does, and how to read them all off a graph, which is what the exam always asks for.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <section class="apunt-section">
+        <h2>The four parameters</h2>
+
+        <div class="def-box">
+          <h3>The general form</h3>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$f(x) = a\,\sin\big(b(x-c)\big) + d$$
+          </div>
+          <p>Two of the parameters <strong>translate</strong> the curve and two <strong>stretch</strong> it.</p>
+        </div>
+
+        <table class="intervals-table">
+          <thead>
+            <tr><th></th><th></th><th>Parameter</th><th>Name</th></tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="2">Translation</td><td>Vertical</td><td>$d$</td><td>Vertical shift</td></tr>
+            <tr><td>Horizontal</td><td>$c$</td><td>Phase</td></tr>
+            <tr><td rowspan="2">Stretch</td><td>Vertical</td><td>$a$</td><td>Amplitude</td></tr>
+            <tr><td>Horizontal</td><td>$b$</td><td>Frequency</td></tr>
+          </tbody>
+        </table>
+
+        <div class="prop-box">
+          <h3>The period</h3>
+          <p>$b$ is not the period: it is how many oscillations fit. The period follows from it:</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$T = \dfrac{2\pi}{b} \quad \text{(in radians)} \qquad\qquad T = \dfrac{360}{b} \quad \text{(in degrees)}$$
+          </div>
+        </div>
+
+        <div class="def-box">
+          <h3>Careful with the sign of the phase</h3>
+          <p>Written as $a\sin\big(b(x-c)\big)+d$, the curve shifts $c$ units to the <strong>right</strong>. If it is written $a\sin\big(b(x+c)\big)+d$ &mdash; also common &mdash; the same shift comes out with the opposite sign. Always check how the bracket is written before quoting $c$.</p>
+        </div>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Reading the parameters off the graph</h2>
+
+        <p>The maximum and the minimum already give $a$ and $d$, with nothing to solve:</p>
+
+        <div class="math-block">
+          $$d = \dfrac{\text{máx} + \text{mín}}{2} \qquad\qquad a = \dfrac{\text{máx} - \text{mín}}{2}$$
+        </div>
+
+        <p class="note">The line $y=d$ is the <strong>principal axis</strong>: the horizontal line the curve oscillates about. $a$ is how far it rises and falls from there, that is half the total range.</p>
+
+        <div class="prop-box">
+          <h3>The order worth following</h3>
+          <ol>
+            <li>Principal axis and amplitude, from the maximum and the minimum: these give $d$ and $a$.</li>
+            <li>Period, measured between two consecutive maxima: this gives $b = \dfrac{2\pi}{T}$.</li>
+            <li>Phase, by requiring the curve to pass through a known point: this gives $c$.</li>
+          </ol>
+          <p>The phase comes last on purpose: it needs the other three.</p>
+        </div>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Exercise</h2>
+
+        <div class="def-box">
+          <h3>The problem</h3>
+          <p>For the function $f(x)=a\sin\big(b(x+c)\big)+d$, the first maximum is at $(1,2)$ and the first minimum at $(5,-8)$. Find the principal axis, the amplitude, the period and the smallest positive value of $c$, and write down the function.</p>
+        </div>
+
+        <svg class="fig-svg" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graph of the sinusoidal function with maximum at (1,2) and minimum at (5,-8), principal axis at y equals minus 3 and period 8">
+          <line x1="46" y1="76.5" x2="462" y2="76.5" stroke="#94a3b8" stroke-width="1.2"/>
+          <line x1="105.4" y1="18" x2="105.4" y2="264" stroke="#94a3b8" stroke-width="1.2"/>
+          <line x1="46" y1="135" x2="462" y2="135" stroke="#be123c" stroke-width="1.4" stroke-dasharray="7 5"/>
+          <text x="430" y="129" font-family="Inter,sans-serif" font-size="13" fill="#be123c">y = −3</text>
+          <path d="M 46.0,203.9 L 47.5,201.2 L 49.0,198.3 L 50.5,195.4 L 51.9,192.3 L 53.4,189.2 L 54.9,185.9 L 56.4,182.6 L 57.9,179.3 L 59.4,175.8 L 60.9,172.3 L 62.3,168.7 L 63.8,165.1 L 65.3,161.5 L 66.8,157.8 L 68.3,154.0 L 69.8,150.3 L 71.3,146.5 L 72.7,142.6 L 74.2,138.8 L 75.7,135.0 L 77.2,131.2 L 78.7,127.4 L 80.2,123.5 L 81.7,119.7 L 83.1,116.0 L 84.6,112.2 L 86.1,108.5 L 87.6,104.9 L 89.1,101.3 L 90.6,97.7 L 92.1,94.2 L 93.5,90.7 L 95.0,87.4 L 96.5,84.1 L 98.0,80.8 L 99.5,77.7 L 101.0,74.6 L 102.5,71.7 L 103.9,68.8 L 105.4,66.1 L 106.9,63.4 L 108.4,60.9 L 109.9,58.4 L 111.4,56.1 L 112.9,53.9 L 114.3,51.9 L 115.8,49.9 L 117.3,48.1 L 118.8,46.5 L 120.3,44.9 L 121.8,43.5 L 123.3,42.3 L 124.7,41.2 L 126.2,40.2 L 127.7,39.4 L 129.2,38.7 L 130.7,38.2 L 132.2,37.8 L 133.7,37.6 L 135.1,37.5 L 136.6,37.6 L 138.1,37.8 L 139.6,38.2 L 141.1,38.7 L 142.6,39.4 L 144.1,40.2 L 145.5,41.2 L 147.0,42.3 L 148.5,43.5 L 150.0,44.9 L 151.5,46.5 L 153.0,48.1 L 154.5,49.9 L 155.9,51.9 L 157.4,53.9 L 158.9,56.1 L 160.4,58.4 L 161.9,60.9 L 163.4,63.4 L 164.9,66.1 L 166.3,68.8 L 167.8,71.7 L 169.3,74.6 L 170.8,77.7 L 172.3,80.8 L 173.8,84.1 L 175.3,87.4 L 176.7,90.7 L 178.2,94.2 L 179.7,97.7 L 181.2,101.3 L 182.7,104.9 L 184.2,108.5 L 185.7,112.2 L 187.1,116.0 L 188.6,119.7 L 190.1,123.5 L 191.6,127.4 L 193.1,131.2 L 194.6,135.0 L 196.1,138.8 L 197.5,142.6 L 199.0,146.5 L 200.5,150.3 L 202.0,154.0 L 203.5,157.8 L 205.0,161.5 L 206.5,165.1 L 207.9,168.7 L 209.4,172.3 L 210.9,175.8 L 212.4,179.3 L 213.9,182.6 L 215.4,185.9 L 216.9,189.2 L 218.3,192.3 L 219.8,195.4 L 221.3,198.3 L 222.8,201.2 L 224.3,203.9 L 225.8,206.6 L 227.3,209.1 L 228.7,211.6 L 230.2,213.9 L 231.7,216.1 L 233.2,218.1 L 234.7,220.1 L 236.2,221.9 L 237.7,223.5 L 239.1,225.1 L 240.6,226.5 L 242.1,227.7 L 243.6,228.8 L 245.1,229.8 L 246.6,230.6 L 248.1,231.3 L 249.5,231.8 L 251.0,232.2 L 252.5,232.4 L 254.0,232.5 L 255.5,232.4 L 257.0,232.2 L 258.5,231.8 L 259.9,231.3 L 261.4,230.6 L 262.9,229.8 L 264.4,228.8 L 265.9,227.7 L 267.4,226.5 L 268.9,225.1 L 270.3,223.5 L 271.8,221.9 L 273.3,220.1 L 274.8,218.1 L 276.3,216.1 L 277.8,213.9 L 279.3,211.6 L 280.7,209.1 L 282.2,206.6 L 283.7,203.9 L 285.2,201.2 L 286.7,198.3 L 288.2,195.4 L 289.7,192.3 L 291.1,189.2 L 292.6,185.9 L 294.1,182.6 L 295.6,179.3 L 297.1,175.8 L 298.6,172.3 L 300.1,168.7 L 301.5,165.1 L 303.0,161.5 L 304.5,157.8 L 306.0,154.0 L 307.5,150.3 L 309.0,146.5 L 310.5,142.6 L 311.9,138.8 L 313.4,135.0 L 314.9,131.2 L 316.4,127.4 L 317.9,123.5 L 319.4,119.7 L 320.9,116.0 L 322.3,112.2 L 323.8,108.5 L 325.3,104.9 L 326.8,101.3 L 328.3,97.7 L 329.8,94.2 L 331.3,90.7 L 332.7,87.4 L 334.2,84.1 L 335.7,80.8 L 337.2,77.7 L 338.7,74.6 L 340.2,71.7 L 341.7,68.8 L 343.1,66.1 L 344.6,63.4 L 346.1,60.9 L 347.6,58.4 L 349.1,56.1 L 350.6,53.9 L 352.1,51.9 L 353.5,49.9 L 355.0,48.1 L 356.5,46.5 L 358.0,44.9 L 359.5,43.5 L 361.0,42.3 L 362.5,41.2 L 363.9,40.2 L 365.4,39.4 L 366.9,38.7 L 368.4,38.2 L 369.9,37.8 L 371.4,37.6 L 372.9,37.5 L 374.3,37.6 L 375.8,37.8 L 377.3,38.2 L 378.8,38.7 L 380.3,39.4 L 381.8,40.2 L 383.3,41.2 L 384.7,42.3 L 386.2,43.5 L 387.7,44.9 L 389.2,46.5 L 390.7,48.1 L 392.2,49.9 L 393.7,51.9 L 395.1,53.9 L 396.6,56.1 L 398.1,58.4 L 399.6,60.9 L 401.1,63.4 L 402.6,66.1 L 404.1,68.8 L 405.5,71.7 L 407.0,74.6 L 408.5,77.7 L 410.0,80.8 L 411.5,84.1 L 413.0,87.4 L 414.5,90.7 L 415.9,94.2 L 417.4,97.7 L 418.9,101.3 L 420.4,104.9 L 421.9,108.5 L 423.4,112.2 L 424.9,116.0 L 426.3,119.7 L 427.8,123.5 L 429.3,127.4 L 430.8,131.2 L 432.3,135.0 L 433.8,138.8 L 435.3,142.6 L 436.7,146.5 L 438.2,150.3 L 439.7,154.0 L 441.2,157.8 L 442.7,161.5 L 444.2,165.1 L 445.7,168.7 L 447.1,172.3 L 448.6,175.8 L 450.1,179.3 L 451.6,182.6 L 453.1,185.9 L 454.6,189.2 L 456.1,192.3 L 457.5,195.4 L 459.0,198.3 L 460.5,201.2 L 462.0,203.9" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="135.1" cy="37.5" r="4" fill="#1d4ed8"/>
+          <text x="142" y="34" font-family="Inter,sans-serif" font-size="13" fill="#1d4ed8">(1, 2)</text>
+          <circle cx="254" cy="232.5" r="4" fill="#1d4ed8"/>
+          <text x="261" y="248" font-family="Inter,sans-serif" font-size="13" fill="#1d4ed8">(5, −8)</text>
+          <g stroke="#475569" stroke-width="1.2">
+            <line x1="135.1" y1="24" x2="372.9" y2="24"/>
+            <line x1="135.1" y1="19" x2="135.1" y2="29"/>
+            <line x1="372.9" y1="19" x2="372.9" y2="29"/>
+          </g>
+          <text x="242" y="18" font-family="Inter,sans-serif" font-size="13" fill="#475569">T = 8</text>
+          <text x="452" y="92" font-family="Inter,sans-serif" font-size="13" fill="#475569">x</text>
+          <text x="92" y="26" font-family="Inter,sans-serif" font-size="13" fill="#475569">y</text>
+        </svg>
+
+        <div class="example-box">
+          <h3>Principal axis and amplitude</h3>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$d = \dfrac{2 + (-8)}{2} = -3 \qquad\qquad a = \dfrac{2-(-8)}{2} = \dfrac{10}{2} = 5$$
+          </div>
+          <p>The principal axis is the line $y=-3$.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Period and frequency</h3>
+          <p>From maximum to minimum is half an oscillation, so the period is twice that: $T = 2\cdot(5-1) = 8$.</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$b = \dfrac{2\pi}{T} = \dfrac{2\pi}{8} = \dfrac{\pi}{4}$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>The phase</h3>
+          <p>We now have $f(x)=5\sin\big(\tfrac{\pi}{4}(x+c)\big)-3$. Require it to pass through the maximum $(1,2)$:</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$2 = 5\sin\!\left(\dfrac{\pi}{4}(1+c)\right) - 3 \;\Longrightarrow\; 1 = \sin\!\left(\dfrac{\pi}{4}(1+c)\right)$$
+          </div>
+          <p>The sine equals $1$ when its argument is $\dfrac{\pi}{2}$:</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$\dfrac{\pi}{2} = \dfrac{\pi}{4}(1+c) \;\Longrightarrow\; 2 = 1+c \;\Longrightarrow\; c = 1$$
+          </div>
+        </div>
+
+        <div class="prop-box">
+          <h3>The function</h3>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$f(x) = 5\,\sin\!\left(\dfrac{\pi}{4}(x+1)\right) - 3$$
+          </div>
+          <p>Check: $f(1)=5\sin\!\big(\tfrac{\pi}{2}\big)-3=2$ and $f(5)=5\sin\!\big(\tfrac{3\pi}{2}\big)-3=-8$. Both points come out.</p>
+        </div>
+
+        <p class="note">Imposing the point takes the <strong>first</strong> solution of the trigonometric equation. Since sine repeats every $2\pi$, infinitely many phases work ($c=1$, $c=9$, $c=17$…): that is why the problem asks for the <em>smallest positive value</em>.</p>
+      </section>
+
+      <section class="apunt-section">
+        <h2>With cosine instead of sine</h2>
+
+        <p>Cosine is the same model shifted forward by a quarter period, so any sinusoidal curve can be written either way:</p>
+
+        <div class="math-block">
+          $$\cos\theta = \sin\!\left(\theta + \dfrac{\pi}{2}\right)$$
+        </div>
+
+        <p>Only the phase changes; the amplitude, the period and the principal axis are the same. Cosine is usually shorter when the maximum falls exactly at $x=0$, because then the phase is zero.</p>
+      </section>
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js"></script>
+</body>
+</html>

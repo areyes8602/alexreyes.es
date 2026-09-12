@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Measuring angles: radians, arc and sector · TANS 3.7 · IB Math AI HL</title>
+<meta name="description" content="IB Math AI HL notes: the radian, converting between degrees and radians, and the arc length and sector area formulas in both systems, with two worked exercises.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202606221623"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202606221623">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202606221623">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202606221623">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.fig-svg { display:block; width:100%; max-width:480px; height:auto; margin:1.1rem auto; }
+.intervals-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.92rem; }
+.intervals-table th, .intervals-table td { padding:0.5rem 0.6rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle; }
+.intervals-table th { background:var(--bg-subtle); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7/">
+<meta property="og:title" content="Measuring angles: radians, arc and sector · TANS 3.7 · IB Math AI HL">
+<meta property="og:description" content="IB Math AI HL notes: the radian, converting between degrees and radians, and the arc length and sector area formulas in both systems, with two worked exercises.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Measuring angles: radians, arc and sector · TANS 3.7 · IB Math AI HL">
+<meta name="twitter:description" content="IB Math AI HL notes: the radian, converting between degrees and radians, and the arc length and sector area formulas in both systems, with two worked exercises.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Notes","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Measuring angles","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7/"}]},{"@type":"LearningResource","name":"Measuring angles","url":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7/","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"IB Math AI HL notes: the radian, converting between degrees and radians, and the arc length and sector area formulas in both systems, with two worked exercises."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-7/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-3-7/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-7/">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ib-ai-hl/apuntes/TANS-3-7/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/apuntes/TANS-3-7/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/apuntes/TANS-3-7/" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:780px">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a><span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a><span class="sep">/</span>
+      <a href="/en/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a href="/en/aula/ib-ai-hl/apuntes/">Notes</a><span class="sep">/</span>
+      <span class="current">Measuring angles</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem;align-items:center">
+        <span class="section-label">IB Math AI HL · U08 · Waves and phasors</span>
+        <span class="tag tag-orange">TANS 3.7 · Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">2025–2027 cohort</span>
+      </div>
+      <h1 style="margin:0">Measuring angles: radians, arc and sector</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        What a radian is, how to convert between degrees and radians, and why the arc and sector formulas get much shorter when the angle is measured in radians.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <section class="apunt-section">
+        <h2>The radian</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>A <strong>radian</strong> is the central angle that subtends an arc whose length equals the radius of the circle.</p>
+        </div>
+
+        <p>Since the whole circle measures $2\pi r$, one full turn holds $2\pi$ radii. That gives the two equivalences worth keeping at hand:</p>
+
+        <div class="math-block">
+          $$\pi \ \text{rad} = 180^\circ \qquad\qquad 2\pi \ \text{rad} = 360^\circ$$
+        </div>
+
+        <p class="note">The radian has no unit of its own: it is a ratio of lengths (arc over radius), so it is a dimensionless number. That is why you can write $\sin(1.2)$ and it is understood to be in radians.</p>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Converting between radians and degrees</h2>
+
+        <p>Multiply by the conversion factor, arranged so that the unwanted unit cancels:</p>
+
+        <div class="math-block">
+          $$\dfrac{\pi}{3} \ \cancel{\text{rad}} \cdot \dfrac{180^\circ}{\pi \ \cancel{\text{rad}}} = 60^\circ$$
+        </div>
+
+        <div class="example-box">
+          <h3>Example</h3>
+          <p>That is why $\sin(60^\circ)$ and $\sin\!\left(\dfrac{\pi}{3}\right)$ are the same number: the same angle written two ways.</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$\sin(60^\circ) = \sin\!\left(\dfrac{\pi}{3}\right) = \dfrac{\sqrt{3}}{2}$$
+          </div>
+        </div>
+
+        <div class="prop-box">
+          <h3>On the calculator</h3>
+          <p>The mode (DEG or RAD) must match the unit the angle is written in. This is the most common mistake in the whole topic: the working is right and the answer is wrong because the calculator was in the other mode.</p>
+        </div>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Arc length and sector area</h2>
+
+        <svg class="fig-svg" viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circular sector of radius r and angle theta, with the arc marked on the circle">
+          <circle cx="120" cy="150" r="96" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 4"/>
+          <path d="M 120 150 L 216 150 A 96 96 0 0 0 78.5 63.4 Z" fill="rgba(99,102,241,0.08)" stroke="#1d4ed8" stroke-width="1.8"/>
+          <path d="M 216 150 A 96 96 0 0 0 78.5 63.4" fill="none" stroke="#be123c" stroke-width="3"/>
+          <path d="M 150 150 A 30 30 0 0 0 129.5 121.9" fill="none" stroke="#1d4ed8" stroke-width="1.4"/>
+          <text x="158" y="139" font-family="Inter,sans-serif" font-size="15" fill="#1d4ed8">θ</text>
+          <text x="168" y="167" font-family="Inter,sans-serif" font-size="15" fill="#475569">r</text>
+          <text x="238" y="86" font-family="Inter,sans-serif" font-size="15" fill="#be123c">arco</text>
+          <text x="300" y="150" font-family="Inter,sans-serif" font-size="14" fill="#475569">sector</text>
+          <line x1="292" y1="145" x2="205" y2="120" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
+        </svg>
+
+        <p>A sector is the fraction of the circle the angle covers. In degrees that fraction is $\dfrac{\theta}{360}$; in radians, $\dfrac{\theta}{2\pi}$.</p>
+
+        <table class="intervals-table">
+          <thead>
+            <tr><th></th><th>In degrees</th><th>In radians</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Arc length</td>
+              <td>$L = \dfrac{2\pi r\,\theta}{360}$</td>
+              <td>$L = r\,\theta$</td>
+            </tr>
+            <tr>
+              <td>Sector area</td>
+              <td>$A = \dfrac{\pi r^2\,\theta}{360}$</td>
+              <td>$A = \dfrac{1}{2} r^2 \theta$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="prop-box">
+          <h3>Why radians pay off</h3>
+          <p>The formulas on the right come from those on the left by replacing $360^\circ$ with $2\pi$. They are not different formulas: it is the same one, written in the unit that makes the factor vanish. With radians there is no dividing by 360.</p>
+        </div>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Exercise: the goat tied at the corner</h2>
+
+        <div class="def-box">
+          <h3>The problem</h3>
+          <p>A goat is tied with a $3$ m rope to the corner of a fenced rectangular field measuring $6 \times 2.5$ m. Find the angle $\alpha$ shown in the figure and use it to find the area of grass the goat can reach.</p>
+        </div>
+
+        <svg class="fig-svg" viewBox="0 0 440 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rectangular field 6 by 2.5 metres; from the bottom-left corner a 3-metre rope sweeps a sector that meets the top side">
+          <rect x="30" y="40" width="360" height="150" fill="none" stroke="#475569" stroke-width="1.6"/>
+          <path d="M 30 190 L 210 190 A 180 180 0 0 0 129.5 40 Z" fill="rgba(99,102,241,0.08)" stroke="#1d4ed8" stroke-width="1.6"/>
+          <line x1="30" y1="190" x2="129.5" y2="40" stroke="#be123c" stroke-width="1.6" stroke-dasharray="6 4"/>
+          <path d="M 80 190 A 50 50 0 0 0 57.6 148" fill="none" stroke="#1d4ed8" stroke-width="1.3"/>
+          <text x="86" y="178" font-family="Inter,sans-serif" font-size="14" fill="#1d4ed8">α</text>
+          <path d="M 30 150 A 40 40 0 0 0 56.5 176" fill="none" stroke="#be123c" stroke-width="1.3"/>
+          <text x="38" y="146" font-family="Inter,sans-serif" font-size="14" fill="#be123c">β</text>
+          <text x="70" y="108" font-family="Inter,sans-serif" font-size="14" fill="#be123c">3 m</text>
+          <text x="8" y="120" font-family="Inter,sans-serif" font-size="14" fill="#475569">2,5 m</text>
+          <text x="205" y="212" font-family="Inter,sans-serif" font-size="14" fill="#475569">6 m</text>
+        </svg>
+
+        <div class="example-box">
+          <h3>a) The angle α</h3>
+          <p>The rope reaches the top side. The triangle it forms with the left fence is right-angled, and in it the leg adjacent to $\beta$ is $2.5$ and the hypotenuse is $3$:</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$\cos\beta = \dfrac{2{,}5}{3} \;\Longrightarrow\; \beta = \arccos\!\left(\dfrac{2{,}5}{3}\right) = 0{,}586 \ \text{rad}$$
+          </div>
+          <p>And since the two angles add up to the right angle at the corner:</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$\alpha = \dfrac{\pi}{2} - \beta = 0{,}985 \ \text{rad}$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>b) The area</h3>
+          <p>The region splits in two: the <strong>triangle</strong> against the left fence and the <strong>sector</strong> of radius $3$ and angle $\alpha$.</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$A = \underbrace{\dfrac{1}{2}\cdot 2{,}5 \cdot 3 \cdot \sin\beta}_{\text{triangle}} \;+\; \underbrace{\dfrac{1}{2}\cdot 3^2 \cdot \alpha}_{\text{sector}} = 2{,}073 + 4{,}433 = 6{,}51 \ \text{m}^2$$
+          </div>
+        </div>
+
+        <p class="note">Careful with rounding halfway through: taking $\alpha = 0.98$ instead of $0.985$ gives $6.48$ m² instead of $6.51$. Carry the full values and round only the final answer.</p>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Exercise: the area shared by two circles</h2>
+
+        <div class="def-box">
+          <h3>The problem</h3>
+          <p>Two circles of radii $2$ and $3$ have their centres $2$ units apart. Find the area of the region they share.</p>
+        </div>
+
+        <svg class="fig-svg" viewBox="0 0 440 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two intersecting circles of radii 2 and 3 with centres 2 units apart; the triangle joining the centres to an intersection point has sides 2, 2 and 3">
+          <circle cx="150" cy="130" r="60" fill="none" stroke="#475569" stroke-width="1.5"/>
+          <circle cx="210" cy="130" r="90" fill="none" stroke="#475569" stroke-width="1.5"/>
+          <path d="M 190.5 73.3 A 60 60 0 0 0 190.5 186.7 A 90 90 0 0 0 190.5 73.3 Z" fill="rgba(99,102,241,0.10)" stroke="none"/>
+          <g stroke="#1d4ed8" stroke-width="1.5" fill="none">
+            <line x1="150" y1="130" x2="210" y2="130"/>
+            <line x1="150" y1="130" x2="190.5" y2="73.3"/>
+            <line x1="210" y1="130" x2="190.5" y2="73.3"/>
+          </g>
+          <circle cx="150" cy="130" r="3.5" fill="#1d4ed8"/>
+          <circle cx="210" cy="130" r="3.5" fill="#1d4ed8"/>
+          <text x="176" y="146" font-family="Inter,sans-serif" font-size="13" fill="#1d4ed8">2</text>
+          <text x="158" y="98" font-family="Inter,sans-serif" font-size="13" fill="#1d4ed8">2</text>
+          <text x="208" y="96" font-family="Inter,sans-serif" font-size="13" fill="#1d4ed8">3</text>
+          <text x="136" y="150" font-family="Inter,sans-serif" font-size="13" fill="#be123c">α</text>
+          <text x="216" y="150" font-family="Inter,sans-serif" font-size="13" fill="#be123c">β</text>
+        </svg>
+
+        <p>Join the two centres to one of the intersection points: you get a triangle with sides $2$, $2$ and $3$. Its angles at the centres are the ones that open each sector.</p>
+
+        <div class="example-box">
+          <h3>The two angles, by the cosine rule</h3>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$\alpha = \arccos\!\left(\dfrac{2^2+2^2-3^2}{2\cdot 2\cdot 2}\right) = \arccos(-0{,}125) = 1{,}696 \ \text{rad}$$
+          </div>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$\beta = \arccos\!\left(\dfrac{2^2+3^2-2^2}{2\cdot 2\cdot 3}\right) = \arccos(0{,}75) = 0{,}723 \ \text{rad}$$
+          </div>
+        </div>
+
+        <p>The angles $\alpha$ and $\beta$ are those between the line of centres and the radius to an intersection point. Since there are two intersection points, each centre &ldquo;sees&rdquo; the region at twice that angle.</p>
+
+        <div class="example-box">
+          <h3>Regions II + III · the two sectors of the small circle</h3>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$2 \cdot \dfrac{1}{2}\cdot 2^2 \cdot \alpha = 2 \cdot 3{,}392 = 6{,}784$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Region I · the segment of the large circle</h3>
+          <p>It is its sector of angle $2\beta$ minus the two triangles left over:</p>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$\dfrac{1}{2}\cdot 3^2 \cdot (2\beta) \;-\; 2\cdot\dfrac{1}{2}\cdot 2\cdot 3\cdot \sin\beta = 6{,}504 - 3{,}968 = 2{,}536$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>The area we want</h3>
+          <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
+            $$A = 6{,}784 + 2{,}536 = 9{,}32 \ \text{u}^2$$
+          </div>
+        </div>
+
+        <p class="note">Check: the closed formula for the lens area gives $9.3205$ u². If $\beta$ is taken as $0.7317$ instead of $0.7227$, the total comes out $9.36$ and no longer matches.</p>
+
+        <div class="prop-box">
+          <h3>The idea that keeps coming back</h3>
+          <p>A piece of a circle bounded by a chord (a <em>circular segment</em>) is always <strong>sector minus triangle</strong>. And the triangle needs $\frac{1}{2}ab\sin C$, which needs the angle: that is why the cosine rule comes first.</p>
+        </div>
+      </section>
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js"></script>
+</body>
+</html>

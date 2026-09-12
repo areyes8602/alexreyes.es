@@ -558,6 +558,10 @@ def make_ib_subject(promo, anyo_examen):
 
 
 SUBJ_IBAI_2426 = make_ib_subject("2024-2026", 2026)
+# Promoción examinada en mayo de 2026: cerrada. Se queda publicada —los
+# apuntes y los exámenes siguen sirviendo a quien los busque— con el aviso
+# de que ya no se actualiza.
+SUBJ_IBAI_2426["archived"] = True
 SUBJ_IBAI_2527 = make_ib_subject("2025-2027", 2027)
 
 
@@ -1030,15 +1034,18 @@ def render_ib_hub(s, lang):
     unidades_hl_json = json.dumps(unidades_hl_for_js, ensure_ascii=False)
     unidades_sl_json = json.dumps(unidades_sl_for_js, ensure_ascii=False)
 
-    # Etiquetas de trimestre (de ib-unidades.json)
+    # Etiquetas de trimestre y unidad en curso (de ib-unidades.json)
     trimestres_data = {}
+    unidad_actual = ""
     try:
         ibu = json.loads((REPO / "assets/data/ib-unidades.json").read_text(encoding="utf-8"))
         for tcode, tinfo in ibu.get("trimestres", {}).items():
             trimestres_data[tcode] = tinfo["label"].get(lang, tinfo["label"]["es"])
+        unidad_actual = ibu.get("unidad_actual") or ""
     except Exception:
         pass
     trimestres_json = json.dumps(trimestres_data, ensure_ascii=False)
+    unidad_actual_json = json.dumps(unidad_actual, ensure_ascii=False)
 
     breadcrumb = (
         f'<a href="{lang_prefix(lang)}/">{L["home"]}</a>'
@@ -1053,6 +1060,17 @@ def render_ib_hub(s, lang):
     info_grid = info_grid_html(s["info_grid"], lang)
     months_js = json.dumps(MONTHS[lang])
 
+    # Promoción ya examinada: el mismo aviso que los cursos archivados de ESO y
+    # bachillerato. La promoción no se borra —sus apuntes y exámenes siguen
+    # sirviendo— pero quien entre tiene que saber que ya no se toca.
+    archived_banner = ("" if not s.get("archived") else
+                       f'    <aside class="curso-banner" role="status" style="display:flex;'
+                       f'gap:.75rem;align-items:flex-start;padding:.85rem 1rem;margin-bottom:1.25rem;'
+                       f'border:1px solid var(--border);border-left:3px solid #6b7280;'
+                       f'border-radius:var(--radius-sm,6px);background:var(--bg-subtle)">'
+                       f'<span aria-hidden="true">\U0001F5C4\uFE0F</span><span style="font-size:.92rem;'
+                       f'color:var(--text-soft)">{L["archived_year_notice"]}</span></aside>\n')
+
     return f"""{head_block(L, title, subtitle, code)}
 <body>
 {nav_html(lang, code)}
@@ -1062,6 +1080,7 @@ def render_ib_hub(s, lang):
 
     <div class="breadcrumb">{breadcrumb}</div>
 
+{archived_banner}
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
         <span class="section-label">{s['section_label']}</span>
@@ -1136,6 +1155,7 @@ const TEMAS = {temas_json};
 const UNIDADES_HL = {unidades_hl_json};
 const UNIDADES_SL = {unidades_sl_json};
 const TRIMESTRES = {trimestres_json};
+const UNIDAD_ACTUAL = {unidad_actual_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
 const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','unidad_empty','unidad_covers']}, ensure_ascii=False)};
@@ -1264,17 +1284,30 @@ function renderUnidades(nivel, ctx) {{
     el.innerHTML = `<p style="color:var(--text-faint);font-size:0.9rem;padding:1rem 0">${{LABELS_JS.unidad_empty}}</p>`;
     return;
   }}
-  // Agrupar por trimestre — insertar header cuando cambia
-  let lastT = null;
-  const parts = [];
+  // Agrupar por trimestre, cada uno plegable. Solo se abre el que contiene la
+  // unidad que se está dando (UNIDAD_ACTUAL, en ib-unidades.json): con los
+  // cuatro o cinco trimestres abiertos, la unidad de hoy queda a dos pantallas
+  // de scroll y hay que buscarla.
+  const grupos = [];
   for (const u of lista) {{
-    if (u.trimestre && u.trimestre !== lastT) {{
-      const label = TRIMESTRES[u.trimestre] || u.trimestre;
-      parts.push(`<h3 class="trimestre-header">${{escHtml(label)}}</h3>`);
-      lastT = u.trimestre;
+    const t = u.trimestre || '';
+    if (!grupos.length || grupos[grupos.length - 1].t !== t) {{
+      grupos.push({{ t, label: TRIMESTRES[t] || t, us: [] }});
     }}
-    parts.push(buildUnidad(u, nivel, ctx));
+    grupos[grupos.length - 1].us.push(u);
   }}
+  const parts = grupos.map(g => {{
+    const cuerpo = g.us.map(u => buildUnidad(u, nivel, ctx)).join('');
+    // Una unidad sin trimestre no cuelga de ningún grupo: se pinta suelta.
+    if (!g.t) return cuerpo;
+    const abierto = g.us.some(u => u.id === UNIDAD_ACTUAL);
+    const badge = `<span class="tag tag-purple" style="font-size:0.65rem;margin-left:auto">${{g.us.length}}</span>`;
+    return `<div class="chapter-item bloque-tema${{abierto ? ' open' : ''}}">`
+      + `<div class="chapter-header" onclick="toggleChapter(this)">`
+      + `<span class="chapter-title">${{escHtml(g.label)}}</span>${{badge}}`
+      + `<span class="chapter-arrow">&#9660;</span></div>`
+      + `<div class="chapter-body">${{cuerpo}}</div></div>`;
+  }});
   el.innerHTML = parts.join('');
 }}
 function toggleChapter(h) {{ h.parentElement.classList.toggle('open'); }}
@@ -1313,6 +1346,13 @@ Promise.all([
       // Marcar conceptos IB que tienen al menos un ejercicio
       const cs = (e.tags && e.tags.concepto_iba) || [];
       cs.forEach(x => conceptosConContenido.add(x));
+    }}
+    // Un concepto con APUNTES propios también tiene contenido, aunque no tenga
+    // ningún ejercicio. Antes el punto de la lista por NM y TANS solo miraba el
+    // banco de ejercicios, así que un concepto con apuntes publicados salía
+    // marcado como vacío y no había manera de llegar a ellos desde ahí.
+    for (const c of ((conceptosApuntesRaw && conceptosApuntesRaw.conceptos) || [])) {{
+      if (c && c.code) conceptosConContenido.add(c.code);
     }}
     // Construir contexto que necesita buildItemsList
     const subtemasInfo = (tagsData && tagsData.namespaces && tagsData.namespaces.concepto_iba && tagsData.namespaces.concepto_iba.valores) || {{}};
