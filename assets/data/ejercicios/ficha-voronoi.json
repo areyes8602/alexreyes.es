@@ -27,24 +27,50 @@
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "Algoritmo incremental con tres estaciones $A=(1,1)$, $B=(3,1)$, $C=(3,5)$: ecuaciones de las tres mediatrices del diagrama"
+          "tarea": "Algoritmo incremental con tres estaciones $A=(1,1)$, $B=(3,1)$, $C=(3,5)$: ecuaciones de las tres mediatrices del diagrama",
+          "tarea_i18n": {
+            "ca": "Algorisme incremental amb tres estacions $A=(1,1)$, $B=(3,1)$, $C=(3,5)$: equacions de les tres mediatrius del diagrama",
+            "en": "Incremental algorithm with three stations $A=(1,1)$, $B=(3,1)$, $C=(3,5)$: equations of the three bisectors of the diagram"
+          }
         },
         {
           "letra": "b",
           "puntos": 1,
-          "tarea": "Temperatura mostrada al usuario en $(1,4)$ con lecturas $A:22°C$, $B:24°C$, $C:21°C$ (interpolación del vecino más cercano)"
+          "tarea": "Temperatura mostrada al usuario en $(1,4)$ con lecturas $A:22°C$, $B:24°C$, $C:21°C$ (interpolación del vecino más cercano)",
+          "tarea_i18n": {
+            "ca": "Temperatura mostrada a l'usuari a $(1,4)$ amb lectures $A:22°C$, $B:24°C$, $C:21°C$ (interpolació del veí més proper)",
+            "en": "Temperature shown to the user at $(1,4)$ with readings $A:22°C$, $B:24°C$, $C:21°C$ (nearest-neighbour interpolation)"
+          }
         },
         {
           "letra": "c",
           "puntos": 2,
-          "tarea": "Comparar las temperaturas que reciben dos usuarios en $(2.5,2)$ y $(2,3)$, razonando a partir del diagrama"
+          "tarea": "Comparar las temperaturas que reciben dos usuarios en $(2.5,2)$ y $(2,3)$, razonando a partir del diagrama",
+          "tarea_i18n": {
+            "ca": "Comparar les temperatures que reben dos usuaris a $(2.5,2)$ i $(2,3)$, raonant a partir del diagrama",
+            "en": "Compare the temperatures shown to two users at $(2.5,2)$ and $(2,3)$, reasoning from the diagram"
+          }
         }
       ],
       "tags": {
-        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "interpretacion", "razonamiento"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "titulo_i18n": {
+        "ca": "Web del temps amb tres estacions meteorològiques",
+        "en": "Weather website with three weather stations"
       }
     },
     {
@@ -58,29 +84,59 @@
         {
           "letra": "a",
           "puntos": 2,
-          "tarea": "Distancias desde el nuevo parque $E=(2,1)$ a los cuatro originales $A,B,C,D$ y celda donde cae $E$"
+          "tarea": "Distancias desde el nuevo parque $E=(2,1)$ a los cuatro originales $A,B,C,D$ y celda donde cae $E$",
+          "tarea_i18n": {
+            "ca": "Distàncies des del nou parc $E=(2,1)$ als quatre originals $A,B,C,D$ i cel·la on cau $E$",
+            "en": "Distances from the new station $E=(2,1)$ to the four original ones $A,B,C,D$, and the cell $E$ falls in"
+          }
         },
         {
           "letra": "b",
           "puntos": 2,
-          "tarea": "Mediatriz del segmento entre $E$ y el parque cuya celda lo contiene"
+          "tarea": "Mediatriz del segmento entre $E$ y el parque cuya celda lo contiene",
+          "tarea_i18n": {
+            "ca": "Mediatriu del segment entre $E$ i el parc la cel·la del qual el conté",
+            "en": "Perpendicular bisector of the segment between $E$ and the station whose cell contains it"
+          }
         },
         {
           "letra": "c",
           "puntos": 2,
-          "tarea": "Lista de parques contiguos a $E$ tras el algoritmo incremental y mediatriz $\\overline{AE}$"
+          "tarea": "Lista de parques contiguos a $E$ tras el algoritmo incremental y mediatriz $\\overline{AE}$",
+          "tarea_i18n": {
+            "ca": "Llista de parcs contigus a $E$ després de l'algorisme incremental i mediatriu $\\overline{AE}$",
+            "en": "List of stations adjacent to $E$ after the incremental algorithm, and the bisector $\\overline{AE}$"
+          }
         },
         {
           "letra": "d",
           "puntos": 2,
-          "tarea": "Razonar por qué la celda de $B$ se reduce al añadir $E$ en el algoritmo incremental"
+          "tarea": "Razonar por qué la celda de $B$ se reduce al añadir $E$ en el algoritmo incremental",
+          "tarea_i18n": {
+            "ca": "Raonar per què la cel·la de $B$ es redueix en afegir $E$ a l'algorisme incremental",
+            "en": "Explain why the cell of $B$ shrinks when $E$ is added in the incremental algorithm"
+          }
         }
       ],
       "tags": {
-        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento", "visualizacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "titulo_i18n": {
+        "ca": "Parcs de bombers i algorisme incremental",
+        "en": "Fire stations and the incremental algorithm"
       }
     },
     {
@@ -94,34 +150,69 @@
         {
           "letra": "a",
           "puntos": 2,
-          "tarea": "Mediatriz del segmento $\\overline{AB}$ con $A=(2,5)$ y $B=(3,3)$"
+          "tarea": "Mediatriz del segmento $\\overline{AB}$ con $A=(2,5)$ y $B=(3,3)$",
+          "tarea_i18n": {
+            "ca": "Mediatriu del segment $\\overline{AB}$ amb $A=(2,5)$ i $B=(3,3)$",
+            "en": "Perpendicular bisector of $\\overline{AB}$ with $A=(2,5)$ and $B=(3,3)$"
+          }
         },
         {
           "letra": "b",
           "puntos": 3,
-          "tarea": "Algoritmo incremental para construir el diagrama de Voronoi de los tres colegios $A$, $B$, $C$"
+          "tarea": "Algoritmo incremental para construir el diagrama de Voronoi de los tres colegios $A$, $B$, $C$",
+          "tarea_i18n": {
+            "ca": "Algorisme incremental per construir el diagrama de Voronoi de les tres escoles $A$, $B$, $C$",
+            "en": "Incremental algorithm to build the Voronoi diagram of the three schools $A$, $B$, $C$"
+          }
         },
         {
           "letra": "c",
           "puntos": 1,
-          "tarea": "Catchment area de la familia que vive en $(4,3)$, verificada por distancias"
+          "tarea": "Catchment area de la familia que vive en $(4,3)$, verificada por distancias",
+          "tarea_i18n": {
+            "ca": "Catchment area de la família que viu a $(4,3)$, verificada per distàncies",
+            "en": "Catchment area of the family living at $(4,3)$, checked by distances"
+          }
         },
         {
           "letra": "d",
           "puntos": 2,
-          "tarea": "Mediatrices de $\\overline{BD}$ y $\\overline{CD}$"
+          "tarea": "Mediatrices de $\\overline{BD}$ y $\\overline{CD}$",
+          "tarea_i18n": {
+            "ca": "Mediatrius de $\\overline{BD}$ i $\\overline{CD}$",
+            "en": "Perpendicular bisectors of $\\overline{BD}$ and $\\overline{CD}$"
+          }
         },
         {
           "letra": "e",
           "puntos": 2,
-          "tarea": "Coordenadas de los dos vértices interiores del diagrama de los cuatro colegios"
+          "tarea": "Coordenadas de los dos vértices interiores del diagrama de los cuatro colegios",
+          "tarea_i18n": {
+            "ca": "Coordenades dels dos vèrtexs interiors del diagrama de les quatre escoles",
+            "en": "Coordinates of the two interior vertices of the diagram of the four schools"
+          }
         }
       ],
       "tags": {
-        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
         "dificultad": "dificil",
-        "habilidad": ["calculo_simbolico", "razonamiento", "interpretacion", "visualizacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "interpretacion",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "titulo_i18n": {
+        "ca": "Catchment areas escolars en una ciutat",
+        "en": "School catchment areas in a town"
       }
     },
     {
@@ -135,34 +226,69 @@
         {
           "letra": "a",
           "puntos": 1,
-          "tarea": "Justificación teórica de por qué el punto óptimo del problema del vertedero (toxic waste dump) es un vértice del diagrama"
+          "tarea": "Justificación teórica de por qué el punto óptimo del problema del vertedero (toxic waste dump) es un vértice del diagrama",
+          "tarea_i18n": {
+            "ca": "Justificació teòrica de per què el punt òptim del problema de l'abocador (toxic waste dump) és un vèrtex del diagrama",
+            "en": "Theoretical justification of why the optimal point in the toxic waste dump problem is a vertex of the diagram"
+          }
         },
         {
           "letra": "b",
           "puntos": 2,
-          "tarea": "Mediatrices de $\\overline{AB}$ y $\\overline{AD}$ con $A=(1,6)$, $B=(2,2)$, $D=(8,5)$"
+          "tarea": "Mediatrices de $\\overline{AB}$ y $\\overline{AD}$ con $A=(1,6)$, $B=(2,2)$, $D=(8,5)$",
+          "tarea_i18n": {
+            "ca": "Mediatrius de $\\overline{AB}$ i $\\overline{AD}$ amb $A=(1,6)$, $B=(2,2)$, $D=(8,5)$",
+            "en": "Perpendicular bisectors of $\\overline{AB}$ and $\\overline{AD}$ with $A=(1,6)$, $B=(2,2)$, $D=(8,5)$"
+          }
         },
         {
           "letra": "c",
           "puntos": 3,
-          "tarea": "Vértice interior $Q$ del diagrama de Voronoi como intersección de dos mediatrices, con dos cifras decimales"
+          "tarea": "Vértice interior $Q$ del diagrama de Voronoi como intersección de dos mediatrices, con dos cifras decimales",
+          "tarea_i18n": {
+            "ca": "Vèrtex interior $Q$ del diagrama de Voronoi com a intersecció de dues mediatrius, amb dues xifres decimals",
+            "en": "Interior vertex $Q$ of the Voronoi diagram as the intersection of two bisectors, to two decimal places"
+          }
         },
         {
           "letra": "d",
           "puntos": 2,
-          "tarea": "Distancias desde $P=(5,3.5)$ y desde $Q$ a la cafetería más cercana"
+          "tarea": "Distancias desde $P=(5,3.5)$ y desde $Q$ a la cafetería más cercana",
+          "tarea_i18n": {
+            "ca": "Distàncies des de $P=(5,3.5)$ i des de $Q$ a la cafeteria més propera",
+            "en": "Distances from $P=(5,3.5)$ and from $Q$ to the nearest café"
+          }
         },
         {
           "letra": "e",
           "puntos": 2,
-          "tarea": "Decisión razonada del vértice óptimo para la nueva cafetería"
+          "tarea": "Decisión razonada del vértice óptimo para la nueva cafetería",
+          "tarea_i18n": {
+            "ca": "Decisió raonada del vèrtex òptim per a la nova cafeteria",
+            "en": "Reasoned choice of the optimal vertex for the new café"
+          }
         }
       ],
       "tags": {
-        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
         "dificultad": "dificil",
-        "habilidad": ["modelizacion", "calculo_simbolico", "razonamiento", "interpretacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "razonamiento",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "titulo_i18n": {
+        "ca": "Nova cafeteria independent — toxic waste dump",
+        "en": "A new independent café — toxic waste dump"
       }
     },
     {
@@ -176,30 +302,65 @@
         {
           "letra": "a",
           "puntos": 3,
-          "tarea": "Mediatrices de $\\overline{AB}$, $\\overline{BC}$ y $\\overline{AC}$ con $A=(20,30)$, $B=(80,30)$, $C=(40,10)$"
+          "tarea": "Mediatrices de $\\overline{AB}$, $\\overline{BC}$ y $\\overline{AC}$ con $A=(20,30)$, $B=(80,30)$, $C=(40,10)$",
+          "tarea_i18n": {
+            "ca": "Mediatrius de $\\overline{AB}$, $\\overline{BC}$ i $\\overline{AC}$ amb $A=(20,30)$, $B=(80,30)$, $C=(40,10)$",
+            "en": "Perpendicular bisectors of $\\overline{AB}$, $\\overline{BC}$ and $\\overline{AC}$ with $A=(20,30)$, $B=(80,30)$, $C=(40,10)$"
+          }
         },
         {
           "letra": "b",
           "puntos": 2,
-          "tarea": "Vértice del diagrama de Voronoi de los tres puestos y verificación de que es el circuncentro de $\\triangle ABC$"
+          "tarea": "Vértice del diagrama de Voronoi de los tres puestos y verificación de que es el circuncentro de $\\triangle ABC$",
+          "tarea_i18n": {
+            "ca": "Vèrtex del diagrama de Voronoi dels tres llocs i verificació que és el circumcentre de $\\triangle ABC$",
+            "en": "Vertex of the Voronoi diagram of the three stands, and verification that it is the circumcentre of $\\triangle ABC$"
+          }
         },
         {
           "letra": "c",
           "puntos": 3,
-          "tarea": "Estimación de la fracción del recinto $100\\times 50$ m que pertenece a la celda del puesto $C$ (al 1%)"
+          "tarea": "Estimación de la fracción del recinto $100\\times 50$ m que pertenece a la celda del puesto $C$ (al 1%)",
+          "tarea_i18n": {
+            "ca": "Estimació de la fracció del recinte $100\\times 50$ m que pertany a la cel·la del lloc $C$ (a l'1%)",
+            "en": "Estimate of the fraction of the $100\\times 50$ m site belonging to the cell of stand $C$ (to 1%)"
+          }
         },
         {
           "letra": "d",
           "puntos": 2,
-          "tarea": "Coordenadas aproximadas del cuarto puesto $D$ situado lo más alejado posible de los tres anteriores, dentro del recinto"
+          "tarea": "Coordenadas aproximadas del cuarto puesto $D$ situado lo más alejado posible de los tres anteriores, dentro del recinto",
+          "tarea_i18n": {
+            "ca": "Coordenades aproximades del quart lloc $D$ situat com més lluny millor dels tres anteriors, dins del recinte",
+            "en": "Approximate coordinates of a fourth stand $D$ placed as far as possible from the other three, inside the site"
+          }
         }
       ],
       "tags": {
-        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
         "dificultad": "dificil",
-        "habilidad": ["calculo_simbolico", "razonamiento", "visualizacion", "modelizacion"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "visualizacion",
+          "modelizacion"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "titulo_i18n": {
+        "ca": "Hamburgueseries en una fira — àrees i nou lloc",
+        "en": "Burger stands at a fair — areas and a new stand"
       }
     }
-  ]
+  ],
+  "titulo_i18n": {
+    "ca": "Fitxa d'exercicis — Diagrames de Voronoi",
+    "en": "Exercise set — Voronoi diagrams"
+  }
 }

@@ -27,19 +27,40 @@
         {
           "letra": "a",
           "puntos": 2,
-          "tarea": "Ecuación de la frontera (mediatriz) entre las celdas $V(A)$ y $V(B)$ con $A=(2,1)$ antena del faro y $B=(8,5)$ antena del paseo"
+          "tarea": "Ecuación de la frontera (mediatriz) entre las celdas $V(A)$ y $V(B)$ con $A=(2,1)$ antena del faro y $B=(8,5)$ antena del paseo",
+          "tarea_i18n": {
+            "ca": "Equació de la frontera (mediatriu) entre les cel·les $V(A)$ i $V(B)$ amb $A=(2,1)$ antena del far i $B=(8,5)$ antena del passeig",
+            "en": "Equation of the boundary (perpendicular bisector) between cells $V(A)$ and $V(B)$ with $A=(2,1)$ the lighthouse mast and $B=(8,5)$ the promenade mast"
+          }
         },
         {
           "letra": "b",
           "puntos": 1,
-          "tarea": "Determinar si la vivienda $P=(7,2)$ se conecta a la antena del faro o del paseo, calculando las distancias"
+          "tarea": "Determinar si la vivienda $P=(7,2)$ se conecta a la antena del faro o del paseo, calculando las distancias",
+          "tarea_i18n": {
+            "ca": "Determinar si l'habitatge $P=(7,2)$ es connecta a l'antena del far o a la del passeig, calculant les distàncies",
+            "en": "Decide whether the house at $P=(7,2)$ connects to the lighthouse mast or the promenade mast, by computing the distances"
+          }
         }
       ],
       "tags": {
-        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
         "dificultad": "facil",
-        "habilidad": ["calculo_simbolico", "interpretacion"],
-        "formato": ["pregunta_corta", "problema_aplicado"]
+        "habilidad": [
+          "calculo_simbolico",
+          "interpretacion"
+        ],
+        "formato": [
+          "pregunta_corta",
+          "problema_aplicado"
+        ]
+      },
+      "titulo_i18n": {
+        "ca": "Cobertura de dues antenes en una localitat costanera",
+        "en": "Coverage of two masts in a coastal town"
       }
     },
     {
@@ -53,24 +74,49 @@
         {
           "letra": "a",
           "puntos": 2,
-          "tarea": "Coordenadas del vértice del diagrama de Voronoi (punto equidistante) de la estación valle $A=(0,0)$, río $B=(6,0)$ y cumbre $C=(0,8)$"
+          "tarea": "Coordenadas del vértice del diagrama de Voronoi (punto equidistante) de la estación valle $A=(0,0)$, río $B=(6,0)$ y cumbre $C=(0,8)$",
+          "tarea_i18n": {
+            "ca": "Coordenades del vèrtex del diagrama de Voronoi (punt equidistant) de l'estació vall $A=(0,0)$, riu $B=(6,0)$ i cim $C=(0,8)$",
+            "en": "Coordinates of the Voronoi vertex (equidistant point) of the valley station $A=(0,0)$, river $B=(6,0)$ and summit $C=(0,8)$"
+          }
         },
         {
           "letra": "b",
           "puntos": 1,
-          "tarea": "Distancia común desde el vértice a las tres estaciones"
+          "tarea": "Distancia común desde el vértice a las tres estaciones",
+          "tarea_i18n": {
+            "ca": "Distància comuna des del vèrtex a les tres estacions",
+            "en": "Common distance from the vertex to the three stations"
+          }
         },
         {
           "letra": "c",
           "puntos": 2,
-          "tarea": "Justificación geométrica vía teorema de Tales del círculo de que la distancia coincide con $|BC|/2$"
+          "tarea": "Justificación geométrica vía teorema de Tales del círculo de que la distancia coincide con $|BC|/2$",
+          "tarea_i18n": {
+            "ca": "Justificació geomètrica via teorema de Tales del cercle que la distància coincideix amb $|BC|/2$",
+            "en": "Geometric justification via Thales' theorem on the circle that the distance equals $|BC|/2$"
+          }
         }
       ],
       "tags": {
-        "concepto_iba": ["NM 3.6", "NM 3.1"],
+        "concepto_iba": [
+          "NM 3.6",
+          "NM 3.1"
+        ],
         "dificultad": "media",
-        "habilidad": ["calculo_simbolico", "razonamiento", "visualizacion"],
-        "formato": ["pregunta_larga"]
+        "habilidad": [
+          "calculo_simbolico",
+          "razonamiento",
+          "visualizacion"
+        ],
+        "formato": [
+          "pregunta_larga"
+        ]
+      },
+      "titulo_i18n": {
+        "ca": "Repetidor equidistant a tres estacions meteorològiques",
+        "en": "Repeater equidistant from three weather stations"
       }
     },
     {
@@ -84,30 +130,65 @@
         {
           "letra": "a",
           "puntos": 2,
-          "tarea": "Mediatrices de los segmentos $\\overline{AB}$ y $\\overline{AD}$ con $A=(2,5)$, $B=(3,3)$, $D=(8,1)$"
+          "tarea": "Mediatrices de los segmentos $\\overline{AB}$ y $\\overline{AD}$ con $A=(2,5)$, $B=(3,3)$, $D=(8,1)$",
+          "tarea_i18n": {
+            "ca": "Mediatrius dels segments $\\overline{AB}$ i $\\overline{AD}$ amb $A=(2,5)$, $B=(3,3)$, $D=(8,1)$",
+            "en": "Perpendicular bisectors of $\\overline{AB}$ and $\\overline{AD}$ with $A=(2,5)$, $B=(3,3)$, $D=(8,1)$"
+          }
         },
         {
           "letra": "b",
           "puntos": 2,
-          "tarea": "Vértice $Q$ del diagrama como intersección del par de mediatrices apropiadas, con dos cifras decimales"
+          "tarea": "Vértice $Q$ del diagrama como intersección del par de mediatrices apropiadas, con dos cifras decimales",
+          "tarea_i18n": {
+            "ca": "Vèrtex $Q$ del diagrama com a intersecció del parell de mediatrius adequat, amb dues xifres decimals",
+            "en": "Vertex $Q$ of the diagram as the intersection of the appropriate pair of bisectors, to two decimal places"
+          }
         },
         {
           "letra": "c",
           "puntos": 2,
-          "tarea": "Distancias $d(P,B)$ y $d(Q,A)$ con $P=(5,3.5)$"
+          "tarea": "Distancias $d(P,B)$ y $d(Q,A)$ con $P=(5,3.5)$",
+          "tarea_i18n": {
+            "ca": "Distàncies $d(P,B)$ i $d(Q,A)$ amb $P=(5,3.5)$",
+            "en": "Distances $d(P,B)$ and $d(Q,A)$ with $P=(5,3.5)$"
+          }
         },
         {
           "letra": "d",
           "puntos": 2,
-          "tarea": "Decidir en qué vértice se construye el vertedero para maximizar la distancia mínima a una escuela"
+          "tarea": "Decidir en qué vértice se construye el vertedero para maximizar la distancia mínima a una escuela",
+          "tarea_i18n": {
+            "ca": "Decidir en quin vèrtex es construeix l'abocador per maximitzar la distància mínima a una escola",
+            "en": "Decide at which vertex to build the landfill so as to maximise the minimum distance to a school"
+          }
         }
       ],
       "tags": {
-        "concepto_iba": ["NM 3.5", "NM 3.6"],
+        "concepto_iba": [
+          "NM 3.5",
+          "NM 3.6"
+        ],
         "dificultad": "dificil",
-        "habilidad": ["modelizacion", "calculo_simbolico", "interpretacion", "razonamiento"],
-        "formato": ["pregunta_larga", "problema_aplicado"]
+        "habilidad": [
+          "modelizacion",
+          "calculo_simbolico",
+          "interpretacion",
+          "razonamiento"
+        ],
+        "formato": [
+          "pregunta_larga",
+          "problema_aplicado"
+        ]
+      },
+      "titulo_i18n": {
+        "ca": "Abocador municipal en una ciutat amb quatre escoles",
+        "en": "Municipal landfill in a town with four schools"
       }
     }
-  ]
+  ],
+  "titulo_i18n": {
+    "ca": "Apunts NM 3.6 — Diagrames de Voronoi · Exercicis base",
+    "en": "Notes NM 3.6 — Voronoi diagrams · Base exercises"
+  }
 }

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitxa d'exercicis — Diagrames de Voronoi &middot; 1 maig 2026 | Àlex Reyes</title>
+<meta name="description" content="Examen IB Math AI HL &mdash; Fitxa d'exercicis — Diagrames de Voronoi. ">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/ejercicios/voronoi/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/ejercicios/voronoi/">
+<meta property="og:title" content="Fitxa d'exercicis — Diagrames de Voronoi">
+<meta property="og:description" content="Examen IB Math AI HL &mdash; Fitxa d'exercicis — Diagrames de Voronoi.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fitxa d'exercicis — Diagrames de Voronoi">
+<meta name="twitter:description" content="Examen IB Math AI HL &mdash; Fitxa d'exercicis — Diagrames de Voronoi.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<meta name="robots" content="index, follow">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ib-ai-hl/ejercicios/voronoi/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/ejercicios/voronoi/" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/ejercicios/voronoi/">EN</a></div>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="padding-top:2rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a><span class="sep">/</span><a href="/ca/docencia/">Docència</a><span class="sep">/</span><a href="/ca/docencia/ib-ai/">IB Mathematics AI</a><span class="sep">/</span><a href="/ca/docencia/ib-ai/all/">Promoció all</a><span class="sep">/</span><span class="current">Fitxa d'exercicis — Diagrames de Voronoi</span>
+    </div>
+
+    <div class="exam-header">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">Examen</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-orange">all</span>
+        
+      </div>
+      <h1 style="font-size:clamp(1.7rem,3vw,2.2rem);margin-bottom:0.6rem">Fitxa d'exercicis — Diagrames de Voronoi</h1>
+      <p style="color:var(--text-soft);font-size:1rem;max-width:44rem"></p>
+      <div class="exam-meta">
+        <span>Data <strong>1 maig 2026</strong></span>
+        <span>Promoció <strong>all</strong></span>
+        <span>Total <strong>44 punts</strong></span>
+      </div>
+      
+    </div>
+
+
+    <h2 style="font-size:1.2rem;margin-bottom:1rem">Preguntes</h2>
+    <p style="color:var(--text-faint);font-size:0.86rem;margin-bottom:1rem">Cada targeta obre l'enunciat corresponent.</p>
+    <div class="question-cards">
+
+      <a href="/aula/ib-ai-hl/ejercicios/voronoi/#f1" class="question-card">
+        <div class="question-card-num">01</div>
+        <div class="question-card-body">
+          <h3>Web del temps amb tres estacions meteorològiques</h3>
+          <p style="color:var(--text-soft);font-size:0.88rem">Algorisme incremental amb tres estacions $A=(1,1)$, $B=(3,1)$, $C=(3,5)$: equacions de les tres mediatrius del diagrama; Temperatura mostrada a l'usuari a $(1,4)$ amb lectures $A:22°C$, $B:24°C$, $C:21°C$ (interpolació del veí més proper…</p>
+          <div class="question-card-chips"><span class="ib-chip dif-media">Media</span><span class="ib-chip" title="NM 3.5 — Mediatrices; ecuaciones de circunferencias y de mediatrices">NM 3.5</span><span class="ib-chip" title="NM 3.6 — Diagramas de Voronoi">NM 3.6</span></div>
+        </div>
+        <div class="question-card-score"><strong>6</strong>punts</div>
+      </a>
+      <a href="/aula/ib-ai-hl/ejercicios/voronoi/#f2" class="question-card">
+        <div class="question-card-num">02</div>
+        <div class="question-card-body">
+          <h3>Parcs de bombers i algorisme incremental</h3>
+          <p style="color:var(--text-soft);font-size:0.88rem">Distàncies des del nou parc $E=(2,1)$ als quatre originals $A,B,C,D$ i cel·la on cau $E$; Mediatriu del segment entre $E$ i el parc la cel·la del qual el conté; Llista de parcs contigus a $E$ després de l'algorisme incremental i mediatri…</p>
+          <div class="question-card-chips"><span class="ib-chip dif-media">Media</span><span class="ib-chip" title="NM 3.5 — Mediatrices; ecuaciones de circunferencias y de mediatrices">NM 3.5</span><span class="ib-chip" title="NM 3.6 — Diagramas de Voronoi">NM 3.6</span></div>
+        </div>
+        <div class="question-card-score"><strong>8</strong>punts</div>
+      </a>
+      <a href="/aula/ib-ai-hl/ejercicios/voronoi/#f3" class="question-card">
+        <div class="question-card-num">03</div>
+        <div class="question-card-body">
+          <h3>Catchment areas escolars en una ciutat</h3>
+          <p style="color:var(--text-soft);font-size:0.88rem">Mediatriu del segment $\overline{AB}$ amb $A=(2,5)$ i $B=(3,3)$; Algorisme incremental per construir el diagrama de Voronoi de les tres escoles $A$, $B$, $C$; Catchment area de la família que viu a $(4,3)$, verificada per distàncies…</p>
+          <div class="question-card-chips"><span class="ib-chip dif-dificil">Difícil</span><span class="ib-chip" title="NM 3.5 — Mediatrices; ecuaciones de circunferencias y de mediatrices">NM 3.5</span><span class="ib-chip" title="NM 3.6 — Diagramas de Voronoi">NM 3.6</span></div>
+        </div>
+        <div class="question-card-score"><strong>10</strong>punts</div>
+      </a>
+      <a href="/aula/ib-ai-hl/ejercicios/voronoi/#f4" class="question-card">
+        <div class="question-card-num">04</div>
+        <div class="question-card-body">
+          <h3>Nova cafeteria independent — toxic waste dump</h3>
+          <p style="color:var(--text-soft);font-size:0.88rem">Justificació teòrica de per què el punt òptim del problema de l'abocador (toxic waste dump) és un vèrtex del diagrama; Mediatrius de $\overline{AB}$ i $\overline{AD}$ amb $A=(1,6)$, $B=(2,2)$, $D=(8,5)$; Vèrtex interior $Q$ del diagrama…</p>
+          <div class="question-card-chips"><span class="ib-chip dif-dificil">Difícil</span><span class="ib-chip" title="NM 3.5 — Mediatrices; ecuaciones de circunferencias y de mediatrices">NM 3.5</span><span class="ib-chip" title="NM 3.6 — Diagramas de Voronoi">NM 3.6</span></div>
+        </div>
+        <div class="question-card-score"><strong>10</strong>punts</div>
+      </a>
+      <a href="/aula/ib-ai-hl/ejercicios/voronoi/#f5" class="question-card">
+        <div class="question-card-num">05</div>
+        <div class="question-card-body">
+          <h3>Hamburgueseries en una fira — àrees i nou lloc</h3>
+          <p style="color:var(--text-soft);font-size:0.88rem">Mediatrius de $\overline{AB}$, $\overline{BC}$ i $\overline{AC}$ amb $A=(20,30)$, $B=(80,30)$, $C=(40,10)$; Vèrtex del diagrama de Voronoi dels tres llocs i verificació que és el circumcentre de $\triangle ABC$; Estimació de la fracció d…</p>
+          <div class="question-card-chips"><span class="ib-chip dif-dificil">Difícil</span><span class="ib-chip" title="NM 3.5 — Mediatrices; ecuaciones de circunferencias y de mediatrices">NM 3.5</span><span class="ib-chip" title="NM 3.6 — Diagramas de Voronoi">NM 3.6</span></div>
+        </div>
+        <div class="question-card-score"><strong>10</strong>punts</div>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span><a href="/contacto/" style="color:var(--text-faint)">alexreyes@maristes.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+</body>
+</html>
