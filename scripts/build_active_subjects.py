@@ -410,8 +410,16 @@ SUBJ_1BTL = {
     },
     # Units in language of instruction (Catalan), descriptions per language.
     # Keep keys aligned with SUBJ_2ESO so the regular hub renderer can use them.
-    # El temario del curso 2026–27 todavía no está publicado.
-    "units": [],
+    # El temari del curs 2026–27 encara no està tancat: de moment només hi ha la
+    # unitat que ja s'està fent a classe. Els apunts de 2025–26 es queden al seu
+    # any arxivat, a /aula/ccss-1btl/apuntes/u-nombres-reals/.
+    "units": [
+                {"num":"01","slug":"nombres-reals","title":"Nombres reals","llibre":"Baula 1",
+                 "desc_l":{"ca":"Nombres reals, intervals, valor absolut, aproximació i errors.",
+                           "es":"Números reales, intervalos, valor absoluto, aproximación y errores.",
+                           "en":"Real numbers, intervals, absolute value, approximation and errors."},
+                 "apunts":"/aula/ccss-1btl/apuntes/2627-u-nombres-reals/"},
+    ],
     # Cursos anteriores. Se sirven en /docencia/<code>/<slug>/ y se listan en el
     # selector de curso de la página viva. Su temario ya no cambia.
     "archived_years": [

@@ -101,7 +101,7 @@
 
     <h2 style="font-size:1.1rem;margin:0 0 0.4rem">Unitats didàctiques</h2>
     <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:1rem">Cada unitat conté els apunts de classe, les fitxes d'exercicis amb les seves solucions, i els exàmens realitzats.</p>
-    <div class="chapter-list" id="units-list"><p style="color:var(--text-faint);font-size:0.92rem;padding:0.75rem 0">El temari d'aquest curs encara no està publicat. Anirà apareixent al llarg de l'any.</p></div>
+    <div class="chapter-list" id="units-list"></div>
 
     <section style="margin-top:3rem">
       <div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.4rem">
@@ -129,7 +129,7 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
-const UNITS = [];
+const UNITS = [{"num": "01", "slug": "nombres-reals", "title": "Nombres reals", "llibre": "Baula 1", "apunts": "/aula/ccss-1btl/apuntes/2627-u-nombres-reals/", "desc": "Nombres reals, intervals, valor absolut, aproximació i errors."}];
 const MATERIA = "ccss-1btl";
 // Curs d'aquesta pàgina, en el format de l'etiqueta del banc. Els exàmens
 // s'enganxen a la unitat pel seu NÚMERO, i els números canvien d'un curs a
