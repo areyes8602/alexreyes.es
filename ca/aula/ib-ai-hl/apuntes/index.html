@@ -7,13 +7,13 @@
 <meta name="description" content="Índex d'apunts per concepte d'una unitat didàctica d'IB Math AI. Cada concepte NM/TANS té la seva pàgina amb teoria, exemples, GeoGebra i exercicis.">
 <meta name="robots" content="index, follow">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
-<script src="/assets/js/lang-persist.js?v=202609121538"></script>
+<script src="/assets/js/lang-persist.js?v=202609121556"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css?v=202609121538">
-<link rel="stylesheet" href="/assets/css/aula.css?v=202609121538">
-<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121538">
+<link rel="stylesheet" href="/style.css?v=202609121556">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202609121556">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121556">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/">
@@ -54,7 +54,7 @@
 </nav>
 
 <main id="main">
-  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem;max-width:820px">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
 
     <div class="breadcrumb" id="breadcrumb">
       <a href="/ca/">Inici</a><span class="sep">/</span>
@@ -116,11 +116,6 @@ function apunteHref(slug) { return (TRAD.indexOf(slug) >= 0 ? '/ca' : '') + '/au
     const params = new URLSearchParams(location.search);
     unidadId = params.get('id') || '';
   }
-  if (!unidadId) {
-    document.getElementById('loading').textContent = "Falta l'identificador d'unitat a l'URL (ex. #u02-geometria-coordenada-voronoi)";
-    return;
-  }
-
   try {
     const [unidadesRaw, conceptosApuntes, tagsData] = await Promise.all([
       fetch('/assets/data/ib-unidades.json').then(r => r.json()),
@@ -133,10 +128,19 @@ function apunteHref(slug) { return (TRAD.indexOf(slug) >= 0 ? '/ca' : '') + '/au
       ...(unidadesRaw.unidades_sl || []),
       ...(unidadesRaw.unidades || []),
     ];
+    const trimestres = unidadesRaw.trimestres || {};
+    const conceptosDisponibles = conceptosApuntes.conceptos || [];
+    const subtemasInfo = (tagsData?.namespaces?.concepto_iba?.valores) || {};
+    const conCount = u2 => (u2.tags_iba || [])
+      .filter(code => conceptosDisponibles.some(c => c.code === code)).length;
+
+    // Sin unidad en la URL —al volver por las migas de pan, por ejemplo— no
+    // tiene sentido dar error: se listan las unidades que ya tienen apuntes.
+    if (!unidadId) { listarUnidades(allUnidades, trimestres, conCount); return; }
+
     const u = allUnidades.find(x => x.id === unidadId);
     if (!u) { showNotFound(unidadId); return; }
 
-    const trimestres = unidadesRaw.trimestres || {};
     const trimLabel = trimestres[u.trimestre]?.label?.ca || trimestres[u.trimestre]?.label?.es || u.trimestre || '';
 
     // Header tipo CCSS
@@ -151,9 +155,6 @@ function apunteHref(slug) { return (TRAD.indexOf(slug) >= 0 ? '/ca' : '') + '/au
     document.getElementById('bc-current').textContent = `Apunts · ${(u.title.ca || u.title.es)}`;
     document.title = `Apunts de ${numLabel} · ${(u.title.ca || u.title.es)} · ${nivelLabel} — alexreyes.es`;
 
-    // Conceptos con apuntes propios cubiertos por la unidad
-    const conceptosDisponibles = conceptosApuntes.conceptos || [];
-    const subtemasInfo = (tagsData?.namespaces?.concepto_iba?.valores) || {};
     // El orden de los apuntes es el que se ha seguido en clase (apuntes_orden),
     // no el numérico del syllabus. Lo que no esté en esa lista va al final.
     const codigos = (u.tags_iba || []).slice().sort((a, b) => {
@@ -200,6 +201,30 @@ function apunteHref(slug) { return (TRAD.indexOf(slug) >= 0 ? '/ca' : '') + '/au
     document.getElementById('loading').textContent = "Error en carregar les dades. " + err.message;
   }
 
+  function listarUnidades(unidades, trimestres, conCount) {
+    const conApuntes = unidades.filter(x => conCount(x) > 0);
+    document.getElementById('card-trim').textContent = 'IB Math AI HL';
+    document.getElementById('card-tipo').textContent = "Apunts";
+    document.getElementById('card-title').textContent = "Apunts per concepte";
+    document.getElementById('card-intro').textContent =
+      "Unitats que ja tenen apunts publicats. Cada una porta als seus conceptes NM/TANS.";
+    document.getElementById('bc-current').textContent = "Apunts";
+    document.getElementById('apuntes-list').innerHTML = conApuntes.map(x => {
+      const isSL = x.id.startsWith('us');
+      const num = `${isSL ? 'US' : 'U'}${String(x.orden).padStart(2, '0')}`;
+      const n = conCount(x);
+      const trim = trimestres[x.trimestre]?.label?.ca || trimestres[x.trimestre]?.label?.es || x.trimestre || '';
+      return `<a href="#${encodeURIComponent(x.id)}" class="tipo-apuntes">
+        <span class="num">${escHtml(num)}</span>
+        <span class="ttl">${escHtml(x.title.ca || x.title.es)}</span>
+        <span class="meta">${escHtml(trim)} · ${n} ${n === 1 ? "concepte" : "conceptes"}</span>
+        <span class="arr">→</span>
+      </a>`;
+    }).join('');
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  }
+
   function showNotFound(id) {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('not-found-id').textContent = id;
@@ -208,7 +233,18 @@ function apunteHref(slug) { return (TRAD.indexOf(slug) >= 0 ? '/ca' : '') + '/au
 })();
 
 window.addEventListener('hashchange', () => location.reload());
+
+// El selector de idioma debe conservar la unidad que se está viendo.
+(function () {
+  const sw = document.querySelector('.lang-sw');
+  if (!sw) return;
+  const aplicar = () => {
+    for (const a of sw.querySelectorAll('a')) a.href = a.href.split('#')[0] + location.hash;
+  };
+  aplicar();
+  window.addEventListener('hashchange', aplicar);
+})();
 </script>
-<script defer src="/assets/js/search.js?v=202609121538"></script>
+<script defer src="/assets/js/search.js?v=202609121556"></script>
 </body>
 </html>

@@ -345,9 +345,19 @@ details.solucion > summary::-webkit-details-marker { display: none; }
   padding-top: 0; border-bottom: none; margin-bottom: 1.2rem;
 }
 .unidad-header-meta {
-  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;
   margin-bottom: 0.5rem;
 }
+/* Cabecera de un apunte: el section-label va en la MISMA fila que los tags.
+   examenes.css le da margin-bottom para cuando va solo encima del título, y
+   ahí ese margen lo descentraba respecto de los tags (align-items centra la
+   caja de márgenes, no el texto). */
+.apunt-meta-row {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;
+  margin-bottom: 0.6rem;
+}
+.exam-header .apunt-meta-row .section-label,
+.exam-header .unidad-header-meta .section-label { margin-bottom: 0; }
 .unidad-header-titulo { margin: 0; }
 .unidad-header-intro {
   color: var(--text-soft);
