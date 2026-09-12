@@ -65,6 +65,10 @@ LABELS = {
         "promo_tab_sl": "SL — Standard Level",
         "promo_sl_intro": "El SL comparte la mayoría de capítulos con el HL, con menor profundidad en algunos temas y sin los capítulos exclusivos de HL.",
         "ib_chapter_hlonly": "Este capítulo es exclusivo del nivel HL.",
+        "meta_concepto": "concepto",
+        "meta_conceptos": "conceptos",
+        "meta_ejercicio": "ejercicio",
+        "meta_ejercicios": "ejercicios",
         "section_card_apunts": "Apuntes",
         "section_card_fitxes": "Lista de ejercicios",
         "section_card_solucions": "Soluciones",
@@ -120,6 +124,10 @@ LABELS = {
         "promo_tab_sl": "SL — Standard Level",
         "promo_sl_intro": "El SL comparteix la majoria de capítols amb l'HL, amb menor profunditat en alguns temes i sense els capítols exclusius d'HL.",
         "ib_chapter_hlonly": "Aquest capítol és exclusiu del nivell HL.",
+        "meta_concepto": "concepte",
+        "meta_conceptos": "conceptes",
+        "meta_ejercicio": "exercici",
+        "meta_ejercicios": "exercicis",
         "section_card_apunts": "Apunts",
         "section_card_fitxes": "Llista d'exercicis",
         "section_card_solucions": "Solucions",
@@ -175,6 +183,10 @@ LABELS = {
         "promo_tab_sl": "SL — Standard Level",
         "promo_sl_intro": "SL shares most chapters with HL, with less depth on some topics and without the HL-exclusive chapters.",
         "ib_chapter_hlonly": "This chapter is exclusive to the HL level.",
+        "meta_concepto": "concept",
+        "meta_conceptos": "concepts",
+        "meta_ejercicio": "exercise",
+        "meta_ejercicios": "exercises",
         "section_card_apunts": "Notes",
         "section_card_fitxes": "Exercise list",
         "section_card_solucions": "Solutions",
@@ -1158,7 +1170,7 @@ const TRIMESTRES = {trimestres_json};
 const UNIDAD_ACTUAL = {unidad_actual_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
-const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','unidad_empty','unidad_covers']}, ensure_ascii=False)};
+const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','unidad_empty','unidad_covers','meta_concepto','meta_conceptos','meta_ejercicio','meta_ejercicios']}, ensure_ascii=False)};
 
 function fmtFecha(iso) {{ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${{parseInt(d,10)}} ${{MONTHS[parseInt(m,10)-1]}} ${{y}}`; }}
 function escHtml(s) {{ return String(s||'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c])); }}
@@ -1201,7 +1213,7 @@ function getUnidadResources(u, ctx) {{
     apuntesCount++;
   }}
   if (apuntesCount > 0) {{
-    apuntesHref = `/aula/ib-ai-hl/apuntes/#${{u.id}}`;
+    apuntesHref = `{lang_prefix(lang)}/aula/ib-ai-hl/apuntes/#${{u.id}}`;
   }}
   // Ejercicios (fichas) y exámenes
   const fichasMap = {{}};
@@ -1250,8 +1262,8 @@ function buildUnidad(u, nivel, ctx) {{
   const numero = u.orden ? `<span class="chapter-num unidad-num">${{prefix}}${{String(u.orden).padStart(2,'0')}}</span>` : '';
 
   // 3 section cards igual que CCSS: Apuntes / Ejercicios / Material extra
-  const apuntesMeta = res.apuntesCount > 0 ? `${{res.apuntesCount}} ${{res.apuntesCount === 1 ? 'concepto' : 'conceptos'}}` : '';
-  const ejerciciosMeta = res.ejerciciosCount > 0 ? `${{res.ejerciciosCount}} ${{res.ejerciciosCount === 1 ? 'ejercicio' : 'ejercicios'}}` : '';
+  const apuntesMeta = res.apuntesCount > 0 ? `${{res.apuntesCount}} ${{res.apuntesCount === 1 ? LABELS_JS.meta_concepto : LABELS_JS.meta_conceptos}}` : '';
+  const ejerciciosMeta = res.ejerciciosCount > 0 ? `${{res.ejerciciosCount}} ${{res.ejerciciosCount === 1 ? LABELS_JS.meta_ejercicio : LABELS_JS.meta_ejercicios}}` : '';
   const sections = [
     buildIBSectionCard(res.apuntesHref, '📄', LABELS_JS.section_card_apunts, apuntesMeta),
     buildIBSectionCard(res.ejerciciosHref, '📝', LABELS_JS.section_card_fitxes, ejerciciosMeta),

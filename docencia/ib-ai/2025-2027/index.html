@@ -156,7 +156,7 @@ const TRIMESTRES = {"T1": "T1 · IB1 (sept–dic)", "T2": "T2 · IB1 (ene–mar)
 const UNIDAD_ACTUAL = "u08-ondas-fasores-complejos";
 const PROMO = "2025-2027";
 const MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
-const LABELS_JS = {"exam_questions": "preguntas", "exam_question": "pregunta", "exam_points": "puntos", "exam_btn_pdf": "PDF", "exam_btn_html": "Ver enunciados y correcciones", "globals_empty": "No hay exámenes globales publicados todavía.", "globals_load_error": "No se ha podido cargar el listado de exámenes.", "examens_count_one": "examen", "examens_count_many": "exámenes", "subtema_empty": "Aún no hay material publicado para este subtema", "subtema_with_content": "Material disponible", "section_card_apunts": "Apuntes", "section_card_fitxes": "Lista de ejercicios", "section_card_solucions": "Soluciones", "section_card_extra": "Recursos extra", "unidad_empty": "Sin contenido publicado todavía", "unidad_covers": "Cubre"};
+const LABELS_JS = {"exam_questions": "preguntas", "exam_question": "pregunta", "exam_points": "puntos", "exam_btn_pdf": "PDF", "exam_btn_html": "Ver enunciados y correcciones", "globals_empty": "No hay exámenes globales publicados todavía.", "globals_load_error": "No se ha podido cargar el listado de exámenes.", "examens_count_one": "examen", "examens_count_many": "exámenes", "subtema_empty": "Aún no hay material publicado para este subtema", "subtema_with_content": "Material disponible", "section_card_apunts": "Apuntes", "section_card_fitxes": "Lista de ejercicios", "section_card_solucions": "Soluciones", "section_card_extra": "Recursos extra", "unidad_empty": "Sin contenido publicado todavía", "unidad_covers": "Cubre", "meta_concepto": "concepto", "meta_conceptos": "conceptos", "meta_ejercicio": "ejercicio", "meta_ejercicios": "ejercicios"};
 
 function fmtFecha(iso) { if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${parseInt(d,10)} ${MONTHS[parseInt(m,10)-1]} ${y}`; }
 function escHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
@@ -248,8 +248,8 @@ function buildUnidad(u, nivel, ctx) {
   const numero = u.orden ? `<span class="chapter-num unidad-num">${prefix}${String(u.orden).padStart(2,'0')}</span>` : '';
 
   // 3 section cards igual que CCSS: Apuntes / Ejercicios / Material extra
-  const apuntesMeta = res.apuntesCount > 0 ? `${res.apuntesCount} ${res.apuntesCount === 1 ? 'concepto' : 'conceptos'}` : '';
-  const ejerciciosMeta = res.ejerciciosCount > 0 ? `${res.ejerciciosCount} ${res.ejerciciosCount === 1 ? 'ejercicio' : 'ejercicios'}` : '';
+  const apuntesMeta = res.apuntesCount > 0 ? `${res.apuntesCount} ${res.apuntesCount === 1 ? LABELS_JS.meta_concepto : LABELS_JS.meta_conceptos}` : '';
+  const ejerciciosMeta = res.ejerciciosCount > 0 ? `${res.ejerciciosCount} ${res.ejerciciosCount === 1 ? LABELS_JS.meta_ejercicio : LABELS_JS.meta_ejercicios}` : '';
   const sections = [
     buildIBSectionCard(res.apuntesHref, '📄', LABELS_JS.section_card_apunts, apuntesMeta),
     buildIBSectionCard(res.ejerciciosHref, '📝', LABELS_JS.section_card_fitxes, ejerciciosMeta),

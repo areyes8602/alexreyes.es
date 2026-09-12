@@ -151,7 +151,7 @@ const TRIMESTRES = {"T1": "T1 · IB1 (Sep–Dec)", "T2": "T2 · IB1 (Jan–Mar)"
 const UNIDAD_ACTUAL = "u08-ondas-fasores-complejos";
 const PROMO = "2024-2026";
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "examens_count_one": "exam", "examens_count_many": "exams", "subtema_empty": "No content published yet for this subtopic", "subtema_with_content": "Content available", "section_card_apunts": "Notes", "section_card_fitxes": "Exercise list", "section_card_solucions": "Solutions", "section_card_extra": "Extra resources", "unidad_empty": "No content published yet", "unidad_covers": "Covers"};
+const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "examens_count_one": "exam", "examens_count_many": "exams", "subtema_empty": "No content published yet for this subtopic", "subtema_with_content": "Content available", "section_card_apunts": "Notes", "section_card_fitxes": "Exercise list", "section_card_solucions": "Solutions", "section_card_extra": "Extra resources", "unidad_empty": "No content published yet", "unidad_covers": "Covers", "meta_concepto": "concept", "meta_conceptos": "concepts", "meta_ejercicio": "exercise", "meta_ejercicios": "exercises"};
 
 function fmtFecha(iso) { if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${parseInt(d,10)} ${MONTHS[parseInt(m,10)-1]} ${y}`; }
 function escHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
@@ -194,7 +194,7 @@ function getUnidadResources(u, ctx) {
     apuntesCount++;
   }
   if (apuntesCount > 0) {
-    apuntesHref = `/aula/ib-ai-hl/apuntes/#${u.id}`;
+    apuntesHref = `/en/aula/ib-ai-hl/apuntes/#${u.id}`;
   }
   // Ejercicios (fichas) y exámenes
   const fichasMap = {};
@@ -243,8 +243,8 @@ function buildUnidad(u, nivel, ctx) {
   const numero = u.orden ? `<span class="chapter-num unidad-num">${prefix}${String(u.orden).padStart(2,'0')}</span>` : '';
 
   // 3 section cards igual que CCSS: Apuntes / Ejercicios / Material extra
-  const apuntesMeta = res.apuntesCount > 0 ? `${res.apuntesCount} ${res.apuntesCount === 1 ? 'concepto' : 'conceptos'}` : '';
-  const ejerciciosMeta = res.ejerciciosCount > 0 ? `${res.ejerciciosCount} ${res.ejerciciosCount === 1 ? 'ejercicio' : 'ejercicios'}` : '';
+  const apuntesMeta = res.apuntesCount > 0 ? `${res.apuntesCount} ${res.apuntesCount === 1 ? LABELS_JS.meta_concepto : LABELS_JS.meta_conceptos}` : '';
+  const ejerciciosMeta = res.ejerciciosCount > 0 ? `${res.ejerciciosCount} ${res.ejerciciosCount === 1 ? LABELS_JS.meta_ejercicio : LABELS_JS.meta_ejercicios}` : '';
   const sections = [
     buildIBSectionCard(res.apuntesHref, '📄', LABELS_JS.section_card_apunts, apuntesMeta),
     buildIBSectionCard(res.ejerciciosHref, '📝', LABELS_JS.section_card_fitxes, ejerciciosMeta),

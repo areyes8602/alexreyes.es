@@ -334,6 +334,12 @@ details.solucion > summary::-webkit-details-marker { display: none; }
 }
 .ej-list .arr { margin-left: auto; color: var(--text-soft); font-size: 0.85rem; flex: 0 0 auto; }
 
+/* Los apuntes por concepto llevan títulos largos (el enunciado del subtema
+   NM/TANS). Sin esto el título se estruja contra el contador y se solapa:
+   mejor que la fila pase a dos líneas. */
+.ej-list a.tipo-apuntes { flex-wrap: wrap; row-gap: 0.35rem; }
+.ej-list a.tipo-apuntes .ttl { flex: 1 1 16rem; }
+
 /* Cabecera tipo CCSS para una unidad (sustituye al grid de cards) */
 .unidad-header {
   padding-top: 0; border-bottom: none; margin-bottom: 1.2rem;
