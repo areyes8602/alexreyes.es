@@ -505,13 +505,16 @@ def load_ib_temas():
             if meta.get("ambito_iba") != tcode:
                 continue
             label = meta["label"]
-            es_label = label.get("es", code)
-            # Quitar el prefijo del código del título: "NM 1.1 — Notación científica" → "Notación científica"
-            title_pure = es_label.split(" — ", 1)[1] if " — " in es_label else es_label
+            # El título en los tres idiomas, sin el prefijo del código:
+            # "NM 1.1 — Notación científica" → "Notación científica".
+            titles = {}
+            for lg in ("es", "ca", "en"):
+                lab = label.get(lg) or label.get("es", code)
+                titles[lg] = lab.split(" — ", 1)[1] if " — " in lab else lab
             slug = code.replace(" ", "-").replace(".", "-")  # "NM 1.1" → "NM-1-1"
             nivel = "HL" if code.startswith("TANS") else "NM"  # NM = ambos, TANS = HL
             sub_lista.append({
-                "code": code, "slug": slug, "title": title_pure, "nivel": nivel,
+                "code": code, "slug": slug, "title": titles, "nivel": nivel,
             })
         # Ordenar: NM primero (alfanumérico), luego TANS (alfanumérico)
         def sort_key(s):
@@ -1019,7 +1022,8 @@ def render_ib_hub(s, lang):
         temas_for_js.append({
             "code": t["code"],
             "label": t["label"].get(lang, t["label"]["es"]),
-            "subtemas": t["subtemas"],  # ya tienen code, slug, title, nivel
+            "subtemas": [dict(sub, title=sub["title"].get(lang) or sub["title"]["es"])
+                         for sub in t["subtemas"]],
         })
     temas_json = json.dumps(temas_for_js, ensure_ascii=False)
 
@@ -1191,7 +1195,7 @@ function buildSectionCard(href, icon, label) {{
 // Subtema (NM o TANS) — link a /aula/ib-ai-hl/syllabus/#<slug>
 function buildSubtema(sub, conceptosConContenido) {{
   const tieneContenido = conceptosConContenido.has(sub.code);
-  const url = `/aula/ib-ai-hl/syllabus/#${{sub.slug}}`;
+  const url = `{lang_prefix(lang)}/aula/ib-ai-hl/syllabus/#${{sub.slug}}`;
   const nivelClass = `subtema-nivel-${{sub.nivel.toLowerCase()}}`;
   const statusBadge = tieneContenido
     ? `<span class="tag tag-green" style="font-size:0.62rem;margin-left:auto">●</span>`
@@ -1252,7 +1256,7 @@ function buildUnidad(u, nivel, ctx) {{
   const tagsBadges = (u.tags_iba || []).map(t => {{
     const cls = t.startsWith('TANS') ? 'subtema-nivel-hl' : 'subtema-nivel-nm';
     const slug = t.replace(/\\s|\\./g, '-');
-    return `<a href="/aula/ib-ai-hl/syllabus/#${{slug}}" class="unidad-tag ${{cls}}">${{escHtml(t)}}</a>`;
+    return `<a href="{lang_prefix(lang)}/aula/ib-ai-hl/syllabus/#${{slug}}" class="unidad-tag ${{cls}}">${{escHtml(t)}}</a>`;
   }}).join(' ');
   const intro = u.intro ? `<p class="unidad-intro">${{escHtml(u.intro)}}</p>` : '';
   const tagsBox = tagsBadges
