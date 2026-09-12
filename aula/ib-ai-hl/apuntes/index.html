@@ -7,13 +7,13 @@
 <meta name="description" content="Índice de apuntes por concepto de una unidad didáctica de IB Math AI. Cada concepto NM/TANS tiene su página con teoría, ejemplos, GeoGebra y ejercicios.">
 <meta name="robots" content="index, follow">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
-<script src="/assets/js/lang-persist.js?v=202606221623"></script>
+<script src="/assets/js/lang-persist.js?v=202609121538"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/style.css?v=202606221623">
-<link rel="stylesheet" href="/assets/css/aula.css?v=202606221623">
-<link rel="stylesheet" href="/assets/css/examenes.css?v=202606221623">
+<link rel="stylesheet" href="/style.css?v=202609121538">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202609121538">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121538">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/apuntes/">
@@ -149,7 +149,17 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
     // Conceptos con apuntes propios cubiertos por la unidad
     const conceptosDisponibles = conceptosApuntes.conceptos || [];
     const subtemasInfo = (tagsData?.namespaces?.concepto_iba?.valores) || {};
-    const conceptosConApuntes = (u.tags_iba || []).map(code => {
+    // El orden de los apuntes es el que se ha seguido en clase (apuntes_orden),
+    // no el numérico del syllabus. Lo que no esté en esa lista va al final.
+    const codigos = (u.tags_iba || []).slice().sort((a, b) => {
+      const orden = u.apuntes_orden || [];
+      const ia = orden.indexOf(a), ib = orden.indexOf(b);
+      if (ia === -1 && ib === -1) return 0;
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    });
+    const conceptosConApuntes = codigos.map(code => {
       const entry = conceptosDisponibles.find(c => c.code === code);
       if (!entry) return null;
       const info = subtemasInfo[code];
@@ -194,6 +204,6 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
 
 window.addEventListener('hashchange', () => location.reload());
 </script>
-<script defer src="/assets/js/search.js"></script>
+<script defer src="/assets/js/search.js?v=202609121538"></script>
 </body>
 </html>

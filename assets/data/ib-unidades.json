@@ -266,7 +266,12 @@
       "orden": 8,
       "trimestre": "T3",
       "promo": "all",
-      "tier": "free"
+      "tier": "free",
+      "apuntes_orden": [
+        "TANS 3.7",
+        "TANS 3.9",
+        "TANS 1.12"
+      ]
     },
     {
       "id": "u09-derivadas-optimizacion",
@@ -711,5 +716,6 @@
       "promo": "all",
       "tier": "free"
     }
-  ]
+  ],
+  "_doc_apuntes_orden": "Ordre en que es presenten els apunts dins d'una unitat. Per defecte es fa servir l'ordre de tags_iba, que es el numeric del syllabus; si la unitat porta apuntes_orden, mana aquesta llista (ordre en que s'ha donat a classe). Els codis que no hi surtin van al final, en l'ordre de tags_iba."
 }
