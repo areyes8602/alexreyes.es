@@ -245,6 +245,14 @@
 
         <p>Només canvia la fase; l'amplitud, el període i l'eix d'equilibri són els mateixos. Amb cosinus sol sortir més curt quan el màxim cau just a $x=0$, perquè llavors la fase és zero.</p>
       </section>
+    
+      <nav class="exam-nav" id="apunt-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem"
+           data-code="TANS 3.9" data-pre="/ca" data-trad='["NM-3-6", "TANS-1-12", "TANS-3-7", "TANS-3-9", "demo-derivada-ax"]'>
+        <span class="disabled prev">&larr; Apartat anterior</span>
+        <a class="index" href="/ca/aula/ib-ai-hl/apuntes/#u08-ondas-fasores-complejos">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
     </article>
 
   </div>
@@ -273,6 +281,54 @@ function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-the
 <script>
 // Si s'hi ha arribat des d'una unitat concreta, les migues hi tornen.
 (function(){var f=new URLSearchParams(location.search).get('from');if(!f)return;var a=document.getElementById('bc-apunts');if(a)a.href=a.href.split('#')[0]+'#'+encodeURIComponent(f);})();
+</script>
+<script>
+(async function () {
+  var nav = document.getElementById('apunt-nav');
+  if (!nav) return;
+  var code = nav.dataset.code, pre = nav.dataset.pre, trad = JSON.parse(nav.dataset.trad || '[]');
+  var bc = document.getElementById('bc-apunts');
+  var unit = new URLSearchParams(location.search).get('from')
+    || (bc ? decodeURIComponent(bc.getAttribute('href').split('#')[1] || '') : '');
+  if (!unit) return;
+  try {
+    var r = await Promise.all([
+      fetch('/assets/data/ib-unidades.json').then(function (x) { return x.json(); }),
+      fetch('/assets/data/conceptos-apuntes.json').then(function (x) { return x.json(); })
+    ]);
+    var U = r[0], C = r[1].conceptos || [];
+    var u = [].concat(U.unidades_hl || [], U.unidades_sl || [], U.unidades || [])
+      .find(function (x) { return x.id === unit; });
+    if (!u) return;
+    var orden = u.apuntes_orden || [];
+    var codes = (u.tags_iba || []).slice().sort(function (a, b) {
+      var ia = orden.indexOf(a), ib = orden.indexOf(b);
+      if (ia < 0 && ib < 0) return 0;
+      if (ia < 0) return 1;
+      if (ib < 0) return -1;
+      return ia - ib;
+    }).filter(function (c) { return C.some(function (k) { return k.code === c; }); });
+    var i = codes.indexOf(code);
+    if (i < 0) return;
+    var enllac = function (c) {
+      var slug = C.find(function (k) { return k.code === c; }).slug;
+      return (trad.indexOf(slug) >= 0 ? pre : '') + '/aula/ib-ai-hl/apuntes/' + slug
+        + '/?from=' + encodeURIComponent(unit);
+    };
+    [['prev', codes[i - 1]], ['next', codes[i + 1]]].forEach(function (p) {
+      if (!p[1]) return;
+      var el = nav.querySelector('.' + p[0]);
+      var a = document.createElement('a');
+      a.className = p[0];
+      a.href = enllac(p[1]);
+      a.title = p[1];
+      a.innerHTML = el.innerHTML;
+      el.replaceWith(a);
+    });
+    var idx = nav.querySelector('.index');
+    idx.href = idx.getAttribute('href').split('#')[0] + '#' + encodeURIComponent(unit);
+  } catch (e) {}
+})();
 </script>
 </body>
 </html>
