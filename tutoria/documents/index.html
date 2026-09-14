@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Documents · Tutoria</title>
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
+    flex-wrap:wrap; margin-bottom:1.2rem; }
+  .btn-suau { padding:.5rem 1rem; border-radius:var(--radius-sm); cursor:pointer;
+    background:var(--bg-subtle); color:var(--text); border:1px solid var(--border);
+    font:inherit; font-size:.88rem; text-decoration:none; }
+  .btn-suau:hover { border-color:var(--text-faint); }
+  .resum { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1rem; }
+  .resum span { font-size:.85rem; padding:.3rem .7rem; border-radius:99px;
+    background:var(--bg-subtle); border:1px solid var(--border); }
+  .resum b { font-variant-numeric:tabular-nums; }
+  .filtre { font-size:.88rem; display:flex; align-items:center; gap:.4rem; margin-bottom:1rem; }
+
+  .taula-wrap { overflow-x:auto; }
+  table.docs { border-collapse:collapse; width:100%; font-size:.92rem; }
+  table.docs th { text-align:left; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--text-faint); font-weight:600; padding:.6rem .7rem;
+    border-bottom:1px solid var(--border); background:var(--bg-subtle); white-space:nowrap; }
+  table.docs td { padding:.5rem .7rem; border-bottom:1px solid var(--border); vertical-align:middle; }
+  table.docs tr:last-child td { border-bottom:none; }
+  table.docs tr.falta { background:rgba(180,83,9,.05); }
+  .num { text-align:right; font-variant-numeric:tabular-nums; color:var(--text-faint);
+    font-family:var(--mono); font-size:.8rem; }
+  .al { color:inherit; text-decoration:none; }
+  .al:hover { text-decoration:underline; }
+  .si { color:#047857; font-weight:600; white-space:nowrap; }
+  .no { color:#b45309; font-weight:600; white-space:nowrap; }
+  .data { color:var(--text-faint); font-size:.8rem; font-weight:400; }
+  .escan { font-size:.78rem; margin-left:.35rem; }
+  .codi { font-family:var(--mono); font-size:.88rem; }
+  .buit { color:var(--text-faint); }
+
+  @media print {
+    nav, .top .accions, .filtre, .escan { display:none !important; }
+    table.docs tr.falta { background:none; }
+    body { background:#fff; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="container" style="padding-top:2.5rem;padding-bottom:3rem">
+    <div class="breadcrumb">
+      <a href="/tutoria/">Tutoria 2n ESO E</a><span class="sep">/</span>
+      <span class="current">Documents</span>
+    </div>
+    <div id="cos" style="margin-top:1.5rem">
+      <p style="color:var(--text-faint)">Carregant&hellip;</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const cos = document.getElementById("cos");
+const GRUP = "2ESO-E";
+let ALUMNES = [];
+
+function dataCurta(iso) {
+  const m = String(iso || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m ? `${+m[3]}/${+m[2]}` : "";
+}
+
+function pinta() {
+  const nomesFalten = document.getElementById("nomes-falten")?.checked || false;
+  const total = ALUMNES.length;
+  const fitxes = ALUMNES.filter(a => a.fitxa_inicial).length;
+  const auts = ALUMNES.filter(a => a.autoritzacio_sortides).length;
+  const armaris = ALUMNES.filter(a => a.armari).length;
+
+  const files = ALUMNES
+    .filter(a => !nomesFalten || !a.fitxa_inicial || !a.autoritzacio_sortides)
+    .map(a => {
+      const falta = !a.fitxa_inicial || !a.autoritzacio_sortides;
+      const fitxa = a.fitxa_inicial
+        ? `<span class="si">Sí</span>${a.doc_fitxa ? `<a class="escan" target="_blank" rel="noopener"
+             href="/tutoria/api/document?tipus=fitxa&id=${encodeURIComponent(a.id)}">escaneig</a>` : ""}`
+        : `<span class="no">No</span>`;
+      const aut = a.autoritzacio_sortides
+        ? `<span class="si">Sí <span class="data">${esc(dataCurta(a.autoritzacio_sortides))}</span></span>${
+            a.doc_autoritzacio ? `<a class="escan" target="_blank" rel="noopener"
+             href="/tutoria/api/document?tipus=autoritzacio&id=${encodeURIComponent(a.id)}">escaneig</a>` : ""}`
+        : `<span class="no">No</span>`;
+      return `<tr class="${falta ? "falta" : ""}">
+        <td class="num">${esc(a.num)}</td>
+        <td><a class="al" href="/tutoria/fitxa/?id=${encodeURIComponent(a.id)}">${esc(a.cognoms)}, ${esc(a.nom)}</a></td>
+        <td>${fitxa}</td>
+        <td>${aut}</td>
+        <td class="codi">${a.armari ? esc(a.armari) : '<span class="buit">—</span>'}</td>
+        <td class="codi">${a.cadenat ? esc(a.cadenat) : '<span class="buit">—</span>'}</td>
+      </tr>`;
+    }).join("");
+
+  cos.innerHTML = `
+    <div class="top">
+      <div><h1 style="margin:0 0 .2rem;font-size:1.5rem">Documents d'inici de curs</h1>
+        <p style="margin:0;color:var(--text-soft);font-size:.93rem">Qui ha lliurat la fitxa i
+          l'autorització de sortides, i l'armariet de cadascú. Es corregeix des de la fitxa de
+          l'alumne, pestanya «Documents».</p></div>
+      <span class="accions" style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <a class="btn-suau" target="_blank" rel="noopener"
+           href="/tutoria/api/document?tipus=autoritzacio&id=_totes">Totes les autoritzacions (PDF)</a>
+        <button class="btn-suau" onclick="window.print()">Imprimir</button>
+      </span>
+    </div>
+    <div class="resum">
+      <span>Fitxa: <b>${fitxes}</b> de ${total}</span>
+      <span>Autorització: <b>${auts}</b> de ${total}</span>
+      <span>Armariet: <b>${armaris}</b> de ${total}</span>
+    </div>
+    <label class="filtre"><input type="checkbox" id="nomes-falten"${nomesFalten ? " checked" : ""}>
+      Només els que els falta algun document</label>
+    <div class="taula-wrap">
+      <table class="docs">
+        <thead><tr><th class="num">Nº</th><th>Alumne</th><th>Fitxa</th><th>Autorització</th>
+          <th>Armariet</th><th>Combinació</th></tr></thead>
+        <tbody>${files || '<tr><td colspan="6" class="buit" style="text-align:center;padding:1.5rem">Tothom ho ha lliurat tot.</td></tr>'}</tbody>
+      </table>
+    </div>`;
+  document.getElementById("nomes-falten").addEventListener("change", pinta);
+}
+
+(async function () {
+  try {
+    const r = await fetch("/tutoria/api/documents?grup=" + GRUP, { cache: "no-store" });
+    if (r.status === 401) {
+      cos.innerHTML = '<p class="buit">La sessió ha caducat. <a href="/tutoria/">Torna a entrar</a>.</p>';
+      return;
+    }
+    const d = await r.json();
+    if (d.error) throw new Error(d.detall || d.error);
+    ALUMNES = d.alumnes || [];
+    pinta();
+  } catch (e) {
+    cos.innerHTML = `<p class="buit">No s'han pogut carregar les dades: ${esc(e.message)}</p>`;
+  }
+})();
+</script>
+</body>
+</html>
