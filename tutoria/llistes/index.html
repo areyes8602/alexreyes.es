@@ -96,7 +96,11 @@ async function pintaIndex() {
       <div><h1 style="margin:0 0 .2rem;font-size:1.5rem">Llistes de control</h1>
         <p style="margin:0;color:var(--text-soft);font-size:.93rem">Entregues,
           autoritzacions i tot el que calgui anar marcant.</p></div>
-      <a class="btn btn-suau" href="/tutoria/imprimir/" style="text-decoration:none">Imprimir llistats</a>
+      <span style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <a class="btn btn-suau" href="/tutoria/api/document?tipus=autoritzacio&amp;id=_totes"
+           target="_blank" rel="noopener" style="text-decoration:none">Autoritzacions de sortides (PDF)</a>
+        <a class="btn btn-suau" href="/tutoria/imprimir/" style="text-decoration:none">Imprimir llistats</a>
+      </span>
     </div>
     ${llistes.length ? llistes.map(l => `
       <a class="llista-card" href="?id=${encodeURIComponent(l.id)}">

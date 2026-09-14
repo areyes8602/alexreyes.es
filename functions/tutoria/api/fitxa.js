@@ -17,6 +17,9 @@ const EDITABLES = {
   germans_nombre: 40, germans: 600, salut: 2000,
   amics_classe: 600, amics_nivell: 600,
   mat_millor: 400, mat_pitjor: 400, virtuts: 600, millorar: 600,
+  armari: 40, cadenat: 40,
+  // Autorització de sortides (scripts/sql/tutoria_documents.sql)
+  autoritzacio_sortides: 40, autoritzacio_signant: 200, atencions: 2000,
 };
 // Casillas: se guardan como 0/1 y no como texto.
 const BANDERES = ["pi_contingut", "pi_metodologic", "acollida"];

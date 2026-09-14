@@ -342,6 +342,7 @@ function pinta(a, veins) {
     <button role="tab" data-sec="familia" aria-selected="false">Família</button>
     <button role="tab" data-sec="seguiment" aria-selected="false">Seguiment</button>
     <button role="tab" data-sec="inicial" aria-selected="false">Fitxa inicial</button>
+    <button role="tab" data-sec="documents" aria-selected="false">Documents</button>
     <button role="tab" data-sec="personal" aria-selected="false">Personal</button>
   </div>
 
@@ -452,6 +453,32 @@ function pinta(a, veins) {
       ${camp("mat_pitjor", "I quines pitjor", "text", a.mat_pitjor)}
       ${camp("virtuts", "Les seves millors virtuts", "area", a.virtuts, true)}
       ${camp("millorar", "Què li agradaria canviar o millorar", "area", a.millorar, true)}
+    </div>
+  </section>
+
+  <section class="sec" data-sec="documents" hidden>
+    <h2>Documents d'inici de curs</h2>
+    <p class="ajut">Els originals en paper, escanejats. Només s'obren des d'aquí, amb la sessió iniciada.</p>
+
+    <h3 style="font-size:.95rem;margin:1.4rem 0 .6rem">Autorització de sortides</h3>
+    <p class="ajut">${a.autoritzacio_sortides
+      ? `Lliurada el ${esc(String(a.autoritzacio_sortides).slice(0, 10))}.`
+      : "<b>Encara no l'ha portada.</b>"}${a.doc_autoritzacio
+      ? ` <a href="/tutoria/api/document?tipus=autoritzacio&id=${encodeURIComponent(a.id)}" target="_blank" rel="noopener">Obrir l'escaneig</a>`
+      : ""}</p>
+    <div class="graella">
+      ${camp("autoritzacio_sortides", "Data de lliurament", "date", a.autoritzacio_sortides)}
+      ${camp("autoritzacio_signant", "Qui la signa", "text", a.autoritzacio_signant)}
+      ${camp("atencions", "Atencions especials (dieta, medicació, al·lèrgies, urgències)", "area", a.atencions, true)}
+    </div>
+
+    <h3 style="font-size:.95rem;margin:1.8rem 0 .6rem">Fitxa de l'alumne</h3>
+    <p class="ajut">${a.doc_fitxa
+      ? `<a href="/tutoria/api/document?tipus=fitxa&id=${encodeURIComponent(a.id)}" target="_blank" rel="noopener">Obrir la fitxa escanejada</a> · el que hi posa és a la pestanya «Fitxa inicial».`
+      : "<b>No hi ha fitxa escanejada.</b>"}</p>
+    <div class="graella">
+      ${camp("armari", "Número d'armariet", "text", a.armari)}
+      ${camp("cadenat", "Combinació del cadenat", "text", a.cadenat)}
     </div>
   </section>
 
