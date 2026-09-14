@@ -11,6 +11,11 @@
 -- Els escanejos NO van a la base de dades ni al repositori: viuen al bucket R2
 -- privat `tutoria-fotos`, amb clau documents/<tipus>/<id>.pdf, i només surten
 -- per /tutoria/api/document, que exigeix sessió. Aquí només es marca si n'hi ha.
+--
+-- OJO: el bucket té jurisdicció UE. Sense `-J eu` wrangler mira l'espai de
+-- noms per defecte i diu que el bucket no existeix:
+--   npx wrangler r2 object put tutoria-fotos/documents/autoritzacio/<id>.pdf \
+--     --file=<id>.pdf --content-type=application/pdf -J eu --remote
 
 -- Armariet (de la fitxa que omple l'alumne)
 ALTER TABLE tutoria_alumnes ADD COLUMN armari            TEXT;
