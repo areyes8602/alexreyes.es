@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5. Powers and roots — Real numbers — 1r BTL CCSS</title>
+<meta name="description" content="Applied Maths CCSS 1r BTL notes, 2026-27: properties of powers and radicals, negative and fractional exponents, and the sign and index traps.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.proof-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.proof-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.proof-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.fig-raster { margin: 1.2rem auto; max-width: 460px; }
+.fig-raster img { display:block; width:100%; height:auto; background:#fff; border:1px solid var(--border); border-radius:8px; padding:0.6rem; box-sizing:border-box; }
+.fig-raster figcaption { font-size:0.85rem; color:var(--text-soft); text-align:center; margin-top:0.5rem; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .proof-box { background: rgba(244,63,94,0.10); }
+.intervals-table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+.intervals-table th, .intervals-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.intervals-table th { background: var(--bg-subtle); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-soft); font-weight: 600; }
+.intervals-table td:first-child { font-family: var(--mono); white-space: nowrap; }
+.intervals-table .axis { display:block; }
+.sets-svg { display:block; max-width: 420px; margin: 0.6rem auto; }
+.table-wrap { overflow-x: auto; margin: 0.9rem 0; }
+.prop-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.prop-table th, .prop-table td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.prop-table th { background: var(--bg-subtle); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-soft); font-weight: 600; }
+.prop-table td:first-child { color: var(--text-soft); min-width: 11rem; }
+.prop-table .cell-note { display: block; font-size: 0.82rem; opacity: 0.8; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html">
+<meta property="og:title" content="5. Powers and roots — Real numbers — 1r BTL CCSS">
+<meta property="og:description" content="Applied Maths CCSS 1r BTL notes, 2026-27: properties of powers and radicals, negative and fractional exponents, and the sign and index traps.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="5. Powers and roots — Real numbers — 1r BTL CCSS">
+<meta name="twitter:description" content="Applied Maths CCSS 1r BTL notes, 2026-27: properties of powers and radicals, negative and fractional exponents, and the sign and index traps.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"Applied Maths CCSS 1r BTL","item":"https://alexreyes.es/en/docencia/ccss-1btl/"},{"@type":"ListItem","position":4,"name":"Real numbers","item":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/"},{"@type":"ListItem","position":5,"name":"05 · Powers and roots","item":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html"}]},{"@type":"LearningResource","name":"05 · Powers and roots","url":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Applied Maths CCSS 1r BTL notes, 2026-27: properties of powers and radicals, negative and fractional exponents, and the sign and index traps."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/05-potencies-i-arrels.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/ccss-1btl/">Applied Maths CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/">Real numbers</a>
+      <span class="sep">/</span>
+      <span class="current">05 &middot; Powers and roots</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS &middot; Real numbers</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">17 Sep 2026</span>
+      </div>
+      <h1 style="margin:0">5. Powers and roots</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">The properties of powers and of radicals, with the sign and index traps.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Powers</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>If $a$ is a real number, called the <strong>base</strong>, and $n$ is an integer, called the <strong>exponent</strong>, we define</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$a^{n} = \underbrace{a \cdot a \cdot a \cdots a}_{n \text{ times}}$$
+          </div>
+          <p>with $a \in \mathbb{R}$ and $n \in \mathbb{Z}$.</p>
+        </div>
+
+        <div class="table-wrap"><table class="prop-table">
+          <thead>
+            <tr><th>Property</th><th>Expression</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Product of powers with the same base</td><td>$a^{n} \cdot a^{m} = a^{n+m}$</td><td>$(-2)^{2} \cdot (-2)^{3} = (-2)^{5} = -32$</td></tr>
+            <tr><td>Quotient of powers with the same base</td><td>$\dfrac{a^{n}}{a^{m}} = a^{n-m}$</td><td>$\dfrac{2^{8}}{2^{3}} = 2^{5} = 32$</td></tr>
+            <tr><td>Power of a power</td><td>$(a^{n})^{m} = a^{n \cdot m}$</td><td>$\left[\left(\tfrac{2}{3}\right)^{5}\right]^{2} = \left(\tfrac{2}{3}\right)^{10}$</td></tr>
+            <tr><td>Power of a product</td><td>$(a \cdot b)^{n} = a^{n} \cdot b^{n}$</td><td>$(2x)^{3} = 2^{3} x^{3} = 8x^{3}$</td></tr>
+            <tr><td>Power of a quotient</td><td>$\left(\dfrac{a}{b}\right)^{n} = \dfrac{a^{n}}{b^{n}}$</td><td>$\left(\dfrac{x}{2y}\right)^{5} = \dfrac{x^{5}}{2^{5} y^{5}}$</td></tr>
+            <tr><td>Negative exponent</td><td>$a^{-n} = \dfrac{1}{a^{n}}$</td><td>$(-2)^{-3} = \dfrac{1}{(-2)^{3}} = -\dfrac{1}{8}$</td></tr>
+            <tr><td>Fractional exponent</td><td>$a^{p/q} = \sqrt[q]{a^{p}}$</td><td>$3^{5/2} = \sqrt{3^{5}}$</td></tr>
+            <tr><td>Zero exponent</td><td>$a^{0} = 1$</td><td>$(-2xc)^{0} = 1$</td></tr>
+            <tr><td>$(-a)^{n} \neq -a^{n}$</td><td>$(-a)^{n} = \begin{cases} a^{n} &amp; \text{if } n \text{ is even} \\ -a^{n} &amp; \text{if } n \text{ is odd}\end{cases}$</td><td>$(-2)^{2} = 4$ <br> $(-2)^{3} = -8$</td></tr>
+          </tbody>
+        </table></div>
+
+        <div class="prop-box">
+          <h3>The one everybody trips on</h3>
+          <p>The minus sign only goes into the power when it sits <strong>inside the brackets</strong>:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$-2^{2} = -(2 \cdot 2) = -4 \qquad (-2)^{2} = (-2) \cdot (-2) = +2^{2} = 4$$
+          </div>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$(-2)^{3} = (-2)(-2)(-2) = -2^{3} = -8$$
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Negative exponents and fractions</h3>
+          <p>A negative exponent <strong>flips the fraction</strong>:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^{n}$$
+          </div>
+          <p>A whole number works the same way, because $5 = \dfrac{5}{1}$:</p>
+          <div class="math-block">$$5^{-3} = \left(\dfrac{5}{1}\right)^{-3} = \left(\dfrac{1}{5}\right)^{3} = \dfrac{1^{3}}{5^{3}} = \dfrac{1}{5^{3}}$$</div>
+          <div class="math-block">$$\left(\dfrac{2}{3}\right)^{-5} = \left(\dfrac{3}{2}\right)^{5}$$</div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Radicals</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>The <strong>$n$-th root</strong> of $A$ is the number $B$ such that $B^{n} = A$:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$\sqrt[n]{A} = B \iff B^{n} = A$$
+          </div>
+          <p>$A$ is the <strong>radicand</strong>, $n$ is the <strong>index</strong> of the root, and the whole expression $\sqrt[n]{A}$ is called a <strong>radical</strong>.</p>
+        </div>
+
+        <p class="note">In the table below, <strong>$a$ and $b$ are positive</strong>. Without that condition the product and quotient rules stop holding.</p>
+
+        <div class="table-wrap"><table class="prop-table">
+          <thead>
+            <tr><th>Property</th><th>Expression</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Product of roots with the same index</td><td>$\sqrt[n]{a} \cdot \sqrt[n]{b} = \sqrt[n]{a \cdot b}$</td><td>$\sqrt[3]{3} \cdot \sqrt[3]{9} = \sqrt[3]{27} = 3$</td></tr>
+            <tr><td>Quotient of roots with the same index</td><td>$\dfrac{\sqrt[n]{a}}{\sqrt[n]{b}} = \sqrt[n]{\dfrac{a}{b}}$</td><td>$\dfrac{\sqrt[3]{16}}{\sqrt[3]{2}} = \sqrt[3]{8} = 2$</td></tr>
+            <tr><td>Power of a root</td><td>$\left(\sqrt[n]{a}\right)^{p} = \sqrt[n]{a^{p}}$</td><td>$\left(\sqrt[3]{x}\right)^{2} = \sqrt[3]{x^{2}}$</td></tr>
+            <tr><td>Root of a root</td><td>$\sqrt[n]{\sqrt[m]{a}} = \sqrt[n \cdot m]{a}$</td><td>$\sqrt[3]{\sqrt{x}} = \sqrt[6]{x}$</td></tr>
+            <tr><td>Root of a product</td><td>$\sqrt[n]{a \cdot b} = \sqrt[n]{a} \cdot \sqrt[n]{b}$</td><td>$\sqrt[3]{x^{2} y} = \sqrt[3]{x^{2}} \cdot \sqrt[3]{y}$</td></tr>
+            <tr><td>Root of a quotient</td><td>$\sqrt[n]{\dfrac{a}{b}} = \dfrac{\sqrt[n]{a}}{\sqrt[n]{b}}$</td><td>$\sqrt[3]{\dfrac{xb}{z}} = \dfrac{\sqrt[3]{x} \cdot \sqrt[3]{b}}{\sqrt[3]{z}}$</td></tr>
+            <tr><td>Simplifying the radicand<br><span class="cell-note">with $p = n \cdot c + r$</span></td><td>$\sqrt[n]{a^{p}} = a^{c} \cdot \sqrt[n]{a^{r}}$</td><td>$\sqrt[3]{x^{14}} = \sqrt[3]{x^{12+2}} = x^{4} \cdot \sqrt[3]{x^{2}}$</td></tr>
+            <tr><td>Simplifying the index</td><td>$\sqrt[k \cdot n]{a^{k \cdot p}} = \sqrt[n]{a^{p}}$</td><td>$\sqrt[12]{b^{8}} = \sqrt[3]{b^{2}}$</td></tr>
+            <tr><td>Taking factors into the radicand</td><td>$a^{p} \cdot \sqrt[n]{b} = \sqrt[n]{b \cdot a^{n \cdot p}}$</td><td>$m^{7} \cdot \sqrt[4]{m^{3}} = \sqrt[4]{(m^{7})^{4} \cdot m^{3}} = \sqrt[4]{m^{31}}$</td></tr>
+            <tr><td>Changing the index</td><td>$\sqrt[n]{a^{p}} = \sqrt[n \cdot k]{a^{p \cdot k}}$</td><td>$\sqrt[3]{x} = \sqrt[30]{x^{10}}$</td></tr>
+            <tr><td>Sum of roots with the same index</td><td>$\sqrt[n]{a} + \sqrt[n]{b} \neq \sqrt[n]{a + b}$</td><td>$\sqrt[3]{1} + \sqrt[3]{1} \neq \sqrt[3]{2}$</td></tr>
+          </tbody>
+        </table></div>
+
+        <div class="prop-box">
+          <h3>Why they have to be positive</h3>
+          <p>The product rule comes from the fractional exponent:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">
+            $$a^{1/n} \cdot b^{1/n} = (a \cdot b)^{1/n} = \sqrt[n]{ab}$$
+          </div>
+          <p>Applied carelessly to negatives with an even index it produces nonsense: $\sqrt{6}$ is <strong>not</strong> $\sqrt{-2} \cdot \sqrt{-3}$, because $\sqrt{-2}$ and $\sqrt{-3}$ do not exist in $\mathbb{R}$.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Examples</h3>
+          <div class="math-block">$$-5^{2/3} = -\sqrt[3]{5^{2}}$$</div>
+          <div class="math-block">$$\sqrt[5]{-2^{4}} = \left(-2^{4}\right)^{1/5} = -2^{4/5}$$</div>
+          <p class="note" style="margin-bottom:0">With an <strong>odd</strong> index the root of a negative number does exist, and the minus sign comes out in front.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Left open in class</h3>
+          <p>These two were not finished:</p>
+          <div class="math-block">$$\sqrt[3]{5} \cdot \sqrt[4]{7} \qquad\qquad 5^{2/3} \cdot 3^{2/3}$$</div>
+          <p class="note" style="margin-bottom:0">The first one calls for <strong>changing the index</strong> (the indices differ); the second one, for the <strong>power of a product</strong> (the exponents do match).</p>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <a class="prev" href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/04-deures-16-set.html">&larr; Previous section</a>
+        <a class="index" href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>
