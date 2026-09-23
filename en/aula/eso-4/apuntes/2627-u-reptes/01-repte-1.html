@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Challenge 1: the Àgora mural — Maths challenges — 4t ESO</title>
+<meta name="description" content="4t ESO notes, 2026-27: Challenge 1, a mural for the neighbourhood community centre. Edges with Pythagoras, scale, areas, centring on the wall, paint cans and percentages, with solutions.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p, .def-box li { margin: 0.4rem 0; }
+.def-box ol, .def-box ul { margin: 0.4rem 0; padding-left: 1.3rem; }
+.figura { margin: 1.2rem 0; overflow-x: auto; }
+.figura svg { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; color: var(--text); }
+.figura figcaption { text-align: center; font-size: 0.85rem; color: var(--text-soft); margin-top: 0.4rem; }
+.taula-repte { border-collapse: collapse; margin: 0.8rem 0; font-size: 0.95rem; width: 100%; max-width: 560px; }
+.taula-repte th, .taula-repte td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
+.taula-repte th { background: var(--bg-subtle); font-weight: 600; }
+.taula-repte td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.swatch { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; vertical-align: -0.05em; margin-right: 0.35em; border: 1px solid rgba(0,0,0,0.25); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
+.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+.exercise-card .ex-steps { margin: 0.6rem 0; }
+.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+.exercise-card .ex-final::before { content: "Result"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">
+<meta property="og:title" content="Challenge 1: the Àgora mural — Maths challenges — 4t ESO">
+<meta property="og:description" content="4t ESO notes, 2026-27: Challenge 1, a mural for the neighbourhood community centre. Edges with Pythagoras, scale, areas, centring on the wall, paint cans and percentages, with solutions.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Challenge 1: the Àgora mural — Maths challenges — 4t ESO">
+<meta name="twitter:description" content="4t ESO notes, 2026-27: Challenge 1, a mural for the neighbourhood community centre. Edges with Pythagoras, scale, areas, centring on the wall, paint cans and percentages, with solutions.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"4t ESO","item":"https://alexreyes.es/en/docencia/eso-4/"},{"@type":"ListItem","position":4,"name":"Challenges","item":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/"},{"@type":"ListItem","position":5,"name":"01 · Challenge 1","item":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html"}]},{"@type":"LearningResource","name":"01 · Challenge 1","url":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"4t ESO notes, 2026-27: Challenge 1, a mural for the neighbourhood community centre. Edges with Pythagoras, scale, areas, centring on the wall, paint cans and percentages, with solutions."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/eso-4/">4t ESO</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/eso-4/apuntes/2627-u-reptes/">Challenges</a>
+      <span class="sep">/</span>
+      <span class="current">01 · Challenge 1</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">4t ESO &middot; Maths challenges</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">14 Sep 2026</span>
+      </div>
+      <h1 style="margin:0">Challenge 1: the Àgora mural</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">A mural for the neighbourhood day centre: edges, scale, areas, paint cans and percentages. With solutions.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+      <h2>The problem</h2>
+      <p>Today my team has been given a new challenge we are really excited about: the neighbourhood community association has asked us whether we can paint a mural on the wall of the new day centre for the elderly. The coordinator has sent us the design and asked us how much paint of each colour we need. The budget is tight, so she wants us to be as accurate as possible.</p><p>To be honest, we need help.</p>
+      <figure class="figura"><svg viewBox="0 0 470 390" role="img" aria-label="Design of the ÀGORA mural with the edges numbered" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif"><defs><marker id="fl" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="currentColor" stroke-width="1.5"/></marker></defs><rect x="40" y="220.0" width="120" height="120" fill="#e91ee9"/><polygon points="40,340.0 160,340.0 100,220.0" fill="#1d1de0"/><path d="M160,220.0 A60,60 0 0,1 160,340.0 Z" fill="#a9c3f2"/><path d="M280,220.0 A60,60 0 0,0 280,340.0 Z" fill="#9a1ff0"/><polygon points="280,220.0 280,340.0 370.0,340.0" fill="#a9c3f2"/><polygon points="280,220.0 370.0,220.0 370.0,340.0" fill="#e91ee9"/><rect x="280" y="70.0" width="90" height="150" fill="#9a1ff0"/><text x="145.0" y="184.0" text-anchor="middle" font-size="34" font-weight="800" letter-spacing="3" fill="currentColor" stroke="currentColor" stroke-width="0.6">ÀGORA</text><text x="100" y="358.0" text-anchor="middle" font-size="12" fill="currentColor">2 cm</text><line x1="160" y1="348.0" x2="280" y2="348.0" stroke="currentColor" stroke-width="1" fill="none" marker-start="url(#fl)" marker-end="url(#fl)"/><text x="220" y="364.0" text-anchor="middle" font-size="12" fill="currentColor">2 cm</text><text x="325.0" y="358.0" text-anchor="middle" font-size="12" fill="currentColor">1,5 cm</text><line x1="384.0" y1="70.0" x2="384.0" y2="340.0" stroke="currentColor" stroke-width="1" fill="none" marker-start="url(#fl)" marker-end="url(#fl)"/><text x="392.0" y="209.0" font-size="12" fill="currentColor">4,5 cm</text><circle cx="26" cy="280.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="26" y="284.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">1</text><circle cx="148" cy="259.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="148" y="263.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">1</text><circle cx="292" cy="259.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="292" y="263.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">1</text><circle cx="63.0" cy="274.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="63.0" y="278.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">2</text><circle cx="137.0" cy="274.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="137.0" y="278.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">2</text><circle cx="70.0" cy="207.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="70.0" y="211.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">3</text><circle cx="130.0" cy="207.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="130.0" y="211.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">3</text><circle cx="327.0" cy="270.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="327.0" y="274.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">4</text><circle cx="325.0" cy="57.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="325.0" y="61.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">5</text><circle cx="325.0" cy="207.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="325.0" y="211.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">5</text><circle cx="266" cy="145.0" r="9" fill="var(--bg, #fff)" stroke="#dc2626" stroke-width="1.5"/><text x="266" y="149.0" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">6</text></svg><figcaption>The design the coordinator sent us. The red numbers are the edges referred to in the solution.</figcaption></figure>
+      <div class="def-box">
+      <h3>Notes</h3><ol>
+      <li>The planned scale is that $1$ cm on the drawing is $75$ cm in real life.</li><li>The real wall is $6$ m long and $5$ m high.</li><li>The drawing must be perfectly centred.</li><li>Each spray can holds $200$ ml of paint and covers about $1{,}5\ \text{m}^2$. Each <span class="swatch" style="background:#9a1ff0"></span>purple can costs €$4{,}58$, each <span class="swatch" style="background:#e91ee9"></span>pink can €$4{,}00$, each <span class="swatch" style="background:#a9c3f2"></span>light blue can €$4{,}25$ and each <span class="swatch" style="background:#1d1de0"></span>dark blue can €$4{,}40$.</li><li>The letters do not count: we already have black paint.</li>
+      </ol></div>
+      <p class="note"><strong>Guidelines.</strong> We want complete calculations, using the appropriate combined operations. Any decimals are rounded to two decimal places. It matters that what we are doing can be understood.</p>
+      </div>
+      <div class="apunt-section">
+      <h2>Our plan</h2>
+      <p>All this looks complicated, so we have made an outline of the steps we will follow. We will need to revise Pythagoras' theorem, similarity, some areas and perhaps percentages.</p>
+      <ol>
+      <li>Work out every edge missing from the design. The design measurements are not real ones: we need to calculate.</li><li>Convert the drawing measurements into real ones and sketch it.</li><li>Work out the areas to know the square metres of each colour.</li><li>Work out exactly where the design goes so that it is centred on the wall.</li><li>With the square metres, order exactly the paint cans we need, using combined operations that can be followed: when money is involved, the coordinator wants it clear.</li><li>What percentage of the whole wall does each colour cover?</li><li>Which maths concepts did we use in each question?</li>
+      </ol></div>
+      <div class="apunt-section">
+      <h2>1. The missing edges</h2>
+      <div class="exercise-card"><span class="ex-label">Edge 1</span><div class="ex-steps"><p>It is the side of the left square, which is given. It is also the diameter of both semicircles and the height of the right square.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Edge 1: $2$ cm</p></div></div>
+      <div class="exercise-card"><span class="ex-label">Edge 3</span><div class="ex-steps"><p>The top vertex of the dark blue triangle is at the midpoint of the top side of the square, which splits it in two halves:</p><div class="math-block">$$\dfrac{2}{2} = 1 \text{ cm}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Edge 3: $1$ cm</p></div></div>
+      <div class="exercise-card"><span class="ex-label">Edge 2</span><div class="ex-steps"><p>It is the hypotenuse of a right triangle with legs $2$ cm (the height of the square) and $1$ cm (edge 3). Pythagoras:</p><div class="math-block">$$x^2 = 2^2 + 1^2 = 5 \;\Longrightarrow\; x = \sqrt{5} \approx 2{,}24 \text{ cm}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Edge 2: $2{,}24$ cm</p></div></div>
+      <div class="exercise-card"><span class="ex-label">Edge 4</span><div class="ex-steps"><p>It is the diagonal of the right-hand rectangle, the hypotenuse of a right triangle with legs $1{,}5$ cm and $2$ cm:</p><div class="math-block">$$y^2 = 1{,}5^2 + 2^2 = 2{,}25 + 4 = 6{,}25 \;\Longrightarrow\; y = \sqrt{6{,}25} = 2{,}5 \text{ cm}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Edge 4: $2{,}5$ cm</p></div></div>
+      <div class="exercise-card"><span class="ex-label">Edge 5</span><div class="ex-steps"><p>It is the width of the right-hand column, which is given.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Edge 5: $1{,}5$ cm</p></div></div>
+      <div class="exercise-card"><span class="ex-label">Edge 6</span><div class="ex-steps"><p>The right-hand column is $4{,}5$ cm high and the rectangle underneath is $2$ cm:</p><div class="math-block">$$4{,}5 - 2 = 2{,}5 \text{ cm}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Edge 6: $2{,}5$ cm</p></div></div>
+      </div>
+      <div class="apunt-section">
+      <h2>2. The real measurements</h2>
+      <p>Each centimetre on the drawing is $75$ cm on the wall: we multiply each edge by $75$ and convert to metres.</p>
+      <table class="taula-repte"><thead><tr><th>Edge</th><th>Drawing (cm)</th><th>Calculation</th><th>Real</th></tr></thead><tbody>
+      <tr><td>1</td><td class="num">$2$</td><td>$2 \cdot 75 = 150 \text{ cm}$</td><td class="num">$1{,}5 \text{ m}$</td></tr>
+      <tr><td>2</td><td class="num">$2{,}24$</td><td>$2{,}24 \cdot 75 = 168 \text{ cm}$</td><td class="num">$1{,}68 \text{ m}$</td></tr>
+      <tr><td>3</td><td class="num">$1$</td><td>$1 \cdot 75 = 75 \text{ cm}$</td><td class="num">$0{,}75 \text{ m}$</td></tr>
+      <tr><td>4</td><td class="num">$2{,}5$</td><td>$2{,}5 \cdot 75 = 187{,}5 \text{ cm}$</td><td class="num">$1{,}88 \text{ m}$</td></tr>
+      <tr><td>5</td><td class="num">$1{,}5$</td><td>$1{,}5 \cdot 75 = 112{,}5 \text{ cm}$</td><td class="num">$1{,}13 \text{ m}$</td></tr>
+      <tr><td>6</td><td class="num">$2{,}5$</td><td>$2{,}5 \cdot 75 = 187{,}5 \text{ cm}$</td><td class="num">$1{,}88 \text{ m}$</td></tr>
+      </tbody></table>
+      <p class="note">The radius of the semicircles is half of edge 1: $0{,}75$ m.</p>
+      </div>
+      <div class="apunt-section">
+      <h2>3. The square metres of each colour</h2>
+      <div class="exercise-card"><span class="ex-label"><span class="swatch" style="background:#e91ee9"></span>Pink</span><div class="ex-steps"><p>In the left square, the two pink corners add up to half of the $1{,}5$ m square. In the right-hand rectangle there is a right triangle with legs $1{,}5$ m and $1{,}13$ m.</p><div class="math-block">$$1{,}5 \cdot 0{,}75 + \dfrac{1{,}5 \cdot 1{,}13}{2} \approx 1{,}97 \text{ m}^2$$</div></div><div class="ex-final"><div class="math-block">$$1{,}97 \text{ m}^2$$</div></div></div>
+      <div class="exercise-card"><span class="ex-label"><span class="swatch" style="background:#9a1ff0"></span>Purple</span><div class="ex-steps"><p>A semicircle of radius $0{,}75$ m and the top rectangle, $1{,}13$ m by $1{,}88$ m.</p><div class="math-block">$$\dfrac{\pi \cdot 0{,}75^2}{2} + 1{,}13 \cdot 1{,}88 \approx 3{,}01 \text{ m}^2$$</div></div><div class="ex-final"><div class="math-block">$$3{,}01 \text{ m}^2$$</div></div></div>
+      <div class="exercise-card"><span class="ex-label"><span class="swatch" style="background:#1d1de0"></span>Dark blue</span><div class="ex-steps"><p>The triangle in the left square: base $1{,}5$ m and height $1{,}5$ m.</p><div class="math-block">$$\dfrac{1{,}5 \cdot 1{,}5}{2} \approx 1{,}13 \text{ m}^2$$</div></div><div class="ex-final"><div class="math-block">$$1{,}13 \text{ m}^2$$</div></div></div>
+      <div class="exercise-card"><span class="ex-label"><span class="swatch" style="background:#a9c3f2"></span>Light blue</span><div class="ex-steps"><p>The other semicircle, radius $0{,}75$ m, and the triangle below the diagonal, legs $1{,}5$ m and $1{,}13$ m.</p><div class="math-block">$$\dfrac{\pi \cdot 0{,}75^2}{2} + \dfrac{1{,}5 \cdot 1{,}13}{2} \approx 1{,}73 \text{ m}^2$$</div></div><div class="ex-final"><div class="math-block">$$1{,}73 \text{ m}^2$$</div></div></div>
+      </div>
+      <div class="apunt-section">
+      <h2>4. Centring the mural on the wall</h2>
+      <div class="exercise-card"><span class="ex-label">Horizontal margin</span><div class="ex-steps"><p>The drawing is $2 + 2 + 1{,}5 = 5{,}5$ cm wide. Using the scale as a conversion factor:</p><div class="math-block">$$5{,}5 \text{ cm} \cdot \dfrac{75 \text{ cm}}{1 \text{ cm}} = 412{,}5 \text{ cm} \approx 4{,}13 \text{ m}$$</div><p>The wall is $6$ m long: what is left over is shared between both sides.</p><div class="math-block">$$\dfrac{6 - 4{,}13}{2} \approx 0{,}94 \text{ m}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$0{,}94$ m margin on the left and on the right</p></div></div>
+      <div class="exercise-card"><span class="ex-label">Vertical margin</span><div class="ex-steps"><p>The drawing is $4{,}5$ cm high:</p><div class="math-block">$$4{,}5 \text{ cm} \cdot \dfrac{75 \text{ cm}}{1 \text{ cm}} = 337{,}5 \text{ cm} \approx 3{,}38 \text{ m}$$</div><div class="math-block">$$\dfrac{5 - 3{,}38}{2} = 0{,}81 \text{ m}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$0{,}81$ m margin at the top and at the bottom</p></div></div>
+      <figure class="figura"><svg viewBox="0 0 400 300" role="img" aria-label="The 6 m by 5 m wall with the mural centred and the margins" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" style="max-width:420px"><defs><marker id="fr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#dc2626" stroke-width="1.5"/></marker></defs><rect x="50" y="20" width="300" height="250" fill="none" stroke="#f59e0b" stroke-width="2"/><rect x="96.875" y="60.625" width="206.25" height="168.75" fill="rgba(154,31,240,0.15)" stroke="currentColor" stroke-dasharray="4 3"/><text x="200.0" y="149.0" text-anchor="middle" font-size="12" fill="currentColor">4,13 m × 3,38 m</text><line x1="50" y1="175.0" x2="96.875" y2="175.0" stroke="#dc2626" marker-start="url(#fr)" marker-end="url(#fr)"/><text x="73.4375" y="169.0" text-anchor="middle" font-size="11" fill="#dc2626">0,94 m</text><line x1="303.125" y1="175.0" x2="350" y2="175.0" stroke="#dc2626" marker-start="url(#fr)" marker-end="url(#fr)"/><text x="326.5625" y="169.0" text-anchor="middle" font-size="11" fill="#dc2626">0,94 m</text><line x1="200.0" y1="20" x2="200.0" y2="60.625" stroke="#dc2626" marker-start="url(#fr)" marker-end="url(#fr)"/><text x="206.0" y="44.3125" font-size="11" fill="#dc2626">0,81 m</text><line x1="200.0" y1="229.375" x2="200.0" y2="270" stroke="#dc2626" marker-start="url(#fr)" marker-end="url(#fr)"/><text x="206.0" y="253.6875" font-size="11" fill="#dc2626">0,81 m</text><text x="200.0" y="288" text-anchor="middle" font-size="12" fill="#b45309">6 m</text><text x="358" y="149.0" font-size="12" fill="#b45309">5 m</text></svg><figcaption>The mural centred on the 6 m × 5 m wall.</figcaption></figure>
+      </div>
+      <div class="apunt-section">
+      <h2>5. The paint cans</h2>
+      <p>Each can covers $1{,}5\ \text{m}^2$. We use this as a conversion factor and always round <strong>up</strong>: you cannot buy part of a can, and if we run short the mural is left unfinished.</p>
+      <div class="exercise-card"><span class="ex-label"><span class="swatch" style="background:#e91ee9"></span>Pink</span><div class="ex-steps"><div class="math-block">$$1{,}97 \text{ m}^2 \cdot \dfrac{1 \text{ can}}{1{,}5 \text{ m}^2} \approx 1{,}31 \text{ cans}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">2 cans</p></div></div>
+      <div class="exercise-card"><span class="ex-label"><span class="swatch" style="background:#9a1ff0"></span>Purple</span><div class="ex-steps"><div class="math-block">$$3{,}01 \text{ m}^2 \cdot \dfrac{1 \text{ can}}{1{,}5 \text{ m}^2} \approx 2{,}01 \text{ cans}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">3 cans</p></div></div>
+      <div class="exercise-card"><span class="ex-label"><span class="swatch" style="background:#1d1de0"></span>Dark blue</span><div class="ex-steps"><div class="math-block">$$1{,}13 \text{ m}^2 \cdot \dfrac{1 \text{ can}}{1{,}5 \text{ m}^2} \approx 0{,}75 \text{ cans}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">1 can</p></div></div>
+      <div class="exercise-card"><span class="ex-label"><span class="swatch" style="background:#a9c3f2"></span>Light blue</span><div class="ex-steps"><div class="math-block">$$1{,}73 \text{ m}^2 \cdot \dfrac{1 \text{ can}}{1{,}5 \text{ m}^2} \approx 1{,}15 \text{ cans}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">2 cans</p></div></div>
+      <p class="note">Purple shows why we round up: $2{,}01$ cans means two are not enough, however small the shortfall.</p>
+      <div class="exercise-card"><span class="ex-label">Total cost</span><div class="ex-steps"><p>With the prices in note 4, in a single combined operation:</p><div class="math-block">$$2 \cdot 4{,}00 + 3 \cdot 4{,}58 + 1 \cdot 4{,}40 + 2 \cdot 4{,}25 = 8{,}00 + 13{,}74 + 4{,}40 + 8{,}50 = 34{,}64 \text{ euros}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">€$34{,}64$ on paint</p></div></div>
+      </div>
+      <div class="apunt-section">
+      <h2>6. Percentage of each colour</h2>
+      <p>The wall is $5 \cdot 6 = 30\ \text{m}^2$. We divide the area of each colour by the total area and multiply by $100$.</p>
+      <table class="taula-repte"><thead><tr><th>Colour</th><th>Calculation</th><th>%</th></tr></thead><tbody>
+      <tr><td><span class="swatch" style="background:#e91ee9"></span>Pink</td><td>$\dfrac{1{,}97}{30} \cdot 100$</td><td class="num">$6{,}57\ \%$</td></tr>
+      <tr><td><span class="swatch" style="background:#9a1ff0"></span>Purple</td><td>$\dfrac{3{,}01}{30} \cdot 100$</td><td class="num">$10{,}03\ \%$</td></tr>
+      <tr><td><span class="swatch" style="background:#1d1de0"></span>Dark blue</td><td>$\dfrac{1{,}13}{30} \cdot 100$</td><td class="num">$3{,}77\ \%$</td></tr>
+      <tr><td><span class="swatch" style="background:#a9c3f2"></span>Light blue</td><td>$\dfrac{1{,}73}{30} \cdot 100$</td><td class="num">$5{,}77\ \%$</td></tr>
+      </tbody></table>
+      </div>
+      <div class="apunt-section">
+      <h2>7. The concepts in each question</h2>
+      <table class="taula-repte"><thead><tr><th>Question</th><th>Concept</th></tr></thead><tbody>
+      <tr><td>1</td><td>Pythagoras, plane figures</td></tr>
+      <tr><td>2</td><td>Scales, similarity</td></tr>
+      <tr><td>3</td><td>Areas of plane figures</td></tr>
+      <tr><td>4</td><td>Arithmetic</td></tr>
+      <tr><td>5</td><td>Conversion factors</td></tr>
+      <tr><td>6</td><td>Percentages</td></tr>
+      </tbody></table>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/eso-4/apuntes/2627-u-reptes/">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

@@ -384,7 +384,13 @@ SUBJ_4ESO = {
     ],
     "year_current": "2026–27",
     "materia_filter": "eso-4",
-    "units": [],
+    "units": [
+                {"num":"01","slug":"reptes","title":"Reptes matemàtics",
+                 "desc_l":{"ca":"Problemes de context real que demanen combinar Pitàgores, escales, àrees, factors de conversió i percentatges.",
+                           "es":"Problemas de contexto real que piden combinar Pitágoras, escalas, áreas, factores de conversión y porcentajes.",
+                           "en":"Real-context problems that combine Pythagoras, scales, areas, conversion factors and percentages."},
+                 "apunts":"/aula/eso-4/apuntes/2627-u-reptes/"},
+    ],
     "archived_years": [],
 }
 
