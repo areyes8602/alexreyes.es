@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survival laboratory — Maths challenges — 3r ESO</title>
+<meta name="description" content="3r ESO notes, 2026-27: the Survival laboratory, three challenges to revise 2n ESO (base areas, volumes, litres, percentages and an equation), with solutions.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p, .def-box li { margin: 0.4rem 0; }
+.def-box ol, .def-box ul { margin: 0.4rem 0; padding-left: 1.3rem; }
+.figura { margin: 1.2rem 0; overflow-x: auto; }
+.figura svg { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; color: var(--text); }
+.figura figcaption { text-align: center; font-size: 0.85rem; color: var(--text-soft); margin-top: 0.4rem; }
+.taula-repte { border-collapse: collapse; margin: 0.8rem 0; font-size: 0.95rem; width: 100%; max-width: 560px; }
+.taula-repte th, .taula-repte td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
+.taula-repte th { background: var(--bg-subtle); font-weight: 600; }
+.taula-repte td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.swatch { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; vertical-align: -0.05em; margin-right: 0.35em; border: 1px solid rgba(0,0,0,0.25); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.pregunta-enunciat { font-size: 1rem; margin: 0.5rem 0 1rem; }
+.apunt-section .solution { padding: 1.2rem 1.3rem; }
+.exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
+.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+.exercise-card .ex-steps { margin: 0.6rem 0; }
+.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+.exercise-card .ex-final::before { content: "Result"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+
+.moduls { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+.modul { border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem; background: var(--bg-subtle); text-align: center; }
+.modul svg { display: block; width: 100%; max-width: 150px; height: auto; margin: 0 auto 0.4rem; color: var(--text); }
+.modul h3 { font-size: 0.92rem; margin: 0.2rem 0; }
+.modul p { font-size: 0.82rem; color: var(--text-soft); margin: 0.15rem 0; }
+.barra { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); margin: 0.6rem 0 0.3rem; font-size: 0.78rem; }
+.barra span { display: flex; align-items: center; justify-content: center; color: #fff; white-space: nowrap; }
+.barra .ocupat { background: #6366f1; }
+.barra .lliure { background: #10b981; }
+.prova { border: 1px dashed var(--border-strong, var(--border)); border-radius: 8px; padding: 0.9rem 1.1rem; margin: 0.8rem 0 1rem; background: var(--bg-subtle); }
+.prova label { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 0.4rem; }
+.prova input[type=range] { width: 100%; max-width: 420px; }
+.prova .lectura { font-family: var(--mono); font-size: 0.95rem; margin-top: 0.4rem; }
+.prova .lectura b { font-size: 1.05rem; }
+.prova .estat { font-size: 0.85rem; margin-top: 0.2rem; color: var(--text-soft); }
+.prova .estat.ok { color: #059669; font-weight: 600; }
+.repte-titol { font-size: 1.35rem; margin: 2.8rem 0 0.4rem; }
+.solution table.taula-repte { font-family: inherit; font-size: 0.92rem; max-width: 600px; }
+.solution .taula-repte th { text-align: left; }
+.solution .taula-repte td { text-align: left; color: var(--text); }
+.solution .taula-repte td.num { text-align: right; }
+details.previs { margin: 1rem 0; border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 1rem; }
+details.previs summary { cursor: pointer; font-weight: 600; }
+details.previs ol { margin: 0.5rem 0; padding-left: 1.3rem; font-size: 0.93rem; }
+details.previs ol ol { list-style: lower-alpha; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html">
+<meta property="og:title" content="Survival laboratory — Maths challenges — 3r ESO">
+<meta property="og:description" content="3r ESO notes, 2026-27: the Survival laboratory, three challenges to revise 2n ESO (base areas, volumes, litres, percentages and an equation), with solutions.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Survival laboratory — Maths challenges — 3r ESO">
+<meta name="twitter:description" content="3r ESO notes, 2026-27: the Survival laboratory, three challenges to revise 2n ESO (base areas, volumes, litres, percentages and an equation), with solutions.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"3r ESO","item":"https://alexreyes.es/en/docencia/eso-3/"},{"@type":"ListItem","position":4,"name":"Challenges","item":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/"},{"@type":"ListItem","position":5,"name":"01 · Survival laboratory","item":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html"}]},{"@type":"LearningResource","name":"01 · Survival laboratory","url":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"3r ESO notes, 2026-27: the Survival laboratory, three challenges to revise 2n ESO (base areas, volumes, litres, percentages and an equation), with solutions."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-3/apuntes/2627-u-reptes/01-laboratori-supervivencia.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/eso-3/">3r ESO</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/eso-3/apuntes/2627-u-reptes/">Challenges</a>
+      <span class="sep">/</span>
+      <span class="current">01 · Survival laboratory</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">3r ESO &middot; Maths challenges</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">23 Sep 2026</span>
+      </div>
+      <h1 style="margin:0">Survival laboratory</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Revising 2n ESO: rebuilding an Arctic base with base areas, volumes, litres, percentages and an equation. Each task has its solution hidden underneath.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin:0 0 0.5rem"><a href="/aula/eso-3/apuntes/2627-u-reptes/laboratori-supervivencia-enunciat.pdf" class="pdf-download" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><polyline points="9 15 12 18 15 15"/></svg> Download the problem sheet (PDF, in Catalan)</a></div>
+      <div class="apunt-section">
+      <h2>The situation</h2>
+      <p>Headquarters has been told that a huge storm has damaged the research base in the Arctic. Luckily, the rescue team from our bases in the area managed to rescue the scientists who were working there, and they are expected to recover. You are the new team who must rebuild the laboratory, carry on with their research and keep yourselves safe.</p><p>You have limited resources, extreme conditions and very little time to make critical decisions. You will have to calculate, plan, optimise and justify every step with scientific and mathematical rigour.</p>
+      <p class="note"><strong>Note.</strong> All calculations are rounded to two decimal places.</p>
+      <details class="previs"><summary>Prior knowledge</summary><ol>
+      <li>Geometry and measurement: areas of plane figures (square, rectangle, triangle, circle); base area of solids; volumes: prism $V = A_{\text{base}} \cdot h$, cylinder $V = \pi r^2 h$, pyramid $V = \frac{1}{3} A_{\text{base}} \cdot h$.</li><li>Units: length, area and volume units, and how they relate to litres: $1\ \text{dm}^3 = 1$ L and $1\ \text{m}^3 = 1000$ L.</li><li>Arithmetic and proportion: rule of three, percentages and operations with decimals and with $\pi$.</li><li>Equations: turning a statement into an equation, solving for the unknown (for example $a^2 = 12$) and square roots.</li><li>Context: interpreting the results (litres, days, free space) and checking that they make sense.</li>
+      </ol></details>
+      </div>
+      <h2 class="repte-titol">Challenge 1: Designing the research camp</h2>
+      <div class="apunt-section" style="margin-top:0.6rem">
+      <p>We realise that every module is unusable, although most of the furniture and materials inside can be reused. We have to redesign the camp and, given the urgency, these are the only modules we have:</p>
+      <div class="moduls"><div class="modul"><svg viewBox="0 0 150 150" aria-hidden="true" font-family="Inter, sans-serif" font-size="11" fill="currentColor"><polygon points="40,40 90,40 110,25 60,25" fill="#6366f1" fill-opacity=".35" stroke="currentColor"/><polygon points="40,40 90,40 90,125 40,125" fill="#6366f1" fill-opacity=".55" stroke="currentColor"/><polygon points="90,40 110,25 110,110 90,125" fill="#6366f1" fill-opacity=".75" stroke="currentColor"/><text x="65" y="140" text-anchor="middle">2,5 m</text><text x="118" y="75">6 m</text><text x="104" y="130">2,5</text></svg><h3>Square-based prism</h3><p>2,5 × 2,5 × 6 m</p><p><strong>Buildings</strong></p></div><div class="modul"><svg viewBox="0 0 150 150" aria-hidden="true" font-family="Inter, sans-serif" font-size="11" fill="currentColor"><path d="M42.6,36 L42.6,121.0 A32.4,10 0 0,0 107.4,121.0 L107.4,36" fill="#0ea5e9" fill-opacity=".55" stroke="currentColor"/><ellipse cx="75" cy="36" rx="32.4" ry="10" fill="#0ea5e9" fill-opacity=".35" stroke="currentColor"/><line x1="75" y1="36" x2="107.4" y2="36" stroke="currentColor" stroke-dasharray="3 2"/><text x="91.2" y="22" text-anchor="middle">r = 1,2</text><text x="111.4" y="82.5">2,5 m</text></svg><h3>Large cylinder</h3><p>radius 1.2 m · height 2.5 m</p><p><strong>Drinking water</strong></p></div><div class="modul"><svg viewBox="0 0 150 150" aria-hidden="true" font-family="Inter, sans-serif" font-size="11" fill="currentColor"><polygon points="25,115 95,115 125,95 55,95" fill="#f59e0b" fill-opacity=".3" stroke="currentColor"/><polygon points="25,115 95,115 75,30" fill="#f59e0b" fill-opacity=".55" stroke="currentColor"/><polygon points="95,115 125,95 75,30" fill="#f59e0b" fill-opacity=".75" stroke="currentColor"/><line x1="75" y1="30" x2="75" y2="105" stroke="currentColor" stroke-dasharray="3 2"/><text x="60" y="132" text-anchor="middle">3,5 m</text><text x="80" y="75">2,5 m</text></svg><h3>Square-based pyramid</h3><p>3,5 × 3,5 × 2,5 m</p><p><strong>Fuel · recyclable waste</strong></p></div><div class="modul"><svg viewBox="0 0 150 150" aria-hidden="true" font-family="Inter, sans-serif" font-size="11" fill="currentColor"><path d="M45,36 L45,112 A30,10 0 0,0 105,112 L105,36" fill="#10b981" fill-opacity=".55" stroke="currentColor"/><ellipse cx="75" cy="36" rx="30" ry="10" fill="#10b981" fill-opacity=".35" stroke="currentColor"/><line x1="75" y1="36" x2="105" y2="36" stroke="currentColor" stroke-dasharray="3 2"/><text x="90.0" y="22" text-anchor="middle">r = 1</text><text x="109" y="78.0">2 m</text></svg><h3>Small cylinder</h3><p>radius 1 m · height 2 m</p><p><strong>Organic waste · general waste</strong></p></div></div>
+      <p>For now there will be <strong>12 people</strong> at the camp, and the total area available is <strong>300 m²</strong>. We need:</p>
+      <div class="def-box"><h3>Modules for the camp buildings</h3><ul><li>1 sleeping module for every 3 people.</li><li>1 kitchen module.</li><li>1 laboratory module for every 4 people.</li><li>1 storage module for every 6 people.</li></ul><h3 style="margin-top:0.8rem">Extra modules in total</h3><ul><li>1 drinking water module.</li><li>1 fuel module.</li><li>1 organic waste module.</li><li>1 general waste module.</li><li>1 recyclable waste module.</li></ul></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task 1. Do all the modules fit?</h3><p class="pregunta-enunciat">Before going on, check whether all these modules can be placed in the camp; if not, some things will have to go. <strong>Step 1:</strong> work out how many modules of each type you need. <strong>Step 2:</strong> work out the base area of each one. <strong>Step 3:</strong> find the total area and whether they all fit.</p><button class="solution-toggle" data-toggles="sol-r1-1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r1-1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r1-1" hidden><div class="exercise-card"><span class="ex-label">Step 1</span><div class="ex-steps"><p>Building modules (prisms), for 12 people:</p><div class="math-block">$$\text{Sleeping: } 12 : 3 = 4 \quad \text{Kitchen: } 1 \quad \text{Lab: } 12 : 4 = 3 \quad \text{Storage: } 12 : 6 = 2$$</div><div class="math-block">$$4 + 1 + 3 + 2 = 10 \text{ prisms}$$</div><p>Extras: 1 large cylinder (water), 2 pyramids (fuel and recyclables) and 2 small cylinders (organic and general waste).</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">10 prisms + 1 large cylinder + 2 pyramids + 2 small cylinders = 15 modules</p></div></div><div class="exercise-card"><span class="ex-label">Step 2</span><div class="ex-steps"><p>The base of the prisms and pyramids is a square ($\ell^2$) and that of the cylinders is a circle ($\pi r^2$):</p><table class="taula-repte"><thead><tr><th>Number</th><th>Shape</th><th>Base area (m²)</th><th>Subtotal (m²)</th></tr></thead><tbody><tr><td class="num">10</td><td>Square-based prism</td><td>$2{,}5^2 = 6{,}25$</td><td class="num">$62{,}50$</td></tr><tr><td class="num">1</td><td>Large cylinder</td><td>$\pi \cdot 1{,}2^2 \approx 4{,}52$</td><td class="num">$4{,}52$</td></tr><tr><td class="num">2</td><td>Square-based pyramid</td><td>$3{,}5^2 = 12{,}25$</td><td class="num">$24{,}50$</td></tr><tr><td class="num">2</td><td>Small cylinder</td><td>$\pi \cdot 1^2 \approx 3{,}14$</td><td class="num">$6{,}28$</td></tr></tbody></table></div></div><div class="exercise-card"><span class="ex-label">Step 3</span><div class="ex-steps"><div class="math-block">$$62{,}50 + 4{,}52 + 24{,}50 + 6{,}28 = 97{,}80\text{ m}^2$$</div><p>That is far less than the $300\ \text{m}^2$ available.</p><p class="note">If the cylinder bases are only rounded at the end, the total is $97{,}81\ \text{m}^2$.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">The modules take up $97{,}80\ \text{m}^2$: they all fit.</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task 2. Free space</h3><p class="pregunta-enunciat">Work out what percentage of the camp is left free of modules. For safety it must be more than 30&nbsp;%. Is it?</p><button class="solution-toggle" data-toggles="sol-r1-2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r1-2')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r1-2" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$300 - 97{,}80 = 202{,}20\text{ m}^2$$</div><div class="math-block">$$\dfrac{202{,}20}{300} \cdot 100 = 67{,}40\ \%$$</div><div class="barra" role="img" aria-label="32,60 % / 67,40 %"><span class="ocupat" style="width:32.6%">32,60 %</span><span class="lliure" style="width:67.4%">free 67.40 %</span></div><p class="note">With $97{,}81\ \text{m}^2$ there are $202{,}19\ \text{m}^2$ free, and the percentage is also $67{,}40\ \%$.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$67{,}40\ \%$ is left free, more than $30\ \%$: the camp is safe.</p></div></div></section>
+      </div>
+      <h2 class="repte-titol">Challenge 2: Checking capacities</h2>
+      <div class="apunt-section" style="margin-top:0.6rem">
+      <p>In the middle of the Arctic we must be sure we have enough oxygen if we have to seal ourselves in, enough drinking water, and enough room for waste, which can only be emptied when it is collected. To know the capacity we need the volume of each module, remembering that $1\ \text{dm}^3 = 1$ L.</p>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task 1. The capacity of the modules</h3><p class="pregunta-enunciat">Work out the capacity of the modules, in m³ and in litres.</p><button class="solution-toggle" data-toggles="sol-r2-1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r2-1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r2-1" hidden><div class="exercise-card"><div class="ex-steps"><p>Since $1\ \text{m}^3 = 1000\ \text{dm}^3 = 1000$ L, we multiply by $1000$ to get litres. Volume of each module:</p><table class="taula-repte"><thead><tr><th>Number</th><th>Shape</th><th>Calculation</th><th>Volume (m³)</th><th>Litres</th></tr></thead><tbody><tr><td class="num">10</td><td>Square-based prism</td><td>$2{,}5 \cdot 2{,}5 \cdot 6$</td><td class="num">$37{,}50$</td><td class="num">$37\,500$</td></tr><tr><td class="num">1</td><td>Large cylinder</td><td>$\pi \cdot 1{,}2^2 \cdot 2{,}5$</td><td class="num">$11{,}31$</td><td class="num">$11\,310$</td></tr><tr><td class="num">2</td><td>Square-based pyramid</td><td>$\tfrac{1}{3} \cdot 3{,}5^2 \cdot 2{,}5$</td><td class="num">$10{,}21$</td><td class="num">$10\,210$</td></tr><tr><td class="num">2</td><td>Small cylinder</td><td>$\pi \cdot 1^2 \cdot 2$</td><td class="num">$6{,}28$</td><td class="num">$6\,280$</td></tr></tbody></table><p class="note">A pyramid has a third of the volume of the prism with the same base and height; that is where the $\tfrac{1}{3}$ comes from.</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task 2. The air in the buildings</h3><p class="pregunta-enunciat">How much air is there in the building modules?</p><button class="solution-toggle" data-toggles="sol-r2-2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r2-2')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r2-2" hidden><div class="exercise-card"><div class="ex-steps"><p>The buildings are the 10 prisms:</p><div class="math-block">$$10 \cdot 37{,}50 = 375\text{ m}^3 = 375\,000 \text{ L}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$375\,000$ L of air</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task 3. Water, fuel and waste</h3><p class="pregunta-enunciat">How much drinking water, fuel and waste of each type can we store?</p><button class="solution-toggle" data-toggles="sol-r2-3" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r2-3')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r2-3" hidden><div class="exercise-card"><div class="ex-steps"><table class="taula-repte"><thead><tr><th>What</th><th>Module</th><th>Capacity</th></tr></thead><tbody><tr><td>Drinking water</td><td>1 large cylinder</td><td class="num">$11\,310$ L</td></tr><tr><td>Fuel</td><td>1 pyramid</td><td class="num">$10\,210$ L</td></tr><tr><td>Recyclable waste</td><td>1 pyramid</td><td class="num">$10\,210$ L</td></tr><tr><td>Organic waste</td><td>1 small cylinder</td><td class="num">$6\,280$ L</td></tr><tr><td>General waste</td><td>1 small cylinder</td><td class="num">$6\,280$ L</td></tr></tbody></table></div></div></section>
+      </div>
+      <h2 class="repte-titol">Challenge 3: Survival</h2>
+      <div class="apunt-section" style="margin-top:0.6rem">
+      <p>Before sending the expedition we must check that we meet the survival requirements.</p>
+      <h3 style="font-size:1.1rem;margin:1.4rem 0 0.3rem">A. Oxygen during a lockdown</h3>
+      <p>In an extreme storm or a chemical leak, the 12 people will have to shut themselves in the building modules, which are connected to each other. We want to know how long they could last on the oxygen without renewing the air.</p><p><strong>Data:</strong> a person at rest needs about $0{,}5$ L of oxygen per minute, and the air we breathe is $21\ \%$ oxygen.</p>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task A1</h3><p class="pregunta-enunciat">Using the data from challenge 2, how much air is there in the 10 modules?</p><button class="solution-toggle" data-toggles="sol-r3-a1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r3-a1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r3-a1" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$10 \cdot 37{,}50 = 375\text{ m}^3 = 375\,000 \text{ L}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$375\,000$ L</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task A2</h3><p class="pregunta-enunciat">How much oxygen is there in that air?</p><button class="solution-toggle" data-toggles="sol-r3-a2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r3-a2')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r3-a2" hidden><div class="exercise-card"><div class="ex-steps"><p>$21\ \%$ of the air is oxygen:</p><div class="math-block">$$0{,}21 \cdot 375\,000 = 78\,750 \text{ L}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$78\,750$ L of oxygen</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task A3</h3><p class="pregunta-enunciat">How much oxygen do the 12 people need every minute?</p><button class="solution-toggle" data-toggles="sol-r3-a3" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r3-a3')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r3-a3" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$12 \cdot 0{,}5 = 6 \text{ L/min}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$6$ L/min</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task A4</h3><p class="pregunta-enunciat">Work out how many minutes we have before the oxygen runs out, and convert it to hours and days.</p><button class="solution-toggle" data-toggles="sol-r3-a4" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r3-a4')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r3-a4" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$\dfrac{78\,750}{6} = 13\,125 \text{ min}$$</div><div class="math-block">$$\dfrac{13\,125}{60} = 218{,}75 \text{ h}$$</div><div class="math-block">$$\dfrac{218{,}75}{24} \approx 9{,}11 \text{ days}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$13\,125$ min $= 218{,}75$ h $\approx 9{,}11$ days</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Task A5</h3><p class="pregunta-enunciat">How many days will they last? Do you think survival depends only on oxygen?</p><button class="solution-toggle" data-toggles="sol-r3-a5" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r3-a5')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r3-a5" hidden><div class="exercise-card"><div class="ex-steps"><p>Going by oxygen, about <strong>9 days</strong>. But it does not depend only on oxygen:</p><ul><li>The <strong>carbon dioxide</strong> we breathe out builds up and becomes dangerous long before the oxygen runs out.</li><li>Furniture and materials take up part of the modules: there is <strong>less air</strong> than the volume we calculated.</li><li>Water, food, heating with the fuel and humidity also matter.</li></ul></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">About 9 days, but the real limit would come sooner.</p></div></div></section>
+      <h3 style="font-size:1.1rem;margin:2rem 0 0.3rem">B. A smaller fuel pyramid</h3>
+      <p class="pregunta-enunciat">We would like to make the fuel pyramid smaller, because we will not need that much and it is an extra hazard. Can you find an equation that gives a new side length for the square base so that the fuel is exactly $10\ \text{m}^3$? The height is still $2{,}5$ m.</p>
+      <div class="prova"><label for="prova-a">Try it: move the side of the base</label><input type="range" id="prova-a" min="2.5" max="4" step="0.01" value="3.5"><div class="lectura">a = <b id="prova-aa">3,50</b> m &nbsp;→&nbsp; V = ⅓ · a² · 2,5 = <b id="prova-v">10,21</b> m³</div><div class="estat" id="prova-estat" data-ok="Almost 10 m³. Now find the exact value with an equation." data-mes="Still more than 10 m³." data-menys="Now it is less than 10 m³."></div></div>
+      <button class="solution-toggle" data-toggles="sol-r3-b" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-r3-b')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-r3-b" hidden><div class="exercise-card"><div class="ex-steps"><p>Volume of a square-based pyramid with side $a$ and height $h$:</p><div class="math-block">$$V = \dfrac{1}{3} \cdot a^2 \cdot h$$</div><p>With $V = 10$ and $h = 2{,}5$, the equation is:</p><div class="math-block">$$\dfrac{1}{3} \cdot a^2 \cdot 2{,}5 = 10$$</div><p>We solve for $a^2$ and take the square root (the side must be positive):</p><div class="math-block">$$a^2 = \dfrac{10 \cdot 3}{2{,}5} = 12 \;\Longrightarrow\; a = \sqrt{12} \approx 3{,}46 \text{ m}$$</div><p class="note">Check: with $a = 3{,}46$ we get $V \approx 9{,}98\ \text{m}^3$; the difference comes from rounding. Notice the side only shrinks by 4 cm, from $3{,}5$ to $3{,}46$ m: the original volume, $10{,}21\ \text{m}^3$, was already very close to 10.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">The side of the base must be $\sqrt{12} \approx 3{,}46$ m.</p></div></div></section>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/eso-3/apuntes/2627-u-reptes/">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script>
+(function(){
+  var r=document.getElementById('prova-a'); if(!r) return;
+  var out=document.getElementById('prova-v'), aa=document.getElementById('prova-aa'), est=document.getElementById('prova-estat');
+  function fmt(x){ return x.toFixed(2).replace('.', ','); }
+  function va(){ var a=parseFloat(r.value), v=a*a*2.5/3; aa.textContent=fmt(a); out.textContent=fmt(v);
+    var d=Math.abs(v-10); est.className='estat'+(d<0.03?' ok':''); est.textContent = d<0.03 ? est.dataset.ok : (v>10 ? est.dataset.mes : est.dataset.menys); }
+  r.addEventListener('input', va); va();
+})();
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>
