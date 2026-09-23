@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>4. Esfera · Cossos de revolució · 2n ESO</title>
-<meta name="description" content="Apunts de l'esfera per a 2n d'ESO: fórmules d'àrea i volum, exemple directe i exemple invers (donada A, trobar r).">
+<title>4. Esfera · Cuerpos de revolución · 2n ESO</title>
+<meta name="description" content="Apuntes de la esfera para 2.º de ESO: fórmulas de área y volumen, ejemplo directo y ejemplo inverso (dada A, hallar r).">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js?v=202609121757"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,10 +32,10 @@
 .example-card .ex-statement { margin: 0.4rem 0 0.8rem; font-size: 0.95rem; }
 .example-card .ex-steps p { margin: 0.4rem 0; font-size: 0.93rem; color: var(--text-soft); }
 .example-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
-.example-card .ex-final::before { content: "Resposta"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.example-card .ex-final::before { content: "Respuesta"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
 .example-card .ex-final p { margin: 0.2rem 0; font-size: 0.94rem; }
 .tip-box { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.6rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.92rem; }
-.tip-box::before { content: "💡 Idea clau"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.tip-box::before { content: "💡 Idea clave"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
 .body-figure { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; padding: 1rem; background: var(--bg-subtle); border-radius: 8px; margin: 1rem 0; }
 .body-figure svg { flex: 0 0 auto; }
 .body-figure .body-text { flex: 1; min-width: 14rem; font-size: 0.92rem; }
@@ -46,27 +46,27 @@
 </style>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/04-esfera.html">
-<meta property="og:title" content="4. Esfera · Cossos de revolució · 2n ESO">
-<meta property="og:description" content="Apunts de l'esfera per a 2n d'ESO: fórmules d'àrea i volum, exemple directe i exemple invers (donada A, trobar r).">
+<meta property="og:title" content="4. Esfera · Cuerpos de revolución · 2n ESO">
+<meta property="og:description" content="Apuntes de la esfera para 2.º de ESO: fórmulas de área y volumen, ejemplo directo y ejemplo inverso (dada A, hallar r).">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="4. Esfera · Cossos de revolució · 2n ESO">
-<meta name="twitter:description" content="Apunts de l'esfera per a 2n d'ESO: fórmules d'àrea i volum, exemple directe i exemple invers (donada A, trobar r).">
+<meta name="twitter:title" content="4. Esfera · Cuerpos de revolución · 2n ESO">
+<meta name="twitter:description" content="Apuntes de la esfera para 2.º de ESO: fórmulas de área y volumen, ejemplo directo y ejemplo inverso (dada A, hallar r).">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Cossos de revolució","item":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/"},{"@type":"ListItem","position":5,"name":"04 · Esfera","item":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/04-esfera.html"}]},{"@type":"LearningResource","name":"04 · Esfera","url":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/04-esfera.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apunts de l'esfera per a 2n d'ESO: fórmules d'àrea i volum, exemple directe i exemple invers (donada A, trobar r)."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Cuerpos de revolución","item":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/"},{"@type":"ListItem","position":5,"name":"04 · Esfera","item":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/04-esfera.html"}]},{"@type":"LearningResource","name":"04 · Esfera","url":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/04-esfera.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apuntes de la esfera para 2.º de ESO: fórmulas de área y volumen, ejemplo directo y ejemplo inverso (dada A, hallar r)."}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#main">Salta al contingut</a>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -91,29 +91,29 @@
       <span class="sep">/</span>
       <a href="/docencia/2eso/">2n ESO</a>
       <span class="sep">/</span>
-      <a href="/aula/eso-2/apuntes/u-cossos-revolucio/">Cossos de revolució</a>
+      <a href="/aula/eso-2/apuntes/u-cossos-revolucio/">Cuerpos de revolución</a>
       <span class="sep">/</span>
       <span class="current">04 · Esfera</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
-        <span class="section-label">2n ESO · Cossos de revolució</span>
-        <span class="tag tag-orange">Apunts</span>
+        <span class="section-label">2n ESO · Cuerpos de revolución</span>
+        <span class="tag tag-orange">Apuntes</span>
         <span class="tag tag-gray" style="font-size:0.7rem">5 mar 2026</span>
       </div>
       <h1 style="margin:0">4. Esfera</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Fórmules d'àrea i volum, i exemple invers (donada $A$, trobar $r$).</p>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Fórmulas de área y volumen, y un ejemplo inverso (dada $A$, hallar $r$).</p>
     </div>
 
     <article class="question-block" style="border:none;padding:0;background:none">
 
       <div class="apunt-section">
-        <h2>Què és una esfera</h2>
+        <h2>Qué es una esfera</h2>
         <div class="def-box">
           <h3>Esfera</h3>
-          <p>Una <strong>esfera</strong> és el cos que s'obté en fer girar un <strong>semicercle</strong> al voltant del seu diàmetre. Tots els seus punts estan a la mateixa distància $r$ del centre.</p>
-          <p>A diferència del cilindre i del con, l'esfera <strong>no té bases ni vèrtexs</strong>: només té una superfície corba contínua.</p>
+          <p>Una <strong>esfera</strong> es el cuerpo que se obtiene al hacer girar un <strong>semicírculo</strong> alrededor de su diámetro. Todos sus puntos están a la misma distancia $r$ del centro.</p>
+          <p>A diferencia del cilindro y del cono, la esfera <strong>no tiene bases ni vértices</strong>: solo tiene una superficie curva continua.</p>
         </div>
 
         <div class="body-figure">
@@ -127,51 +127,51 @@
             <text x="106" y="82" font-size="13" fill="#dc2626" font-weight="600">r</text>
           </svg>
           <div class="body-text">
-            <p style="margin:0 0 0.5rem"><strong>Element:</strong></p>
-            <p style="margin:0.25rem 0">· <span style="color:#dc2626;font-weight:600">$r$</span> = radi (única dada)</p>
-            <p style="margin:0.5rem 0 0;font-size:0.86rem;color:var(--text-faint)">Amb només el radi $r$ ja podem calcular tant l'àrea com el volum.</p>
+            <p style="margin:0 0 0.5rem"><strong>Elemento:</strong></p>
+            <p style="margin:0.25rem 0">· <span style="color:#dc2626;font-weight:600">$r$</span> = radio (único dato)</p>
+            <p style="margin:0.5rem 0 0;font-size:0.86rem;color:var(--text-faint)">Solo con el radio $r$ ya podemos calcular tanto el área como el volumen.</p>
           </div>
         </div>
       </div>
 
       <div class="apunt-section">
-        <h2>Fórmules</h2>
+        <h2>Fórmulas</h2>
 
         <div class="formula-box">
-          <p style="margin:0.2rem 0"><strong>Àrea</strong> de l'esfera:</p>
+          <p style="margin:0.2rem 0"><strong>Área</strong> de la esfera:</p>
           <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
             $$A = 4 \pi r^2$$
           </div>
         </div>
 
         <div class="formula-box">
-          <p style="margin:0.2rem 0"><strong>Volum</strong> de l'esfera:</p>
+          <p style="margin:0.2rem 0"><strong>Volumen</strong> de la esfera:</p>
           <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
             $$V = \dfrac{4}{3} \pi r^3$$
           </div>
         </div>
 
         <div class="tip-box">
-          Mnemotècnic: l'àrea de l'esfera és <strong>4 vegades l'àrea d'un dels seus cercles màxims</strong> ($\pi r^2$). El volum és $\frac{4}{3}\pi r^3$, és a dir, una mica més que el cub que la conté: $\frac{4}{3} \approx 1{,}33$.
+          Truco para recordarlo: el área de la esfera es <strong>4 veces el área de uno de sus círculos máximos</strong> ($\pi r^2$). El volumen es $\frac{4}{3}\pi r^3$, es decir, un poco más que el cubo que la contiene: $\frac{4}{3} \approx 1{,}33$.
         </div>
       </div>
 
       <div class="apunt-section">
-        <h2>Exemple 1 (directe)</h2>
+        <h2>Ejemplo 1 (directo)</h2>
 
         <div class="example-card">
-          <span class="ex-label">Exemple 1</span>
+          <span class="ex-label">Ejemplo 1</span>
           <div class="ex-statement">
-            <p>Calcula l'àrea i el volum d'una esfera de <strong>radi $r = 5$ cm</strong>.</p>
+            <p>Calcula el área y el volumen de una esfera de <strong>radio $r = 5$ cm</strong>.</p>
           </div>
 
           <div class="ex-steps">
-            <p><strong>Àrea:</strong></p>
+            <p><strong>Área:</strong></p>
             <div class="math-block" style="margin:0.3rem 0">
               $$A = 4\pi r^2 = 4\pi \cdot 5^2 = 100\pi \approx 314{,}16 \text{ cm}^2$$
             </div>
 
-            <p><strong>Volum:</strong></p>
+            <p><strong>Volumen:</strong></p>
             <div class="math-block" style="margin:0.3rem 0">
               $$V = \dfrac{4}{3}\pi r^3 = \dfrac{4}{3}\pi \cdot 5^3 = \dfrac{500\pi}{3} \approx 523{,}60 \text{ cm}^3$$
             </div>
@@ -184,22 +184,22 @@
       </div>
 
       <div class="apunt-section">
-        <h2>Exemple 2 (invers)</h2>
+        <h2>Ejemplo 2 (inverso)</h2>
 
         <div class="example-card">
-          <span class="ex-label">Exemple 2</span>
+          <span class="ex-label">Ejemplo 2</span>
           <div class="ex-statement">
-            <p>Una esfera té una àrea de <strong>$A = 50$ cm²</strong>. Calcula'n el radi i el volum.</p>
+            <p>Una esfera tiene un área de <strong>$A = 50$ cm²</strong>. Calcula su radio y su volumen.</p>
           </div>
 
           <div class="ex-steps">
-            <p><strong>1) Trobar $r$ a partir de $A$:</strong> partim de la fórmula i aïllem $r$.</p>
+            <p><strong>1) Hallar $r$ a partir de $A$:</strong> partimos de la fórmula y despejamos $r$.</p>
             <div class="math-block" style="margin:0.3rem 0">
               $$A = 4\pi r^2 \;\Longrightarrow\; r^2 = \dfrac{A}{4\pi} = \dfrac{50}{4\pi}$$
               $$r = \sqrt{\dfrac{50}{4\pi}} \approx \sqrt{3{,}9789} \approx 1{,}994 \text{ cm}$$
             </div>
 
-            <p><strong>2) Volum amb aquest radi:</strong></p>
+            <p><strong>2) Volumen con este radio:</strong></p>
             <div class="math-block" style="margin:0.3rem 0">
               $$V = \dfrac{4}{3}\pi r^3 = \dfrac{4}{3}\pi (1{,}994)^3 \approx \dfrac{4}{3}\pi \cdot 7{,}928$$
               $$V \approx 33{,}21 \text{ cm}^3$$
@@ -212,14 +212,14 @@
         </div>
 
         <div class="tip-box">
-          En els problemes <strong>inversos</strong> sempre fas dos passos: primer aïlles la incògnita ($r$, $h$, $g$…) de la fórmula que coneixes (àrea o volum); després substitueixes a l'altra fórmula per trobar la magnitud que demanen.
+          En los problemas <strong>inversos</strong> siempre haces dos pasos: primero despejas la incógnita ($r$, $h$, $g$…) de la fórmula que conoces (área o volumen); después la sustituyes en la otra fórmula para hallar la magnitud que te piden.
         </div>
       </div>
 
-      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
-        <a class="prev" href="/aula/eso-2/apuntes/u-cossos-revolucio/03-con.html">&larr; Apartat anterior</a>
-        <a class="index" href="/aula/eso-2/apuntes/u-cossos-revolucio/">Índex de la unitat</a>
-        <a class="next" href="/aula/eso-2/apuntes/u-cossos-revolucio/05-exercicis.html">Apartat següent &rarr;</a>
+      <nav class="exam-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/eso-2/apuntes/u-cossos-revolucio/03-con.html">&larr; Apartado anterior</a>
+        <a class="index" href="/aula/eso-2/apuntes/u-cossos-revolucio/">Índice de la unidad</a>
+        <a class="next" href="/aula/eso-2/apuntes/u-cossos-revolucio/05-exercicis.html">Apartado siguiente &rarr;</a>
       </nav>
 
     </article>
@@ -240,5 +240,6 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script defer src="/assets/js/search.js"></script>
 </body>
 </html>
