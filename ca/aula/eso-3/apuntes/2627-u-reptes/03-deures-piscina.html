@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deures: la piscina · Reptes matemàtics · 3r ESO</title>
+<meta name="description" content="Deures de 3r d'ESO, curs 2026-27: quant costa pintar i omplir d'aigua una piscina amb forma de prisma acabat en semicilindre.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p, .def-box li { margin: 0.4rem 0; }
+.def-box ol, .def-box ul { margin: 0.4rem 0; padding-left: 1.3rem; }
+.figura { margin: 1.2rem 0; overflow-x: auto; }
+.figura svg { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; color: var(--text); }
+.figura figcaption { text-align: center; font-size: 0.85rem; color: var(--text-soft); margin-top: 0.4rem; }
+.taula-repte { border-collapse: collapse; margin: 0.8rem 0; font-size: 0.95rem; width: 100%; max-width: 560px; }
+.taula-repte th, .taula-repte td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
+.taula-repte th { background: var(--bg-subtle); font-weight: 600; }
+.taula-repte td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.swatch { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; vertical-align: -0.05em; margin-right: 0.35em; border: 1px solid rgba(0,0,0,0.25); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.pregunta-enunciat { font-size: 1rem; margin: 0.5rem 0 1rem; }
+.apunt-section .solution { padding: 1.2rem 1.3rem; }
+.solution table.taula-repte { font-family: inherit; font-size: 0.92rem; max-width: 600px; }
+.solution .taula-repte th { text-align: left; }
+.solution .taula-repte td { text-align: left; color: var(--text); }
+.solution .taula-repte td.num { text-align: right; }
+.exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
+.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+.exercise-card .ex-steps { margin: 0.6rem 0; }
+.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+.exercise-card .ex-final::before { content: "Resultat"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+
+.moduls { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+.modul { border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem; background: var(--bg-subtle); text-align: center; }
+.modul svg { display: block; width: 100%; max-width: 150px; height: auto; margin: 0 auto 0.4rem; color: var(--text); }
+.modul h3 { font-size: 0.92rem; margin: 0.2rem 0; }
+.modul p { font-size: 0.82rem; color: var(--text-soft); margin: 0.15rem 0; }
+.barra { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); margin: 0.6rem 0 0.3rem; font-size: 0.78rem; }
+.barra span { display: flex; align-items: center; justify-content: center; color: #fff; white-space: nowrap; }
+.barra .ocupat { background: #6366f1; }
+.barra .lliure { background: #10b981; }
+.prova { border: 1px dashed var(--border-strong, var(--border)); border-radius: 8px; padding: 0.9rem 1.1rem; margin: 0.8rem 0 1rem; background: var(--bg-subtle); }
+.prova label { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 0.4rem; }
+.prova input[type=range] { width: 100%; max-width: 420px; }
+.prova .lectura { font-family: var(--mono); font-size: 0.95rem; margin-top: 0.4rem; }
+.prova .lectura b { font-size: 1.05rem; }
+.prova .estat { font-size: 0.85rem; margin-top: 0.2rem; color: var(--text-soft); }
+.prova .estat.ok { color: #059669; font-weight: 600; }
+.repte-titol { font-size: 1.35rem; margin: 2.8rem 0 0.4rem; }
+.solution table.taula-repte { font-family: inherit; font-size: 0.92rem; max-width: 600px; }
+.solution .taula-repte th { text-align: left; }
+.solution .taula-repte td { text-align: left; color: var(--text); }
+.solution .taula-repte td.num { text-align: right; }
+details.previs { margin: 1rem 0; border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 1rem; }
+details.previs summary { cursor: pointer; font-weight: 600; }
+details.previs ol { margin: 0.5rem 0; padding-left: 1.3rem; font-size: 0.93rem; }
+details.previs ol ol { list-style: lower-alpha; }
+
+.cos-fig { margin: 1rem 0 0.6rem; }
+.cos-fig .vistes { display: flex; gap: 0.4rem; justify-content: center; margin-bottom: 0.5rem; }
+.cos-fig .vistes button { font: inherit; font-size: .82rem; padding: .3rem .8rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-subtle); color: var(--text); cursor: pointer; }
+.cos-fig .vistes button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+.cos-fig svg { display: block; width: 100%; max-width: 380px; height: auto; margin: 0 auto; color: var(--text); }
+.cos-fig .v-des { display: none; }
+.cos-fig.des .v-cos { display: none; }
+.cos-fig.des .v-des { display: block; }
+.cos-fig figcaption { text-align: center; font-size: .82rem; color: var(--text-soft); margin-top: .3rem; }
+.apartats { margin: 0.4rem 0 1rem; padding-left: 1.3rem; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">
+<meta property="og:title" content="Deures: la piscina · Reptes matemàtics · 3r ESO">
+<meta property="og:description" content="Deures de 3r d'ESO, curs 2026-27: quant costa pintar i omplir d'aigua una piscina amb forma de prisma acabat en semicilindre.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deures: la piscina · Reptes matemàtics · 3r ESO">
+<meta name="twitter:description" content="Deures de 3r d'ESO, curs 2026-27: quant costa pintar i omplir d'aigua una piscina amb forma de prisma acabat en semicilindre.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Docència","item":"https://alexreyes.es/ca/docencia/"},{"@type":"ListItem","position":3,"name":"3r ESO","item":"https://alexreyes.es/ca/docencia/eso-3/"},{"@type":"ListItem","position":4,"name":"Reptes","item":"https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/"},{"@type":"ListItem","position":5,"name":"03 · Deures: la piscina","item":"https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html"}]},{"@type":"LearningResource","name":"03 · Deures: la piscina","url":"https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Deures de 3r d'ESO, curs 2026-27: quant costa pintar i omplir d'aigua una piscina amb forma de prisma acabat en semicilindre."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Salta al contingut</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/eso-3/">3r ESO</a>
+      <span class="sep">/</span>
+      <a href="/ca/aula/eso-3/apuntes/2627-u-reptes/">Reptes</a>
+      <span class="sep">/</span>
+      <span class="current">03 · Deures: la piscina</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">3r ESO · Reptes matemàtics</span>
+        <span class="tag tag-orange">Deures</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">23 set 2026</span>
+      </div>
+      <h1 style="margin:0">Deures: la piscina</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Per a la propera classe. Quant costa pintar i omplir d'aigua una piscina que és un prisma acabat en mig cilindre? La solució es publicarà quan l'haguem corregit a classe.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+      <h2>L&#39;enunciat</h2>
+      <p>L'ajuntament vol construir una piscina amb la forma del dibuix: un prisma rectangular de $7$ m de llarg, $3$ m d'ample i $2$ m de fondària que, per un dels extrems, s'acaba en mig cilindre. Abans d'estrenar-la cal pintar-ne tot l'interior (el fons i les parets) i omplir-la d'aigua fins a dalt.</p>
+      <figure class="cos-fig"><div class="vistes"><button type="button" data-v="cos" aria-pressed="true">En perspectiva</button><button type="button" data-v="des" aria-pressed="false">Vista de dalt</button></div><svg style="max-width:560px" class="v-cos" viewBox="0 0 430 210" role="img" aria-label="La piscina en perspectiva" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" font-size="13" fill="currentColor"><polygon points="50.0,103.0 302.0,103.0 306.3,102.9 310.8,102.7 315.4,102.4 320.1,101.9 324.9,101.4 329.8,100.6 334.6,99.8 339.4,98.9 344.2,97.8 348.9,96.7 353.5,95.4 357.9,94.1 362.2,92.7 366.3,91.2 370.2,89.7 373.9,88.1 377.3,86.4 380.4,84.8 383.2,83.1 385.7,81.4 387.9,79.7 389.7,78.0 391.1,76.4 392.2,74.7 393.0,73.1 393.3,71.6 393.3,70.1 392.8,68.7 392.1,67.4 390.9,66.1 389.4,65.0 387.5,63.9 385.2,63.0 382.7,62.2 379.8,61.4 376.6,60.9 373.2,60.4 369.5,60.1 365.5,59.9 361.4,59.8 109.4,59.8" fill="#38bdf8" fill-opacity=".25" stroke="currentColor"/><polygon points="50.0,175.0 302.0,175.0 302.0,103.0 50.0,103.0" fill="#38bdf8" fill-opacity=".45" stroke="currentColor"/><polygon points="302.0,103.0 304.8,103.0 307.7,102.9 310.7,102.7 313.8,102.5 316.8,102.3 320.0,102.0 323.1,101.6 326.3,101.2 329.5,100.7 332.7,100.2 335.9,99.6 339.0,99.0 342.2,98.3 345.3,97.6 348.4,96.8 351.5,96.0 354.5,95.1 357.4,94.3 360.3,93.3 363.1,92.4 365.8,91.4 368.4,90.4 370.9,89.4 373.3,88.3 375.6,87.3 377.8,86.2 379.9,85.1 381.8,84.0 383.6,82.9 385.2,81.7 386.7,80.6 388.1,79.5 389.3,78.4 390.4,77.3 391.3,76.2 392.0,75.1 392.6,74.0 393.0,73.0 393.2,72.0 393.3,71.0 393.3,143.0 393.2,144.0 393.0,145.0 392.6,146.0 392.0,147.1 391.3,148.2 390.4,149.3 389.3,150.4 388.1,151.5 386.7,152.6 385.2,153.7 383.6,154.9 381.8,156.0 379.9,157.1 377.8,158.2 375.6,159.3 373.3,160.3 370.9,161.4 368.4,162.4 365.8,163.4 363.1,164.4 360.3,165.3 357.4,166.3 354.5,167.1 351.5,168.0 348.4,168.8 345.3,169.6 342.2,170.3 339.0,171.0 335.9,171.6 332.7,172.2 329.5,172.7 326.3,173.2 323.1,173.6 320.0,174.0 316.8,174.3 313.8,174.5 310.7,174.7 307.7,174.9 304.8,175.0 302.0,175.0" fill="#38bdf8" fill-opacity=".6" stroke="currentColor"/><polyline points="393.3,143.0 393.3,142.5 393.2,142.0 393.1,141.5 393.0,141.0 392.8,140.6 392.5,140.1 392.3,139.7 391.9,139.2 391.6,138.8 391.1,138.4 390.7,138.0 390.2,137.6 389.7,137.2 389.1,136.8 388.5,136.4 387.8,136.1 387.1,135.7 386.3,135.4 385.6,135.1 384.7,134.8 383.9,134.5 383.0,134.2 382.1,134.0 381.1,133.7 380.1,133.5 379.1,133.3 378.0,133.1 376.9,132.9 375.8,132.7 374.6,132.6 373.4,132.4 372.2,132.3 370.9,132.2 369.6,132.1 368.3,132.0 367.0,131.9 365.6,131.9 364.2,131.8 362.8,131.8 361.4,131.8 361.4,131.8 109.4,131.8 50.0,175.0" fill="none" stroke="currentColor" stroke-dasharray="4 3"/><line x1="109.4" y1="131.8" x2="109.4" y2="59.8" stroke="currentColor" stroke-dasharray="4 3"/><line x1="361.4" y1="131.8" x2="361.4" y2="59.8" stroke="currentColor" stroke-dasharray="4 3" stroke-opacity=".5"/><line x1="302.0" y1="175.0" x2="302.0" y2="103.0" stroke="currentColor" stroke-dasharray="4 3" stroke-opacity=".6"/><text x="176.0" y="193.0" text-anchor="middle">7 m</text><text x="42.0" y="143.0" text-anchor="end">2 m</text><text x="71.7" y="79.4" text-anchor="end">3 m</text></svg><svg style="max-width:460px" class="v-des" viewBox="0 0 330 170" role="img" aria-label="La piscina vista de dalt" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" font-size="13" fill="currentColor"><path d="M30,30 L254,30 A48.0,48.0 0 0,1 254,126 L30,126 Z" fill="#38bdf8" fill-opacity=".35" stroke="currentColor"/><line x1="254" y1="30" x2="254" y2="126" stroke="currentColor" stroke-dasharray="4 3"/><text x="142.0" y="22" text-anchor="middle">7 m</text><text x="24" y="82.0" text-anchor="end">3 m</text></svg><figcaption>La piscina: un prisma rectangular de 7 m × 3 m × 2 m acabat, per un extrem, en mig cilindre.</figcaption></figure>
+      <div class="def-box"><h3>Dades</h3><ul><li>Pintar $1\ \text{m}^2$ costa $3{,}60$ €.</li><li>$1\ \text{m}^3$ d'aigua són $1000$ L i costa $1{,}45$ €.</li><li>La piscina no té tapa: no es pinta la part de dalt.</li></ul></div>
+      <h3 style="font-size:1.02rem;margin:1.4rem 0 0.3rem">Preguntes</h3>
+      <ol class="apartats" type="a"><li>Fes un esbós de la piscina vista de dalt i de les parets desplegades. Quines figures formen el fons? I les parets?</li><li>Calcula l'àrea del fons.</li><li>Calcula l'àrea de les parets. Compte: la paret corba és mig cilindre, i la paret recta que toca el semicilindre no existeix.</li><li>Quants metres quadrats s'han de pintar? Quant costa pintar la piscina?</li><li>Calcula el volum de la piscina en m³ i en litres.</li><li>Quant costa omplir-la d'aigua?</li><li>Quant costa en total pintar-la i omplir-la? Escriu el càlcul amb una sola operació combinada.</li></ol>
+      <p class="note">Arrodoneix els resultats a les centèsimes. Pista: el diàmetre del semicercle és l'amplada de la piscina.</p>
+      <p class="note">La solució es publicarà aquí quan l'haguem corregit a classe.</p>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/ca/aula/eso-3/apuntes/2627-u-reptes/02-deures-21-set.html">&larr; Apartat anterior</a>
+        <a class="index" href="/ca/aula/eso-3/apuntes/2627-u-reptes/">Índex de la unitat</a>
+        <span class="disabled next">Apartat següent &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script>
+document.querySelectorAll('.cos-fig').forEach(function(f){
+  f.querySelectorAll('.vistes button').forEach(function(b){
+    b.addEventListener('click', function(){
+      f.classList.toggle('des', b.dataset.v === 'des');
+      f.querySelectorAll('.vistes button').forEach(function(o){ o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+    });
+  });
+});
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

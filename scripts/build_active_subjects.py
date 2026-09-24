@@ -359,7 +359,13 @@ SUBJ_3ESO = {
     ],
     "year_current": "2026–27",
     "materia_filter": "eso-3",
-    "units": [],
+    "units": [
+                {"num":"01","slug":"reptes","title":"Reptes matemàtics",
+                 "desc_l":{"ca":"Revisem 2n d'ESO amb problemes de context: superfícies, volums, litres, percentatges i equacions.",
+                           "es":"Repasamos 2.º de ESO con problemas de contexto: superficies, volúmenes, litros, porcentajes y ecuaciones.",
+                           "en":"Revising 2n ESO through real-context problems: areas, volumes, litres, percentages and equations."},
+                 "apunts":"/aula/eso-3/apuntes/2627-u-reptes/"},
+    ],
     "archived_years": [],
 }
 
@@ -384,7 +390,13 @@ SUBJ_4ESO = {
     ],
     "year_current": "2026–27",
     "materia_filter": "eso-4",
-    "units": [],
+    "units": [
+                {"num":"01","slug":"reptes","title":"Reptes matemàtics",
+                 "desc_l":{"ca":"Problemes de context real que demanen combinar Pitàgores, escales, àrees, factors de conversió i percentatges.",
+                           "es":"Problemas de contexto real que piden combinar Pitágoras, escalas, áreas, factores de conversión y porcentajes.",
+                           "en":"Real-context problems that combine Pythagoras, scales, areas, conversion factors and percentages."},
+                 "apunts":"/aula/eso-4/apuntes/2627-u-reptes/"},
+    ],
     "archived_years": [],
 }
 

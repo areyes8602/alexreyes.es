@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1. Què és un cos de revolució? · 2n ESO</title>
-<meta name="description" content="Apunts de cossos de revolució per a 2n d'ESO: definició, visualització 3D interactiva (Three.js) de la rotació de figures planes i dels cossos resultants.">
+<title>1. ¿Qué es un cuerpo de revolución? · 2n ESO</title>
+<meta name="description" content="Apuntes de cuerpos de revolución para 2.º de ESO: definición, visualización 3D interactiva (Three.js) de la rotación de figuras planas y de los cuerpos resultantes.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js?v=202609121757"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
 .def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
 .def-box p { margin: 0.4rem 0; }
 .tip-box { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.6rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.92rem; }
-.tip-box::before { content: "💡 Idea clau"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.tip-box::before { content: "💡 Idea clave"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
 .body-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1rem 0; }
 .body-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 0.8rem; text-align: center; }
 .body-card .body-svg { display: block; margin: 0 auto 0.4rem; height: 70px; }
@@ -54,27 +54,27 @@
 </style>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/01-cossos-de-revolucio.html">
-<meta property="og:title" content="1. Què és un cos de revolució? · 2n ESO">
-<meta property="og:description" content="Apunts de cossos de revolució per a 2n d'ESO: definició, visualització 3D interactiva (Three.js) de la rotació de figures planes i dels cossos resultants.">
+<meta property="og:title" content="1. ¿Qué es un cuerpo de revolución? · 2n ESO">
+<meta property="og:description" content="Apuntes de cuerpos de revolución para 2.º de ESO: definición, visualización 3D interactiva (Three.js) de la rotación de figuras planas y de los cuerpos resultantes.">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="1. Què és un cos de revolució? · 2n ESO">
-<meta name="twitter:description" content="Apunts de cossos de revolució per a 2n d'ESO: definició, visualització 3D interactiva (Three.js) de la rotació de figures planes i dels cossos resultants.">
+<meta name="twitter:title" content="1. ¿Qué es un cuerpo de revolución? · 2n ESO">
+<meta name="twitter:description" content="Apuntes de cuerpos de revolución para 2.º de ESO: definición, visualización 3D interactiva (Three.js) de la rotación de figuras planas y de los cuerpos resultantes.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Cossos de revolució","item":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/"},{"@type":"ListItem","position":5,"name":"01 · Què és un cos de revolució?","item":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/01-cossos-de-revolucio.html"}]},{"@type":"LearningResource","name":"01 · Què és un cos de revolució?","url":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/01-cossos-de-revolucio.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apunts de cossos de revolució per a 2n d'ESO: definició, visualització 3D interactiva (Three.js) de la rotació de figures planes i dels cossos resultants."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Cuerpos de revolución","item":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/"},{"@type":"ListItem","position":5,"name":"01 · ¿Qué es un cuerpo de revolución?","item":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/01-cossos-de-revolucio.html"}]},{"@type":"LearningResource","name":"01 · ¿Qué es un cuerpo de revolución?","url":"https://alexreyes.es/aula/eso-2/apuntes/u-cossos-revolucio/01-cossos-de-revolucio.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apuntes de cuerpos de revolución para 2.º de ESO: definición, visualización 3D interactiva (Three.js) de la rotación de figuras planas y de los cuerpos resultantes."}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#main">Salta al contingut</a>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-brand">alexreyes.es</a>
     <div class="nav-links">
-      <a href="/docencia/" class="nav-active">Docència</a>
-      <a href="/doctorado/">Doctorat</a>
-      <a href="/notas/">Notes</a>
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
       <a href="/cv/">CV</a>
-      <a href="/contacto/">Contacte</a>
+      <a href="/contacto/">Contacto</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -99,38 +99,38 @@
       <span class="sep">/</span>
       <a href="/docencia/2eso/">2n ESO</a>
       <span class="sep">/</span>
-      <a href="/aula/eso-2/apuntes/u-cossos-revolucio/">Cossos de revolució</a>
+      <a href="/aula/eso-2/apuntes/u-cossos-revolucio/">Cuerpos de revolución</a>
       <span class="sep">/</span>
-      <span class="current">01 · Què és un cos de revolució?</span>
+      <span class="current">01 · ¿Qué es un cuerpo de revolución?</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
-        <span class="section-label">2n ESO · Cossos de revolució</span>
-        <span class="tag tag-orange">Apunts</span>
+        <span class="section-label">2n ESO · Cuerpos de revolución</span>
+        <span class="tag tag-orange">Apuntes</span>
         <span class="tag tag-gray" style="font-size:0.7rem">3 mar 2026</span>
       </div>
-      <h1 style="margin:0">1. Què és un cos de revolució?</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Definició, els tres cossos clàssics i visualització 3D interactiva.</p>
+      <h1 style="margin:0">1. ¿Qué es un cuerpo de revolución?</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Definición, los tres cuerpos clásicos y visualización 3D interactiva.</p>
     </div>
 
     <article class="question-block" style="border:none;padding:0;background:none">
 
       <div class="apunt-section">
-        <h2>Definició</h2>
+        <h2>Definición</h2>
         <div class="def-box">
-          <h3>Cos de revolució</h3>
-          <p>Un <strong>cos de revolució</strong> és una figura tridimensional que s'obté en fer girar una <strong>figura plana</strong> al voltant d'una recta fixa anomenada <strong>eix de revolució</strong>.</p>
-          <p>Cada punt de la figura plana descriu una <strong>circumferència</strong> (perpendicular a l'eix), i el conjunt de totes aquestes circumferències forma el cos en 3D.</p>
+          <h3>Cuerpo de revolución</h3>
+          <p>Un <strong>cuerpo de revolución</strong> es una figura tridimensional que se obtiene al hacer girar una <strong>figura plana</strong> alrededor de una recta fija llamada <strong>eje de giro</strong> (o eje de revolución).</p>
+          <p>Cada punto de la figura plana describe una <strong>circunferencia</strong> (perpendicular al eje), y el conjunto de todas estas circunferencias forma el cuerpo en 3D.</p>
         </div>
 
         <div class="tip-box">
-          A 2n d'ESO només estudiem tres cossos de revolució: el <strong>cilindre</strong>, el <strong>con</strong> i l'<strong>esfera</strong>. Tots tres apareixen contínuament en la vida real: llaunes, gots de paper, pilotes, taps, embuts…
+          En 2.º de ESO solo estudiamos tres cuerpos de revolución: el <strong>cilindro</strong>, el <strong>cono</strong> y la <strong>esfera</strong>. Los tres aparecen continuamente en la vida real: latas, vasos de papel, pelotas, tapones, embudos…
         </div>
       </div>
 
       <div class="apunt-section">
-        <h2>Els tres cossos de revolució</h2>
+        <h2>Los tres cuerpos de revolución</h2>
 
         <div class="body-grid">
           <div class="body-card">
@@ -139,16 +139,16 @@
               <path d="M18,14 L18,66 A22,6 0 0 0 62,66 L62,14" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.5"/>
               <ellipse cx="40" cy="66" rx="22" ry="6" fill="none" stroke="#4f46e5" stroke-width="1.5"/>
             </svg>
-            <h4>Cilindre</h4>
-            <p>Rectangle girant<br>al voltant d'un costat</p>
+            <h4>Cilindro</h4>
+            <p>Rectángulo que gira<br>alrededor de un lado</p>
           </div>
           <div class="body-card">
             <svg class="body-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
               <path d="M40,8 L18,66 A22,6 0 0 0 62,66 Z" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.5"/>
               <ellipse cx="40" cy="66" rx="22" ry="6" fill="none" stroke="#4f46e5" stroke-width="1.5"/>
             </svg>
-            <h4>Con</h4>
-            <p>Triangle rectangle<br>girant per un catet</p>
+            <h4>Cono</h4>
+            <p>Triángulo rectángulo<br>que gira sobre un cateto</p>
           </div>
           <div class="body-card">
             <svg class="body-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
@@ -156,50 +156,50 @@
               <ellipse cx="40" cy="40" rx="28" ry="7" fill="none" stroke="#4f46e5" stroke-width="1" stroke-dasharray="3,2"/>
             </svg>
             <h4>Esfera</h4>
-            <p>Semicercle girant<br>pel diàmetre</p>
+            <p>Semicírculo que gira<br>sobre su diámetro</p>
           </div>
         </div>
       </div>
 
       <div class="apunt-section">
-        <h2>Veure la revolució en directe</h2>
-        <p>Tria el cos amb els botons i mou el control lliscant <strong>α</strong> per fer girar la figura plana al voltant de l'eix vertical. Veuràs com el rectangle genera un <strong>cilindre</strong>, el triangle un <strong>con</strong>, i el semicercle una <strong>esfera</strong>.</p>
+        <h2>Ver la revolución en directo</h2>
+        <p>Elige el cuerpo con los botones y mueve el control deslizante <strong>α</strong> para hacer girar la figura plana alrededor del eje vertical. Verás cómo el rectángulo genera un <strong>cilindro</strong>, el triángulo un <strong>cono</strong> y el semicírculo una <strong>esfera</strong>.</p>
 
         <div class="viewer">
           <div class="viewer-controls">
-            <button type="button" class="viewer-btn cos-btn active" data-cos="cilindre">Cilindre</button>
-            <button type="button" class="viewer-btn cos-btn" data-cos="con">Con</button>
+            <button type="button" class="viewer-btn cos-btn active" data-cos="cilindre">Cilindro</button>
+            <button type="button" class="viewer-btn cos-btn" data-cos="con">Cono</button>
             <button type="button" class="viewer-btn cos-btn" data-cos="esfera">Esfera</button>
             <div class="viewer-slider-row">
-              <label for="alpha-slider">Angle α:</label>
+              <label for="alpha-slider">Ángulo α:</label>
               <input type="range" id="alpha-slider" min="0" max="360" value="360" step="1">
               <span class="alpha-val" id="alpha-val">360°</span>
             </div>
           </div>
           <canvas id="canvas-revolucio" class="viewer-canvas"></canvas>
-          <p class="viewer-caption">Tria el cos i mou α de 0° a 360°. Arrossega per rotar la vista 3D · roda del ratolí per fer zoom.</p>
+          <p class="viewer-caption">Elige el cuerpo y mueve α de 0° a 360°. Arrastra para girar la vista 3D · rueda del ratón para hacer zoom.</p>
         </div>
       </div>
 
       <div class="apunt-section">
-        <h2>Vista 3D dels tres cossos</h2>
-        <p>Aquí pots <strong>rotar lliurement</strong> els tres cossos i comparar-ne la mida. Construïts amb les primitives natives de Three.js (<code>CylinderGeometry</code>, <code>ConeGeometry</code>, <code>SphereGeometry</code>).</p>
+        <h2>Vista 3D de los tres cuerpos</h2>
+        <p>Aquí puedes <strong>girar libremente</strong> los tres cuerpos y comparar su tamaño. Están construidos con las primitivas nativas de Three.js (<code>CylinderGeometry</code>, <code>ConeGeometry</code>, <code>SphereGeometry</code>).</p>
 
         <div class="viewer">
           <canvas id="canvas-3d" class="viewer-canvas"></canvas>
           <div class="viewer-legend">
-            <span><i style="background:#6366f1"></i>Cilindre</span>
-            <span><i style="background:#10b981"></i>Con</span>
+            <span><i style="background:#6366f1"></i>Cilindro</span>
+            <span><i style="background:#10b981"></i>Cono</span>
             <span><i style="background:#ec4899"></i>Esfera</span>
           </div>
-          <p class="viewer-caption">Arrossega amb el ratolí o el dit per rotar · roda del ratolí o pessigada per fer zoom.</p>
+          <p class="viewer-caption">Arrastra con el ratón o con el dedo para girar · rueda del ratón o pellizca para hacer zoom.</p>
         </div>
       </div>
 
-      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
-        <span class="disabled prev">&larr; Apartat anterior</span>
-        <a class="index" href="/aula/eso-2/apuntes/u-cossos-revolucio/">Índex de la unitat</a>
-        <a class="next" href="/aula/eso-2/apuntes/u-cossos-revolucio/02-cilindre.html">Apartat següent &rarr;</a>
+      <nav class="exam-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Apartado anterior</span>
+        <a class="index" href="/aula/eso-2/apuntes/u-cossos-revolucio/">Índice de la unidad</a>
+        <a class="next" href="/aula/eso-2/apuntes/u-cossos-revolucio/02-cilindre.html">Apartado siguiente &rarr;</a>
       </nav>
 
     </article>
@@ -458,5 +458,6 @@ window.addEventListener('load', function() {
   })();
 });
 </script>
+<script defer src="/assets/js/search.js"></script>
 </body>
 </html>
