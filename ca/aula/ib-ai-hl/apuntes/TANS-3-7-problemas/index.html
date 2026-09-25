@@ -59,6 +59,11 @@
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Salta al contingut</a>
@@ -129,7 +134,9 @@
           <text x="240" y="236" font-family="Inter,sans-serif" font-size="14" fill="#475569" text-anchor="middle">6 m</text>
         </svg>
 
-        <div class="example-box">
+        <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="example-box">
           <h3>a) L'angle α</h3>
           <p>La corda arriba al costat de dalt. El triangle que forma amb la tanca de l'esquerra és rectangle, i el catet contigu a $\beta$ fa $2{,}5$ i la hipotenusa $3$:</p>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
@@ -150,6 +157,7 @@
         </div>
 
         <p class="note">Compte amb arrodonir a mig camí: si es pren $\alpha = 0{,}98$ en comptes de $0{,}985$, l'àrea surt $6{,}48$ m² en lloc de $6{,}51$. Val més arrossegar els valors sencers i arrodonir només el resultat final.</p>
+</section>
       </section>
 
       <section class="apunt-section">
@@ -179,7 +187,9 @@
           <text x="202.2" y="137.98" font-family="Inter,sans-serif" font-size="14" fill="#be123c" text-anchor="middle">&#946;</text>
         </svg>
 
-        <p>Uneix els dos centres amb un dels punts de tall: queda un triangle de costats $2$, $2$ i $3$. Els seus angles als centres són els que obren cada sector.</p>
+        <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p2" hidden>
+<p>Uneix els dos centres amb un dels punts de tall: queda un triangle de costats $2$, $2$ i $3$. Els seus angles als centres són els que obren cada sector.</p>
 
         <div class="example-box">
           <h3>Els dos angles, amb el teorema del cosinus</h3>
@@ -221,6 +231,7 @@
           <h3>La idea que es repeteix</h3>
           <p>Un tros de cercle limitat per una corda (un <em>segment circular</em>) és sempre <strong>sector menys triangle</strong>. I el triangle es calcula amb $\frac{1}{2}ab\sin C$, que necessita l'angle: per això el teorema del cosinus va abans.</p>
         </div>
+</section>
       </section>
 
       <nav class="exam-nav" id="apunt-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem"
@@ -253,6 +264,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 
 <script>
