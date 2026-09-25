@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Sinusoidal model: tides in a harbour — IB2 · U8</title>
+<meta name="description" content="Question 2 of the IB2 · U8 exam — U8 · Sinusoidal functions and complex numbers. Sinusoidal model: tides in a harbour. Question and solution.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<script defer src="/assets/js/examenes.js?v=202609121757"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<meta property="og:title" content="P2 · Sinusoidal model: tides in a harbour — IB2 · U8">
+<meta property="og:description" content="Question 2 of the IB2 · U8 exam — U8 · Sinusoidal functions and complex numbers. Sinusoidal model: tides in a harbour. Question and solution.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P2 · Sinusoidal model: tides in a harbour — IB2 · U8">
+<meta name="twitter:description" content="Question 2 of the IB2 · U8 exam — U8 · Sinusoidal functions and complex numbers. Sinusoidal model: tides in a harbour. Question and solution.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Mathematics AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"IB2 · Unit 8 — Sinusoidal functions and complex numbers","item":"https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/"},{"@type":"ListItem","position":5,"name":"Question 2","item":"https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html"}]},{"@type":"LearningResource","name":"Question 2","url":"https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html","inLanguage":"en","learningResourceType":"Examen","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Question 2 of the IB2 · U8 exam — U8 · Sinusoidal functions and complex numbers. Sinusoidal model: tides in a harbour. Question and solution."}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html" class="lang-active">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/ib-ai-hl/examenes/2527-ib2-u8/">IB2 · Unit 8 — Sinusoidal functions and complex numbers</a>
+      <span class="sep">/</span>
+      <span class="current">Question 2</span>
+    </div>
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U8</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">Sep 9, 2026</span>
+      </div>
+    </div>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="p1.html">&larr; Previous question</a>
+      <a class="index" href="/en/aula/ib-ai-hl/examenes/2527-ib2-u8/">Exam index</a>
+      <a class="next" href="p3.html">Next question &rarr;</a>
+    </nav>
+    <article class="question-block">
+      <h1>Question 2 &middot; Sinusoidal model: tides in a harbour</h1>
+      <p class="question-descriptor">Parameters of $a\sin(b(t-c))+d$ from high and low tide; inequality with technology; limits of the model</p>
+      <span class="score-pill">Maximum mark · 18 marks</span>
+      <div class="statement">
+        <div class="context">
+          <p>The depth of the water at a harbour entrance can be modelled by</p><div class="math-block">$$h(t) = a\sin\big(b(t-c)\big) + d,$$</div><p>where $h$ is the depth in metres and $t$ is the time in hours after midnight. On a particular day, high tide of $12.6$ m is recorded at 4:00 and the next low tide, of $5.4$ m, at 10:15.</p>
+        </div>
+        <ol class="apartados">
+          <li>Find the values of $a$ and $d$, and interpret the meaning of each in the context of the problem. <span class="apartado-puntos">4 p</span></li>
+          <li>Find the period of the model and hence the values of $b$ and $c$. <span class="apartado-puntos">5 p</span></li>
+          <li>Find the depth of the water at 13:00. <span class="apartado-puntos">3 p</span></li>
+          <li>A ship can only enter the harbour if the depth of the water is at least $11$ m. Find the time interval, within the first $12$ hours of the day, during which the ship can enter. <span class="apartado-puntos">4 p</span></li>
+          <li>Explain one limitation of this model if it were used to predict the depth of the water a month from now. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+      </div>
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+        <span class="ib-chip">TANS&nbsp;3.9</span>
+        <span class="ib-chip">NM&nbsp;2.5</span>
+      </div>
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Show solution</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Step-by-step solution</h3>
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Amplitude and mean depth</h4>
+          <div class="math-block">$$a = \dfrac{12.6 - 5.4}{2} = 3.6 \qquad d = \dfrac{12.6 + 5.4}{2} = 9$$</div><p>$a$ is the amplitude: the greatest variation, in metres, from the mean depth. $d = 9$ m is the mean depth of the water.</p><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Each value 1 mark, each interpretation 1 mark.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Period, $b$ and $c$</h4>
+          <p>From high tide to low tide is half a period:</p><div class="math-block">$$T = 2\,(10.25 - 4) = 12.5\ \text{h} \qquad b = \dfrac{2\pi}{T} = \dfrac{2\pi}{12.5} \approx 0.503$$</div><p>The maximum is at $t = 4$, so $b(4 - c) = \frac{\pi}{2}$ and therefore</p><div class="math-block">$$c = 4 - \dfrac{\pi}{2b} = 4 - 3.125 = 0.875$$</div><div class="final">$h(t) = 3.6\sin\big(0.503\,(t - 0.875)\big) + 9$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Period 2 marks, $b$ 1 mark, $c$ 2 marks.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Depth at 13:00</h4>
+          <div class="math-block">$$h(13) = 3.6\sin\big(0.503\,(13 - 0.875)\big) + 9 \approx 8.33\ \text{m}$$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Substitution 1 mark, calculator in radians 1 mark, answer 1 mark.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> When the ship can enter</h4>
+          <div class="math-block">$$h(t) \ge 11 \;\Longrightarrow\; \sin\big(0.503\,(t - 0.875)\big) \ge \dfrac{5}{9}$$</div><p>Using technology, $h(t) = 11$ at $t \approx 2.05$ and $t \approx 5.95$.</p><div class="final">Between 2:03 and 5:57, that is, for about $3.91$ hours.</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Setting up 2 marks, both solutions 1 mark, correct interval 1 mark.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> One limitation</h4>
+          <p>Any reasoned limitation. For example: the model assumes constant amplitude and period, whereas the real tidal range changes over the month with the phases of the moon (spring and neap tides); nor does it account for air pressure or wind.</p><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Limitation 1 mark, justification in context 1 mark.</p>
+        </div>
+      </section>
+    </article>
+    <nav class="exam-nav" aria-label="Exam navigation">
+      <a class="prev" href="p1.html">&larr; Previous question</a>
+      <a class="index" href="/en/aula/ib-ai-hl/examenes/2527-ib2-u8/">Exam index</a>
+      <a class="next" href="p3.html">Next question &rarr;</a>
+    </nav>
+  </div>
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

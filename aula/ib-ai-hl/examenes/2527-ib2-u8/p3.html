@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 · Complejos en forma polar y de Euler — IB2 · U8</title>
+<meta name="description" content="Pregunta 3 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Complejos en forma polar y de Euler. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<script defer src="/assets/js/examenes.js?v=202609121757"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html">
+<meta property="og:title" content="P3 · Complejos en forma polar y de Euler — IB2 · U8">
+<meta property="og:description" content="Pregunta 3 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Complejos en forma polar y de Euler. Enunciado y corrección.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P3 · Complejos en forma polar y de Euler — IB2 · U8">
+<meta name="twitter:description" content="Pregunta 3 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Complejos en forma polar y de Euler. Enunciado y corrección.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"IB Mathematics AI","item":"https://alexreyes.es/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"IB2 · Unidad 8 — Funciones sinusoidales y números complejos","item":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/"},{"@type":"ListItem","position":5,"name":"Pregunta 3","item":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html"}]},{"@type":"LearningResource","name":"Pregunta 3","url":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html","inLanguage":"es","learningResourceType":"Examen","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Pregunta 3 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Complejos en forma polar y de Euler. Enunciado y corrección."}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p3.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">IB2 · Unidad 8 — Funciones sinusoidales y números complejos</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 3</span>
+    </div>
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U8</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">9 sep 2026</span>
+      </div>
+    </div>
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">Índice del examen</a>
+      <a class="next" href="p4.html">Pregunta siguiente &rarr;</a>
+    </nav>
+    <article class="question-block">
+      <h1>Pregunta 3 &middot; Complejos en forma polar y de Euler</h1>
+      <p class="question-descriptor">Módulo y argumento exactos; producto y cociente en polar; De Moivre; raíces conjugadas</p>
+      <span class="score-pill">Puntuación máxima · 14 puntos</span>
+      <div class="statement">
+        <div class="context">
+          <p>Se consideran los números complejos $z_1 = 3 - 3i$ y $z_2 = -1 + \sqrt{3}\,i$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Escribe $z_1$ y $z_2$ en forma módulo-argumental, $r\operatorname{cis}\theta$, y en forma de Euler. Da los módulos y los argumentos de forma exacta. <span class="apartado-puntos">4 p</span></li>
+          <li>Halla $z_1z_2$ y $\dfrac{z_1}{z_2}$ en forma módulo-argumental. Escribe además $z_1z_2$ en forma binómica, con tres cifras significativas. <span class="apartado-puntos">4 p</span></li>
+          <li>Halla $z_2^{6}$ en forma binómica, justificando el procedimiento utilizado. <span class="apartado-puntos">3 p</span></li>
+          <li>Escribe una ecuación de segundo grado con coeficientes reales que tenga a $z_2$ como una de sus soluciones. Justifica la respuesta. <span class="apartado-puntos">3 p</span></li>
+        </ol>
+      </div>
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+        <span class="ib-chip">TANS&nbsp;1.12</span>
+        <span class="ib-chip">TANS&nbsp;1.13</span>
+      </div>
+      <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p3')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <section class="solution" id="sol-p3" hidden>
+        <h3>Corrección paso a paso</h3>
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Forma polar y de Euler</h4>
+          <div class="math-block">$$|z_1| = \sqrt{3^2 + (-3)^2} = 3\sqrt{2}, \qquad \arg z_1 = -\dfrac{\pi}{4}\ \text{(cuarto cuadrante)}$$</div><div class="math-block">$$|z_2| = \sqrt{(-1)^2 + (\sqrt{3})^2} = 2, \qquad \arg z_2 = \dfrac{2\pi}{3}\ \text{(segundo cuadrante)}$$</div><div class="final">$z_1 = 3\sqrt{2}\operatorname{cis}\left(-\frac{\pi}{4}\right) = 3\sqrt{2}\,e^{-\frac{\pi}{4}i}, \qquad z_2 = 2\operatorname{cis}\frac{2\pi}{3} = 2\,e^{\frac{2\pi}{3}i}$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Cada módulo 1 p, cada argumento 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Producto y cociente</h4>
+          <p>Se multiplican (dividen) los módulos y se suman (restan) los argumentos:</p><div class="math-block">$$z_1z_2 = 6\sqrt{2}\operatorname{cis}\left(\dfrac{5\pi}{12}\right) \approx 2{,}20 + 8{,}20\,i, \qquad \dfrac{z_1}{z_2} = \dfrac{3\sqrt{2}}{2}\operatorname{cis}\left(-\dfrac{11\pi}{12}\right)$$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Producto 2 p, forma binómica 1 p, cociente 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Potencia sexta</h4>
+          <p>Por el teorema de De Moivre,</p><div class="math-block">$$z_2^{6} = 2^{6}\operatorname{cis}\left(6\cdot\dfrac{2\pi}{3}\right) = 64\operatorname{cis}(4\pi) = 64$$</div><div class="final">$z_2^6 = 64$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Uso de De Moivre 1 p, módulo 1 p, argumento y conclusión 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Ecuación con coeficientes reales</h4>
+          <p>Con coeficientes reales, las raíces no reales aparecen en pares conjugados, así que la otra raíz es $\bar{z}_2 = -1 - \sqrt{3}\,i$. Su suma es $-2$ y su producto $|z_2|^2 = 4$, de donde</p><div class="final">$x^2 + 2x + 4 = 0$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Raíz conjugada 1 p, suma y producto 1 p, ecuación 1 p.</p>
+        </div>
+      </section>
+    </article>
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p2.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">Índice del examen</a>
+      <a class="next" href="p4.html">Pregunta siguiente &rarr;</a>
+    </nav>
+  </div>
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

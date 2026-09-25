@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4 · Una espiral en el diagrama de Argand — IB2 · U8</title>
+<meta name="description" content="Pregunta 4 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Una espiral en el diagrama de Argand. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<script defer src="/assets/js/examenes.js?v=202609121757"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html">
+<meta property="og:title" content="P4 · Una espiral en el diagrama de Argand — IB2 · U8">
+<meta property="og:description" content="Pregunta 4 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Una espiral en el diagrama de Argand. Enunciado y corrección.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P4 · Una espiral en el diagrama de Argand — IB2 · U8">
+<meta name="twitter:description" content="Pregunta 4 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Una espiral en el diagrama de Argand. Enunciado y corrección.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"IB Mathematics AI","item":"https://alexreyes.es/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"IB2 · Unidad 8 — Funciones sinusoidales y números complejos","item":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/"},{"@type":"ListItem","position":5,"name":"Pregunta 4","item":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html"}]},{"@type":"LearningResource","name":"Pregunta 4","url":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html","inLanguage":"es","learningResourceType":"Examen","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Pregunta 4 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Una espiral en el diagrama de Argand. Enunciado y corrección."}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p4.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">IB2 · Unidad 8 — Funciones sinusoidales y números complejos</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 4</span>
+    </div>
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U8</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">9 sep 2026</span>
+      </div>
+    </div>
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">Índice del examen</a>
+      <a class="next" href="p5.html">Pregunta siguiente &rarr;</a>
+    </nav>
+    <article class="question-block">
+      <h1>Pregunta 4 &middot; Una espiral en el diagrama de Argand</h1>
+      <p class="question-descriptor">Giro y homotecia como producto por $0{,}9\,e^{\frac{\pi}{6}i}$; expresión de $z_n$; inecuación con logaritmos; semieje imaginario</p>
+      <span class="score-pill">Puntuación máxima · 10 puntos</span>
+      <div class="statement">
+        <div class="context">
+          <p>En un diagrama de Argand, el punto $P_0$ representa el número complejo $z_0 = 6$. Cada segundo el punto gira un ángulo de $\dfrac{\pi}{6}$ radianes alrededor del origen, en sentido positivo, y además su distancia al origen queda multiplicada por $0{,}9$. Se denota por $z_n$ el número complejo que representa la posición del punto al cabo de $n$ segundos.</p>
+        </div>
+        <ol class="apartados">
+          <li>Escribe $z_1$ en forma de Euler y en forma binómica. <span class="apartado-puntos">3 p</span></li>
+          <li>Escribe una expresión de $z_n$ en función de $n$. <span class="apartado-puntos">3 p</span></li>
+          <li>Halla el primer instante en el que el punto se encuentra a menos de $1$ unidad del origen. <span class="apartado-puntos">2 p</span></li>
+          <li>Halla todos los instantes en los que el punto se encuentra sobre el semieje imaginario positivo. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+      </div>
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+        <span class="ib-chip">TANS&nbsp;1.13</span>
+      </div>
+      <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p4')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <section class="solution" id="sol-p4" hidden>
+        <h3>Corrección paso a paso</h3>
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> El primer paso</h4>
+          <div class="math-block">$$z_1 = 6\cdot 0{,}9\,e^{\frac{\pi}{6}i} = 5{,}4\,e^{\frac{\pi}{6}i} = 5{,}4\left(\cos\dfrac{\pi}{6} + i\sin\dfrac{\pi}{6}\right) \approx 4{,}68 + 2{,}7\,i$$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Forma de Euler 2 p, forma binómica 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> El paso $n$</h4>
+          <p>Cada segundo el módulo se multiplica por $0{,}9$ y el argumento aumenta en $\frac{\pi}{6}$:</p><div class="final">$z_n = 6\,(0{,}9)^n\,e^{\frac{n\pi}{6}i}$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Módulo 1 p, argumento 1 p, expresión completa 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> A menos de una unidad</h4>
+          <div class="math-block">$$6\,(0{,}9)^n < 1 \;\Longrightarrow\; (0{,}9)^n < \dfrac{1}{6} \;\Longrightarrow\; n > \dfrac{\ln(1/6)}{\ln 0{,}9} \approx 17{,}006$$</div><p>Al dividir por $\ln 0{,}9 &lt; 0$ la desigualdad cambia de sentido. Comprobación: $6\,(0{,}9)^{17} \approx 1{,}0006$ todavía no baja de $1$, y $6\,(0{,}9)^{18} \approx 0{,}90$ sí.</p><div class="final">$n = 18$ segundos</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Planteamiento 1 p, resultado entero 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Sobre el semieje imaginario positivo</h4>
+          <p>Hace falta que el argumento sea $\frac{\pi}{2}$ más un número entero de vueltas:</p><div class="math-block">$$\dfrac{n\pi}{6} = \dfrac{\pi}{2} + 2k\pi \;\Longrightarrow\; n = 3 + 12k, \quad k = 0, 1, 2, \dots$$</div><div class="final">$t = 3,\ 15,\ 27,\ \dots$ segundos</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Ecuación 1 p, solución general 1 p.</p>
+        </div>
+      </section>
+    </article>
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p3.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">Índice del examen</a>
+      <a class="next" href="p5.html">Pregunta siguiente &rarr;</a>
+    </nav>
+  </div>
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

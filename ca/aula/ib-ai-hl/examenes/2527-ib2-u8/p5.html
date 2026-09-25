@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P5 · Suma de dos voltatges alterns — IB2 · U8</title>
+<meta name="description" content="Pregunta 5 de l'examen IB2 · U8 — U8 · Funcions sinusoïdals i nombres complexos. Suma de dos voltatges alterns. Enunciat i correcció.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<script defer src="/assets/js/examenes.js?v=202609121757"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html">
+<meta property="og:title" content="P5 · Suma de dos voltatges alterns — IB2 · U8">
+<meta property="og:description" content="Pregunta 5 de l'examen IB2 · U8 — U8 · Funcions sinusoïdals i nombres complexos. Suma de dos voltatges alterns. Enunciat i correcció.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P5 · Suma de dos voltatges alterns — IB2 · U8">
+<meta name="twitter:description" content="Pregunta 5 de l'examen IB2 · U8 — U8 · Funcions sinusoïdals i nombres complexos. Suma de dos voltatges alterns. Enunciat i correcció.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Docència","item":"https://alexreyes.es/ca/docencia/"},{"@type":"ListItem","position":3,"name":"IB Mathematics AI","item":"https://alexreyes.es/ca/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"IB2 · Unitat 8 — Funcions sinusoïdals i nombres complexos","item":"https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/"},{"@type":"ListItem","position":5,"name":"Pregunta 5","item":"https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html"}]},{"@type":"LearningResource","name":"Pregunta 5","url":"https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html","inLanguage":"ca","learningResourceType":"Examen","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Pregunta 5 de l'examen IB2 · U8 — U8 · Funcions sinusoïdals i nombres complexos. Suma de dos voltatges alterns. Enunciat i correcció."}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Salta al contingut</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p5.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/">IB2 · Unitat 8 — Funcions sinusoïdals i nombres complexos</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 5</span>
+    </div>
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U8</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">9 set 2026</span>
+      </div>
+    </div>
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+    <article class="question-block">
+      <h1>Pregunta 5 &middot; Suma de dos voltatges alterns</h1>
+      <p class="question-descriptor">Suma de dues sinusoides de la mateixa freqüència amb fasors; amplitud i desfasament; període i freqüència; font invertida</p>
+      <span class="score-pill">Puntuació màxima · 16 punts</span>
+      <div class="statement">
+        <div class="context">
+          <p>Dues fonts de corrent altern de la mateixa freqüència produeixen els voltatges, en volts,</p><div class="math-block">$$V_1 = 120\sin\left(100\pi t + \dfrac{\pi}{6}\right), \qquad V_2 = 90\sin\left(100\pi t + \dfrac{2\pi}{3}\right),$$</div><p>on $t$ és el temps en segons. Les dues fonts es connecten de manera que el voltatge resultant és $V = V_1 + V_2$.</p>
+        </div>
+        <ol class="apartados">
+          <li>Justifica que $V = \operatorname{Im}\left(e^{100\pi t\,i}\left(120e^{\frac{\pi}{6}i} + 90e^{\frac{2\pi}{3}i}\right)\right)$. <span class="apartado-puntos">3 p</span></li>
+          <li>Escriu $V$ en la forma $R\sin(100\pi t + \alpha)$, amb $R > 0$ i $\alpha$ en radians. <span class="apartado-puntos">5 p</span></li>
+          <li>Troba el període i la freqüència del voltatge resultant. <span class="apartado-puntos">3 p</span></li>
+          <li>La segona font es connecta invertida, cosa que equival a sumar $\pi$ al seu desfasament. Troba l'amplitud i el desfasament del nou voltatge resultant i explica per què l'amplitud no ha canviat. <span class="apartado-puntos">5 p</span></li>
+        </ol>
+      </div>
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+        <span class="ib-chip">TANS&nbsp;1.13</span>
+        <span class="ib-chip">TANS&nbsp;3.9</span>
+      </div>
+      <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostra la correcció" data-hide-label="Amaga la correcció" onclick="toggleSolucion('sol-p5')">
+        <span class="toggle-label">Mostra la correcció</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <section class="solution" id="sol-p5" hidden>
+        <h3>Correcció pas a pas</h3>
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Per què val la part imaginària</h4>
+          <p>Per a cada font,</p><div class="math-block">$$\operatorname{Im}\left(e^{100\pi t\,i}\,A e^{\varphi i}\right) = \operatorname{Im}\left(A e^{(100\pi t + \varphi)i}\right) = A\sin(100\pi t + \varphi)$$</div><p>Com que la part imaginària d'una suma és la suma de les parts imaginàries i les dues fonts tenen la mateixa freqüència, es pot treure factor comú $e^{100\pi t\,i}$ i sumar els dos nombres complexos.</p><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Cada font com a part imaginària 2 p, factor comú 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Amplitud i desfasament</h4>
+          <div class="math-block">$$120e^{\frac{\pi}{6}i} + 90e^{\frac{2\pi}{3}i} \approx 58{,}9 + 137{,}9\,i$$</div><p>Els dos sumands formen un angle de $\frac{2\pi}{3} - \frac{\pi}{6} = \frac{\pi}{2}$, així que el mòdul surt per Pitàgores:</p><div class="math-block">$$R = \sqrt{120^2 + 90^2} = 150, \qquad \alpha = \arg(58{,}9 + 137{,}9\,i) \approx 1{,}17\ \text{rad}\ (\approx 66{,}9^\circ)$$</div><div class="final">$V = 150\sin(100\pi t + 1{,}17)$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Suma dels complexos 2 p, mòdul 1 p, argument 1 p, expressió final 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Període i freqüència</h4>
+          <div class="math-block">$$b = 100\pi \;\Longrightarrow\; T = \dfrac{2\pi}{100\pi} = 0{,}02\ \text{s}, \qquad f = \dfrac{1}{T} = 50\ \text{Hz}$$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Període 2 p, freqüència 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> La font invertida</h4>
+          <p>Ara $90e^{\left(\frac{2\pi}{3} + \pi\right)i} = -90e^{\frac{2\pi}{3}i}$, per tant</p><div class="math-block">$$120e^{\frac{\pi}{6}i} - 90e^{\frac{2\pi}{3}i} \approx 148{,}9 - 17{,}9\,i$$</div><p>de mòdul $150$ i argument $-0{,}120$ rad ($\approx -6{,}87^\circ$):</p><div class="final">$V = 150\sin(100\pi t - 0{,}120)$</div><p>L'amplitud no canvia perquè el desfasament entre les dues fonts continua sent de $90^\circ$ en valor absolut: $\frac{2\pi}{3} - \frac{\pi}{6} = \frac{\pi}{2}$ i $\frac{2\pi}{3} + \pi - \frac{\pi}{6} = \frac{3\pi}{2}$. Els dos vectors del pla complex continuen sent perpendiculars i, per Pitàgores, $R = \sqrt{120^2 + 90^2} = 150$ en tots dos casos; l'únic que canvia és la direcció de la suma, és a dir, el desfasament.</p><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Nova suma 2 p, mòdul i argument 1 p, expressió 1 p, explicació 1 p.</p>
+        </div>
+      </section>
+    </article>
+    <nav class="exam-nav" aria-label="Navegació de l'examen">
+      <a class="prev" href="p4.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/">Índex de l'examen</a>
+      <span class="disabled next">Pregunta següent &rarr;</span>
+    </nav>
+  </div>
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

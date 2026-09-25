@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 · Modelo sinusoidal: las mareas de un puerto — IB2 · U8</title>
+<meta name="description" content="Pregunta 2 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Modelo sinusoidal: las mareas de un puerto. Enunciado y corrección.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<script defer src="/assets/js/examenes.js?v=202609121757"></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">
+<meta property="og:title" content="P2 · Modelo sinusoidal: las mareas de un puerto — IB2 · U8">
+<meta property="og:description" content="Pregunta 2 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Modelo sinusoidal: las mareas de un puerto. Enunciado y corrección.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="P2 · Modelo sinusoidal: las mareas de un puerto — IB2 · U8">
+<meta name="twitter:description" content="Pregunta 2 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Modelo sinusoidal: las mareas de un puerto. Enunciado y corrección.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"IB Mathematics AI","item":"https://alexreyes.es/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"IB2 · Unidad 8 — Funciones sinusoidales y números complejos","item":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/"},{"@type":"ListItem","position":5,"name":"Pregunta 2","item":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html"}]},{"@type":"LearningResource","name":"Pregunta 2","url":"https://alexreyes.es/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html","inLanguage":"es","learningResourceType":"Examen","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Pregunta 2 del examen IB2 · U8 — U8 · Funciones sinusoidales y números complejos. Modelo sinusoidal: las mareas de un puerto. Enunciado y corrección."}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <a href="/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/examenes/2527-ib2-u8/p2.html">EN</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Mathematics AI</a>
+      <span class="sep">/</span>
+      <a href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">IB2 · Unidad 8 — Funciones sinusoidales y números complejos</a>
+      <span class="sep">/</span>
+      <span class="current">Pregunta 2</span>
+    </div>
+    <div class="exam-ctx">
+      <div class="exam-ctx-inner">
+        <span class="section-label">IB2 · U8</span>
+        <span class="level-badge level-hl">HL</span>
+        <span class="tag tag-gray">9 sep 2026</span>
+      </div>
+    </div>
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">Índice del examen</a>
+      <a class="next" href="p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+    <article class="question-block">
+      <h1>Pregunta 2 &middot; Modelo sinusoidal: las mareas de un puerto</h1>
+      <p class="question-descriptor">Parámetros de $a\sin(b(t-c))+d$ a partir de la marea alta y la baja; inecuación con tecnología; límites del modelo</p>
+      <span class="score-pill">Puntuación máxima · 18 puntos</span>
+      <div class="statement">
+        <div class="context">
+          <p>La profundidad del agua en la bocana de un puerto se puede modelizar mediante</p><div class="math-block">$$h(t) = a\sin\big(b(t-c)\big) + d,$$</div><p>donde $h$ es la profundidad, en metros, y $t$ el tiempo, en horas, transcurrido desde la medianoche. Un día concreto se registra una marea alta de $12{,}6$ m a las 4:00 y la siguiente marea baja, de $5{,}4$ m, a las 10:15.</p>
+        </div>
+        <ol class="apartados">
+          <li>Halla los valores de $a$ y de $d$, e interpreta el significado de cada uno en el contexto del problema. <span class="apartado-puntos">4 p</span></li>
+          <li>Halla el periodo del modelo y, a partir de él, los valores de $b$ y de $c$. <span class="apartado-puntos">5 p</span></li>
+          <li>Halla la profundidad del agua a las 13:00. <span class="apartado-puntos">3 p</span></li>
+          <li>Un buque solo puede entrar en el puerto si la profundidad del agua es de al menos $11$ m. Halla el intervalo de tiempo, durante las primeras $12$ horas del día, en el que el buque puede entrar. <span class="apartado-puntos">4 p</span></li>
+          <li>Explica una limitación de este modelo si se quisiera utilizar para predecir la profundidad del agua dentro de un mes. <span class="apartado-puntos">2 p</span></li>
+        </ol>
+      </div>
+      <div class="ib-chips">
+        <span class="ib-chips-label">IB AI HL</span>
+        <span class="ib-chip">TANS&nbsp;3.9</span>
+        <span class="ib-chip">NM&nbsp;2.5</span>
+      </div>
+      <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar corrección" data-hide-label="Ocultar corrección" onclick="toggleSolucion('sol-p2')">
+        <span class="toggle-label">Mostrar corrección</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <section class="solution" id="sol-p2" hidden>
+        <h3>Corrección paso a paso</h3>
+        <div class="apartado-sol">
+          <h4><span class="letra">a)</span> Amplitud y profundidad media</h4>
+          <div class="math-block">$$a = \dfrac{12{,}6 - 5{,}4}{2} = 3{,}6 \qquad d = \dfrac{12{,}6 + 5{,}4}{2} = 9$$</div><p>$a$ es la amplitud: la variación máxima, en metros, respecto de la profundidad media. $d = 9$ m es la profundidad media del agua.</p><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Cada cálculo 1 p, cada interpretación 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">b)</span> Periodo, $b$ y $c$</h4>
+          <p>De marea alta a marea baja transcurre medio periodo:</p><div class="math-block">$$T = 2\,(10{,}25 - 4) = 12{,}5\ \text{h} \qquad b = \dfrac{2\pi}{T} = \dfrac{2\pi}{12{,}5} \approx 0{,}503$$</div><p>El máximo se alcanza en $t = 4$, de modo que $b(4 - c) = \frac{\pi}{2}$ y por tanto</p><div class="math-block">$$c = 4 - \dfrac{\pi}{2b} = 4 - 3{,}125 = 0{,}875$$</div><div class="final">$h(t) = 3{,}6\sin\big(0{,}503\,(t - 0{,}875)\big) + 9$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Periodo 2 p, $b$ 1 p, $c$ 2 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">c)</span> Profundidad a las 13:00</h4>
+          <div class="math-block">$$h(13) = 3{,}6\sin\big(0{,}503\,(13 - 0{,}875)\big) + 9 \approx 8{,}33\ \text{m}$$</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Sustitución 1 p, calculadora en radianes 1 p, resultado 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">d)</span> Cuándo puede entrar el buque</h4>
+          <div class="math-block">$$h(t) \ge 11 \;\Longrightarrow\; \sin\big(0{,}503\,(t - 0{,}875)\big) \ge \dfrac{5}{9}$$</div><p>Con tecnología, $h(t) = 11$ para $t \approx 2{,}05$ y $t \approx 5{,}95$.</p><div class="final">Entre las 2:03 y las 5:57, es decir, durante unas $3{,}91$ horas.</div><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Planteamiento 2 p, ambas soluciones 1 p, intervalo correcto 1 p.</p>
+        </div>
+        <div class="apartado-sol">
+          <h4><span class="letra">e)</span> Una limitación</h4>
+          <p>Cualquier limitación razonada. Por ejemplo: el modelo supone amplitud y periodo constantes, mientras que la amplitud real de las mareas varía a lo largo del mes con las fases lunares (mareas vivas y muertas); tampoco recoge el efecto de la presión atmosférica ni del viento.</p><p style="font-size:0.86rem;color:var(--text-soft);margin-top:0.4rem">Limitación 1 p, justificación en el contexto 1 p.</p>
+        </div>
+      </section>
+    </article>
+    <nav class="exam-nav" aria-label="Navegación del examen">
+      <a class="prev" href="p1.html">&larr; Pregunta anterior</a>
+      <a class="index" href="/aula/ib-ai-hl/examenes/2527-ib2-u8/">Índice del examen</a>
+      <a class="next" href="p3.html">Pregunta siguiente &rarr;</a>
+    </nav>
+  </div>
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

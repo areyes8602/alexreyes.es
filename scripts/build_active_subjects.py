@@ -73,6 +73,7 @@ LABELS = {
         "section_card_fitxes": "Lista de ejercicios",
         "section_card_solucions": "Soluciones",
         "section_card_extra": "Recursos extra",
+        "section_card_examen": "Examen y corrección",
         "unit_meta_book": "Libro",
         "unit_meta_dates": "Fechas",
         "unit_meta_trim": "evaluación",
@@ -132,6 +133,7 @@ LABELS = {
         "section_card_fitxes": "Llista d'exercicis",
         "section_card_solucions": "Solucions",
         "section_card_extra": "Recursos extra",
+        "section_card_examen": "Examen i correcció",
         "unit_meta_book": "Llibre",
         "unit_meta_dates": "Dates",
         "unit_meta_trim": "avaluació",
@@ -191,6 +193,7 @@ LABELS = {
         "section_card_fitxes": "Exercise list",
         "section_card_solucions": "Solutions",
         "section_card_extra": "Extra resources",
+        "section_card_examen": "Exam and solutions",
         "unit_meta_book": "Book",
         "unit_meta_dates": "Dates",
         "unit_meta_trim": "term",
@@ -1186,7 +1189,7 @@ const TRIMESTRES = {trimestres_json};
 const UNIDAD_ACTUAL = {unidad_actual_json};
 const PROMO = {json.dumps(promo)};
 const MONTHS = {months_js};
-const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','unidad_empty','unidad_covers','meta_concepto','meta_conceptos','meta_ejercicio','meta_ejercicios']}, ensure_ascii=False)};
+const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','globals_empty','globals_load_error','examens_count_one','examens_count_many','subtema_empty','subtema_with_content','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_extra','section_card_examen','unidad_empty','unidad_covers','meta_concepto','meta_conceptos','meta_ejercicio','meta_ejercicios']}, ensure_ascii=False)};
 
 function fmtFecha(iso) {{ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${{parseInt(d,10)}} ${{MONTHS[parseInt(m,10)-1]}} ${{y}}`; }}
 function escHtml(s) {{ return String(s||'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c])); }}
@@ -1234,6 +1237,17 @@ function getUnidadResources(u, ctx) {{
   // Ejercicios (fichas) y exámenes
   const fichasMap = {{}};
   const examenesArr = [];
+  // Examen de la unidad: la colección lo declara en unidades_implicadas con el
+  // id de la unidad, y solo cuenta el de la promoción que se está mirando.
+  const examenes = {{}};
+  for (const e of (ctx.allEjs || [])) {{
+    const c = e.coleccion || {{}};
+    if (c.tipo === 'examen' && c.promocion === PROMO && (c.unidades_implicadas || []).includes(u.id)) {{
+      examenes[c.id] = c;
+    }}
+  }}
+  const examenesUnidad = Object.values(examenes).sort((a, b) => (a.fecha || '').localeCompare(b.fecha || ''));
+  const examenHref = examenesUnidad[0] ? `{lang_prefix(lang)}${{examenesUnidad[0].url_index}}` : null;
   for (const e of (ctx.allEjs || [])) {{
     const ejTags = (e.tags && e.tags.concepto_iba) || [];
     if (!unidadTags.some(t => ejTags.includes(t))) continue;
@@ -1250,6 +1264,7 @@ function getUnidadResources(u, ctx) {{
   return {{
     apuntesHref, apuntesCount,
     ejerciciosHref, ejerciciosCount,
+    examenHref,
   }};
 }}
 
@@ -1284,7 +1299,7 @@ function buildUnidad(u, nivel, ctx) {{
     buildIBSectionCard(res.apuntesHref, '📄', LABELS_JS.section_card_apunts, apuntesMeta),
     buildIBSectionCard(res.ejerciciosHref, '📝', LABELS_JS.section_card_fitxes, ejerciciosMeta),
     buildIBSectionCard(null, '🔗', LABELS_JS.section_card_extra, ''),
-  ].join('');
+  ].concat(res.examenHref ? [buildIBSectionCard(res.examenHref, '📋', LABELS_JS.section_card_examen, '')] : []).join('');
 
   return `<div class="chapter-item unidad-item"><div class="chapter-header" onclick="toggleChapter(this)">${{numero}}<span class="chapter-title">${{escHtml(u.title)}}</span><span class="chapter-arrow">&#9660;</span></div><div class="chapter-body">${{intro}}${{tagsBox}}<div class="chapter-sections">${{sections}}</div></div></div>`;
 }}
