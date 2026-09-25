@@ -59,6 +59,11 @@
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -131,7 +136,9 @@
           <text x="240" y="236" font-family="Inter,sans-serif" font-size="14" fill="#475569" text-anchor="middle">6 m</text>
         </svg>
 
-        <div class="example-box">
+        <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="example-box">
           <h3>a) El ángulo α</h3>
           <p>La cuerda llega al lado superior. El triángulo que forma con la valla de la
           izquierda es rectángulo, y en él el cateto contiguo a $\beta$ es $2{,}5$ y la
@@ -157,6 +164,7 @@
         <p class="note">Ojo con redondear a mitad de camino: si se toma $\alpha = 0{,}98$ en
         vez de $0{,}985$, el área sale $6{,}48$ m² en lugar de $6{,}51$. Conviene arrastrar
         los valores completos y redondear solo el resultado final.</p>
+</section>
       </section>
 
       <section class="apunt-section">
@@ -187,7 +195,9 @@
           <text x="202.2" y="137.98" font-family="Inter,sans-serif" font-size="14" fill="#be123c" text-anchor="middle">&#946;</text>
         </svg>
 
-        <p>Une los dos centros con uno de los puntos de corte: queda un triángulo de lados
+        <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p2" hidden>
+<p>Une los dos centros con uno de los puntos de corte: queda un triángulo de lados
         $2$, $2$ y $3$. Sus ángulos en los centros son los que abren cada sector.</p>
 
         <div class="example-box">
@@ -237,6 +247,7 @@
           $\frac{1}{2}ab\sin C$, que necesita el ángulo: por eso el teorema del coseno va
           antes.</p>
         </div>
+</section>
       </section>
 
       <nav class="exam-nav" id="apunt-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem"
@@ -269,6 +280,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 
 <script>

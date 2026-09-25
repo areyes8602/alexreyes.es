@@ -59,6 +59,11 @@
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -129,7 +134,9 @@
           <text x="240" y="236" font-family="Inter,sans-serif" font-size="14" fill="#475569" text-anchor="middle">6 m</text>
         </svg>
 
-        <div class="example-box">
+        <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="example-box">
           <h3>a) The angle α</h3>
           <p>The rope reaches the top side. The triangle it forms with the left fence is right-angled, and in it the leg adjacent to $\beta$ is $2.5$ and the hypotenuse is $3$:</p>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
@@ -150,6 +157,7 @@
         </div>
 
         <p class="note">Careful with rounding halfway through: taking $\alpha = 0.98$ instead of $0.985$ gives $6.48$ m² instead of $6.51$. Carry the full values and round only the final answer.</p>
+</section>
       </section>
 
       <section class="apunt-section">
@@ -179,7 +187,9 @@
           <text x="202.2" y="137.98" font-family="Inter,sans-serif" font-size="14" fill="#be123c" text-anchor="middle">&#946;</text>
         </svg>
 
-        <p>Join the two centres to one of the intersection points: you get a triangle with sides $2$, $2$ and $3$. Its angles at the centres are the ones that open each sector.</p>
+        <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p2" hidden>
+<p>Join the two centres to one of the intersection points: you get a triangle with sides $2$, $2$ and $3$. Its angles at the centres are the ones that open each sector.</p>
 
         <div class="example-box">
           <h3>The two angles, by the cosine rule</h3>
@@ -221,6 +231,7 @@
           <h3>The idea that keeps coming back</h3>
           <p>A piece of a circle bounded by a chord (a <em>circular segment</em>) is always <strong>sector minus triangle</strong>. And the triangle needs $\frac{1}{2}ab\sin C$, which needs the angle: that is why the cosine rule comes first.</p>
         </div>
+</section>
       </section>
 
       <nav class="exam-nav" id="apunt-nav" aria-label="Notes navigation" style="margin-top:2.5rem"
@@ -253,6 +264,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 
 <script>

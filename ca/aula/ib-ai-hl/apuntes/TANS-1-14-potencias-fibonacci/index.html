@@ -59,6 +59,11 @@
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-14-potencias-fibonacci/">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-potencias-fibonacci/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-potencias-fibonacci/">
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Salta al contingut</a>
@@ -117,7 +122,9 @@
           Escriu una expressió per a $A^{n}$.</p>
         </div>
 
-        <div class="step">
+        <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="step">
           <h3>Les potències, l'una darrere l'altra</h3>
           <p>Cada potència surt de multiplicar l'anterior per $A$: $A^{k+1} = A^{k}\cdot A$.</p>
           <div class="math-block">$$A^{2} = \begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}$$</div><div class="math-block">$$A^{3} = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}\begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 2 & 2 \\ 1 & 1 & 1 \\ 1 & 2 & 2 \end{pmatrix}$$</div><div class="math-block">$$A^{4} = \begin{pmatrix} 1 & 2 & 2 \\ 1 & 1 & 1 \\ 1 & 2 & 2 \end{pmatrix}\begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 1 \end{pmatrix} = \begin{pmatrix} 2 & 3 & 3 \\ 1 & 2 & 2 \\ 2 & 3 & 3 \end{pmatrix}$$</div><div class="math-block">$$A^{5} = \begin{pmatrix} 2 & 3 & 3 \\ 1 & 2 & 2 \\ 2 & 3 & 3 \end{pmatrix}\begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 1 \end{pmatrix} = \begin{pmatrix} 3 & 5 & 5 \\ 2 & 3 & 3 \\ 3 & 5 & 5 \end{pmatrix}$$</div>
@@ -153,6 +160,7 @@
           transicions de la conjectura de Collatz mòdul $6$. N'hi ha una versió divulgativa a la nota
           <a href="/ca/notas/fibonacci-collatz/">Fibonacci amagat dins de Collatz</a>.</p>
         </div>
+</section>
       </section>
 
       <nav class="exam-nav" id="apunt-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem"
@@ -185,6 +193,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 
 <script>

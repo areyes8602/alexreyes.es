@@ -59,6 +59,11 @@
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-3-9/">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-9/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-9/">
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -203,7 +208,9 @@
           <text x="92" y="26" font-family="Inter,sans-serif" font-size="13" fill="#475569">y</text>
         </svg>
 
-        <div class="example-box">
+        <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="example-box">
           <h3>Eje de equilibrio y amplitud</h3>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
             $$d = \dfrac{2 + (-8)}{2} = -3 \qquad\qquad a = \dfrac{2-(-8)}{2} = \dfrac{10}{2} = 5$$
@@ -246,6 +253,7 @@
         la ecuación trigonométrica. Como el seno se repite cada $2\pi$, hay infinitas fases
         que valen ($c=1$, $c=9$, $c=17$…): por eso el enunciado pide el <em>menor valor
         positivo</em>.</p>
+</section>
       </section>
 
       <section class="apunt-section">
@@ -293,6 +301,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 
 <script>
