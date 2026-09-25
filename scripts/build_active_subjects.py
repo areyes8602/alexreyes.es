@@ -367,7 +367,8 @@ SUBJ_3ESO = {
                  "desc_l":{"ca":"Revisem 2n d'ESO amb problemes de context: superfícies, volums, litres, percentatges i equacions.",
                            "es":"Repasamos 2.º de ESO con problemas de contexto: superficies, volúmenes, litros, porcentajes y ecuaciones.",
                            "en":"Revising 2n ESO through real-context problems: areas, volumes, litres, percentages and equations."},
-                 "apunts":"/aula/eso-3/apuntes/2627-u-reptes/"},
+                 "apunts":"/aula/eso-3/apuntes/2627-u-reptes/",
+                 "fitxes":"/aula/eso-3/ejercicios/2627-u-reptes/"},
     ],
     "archived_years": [],
 }
