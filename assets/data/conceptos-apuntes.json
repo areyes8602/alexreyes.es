@@ -13,58 +13,156 @@
       ]
     },
     {
-      "code": "TANS 1.12",
-      "slug": "TANS-1-12",
-      "secciones": [
-        "teoría",
-        "ejemplos"
-      ]
-    },
-    {
-      "code": "TANS 1.13",
-      "slug": "TANS-1-13",
-      "secciones": [
-        "teoría",
-        "propiedades",
-        "ejercicios",
-        "suma de sinusoidales",
-        "simulador"
-      ]
-    },
-    {
-      "code": "TANS 1.14",
-      "slug": "TANS-1-14",
-      "secciones": [
-        "definiciones",
-        "tipos de matrices",
-        "deberes",
-        "potencias y Fibonacci"
-      ]
-    },
-    {
-      "code": "TANS 3.7",
-      "slug": "TANS-3-7",
-      "secciones": [
-        "teoría",
-        "ejemplos",
-        "ejercicios"
-      ]
-    },
-    {
-      "code": "TANS 3.9",
-      "slug": "TANS-3-9",
-      "secciones": [
-        "teoría",
-        "ejemplos",
-        "ejercicios"
-      ]
-    },
-    {
       "code": "TANS 5.8",
       "slug": "demo-derivada-ax",
       "secciones": [
         "demostración"
       ]
+    },
+    {
+      "code": "TANS 3.7",
+      "slug": "TANS-3-7",
+      "titulo": {
+        "es": "El radián",
+        "ca": "El radian",
+        "en": "The radian"
+      }
+    },
+    {
+      "code": "TANS 3.7",
+      "slug": "TANS-3-7-arco-sector",
+      "titulo": {
+        "es": "Longitud de arco y área de sector",
+        "ca": "Longitud d'arc i àrea de sector",
+        "en": "Arc length and sector area"
+      }
+    },
+    {
+      "code": "TANS 3.7",
+      "slug": "TANS-3-7-problemas",
+      "titulo": {
+        "es": "Problemas de arcos y sectores",
+        "ca": "Problemes d'arcs i sectors",
+        "en": "Arc and sector problems"
+      }
+    },
+    {
+      "code": "TANS 3.9",
+      "slug": "TANS-3-9",
+      "titulo": {
+        "es": "Funciones sinusoidales: los cuatro parámetros",
+        "ca": "Funcions sinusoïdals: els quatre paràmetres",
+        "en": "Sinusoidal functions: the four parameters"
+      }
+    },
+    {
+      "code": "TANS 3.9",
+      "slug": "TANS-3-9-deberes-14-sep",
+      "titulo": {
+        "es": "Deberes del 14 de septiembre",
+        "ca": "Deures del 14 de setembre",
+        "en": "Homework for 14 September"
+      }
+    },
+    {
+      "code": "TANS 1.12",
+      "slug": "TANS-1-12",
+      "titulo": {
+        "es": "La unidad imaginaria",
+        "ca": "La unitat imaginària",
+        "en": "The imaginary unit"
+      }
+    },
+    {
+      "code": "TANS 1.12",
+      "slug": "TANS-1-12-forma-binomica",
+      "titulo": {
+        "es": "Forma binómica y operaciones",
+        "ca": "Forma binòmica i operacions",
+        "en": "Cartesian form and operations"
+      }
+    },
+    {
+      "code": "TANS 1.12",
+      "slug": "TANS-1-12-argand",
+      "titulo": {
+        "es": "El plano de Argand: conjugado, módulo y argumento",
+        "ca": "El pla d'Argand: conjugat, mòdul i argument",
+        "en": "The Argand plane: conjugate, modulus and argument"
+      }
+    },
+    {
+      "code": "TANS 1.13",
+      "slug": "TANS-1-13",
+      "titulo": {
+        "es": "Formas de representación: polar y exponencial",
+        "ca": "Formes de representació: polar i exponencial",
+        "en": "Forms of representation: polar and exponential"
+      }
+    },
+    {
+      "code": "TANS 1.13",
+      "slug": "TANS-1-13-operaciones",
+      "titulo": {
+        "es": "Operaciones en forma polar y exponencial",
+        "ca": "Operacions en forma polar i exponencial",
+        "en": "Operations in polar and exponential form"
+      }
+    },
+    {
+      "code": "TANS 1.13",
+      "slug": "TANS-1-13-espiral",
+      "titulo": {
+        "es": "Una espiral en el plano de Argand",
+        "ca": "Una espiral al pla d'Argand",
+        "en": "A spiral on the Argand plane"
+      }
+    },
+    {
+      "code": "TANS 3.9",
+      "slug": "TANS-3-9-suma-sinusoides",
+      "titulo": {
+        "es": "Suma de sinusoidales con la misma frecuencia",
+        "ca": "Suma de sinusoïdals amb la mateixa freqüència",
+        "en": "Adding sinusoids with the same frequency"
+      }
+    },
+    {
+      "code": "TANS 1.14",
+      "slug": "TANS-1-14",
+      "titulo": {
+        "es": "Qué es una matriz",
+        "ca": "Què és una matriu",
+        "en": "What a matrix is"
+      }
+    },
+    {
+      "code": "TANS 1.14",
+      "slug": "TANS-1-14-tipos",
+      "titulo": {
+        "es": "Tipos de matrices",
+        "ca": "Tipus de matrius",
+        "en": "Types of matrix"
+      }
+    },
+    {
+      "code": "TANS 1.14",
+      "slug": "TANS-1-14-deberes-23-sep",
+      "titulo": {
+        "es": "Deberes del 23 de septiembre",
+        "ca": "Deures del 23 de setembre",
+        "en": "Homework for 23 September"
+      }
+    },
+    {
+      "code": "TANS 1.15",
+      "slug": "TANS-1-14-potencias-fibonacci",
+      "titulo": {
+        "es": "Potencias de una matriz y Fibonacci",
+        "ca": "Potències d'una matriu i Fibonacci",
+        "en": "Powers of a matrix and Fibonacci"
+      }
     }
-  ]
+  ],
+  "_doc_titulo": "Un concepto puede tener varios apartados, cada uno con su página y su slug. 'titulo' es el nombre del apartado en cada idioma; sin él, el índice usa la etiqueta del código en tags.json. El orden dentro de la unidad es el de 'apuntes_orden' en ib-unidades.json, que admite slugs o códigos."
 }

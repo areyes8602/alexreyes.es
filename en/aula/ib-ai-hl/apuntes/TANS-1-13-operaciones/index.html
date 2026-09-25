@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations in polar and exponential form · TANS 1.13 · IB Math AI HL</title>
+<meta name="description" content="IB Math AI HL notes: multiplying, dividing and raising complex numbers to powers in polar and exponential form, and exercise 8F.1 worked through in full.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.fig-svg { display:block; width:100%; max-width:480px; height:auto; margin:1.1rem auto; }
+.intervals-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.92rem; }
+.intervals-table th, .intervals-table td { padding:0.5rem 0.6rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle; }
+.intervals-table th { background:var(--bg-subtle); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/">
+<meta property="og:title" content="Operations in polar and exponential form · TANS 1.13 · IB Math AI HL">
+<meta property="og:description" content="IB Math AI HL notes: multiplying, dividing and raising complex numbers to powers in polar and exponential form, and exercise 8F.1 worked through in full.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Operations in polar and exponential form · TANS 1.13 · IB Math AI HL">
+<meta name="twitter:description" content="IB Math AI HL notes: multiplying, dividing and raising complex numbers to powers in polar and exponential form, and exercise 8F.1 worked through in full.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Notes","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Operations in polar and exponential form","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/"}]},{"@type":"LearningResource","name":"Operations in polar and exponential form","url":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"IB Math AI HL notes: multiplying, dividing and raising complex numbers to powers in polar and exponential form, and exercise 8F.1 worked through in full."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/apuntes/TANS-1-13-operaciones/" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a><span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a><span class="sep">/</span>
+      <a href="/en/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a id="bc-apunts" href="/en/aula/ib-ai-hl/apuntes/#u08-ondas-fasores-complejos">Notes</a><span class="sep">/</span>
+      <span class="current">Operations in polar and exponential form</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div class="apunt-meta-row">
+        <span class="section-label">IB Math AI HL · U08 · Waves and phasors</span>
+        <span class="tag tag-orange">TANS 1.13 · Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">2025–2027 cohort</span>
+      </div>
+      <h1 style="margin:0">Operations in polar and exponential form</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        Why multiplying, dividing and raising to powers are almost calculation-free in polar form, with exercise 8F.1 worked through.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <section class="apunt-section">
+        <h2>Multiplying, dividing and raising to powers</h2>
+
+        <div class="prop-box">
+          <h3>The three rules</h3>
+          <p>Moduli are multiplied or divided; arguments are added or subtracted.</p>
+          <div class="math-block">$$r_{\theta} \cdot s_{\varphi} = (r\,s)_{\theta+\varphi}
+          \qquad \dfrac{r_{\theta}}{s_{\varphi}} = \left(\dfrac{r}{s}\right)_{\theta-\varphi}
+          \qquad \left(r_{\theta}\right)^{n} = \left(r^{n}\right)_{n\theta}$$</div>
+        </div>
+
+        <p>In exponential form there is nothing to memorise: they are the usual laws of exponents.</p>
+        <div class="math-block">$$r\,e^{i\theta} \cdot s\,e^{i\varphi} = r\,s\;e^{i(\theta+\varphi)}$$</div>
+
+        <div class="prop-box">
+          <h3>Watch out for full turns</h3>
+          <p>The argument is only defined <strong>up to whole turns</strong>: $\theta$ and $\theta + 2\pi$ are the
+          same angle. After adding or multiplying arguments, it is worth bringing the result back into
+          $[0,\, 2\pi)$ by adding or subtracting $2\pi$.</p>
+        </div>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Exercise 8F.1</h2>
+
+        <div class="def-box">
+          <h3>Question</h3>
+          <p><strong>a)</strong> Given $a = 1+\sqrt{3}\,i$, $\;b = -1+i\;$ and $\;c = \sqrt{3}-i$, write them in
+          modulus–argument form using $\tan\frac{\pi}{6} = \frac{1}{\sqrt{3}}$, $\tan\frac{\pi}{4} = 1$ and
+          $\tan\frac{\pi}{3} = \sqrt{3}$.</p>
+          <p><strong>b)</strong> Hence find, in Cartesian form, &nbsp;i)&nbsp;$ac$, &nbsp;ii)&nbsp;$\dfrac{a}{c}$,
+          &nbsp;iii)&nbsp;$b^{4}$, &nbsp;iv)&nbsp;$\dfrac{a^{3}}{b^{2}}$ &nbsp;and&nbsp; v)&nbsp;$\dfrac{a^{2}b}{c^{2}}$.</p>
+        </div>
+
+        <div class="step">
+          <h3>a) All three in polar form</h3>
+          <div style="overflow-x:auto"><table class="intervals-table">
+            <thead>
+              <tr><th>Number</th><th>Modulus</th><th>Argument</th><th>Polar form</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$a = 1+\sqrt{3}\,i$</td>
+                <td>$\sqrt{1+3} = 2$</td>
+                <td>$\arctan\dfrac{\sqrt{3}}{1} = \dfrac{\pi}{3}$</td>
+                <td>$2_{\pi/3}$</td>
+              </tr>
+              <tr>
+                <td>$b = -1+i$</td>
+                <td>$\sqrt{1+1} = \sqrt{2}$</td>
+                <td>$\arctan\dfrac{1}{-1} = -\dfrac{\pi}{4} \;\to\; +\pi = \dfrac{3\pi}{4}$</td>
+                <td>$\sqrt{2}_{\,3\pi/4}$</td>
+              </tr>
+              <tr>
+                <td>$c = \sqrt{3}-i$</td>
+                <td>$\sqrt{3+1} = 2$</td>
+                <td>$\arctan\dfrac{-1}{\sqrt{3}} = -\dfrac{\pi}{6} \;\to\; +2\pi = \dfrac{11\pi}{6}$</td>
+                <td>$2_{\,11\pi/6}$</td>
+              </tr>
+            </tbody>
+          </table></div>
+          <p class="note">$a$ is in the first quadrant and the inverse tangent already gives the right angle.
+          $b$ is in the second, so $\pi$ has to be added; $c$ is in the fourth, and $2\pi$ is added only to make
+          it positive.</p>
+        </div>
+
+        <div class="step">
+          <h3>b.i) $ac$</h3>
+          <p>Moduli times moduli, arguments plus arguments:</p>
+          <div class="math-block">$$ac = 2_{\pi/3} \cdot 2_{\,11\pi/6}
+          = 4_{\,\pi/3 + 11\pi/6} = 4_{\,13\pi/6} = 4_{\,\pi/6}$$</div>
+          <p>And back to Cartesian form with cosine and sine:</p>
+          <div class="math-block">$$ac = 4\left(\cos\dfrac{\pi}{6} + i\,\sin\dfrac{\pi}{6}\right)
+          = 4\left(\dfrac{\sqrt{3}}{2} + \dfrac{1}{2}\,i\right) = 2\sqrt{3} + 2i$$</div>
+          <p class="note">Check in Cartesian form:
+          $(1+\sqrt{3}i)(\sqrt{3}-i) = \sqrt{3} - i + 3i - \sqrt{3}\,i^{2} = 2\sqrt{3} + 2i$.</p>
+        </div>
+
+        <div class="step">
+          <h3>b.ii) $\dfrac{a}{c}$</h3>
+          <div class="math-block">$$\dfrac{a}{c} = \dfrac{2_{\pi/3}}{2_{\,11\pi/6}}
+          = 1_{\,\pi/3 - 11\pi/6} = 1_{-3\pi/2} = 1_{\,\pi/2} = i$$</div>
+          <p class="note">$-\frac{3\pi}{2}$ and $\frac{\pi}{2}$ are the same angle: they differ by one turn. And the
+          complex number with modulus $1$ and argument $\frac{\pi}{2}$ is exactly $i$.</p>
+        </div>
+
+        <div class="step">
+          <h3>b.iii) $b^{4}$</h3>
+          <div class="math-block">$$b^{4} = \left(\sqrt{2}_{\,3\pi/4}\right)^{4}
+          = \left(\sqrt{2}^{\,4}\right)_{\,4 \cdot 3\pi/4} = 4_{\,3\pi} = 4_{\,\pi} = -4$$</div>
+          <p class="note">$3\pi$ is $\pi$ plus one turn. Check:
+          $b^{2} = (-1+i)^{2} = -2i$, and $b^{4} = (-2i)^{2} = -4$.</p>
+        </div>
+
+        <div class="step">
+          <h3>b.iv) $\dfrac{a^{3}}{b^{2}}$</h3>
+          <p>First the two powers, each with its rule:</p>
+          <div class="math-block">$$a^{3} = \left(2_{\pi/3}\right)^{3} = 8_{\pi} \qquad\qquad b^{2} = \left(\sqrt{2}_{\,3\pi/4}\right)^{2} = 2_{\,3\pi/2}$$</div>
+          <div class="math-block">$$\dfrac{a^{3}}{b^{2}} = \dfrac{8_{\pi}}{2_{\,3\pi/2}} = 4_{\,\pi - 3\pi/2} = 4_{-\pi/2} = 4_{\,3\pi/2} = -4i$$</div>
+          <p class="note">Check in Cartesian form: $a^{3} = -8$ and $b^{2} = -2i$, so
+          $\dfrac{-8}{-2i} = \dfrac{4}{i} = -4i$.</p>
+        </div>
+
+        <div class="step">
+          <h3>b.v) $\dfrac{a^{2}b}{c^{2}}$</h3>
+          <div class="math-block">$$a^{2} = \left(2_{\pi/3}\right)^{2} = 4_{\,2\pi/3} \qquad\qquad c^{2} = \left(2_{\,11\pi/6}\right)^{2} = 4_{\,11\pi/3}$$</div>
+          <p>$b$ is in the numerator, so its argument is <strong>added</strong>; only that of $c^{2}$ is subtracted:</p>
+          <div class="math-block">$$\dfrac{a^{2}b}{c^{2}} = \left(\dfrac{4\sqrt{2}}{4}\right)_{\frac{2\pi}{3} + \frac{3\pi}{4} - \frac{11\pi}{3}}
+          = \sqrt{2}_{\,\frac{8\pi + 9\pi - 44\pi}{12}} = \sqrt{2}_{-9\pi/4} = \sqrt{2}_{\,7\pi/4}$$</div>
+          <div class="math-block">$$\sqrt{2}_{\,7\pi/4} = \sqrt{2}\left(\cos\dfrac{7\pi}{4} + i\,\sin\dfrac{7\pi}{4}\right)
+          = \sqrt{2}\left(\dfrac{\sqrt{2}}{2} - \dfrac{\sqrt{2}}{2}\,i\right) = 1 - i$$</div>
+          <div class="prop-box">
+            <h3>Correction to the board</h3>
+            <p>In class the argument of $b$ was <strong>subtracted</strong> ($\frac{2\pi}{3} - \frac{3\pi}{4} - \frac{11\pi}{3}$)
+            and the answer came out as $\sqrt{2}_{\pi/4} = 1 + i$, the conjugate of the right one. The check in
+            Cartesian form confirms it: $a^{2}b = (2 - 2\sqrt{3}) - (2 + 2\sqrt{3})\,i$ and $c^{2} = 2 - 2\sqrt{3}\,i$,
+            and dividing gives $1 - i$.</p>
+          </div>
+        </div>
+      </section>
+
+      <nav class="exam-nav" id="apunt-nav" aria-label="Notes navigation" style="margin-top:2.5rem"
+           data-slug="TANS-1-13-operaciones" data-pre="/en">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/ib-ai-hl/apuntes/#u08-ondas-fasores-complejos">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+
+<script>
+// Si s'hi ha arribat des d'una unitat concreta, les migues hi tornen.
+(function(){var f=new URLSearchParams(location.search).get('from');if(!f)return;var a=document.getElementById('bc-apunts');if(a)a.href=a.href.split('#')[0]+'#'+encodeURIComponent(f);})();
+</script>
+<script defer src="/assets/js/apunts-ib-nav.js?v=202609251200"></script>
+</body>
+</html>

@@ -275,10 +275,18 @@
       "promo": "all",
       "tier": "free",
       "apuntes_orden": [
-        "TANS 3.7",
-        "TANS 3.9",
-        "TANS 1.12",
-        "TANS 1.13"
+        "TANS-3-7",
+        "TANS-3-7-arco-sector",
+        "TANS-3-7-problemas",
+        "TANS-3-9",
+        "TANS-3-9-deberes-14-sep",
+        "TANS-1-12",
+        "TANS-1-12-forma-binomica",
+        "TANS-1-12-argand",
+        "TANS-1-13",
+        "TANS-1-13-operaciones",
+        "TANS-1-13-espiral",
+        "TANS-3-9-suma-sinusoides"
       ]
     },
     {
@@ -303,7 +311,10 @@
       "promo": "all",
       "tier": "free",
       "apuntes_orden": [
-        "TANS 1.14"
+        "TANS-1-14",
+        "TANS-1-14-tipos",
+        "TANS-1-14-deberes-23-sep",
+        "TANS-1-14-potencias-fibonacci"
       ]
     },
     {
@@ -723,5 +734,5 @@
       "tier": "free"
     }
   ],
-  "_doc_apuntes_orden": "Ordre en que es presenten els apunts dins d'una unitat. Per defecte es fa servir l'ordre de tags_iba, que es el numeric del syllabus; si la unitat porta apuntes_orden, mana aquesta llista (ordre en que s'ha donat a classe). Els codis que no hi surtin van al final, en l'ordre de tags_iba."
+  "_doc_apuntes_orden": "Orden en que se han dado en clase los apartados de apuntes de la unidad. Admite slugs de conceptos-apuntes.json (un concepto puede tener varios apartados) o códigos NM/TANS; lo que no aparezca va al final."
 }

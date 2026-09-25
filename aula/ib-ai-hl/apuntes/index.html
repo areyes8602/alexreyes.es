@@ -27,6 +27,10 @@
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Apuntes de la unidad — IB Math AI — alexreyes.es","url":"https://alexreyes.es/aula/ib-ai-hl/apuntes/","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Índice de apuntes por concepto de una unidad didáctica de IB Math AI. Cada concepto NM/TANS tiene su página con teoría, ejemplos, GeoGebra y ejercicios."}</script>
 <link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/">
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -126,8 +130,8 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
     const trimestres = unidadesRaw.trimestres || {};
     const conceptosDisponibles = conceptosApuntes.conceptos || [];
     const subtemasInfo = (tagsData?.namespaces?.concepto_iba?.valores) || {};
-    const conCount = u2 => (u2.tags_iba || [])
-      .filter(code => conceptosDisponibles.some(c => c.code === code)).length;
+    // Un concepte pot tenir diversos apartats: es compten pàgines, no codis.
+    const conCount = u2 => conceptosDisponibles.filter(c => (u2.tags_iba || []).includes(c.code)).length;
 
     // Sin unidad en la URL —al volver por las migas de pan, por ejemplo— no
     // tiene sentido dar error: se listan las unidades que ya tienen apuntes.
@@ -150,24 +154,26 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
     document.getElementById('bc-current').textContent = `Apuntes · ${u.title.es}`;
     document.title = `Apuntes de ${numLabel} · ${u.title.es} · ${nivelLabel} — alexreyes.es`;
 
-    // El orden de los apuntes es el que se ha seguido en clase (apuntes_orden),
-    // no el numérico del syllabus. Lo que no esté en esa lista va al final.
-    const codigos = (u.tags_iba || []).slice().sort((a, b) => {
-      const orden = u.apuntes_orden || [];
-      const ia = orden.indexOf(a), ib = orden.indexOf(b);
-      if (ia === -1 && ib === -1) return 0;
-      if (ia === -1) return 1;
-      if (ib === -1) return -1;
-      return ia - ib;
-    });
-    const conceptosConApuntes = codigos.map(code => {
-      const entry = conceptosDisponibles.find(c => c.code === code);
-      if (!entry) return null;
-      const info = subtemasInfo[code];
-      const tituloRaw = info?.label?.es || code;
-      const titulo = tituloRaw.includes(' — ') ? tituloRaw.split(' — ')[1] : tituloRaw;
-      return { code, slug: entry.slug, titulo, secciones: entry.secciones || [] };
-    }).filter(Boolean);
+    // El orden de los apartados es el que se ha seguido en clase (apuntes_orden,
+    // con slugs o con códigos), no el numérico del syllabus. Un concepto puede
+    // tener varios apartados; lo que no esté en la lista va al final.
+    const orden = u.apuntes_orden || [];
+    const pos = e => {
+      const i = orden.indexOf(e.slug);
+      if (i >= 0) return i;
+      const j = orden.indexOf(e.code);
+      return j >= 0 ? j : Infinity;
+    };
+    const conceptosConApuntes = conceptosDisponibles
+      .map((e, k) => ({ e, k, p: pos(e) }))
+      .filter(x => (u.tags_iba || []).includes(x.e.code))
+      .sort((a, b) => (a.p === b.p ? 0 : (a.p < b.p ? -1 : 1)) || (a.k - b.k))
+      .map(({ e }) => {
+        const info = subtemasInfo[e.code];
+        const tituloRaw = (e.titulo && (e.titulo.es || e.titulo.es)) || info?.label?.es || e.code;
+        const titulo = !e.titulo && tituloRaw.includes(' — ') ? tituloRaw.split(' — ')[1] : tituloRaw;
+        return { code: e.code, slug: e.slug, titulo, secciones: e.secciones || [] };
+      });
 
     if (conceptosConApuntes.length === 0) {
       showNotFound(unidadId);
@@ -183,7 +189,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       return `<a href="/aula/ib-ai-hl/apuntes/${c.slug}/?from=${encodeURIComponent(u.id)}" class="tipo-apuntes">
         <span class="num">${escHtml(c.code)}</span>
         <span class="ttl">${escHtml(c.titulo)}</span>
-        <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-faint)">Cap. ${i+1}/${total}</span>
+        <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text-faint)">Apdo. ${i+1}/${total}</span>
         ${seccionesText}
         <span class="arr">→</span>
       </a>`;
@@ -212,7 +218,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       return `<a href="#${encodeURIComponent(x.id)}" class="tipo-apuntes">
         <span class="num">${escHtml(num)}</span>
         <span class="ttl">${escHtml(x.title.es)}</span>
-        <span class="meta">${escHtml(trim)} · ${n} ${n === 1 ? 'concepto' : 'conceptos'}</span>
+        <span class="meta">${escHtml(trim)} · ${n} ${n === 1 ? 'apartado' : 'apartados'}</span>
         <span class="arr">→</span>
       </a>`;
     }).join('');

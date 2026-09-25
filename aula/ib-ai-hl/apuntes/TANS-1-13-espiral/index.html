@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una espiral en el plano de Argand · TANS 1.13 · IB Math AI HL</title>
+<meta name="description" content="Apuntes de IB Math AI HL: el ejercicio 8F.6 resuelto, una semirrecta de argumento fijo y una espiral de Arquímedes en el plano de Argand.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.fig-svg { display:block; width:100%; max-width:480px; height:auto; margin:1.1rem auto; }
+.intervals-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.92rem; }
+.intervals-table th, .intervals-table td { padding:0.5rem 0.6rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle; }
+.intervals-table th { background:var(--bg-subtle); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/">
+<meta property="og:title" content="Una espiral en el plano de Argand · TANS 1.13 · IB Math AI HL">
+<meta property="og:description" content="Apuntes de IB Math AI HL: el ejercicio 8F.6 resuelto, una semirrecta de argumento fijo y una espiral de Arquímedes en el plano de Argand.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Una espiral en el plano de Argand · TANS 1.13 · IB Math AI HL">
+<meta name="twitter:description" content="Apuntes de IB Math AI HL: el ejercicio 8F.6 resuelto, una semirrecta de argumento fijo y una espiral de Arquímedes en el plano de Argand.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Apuntes","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Una espiral en el plano de Argand","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/"}]},{"@type":"LearningResource","name":"Una espiral en el plano de Argand","url":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apuntes de IB Math AI HL: el ejercicio 8F.6 resuelto, una semirrecta de argumento fijo y una espiral de Arquímedes en el plano de Argand."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/apuntes/TANS-1-13-espiral/">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a id="bc-apunts" href="/aula/ib-ai-hl/apuntes/#u08-ondas-fasores-complejos">Apuntes</a><span class="sep">/</span>
+      <span class="current">Una espiral en el plano de Argand</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div class="apunt-meta-row">
+        <span class="section-label">IB Math AI HL · U08 · Ondas y fasores</span>
+        <span class="tag tag-orange">TANS 1.13 · Apuntes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">Curso 2025–2027</span>
+      </div>
+      <h1 style="margin:0">Una espiral en el plano de Argand</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        El ejercicio 8F.6: semirrectas de argumento fijo y la espiral $z = 0{,}5t\,e^{\frac{\pi}{2}t\,i}$.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <section class="apunt-section">
+        <h2>Ejercicio 8F.6</h2>
+
+        <div class="def-box">
+          <h3>Enunciado</h3>
+          <p><strong>a)</strong> Describe la línea que forman en el plano de Argand todos los puntos $z$ con $\arg z = \frac{\pi}{4}$.</p>
+          <p>La figura muestra los complejos $z = 0{,}5t\,e^{\frac{\pi}{2}t\,i}$, con $t &gt; 0$, junto con los puntos $z$ que cumplen $\arg z = \theta$ para un cierto ángulo $\theta$.</p>
+          <p><strong>b)</strong> Halla los valores de $t$ en los que la curva corta por primera vez &nbsp;i)&nbsp;el eje imaginario &nbsp;y&nbsp; ii)&nbsp;el eje real.</p>
+          <p><strong>c)</strong> Da los valores de $z$ en esos puntos en forma cartesiana.</p>
+          <p>La curva y la semirrecta se cortan en los puntos A, B y C.</p>
+          <p><strong>d)</strong> Halla, en forma exponencial y en función de $\theta$, los complejos $z_1$, $z_2$ y $z_3$ de los puntos A, B y C.</p>
+          <p><strong>e)</strong> Escribe $|z_2| - |z_1|$ y $|z_3| - |z_2|$. ¿Esperarías que el patrón continúe? Justifícalo.</p>
+        </div>
+
+        <svg class="fig-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Espiral z igual a 0,5 t por e elevado a pi t medios i, con la semirrecta de argumento theta que la corta en A, B y C"><line x1="13.0" y1="200" x2="387.0" y2="200" stroke="#94a3b8" stroke-width="1.2"/><line x1="200" y1="387.0" x2="200" y2="13.0" stroke="#94a3b8" stroke-width="1.2"/><line x1="30" y1="196" x2="30" y2="204" stroke="#94a3b8"/><line x1="196" y1="370" x2="204" y2="370" stroke="#94a3b8"/><line x1="64" y1="196" x2="64" y2="204" stroke="#94a3b8"/><line x1="196" y1="336" x2="204" y2="336" stroke="#94a3b8"/><text x="64" y="216" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#94a3b8">-4</text><text x="192" y="340" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#94a3b8">-4</text><line x1="98" y1="196" x2="98" y2="204" stroke="#94a3b8"/><line x1="196" y1="302" x2="204" y2="302" stroke="#94a3b8"/><line x1="132" y1="196" x2="132" y2="204" stroke="#94a3b8"/><line x1="196" y1="268" x2="204" y2="268" stroke="#94a3b8"/><text x="132" y="216" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#94a3b8">-2</text><text x="192" y="272" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#94a3b8">-2</text><line x1="166" y1="196" x2="166" y2="204" stroke="#94a3b8"/><line x1="196" y1="234" x2="204" y2="234" stroke="#94a3b8"/><line x1="234" y1="196" x2="234" y2="204" stroke="#94a3b8"/><line x1="196" y1="166" x2="204" y2="166" stroke="#94a3b8"/><line x1="268" y1="196" x2="268" y2="204" stroke="#94a3b8"/><line x1="196" y1="132" x2="204" y2="132" stroke="#94a3b8"/><text x="268" y="216" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#94a3b8">2</text><text x="192" y="136" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#94a3b8">2</text><line x1="302" y1="196" x2="302" y2="204" stroke="#94a3b8"/><line x1="196" y1="98" x2="204" y2="98" stroke="#94a3b8"/><line x1="336" y1="196" x2="336" y2="204" stroke="#94a3b8"/><line x1="196" y1="64" x2="204" y2="64" stroke="#94a3b8"/><text x="336" y="216" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#94a3b8">4</text><text x="192" y="68" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#94a3b8">4</text><line x1="370" y1="196" x2="370" y2="204" stroke="#94a3b8"/><line x1="196" y1="30" x2="204" y2="30" stroke="#94a3b8"/><text x="383.6" y="192" text-anchor="end" font-family="Inter,sans-serif" font-size="12" fill="#94a3b8">Re</text><text x="208" y="19.80000000000001" font-family="Inter,sans-serif" font-size="12" fill="#94a3b8">Im</text><polyline points="200.0,200.0 200.2,200.0 200.4,200.0 200.5,200.0 200.7,200.0 200.9,199.9 201.1,199.9 201.3,199.9 201.4,199.8 201.6,199.8 201.8,199.7 202.0,199.6 202.1,199.6 202.3,199.5 202.5,199.4 202.6,199.3 202.8,199.2 203.0,199.1 203.1,199.0 203.3,198.9 203.4,198.8 203.6,198.7 203.7,198.6 203.9,198.4 204.0,198.3 204.1,198.2 204.3,198.0 204.4,197.9 204.5,197.7 204.7,197.5 204.8,197.4 204.9,197.2 205.0,197.0 205.1,196.9 205.2,196.7 205.3,196.5 205.4,196.3 205.5,196.1 205.5,195.9 205.6,195.7 205.7,195.5 205.7,195.3 205.8,195.1 205.9,194.9 205.9,194.6 205.9,194.4 206.0,194.2 206.0,194.0 206.0,193.7 206.1,193.5 206.1,193.3 206.1,193.0 206.1,192.8 206.1,192.5 206.1,192.3 206.0,192.1 206.0,191.8 206.0,191.6 205.9,191.3 205.9,191.1 205.8,190.8 205.8,190.6 205.7,190.3 205.6,190.1 205.5,189.8 205.5,189.6 205.4,189.3 205.3,189.1 205.2,188.8 205.0,188.5 204.9,188.3 204.8,188.0 204.7,187.8 204.5,187.6 204.4,187.3 204.2,187.1 204.0,186.8 203.9,186.6 203.7,186.3 203.5,186.1 203.3,185.9 203.1,185.6 202.9,185.4 202.7,185.2 202.5,185.0 202.3,184.8 202.0,184.5 201.8,184.3 201.5,184.1 201.3,183.9 201.0,183.7 200.8,183.5 200.5,183.3 200.2,183.1 199.9,183.0 199.6,182.8 199.3,182.6 199.0,182.4 198.7,182.3 198.4,182.1 198.1,182.0 197.8,181.8 197.5,181.7 197.1,181.5 196.8,181.4 196.4,181.3 196.1,181.2 195.7,181.1 195.4,181.0 195.0,180.9 194.6,180.8 194.3,180.7 193.9,180.6 193.5,180.6 193.1,180.5 192.7,180.5 192.3,180.4 191.9,180.4 191.5,180.3 191.1,180.3 190.7,180.3 190.3,180.3 189.9,180.3 189.5,180.3 189.1,180.3 188.7,180.4 188.2,180.4 187.8,180.5 187.4,180.5 187.0,180.6 186.5,180.6 186.1,180.7 185.7,180.8 185.3,180.9 184.8,181.0 184.4,181.1 184.0,181.3 183.5,181.4 183.1,181.5 182.7,181.7 182.2,181.9 181.8,182.0 181.4,182.2 180.9,182.4 180.5,182.6 180.1,182.8 179.7,183.0 179.2,183.3 178.8,183.5 178.4,183.8 178.0,184.0 177.6,184.3 177.2,184.6 176.8,184.8 176.4,185.1 176.0,185.4 175.6,185.8 175.2,186.1 174.8,186.4 174.4,186.7 174.0,187.1 173.6,187.5 173.3,187.8 172.9,188.2 172.5,188.6 172.2,189.0 171.8,189.4 171.5,189.8 171.1,190.2 170.8,190.7 170.5,191.1 170.2,191.5 169.9,192.0 169.6,192.5 169.3,192.9 169.0,193.4 168.7,193.9 168.4,194.4 168.1,194.9 167.9,195.4 167.6,195.9 167.4,196.4 167.1,197.0 166.9,197.5 166.7,198.0 166.5,198.6 166.3,199.2 166.1,199.7 165.9,200.3 165.7,200.9 165.6,201.4 165.4,202.0 165.3,202.6 165.2,203.2 165.0,203.8 164.9,204.4 164.8,205.0 164.7,205.7 164.7,206.3 164.6,206.9 164.5,207.5 164.5,208.2 164.4,208.8 164.4,209.5 164.4,210.1 164.4,210.7 164.4,211.4 164.4,212.0 164.5,212.7 164.5,213.4 164.6,214.0 164.7,214.7 164.8,215.3 164.8,216.0 165.0,216.7 165.1,217.3 165.2,218.0 165.4,218.7 165.5,219.3 165.7,220.0 165.9,220.7 166.1,221.3 166.3,222.0 166.5,222.7 166.7,223.3 167.0,224.0 167.3,224.6 167.5,225.3 167.8,226.0 168.1,226.6 168.4,227.3 168.8,227.9 169.1,228.5 169.4,229.2 169.8,229.8 170.2,230.4 170.6,231.1 171.0,231.7 171.4,232.3 171.8,232.9 172.3,233.5 172.7,234.1 173.2,234.7 173.7,235.3 174.1,235.9 174.6,236.5 175.2,237.1 175.7,237.6 176.2,238.2 176.8,238.7 177.3,239.3 177.9,239.8 178.5,240.3 179.1,240.8 179.7,241.3 180.3,241.8 180.9,242.3 181.6,242.8 182.2,243.3 182.9,243.7 183.6,244.2 184.2,244.6 184.9,245.1 185.6,245.5 186.4,245.9 187.1,246.3 187.8,246.7 188.5,247.0 189.3,247.4 190.1,247.8 190.8,248.1 191.6,248.4 192.4,248.7 193.2,249.0 194.0,249.3 194.8,249.6 195.6,249.9 196.4,250.1 197.3,250.3 198.1,250.6 198.9,250.8 199.8,251.0 200.6,251.1 201.5,251.3 202.4,251.4 203.2,251.6 204.1,251.7 205.0,251.8 205.9,251.9 206.8,252.0 207.7,252.0 208.6,252.1 209.5,252.1 210.4,252.1 211.3,252.1 212.2,252.1 213.1,252.0 214.0,252.0 215.0,251.9 215.9,251.8 216.8,251.7 217.7,251.6 218.7,251.5 219.6,251.3 220.5,251.2 221.4,251.0 222.4,250.8 223.3,250.6 224.2,250.3 225.1,250.1 226.0,249.8 227.0,249.5 227.9,249.2 228.8,248.9 229.7,248.6 230.6,248.2 231.5,247.9 232.4,247.5 233.3,247.1 234.2,246.7 235.1,246.2 236.0,245.8 236.8,245.3 237.7,244.8 238.6,244.3 239.4,243.8 240.3,243.3 241.1,242.7 242.0,242.1 242.8,241.6 243.6,241.0 244.4,240.3 245.2,239.7 246.0,239.1 246.8,238.4 247.6,237.7 248.4,237.0 249.1,236.3 249.9,235.6 250.6,234.9 251.4,234.1 252.1,233.4 252.8,232.6 253.5,231.8 254.2,231.0 254.8,230.1 255.5,229.3 256.1,228.4 256.8,227.6 257.4,226.7 258.0,225.8 258.6,224.9 259.1,224.0 259.7,223.1 260.3,222.1 260.8,221.2 261.3,220.2 261.8,219.2 262.3,218.2 262.8,217.2 263.2,216.2 263.7,215.2 264.1,214.2 264.5,213.1 264.9,212.1 265.3,211.0 265.6,210.0 266.0,208.9 266.3,207.8 266.6,206.7 266.9,205.6 267.1,204.5 267.4,203.4 267.6,202.3 267.8,201.1 268.0,200.0 268.2,198.9 268.3,197.7 268.5,196.6 268.6,195.4 268.7,194.2 268.7,193.1 268.8,191.9 268.8,190.7 268.8,189.5 268.8,188.4 268.8,187.2 268.8,186.0 268.7,184.8 268.6,183.6 268.5,182.4 268.4,181.2 268.2,180.0 268.0,178.8 267.9,177.6 267.6,176.4 267.4,175.3 267.2,174.1 266.9,172.9 266.6,171.7 266.3,170.5 265.9,169.3 265.6,168.1 265.2,167.0 264.8,165.8 264.4,164.6 263.9,163.5 263.4,162.3 263.0,161.1 262.5,160.0 261.9,158.9 261.4,157.7 260.8,156.6 260.2,155.5 259.6,154.4 259.0,153.3 258.3,152.2 257.7,151.1 257.0,150.0 256.2,148.9 255.5,147.9 254.8,146.8 254.0,145.8 253.2,144.7 252.4,143.7 251.6,142.7 250.7,141.7 249.9,140.8 249.0,139.8 248.1,138.8 247.1,137.9 246.2,137.0 245.2,136.1 244.3,135.2 243.3,134.3 242.3,133.4 241.2,132.5 240.2,131.7 239.1,130.9 238.1,130.1 237.0,129.3 235.9,128.5 234.7,127.8 233.6,127.0 232.4,126.3 231.3,125.6 230.1,124.9 228.9,124.3 227.7,123.6 226.5,123.0 225.2,122.4 224.0,121.8 222.7,121.2 221.4,120.7 220.1,120.2 218.8,119.7 217.5,119.2 216.2,118.7 214.9,118.3 213.5,117.9 212.2,117.5 210.8,117.1 209.5,116.8 208.1,116.4 206.7,116.1 205.3,115.8 203.9,115.6 202.5,115.4 201.1,115.1 199.6,115.0 198.2,114.8 196.8,114.7 195.3,114.5 193.9,114.4 192.4,114.4 191.0,114.3 189.5,114.3 188.1,114.3 186.6,114.4 185.2,114.4 183.7,114.5 182.2,114.6 180.8,114.7 179.3,114.9 177.8,115.1 176.3,115.3 174.9,115.5 173.4,115.8 172.0,116.1 170.5,116.4 169.0,116.7 167.6,117.1 166.1,117.5 164.7,117.9 163.2,118.3 161.8,118.8 160.3,119.3 158.9,119.8 157.5,120.3 156.1,120.9 154.7,121.5 153.3,122.1 151.9,122.7 150.5,123.4 149.1,124.1 147.7,124.8 146.4,125.5 145.0,126.3 143.7,127.1 142.4,127.9 141.1,128.7 139.7,129.6 138.5,130.5 137.2,131.4 135.9,132.3 134.7,133.3 133.4,134.3 132.2,135.3 131.0,136.3 129.8,137.3 128.6,138.4 127.5,139.5 126.3,140.6 125.2,141.7 124.1,142.9 123.0,144.0 121.9,145.2 120.8,146.5 119.8,147.7 118.8,148.9 117.8,150.2 116.8,151.5 115.9,152.8 114.9,154.1 114.0,155.5 113.1,156.9 112.2,158.2 111.4,159.6 110.5,161.1 109.7,162.5 109.0,164.0 108.2,165.4 107.5,166.9 106.7,168.4 106.1,169.9 105.4,171.4 104.8,173.0 104.1,174.5 103.5,176.1 103.0,177.7 102.4,179.3 101.9,180.9 101.4,182.5 101.0,184.1 100.6,185.7 100.2,187.4 99.8,189.0 99.4,190.7 99.1,192.4 98.8,194.1 98.5,195.7 98.3,197.4 98.1,199.1 97.9,200.9 97.8,202.6 97.6,204.3 97.5,206.0 97.5,207.7 97.4,209.5 97.4,211.2 97.5,213.0 97.5,214.7 97.6,216.4 97.7,218.2 97.8,219.9 98.0,221.7 98.2,223.4 98.4,225.2 98.7,226.9 99.0,228.7 99.3,230.4 99.7,232.1 100.0,233.9 100.5,235.6 100.9,237.3 101.4,239.1 101.9,240.8 102.4,242.5 103.0,244.2 103.6,245.9 104.2,247.6 104.8,249.3 105.5,250.9 106.2,252.6 106.9,254.2 107.7,255.9 108.5,257.5 109.3,259.2 110.2,260.8 111.1,262.4 112.0,264.0 112.9,265.5 113.9,267.1 114.9,268.6 115.9,270.2 117.0,271.7 118.0,273.2 119.1,274.7 120.3,276.1 121.4,277.6 122.6,279.0 123.8,280.4 125.1,281.8 126.3,283.2 127.6,284.6 128.9,285.9 130.3,287.2 131.6,288.5 133.0,289.8 134.4,291.1 135.8,292.3 137.3,293.5 138.8,294.7 140.3,295.9 141.8,297.0 143.3,298.1 144.9,299.2 146.5,300.3 148.1,301.4 149.7,302.4 151.4,303.4 153.0,304.3 154.7,305.3 156.4,306.2 158.1,307.1 159.9,307.9 161.6,308.8 163.4,309.6 165.2,310.3 167.0,311.1 168.8,311.8 170.6,312.5 172.5,313.1 174.3,313.7 176.2,314.3 178.1,314.9 180.0,315.4 181.9,315.9 183.8,316.4 185.7,316.8 187.7,317.2 189.6,317.6 191.6,317.9 193.6,318.2 195.5,318.5 197.5,318.7 199.5,319.0 201.5,319.1 203.5,319.3 205.5,319.4 207.5,319.4 209.5,319.5 211.5,319.5 213.6,319.5 215.6,319.4 217.6,319.3 219.6,319.2 221.7,319.0 223.7,318.8 225.7,318.6 227.7,318.3 229.8,318.0 231.8,317.6 233.8,317.3 235.8,316.9 237.8,316.4 239.8,315.9 241.8,315.4 243.8,314.9 245.8,314.3 247.8,313.7 249.8,313.0 251.7,312.3 253.7,311.6 255.6,310.9 257.5,310.1 259.5,309.3 261.4,308.4 263.3,307.5 265.2,306.6 267.0,305.6 268.9,304.7 270.7,303.6 272.6,302.6 274.4,301.5 276.2,300.4 278.0,299.2 279.7,298.1 281.5,296.8 283.2,295.6 284.9,294.3 286.6,293.0 288.3,291.7 290.0,290.3 291.6,288.9 293.2,287.5 294.8,286.1 296.3,284.6 297.9,283.1 299.4,281.5 300.9,280.0 302.4,278.4 303.8,276.8 305.2,275.1 306.6,273.4 308.0,271.7 309.3,270.0 310.6,268.3 311.9,266.5 313.2,264.7 314.4,262.9 315.6,261.1 316.8,259.2 317.9,257.3 319.0,255.4 320.1,253.5 321.1,251.5 322.2,249.6 323.1,247.6 324.1,245.6 325.0,243.5 325.9,241.5 326.7,239.4 327.6,237.4 328.3,235.3 329.1,233.1 329.8,231.0 330.5,228.9 331.1,226.7 331.7,224.6 332.3,222.4 332.8,220.2 333.3,218.0 333.8,215.8 334.2,213.5 334.6,211.3 335.0,209.1 335.3,206.8 335.6,204.5 335.8,202.3 336.0,200.0 336.2,197.7 336.3,195.4 336.4,193.1 336.4,190.8 336.4,188.5 336.4,186.2 336.3,183.9 336.2,181.6 336.1,179.3 335.9,177.0 335.7,174.7 335.4,172.4 335.1,170.1 334.7,167.8 334.4,165.5 333.9,163.2 333.5,160.9 333.0,158.6 332.4,156.4 331.9,154.1 331.2,151.8 330.6,149.6 329.9,147.3 329.2,145.1 328.4,142.8 327.6,140.6 326.7,138.4 325.8,136.2 324.9,134.0 323.9,131.9 322.9,129.7 321.9,127.6 320.8,125.4 319.7,123.3 318.6,121.2 317.4,119.1 316.2,117.1 314.9,115.0 313.6,113.0 312.3,111.0 310.9,109.0 309.5,107.1 308.1,105.1 306.6,103.2 305.1,101.3 303.6,99.4 302.0,97.6 300.4,95.8 298.7,94.0 297.1,92.2 295.4,90.4 293.6,88.7 291.9,87.0 290.1,85.4 288.3,83.7 286.4,82.1 284.5,80.5 282.6,79.0 280.7,77.5 278.7,76.0 276.7,74.5 274.7,73.1 272.6,71.7 270.6,70.4 268.5,69.0 266.3,67.7 264.2,66.5 262.0,65.3 259.8,64.1 257.6,62.9 255.4,61.8 253.1,60.7 250.8,59.7 248.5,58.7 246.2,57.7 243.9,56.8 241.5,55.9 239.2,55.1 236.8,54.2 234.4,53.5 231.9,52.7 229.5,52.0 227.1,51.4 224.6,50.8 222.1,50.2 219.6,49.7 217.1,49.2 214.6,48.7 212.1,48.3 209.6,48.0 207.0,47.7 204.5,47.4 201.9,47.1 199.4,47.0 196.8,46.8 194.2,46.7 191.6,46.6 189.1,46.6 186.5,46.6 183.9,46.7 181.3,46.8 178.7,47.0 176.1,47.2 173.5,47.4 170.9,47.7 168.4,48.0 165.8,48.4 163.2,48.8 160.6,49.3 158.1,49.8 155.5,50.3 152.9,50.9 150.4,51.6 147.9,52.3 145.3,53.0 142.8,53.8 140.3,54.6 137.8,55.4 135.3,56.3 132.8,57.3 130.4,58.2 127.9,59.3 125.5,60.3 123.1,61.4 120.7,62.6 118.3,63.8 115.9,65.0 113.6,66.3 111.2,67.6 108.9,69.0 106.6,70.4 104.4,71.8 102.1,73.3 99.9,74.8 97.7,76.3 95.5,77.9 93.4,79.6 91.3,81.2 89.2,82.9 87.1,84.7 85.0,86.5 83.0,88.3 81.0,90.1 79.1,92.0 77.1,94.0 75.2,95.9 73.4,97.9 71.5,99.9 69.7,102.0 68.0,104.1" fill="none" stroke="#be185d" stroke-width="2"/><line x1="200" y1="200" x2="265.3" y2="32.0" stroke="#047857" stroke-width="1.8"/><path d="M 230.6,200 A 30.6 30.6 0 0 0 211.1,171.5" fill="none" stroke="#047857" stroke-width="1.2"/><text x="229.5" y="183.8" font-family="Inter,sans-serif" font-style="italic" font-size="13" fill="#047857">θ</text><circle cx="204.7" cy="187.9" r="4" fill="#047857"/><text x="212.7" y="189.9" font-family="Inter,sans-serif" font-weight="600" font-size="13" fill="#047857">A</text><circle cx="229.3" cy="124.5" r="4" fill="#047857"/><text x="237.3" y="126.5" font-family="Inter,sans-serif" font-weight="600" font-size="13" fill="#047857">B</text><circle cx="254.0" cy="61.1" r="4" fill="#047857"/><text x="262.0" y="63.1" font-family="Inter,sans-serif" font-weight="600" font-size="13" fill="#047857">C</text><circle cx="200.0" cy="183.0" r="3.5" fill="#be123c"/><circle cx="166.0" cy="200.0" r="3.5" fill="#be123c"/></svg>
+
+        <div class="step">
+          <h3>a) La semirrecta $\arg z = \frac{\pi}{4}$</h3>
+          <p>Si $z = x + y\,i$ tiene argumento $\frac{\pi}{4}$, entonces $\tan\frac{\pi}{4} = \frac{y}{x} = 1$: la parte real y la
+          imaginaria son iguales. Pero no vale toda la recta $y = x$: los puntos con $x = y &lt; 0$ tienen argumento
+          $-\frac{3\pi}{4}$, y el origen no tiene argumento.</p>
+          <div class="final">Es la semirrecta abierta $\operatorname{Re}(z) = \operatorname{Im}(z) &gt; 0$: la bisectriz del primer cuadrante, sin el origen.</div>
+          <p class="note">En clase quedó escrito $\operatorname{Re}(z) = \operatorname{Im}(z)$; le faltaba la condición $&gt; 0$.</p>
+        </div>
+
+        <div class="step">
+          <h3>b) Los primeros cortes con los ejes</h3>
+          <p>$z = 0{,}5t\,e^{\frac{\pi}{2}t\,i}$ tiene módulo $0{,}5t$ y argumento $\frac{\pi}{2}t$, es decir,
+          $z = 0{,}5t\cos\frac{\pi t}{2} + i\;0{,}5t\sin\frac{\pi t}{2}$.</p>
+          <p><strong>i)</strong> En el eje imaginario, $\operatorname{Re}(z) = 0$. Como $t &gt; 0$, tiene que anularse el coseno:</p>
+          <div class="math-block">$$\cos\dfrac{\pi t}{2} = 0 \;\Longrightarrow\; \dfrac{\pi t}{2} = \dfrac{\pi}{2} + k\pi \;\Longrightarrow\; t = 1 + 2k, \quad k \in \mathbb{Z}$$</div>
+          <p class="note">En clase salieron las dos familias $t = 1 + 4k$ y $t = -1 + 4k$: juntas son los impares, $t = 1 + 2k$.
+          Con $t &gt; 0$, la primera vez es $t = 1$.</p>
+          <p><strong>ii)</strong> En el eje real, $\operatorname{Im}(z) = 0$, así que $\sin\frac{\pi t}{2} = 0$ y $\frac{\pi t}{2} = k\pi$, es decir, $t = 2k$. La primera con $t &gt; 0$ es $t = 2$.</p>
+          <div class="final">i) $t = 1$ &nbsp;&nbsp; ii) $t = 2$</div>
+        </div>
+
+        <div class="step">
+          <h3>c) Los puntos de corte</h3>
+          <div class="math-block">$$t = 1:\;\; z = 0{,}5\,e^{\frac{\pi}{2}i} = 0{,}5\,i \qquad\qquad t = 2:\;\; z = 1\cdot e^{\pi i} = -1$$</div>
+          <p class="note">Son los dos puntos rojos más cercanos al origen en la figura.</p>
+        </div>
+
+        <div class="step">
+          <h3>d) Los puntos A, B y C</h3>
+          <p>La curva pasa por la semirrecta cuando su argumento vale $\theta$ más un número entero de vueltas:</p>
+          <div class="math-block">$$\dfrac{\pi t}{2} = \theta + 2k\pi \;\Longrightarrow\; t = \dfrac{2\theta}{\pi} + 4k
+          \;\Longrightarrow\; |z| = 0{,}5t = \dfrac{\theta}{\pi} + 2k$$</div>
+          <p>Con $k = 0, 1, 2$:</p>
+          <div class="final">$z_1 = \dfrac{\theta}{\pi}\,e^{i\theta}, \qquad z_2 = \left(\dfrac{\theta}{\pi} + 2\right)e^{i\theta}, \qquad z_3 = \left(\dfrac{\theta}{\pi} + 4\right)e^{i\theta}$</div>
+        </div>
+
+        <div class="step">
+          <h3>e) El patrón</h3>
+          <div class="math-block">$$|z_2| - |z_1| = 2 \qquad\qquad |z_3| - |z_2| = 2$$</div>
+          <p>Sí, continúa: cada vuelta completa el argumento aumenta en $2\pi$, así que $t$ aumenta en $4$ y el módulo
+          $0{,}5t$ en $2$, sea cual sea $\theta$. Es una <strong>espiral de Arquímedes</strong>: las espiras están
+          siempre a la misma distancia, $2$ unidades.</p>
+        </div>
+      </section>
+
+      <nav class="exam-nav" id="apunt-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem"
+           data-slug="TANS-1-13-espiral" data-pre="">
+        <span class="disabled prev">&larr; Apartado anterior</span>
+        <a class="index" href="/aula/ib-ai-hl/apuntes/#u08-ondas-fasores-complejos">Índice de la unidad</a>
+        <span class="disabled next">Apartado siguiente &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+
+<script>
+// Si s'hi ha arribat des d'una unitat concreta, les migues hi tornen.
+(function(){var f=new URLSearchParams(location.search).get('from');if(!f)return;var a=document.getElementById('bc-apunts');if(a)a.href=a.href.split('#')[0]+'#'+encodeURIComponent(f);})();
+</script>
+<script defer src="/assets/js/apunts-ib-nav.js?v=202609251200"></script>
+</body>
+</html>

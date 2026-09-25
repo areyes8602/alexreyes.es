@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arc length and sector area · TANS 3.7 · IB Math AI HL</title>
+<meta name="description" content="IB Math AI HL notes: the length of an arc and the area of a circular sector with the angle in radians.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.fig-svg { display:block; width:100%; max-width:480px; height:auto; margin:1.1rem auto; }
+.intervals-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.92rem; }
+.intervals-table th, .intervals-table td { padding:0.5rem 0.6rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle; }
+.intervals-table th { background:var(--bg-subtle); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/">
+<meta property="og:title" content="Arc length and sector area · TANS 3.7 · IB Math AI HL">
+<meta property="og:description" content="IB Math AI HL notes: the length of an arc and the area of a circular sector with the angle in radians.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arc length and sector area · TANS 3.7 · IB Math AI HL">
+<meta name="twitter:description" content="IB Math AI HL notes: the length of an arc and the area of a circular sector with the angle in radians.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Notes","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Arc length and sector area","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/"}]},{"@type":"LearningResource","name":"Arc length and sector area","url":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"IB Math AI HL notes: the length of an arc and the area of a circular sector with the angle in radians."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/apuntes/TANS-3-7-arco-sector/" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a><span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a><span class="sep">/</span>
+      <a href="/en/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a id="bc-apunts" href="/en/aula/ib-ai-hl/apuntes/#u08-ondas-fasores-complejos">Notes</a><span class="sep">/</span>
+      <span class="current">Arc length and sector area</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div class="apunt-meta-row">
+        <span class="section-label">IB Math AI HL · U08 · Waves and phasors</span>
+        <span class="tag tag-orange">TANS 3.7 · Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">2025–2027 cohort</span>
+      </div>
+      <h1 style="margin:0">Arc length and sector area</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        The two circle formulas that become simpler when the angle is in radians.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <section class="apunt-section">
+        <h2>Arc length and sector area</h2>
+
+        <svg class="fig-svg" viewBox="26 50 280 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circular sector of radius r and angle theta, with the arc highlighted on the circle">
+          <circle cx="150" cy="175" r="110" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5 5"/>
+          <path d="M 150 175 L 260 175 A 110 110 0 0 0 187.62 71.63 Z" fill="rgba(99,102,241,0.10)" stroke="#1d4ed8" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M 260 175 A 110 110 0 0 0 187.62 71.63" fill="none" stroke="#be123c" stroke-width="3.2"/>
+          <path d="M 186 175 A 36 36 0 0 0 162.31 141.17" fill="none" stroke="#be123c" stroke-width="1.4"/>
+          <text x="200.07" y="154.77" font-family="Inter,sans-serif" font-size="15" fill="#be123c" text-anchor="middle">&#952;</text>
+          <text x="205" y="196" font-family="Inter,sans-serif" font-size="15" fill="#475569" text-anchor="middle">r</text>
+          <text x="200.53" y="129.5" font-family="Inter,sans-serif" font-size="14" fill="#475569" text-anchor="middle">sector</text>
+          <text x="256.49" y="100.44" font-family="Inter,sans-serif" font-size="15" fill="#be123c" text-anchor="start">arc</text>
+        </svg>
+
+        <p>A sector is the fraction of the circle the angle covers. In degrees that fraction is $\dfrac{\theta}{360}$; in radians, $\dfrac{\theta}{2\pi}$.</p>
+
+        <table class="intervals-table">
+          <thead>
+            <tr><th></th><th>In degrees</th><th>In radians</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Arc length</td>
+              <td>$L = \dfrac{2\pi r\,\theta}{360}$</td>
+              <td>$L = r\,\theta$</td>
+            </tr>
+            <tr>
+              <td>Sector area</td>
+              <td>$A = \dfrac{\pi r^2\,\theta}{360}$</td>
+              <td>$A = \dfrac{1}{2} r^2 \theta$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="prop-box">
+          <h3>Why radians pay off</h3>
+          <p>The formulas on the right come from those on the left by replacing $360^\circ$ with $2\pi$. They are not different formulas: it is the same one, written in the unit that makes the factor vanish. With radians there is no dividing by 360.</p>
+        </div>
+      </section>
+
+      <nav class="exam-nav" id="apunt-nav" aria-label="Notes navigation" style="margin-top:2.5rem"
+           data-slug="TANS-3-7-arco-sector" data-pre="/en">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/ib-ai-hl/apuntes/#u08-ondas-fasores-complejos">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+
+<script>
+// Si s'hi ha arribat des d'una unitat concreta, les migues hi tornen.
+(function(){var f=new URLSearchParams(location.search).get('from');if(!f)return;var a=document.getElementById('bc-apunts');if(a)a.href=a.href.split('#')[0]+'#'+encodeURIComponent(f);})();
+</script>
+<script defer src="/assets/js/apunts-ib-nav.js?v=202609251200"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tipos de matrices · TANS 1.14 · IB Math AI HL</title>
+<meta name="description" content="Apuntes de IB Math AI HL: los tipos de matrices, nula, cuadrada, diagonal, identidad y triangulares superior e inferior.">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.fig-svg { display:block; width:100%; max-width:480px; height:auto; margin:1.1rem auto; }
+.intervals-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.92rem; }
+.intervals-table th, .intervals-table td { padding:0.5rem 0.6rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle; }
+.intervals-table th { background:var(--bg-subtle); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/">
+<meta property="og:title" content="Tipos de matrices · TANS 1.14 · IB Math AI HL">
+<meta property="og:description" content="Apuntes de IB Math AI HL: los tipos de matrices, nula, cuadrada, diagonal, identidad y triangulares superior e inferior.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tipos de matrices · TANS 1.14 · IB Math AI HL">
+<meta name="twitter:description" content="Apuntes de IB Math AI HL: los tipos de matrices, nula, cuadrada, diagonal, identidad y triangulares superior e inferior.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Apuntes","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Tipos de matrices","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/"}]},{"@type":"LearningResource","name":"Tipos de matrices","url":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apuntes de IB Math AI HL: los tipos de matrices, nula, cuadrada, diagonal, identidad y triangulares superior e inferior."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/apuntes/TANS-1-14-tipos/">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a id="bc-apunts" href="/aula/ib-ai-hl/apuntes/#u09-matrices">Apuntes</a><span class="sep">/</span>
+      <span class="current">Tipos de matrices</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div class="apunt-meta-row">
+        <span class="section-label">IB Math AI HL · U09 · Matrices</span>
+        <span class="tag tag-orange">TANS 1.14 · Apuntes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">Curso 2025–2027</span>
+      </div>
+      <h1 style="margin:0">Tipos de matrices</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        Nula, cuadrada, diagonal, identidad y triangulares: las que van a salir en toda la unidad.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <section class="apunt-section">
+        <h2>Tipos de matrices</h2>
+
+        <div class="step">
+          <h3>Matriz nula</h3>
+          <p>Todos sus elementos son $0$. Puede tener cualquier orden:</p>
+          <div class="math-block">$$O_{3\times 2} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \\ 0 & 0 \end{pmatrix}$$</div>
+        </div>
+
+        <div class="step">
+          <h3>Matriz cuadrada</h3>
+          <p>Tiene el mismo número de filas que de columnas. Una matriz $n\times n$ se dice que tiene
+          <strong>orden $n$</strong>:</p>
+          <div class="math-block">$$A_{3\times 3} = \begin{pmatrix} 5 & 2 & 1 \\ 2 & 1 & 3 \\ 0 & -1 & 2 \end{pmatrix} \quad\text{tiene orden } 3.$$</div>
+          <p>En una matriz cuadrada, los elementos $a_{11}, a_{22}, \dots, a_{nn}$ forman la
+          <strong>diagonal principal</strong>; aquí, $5$, $1$ y $2$.</p>
+        </div>
+
+        <div class="step">
+          <h3>Matriz diagonal</h3>
+          <p>Es una matriz <strong>cuadrada</strong> con todos los elementos fuera de la diagonal principal
+          iguales a $0$: $a_{ij} = 0$ para todo $i \neq j$.</p>
+          <div class="math-block">$$A_{2\times 2} = \begin{pmatrix} 5 & 0 \\ 0 & 3 \end{pmatrix}$$</div>
+        </div>
+
+        <div class="prop-box">
+          <h3>Corrección respecto a la pizarra</h3>
+          <p>En clase salió como ejemplo de matriz diagonal $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \end{pmatrix}$, de orden $2\times 3$. Cumple
+          $a_{ij} = 0$ para $i \neq j$, pero no es cuadrada, y las matrices diagonales (igual que la identidad y
+          las triangulares) se definen solo para matrices cuadradas.</p>
+        </div>
+
+        <div class="step">
+          <h3>Matriz identidad</h3>
+          <p>Es la matriz cuadrada y diagonal con todos los elementos de la diagonal iguales a $1$. Se escribe
+          $I$, o $I_n$ si hace falta indicar el orden:</p>
+          <div class="math-block">$$I_2 = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \qquad\qquad I_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$</div>
+        </div>
+
+        <div class="step">
+          <h3>Matrices triangulares</h3>
+          <p>Son matrices cuadradas con ceros a un lado de la diagonal principal.</p>
+          <p><strong>Triangular superior:</strong> todos los elementos por <strong>debajo</strong> de la diagonal
+          son $0$, es decir, $a_{ij} = 0$ si $i &gt; j$.</p>
+          <div class="math-block">$$\begin{pmatrix} 5 & 1 & 2 \\ \textcolor{#be123c}{0} & 1 & 3 \\ \textcolor{#be123c}{0} & \textcolor{#be123c}{0} & 2 \end{pmatrix}$$</div>
+          <p><strong>Triangular inferior:</strong> todos los elementos por <strong>encima</strong> de la diagonal
+          son $0$, es decir, $a_{ij} = 0$ si $i &lt; j$.</p>
+          <div class="math-block">$$\begin{pmatrix} 5 & \textcolor{#be123c}{0} & \textcolor{#be123c}{0} \\ 1 & 1 & \textcolor{#be123c}{0} \\ 2 & 3 & 2 \end{pmatrix}$$</div>
+          <p class="note">Una matriz diagonal es a la vez triangular superior e inferior.</p>
+        </div>
+
+        <div class="prop-box">
+          <h3>Corrección respecto a la pizarra</h3>
+          <p>El ejemplo de clase de triangular superior era de orden $3\times 4$:</p>
+          <div class="math-block">$$\begin{pmatrix} 5 & 1 & 2 & 0 \\ \textcolor{#be123c}{0} & 1 & 3 & 2 \\ \textcolor{#be123c}{0} & \textcolor{#be123c}{0} & 2 & 1 \end{pmatrix}$$</div>
+          <p>Tiene ceros debajo de la diagonal, pero no es cuadrada, así que no es triangular. Una matriz
+          como esta se llama <strong>escalonada</strong>, y volverá a salir al resolver sistemas de ecuaciones
+          con matrices.</p>
+        </div>
+      </section>
+
+      <nav class="exam-nav" id="apunt-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem"
+           data-slug="TANS-1-14-tipos" data-pre="">
+        <span class="disabled prev">&larr; Apartado anterior</span>
+        <a class="index" href="/aula/ib-ai-hl/apuntes/#u09-matrices">Índice de la unidad</a>
+        <span class="disabled next">Apartado siguiente &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+
+<script>
+// Si s'hi ha arribat des d'una unitat concreta, les migues hi tornen.
+(function(){var f=new URLSearchParams(location.search).get('from');if(!f)return;var a=document.getElementById('bc-apunts');if(a)a.href=a.href.split('#')[0]+'#'+encodeURIComponent(f);})();
+</script>
+<script defer src="/assets/js/apunts-ib-nav.js?v=202609251200"></script>
+</body>
+</html>
