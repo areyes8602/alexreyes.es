@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7. Deberes corregidos (16 sep) · Fracciones · 2n ESO</title>
+<meta name="description" content="Ejercicios de fracciones de 2.º de ESO, curso 2026-27: corrección de los deberes del 16 de septiembre, sumas y restas de fracciones.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.6rem 0; border-bottom: 1px dashed var(--border); }
+.example-row:last-child { border-bottom: none; }
+.example-row .frac-display { min-width: 3.5rem; text-align: center; font-size: 1.1rem; }
+.example-row .verdict { flex: 1; min-width: 12rem; }
+.frac-svg { display: block; height: 38px; }
+.frac-svg .cell { fill: none; stroke: #1d4ed8; stroke-width: 2; }
+.frac-svg .cell.filled { fill: #ec4899; fill-opacity: 0.85; }
+.parts-diagram { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; padding: 1rem; background: var(--bg-subtle); border-radius: 8px; }
+.parts-diagram .arrow-label { font-size: 0.92rem; }
+.parts-diagram .arrow-label .lbl { font-weight: 600; }
+.parts-diagram .arrow-label .num { color: #06b6d4; }
+.parts-diagram .arrow-label .den { color: #ec4899; }
+.numberline-wrap { margin: 1.2rem 0; overflow-x: auto; }
+.numberline-svg { display: block; width: 100%; min-width: 340px; max-width: 580px; height: auto; margin: 0 auto; color: var(--text); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
+.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+.exercise-card .ex-steps { margin: 0.6rem 0; }
+.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+.exercise-card .ex-final::before { content: "Resultado"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+.apunt-section .solution { padding: 1.2rem 1.3rem; }
+.def-box ol { margin: 0.4rem 0; padding-left: 1.3rem; }
+.def-box li { margin: 0.3rem 0; }
+.exercise-card .solution-toggle { margin-top: 0.2rem; }
+.exercise-card .solution { margin-top: 0.8rem; background: var(--bg); }
+.prop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+.prop-card { border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; background: var(--bg-subtle); }
+.prop-card h3 { margin: 0 0 0.4rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #6366f1; }
+.prop-card p { margin: 0.3rem 0; font-size: 0.92rem; color: var(--text-soft); }
+.prop-card .math-block { margin: 0.4rem 0; padding: 0.3rem 0; background: none; border: none; overflow-x: auto; }
+.temari-list { margin: 0.6rem 0; padding-left: 1.3rem; }
+.temari-list li { margin: 0.55rem 0; }
+.temari-list .links { display: block; font-size: 0.88rem; color: var(--text-soft); }
+</style>
+<link rel="canonical" href="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html">
+<meta property="og:title" content="7. Deberes corregidos (16 sep) · Fracciones · 2n ESO">
+<meta property="og:description" content="Ejercicios de fracciones de 2.º de ESO, curso 2026-27: corrección de los deberes del 16 de septiembre, sumas y restas de fracciones.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="7. Deberes corregidos (16 sep) · Fracciones · 2n ESO">
+<meta name="twitter:description" content="Ejercicios de fracciones de 2.º de ESO, curso 2026-27: corrección de los deberes del 16 de septiembre, sumas y restas de fracciones.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fracciones","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/"},{"@type":"ListItem","position":5,"name":"07 · Deberes 16 sep","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html"}]},{"@type":"LearningResource","name":"07 · Deberes 16 sep","url":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Ejercicios de fracciones de 2.º de ESO, curso 2026-27: corrección de los deberes del 16 de septiembre, sumas y restas de fracciones."}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-2/apuntes/2627-u-fraccions/07-deures-16-set.html">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/2eso/">2n ESO</a>
+      <span class="sep">/</span>
+      <a href="/aula/eso-2/apuntes/2627-u-fraccions/">Fracciones</a>
+      <span class="sep">/</span>
+      <span class="current">07 · Deberes 16 sep</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">2n ESO · Fracciones</span>
+        <span class="tag tag-orange">Ejercicios</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">16 sep 2026</span>
+      </div>
+      <h1 style="margin:0">7. Deberes corregidos (16 sep)</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Corrección de los ejercicios 21 b, c y g y 22 a y b: sumas y restas de fracciones con enteros y paréntesis.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>21. Operaciones con fracciones</h2>
+        <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Efectúa estas operaciones e indica el resultado como fracción irreducible.</p>
+
+        <div class="exercise-card">
+          <span class="ex-label">21 · b</span>
+          <div class="ex-statement">
+            <div class="math-block">$$-\dfrac{45}{20} - \dfrac{90}{50} - \dfrac{39}{9}$$</div>
+          </div>
+          <button class="solution-toggle" data-toggles="sol-21b" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-21b')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <section class="solution" id="sol-21b" hidden>
+          <div class="ex-steps">
+            <p>Simplificamos cada fracción:</p>
+            <div class="math-block">$$-\dfrac{45}{20} - \dfrac{90}{50} - \dfrac{39}{9} = -\dfrac{9}{4} - \dfrac{9}{5} - \dfrac{13}{3}$$</div>
+            <p>$\text{MCM}(4, 5, 3) = 60$. Amplificamos a denominador $60$:</p>
+            <div class="math-block">$$-\dfrac{135}{60} - \dfrac{108}{60} - \dfrac{260}{60} = -\dfrac{503}{60}$$</div>
+            <p>$503$ es primo: la fracción ya es irreducible.</p>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$-\dfrac{503}{60}$$</div>
+          </div>
+          </section>
+        </div>
+        <div class="exercise-card">
+          <span class="ex-label">21 · c</span>
+          <div class="ex-statement">
+            <div class="math-block">$$\dfrac{2}{18} + \dfrac{6}{12} - \dfrac{4}{15}$$</div>
+          </div>
+          <button class="solution-toggle" data-toggles="sol-21c" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-21c')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <section class="solution" id="sol-21c" hidden>
+          <div class="ex-steps">
+            <p>Simplificamos cada fracción:</p>
+            <div class="math-block">$$\dfrac{2}{18} + \dfrac{6}{12} - \dfrac{4}{15} = \dfrac{1}{9} + \dfrac{1}{2} - \dfrac{4}{15}$$</div>
+            <p>$\text{MCM}(9, 2, 15) = 90$:</p>
+            <div class="math-block">$$\dfrac{10}{90} + \dfrac{45}{90} - \dfrac{24}{90} = \dfrac{31}{90}$$</div>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$\dfrac{31}{90}$$</div>
+          </div>
+          </section>
+        </div>
+        <div class="exercise-card">
+          <span class="ex-label">21 · g</span>
+          <div class="ex-statement">
+            <div class="math-block">$$5 - \dfrac{4}{9} - 3 + \dfrac{12}{30}$$</div>
+          </div>
+          <button class="solution-toggle" data-toggles="sol-21g" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-21g')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <section class="solution" id="sol-21g" hidden>
+          <div class="ex-steps">
+            <p>Escribimos los enteros con denominador $1$ y simplificamos $\dfrac{12}{30} = \dfrac{2}{5}$:</p>
+            <div class="math-block">$$\dfrac{5}{1} - \dfrac{4}{9} - \dfrac{3}{1} + \dfrac{2}{5}$$</div>
+            <p>$\text{MCM}(9, 5) = 45$:</p>
+            <div class="math-block">$$\dfrac{225}{45} - \dfrac{20}{45} - \dfrac{135}{45} + \dfrac{18}{45} = \dfrac{88}{45}$$</div>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$\dfrac{88}{45}$$</div>
+          </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>22. Sumas y restas con paréntesis</h2>
+        <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Efectúa las sumas y las restas siguientes de números fraccionarios y simplifica el resultado.</p>
+
+        <div class="exercise-card">
+          <span class="ex-label">22 · a</span>
+          <div class="ex-statement">
+            <div class="math-block">$$\dfrac{26}{75} - \dfrac{76}{30} - \left(\dfrac{7}{6}\right) - 2$$</div>
+          </div>
+          <button class="solution-toggle" data-toggles="sol-22a" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-22a')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <section class="solution" id="sol-22a" hidden>
+          <div class="ex-steps">
+            <p>Quitamos el paréntesis (no cambia nada, delante hay un signo menos y dentro un número positivo) y simplificamos $\dfrac{76}{30} = \dfrac{38}{15}$:</p>
+            <div class="math-block">$$\dfrac{26}{75} - \dfrac{38}{15} - \dfrac{7}{6} - \dfrac{2}{1}$$</div>
+            <p>$\text{MCM}(75, 15, 6) = 150$:</p>
+            <div class="math-block">$$\dfrac{52}{150} - \dfrac{380}{150} - \dfrac{175}{150} - \dfrac{300}{150} = -\dfrac{803}{150}$$</div>
+            <p>$803 = 11 \cdot 73$ y $150 = 2 \cdot 3 \cdot 5^2$ no tienen ningún factor en común: es irreducible.</p>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$-\dfrac{803}{150}$$</div>
+          </div>
+          </section>
+        </div>
+        <div class="exercise-card">
+          <span class="ex-label">22 · b</span>
+          <div class="ex-statement">
+            <div class="math-block">$$\left(\dfrac{9}{10} - \dfrac{13}{32}\right) - \left(\dfrac{3}{5} - \dfrac{1}{6}\right)$$</div>
+          </div>
+          <button class="solution-toggle" data-toggles="sol-22b" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-22b')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <section class="solution" id="sol-22b" hidden>
+          <div class="ex-steps">
+            <p>Quitamos los paréntesis. El signo menos de delante del segundo cambia el signo de todo lo que hay dentro:</p>
+            <div class="math-block">$$\dfrac{9}{10} - \dfrac{13}{32} - \dfrac{3}{5} + \dfrac{1}{6}$$</div>
+            <p>$\text{MCM}(10, 32, 5, 6) = 480$:</p>
+            <div class="math-block">$$\dfrac{432}{480} - \dfrac{195}{480} - \dfrac{288}{480} + \dfrac{80}{480}$$</div>
+            <p>Podemos juntar primero los positivos y los negativos:</p>
+            <div class="math-block">$$\dfrac{512}{480} - \dfrac{483}{480} = \dfrac{29}{480}$$</div>
+          </div>
+          <div class="ex-final">
+            <div class="math-block">$$\dfrac{29}{480}$$</div>
+          </div>
+          </section>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/eso-2/apuntes/2627-u-fraccions/06-suma-i-resta.html">&larr; Apartado anterior</a>
+        <a class="index" href="/aula/eso-2/apuntes/2627-u-fraccions/">Índice de la unidad</a>
+        <a class="next" href="/aula/eso-2/apuntes/2627-u-fraccions/08-multiplicacio-i-divisio.html">Apartado siguiente &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>
