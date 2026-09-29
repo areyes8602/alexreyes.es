@@ -64,6 +64,11 @@
 <meta name="twitter:description" content="Ejercicios de fracciones de 2.º de ESO, curso 2026-27: corrección de los deberes del 15 de septiembre, con fracciones equivalentes y ordenación.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fracciones","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/"},{"@type":"ListItem","position":5,"name":"05 · Deberes 15 sep","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/05-deures-15-set.html"}]},{"@type":"LearningResource","name":"05 · Deberes 15 sep","url":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/05-deures-15-set.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Ejercicios de fracciones de 2.º de ESO, curso 2026-27: corrección de los deberes del 15 de septiembre, con fracciones equivalentes y ordenación."}]}</script>
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -124,7 +129,9 @@
           <div class="ex-statement">
             <div class="math-block">$$\dfrac{1}{3} \quad \text{y} \quad \dfrac{2}{5}$$</div>
           </div>
-          <div class="ex-steps">
+          <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="ex-steps">
             <p>Multiplicamos en cruz:</p>
             <div class="math-block">$$1 \cdot 5 = 5 \qquad 3 \cdot 2 = 6$$</div>
             <p>Los dos productos no coinciden.</p>
@@ -132,6 +139,7 @@
           <div class="ex-final">
             <p style="margin:0;font-size:1.02rem;font-weight:500">No son equivalentes.</p>
           </div>
+</section>
         </div>
 
         <div class="exercise-card">
@@ -139,7 +147,9 @@
           <div class="ex-statement">
             <div class="math-block">$$\dfrac{4}{5} \quad \text{y} \quad \dfrac{12}{15}$$</div>
           </div>
-          <div class="ex-steps">
+          <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p2" hidden>
+<div class="ex-steps">
             <p>Multiplicamos en cruz:</p>
             <div class="math-block">$$4 \cdot 15 = 60 \qquad 5 \cdot 12 = 60$$</div>
             <p>Coinciden. De hecho, simplificando entre $3$ queda $\dfrac{12}{15} = \dfrac{4}{5}$.</p>
@@ -147,6 +157,7 @@
           <div class="ex-final">
             <p style="margin:0;font-size:1.02rem;font-weight:500">Sí son equivalentes.</p>
           </div>
+</section>
         </div>
       </div>
 
@@ -159,7 +170,9 @@
           <div class="ex-statement">
             <div class="math-block">$$\dfrac{42}{28} = \dfrac{18}{R}$$</div>
           </div>
-          <div class="ex-steps">
+          <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p3')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p3" hidden>
+<div class="ex-steps">
             <p>Producto cruzado y despejamos la $R$:</p>
             <div class="math-block">$$42 \cdot R = 28 \cdot 18 \;\Longrightarrow\; R = \dfrac{28 \cdot 18}{42}$$</div>
             <p>Descomponemos en factores primos para no tener que multiplicar números grandes:</p>
@@ -168,9 +181,10 @@
           <div class="ex-final">
             <div class="math-block">$$R = 12$$</div>
           </div>
+          <p class="note">Comprobación: $\dfrac{42}{28} = \dfrac{3}{2}$ y $\dfrac{18}{12} = \dfrac{3}{2}$.</p>
+</section>
         </div>
 
-        <p class="note">Comprobación: $\dfrac{42}{28} = \dfrac{3}{2}$ y $\dfrac{18}{12} = \dfrac{3}{2}$.</p>
       </div>
 
       <div class="apunt-section">
@@ -182,7 +196,9 @@
           <div class="ex-statement">
             <div class="math-block">$$\dfrac{27}{18}, \quad \dfrac{31}{36}, \quad \dfrac{3}{5}, \quad \dfrac{13}{9}$$</div>
           </div>
-          <div class="ex-steps">
+          <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p4')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p4" hidden>
+<div class="ex-steps">
             <p>Descomponemos los denominadores en factores primos:</p>
             <div class="math-block">$$18 = 2 \cdot 3^2 \qquad 36 = 2^2 \cdot 3^2 \qquad 5 = 5 \qquad 9 = 3^2$$</div>
             <p>El MCM toma cada primo con el mayor exponente:</p>
@@ -194,6 +210,7 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{27}{18} &gt; \dfrac{13}{9} &gt; \dfrac{31}{36} &gt; \dfrac{3}{5}$$</div>
           </div>
+</section>
         </div>
       </div>
 
@@ -221,6 +238,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 </body>
 </html>

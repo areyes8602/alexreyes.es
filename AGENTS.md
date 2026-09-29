@@ -47,6 +47,9 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             con línea del tiempo vertical graduada por años (2026–2033 color
                             principal, 2034–2035 prórroga) y marcador del momento actual.
   build_feed.py          ← genera feed.xml (RSS 2.0) desde las noticias de la home
+  plegar_soluciones.py   ← comprueba que ninguna solución de /aula/ está a la
+                            vista; --apply la pliega con el botón «Mostrar la
+                            solución». Ver «Regla: las soluciones… plegadas».
   check_i18n.py          ← CI: verifica que cada selector ES·CA·EN resuelve (no 404)
                             y es coherente. Usa i18n-baseline.txt (fallos conocidos);
                             solo falla ante regresiones. --strict = auditoría completa.
@@ -283,6 +286,39 @@ siguen apuntando a las mismas rutas.
    sitemap (si es trilingual, añádelo también a `trilingual_paths` en el script).
 5. Idempotente: re-correr el SEO script no duplica nada.
 
+## Regla: las soluciones de docencia van SIEMPRE plegadas
+
+En todo lo que cuelga de `/aula/` (apuntes, deberes, fichas, problemas,
+exámenes, en los tres idiomas) **el enunciado se ve y la resolución no**: el
+alumnado tiene que poder intentarlo antes de mirar. Una corrección visible de
+salida es un error, como un enlace roto.
+
+- Formato preferido: el botón de los exámenes, justo después del enunciado.
+
+  ```html
+  <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució"
+          data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')">…</button>
+  <section class="solution" id="sol-p1" hidden> …pasos y resultado… </section>
+  ```
+
+  Etiquetas: `Mostrar la solución` / `Ocultar la solución` (es),
+  `Mostra la solució` / `Amaga la solució` (ca), `Show solution` /
+  `Hide solution` (en). La página necesita `/assets/js/examenes.js`.
+- También vale `<details><summary>Solución</summary>…</details>` (lo que usan
+  las fichas de CCSS y los templates).
+- Dentro del pliegue va **todo** lo que delata el resultado: pasos, resultado
+  final, notas de «Comprobación» y trucos que citan el apartado.
+- **No** se pliegan los ejemplos de teoría («Ejemplo resuelto», «Exemple
+  guiat»): son parte de la explicación.
+- Deberes pendientes: la solución puede publicarse ya, siempre plegada.
+
+Comprobación antes de subir (devuelve 1 si hay alguna solución a la vista, y
+`--apply` las pliega):
+
+```
+python3 scripts/plegar_soluciones.py
+```
+
 ## Workflow: añadir contenido en /aula/ (apuntes, ejercicios, exámenes)
 
 Los builds de `/aula/` (`build_classe_pages.py`, exámenes, apuntes a mano) **no
@@ -294,6 +330,7 @@ python3 scripts/add_jsonld.py     # JSON-LD schema.org (breadcrumbs, learning re
 python3 scripts/add_hreflang.py   # canonical + hreflang (solo idiomas existentes)
 python3 scripts/add_skiplink.py --apply  # skip-link a11y (localizado es/ca/en, idempotente)
 python3 scripts/add_lazy_img.py --apply  # loading="lazy" en figuras (excepto hero y foto CV)
+python3 scripts/plegar_soluciones.py     # ninguna solución a la vista (--apply las pliega)
 python3 scripts/build_sitemap.py
 ```
 

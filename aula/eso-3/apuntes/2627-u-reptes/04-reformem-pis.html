@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reformamos nuestro primer piso · Retos matemáticos · 3r ESO</title>
+<meta name="description" content="Apuntes de 3.º de ESO, curso 2026-27: Reformamos nuestro primer piso, el segundo reto para repasar 2.º de ESO (áreas de paredes y de suelo, perímetro, porcentajes y presupuesto), con las soluciones.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p, .def-box li { margin: 0.4rem 0; }
+.def-box ol, .def-box ul { margin: 0.4rem 0; padding-left: 1.3rem; }
+.figura { margin: 1.2rem 0; overflow-x: auto; }
+.figura svg { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; color: var(--text); }
+.figura figcaption { text-align: center; font-size: 0.85rem; color: var(--text-soft); margin-top: 0.4rem; }
+.taula-repte { border-collapse: collapse; margin: 0.8rem 0; font-size: 0.95rem; width: 100%; max-width: 560px; }
+.taula-repte th, .taula-repte td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
+.taula-repte th { background: var(--bg-subtle); font-weight: 600; }
+.taula-repte td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.swatch { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; vertical-align: -0.05em; margin-right: 0.35em; border: 1px solid rgba(0,0,0,0.25); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.pregunta-enunciat { font-size: 1rem; margin: 0.5rem 0 1rem; }
+.apunt-section .solution { padding: 1.2rem 1.3rem; }
+.solution table.taula-repte { font-family: inherit; font-size: 0.92rem; max-width: 600px; }
+.solution .taula-repte th { text-align: left; }
+.solution .taula-repte td { text-align: left; color: var(--text); }
+.solution .taula-repte td.num { text-align: right; }
+.exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
+.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+.exercise-card .ex-steps { margin: 0.6rem 0; }
+.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+.exercise-card .ex-final::before { content: "Resultado"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+
+.moduls { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+.modul { border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem; background: var(--bg-subtle); text-align: center; }
+.modul svg { display: block; width: 100%; max-width: 150px; height: auto; margin: 0 auto 0.4rem; color: var(--text); }
+.modul h3 { font-size: 0.92rem; margin: 0.2rem 0; }
+.modul p { font-size: 0.82rem; color: var(--text-soft); margin: 0.15rem 0; }
+.barra { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); margin: 0.6rem 0 0.3rem; font-size: 0.78rem; }
+.barra span { display: flex; align-items: center; justify-content: center; color: #fff; white-space: nowrap; }
+.barra .ocupat { background: #6366f1; }
+.barra .lliure { background: #10b981; }
+.prova { border: 1px dashed var(--border-strong, var(--border)); border-radius: 8px; padding: 0.9rem 1.1rem; margin: 0.8rem 0 1rem; background: var(--bg-subtle); }
+.prova label { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 0.4rem; }
+.prova input[type=range] { width: 100%; max-width: 420px; }
+.prova .lectura { font-family: var(--mono); font-size: 0.95rem; margin-top: 0.4rem; }
+.prova .lectura b { font-size: 1.05rem; }
+.prova .estat { font-size: 0.85rem; margin-top: 0.2rem; color: var(--text-soft); }
+.prova .estat.ok { color: #059669; font-weight: 600; }
+.repte-titol { font-size: 1.35rem; margin: 2.8rem 0 0.4rem; }
+.solution table.taula-repte { font-family: inherit; font-size: 0.92rem; max-width: 600px; }
+.solution .taula-repte th { text-align: left; }
+.solution .taula-repte td { text-align: left; color: var(--text); }
+.solution .taula-repte td.num { text-align: right; }
+.apunt-section > ul { margin: 0.3rem 0 0.8rem; padding-left: 1.4rem; }
+.apunt-section > ul li { margin: 0.2rem 0; }
+details.previs { margin: 1rem 0; border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 1rem; }
+details.previs summary { cursor: pointer; font-weight: 600; }
+details.previs ol { margin: 0.5rem 0; padding-left: 1.3rem; font-size: 0.93rem; }
+details.previs ol ol { list-style: lower-alpha; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
+<meta property="og:title" content="Reformamos nuestro primer piso · Retos matemáticos · 3r ESO">
+<meta property="og:description" content="Apuntes de 3.º de ESO, curso 2026-27: Reformamos nuestro primer piso, el segundo reto para repasar 2.º de ESO (áreas de paredes y de suelo, perímetro, porcentajes y presupuesto), con las soluciones.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reformamos nuestro primer piso · Retos matemáticos · 3r ESO">
+<meta name="twitter:description" content="Apuntes de 3.º de ESO, curso 2026-27: Reformamos nuestro primer piso, el segundo reto para repasar 2.º de ESO (áreas de paredes y de suelo, perímetro, porcentajes y presupuesto), con las soluciones.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"3r ESO","item":"https://alexreyes.es/docencia/eso-3/"},{"@type":"ListItem","position":4,"name":"Retos","item":"https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/"},{"@type":"ListItem","position":5,"name":"04 · Reformamos nuestro primer piso","item":"https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html"}]},{"@type":"LearningResource","name":"04 · Reformamos nuestro primer piso","url":"https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apuntes de 3.º de ESO, curso 2026-27: Reformamos nuestro primer piso, el segundo reto para repasar 2.º de ESO (áreas de paredes y de suelo, perímetro, porcentajes y presupuesto), con las soluciones."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/docencia/">Docencia</a>
+      <span class="sep">/</span>
+      <a href="/docencia/eso-3/">3r ESO</a>
+      <span class="sep">/</span>
+      <a href="/aula/eso-3/apuntes/2627-u-reptes/">Retos</a>
+      <span class="sep">/</span>
+      <span class="current">04 · Reformamos nuestro primer piso</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">3r ESO · Retos matemáticos</span>
+        <span class="tag tag-orange">Apuntes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">25 sep 2026</span>
+      </div>
+      <h1 style="margin:0">Reformamos nuestro primer piso</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Repasamos 2.º de ESO: calcular cuánta pintura, cuánto parquet y cuánto zócalo hacen falta para reformar un piso, y cuánto cuesta. Cada tarea lleva la solución oculta debajo.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin:0 0 0.5rem"><a href="/aula/eso-3/apuntes/2627-u-reptes/reformem-pis-enunciat.pdf" class="pdf-download" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><polyline points="9 15 12 18 15 15"/></svg> Descarga el enunciado (PDF, en catalán)</a><a href="/aula/eso-3/ejercicios/2627-u-reptes/full-formules.pdf" class="pdf-download" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><polyline points="9 15 12 18 15 15"/></svg> Hoja de fórmulas (PDF, en catalán)</a></div>
+      <div class="apunt-section">
+      <h2>La situación</h2>
+      <p>Imagina que te mudas a tu primer piso. Quieres que sea un lugar acogedor para vivir con tus amigos y tu familia, así que tienes que hacer algunas reformas:</p><ul><li>Pintar las paredes del comedor y de una habitación.</li><li>Poner parquet en el suelo del comedor.</li><li>Colocar un zócalo de madera alrededor del comedor.</li></ul>
+      <p>Tienes un presupuesto limitado y tendrás que calcular:</p><ul><li>Cuánta pintura necesitas y cuánto te costará.</li><li>Cuántos paquetes de parquet tienes que comprar.</li><li>Cuántas barras de zócalo te hacen falta.</li><li>Y finalmente, el presupuesto total de la reforma.</li></ul>
+      <p class="note"><strong>Recuerda:</strong> si decides usar pintura ecológica, el precio sube un 20&nbsp;%. ¿Vale la pena gastar un poco más para cuidar el medio ambiente?</p>
+      <details class="previs"><summary>Conceptos previos</summary><ol>
+      <li>Geometría y medidas: áreas de figuras planas (cuadrado, rectángulo, triángulo, círculo); superficie de la base de los sólidos; volúmenes: prisma $V = A_{\text{base}} \cdot h$, cilindro $V = \pi r^2 h$, pirámide $V = \frac{1}{3} A_{\text{base}} \cdot h$.</li><li>Sistemas de medida: unidades de longitud, de área y de volumen, y la relación con los litros: $1\ \text{dm}^3 = 1$ L y $1\ \text{m}^3 = 1000$ L.</li><li>Aritmética y proporcionalidad: regla de tres, porcentajes y operaciones con decimales y con $\pi$.</li><li>Ecuaciones: pasar de una expresión a una ecuación, despejar la incógnita (por ejemplo $a^2 = 12$) y la raíz cuadrada.</li><li>Contexto: interpretar los resultados (litros, días, espacio libre) y comprobar si tienen sentido.</li>
+      </ol></details>
+      </div>
+      <div class="apunt-section">
+      <h2>Ficha del piso</h2>
+      <div class="moduls"><div class="modul"><svg viewBox="-34 0 223 122" style="max-width:250px" aria-hidden="true" font-family="Inter, sans-serif" font-size="11" fill="currentColor"><polygon points="14.0,99.8 102.0,99.8 144.9,75.0 56.9,75.0" fill="#f59e0b" fill-opacity=".45" stroke="currentColor" stroke-width="1"/><polygon points="56.9,75.0 144.9,75.0 144.9,20.0 56.9,20.0" fill="#6366f1" fill-opacity=".45" stroke="currentColor" stroke-width="1"/><polygon points="14.0,99.8 56.9,75.0 56.9,20.0 14.0,44.8" fill="#6366f1" fill-opacity=".6" stroke="currentColor" stroke-width="1"/><polygon points="102.0,99.8 144.9,75.0 144.9,20.0 102.0,44.8" fill="#6366f1" fill-opacity=".3" stroke="currentColor" stroke-width="1"/><polyline points="14.0,99.8 102.0,99.8 144.9,75.0 56.9,75.0 14.0,99.8" fill="none" stroke="#92400e" stroke-width="3.5" stroke-linejoin="round"/><polyline points="14.0,99.8 14.0,44.8 102.0,44.8 102.0,99.8" fill="none" stroke="currentColor" stroke-dasharray="3 2"/><text x="58.0" y="113.8" text-anchor="middle">4 m</text><text x="129.4" y="99.4">5 m</text><text x="10.0" y="76.2" text-anchor="end">2,5 m</text></svg><h3>Comedor</h3><p>4 m × 5 m × 2,5 m</p><p><strong>Se pintan las paredes, se pone parquet y zócalo</strong></p></div><div class="modul"><svg viewBox="-34 0 192 117" style="max-width:250px" aria-hidden="true" font-family="Inter, sans-serif" font-size="11" fill="currentColor"><polygon points="14.0,94.8 80.0,94.8 114.3,75.0 48.3,75.0" fill="#9ca3af" fill-opacity=".25" stroke="currentColor" stroke-width="1"/><polygon points="48.3,75.0 114.3,75.0 114.3,20.0 48.3,20.0" fill="#6366f1" fill-opacity=".45" stroke="currentColor" stroke-width="1"/><polygon points="14.0,94.8 48.3,75.0 48.3,20.0 14.0,39.8" fill="#6366f1" fill-opacity=".6" stroke="currentColor" stroke-width="1"/><polygon points="80.0,94.8 114.3,75.0 114.3,20.0 80.0,39.8" fill="#6366f1" fill-opacity=".3" stroke="currentColor" stroke-width="1"/><polyline points="14.0,94.8 14.0,39.8 80.0,39.8 80.0,94.8" fill="none" stroke="currentColor" stroke-dasharray="3 2"/><text x="47.0" y="108.8" text-anchor="middle">3 m</text><text x="103.1" y="96.9">4 m</text><text x="10.0" y="71.3" text-anchor="end">2,5 m</text></svg><h3>Habitación 1</h3><p>3 m × 4 m × 2,5 m</p><p><strong>Se pintan las paredes</strong></p></div></div>
+      <p style="font-size:0.85rem;color:var(--text-soft);text-align:center;margin:0 0 1rem"><span class="swatch" style="background:#6366f1"></span>paredes que se pintan &nbsp; <span class="swatch" style="background:#f59e0b"></span>suelo con parquet &nbsp; <span class="swatch" style="background:#92400e"></span>zócalo</p>
+      <p>Otras estancias (no se pintan ni se reforman en este reto):</p>
+      <table class="taula-repte"><thead><tr><th></th><th>ancho × largo × alto</th></tr></thead><tbody><tr><td>Habitación 2</td><td>2,5 m × 3 m × 2,5 m</td></tr><tr><td>Cocina</td><td>2 m × 3 m × 2,5 m</td></tr><tr><td>Baño</td><td>2 m × 2 m × 2,5 m</td></tr></tbody></table>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Materiales y precios</h3>
+      <table class="taula-repte"><thead><tr><th>Material</th><th>Rendimiento</th><th>Precio</th></tr></thead><tbody><tr><td>Pintura mural</td><td>1 bote cubre 10 m²</td><td class="num">15 €</td></tr><tr><td>Pintura ecológica</td><td>1 bote cubre 10 m²</td><td class="num">15 € + 20&nbsp;%</td></tr><tr><td>Parquet</td><td>1 paquete cubre 2 m²</td><td class="num">20 €</td></tr><tr><td>Zócalo de madera</td><td>1 barra mide 2 m</td><td class="num">5 €</td></tr></tbody></table>
+      </div>
+      <h2 class="repte-titol">Parte 1: Pintura</h2><div class="apunt-section" style="margin-top:0.6rem">
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 1</h3><p class="pregunta-enunciat">Calcula el área de las paredes del comedor.</p><button class="solution-toggle" data-toggles="sol-b-1" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-1')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-1" hidden><div class="exercise-card"><div class="ex-steps"><p>Hay dos paredes de $4 \times 2{,}5$ y dos de $5 \times 2{,}5$:</p><div class="math-block">$$2 \cdot (4 \cdot 2{,}5 + 5 \cdot 2{,}5) = 2 \cdot (10 + 12{,}5) = 45\ \text{m}^2$$</div><p class="note">No se descuentan puertas ni ventanas: el enunciado no da sus medidas.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Paredes del comedor: $45\ \text{m}^2$</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 2</h3><p class="pregunta-enunciat">Calcula el área de las paredes de la habitación 1.</p><button class="solution-toggle" data-toggles="sol-b-2" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-2')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-2" hidden><div class="exercise-card"><div class="ex-steps"><p>Hay dos paredes de $3 \times 2{,}5$ y dos de $4 \times 2{,}5$:</p><div class="math-block">$$2 \cdot (3 \cdot 2{,}5 + 4 \cdot 2{,}5) = 2 \cdot (7{,}5 + 10) = 35\ \text{m}^2$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Paredes de la habitación 1: $35\ \text{m}^2$</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 3</h3><p class="pregunta-enunciat">Halla el área total que hay que pintar y calcula cuántos botes necesitas.</p><button class="solution-toggle" data-toggles="sol-b-3" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-3')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-3" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$45 + 35 = 80\ \text{m}^2$$</div><div class="math-block">$$80 : 10 = 8 \text{ botes}$$</div><p class="note">Aquí la división es exacta. Si no lo fuera, habría que redondear <strong>hacia arriba</strong>: no se puede comprar medio bote.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$80\ \text{m}^2$ que pintar: hacen falta $8$ botes</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 4</h3><p class="pregunta-enunciat">Calcula el coste total de la pintura.</p><button class="solution-toggle" data-toggles="sol-b-4" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-4')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-4" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$8 \cdot 15 = 120 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">La pintura cuesta $120$ €</p></div></div></section>
+      </div>
+      <h2 class="repte-titol">Parte 2: Parquet</h2><div class="apunt-section" style="margin-top:0.6rem">
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 5</h3><p class="pregunta-enunciat">Calcula el área del suelo del comedor.</p><button class="solution-toggle" data-toggles="sol-b-5" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-5')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-5" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$4 \cdot 5 = 20\ \text{m}^2$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Suelo del comedor: $20\ \text{m}^2$</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 6</h3><p class="pregunta-enunciat">Calcula cuántos paquetes de parquet hacen falta.</p><button class="solution-toggle" data-toggles="sol-b-6" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-6')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-6" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$20 : 2 = 10 \text{ paquetes}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Hacen falta $10$ paquetes de parquet</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 7</h3><p class="pregunta-enunciat">Calcula el coste del parquet.</p><button class="solution-toggle" data-toggles="sol-b-7" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-7')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-7" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$10 \cdot 20 = 200 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">El parquet cuesta $200$ €</p></div></div></section>
+      </div>
+      <h2 class="repte-titol">Parte 3: Zócalo</h2><div class="apunt-section" style="margin-top:0.6rem">
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 8</h3><p class="pregunta-enunciat">Calcula el perímetro del comedor.</p><button class="solution-toggle" data-toggles="sol-b-8" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-8')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-8" hidden><div class="exercise-card"><div class="ex-steps"><p>El zócalo va alrededor del suelo del comedor, que es un rectángulo de $4 \times 5$:</p><div class="math-block">$$2 \cdot (4 + 5) = 18 \text{ m}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Perímetro: $18$ m</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 9</h3><p class="pregunta-enunciat">Calcula cuántas barras de zócalo necesitas.</p><button class="solution-toggle" data-toggles="sol-b-9" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-9')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-9" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$18 : 2 = 9 \text{ barras}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Hacen falta $9$ barras de zócalo</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 10</h3><p class="pregunta-enunciat">Calcula el coste total del zócalo.</p><button class="solution-toggle" data-toggles="sol-b-10" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-10')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-10" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$9 \cdot 5 = 45 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">El zócalo cuesta $45$ €</p></div></div></section>
+      </div>
+      <h2 class="repte-titol">Parte 4: Presupuesto final</h2><div class="apunt-section" style="margin-top:0.6rem">
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 11</h3><p class="pregunta-enunciat">Calcula el presupuesto total de la reforma (pintura + parquet + zócalo).</p><button class="solution-toggle" data-toggles="sol-b-11" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-11')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-11" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$120 + 200 + 45 = 365 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Presupuesto total: $365$ €</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tarea 12</h3><p class="pregunta-enunciat">Si la pintura fuera ecológica (+20&nbsp;% de precio), ¿cuál sería el nuevo presupuesto?</p><button class="solution-toggle" data-toggles="sol-b-12" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-b-12')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-12" hidden><div class="exercise-card"><div class="ex-steps"><p>Un bote de pintura ecológica vale un $20\ \%$ más:</p><div class="math-block">$$8 \cdot 15 \cdot 1{,}2 = 120 \cdot 1{,}2 = 144 \text{ €}$$</div><p>Solo cambia la pintura; el parquet y el zócalo cuestan lo mismo:</p><div class="math-block">$$144 + 200 + 45 = 389 \text{ €}$$</div><p class="note">La pintura ecológica sube el presupuesto $389 - 365 = 24$ €, un $\tfrac{24}{365} \cdot 100 \approx 6{,}58\ \%$ del total.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Con pintura ecológica: $389$ €</p></div></div></section>
+      <h3 style="font-size:1.1rem;margin:2rem 0 0.3rem">Resumen de resultados</h3><button class="solution-toggle" data-toggles="sol-b-resum" data-show-label="Mostrar el resumen" data-hide-label="Ocultar el resumen" onclick="toggleSolucion('sol-b-resum')"><span class="toggle-label">Mostrar el resumen</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-resum" hidden><div class="exercise-card"><div class="ex-steps"><table class="taula-repte"><thead><tr><th>Material</th><th>Cantidad</th><th>Coste</th><th>Con pintura ecológica</th></tr></thead><tbody><tr><td style="text-align:left;color:var(--text)">Pintura</td><td>8 botes</td><td class="num">120 €</td><td class="num">144 €</td></tr><tr><td style="text-align:left;color:var(--text)">Parquet</td><td>10 paquetes</td><td class="num">200 €</td><td class="num">200 €</td></tr><tr><td style="text-align:left;color:var(--text)">Zócalo</td><td>9 barras</td><td class="num">45 €</td><td class="num">45 €</td></tr><tr><th>Total</th><th></th><th style="text-align:right">365 €</th><th style="text-align:right">389 €</th></tr></tbody></table></div></div></section>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem">
+        <a class="prev" href="/aula/eso-3/apuntes/2627-u-reptes/03-deures-piscina.html">&larr; Apartado anterior</a>
+        <a class="index" href="/aula/eso-3/apuntes/2627-u-reptes/">Índice de la unidad</a>
+        <span class="disabled next">Apartado siguiente &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

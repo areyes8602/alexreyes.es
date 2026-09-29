@@ -57,6 +57,11 @@
 <meta name="twitter:description" content="Problemas de fracciones resueltos para 2º de ESO: aplicar una fracción a un número, el concepto de 'el resto' y casos clásicos.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fracciones","item":"https://alexreyes.es/aula/eso-2/apuntes/u-fraccions/"},{"@type":"ListItem","position":5,"name":"07 · Problemas","item":"https://alexreyes.es/aula/eso-2/apuntes/u-fraccions/07-problemes.html"}]},{"@type":"LearningResource","name":"07 · Problemas","url":"https://alexreyes.es/aula/eso-2/apuntes/u-fraccions/07-problemes.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Problemas de fracciones resueltos para 2º de ESO: aplicar una fracción a un número, el concepto de 'el resto' y casos clásicos."}]}</script>
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -157,7 +162,9 @@
               <li>Si el grupo de alemanes está formado por 90 personas, ¿cuántos participantes hay en la conferencia?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Catalanes y franceses juntos: $\dfrac{2}{5} + \dfrac{1}{4} = \dfrac{8}{20} + \dfrac{5}{20} = \dfrac{13}{20}$.</p>
             <p>"El resto" (ni catalanes ni franceses): $1 - \dfrac{13}{20} = \dfrac{7}{20}$.</p>
             <p>Alemanes = $\dfrac{6}{7}$ del resto:</p>
@@ -169,6 +176,7 @@
             <p>a) $\dfrac{3}{10}$ del total son alemanes.</p>
             <p>b) Hay $300$ participantes.</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 11 ============ -->
@@ -181,7 +189,9 @@
               <li>¿Cuántos alumnos tienen más de 3 hermanos?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p2" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Resto (no tienen 1 ni 2 hermanos): $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
             <p>Tienen exactamente 3 hermanos: $\dfrac{2}{5}$ de $\dfrac{2}{5} = \dfrac{4}{25}$.</p>
             <p>Tienen <strong>más</strong> de 3 hermanos: $\dfrac{2}{5} - \dfrac{4}{25} = \dfrac{10}{25} - \dfrac{4}{25} = \dfrac{6}{25}$.</p>
@@ -192,6 +202,7 @@
             <p>a) $\dfrac{6}{25}$ tienen más de 3 hermanos.</p>
             <p>b) Son $72$ alumnos.</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 12 ============ -->
@@ -205,7 +216,9 @@
               <li>¿Qué fracción le queda por vender?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p3')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p3" hidden>
+<div class="pb-steps">
             <p>Después de ayer, le quedaba: $1 - \dfrac{1}{3} = \dfrac{2}{3}$.</p>
             <p><strong>a)</strong> Hoy vende la mitad de lo que quedaba: $\dfrac{1}{2} \cdot \dfrac{2}{3} = \dfrac{1}{3}$.</p>
             <p><strong>b)</strong> Total vendido: $\dfrac{1}{3} + \dfrac{1}{3} = \dfrac{2}{3}$.</p>
@@ -214,6 +227,7 @@
           <div class="pb-final">
             <p>a) $\dfrac{1}{3}$ &nbsp;·&nbsp; b) $\dfrac{2}{3}$ &nbsp;·&nbsp; c) $\dfrac{1}{3}$</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 13 ============ -->
@@ -222,7 +236,9 @@
           <div class="pb-statement">
             <p>Roger ahorra cada mes 150 € de su sueldo. Del sueldo, gasta $\dfrac{1}{5}$ en vivienda y comida, $\dfrac{1}{6}$ en libros y material y $\dfrac{1}{10}$ en su tiempo libre. ¿Cuál es el sueldo de Roger?</p>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p4')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p4" hidden>
+<div class="pb-steps">
             <p>Suma de gastos (denominador común $30$):</p>
             <div class="math-block">$$\dfrac{1}{5} + \dfrac{1}{6} + \dfrac{1}{10} = \dfrac{6}{30} + \dfrac{5}{30} + \dfrac{3}{30} = \dfrac{14}{30} = \dfrac{7}{15}$$</div>
             <p>El ahorro es el complementario: $1 - \dfrac{7}{15} = \dfrac{8}{15}$. Y esa parte vale 150 €:</p>
@@ -234,6 +250,7 @@
           <div class="fix-note">
             La solución no es un número redondo, algo raro en un problema de clase. Es posible que alguna fracción original sea distinta (por ejemplo, con $\dfrac{1}{3}$, $\dfrac{1}{6}$ y $\dfrac{1}{10}$ sale $S = 375\,€$). Comprueba el enunciado.
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 14 ============ -->
@@ -242,7 +259,9 @@
           <div class="pb-statement">
             <p>De un solar se dedican $\dfrac{2}{5}$ a viviendas, $\dfrac{3}{4}$ <em>del resto</em> a instalaciones deportivas, y los $3200\,\text{m}^2$ que quedan a un parque público. ¿Cuál es la superficie total del solar?</p>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p5')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p5" hidden>
+<div class="pb-steps">
             <p>Después de las viviendas quedan $\dfrac{3}{5}$. Las instalaciones deportivas son $\dfrac{3}{4} \cdot \dfrac{3}{5} = \dfrac{9}{20}$ del total.</p>
             <p>El parque es lo que queda después de las instalaciones deportivas:</p>
             <div class="math-block">$$1 - \dfrac{2}{5} - \dfrac{9}{20} = \dfrac{20}{20} - \dfrac{8}{20} - \dfrac{9}{20} = \dfrac{3}{20}$$</div>
@@ -255,6 +274,7 @@
           <div class="fix-note">
             Tampoco sale un número redondo. Si el parque fueran $1\,200\,\text{m}^2$, la superficie sería $8\,000\,\text{m}^2$ (clásico). Sospecho una errata en el enunciado ($3200 \to 1200$ o alguna fracción distinta).
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 15 ============ -->
@@ -268,7 +288,9 @@
               <li>¿Qué parte le queda por hacer?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p6" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p6')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p6" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> A pie = $\dfrac{1}{4}$ de $\dfrac{3}{5} = \dfrac{3}{20}$.</p>
             <p><strong>b)</strong> Bicicleta = $\dfrac{3}{4}$ de $\dfrac{3}{5} = \dfrac{9}{20}$.</p>
             <p><strong>c)</strong> Queda = $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
@@ -280,6 +302,7 @@
           <div class="fix-note">
             En el enunciado impreso pone que ha recorrido $\dfrac{1}{4}$ del camino, pero la solución utiliza $\dfrac{3}{5}$. Hay una contradicción entre el enunciado y la solución. Como la solución utiliza $\dfrac{3}{5}$ de forma coherente, he reescrito el enunciado con $\dfrac{3}{5}$.
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 16 ============ -->
@@ -294,7 +317,9 @@
               <li>Si doy $\dfrac{3}{7}$ de la mitad de un pastel, ¿qué trozo me queda?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p7" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p7')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p7" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Fracción: $\dfrac{4}{7} \cdot \dfrac{2}{5} = \dfrac{8}{35}$. Juegan: $\dfrac{8}{35} \cdot 105 = 24$ alumnos. No juegan: $105 - 24 = 81$ alumnos.</p>
             <p><strong>b)</strong> $\dfrac{1}{2} \cdot \dfrac{3}{4} \cdot x = 18 \Longrightarrow \dfrac{3}{8} x = 18 \Longrightarrow x = 18 \cdot \dfrac{8}{3} = 48$.</p>
             <p><strong>c)</strong> $\dfrac{5}{6} \cdot \dfrac{3}{5} \cdot 60 = \dfrac{15}{30} \cdot 60 = \dfrac{1}{2} \cdot 60 = 30$ minutos.</p>
@@ -303,6 +328,7 @@
           <div class="pb-final">
             <p>a) $\dfrac{8}{35}$, $81$ no juegan &nbsp;·&nbsp; b) $48$ &nbsp;·&nbsp; c) $30$ minutos &nbsp;·&nbsp; d) $\dfrac{11}{14}$</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 17 ============ -->
@@ -311,7 +337,9 @@
           <div class="pb-statement">
             <p>Toni y sus amigos se comieron $\dfrac{3}{5}$ de una coca de brioche. Después, Toni repartió la parte que sobró entre sus 3 vecinos. ¿Qué fracción recibió cada vecino?</p>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p8" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p8')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p8" hidden>
+<div class="pb-steps">
             <p>Lo que sobró: $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
             <p>Repartido entre 3 vecinos:</p>
             <div class="math-block">$$\dfrac{2}{5} : 3 = \dfrac{2}{5} \cdot \dfrac{1}{3} = \dfrac{2}{15}$$</div>
@@ -319,6 +347,7 @@
           <div class="pb-final">
             <p>Cada vecino recibe $\dfrac{2}{15}$ de la coca.</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 18 ============ -->
@@ -333,7 +362,9 @@
               <li>¿Qué fracción del total queda por pagar?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p9" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p9')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p9" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Entrada: $\dfrac{1}{6}$ de $1200 = 200\,€$.</p>
             <p><strong>b)</strong> Después de la entrada queda $\dfrac{5}{6}$. Al mes paga $\dfrac{3}{5}$ de ese resto:</p>
             <div class="math-block">$$\dfrac{3}{5} \cdot \dfrac{5}{6} = \dfrac{3}{6} = \dfrac{1}{2} \text{ del precio total}$$</div>
@@ -343,6 +374,7 @@
           <div class="pb-final">
             <p>a) $200\,€$ &nbsp;·&nbsp; b) $\dfrac{1}{2}$ &nbsp;·&nbsp; c) $800\,€$ &nbsp;·&nbsp; d) $\dfrac{1}{3}$ (= $400\,€$)</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 19 ============ -->
@@ -351,13 +383,16 @@
           <div class="pb-statement">
             <p>Un agricultor riega $\dfrac{2}{5}$ de un campo por la mañana. Por la tarde riega <em>el resto</em>, que son $6\,000\,\text{m}^2$. ¿Cuál es la superficie del campo?</p>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p10" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-p10')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p10" hidden>
+<div class="pb-steps">
             <p>El resto = $1 - \dfrac{2}{5} = \dfrac{3}{5}$, y esa parte vale $6\,000\,\text{m}^2$:</p>
             <div class="math-block">$$\dfrac{3}{5} \cdot S = 6\,000 \quad\Longrightarrow\quad S = 6\,000 \cdot \dfrac{5}{3} = 10\,000\,\text{m}^2$$</div>
           </div>
           <div class="pb-final">
             <p>$S = 10\,000\,\text{m}^2$.</p>
           </div>
+</section>
         </div>
       </div>
 
@@ -385,6 +420,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 </body>
 </html>

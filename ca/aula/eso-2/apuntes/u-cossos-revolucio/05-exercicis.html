@@ -48,6 +48,11 @@
 <meta name="twitter:description" content="Exercicis resolts del llibre per a 2n d'ESO sobre cossos de revolució: piscina cilíndrica, capsa amb pilotes i con d'aigua.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/ca/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Cossos de revolució","item":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-cossos-revolucio/"},{"@type":"ListItem","position":5,"name":"05 · Exercicis del llibre","item":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-cossos-revolucio/05-exercicis.html"}]},{"@type":"LearningResource","name":"05 · Exercicis del llibre","url":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-cossos-revolucio/05-exercicis.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Exercicis resolts del llibre per a 2n d'ESO sobre cossos de revolució: piscina cilíndrica, capsa amb pilotes i con d'aigua."}]}</script>
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Salta al contingut</a>
@@ -111,7 +116,9 @@
             </ol>
           </div>
 
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="pb-steps">
             <p><strong>Dades:</strong> diàmetre $d = 6$ m, per tant $r = 3$ m. Altura $h = 1{,}5$ m.</p>
 
             <p><strong>1) Volum</strong> (cilindre):</p>
@@ -131,6 +138,7 @@
             <p>Volum: $\approx 42{,}41 \text{ m}^3 = 42\,412 \text{ L}$</p>
             <p>Àrea interior: $\approx 56{,}55 \text{ m}^2$</p>
           </div>
+</section>
         </div>
 
         <div class="problem-card">
@@ -144,7 +152,9 @@
             </ol>
           </div>
 
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p2" hidden>
+<div class="pb-steps">
             <p><strong>Dades:</strong> capsa cúbica de costat $L = 20$ cm. 8 esferes en una xarxa 2×2×2.</p>
 
             <p><strong>1) Radi:</strong> en cada direcció hi ha 2 pilotes que sumen $L = 20$ cm de diàmetre, és a dir, cada pilota té diàmetre $d = 10$ cm.</p>
@@ -168,6 +178,7 @@
           <div class="pb-final">
             <p>$r = 5$ cm &nbsp;·&nbsp; $V_{\text{8 esferes}} \approx 4\,188{,}79$ cm³ &nbsp;·&nbsp; $V_{\text{aire}} \approx 3\,811{,}21$ cm³</p>
           </div>
+</section>
         </div>
 
         <div class="problem-card">
@@ -181,7 +192,9 @@
             </ol>
           </div>
 
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p3')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p3" hidden>
+<div class="pb-steps">
             <p><strong>Dades:</strong> $r = 4$ cm, $h = 12$ cm. Got = con sense base.</p>
 
             <p><strong>1) Generatriu</strong> (Pitàgores):</p>
@@ -205,6 +218,7 @@
           <div class="pb-final">
             <p>$g \approx 12{,}65$ cm &nbsp;·&nbsp; Paper: $\approx 158{,}97$ cm² &nbsp;·&nbsp; Volum: $\approx 201$ mL</p>
           </div>
+</section>
         </div>
 
         <div class="tip-box">
@@ -236,6 +250,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 </body>
 </html>

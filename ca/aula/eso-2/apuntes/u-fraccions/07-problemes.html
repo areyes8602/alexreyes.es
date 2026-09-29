@@ -57,6 +57,11 @@
 <meta name="twitter:description" content="Problemes de fraccions resolts per a 2n d'ESO: aplicar una fracció a un nombre, concepte de 'la resta' i casos clàssics.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/ca/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fraccions","item":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-fraccions/"},{"@type":"ListItem","position":5,"name":"07 · Problemes","item":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-fraccions/07-problemes.html"}]},{"@type":"LearningResource","name":"07 · Problemes","url":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-fraccions/07-problemes.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Problemes de fraccions resolts per a 2n d'ESO: aplicar una fracció a un nombre, concepte de 'la resta' i casos clàssics."}]}</script>
+<style>/* solucions plegades */
+.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
+.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
+.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Salta al contingut</a>
@@ -155,7 +160,9 @@
               <li>Si el grup d'alemanys està format per 90 persones, quants participants hi ha a la conferència?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p1" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Catalans i francesos junts: $\dfrac{2}{5} + \dfrac{1}{4} = \dfrac{8}{20} + \dfrac{5}{20} = \dfrac{13}{20}$.</p>
             <p>"La resta" (ni catalans ni francesos): $1 - \dfrac{13}{20} = \dfrac{7}{20}$.</p>
             <p>Alemanys = $\dfrac{6}{7}$ de la resta:</p>
@@ -167,6 +174,7 @@
             <p>a) $\dfrac{3}{10}$ del total són alemanys.</p>
             <p>b) Hi ha $300$ participants.</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 11 ============ -->
@@ -179,7 +187,9 @@
               <li>Quants alumnes tenen més de 3 germans?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p2" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Resta (no tenen 1 ni 2 germans): $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
             <p>Tenen exactament 3 germans: $\dfrac{2}{5}$ de $\dfrac{2}{5} = \dfrac{4}{25}$.</p>
             <p>Tenen <strong>més</strong> de 3 germans: $\dfrac{2}{5} - \dfrac{4}{25} = \dfrac{10}{25} - \dfrac{4}{25} = \dfrac{6}{25}$.</p>
@@ -190,6 +200,7 @@
             <p>a) $\dfrac{6}{25}$ tenen més de 3 germans.</p>
             <p>b) Són $72$ alumnes.</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 12 ============ -->
@@ -203,7 +214,9 @@
               <li>Quina fracció li queda per vendre?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p3')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p3" hidden>
+<div class="pb-steps">
             <p>Després d'ahir, li quedava: $1 - \dfrac{1}{3} = \dfrac{2}{3}$.</p>
             <p><strong>a)</strong> Avui ven la meitat del que quedava: $\dfrac{1}{2} \cdot \dfrac{2}{3} = \dfrac{1}{3}$.</p>
             <p><strong>b)</strong> Total venut: $\dfrac{1}{3} + \dfrac{1}{3} = \dfrac{2}{3}$.</p>
@@ -212,6 +225,7 @@
           <div class="pb-final">
             <p>a) $\dfrac{1}{3}$ &nbsp;·&nbsp; b) $\dfrac{2}{3}$ &nbsp;·&nbsp; c) $\dfrac{1}{3}$</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 13 ============ -->
@@ -220,7 +234,9 @@
           <div class="pb-statement">
             <p>El Roger estalvia cada mes 150 € del sou. Del sou, gasta $\dfrac{1}{5}$ en habitatge i menjar, $\dfrac{1}{6}$ en llibres i material i $\dfrac{1}{10}$ en el seu temps lliure. Quin és el sou de Roger?</p>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p4')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p4" hidden>
+<div class="pb-steps">
             <p>Suma de despeses (denominador comú $30$):</p>
             <div class="math-block">$$\dfrac{1}{5} + \dfrac{1}{6} + \dfrac{1}{10} = \dfrac{6}{30} + \dfrac{5}{30} + \dfrac{3}{30} = \dfrac{14}{30} = \dfrac{7}{15}$$</div>
             <p>L'estalvi és el complementari: $1 - \dfrac{7}{15} = \dfrac{8}{15}$. I aquest val 150 €:</p>
@@ -232,6 +248,7 @@
           <div class="fix-note">
             La solució no és un nombre rodó, cosa estranya per un problema de classe. És possible que alguna fracció original sigui diferent (per exemple, amb $\dfrac{1}{3}$, $\dfrac{1}{6}$ i $\dfrac{1}{10}$ surt $S = 375\,€$). Comprova l'enunciat.
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 14 ============ -->
@@ -240,7 +257,9 @@
           <div class="pb-statement">
             <p>D'un solar es dediquen $\dfrac{2}{5}$ a habitatges, $\dfrac{3}{4}$ <em>de la resta</em> a instal·lacions esportives, i els $3200\,\text{m}^2$ que resten a un parc públic. Quina és la superfície total del solar?</p>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p5')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p5" hidden>
+<div class="pb-steps">
             <p>Després dels habitatges queda $\dfrac{3}{5}$. Els esports són $\dfrac{3}{4} \cdot \dfrac{3}{5} = \dfrac{9}{20}$ del total.</p>
             <p>El parc és el que queda després dels esports:</p>
             <div class="math-block">$$1 - \dfrac{2}{5} - \dfrac{9}{20} = \dfrac{20}{20} - \dfrac{8}{20} - \dfrac{9}{20} = \dfrac{3}{20}$$</div>
@@ -253,6 +272,7 @@
           <div class="fix-note">
             Tampoc surt un nombre rodó. Si el parc fossin $1\,200\,\text{m}^2$, la superfície seria $8\,000\,\text{m}^2$ (clàssic). Sospito un typo a l'enunciat ($3200 \to 1200$ o algun fracció diferent).
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 15 ============ -->
@@ -266,7 +286,9 @@
               <li>Quina part li queda per fer?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p6" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p6')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p6" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Caminant = $\dfrac{1}{4}$ de $\dfrac{3}{5} = \dfrac{3}{20}$.</p>
             <p><strong>b)</strong> Bicicleta = $\dfrac{3}{4}$ de $\dfrac{3}{5} = \dfrac{9}{20}$.</p>
             <p><strong>c)</strong> Queda = $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
@@ -278,6 +300,7 @@
           <div class="fix-note">
             A l'enunciat imprès posa que ha recorregut $\dfrac{1}{4}$ del camí, però la solució utilitza $\dfrac{3}{5}$. Hi ha contradicció entre l'enunciat i la solució. Com que la solució utilitza $\dfrac{3}{5}$ de manera consistent, he reescrit l'enunciat amb $\dfrac{3}{5}$.
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 16 ============ -->
@@ -292,7 +315,9 @@
               <li>Si dono $\dfrac{3}{7}$ de la meitat d'un pastís, quin tros em queda?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p7" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p7')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p7" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Fracció: $\dfrac{4}{7} \cdot \dfrac{2}{5} = \dfrac{8}{35}$. Juguen: $\dfrac{8}{35} \cdot 105 = 24$ alumnes. No juguen: $105 - 24 = 81$ alumnes.</p>
             <p><strong>b)</strong> $\dfrac{1}{2} \cdot \dfrac{3}{4} \cdot x = 18 \Longrightarrow \dfrac{3}{8} x = 18 \Longrightarrow x = 18 \cdot \dfrac{8}{3} = 48$.</p>
             <p><strong>c)</strong> $\dfrac{5}{6} \cdot \dfrac{3}{5} \cdot 60 = \dfrac{15}{30} \cdot 60 = \dfrac{1}{2} \cdot 60 = 30$ minuts.</p>
@@ -301,6 +326,7 @@
           <div class="pb-final">
             <p>a) $\dfrac{8}{35}$, $81$ no juguen &nbsp;·&nbsp; b) $48$ &nbsp;·&nbsp; c) $30$ minuts &nbsp;·&nbsp; d) $\dfrac{11}{14}$</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 17 ============ -->
@@ -309,7 +335,9 @@
           <div class="pb-statement">
             <p>El Toni i els seus amics es van menjar $\dfrac{3}{5}$ d'una coca de brioix. Després, el Toni va repartir la part que va sobrar entre els seus 3 veïns. Quina fracció va rebre cada veí?</p>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p8" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p8')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p8" hidden>
+<div class="pb-steps">
             <p>El que va sobrar: $1 - \dfrac{3}{5} = \dfrac{2}{5}$.</p>
             <p>Repartit entre 3 veïns:</p>
             <div class="math-block">$$\dfrac{2}{5} : 3 = \dfrac{2}{5} \cdot \dfrac{1}{3} = \dfrac{2}{15}$$</div>
@@ -317,6 +345,7 @@
           <div class="pb-final">
             <p>Cada veí rep $\dfrac{2}{15}$ de la coca.</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 18 ============ -->
@@ -331,7 +360,9 @@
               <li>Quina fracció del total queda per pagar?</li>
             </ol>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p9" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p9')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p9" hidden>
+<div class="pb-steps">
             <p><strong>a)</strong> Entrada: $\dfrac{1}{6}$ de $1200 = 200\,€$.</p>
             <p><strong>b)</strong> Després de l'entrada queda $\dfrac{5}{6}$. Al mes paga $\dfrac{3}{5}$ d'aquesta resta:</p>
             <div class="math-block">$$\dfrac{3}{5} \cdot \dfrac{5}{6} = \dfrac{3}{6} = \dfrac{1}{2} \text{ del preu total}$$</div>
@@ -341,6 +372,7 @@
           <div class="pb-final">
             <p>a) $200\,€$ &nbsp;·&nbsp; b) $\dfrac{1}{2}$ &nbsp;·&nbsp; c) $800\,€$ &nbsp;·&nbsp; d) $\dfrac{1}{3}$ (= $400\,€$)</p>
           </div>
+</section>
         </div>
 
         <!-- ============ Problema 19 ============ -->
@@ -349,13 +381,16 @@
           <div class="pb-statement">
             <p>Un pagès rega $\dfrac{2}{5}$ d'un camp al matí. A la tarda rega <em>la resta</em>, que són $6\,000\,\text{m}^2$. Quina és la superfície del camp?</p>
           </div>
-          <div class="pb-steps">
+          <button class="solution-toggle" data-toggles="sol-p10" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p10')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<section class="solution" id="sol-p10" hidden>
+<div class="pb-steps">
             <p>La resta = $1 - \dfrac{2}{5} = \dfrac{3}{5}$, i aquesta val $6\,000\,\text{m}^2$:</p>
             <div class="math-block">$$\dfrac{3}{5} \cdot S = 6\,000 \quad\Longrightarrow\quad S = 6\,000 \cdot \dfrac{5}{3} = 10\,000\,\text{m}^2$$</div>
           </div>
           <div class="pb-final">
             <p>$S = 10\,000\,\text{m}^2$.</p>
           </div>
+</section>
         </div>
       </div>
 
@@ -383,6 +418,7 @@
 function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 </script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
 <script defer src="/assets/js/search.js?v=202609121757"></script>
 </body>
 </html>
