@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Challenge 2: the rooftop sculpture — Maths challenges — 4t ESO</title>
+<meta name="description" content="4t ESO notes, 2026-27: Challenge 2, a cone full of water on the roof. Pythagoras, volume of a cone, unit conversions and scale, with solutions.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p, .def-box li { margin: 0.4rem 0; }
+.def-box ol, .def-box ul { margin: 0.4rem 0; padding-left: 1.3rem; }
+.figura { margin: 1.2rem 0; overflow-x: auto; }
+.figura svg { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; color: var(--text); }
+.figura figcaption { text-align: center; font-size: 0.85rem; color: var(--text-soft); margin-top: 0.4rem; }
+.taula-repte { border-collapse: collapse; margin: 0.8rem 0; font-size: 0.95rem; width: 100%; max-width: 560px; }
+.taula-repte th, .taula-repte td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
+.taula-repte th { background: var(--bg-subtle); font-weight: 600; }
+.taula-repte td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.swatch { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; vertical-align: -0.05em; margin-right: 0.35em; border: 1px solid rgba(0,0,0,0.25); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.pregunta-enunciat { font-size: 1rem; margin: 0.5rem 0 1rem; }
+.apunt-section .solution { padding: 1.2rem 1.3rem; }
+.solution table.taula-repte { font-family: inherit; font-size: 0.92rem; max-width: 600px; }
+.solution .taula-repte th { text-align: left; }
+.solution .taula-repte td { text-align: left; color: var(--text); }
+.solution .taula-repte td.num { text-align: right; }
+.exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
+.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+.exercise-card .ex-steps { margin: 0.6rem 0; }
+.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+.exercise-card .ex-final::before { content: "Result"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+
+.con { margin: 1.4rem 0; }
+.con svg { display: block; width: 100%; max-width: 620px; height: auto; margin: 0 auto; color: var(--text); }
+.con .part { cursor: pointer; outline: none; }
+.con .part .l { stroke-width: 3; transition: stroke-width .15s, opacity .15s; }
+.con .part .hit { stroke: transparent; stroke-width: 22; }
+.con .part:hover .l, .con .part:focus-visible .l { stroke-width: 5; }
+.con .part.on .l { stroke-width: 6; }
+.con .part text { font-size: 17px; font-weight: 700; }
+.con .triangle { opacity: 0; transition: opacity .2s; pointer-events: none; }
+.con.amb-triangle .triangle { opacity: 1; }
+.con .eines { display: flex; justify-content: flex-end; margin-bottom: .4rem; }
+.con .eines button { font: inherit; font-size: .82rem; padding: .35rem .8rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-subtle); color: var(--text); cursor: pointer; }
+.con .eines button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+.con .info { min-height: 3.2rem; margin: .6rem auto 0; max-width: 620px; padding: .7rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-subtle); font-size: .95rem; color: var(--text-soft); }
+.con .info strong { color: var(--text); }
+.con figcaption { text-align: center; font-size: .85rem; color: var(--text-soft); margin-top: .5rem; }
+.escala svg { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; color: var(--text); }
+.escala figcaption { text-align: center; font-size: .82rem; color: var(--text-soft); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html">
+<meta property="og:title" content="Challenge 2: the rooftop sculpture — Maths challenges — 4t ESO">
+<meta property="og:description" content="4t ESO notes, 2026-27: Challenge 2, a cone full of water on the roof. Pythagoras, volume of a cone, unit conversions and scale, with solutions.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Challenge 2: the rooftop sculpture — Maths challenges — 4t ESO">
+<meta name="twitter:description" content="4t ESO notes, 2026-27: Challenge 2, a cone full of water on the roof. Pythagoras, volume of a cone, unit conversions and scale, with solutions.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"4t ESO","item":"https://alexreyes.es/en/docencia/eso-4/"},{"@type":"ListItem","position":4,"name":"Challenges","item":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/"},{"@type":"ListItem","position":5,"name":"02 · Challenge 2","item":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html"}]},{"@type":"LearningResource","name":"02 · Challenge 2","url":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"4t ESO notes, 2026-27: Challenge 2, a cone full of water on the roof. Pythagoras, volume of a cone, unit conversions and scale, with solutions."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-4/apuntes/2627-u-reptes/02-repte-2.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/eso-4/">4t ESO</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/eso-4/apuntes/2627-u-reptes/">Challenges</a>
+      <span class="sep">/</span>
+      <span class="current">02 · Challenge 2</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">4t ESO &middot; Maths challenges</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">29 Sep 2026</span>
+      </div>
+      <h1 style="margin:0">Challenge 2: the rooftop sculpture</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">A cone full of water on the roof: will it hold? Pythagoras, volume, conversions and scale. Each question has its solution hidden underneath.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin:0 0 0.5rem"><a href="/aula/eso-4/apuntes/2627-u-reptes/repte-2-enunciat.pdf" class="pdf-download" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><polyline points="9 15 12 18 15 15"/></svg> Download the problem sheet (PDF, in Catalan)</a></div>
+      <div class="apunt-section">
+      <h2>The problem</h2>
+      <p>The neighbours in my building have come up with the idea of setting up a <em>chill-out</em> area on the shared roof terrace. An artist who lives in the flat below mine has suggested a sculpture shaped like a transparent cone, which he wants to fill with coloured water.</p><p>I am really not sure the roof can take the weight once it is full of water, and it worries me: every summer I read about some roof that has collapsed under the weight of the water in inflatable pools people put up without a second thought.</p>
+      <figure class="con" id="con"><div class="eines"><button type="button" data-accio="triangle" aria-pressed="false">Show the triangle</button></div><svg viewBox="0 0 600 320" role="img" aria-label="Cone-shaped sculpture" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif"><defs><linearGradient id="gcon" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#f0abfc"/><stop offset=".55" stop-color="#d946ef"/><stop offset="1" stop-color="#a21caf"/></linearGradient></defs><path d="M76.4,240 L300,40 L523.6,240 A223.6,42 0 0,1 76.4,240 Z" fill="url(#gcon)" fill-opacity=".55" stroke="#a21caf" stroke-width="1.5"/><ellipse cx="300" cy="240" rx="223.6" ry="42" fill="#f5d0fe" fill-opacity=".45" stroke="#a21caf" stroke-width="1.5"/><polygon class="triangle" points="300,40 300,240 523.6,240" fill="#fde68a" fill-opacity=".7" stroke="#b45309" stroke-width="1.5"/><rect class="triangle" x="300" y="226" width="14" height="14" fill="none" stroke="#b45309" stroke-width="1.5"/><g class="part" data-p="h" tabindex="0" role="button" aria-label="h = 2 m"><line class="hit" x1="300.0" y1="40.0" x2="300.0" y2="240.0"/><line class="l" x1="300.0" y1="40.0" x2="300.0" y2="240.0" stroke="#dc2626" stroke-dasharray="7 5"/><text x="290.0" y="140.0" fill="#dc2626" text-anchor="end">h = 2 m</text></g><g class="part" data-p="g" tabindex="0" role="button" aria-label="g = 3 m"><line class="hit" x1="300.0" y1="40.0" x2="523.6" y2="240.0"/><line class="l" x1="300.0" y1="40.0" x2="523.6" y2="240.0" stroke="#2563eb" /><text x="427.8" y="134.0" fill="#2563eb" text-anchor="start">g = 3 m</text></g><g class="part" data-p="r" tabindex="0" role="button" aria-label="r = x"><line class="hit" x1="300.0" y1="240.0" x2="523.6" y2="240.0"/><line class="l" x1="300.0" y1="240.0" x2="523.6" y2="240.0" stroke="#059669" /><text x="411.8" y="266.0" fill="#059669" text-anchor="middle">r = x</text></g></svg><div class="info" aria-live="polite">Tap the height, the slant height or the radius to see what each one is.</div><figcaption>The sculpture: a transparent cone 2 m high with a 3 m slant height.</figcaption><script type="application/json" id="con-dades">{"h": ["Height", "It goes from the apex to the centre of the base, at right angles to the base. It is 2 m."], "g": ["Slant height", "It goes from the apex to any point on the edge of the base. It is 3 m."], "r": ["Radius of the base", "It goes from the centre of the base to the edge. We do not know it: we call it x."]}</script></figure>
+      <div class="def-box"><h3>Which concepts we will need</h3><p>We will need to revise Pythagoras' theorem (it always turns up), similarity, some areas and volumes. We also need to remember:</p><ul><li>$1\ \text{m}^3 = 1000$ L, and for water, $1$ L $= 1$ kg.</li><li>An average roof can take at most $350$ kg for every $\text{m}^2$ of surface.</li></ul></div>
+      <p class="note"><strong>About rounding.</strong> Calculations use the exact values ($x^2 = 5$, $x = \sqrt{5}$, $\pi$) and only the final result is rounded, to two decimal places. Rounding halfway through can change a result in the second decimal place.</p>
+      </div>
+      <div class="apunt-section"><h2>1. The radius of the base</h2><p class="pregunta-enunciat">To work out the volume of the cone we need the radius of the base. When we do not know something, we use a letter: we will call it $x$.</p><button class="solution-toggle" data-toggles="sol-p1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p1" hidden><div class="exercise-card"><div class="ex-steps"><p>The height, the radius and the slant height form a right triangle, with the slant height as the hypotenuse. Pythagoras:</p><div class="math-block">$$3^2 = 2^2 + x^2 \;\Longrightarrow\; 9 = 4 + x^2 \;\Longrightarrow\; x^2 = 5$$</div><div class="math-block">$$x = \sqrt{5} \approx 2{,}24 \text{ m}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">The radius of the base is $x = \sqrt{5} \approx 2{,}24$ m.</p></div></div></section></div>
+      <div class="apunt-section"><h2>2. The volume of the cone</h2><p class="pregunta-enunciat">Work out the volume of the cone.</p><button class="solution-toggle" data-toggles="sol-p2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p2" hidden><div class="exercise-card"><div class="ex-steps"><p>A cone has a third of the volume of a cylinder with the same base and height. Since $x^2 = 5$, we can use the $5$ directly:</p><div class="math-block">$$V = \dfrac{A_B \cdot h}{3} = \dfrac{\pi \cdot x^2 \cdot h}{3} = \dfrac{\pi \cdot 5 \cdot 2}{3} = \dfrac{10\pi}{3} \approx 10{,}47 \text{ m}^3$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$V \approx 10{,}47\ \text{m}^3$</p></div></div></section></div>
+      <div class="apunt-section"><h2>3. The area it takes up</h2><p class="pregunta-enunciat">Work out how much of the roof the sculpture takes up.</p><button class="solution-toggle" data-toggles="sol-p3" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p3')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p3" hidden><div class="exercise-card"><div class="ex-steps"><p>What it takes up on the roof is the base, a circle of radius $x = \sqrt{5}$ m. Since $x^2 = 5$:</p><div class="math-block">$$A_B = \pi \cdot x^2 = 5\pi \approx 15{,}71 \text{ m}^2$$</div><p class="note">Be careful not to round the radius before squaring it: with $2{,}24^2$ you would get $15{,}76\ \text{m}^2$.</p><p>If we also want the surface of the sculpture (for example, to know how much material is needed), we add the lateral area $\pi \cdot x \cdot g$:</p><div class="math-block">$$A_T = A_B + A_L = 5\pi + \pi \cdot \sqrt{5} \cdot 3 \approx 15{,}71 + 21{,}07 = 36{,}78 \text{ m}^2$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">It takes up $A_B \approx 15{,}71\ \text{m}^2$ of the roof.</p></div></div></section></div>
+      <div class="apunt-section"><h2>4. The conversions</h2><p class="pregunta-enunciat">How many m³ of water does it take to fill the cone? How many litres is that? How many kilograms? What load can the roof take on the area the cone covers?</p><button class="solution-toggle" data-toggles="sol-p4" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p4')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p4" hidden><div class="exercise-card"><span class="ex-label">Cubic metres</span><div class="ex-steps"><p>It is the volume of the cone, $\dfrac{10\pi}{3}\ \text{m}^3$:</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$\approx 10{,}47\ \text{m}^3$</p></div></div><div class="exercise-card"><span class="ex-label">Litres</span><div class="ex-steps"><div class="math-block">$$\dfrac{10\pi}{3} \text{ m}^3 \cdot \dfrac{1000 \text{ L}}{1 \text{ m}^3} = \dfrac{10\,000\pi}{3} \text{ L} \approx 10\,471{,}98 \text{ L}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$\approx 10\,471{,}98$ L</p></div></div><div class="exercise-card"><span class="ex-label">Kilograms</span><div class="ex-steps"><p>Since $1$ L of water weighs $1$ kg:</p><div class="math-block">$$10\,471{,}98 \text{ L} \cdot \dfrac{1\text{ kg}}{1 \text{ L}} \approx 10\,471{,}98\text{ kg}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$\approx 10\,471{,}98$ kg</p></div></div><div class="exercise-card"><span class="ex-label">Load it can take</span><div class="ex-steps"><p>The roof takes $350$ kg per $\text{m}^2$, and the sculpture rests on $5\pi \approx 15{,}71\ \text{m}^2$:</p><div class="math-block">$$5\pi \text{ m}^2 \cdot \dfrac{350\text{ kg}}{1 \text{ m}^2} = 1750\pi\text{ kg} \approx 5\,497{,}79\text{ kg}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">That area can take at most about $5\,497{,}79$ kg.</p></div></div></section></div>
+      <div class="apunt-section"><h2>5. Does the roof collapse or not?</h2><p class="pregunta-enunciat">With everything you have worked out, does the roof collapse or not?</p><button class="solution-toggle" data-toggles="sol-p5" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p5')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p5" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$10\,471{,}98\text{ kg} > 5\,497{,}79\text{ kg}$$</div><p>The water weighs almost twice what that part of the roof can hold ($10\,471{,}98 : 5\,497{,}79 \approx 1{,}9$). And we have not yet counted the weight of the cone or of the people in the <em>chill-out</em> area.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Yes: with the cone full, the roof would collapse. The sculpture cannot go up there full of water.</p></div></div></section></div>
+      <div class="apunt-section"><h2>6. The scale drawing</h2><p class="pregunta-enunciat">We want a scale drawing of the cone to present our conclusions at the residents' meeting. We have decided that each metre will be 2 cm. How do we do it?</p><button class="solution-toggle" data-toggles="sol-p6" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p6')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p6" hidden><div class="exercise-card"><div class="ex-steps"><p>Each real metre is $2$ cm on the drawing:</p><div class="math-block">$$\dfrac{\text{drawing}}{\text{real}} = \dfrac{2 \text{ cm}}{1 \text{ m}} = \dfrac{2 \text{ cm}}{100 \text{ cm}} = \dfrac{1}{50}$$</div><p>The scale is $1:50$. We convert each measurement:</p><div class="math-block">$$\text{Height: } 2 \text{ m} \cdot \dfrac{2 \text{ cm}}{1 \text{ m}} = 4 \text{ cm}$$</div><div class="math-block">$$\text{Radius: } \sqrt{5} \text{ m} \cdot \dfrac{2 \text{ cm}}{1 \text{ m}} = 2\sqrt{5} \text{ cm} \approx 4{,}47 \text{ cm}$$</div><div class="math-block">$$\text{Slant height: } 3 \text{ m} \cdot \dfrac{2 \text{ cm}}{1 \text{ m}} = 6 \text{ cm}$$</div><figure class="escala"><svg viewBox="0 0 360 200" role="img" aria-label="Cone drawn at a scale of 1:50" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif"><path d="M45.8,140 L180,20 L314.2,140 A134.2,20 0 0,1 45.8,140 Z" fill="#d946ef" fill-opacity=".3" stroke="currentColor"/><ellipse cx="180" cy="140" rx="134.2" ry="20" fill="none" stroke="currentColor"/><line x1="180" y1="20" x2="180" y2="140" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/><line x1="180" y1="140" x2="314.2" y2="140" stroke="#059669" stroke-width="2"/><text x="174" y="80.0" text-anchor="end" fill="#dc2626" font-size="13">4 cm</text><text x="247.1" y="176" text-anchor="middle" fill="#059669" font-size="13">4,47 cm</text><text x="259.1" y="76.0" fill="#2563eb" font-size="13">6 cm</text></svg><figcaption>Sketch at a scale of 1:50 (measurements are on paper).</figcaption></figure><p class="note">To draw it: a base with a $4{,}47$ cm radius ($8{,}94$ cm across) and the apex $4$ cm above the centre. If it is done right, the slant edges are $6$ cm long, which is a good check.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Scale $1:50$: height $4$ cm, radius $4{,}47$ cm and slant height $6$ cm.</p></div></div></section></div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <a class="prev" href="/en/aula/eso-4/apuntes/2627-u-reptes/01-repte-1.html">&larr; Previous section</a>
+        <a class="index" href="/en/aula/eso-4/apuntes/2627-u-reptes/">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script>
+(function(){
+  var f=document.getElementById('con'); if(!f) return;
+  var D=JSON.parse(document.getElementById('con-dades').textContent), info=f.querySelector('.info'), ajuda=info.innerHTML, actiu=null;
+  f.querySelectorAll('.part').forEach(function(p){
+    function va(){ var k=p.dataset.p; f.querySelectorAll('.part.on').forEach(function(e){e.classList.remove('on');});
+      if(actiu===k){ actiu=null; info.innerHTML=ajuda; return; } actiu=k; p.classList.add('on'); info.innerHTML='<strong>'+D[k][0]+'.</strong> '+D[k][1]; }
+    p.addEventListener('click', va); p.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); va(); } });
+  });
+  var b=f.querySelector('[data-accio="triangle"]');
+  b.addEventListener('click', function(){ var on=f.classList.toggle('amb-triangle'); b.setAttribute('aria-pressed', on?'true':'false'); });
+})();
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>
