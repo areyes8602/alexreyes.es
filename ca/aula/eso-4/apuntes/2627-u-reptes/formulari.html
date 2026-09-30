@@ -53,7 +53,7 @@
 .fcard { border: 1px solid var(--border); border-radius: 8px; padding: .7rem .9rem .6rem; background: var(--bg-subtle); break-inside: avoid; }
 .fcard h3 { font-size: .95rem; margin: 0 0 .3rem; }
 .fcard svg { display: block; width: 100%; max-width: 150px; height: 88px; margin: .2rem auto .3rem; color: var(--text); }
-.fcard .f { margin: .2rem 0; font-size: .95rem; }
+.fcard .f { margin: .55rem 0; font-size: .95rem; line-height: 1.6; }
 .fcard .f .katex { font-size: 1.02em; }
 .fcard .nota { font-size: .78rem; color: var(--text-soft); margin: .3rem 0 0; }
 .cossos .fcard { grid-column: span 1; }
@@ -66,6 +66,8 @@
   body { background: #fff !important; color: #000 !important; font-size: 10pt; }
   .container { max-width: none !important; padding: 0 !important; }
   .exam-header { margin-bottom: .4rem !important; }
+  .exam-header > div:first-child, .exam-header > p { display: none !important; }
+  .exam-header h1::after { content: ' · 4t ESO'; font-weight: 400; }
   .exam-header h1 { font-size: 17pt !important; }
   .exam-header p { font-size: 9pt !important; }
   .apunt-section { margin: .5rem 0 !important; }
@@ -74,7 +76,7 @@
   .fcard { padding: 1.6mm 2.2mm !important; background: #fff !important; }
   .fcard h3 { font-size: 9.5pt !important; margin: 0 !important; }
   .fcard svg { height: 15mm !important; max-width: 32mm !important; margin: .5mm auto !important; }
-  .fcard .f { font-size: 8.8pt !important; margin: .4mm 0 !important; }
+  .fcard .f { font-size: 8.8pt !important; margin: 1.6mm 0 !important; line-height: 1.5 !important; }
   .fcard .nota { font-size: 7.5pt !important; }
   .llegenda { font-size: 8.5pt !important; }
 }
