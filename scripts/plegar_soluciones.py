@@ -1,47 +1,66 @@
 #!/usr/bin/env python3
-"""plegar_soluciones.py — Les solucions de docència van SEMPRE plegades.
+"""plegar_soluciones.py — Les solucions de docència van SEMPRE plegades, a l'estil de 1r BTL CCSS.
 
 Per què: a /aula/ l'alumnat ha de poder intentar un exercici abans de veure'n la
 resolució. Una correcció visible de sortida és un error, igual que un enllaç
-trencat. Aquest script les caça i, amb --apply, les plega amb el botó
-«Mostra la solució» (toggleSolucion, de /assets/js/examenes.js).
+trencat. I el plec és el de 1r BTL CCSS: un <details> per apartat, amb la lletra i
+l'enunciat a la línia del ▶, i la resolució a sota (.apart / .apart-solution).
 
-Dos patrons:
-  1. Targetes d'exercici (exercise-card / problem-card): tot el que ve després de
-     l'enunciat (ex-statement / pb-statement) queda dins d'un bloc plegat.
-  2. Caixa d'enunciat (def-box / example-box / theorem-box amb h3 «Enunciado»,
-     «Enunciat», «Statement» o «Ejercicio…») seguida de la resolució: els germans
-     que vénen després (llevat de la figura de l'enunciat) queden plegats, fins al
-     final de la secció. No es toca si el h2 de la secció és un «Ejemplo».
+Què fa, per a cada pàgina d'apunts o fitxa de /aula/ (arrel, /ca/ i /en/):
+
+  1. Targetes d'exercici (exercise-card / problem-card) amb la solució a la vista
+     o plegada amb el botó negre (solution-toggle): les passa a .apart <details>.
+     Si l'enunciat és una fórmula, va a la línia del ▶; si és un paràgraf, es
+     queda a la vista i el ▶ diu «Veure la solució». Les targetes seguides d'una
+     mateixa secció queden dins d'una caixa .exercise.
+  2. Caixa d'enunciat (def-box / example-box amb h3 «Enunciado», «Enunciat»,
+     «Statement», «Question», «The problem» o «Ejercicio…») seguida de la
+     resolució a la vista: la resolució passa a un .apart <details>.
+  3. Qualsevol altre botó negre que quedi (reptes, deures…): el mateix, amb
+     «Veure la solució».
 
 No es pleguen els exemples de teoria (un «Ejemplo resuelto» o un «Exemple guiat»
-formen part de l'explicació) ni el que ja està dins d'un <details> o d'un bloc
-.solution[hidden].
+formen part de l'explicació) ni el que ja és dins d'un <details>.
 
 Ús:
     python3 scripts/plegar_soluciones.py            # revisa tot /aula/ (es, ca, en)
-    python3 scripts/plegar_soluciones.py --apply    # i les plega
+    python3 scripts/plegar_soluciones.py --apply    # i ho plega
     python3 scripts/plegar_soluciones.py fitxer...  # només aquests fitxers
 
-Sense --apply torna 1 si troba alguna solució visible, per poder-lo encadenar
-abans d'un commit.
+Sense --apply torna 1 si troba alguna solució a la vista o amb el botó antic,
+per poder-lo encadenar abans d'un commit. Els exàmens i la selectivitat tenen
+el seu propi plec (per pregunta) i no es toquen. Les pàgines d'exercicis de
+classe (build_classe_pages.py) ja surten del generador amb aquest plec.
 """
-import re, sys
+import glob, os, re, sys
 
-LABELS = {'es': ('Mostrar la solución', 'Ocultar la solución'),
-          'ca': ('Mostra la solució', 'Amaga la solució'),
-          'en': ('Show solution', 'Hide solution')}
-CSS = """<style>/* solucions plegades */
-.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
-.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
-.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+VEURE = {'es': 'Ver la solución', 'ca': 'Veure la solució', 'en': 'See the solution'}
+CSS = """<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
 </style>
 """
-SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'
 VOID = {'br', 'img', 'hr', 'input', 'source', 'wbr', 'meta', 'link'}
 STMT = re.compile(r'<div class="(?:def-box|example-box)"[^>]*>\s*<h3>(?:Enunciado|Enunciat|Statement|The problem|Question|Ejercicio[^<]*|Exercici[^<]*|Exercise[^<]*)</h3>')
 EXAMPLE_H2 = re.compile(r'Ejemplo|Exemple|Example', re.I)
 HOMEWORK_H2 = re.compile(r'Deberes|Deures|Homework', re.I)
+TOGGLE = re.compile(r'<button class="solution-toggle"[^>]*data-toggles="([^"]+)".*?</button>\s*', re.S)
 
 
 def tagname(s, i):
@@ -69,46 +88,125 @@ def elem_end(s, i):
 def next_node(s, i):
     """Salta espais i comentaris; torna la posició del següent '<'."""
     while True:
-        m = re.compile(r'\s*').match(s, i); i = m.end()
+        i = re.compile(r'\s*').match(s, i).end()
         if s.startswith('<!--', i):
             i = s.index('-->', i) + 3
             continue
         return i
 
 
+def inner(s, i):
+    """Contingut d'un element (sense les etiquetes d'obertura i tancament)."""
+    e = elem_end(s, i)
+    a = s.index('>', i) + 1
+    b = s.rindex('</', i, e)
+    return s[a:b]
+
+
+def apart(summary, body, pad='        '):
+    return (f'{pad}<div class="apart"><details>\n{pad}  <summary>{summary}</summary>\n'
+            f'{pad}  <div class="apart-solution">\n{body.strip()}\n{pad}  </div>\n{pad}</details></div>')
+
+
 def lang_of(s):
     return re.search(r'<html lang="([a-z]+)"', s).group(1)
 
 
-def wrap(s, a, b, sid, L):
-    show, hide = LABELS[L]
-    btn = (f'<button class="solution-toggle" data-toggles="{sid}" data-show-label="{show}" '
-           f'data-hide-label="{hide}" onclick="toggleSolucion(\'{sid}\')"><span class="toggle-label">{show}</span>{SVG}</button>\n'
-           f'<section class="solution" id="{sid}" hidden>\n')
-    return s[:a] + btn + s[a:b] + '\n</section>' + s[b:]
+def strip_toggle(body):
+    """Treu el botó i la <section class="solution" hidden> d'un tros, i en torna el contingut."""
+    m = TOGGLE.search(body)
+    if not m:
+        return body
+    k = m.end()
+    assert re.match(r'<section class="[^"]*solution"', body[k:]), body[k:k + 80]
+    return body[:m.start()] + inner(body, k) + body[elem_end(body, k):]
 
 
-def find_regions(s):
-    regs = []
-    # 1. targetes
-    for m in re.finditer(r'<div class="(exercise-card|problem-card)"[^>]*>', s):
-        a0 = m.start(); e = elem_end(s, a0)
-        card = s[a0:e]
-        if 'solution-toggle' in card:
+def inside_solution(s, i):
+    """Cert si la posició i és dins d'un <details> o d'una resolució plegada amb el botó."""
+    for m in re.finditer(r'<details|<section class="[^"]*solution"', s[:i]):
+        if elem_end(s, m.start()) > i:
+            return True
+    return False
+
+
+# ---------------------------------------------------------------- 1. targetes
+def card_to_apart(s, a0, L):
+    """Torna (html nou, és_fórmula) per a la targeta que obre a s[a0]."""
+    e = elem_end(s, a0)
+    card = s[a0:e]
+    kind = 'problem' if 'problem-card' in card[:40] else 'exercise'
+    body = strip_toggle(inner(s, a0))
+    lab_m = re.search(r'<span class="(?:ex|pb)-label">(.*?)</span>', body, re.S)
+    label = lab_m.group(1).strip() if lab_m else ''
+    body = body[:lab_m.start()] + body[lab_m.end():] if lab_m else body
+    st = re.search(r'<div class="(?:ex|pb)-statement"[^>]*>', body)
+    stmt_html = inner(body, st.start()).strip()
+    rest = body[:st.start()] + body[elem_end(body, st.start()):]
+    formula = re.fullmatch(r'<div class="math-block">\s*\$\$(.*?)\$\$\s*</div>', stmt_html, re.S)
+    if kind == 'exercise' and formula:
+        tex = formula.group(1).strip()
+        letter = re.sub(r'^.*?·\s*', '', label.replace('&middot;', '·'))
+        summ = (f'<span class="letter">{letter})</span> ' if letter else '') + f'<span class="stmt">$\\displaystyle {tex}$</span>'
+        return apart(summ, rest), True, label
+    # enunciat de paràgraf: es queda a la vista
+    head = ''
+    if label:
+        num, _, ttl = label.replace('&middot;', '·').partition('·')
+        head = (f'          <div class="exercise-head"><span class="num">{num.strip()}</span>'
+                + (f'<span class="ttl">{ttl.strip()}</span>' if ttl.strip() else '') + '</div>\n')
+    html = (f'        <div class="exercise">\n{head}          <div class="pb-statement">{stmt_html}</div>\n'
+            + apart(f'<span class="stmt">{VEURE[L]}</span>', rest, '          ') + '\n        </div>')
+    return html, False, label
+
+
+def convert_cards(s, L):
+    n = 0
+    while True:
+        # només les targetes de primer nivell (no les de dins d'una resolució)
+        cards = []
+        for m in re.finditer(r'<div class="(?:exercise-card|problem-card)"[^>]*>', s):
+            if inside_solution(s, m.start()):
+                continue
+            if re.search(r'class="(?:ex|pb)-statement"', s[m.start():elem_end(s, m.start())]):
+                cards.append(m.start())
+        if not cards:
+            return s, n
+        # agrupa les targetes seguides
+        a0 = cards[0]
+        group = [a0]
+        j = elem_end(s, a0)
+        while True:
+            k = next_node(s, j)
+            if k in cards:
+                group.append(k); j = elem_end(s, k)
+            else:
+                break
+        parts, formulas = [], []
+        for g in group:
+            html, f, _ = card_to_apart(s, g, L)
+            parts.append(html); formulas.append(f)
+        if all(formulas):
+            new = '<div class="exercise">\n' + '\n'.join(parts) + '\n        </div>'
+        else:
+            new = '\n'.join(p if not f else '<div class="exercise">\n' + p + '\n        </div>' for p, f in zip(parts, formulas)).lstrip()
+        s = s[:a0] + new + s[j:]
+        n += len(group)
+
+
+# ------------------------------------------------------- 2. caixes d'enunciat
+def convert_statement_boxes(s, L):
+    n = 0
+    pos = 0
+    while True:
+        m = STMT.search(s, pos)
+        if not m:
+            return s, n
+        pos = m.end()
+        pre = s[:m.start()]
+        if inside_solution(s, m.start()):
             continue
-        st = re.compile(r'<div class="(?:ex-statement|pb-statement)"[^>]*>').search(s, a0, e)
-        if not st:
-            continue
-        a = next_node(s, elem_end(s, st.start()))
-        b = s.rindex('</div>', a0, e)
-        inner = s[a:b]
-        if not re.search(r'class="(?:ex-steps|ex-final|pb-steps|pb-final)"', inner):
-            continue
-        b = len(s[:b].rstrip()) if s[:b].rstrip().endswith('>') else b
-        regs.append((a, b, 'targeta'))
-    # 2. caixes d'enunciat
-    for m in STMT.finditer(s):
-        h2s = [x for x in re.finditer(r'<h2[^>]*>(.*?)</h2>', s[:m.start()], re.S)]
+        h2s = list(re.finditer(r'<h2[^>]*>(.*?)</h2>', pre, re.S))
         h2t = re.sub('<[^>]+>', '', h2s[-1].group(1)) if h2s else ''
         if EXAMPLE_H2.search(h2t) and not HOMEWORK_H2.search(h2t):
             continue
@@ -125,62 +223,64 @@ def find_regions(s):
             if a is None:
                 a = k
             j = b = elem_end(s, k)
-        if a is None or 'solution-toggle' in s[a:b]:
+        if a is None or s.startswith('<div class="apart">', a):
             continue
-        regs.append((a, b, 'enunciat'))
-    return sorted(regs)
+        region = strip_toggle(s[a:b])
+        s = s[:a] + apart(f'<span class="stmt">{VEURE[L]}</span>', region).lstrip() + s[b:]
+        n += 1
 
 
-def absorb_notes(s):
-    """Fica dins la targeta les notes que la segueixen i que en donen la solució."""
-    for m in reversed(list(re.finditer(r'<div class="(?:exercise-card|problem-card)"', s))):
-        e = elem_end(s, m.start()); k = next_node(s, e)
-        if not (s.startswith('<p class="note">', k) or s.startswith('<div class="tip-box">', k)):
-            continue
-        ke = elem_end(s, k); node = s[k:ke]
-        if not re.search(r'Comprobación|Comprovació|Check:|<strong>34g</strong>', node):
-            continue
-        close = s.rindex('</div>', m.start(), e)
-        s = s[:close] + '  ' + node + '\n        ' + s[close:e] + s[e:k].rstrip(' ') + s[ke:].lstrip('\n')
+# --------------------------------------------------------- 3. botons que queden
+def convert_toggles(s, L):
+    n = 0
+    while True:
+        m = TOGGLE.search(s)
+        if not m:
+            return s, n
+        k = m.end()
+        assert re.match(r'<section class="[^"]*solution"', s[k:]), s[k:k + 80]
+        e = elem_end(s, k)
+        body = inner(s, k)
+        # si la resolució comença amb un títol («Solució pas a pas»), fa de text del ▶
+        h = re.match(r'\s*<h3[^>]*>(.*?)</h3>', body, re.S)
+        summ = h.group(1).strip() if h else VEURE[L]
+        body = body[h.end():] if h else body
+        s = s[:m.start()] + apart(f'<span class="stmt">{summ}</span>', body).lstrip() + s[e:]
+        n += 1
+
+
+def fix_css(s):
+    # els estils de les targetes també han de valer fora de la targeta
+    st = re.search(r'<style>.*?</style>', s, re.S)
+    if st:
+        blk = st.group(0)
+        new = blk.replace('.exercise-card .ex-', ':is(.exercise-card, .apart-solution) .ex-').replace(
+            '.problem-card .pb-', ':is(.problem-card, .exercise, .apart-solution) .pb-')
+        s = s.replace(blk, new, 1)
+    s = re.sub(r'<style>/\* solucions plegades \*/.*?</style>\n', '', s, flags=re.S)
+    if 'plec estil CCSS' not in s and '.apart > details > summary' not in s:
+        assert s.count('</head>') == 1
+        s = s.replace('</head>', CSS + '</head>')
     return s
 
 
 def process(path, apply):
-    s = open(path, encoding='utf-8').read()
-    s = absorb_notes(s)
+    s0 = s = open(path, encoding='utf-8').read()
     L = lang_of(s)
-    regs = find_regions(s)
-    if not regs:
+    s, n1 = convert_cards(s, L)
+    s, n2 = convert_statement_boxes(s, L)
+    s, n3 = convert_toggles(s, L)
+    n = n1 + n2 + n3
+    if not n:
         return 0
-    used = set(re.findall(r'id="([^"]+)"', s))
-    n = 0
-    for a, b, kind in reversed(regs):
-        k = len(regs) - n
-        sid = 'sol-p%d' % k
-        while sid in used:
-            k += 100; sid = 'sol-p%d' % k
-        used.add(sid)
-        s = wrap(s, a, b, sid, L)
-        n += 1
-    if 'solucions plegades' not in s:
-        assert s.count('</head>') == 1
-        s = s.replace('</head>', CSS + '</head>')
-    if '/assets/js/examenes.js' not in s:
-        anc = '<script defer src="/assets/js/search.js'
-        if s.count(anc) != 1:
-            anc = '</body>'
-        assert s.count(anc) == 1, path
-        s = s.replace(anc, '<script src="/assets/js/examenes.js?v=202609121757"></script>\n' + anc)
+    s = fix_css(s)
     if apply:
         open(path, 'w', encoding='utf-8').write(s)
-    kinds = {}
-    for r in regs: kinds[r[2]] = kinds.get(r[2], 0) + 1
-    print(f'{n:3d} {kinds} {path}')
+    print(f'{n:3d} (targetes {n1}, enunciats {n2}, botons {n3}) {path}')
     return n
 
 
 if __name__ == '__main__':
-    import glob, os
     os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     apply = '--apply' in sys.argv
     files = [p for p in sys.argv[1:] if p != '--apply']
@@ -192,7 +292,7 @@ if __name__ == '__main__':
     if apply:
         print('Plegades: %d solucions.' % tot)
     elif tot:
-        print('ERROR: %d solucions visibles. Plega-les amb --apply.' % tot)
+        print('ERROR: %d solucions a la vista o amb el botó antic. Plega-les amb --apply.' % tot)
         sys.exit(1)
     else:
-        print('✓ Cap solució visible.')
+        print('✓ Totes les solucions plegades amb el ▶ de 1r BTL CCSS.')

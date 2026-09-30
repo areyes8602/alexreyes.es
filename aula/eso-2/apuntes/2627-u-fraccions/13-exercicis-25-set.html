@@ -37,16 +37,16 @@
 .numberline-svg { display: block; width: 100%; min-width: 340px; max-width: 580px; height: auto; margin: 0 auto; color: var(--text); }
 [data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
 .exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
-.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
-.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
-.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
-.exercise-card .ex-steps { margin: 0.6rem 0; }
-.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
-.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
-.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
-.exercise-card .ex-final::before { content: "Resultado"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
-[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+:is(.exercise-card, .apart-solution) .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+:is(.exercise-card, .apart-solution) .ex-statement { margin: 0.4rem 0 0.8rem; }
+:is(.exercise-card, .apart-solution) .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+:is(.exercise-card, .apart-solution) .ex-steps { margin: 0.6rem 0; }
+:is(.exercise-card, .apart-solution) .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+:is(.exercise-card, .apart-solution) .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+:is(.exercise-card, .apart-solution) .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+:is(.exercise-card, .apart-solution) .ex-final::before { content: "Resultado"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+:is(.exercise-card, .apart-solution) .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] :is(.exercise-card, .apart-solution) .ex-final { background: rgba(16,185,129,0.16); }
 .apunt-section .solution { padding: 1.2rem 1.3rem; }
 .def-box ol { margin: 0.4rem 0; padding-left: 1.3rem; }
 .def-box li { margin: 0.3rem 0; }
@@ -77,6 +77,26 @@
 <meta name="twitter:description" content="Ejercicios de fracciones de 2.º de ESO, curso 2026-27: corrección de los ejercicios del 25 de septiembre, potencias, raíces y operaciones combinadas.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fracciones","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/"},{"@type":"ListItem","position":5,"name":"13 · Ejercicios 25 sep","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/13-exercicis-25-set.html"}]},{"@type":"LearningResource","name":"13 · Ejercicios 25 sep","url":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/13-exercicis-25-set.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Ejercicios de fracciones de 2.º de ESO, curso 2026-27: corrección de los ejercicios del 25 de septiembre, potencias, raíces y operaciones combinadas."}]}</script>
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -132,14 +152,11 @@
         <h2>27. Potencias con la misma base o el mismo exponente</h2>
         <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Expresa en forma de potencia única las operaciones siguientes con potencias y calcula su valor con ayuda de la calculadora.</p>
 
-        <div class="exercise-card">
-          <span class="ex-label">27 · a</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\left(-\dfrac{3}{2}\right)^5 \cdot \left(-\dfrac{3}{2}\right)^2 : \left(-\dfrac{3}{2}\right)^3$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-27a" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-27a')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-27a" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">a)</span> <span class="stmt">$\displaystyle \left(-\dfrac{3}{2}\right)^5 \cdot \left(-\dfrac{3}{2}\right)^2 : \left(-\dfrac{3}{2}\right)^3$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Misma base: los exponentes se suman al multiplicar y se restan al dividir.</p>
             <div class="math-block">$$\left(-\dfrac{3}{2}\right)^{5+2-3} = \left(-\dfrac{3}{2}\right)^4 = \dfrac{3^4}{2^4} = \dfrac{81}{16}$$</div>
             <p>El exponente es par: el signo menos desaparece.</p>
@@ -147,16 +164,12 @@
           <div class="ex-final">
             <div class="math-block">$$\left(-\dfrac{3}{2}\right)^4 = \dfrac{81}{16}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">27 · c</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\left[\left(\dfrac{4}{5}\right)^2\right]^3 : \left(\dfrac{4}{5}\right)^2 \cdot \left(\dfrac{10}{3}\right)^4$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-27c" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-27c')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-27c" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">c)</span> <span class="stmt">$\displaystyle \left[\left(\dfrac{4}{5}\right)^2\right]^3 : \left(\dfrac{4}{5}\right)^2 \cdot \left(\dfrac{10}{3}\right)^4$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Potencia de una potencia: se multiplican los exponentes.</p>
             <div class="math-block">$$\left(\dfrac{4}{5}\right)^6 : \left(\dfrac{4}{5}\right)^2 \cdot \left(\dfrac{10}{3}\right)^4 = \left(\dfrac{4}{5}\right)^4 \cdot \left(\dfrac{10}{3}\right)^4$$</div>
             <p>Ahora tienen el mismo exponente: multiplicamos las bases.</p>
@@ -165,7 +178,8 @@
           <div class="ex-final">
             <div class="math-block">$$\left(\dfrac{8}{3}\right)^4 = \dfrac{4096}{81}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 
@@ -173,14 +187,11 @@
         <h2>29. Raíz de una fracción</h2>
         <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Efectúa las raíces de números fraccionarios propuestas, utilizando la definición de raíz de fracciones. Recuerda indicar el resultado como fracción irreducible.</p>
 
-        <div class="exercise-card">
-          <span class="ex-label">29 · b</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\sqrt{\dfrac{484}{784}}$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-29b" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-29b')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-29b" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">b)</span> <span class="stmt">$\displaystyle \sqrt{\dfrac{484}{784}}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>La raíz de una fracción es la raíz del numerador entre la del denominador. Descomponemos los dos números:</p>
             <div class="math-block">$$484 = 2^2 \cdot 11^2 \qquad 784 = 2^4 \cdot 7^2$$</div>
             <p>Cada pareja de factores iguales sale de la raíz como un solo factor:</p>
@@ -189,7 +200,8 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{11}{14}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 
@@ -197,14 +209,11 @@
         <h2>34. Operaciones combinadas con potencias y raíces</h2>
         <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Efectúa estas operaciones combinadas con fracciones y simplifica el resultado obtenido si es posible.</p>
 
-        <div class="exercise-card">
-          <span class="ex-label">34 · a</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\left(\dfrac{6}{5}\right)^5 : \left(\dfrac{6}{5}\right)^3 - \sqrt{\dfrac{15}{6}} \cdot \sqrt{\dfrac{49}{40}} + \left[\left(\dfrac{5}{4}\right)^2\right]^{-1}$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-34a" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-34a')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-34a" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">a)</span> <span class="stmt">$\displaystyle \left(\dfrac{6}{5}\right)^5 : \left(\dfrac{6}{5}\right)^3 - \sqrt{\dfrac{15}{6}} \cdot \sqrt{\dfrac{49}{40}} + \left[\left(\dfrac{5}{4}\right)^2\right]^{-1}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Las dos raíces tienen el mismo índice: se pueden juntar en una sola.</p>
             <div class="math-block">$$\sqrt{\dfrac{15}{6}} \cdot \sqrt{\dfrac{49}{40}} = \sqrt{\dfrac{15 \cdot 49}{6 \cdot 40}} = \sqrt{\dfrac{49}{16}} = \dfrac{7}{4}$$</div>
             <p>Las potencias: misma base en la primera, potencia de una potencia en la última.</p>
@@ -215,16 +224,12 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{33}{100}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">34 · b</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{3}{4} : 5 + \left(\dfrac{7}{2}\right)^3 : \left(\dfrac{14}{6}\right)^3 - \left(\dfrac{1}{5}\right)^2 \cdot \left(\dfrac{1}{5}\right)^{-3}$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-34b" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-34b')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-34b" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">b)</span> <span class="stmt">$\displaystyle \dfrac{3}{4} : 5 + \left(\dfrac{7}{2}\right)^3 : \left(\dfrac{14}{6}\right)^3 - \left(\dfrac{1}{5}\right)^2 \cdot \left(\dfrac{1}{5}\right)^{-3}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Primero las potencias. Las dos del medio tienen el mismo exponente; las dos del final, la misma base:</p>
             <div class="math-block">$$\left(\dfrac{7}{2} : \dfrac{14}{6}\right)^3 = \left(\dfrac{42}{28}\right)^3 = \left(\dfrac{3}{2}\right)^3 = \dfrac{27}{8} \qquad \left(\dfrac{1}{5}\right)^{2-3} = \left(\dfrac{1}{5}\right)^{-1} = 5$$</div>
             <p>La división: $\dfrac{3}{4} : 5 = \dfrac{3}{4} : \dfrac{5}{1} = \dfrac{3}{20}$. Queda:</p>
@@ -233,16 +238,12 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{59}{40}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">34 · d</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\sqrt{\dfrac{9}{121}} + \dfrac{5}{12} \cdot \dfrac{24}{25} - \dfrac{1}{2} : \left(-\dfrac{2}{3} + \dfrac{1}{4}\right)$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-34d" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-34d')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-34d" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">d)</span> <span class="stmt">$\displaystyle \sqrt{\dfrac{9}{121}} + \dfrac{5}{12} \cdot \dfrac{24}{25} - \dfrac{1}{2} : \left(-\dfrac{2}{3} + \dfrac{1}{4}\right)$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>La raíz, la multiplicación (simplificando antes) y el paréntesis:</p>
             <div class="math-block">$$\sqrt{\dfrac{9}{121}} = \dfrac{3}{11} \qquad \dfrac{5}{12} \cdot \dfrac{24}{25} = \dfrac{5 \cdot 24}{12 \cdot 25} = \dfrac{2}{5} \qquad -\dfrac{2}{3} + \dfrac{1}{4} = -\dfrac{8}{12} + \dfrac{3}{12} = -\dfrac{5}{12}$$</div>
             <p>La división, en cruz. Menos por menos es más:</p>
@@ -253,7 +254,8 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{103}{55}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 

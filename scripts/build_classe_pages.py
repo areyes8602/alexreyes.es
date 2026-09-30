@@ -161,8 +161,17 @@ PAGE_TPL = """<!DOCTYPE html>
 .classe-exercise .exercise-head .num {{ display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }}
 .classe-exercise .exercise-head .ttl {{ font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }}
 .classe-exercise .statement-wrap > p:first-child {{ margin-top:0; }}
-.classe-solution {{ margin-top:1rem; border-top:1px dashed var(--border); padding-top:1rem; }}
-.classe-solution > p:first-child {{ margin-top:0; }}
+.apart {{ margin: 1rem 0 0.5rem; padding-left: 0.4rem; }}
+.apart > details > summary {{ cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }}
+.apart > details > summary::-webkit-details-marker {{ display:none; }}
+.apart > details > summary::before {{ content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }}
+.apart > details[open] > summary::before {{ transform: rotate(90deg); }}
+.apart > details > summary:hover {{ background: rgba(99,102,241,0.06); }}
+.apart > details[open] {{ background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }}
+.apart-solution {{ padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }}
+.apart-solution .math-block {{ background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }}
+.apart-solution > p:first-child {{ margin-top: 0.2rem; }}
+[data-theme="dark"] .apart > details[open] {{ background: rgba(99,102,241,0.10); }}
 .classe-back {{ display:inline-block; margin-top:1.5rem; font-size:0.85rem; color:var(--text-soft); text-decoration:none; border-bottom:1px dashed var(--border); }}
 .classe-back:hover {{ color:#6366f1; border-color:#6366f1; }}
 </style>
@@ -220,15 +229,12 @@ PAGE_TPL = """<!DOCTYPE html>
         {statement_html}
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-{numero}" data-show-label="{ui_show_solution}" data-hide-label="{ui_hide_solution}" onclick="toggleSolucion('sol-{numero}')">
-        <span class="toggle-label">{ui_show_solution}</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-
-      <section class="classe-solution" id="sol-{numero}" hidden>
-        <h3 style="margin:0 0 0.6rem;font-size:1rem">{ui_solution_h}</h3>
+      <div class="apart"><details>
+        <summary><span class="stmt">{ui_solution_h}</span></summary>
+        <div class="apart-solution">
         {solution_html}
-      </section>
+        </div>
+      </details></div>
 
       <a class="classe-back" href="{source_apunt}">{ui_back_to_apunt} →</a>
     </article>

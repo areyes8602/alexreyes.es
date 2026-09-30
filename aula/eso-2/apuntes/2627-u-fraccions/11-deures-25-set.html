@@ -37,16 +37,16 @@
 .numberline-svg { display: block; width: 100%; min-width: 340px; max-width: 580px; height: auto; margin: 0 auto; color: var(--text); }
 [data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
 .exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
-.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
-.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
-.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
-.exercise-card .ex-steps { margin: 0.6rem 0; }
-.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
-.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
-.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
-.exercise-card .ex-final::before { content: "Resultado"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
-[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+:is(.exercise-card, .apart-solution) .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+:is(.exercise-card, .apart-solution) .ex-statement { margin: 0.4rem 0 0.8rem; }
+:is(.exercise-card, .apart-solution) .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+:is(.exercise-card, .apart-solution) .ex-steps { margin: 0.6rem 0; }
+:is(.exercise-card, .apart-solution) .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+:is(.exercise-card, .apart-solution) .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+:is(.exercise-card, .apart-solution) .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+:is(.exercise-card, .apart-solution) .ex-final::before { content: "Resultado"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+:is(.exercise-card, .apart-solution) .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] :is(.exercise-card, .apart-solution) .ex-final { background: rgba(16,185,129,0.16); }
 .apunt-section .solution { padding: 1.2rem 1.3rem; }
 .def-box ol { margin: 0.4rem 0; padding-left: 1.3rem; }
 .def-box li { margin: 0.3rem 0; }
@@ -77,6 +77,26 @@
 <meta name="twitter:description" content="Deberes de fracciones de 2.º de ESO, curso 2026-27, para el 25 de septiembre: operaciones combinadas, con la solución plegada.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fracciones","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/"},{"@type":"ListItem","position":5,"name":"11 · Deberes 25 sep","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/11-deures-25-set.html"}]},{"@type":"LearningResource","name":"11 · Deberes 25 sep","url":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/11-deures-25-set.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Deberes de fracciones de 2.º de ESO, curso 2026-27, para el 25 de septiembre: operaciones combinadas, con la solución plegada."}]}</script>
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -140,14 +160,11 @@
         <h2>31. Operaciones combinadas</h2>
         <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Determina la fracción irreducible que resulta de las operaciones con números fraccionarios siguientes.</p>
 
-        <div class="exercise-card">
-          <span class="ex-label">31 · a</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{3}{8} - \dfrac{15}{16} : \dfrac{3}{4} + \dfrac{7}{20}$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-31a" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-31a')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-31a" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">a)</span> <span class="stmt">$\displaystyle \dfrac{3}{8} - \dfrac{15}{16} : \dfrac{3}{4} + \dfrac{7}{20}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>La división va antes que las sumas y las restas:</p>
             <div class="math-block">$$\dfrac{15}{16} : \dfrac{3}{4} = \dfrac{15 \cdot 4}{16 \cdot 3} = \dfrac{(3 \cdot 5) \cdot 2^2}{2^4 \cdot 3} = \dfrac{5}{4}$$</div>
             <p>Queda una suma y resta. $\text{MCM}(8, 4, 20) = 40$:</p>
@@ -157,16 +174,12 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{21}{40}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">31 · c</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\left(\dfrac{90}{35} + \dfrac{54}{28}\right) : \left(\dfrac{16}{20} - 3\right)$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-31c" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-31c')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-31c" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">c)</span> <span class="stmt">$\displaystyle \left(\dfrac{90}{35} + \dfrac{54}{28}\right) : \left(\dfrac{16}{20} - 3\right)$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Primer paréntesis. Simplificamos $\dfrac{90}{35} = \dfrac{18}{7}$ y $\dfrac{54}{28} = \dfrac{27}{14}$:</p>
             <div class="math-block">$$\dfrac{18}{7} + \dfrac{27}{14} = \dfrac{36}{14} + \dfrac{27}{14} = \dfrac{63}{14} = \dfrac{9}{2}$$</div>
             <p>Segundo paréntesis. Simplificamos $\dfrac{16}{20} = \dfrac{4}{5}$:</p>
@@ -177,7 +190,8 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{45}{22}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 
@@ -185,14 +199,11 @@
         <h2>32. Prioridad de las operaciones</h2>
         <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Calcula la fracción irreducible después de efectuar las operaciones combinadas siguientes. Es importante tener en cuenta la prioridad de las operaciones para llegar al resultado correcto.</p>
 
-        <div class="exercise-card">
-          <span class="ex-label">32 · c</span>
-          <div class="ex-statement">
-            <div class="math-block">$$5 \cdot \left(\dfrac{6}{5} - \dfrac{9}{8} : \dfrac{1}{12}\right)$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-32c" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-32c')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-32c" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">c)</span> <span class="stmt">$\displaystyle 5 \cdot \left(\dfrac{6}{5} - \dfrac{9}{8} : \dfrac{1}{12}\right)$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Dentro del paréntesis, la división va antes que la resta:</p>
             <div class="math-block">$$\dfrac{9}{8} : \dfrac{1}{12} = \dfrac{9 \cdot 12}{8 \cdot 1} = \dfrac{108}{8} = \dfrac{27}{2}$$</div>
             <div class="math-block">$$\dfrac{6}{5} - \dfrac{27}{2} = \dfrac{12}{10} - \dfrac{135}{10} = -\dfrac{123}{10}$$</div>
@@ -202,16 +213,12 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{123}{2}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">32 · e</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{6}{32} : \dfrac{5}{8} - \dfrac{5}{4} : \left(\dfrac{8}{7} - \dfrac{10}{8}\right)$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-32e" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-32e')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-32e" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">e)</span> <span class="stmt">$\displaystyle \dfrac{6}{32} : \dfrac{5}{8} - \dfrac{5}{4} : \left(\dfrac{8}{7} - \dfrac{10}{8}\right)$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Primero el paréntesis. Simplificamos $\dfrac{10}{8} = \dfrac{5}{4}$ y $\text{MCM}(7, 4) = 28$:</p>
             <div class="math-block">$$\dfrac{8}{7} - \dfrac{5}{4} = \dfrac{32}{28} - \dfrac{35}{28} = -\dfrac{3}{28}$$</div>
             <p>Después las dos divisiones, simplificando $\dfrac{6}{32} = \dfrac{3}{16}$:</p>
@@ -222,7 +229,8 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{359}{30}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 

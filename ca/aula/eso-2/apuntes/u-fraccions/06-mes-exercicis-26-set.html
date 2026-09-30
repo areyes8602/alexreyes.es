@@ -23,18 +23,18 @@
 .apunt-section { margin: 2.2rem 0; }
 .apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
 .exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
-.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
-.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
-.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
-.exercise-card .ex-steps { margin: 0.6rem 0; }
-.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
-.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
-.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
-.exercise-card .ex-final::before { content: "Resultat"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+:is(.exercise-card, .apart-solution) .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+:is(.exercise-card, .apart-solution) .ex-statement { margin: 0.4rem 0 0.8rem; }
+:is(.exercise-card, .apart-solution) .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+:is(.exercise-card, .apart-solution) .ex-steps { margin: 0.6rem 0; }
+:is(.exercise-card, .apart-solution) .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+:is(.exercise-card, .apart-solution) .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+:is(.exercise-card, .apart-solution) .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+:is(.exercise-card, .apart-solution) .ex-final::before { content: "Resultat"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+:is(.exercise-card, .apart-solution) .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
 .tip-box { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.6rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.92rem; }
 .tip-box::before { content: "💡 Truc"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+[data-theme="dark"] :is(.exercise-card, .apart-solution) .ex-final { background: rgba(16,185,129,0.16); }
 [data-theme="dark"] .tip-box { background: rgba(16,185,129,0.14); }
 </style>
 <meta property="og:type" content="website">
@@ -48,10 +48,25 @@
 <meta name="twitter:description" content="Més exercicis resolts d'operacions combinades amb fraccions i potències — 2n d'ESO, sessió del 26 de setembre.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/ca/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fraccions","item":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-fraccions/"},{"@type":"ListItem","position":5,"name":"06 · Més exercicis (26 set)","item":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-fraccions/06-mes-exercicis-26-set.html"}]},{"@type":"LearningResource","name":"06 · Més exercicis (26 set)","url":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-fraccions/06-mes-exercicis-26-set.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Més exercicis resolts d'operacions combinades amb fraccions i potències — 2n d'ESO, sessió del 26 de setembre."}]}</script>
-<style>/* solucions plegades */
-.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
-.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
-.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
 </style>
 </head>
 <body>
@@ -109,15 +124,10 @@
         <h2>32. Fracció irreductible respectant la prioritat</h2>
         <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Calcula i dona el resultat com a fracció irreductible, tenint en compte la jerarquia de les operacions.</p>
 
-        <div class="exercise-card">
-          <span class="ex-label">32 · a</span>
-          <div class="ex-statement">
-            <div class="math-block">
-              $$-\dfrac{5}{9} - \left(\dfrac{2}{5}\right)^{\!2} + 3$$
-            </div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p1" hidden>
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">a)</span> <span class="stmt">$\displaystyle -\dfrac{5}{9} - \left(\dfrac{2}{5}\right)^{\!2} + 3$</span></summary>
+          <div class="apart-solution">
 <div class="ex-steps">
             <p>Primer la potència, després les sumes/restes amb $\text{MCM}(9, 25, 1) = 225$:</p>
             <div class="math-block">
@@ -131,18 +141,11 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{514}{225}$$</div>
           </div>
-</section>
-        </div>
-
-        <div class="exercise-card">
-          <span class="ex-label">32 · b</span>
-          <div class="ex-statement">
-            <div class="math-block">
-              $$\dfrac{6}{45} : \left(\dfrac{5}{25} + \dfrac{7}{75}\right)$$
-            </div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p2" hidden>
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">b)</span> <span class="stmt">$\displaystyle \dfrac{6}{45} : \left(\dfrac{5}{25} + \dfrac{7}{75}\right)$</span></summary>
+          <div class="apart-solution">
 <div class="ex-steps">
             <p>Simplifiquem $\dfrac{6}{45} = \dfrac{2}{15}$ i $\dfrac{5}{25} = \dfrac{1}{5}$, i resolem el parèntesi (denominador comú $75$):</p>
             <div class="math-block">
@@ -156,7 +159,8 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{5}{11}$$</div>
           </div>
-</section>
+          </div>
+        </details></div>
         </div>
       </div>
 
@@ -165,15 +169,14 @@
         <h2>34. Operacions combinades amb arrels i potències</h2>
         <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Efectua les operacions i simplifica el resultat sempre que es pugui.</p>
 
-        <div class="exercise-card">
-          <span class="ex-label">34 · d</span>
-          <div class="ex-statement">
-            <div class="math-block" style="font-size:1rem">
+        <div class="exercise">
+          <div class="exercise-head"><span class="num">34</span><span class="ttl">d</span></div>
+          <div class="pb-statement"><div class="math-block" style="font-size:1rem">
               $$\sqrt{\dfrac{9}{121}} + \dfrac{5}{12} \cdot \dfrac{24}{25} - \dfrac{1}{2} : \left(-\dfrac{2}{3} + \dfrac{1}{4}\right)$$
-            </div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p3')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p3" hidden>
+            </div></div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Veure la solució</span></summary>
+            <div class="apart-solution">
 <div class="ex-steps">
             <p>Calculem l'arrel, la multiplicació i el parèntesi:</p>
             <div class="math-block" style="font-size:0.95rem">
@@ -192,18 +195,17 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{103}{55}$$</div>
           </div>
-</section>
-        </div>
-
-        <div class="exercise-card">
-          <span class="ex-label">34 · e</span>
-          <div class="ex-statement">
-            <div class="math-block" style="font-size:1rem">
-              $$\dfrac{28}{60} - \dfrac{5}{36} \cdot \left(-\dfrac{27}{75}\right) + \sqrt{\dfrac{256}{625}} + 20 : (-8)$$
             </div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-p4" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p4')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p4" hidden>
+          </details></div>
+        </div>
+        <div class="exercise">
+          <div class="exercise-head"><span class="num">34</span><span class="ttl">e</span></div>
+          <div class="pb-statement"><div class="math-block" style="font-size:1rem">
+              $$\dfrac{28}{60} - \dfrac{5}{36} \cdot \left(-\dfrac{27}{75}\right) + \sqrt{\dfrac{256}{625}} + 20 : (-8)$$
+            </div></div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Veure la solució</span></summary>
+            <div class="apart-solution">
 <div class="ex-steps">
             <p>Simplifiquem cada bloc abans de combinar:</p>
             <div class="math-block" style="font-size:0.95rem">
@@ -222,18 +224,17 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{403}{300}$$</div>
           </div>
-</section>
-        </div>
-
-        <div class="exercise-card">
-          <span class="ex-label">34 · f</span>
-          <div class="ex-statement">
-            <div class="math-block" style="font-size:1rem">
-              $$\left(\dfrac{6}{7}\right)^{\!3} : \left(\dfrac{6}{7}\right)^{\!2} - \dfrac{65}{18} \cdot \dfrac{12}{39} + \left(-\dfrac{9}{5}\right)^{\!3} \cdot \left(-\dfrac{9}{5}\right)^{\!-5}$$
             </div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-p5" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p5')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p5" hidden>
+          </details></div>
+        </div>
+        <div class="exercise">
+          <div class="exercise-head"><span class="num">34</span><span class="ttl">f</span></div>
+          <div class="pb-statement"><div class="math-block" style="font-size:1rem">
+              $$\left(\dfrac{6}{7}\right)^{\!3} : \left(\dfrac{6}{7}\right)^{\!2} - \dfrac{65}{18} \cdot \dfrac{12}{39} + \left(-\dfrac{9}{5}\right)^{\!3} \cdot \left(-\dfrac{9}{5}\right)^{\!-5}$$
+            </div></div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Veure la solució</span></summary>
+            <div class="apart-solution">
 <div class="ex-steps">
             <p>Apliquem propietats de potències i simplifiquem la multiplicació:</p>
             <div class="math-block" style="font-size:0.95rem">
@@ -252,18 +253,17 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{31}{567}$$</div>
           </div>
-</section>
-        </div>
-
-        <div class="exercise-card">
-          <span class="ex-label">34 · g</span>
-          <div class="ex-statement">
-            <div class="math-block" style="font-size:1rem">
-              $$\left[\left(-\dfrac{12}{9}\right)^{\!-6} \cdot \left(-\dfrac{12}{9}\right)^{\!5}\right] : \left[\left(\dfrac{10}{7}\right)^{\!4} \cdot \left(\dfrac{10}{7}\right)^{\!-5}\right]$$
             </div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-p6" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p6')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p6" hidden>
+          </details></div>
+        </div>
+        <div class="exercise">
+          <div class="exercise-head"><span class="num">34</span><span class="ttl">g</span></div>
+          <div class="pb-statement"><div class="math-block" style="font-size:1rem">
+              $$\left[\left(-\dfrac{12}{9}\right)^{\!-6} \cdot \left(-\dfrac{12}{9}\right)^{\!5}\right] : \left[\left(\dfrac{10}{7}\right)^{\!4} \cdot \left(\dfrac{10}{7}\right)^{\!-5}\right]$$
+            </div></div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Veure la solució</span></summary>
+            <div class="apart-solution">
 <div class="ex-steps">
             <p>Mateixa base dins de cada claudàtor → sumem exponents:</p>
             <div class="math-block" style="font-size:0.95rem">
@@ -284,7 +284,8 @@
           <div class="tip-box">
           A <strong>34g</strong>, com que $-\dfrac{12}{9} = -\dfrac{4}{3}$, es podia simplificar la base abans de tot. Hauria sortit $\left(-\dfrac{4}{3}\right)^{\!-1} : \left(\dfrac{10}{7}\right)^{\!-1} = \left(-\dfrac{4}{3} \cdot \dfrac{7}{10}\right)^{\!-1} = \left(-\dfrac{28}{30}\right)^{\!-1} = -\dfrac{30}{28} = -\dfrac{15}{14}$. Mateix resultat amb números més petits.
         </div>
-</section>
+            </div>
+          </details></div>
         </div>
 
       </div>

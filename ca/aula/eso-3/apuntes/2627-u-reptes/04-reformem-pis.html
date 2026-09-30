@@ -38,16 +38,16 @@
 .solution .taula-repte td { text-align: left; color: var(--text); }
 .solution .taula-repte td.num { text-align: right; }
 .exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
-.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
-.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
-.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
-.exercise-card .ex-steps { margin: 0.6rem 0; }
-.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
-.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
-.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
-.exercise-card .ex-final::before { content: "Resultat"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
-[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+:is(.exercise-card, .apart-solution) .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+:is(.exercise-card, .apart-solution) .ex-statement { margin: 0.4rem 0 0.8rem; }
+:is(.exercise-card, .apart-solution) .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+:is(.exercise-card, .apart-solution) .ex-steps { margin: 0.6rem 0; }
+:is(.exercise-card, .apart-solution) .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+:is(.exercise-card, .apart-solution) .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+:is(.exercise-card, .apart-solution) .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+:is(.exercise-card, .apart-solution) .ex-final::before { content: "Resultat"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+:is(.exercise-card, .apart-solution) .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] :is(.exercise-card, .apart-solution) .ex-final { background: rgba(16,185,129,0.16); }
 
 .moduls { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
 .modul { border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem; background: var(--bg-subtle); text-align: center; }
@@ -93,6 +93,26 @@ details.previs ol ol { list-style: lower-alpha; }
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-reptes/04-reformem-pis.html">
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Salta al contingut</a>
@@ -164,25 +184,90 @@ details.previs ol ol { list-style: lower-alpha; }
       <table class="taula-repte"><thead><tr><th>Material</th><th>Rendiment</th><th>Preu</th></tr></thead><tbody><tr><td>Pintura mural</td><td>1 pot cobreix 10 m²</td><td class="num">15 €</td></tr><tr><td>Pintura ecològica</td><td>1 pot cobreix 10 m²</td><td class="num">15 € + 20&nbsp;%</td></tr><tr><td>Parquet</td><td>1 paquet cobreix 2 m²</td><td class="num">20 €</td></tr><tr><td>Sòcol de fusta</td><td>1 barra fa 2 m</td><td class="num">5 €</td></tr></tbody></table>
       </div>
       <h2 class="repte-titol">Part 1: Pintura</h2><div class="apunt-section" style="margin-top:0.6rem">
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 1</h3><p class="pregunta-enunciat">Calcula l'àrea de les parets del menjador.</p><button class="solution-toggle" data-toggles="sol-b-1" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-1')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-1" hidden><div class="exercise-card"><div class="ex-steps"><p>Hi ha dues parets de $4 \times 2{,}5$ i dues de $5 \times 2{,}5$:</p><div class="math-block">$$2 \cdot (4 \cdot 2{,}5 + 5 \cdot 2{,}5) = 2 \cdot (10 + 12{,}5) = 45\ \text{m}^2$$</div><p class="note">No es descompten portes ni finestres: l'enunciat no en dona les mides.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Parets del menjador: $45\ \text{m}^2$</p></div></div></section>
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 2</h3><p class="pregunta-enunciat">Calcula l'àrea de les parets de l'habitació 1.</p><button class="solution-toggle" data-toggles="sol-b-2" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-2')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-2" hidden><div class="exercise-card"><div class="ex-steps"><p>Hi ha dues parets de $3 \times 2{,}5$ i dues de $4 \times 2{,}5$:</p><div class="math-block">$$2 \cdot (3 \cdot 2{,}5 + 4 \cdot 2{,}5) = 2 \cdot (7{,}5 + 10) = 35\ \text{m}^2$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Parets de l'habitació 1: $35\ \text{m}^2$</p></div></div></section>
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 3</h3><p class="pregunta-enunciat">Troba l'àrea total a pintar i calcula quants pots necessites.</p><button class="solution-toggle" data-toggles="sol-b-3" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-3')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-3" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$45 + 35 = 80\ \text{m}^2$$</div><div class="math-block">$$80 : 10 = 8 \text{ pots}$$</div><p class="note">Aquí la divisió és exacta. Si no ho fos, s'hauria d'arrodonir <strong>cap amunt</strong>: no es pot comprar mig pot.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$80\ \text{m}^2$ a pintar: calen $8$ pots</p></div></div></section>
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 4</h3><p class="pregunta-enunciat">Calcula el cost total de la pintura.</p><button class="solution-toggle" data-toggles="sol-b-4" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-4')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-4" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$8 \cdot 15 = 120 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">La pintura costa $120$ €</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 1</h3><p class="pregunta-enunciat">Calcula l'àrea de les parets del menjador.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><p>Hi ha dues parets de $4 \times 2{,}5$ i dues de $5 \times 2{,}5$:</p><div class="math-block">$$2 \cdot (4 \cdot 2{,}5 + 5 \cdot 2{,}5) = 2 \cdot (10 + 12{,}5) = 45\ \text{m}^2$$</div><p class="note">No es descompten portes ni finestres: l'enunciat no en dona les mides.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Parets del menjador: $45\ \text{m}^2$</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 2</h3><p class="pregunta-enunciat">Calcula l'àrea de les parets de l'habitació 1.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><p>Hi ha dues parets de $3 \times 2{,}5$ i dues de $4 \times 2{,}5$:</p><div class="math-block">$$2 \cdot (3 \cdot 2{,}5 + 4 \cdot 2{,}5) = 2 \cdot (7{,}5 + 10) = 35\ \text{m}^2$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Parets de l'habitació 1: $35\ \text{m}^2$</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 3</h3><p class="pregunta-enunciat">Troba l'àrea total a pintar i calcula quants pots necessites.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><div class="math-block">$$45 + 35 = 80\ \text{m}^2$$</div><div class="math-block">$$80 : 10 = 8 \text{ pots}$$</div><p class="note">Aquí la divisió és exacta. Si no ho fos, s'hauria d'arrodonir <strong>cap amunt</strong>: no es pot comprar mig pot.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$80\ \text{m}^2$ a pintar: calen $8$ pots</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 4</h3><p class="pregunta-enunciat">Calcula el cost total de la pintura.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><div class="math-block">$$8 \cdot 15 = 120 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">La pintura costa $120$ €</p></div></div>
+          </div>
+        </details></div>
       </div>
       <h2 class="repte-titol">Part 2: Parquet</h2><div class="apunt-section" style="margin-top:0.6rem">
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 5</h3><p class="pregunta-enunciat">Calcula l'àrea del terra del menjador.</p><button class="solution-toggle" data-toggles="sol-b-5" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-5')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-5" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$4 \cdot 5 = 20\ \text{m}^2$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Terra del menjador: $20\ \text{m}^2$</p></div></div></section>
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 6</h3><p class="pregunta-enunciat">Calcula quants paquets de parquet calen.</p><button class="solution-toggle" data-toggles="sol-b-6" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-6')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-6" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$20 : 2 = 10 \text{ paquets}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Calen $10$ paquets de parquet</p></div></div></section>
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 7</h3><p class="pregunta-enunciat">Calcula el cost del parquet.</p><button class="solution-toggle" data-toggles="sol-b-7" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-7')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-7" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$10 \cdot 20 = 200 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">El parquet costa $200$ €</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 5</h3><p class="pregunta-enunciat">Calcula l'àrea del terra del menjador.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><div class="math-block">$$4 \cdot 5 = 20\ \text{m}^2$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Terra del menjador: $20\ \text{m}^2$</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 6</h3><p class="pregunta-enunciat">Calcula quants paquets de parquet calen.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><div class="math-block">$$20 : 2 = 10 \text{ paquets}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Calen $10$ paquets de parquet</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 7</h3><p class="pregunta-enunciat">Calcula el cost del parquet.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><div class="math-block">$$10 \cdot 20 = 200 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">El parquet costa $200$ €</p></div></div>
+          </div>
+        </details></div>
       </div>
       <h2 class="repte-titol">Part 3: Sòcol</h2><div class="apunt-section" style="margin-top:0.6rem">
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 8</h3><p class="pregunta-enunciat">Calcula el perímetre del menjador.</p><button class="solution-toggle" data-toggles="sol-b-8" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-8')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-8" hidden><div class="exercise-card"><div class="ex-steps"><p>El sòcol va al voltant del terra del menjador, que és un rectangle de $4 \times 5$:</p><div class="math-block">$$2 \cdot (4 + 5) = 18 \text{ m}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Perímetre: $18$ m</p></div></div></section>
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 9</h3><p class="pregunta-enunciat">Calcula quantes barres de sòcol necessites.</p><button class="solution-toggle" data-toggles="sol-b-9" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-9')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-9" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$18 : 2 = 9 \text{ barres}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Calen $9$ barres de sòcol</p></div></div></section>
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 10</h3><p class="pregunta-enunciat">Calcula el cost total del sòcol.</p><button class="solution-toggle" data-toggles="sol-b-10" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-10')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-10" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$9 \cdot 5 = 45 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">El sòcol costa $45$ €</p></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 8</h3><p class="pregunta-enunciat">Calcula el perímetre del menjador.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><p>El sòcol va al voltant del terra del menjador, que és un rectangle de $4 \times 5$:</p><div class="math-block">$$2 \cdot (4 + 5) = 18 \text{ m}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Perímetre: $18$ m</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 9</h3><p class="pregunta-enunciat">Calcula quantes barres de sòcol necessites.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><div class="math-block">$$18 : 2 = 9 \text{ barres}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Calen $9$ barres de sòcol</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 10</h3><p class="pregunta-enunciat">Calcula el cost total del sòcol.</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><div class="math-block">$$9 \cdot 5 = 45 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">El sòcol costa $45$ €</p></div></div>
+          </div>
+        </details></div>
       </div>
       <h2 class="repte-titol">Part 4: Pressupost final</h2><div class="apunt-section" style="margin-top:0.6rem">
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 11</h3><p class="pregunta-enunciat">Calcula el pressupost total de la reforma (pintura + parquet + sòcol).</p><button class="solution-toggle" data-toggles="sol-b-11" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-11')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-11" hidden><div class="exercise-card"><div class="ex-steps"><div class="math-block">$$120 + 200 + 45 = 365 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Pressupost total: $365$ €</p></div></div></section>
-      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 12</h3><p class="pregunta-enunciat">Si la pintura fos ecològica (+20&nbsp;% de preu), quin seria el nou pressupost?</p><button class="solution-toggle" data-toggles="sol-b-12" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-b-12')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-12" hidden><div class="exercise-card"><div class="ex-steps"><p>Un pot de pintura ecològica val un $20\ \%$ més:</p><div class="math-block">$$8 \cdot 15 \cdot 1{,}2 = 120 \cdot 1{,}2 = 144 \text{ €}$$</div><p>Només canvia la pintura; el parquet i el sòcol costen el mateix:</p><div class="math-block">$$144 + 200 + 45 = 389 \text{ €}$$</div><p class="note">La pintura ecològica puja el pressupost $389 - 365 = 24$ €, un $\tfrac{24}{365} \cdot 100 \approx 6{,}58\ \%$ del total.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Amb pintura ecològica: $389$ €</p></div></div></section>
-      <h3 style="font-size:1.1rem;margin:2rem 0 0.3rem">Resum de resultats</h3><button class="solution-toggle" data-toggles="sol-b-resum" data-show-label="Mostra el resum" data-hide-label="Amaga el resum" onclick="toggleSolucion('sol-b-resum')"><span class="toggle-label">Mostra el resum</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-b-resum" hidden><div class="exercise-card"><div class="ex-steps"><table class="taula-repte"><thead><tr><th>Material</th><th>Quantitat</th><th>Cost</th><th>Amb pintura ecològica</th></tr></thead><tbody><tr><td style="text-align:left;color:var(--text)">Pintura</td><td>8 pots</td><td class="num">120 €</td><td class="num">144 €</td></tr><tr><td style="text-align:left;color:var(--text)">Parquet</td><td>10 paquets</td><td class="num">200 €</td><td class="num">200 €</td></tr><tr><td style="text-align:left;color:var(--text)">Sòcol</td><td>9 barres</td><td class="num">45 €</td><td class="num">45 €</td></tr><tr><th>Total</th><th></th><th style="text-align:right">365 €</th><th style="text-align:right">389 €</th></tr></tbody></table></div></div></section>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 11</h3><p class="pregunta-enunciat">Calcula el pressupost total de la reforma (pintura + parquet + sòcol).</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><div class="math-block">$$120 + 200 + 45 = 365 \text{ €}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Pressupost total: $365$ €</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.02rem;margin:1.6rem 0 0.3rem">Tasca 12</h3><p class="pregunta-enunciat">Si la pintura fos ecològica (+20&nbsp;% de preu), quin seria el nou pressupost?</p><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><p>Un pot de pintura ecològica val un $20\ \%$ més:</p><div class="math-block">$$8 \cdot 15 \cdot 1{,}2 = 120 \cdot 1{,}2 = 144 \text{ €}$$</div><p>Només canvia la pintura; el parquet i el sòcol costen el mateix:</p><div class="math-block">$$144 + 200 + 45 = 389 \text{ €}$$</div><p class="note">La pintura ecològica puja el pressupost $389 - 365 = 24$ €, un $\tfrac{24}{365} \cdot 100 \approx 6{,}58\ \%$ del total.</p></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Amb pintura ecològica: $389$ €</p></div></div>
+          </div>
+        </details></div>
+      <h3 style="font-size:1.1rem;margin:2rem 0 0.3rem">Resum de resultats</h3><div class="apart"><details>
+          <summary><span class="stmt">Veure la solució</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><div class="ex-steps"><table class="taula-repte"><thead><tr><th>Material</th><th>Quantitat</th><th>Cost</th><th>Amb pintura ecològica</th></tr></thead><tbody><tr><td style="text-align:left;color:var(--text)">Pintura</td><td>8 pots</td><td class="num">120 €</td><td class="num">144 €</td></tr><tr><td style="text-align:left;color:var(--text)">Parquet</td><td>10 paquets</td><td class="num">200 €</td><td class="num">200 €</td></tr><tr><td style="text-align:left;color:var(--text)">Sòcol</td><td>9 barres</td><td class="num">45 €</td><td class="num">45 €</td></tr><tr><th>Total</th><th></th><th style="text-align:right">365 €</th><th style="text-align:right">389 €</th></tr></tbody></table></div></div>
+          </div>
+        </details></div>
       </div>
 
       <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">

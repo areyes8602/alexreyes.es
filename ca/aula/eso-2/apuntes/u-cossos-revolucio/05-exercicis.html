@@ -23,18 +23,18 @@
 .apunt-section { margin: 2.2rem 0; }
 .apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
 .problem-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
-.problem-card .pb-label { display: inline-block; background: #ec4899; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
-.problem-card .pb-statement { margin: 0.4rem 0 0.8rem; font-size: 0.95rem; }
-.problem-card .pb-statement p { margin: 0.3rem 0; }
-.problem-card .pb-steps { margin: 0.6rem 0; }
-.problem-card .pb-steps p { margin: 0.4rem 0; font-size: 0.93rem; color: var(--text-soft); }
-.problem-card .pb-steps .math-block { margin: 0.4rem 0; padding: 0.5rem 0.6rem; }
-.problem-card .pb-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
-.problem-card .pb-final::before { content: "Resposta"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-.problem-card .pb-final p { margin: 0.2rem 0; font-size: 0.94rem; }
+:is(.problem-card, .exercise, .apart-solution) .pb-label { display: inline-block; background: #ec4899; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+:is(.problem-card, .exercise, .apart-solution) .pb-statement { margin: 0.4rem 0 0.8rem; font-size: 0.95rem; }
+:is(.problem-card, .exercise, .apart-solution) .pb-statement p { margin: 0.3rem 0; }
+:is(.problem-card, .exercise, .apart-solution) .pb-steps { margin: 0.6rem 0; }
+:is(.problem-card, .exercise, .apart-solution) .pb-steps p { margin: 0.4rem 0; font-size: 0.93rem; color: var(--text-soft); }
+:is(.problem-card, .exercise, .apart-solution) .pb-steps .math-block { margin: 0.4rem 0; padding: 0.5rem 0.6rem; }
+:is(.problem-card, .exercise, .apart-solution) .pb-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+:is(.problem-card, .exercise, .apart-solution) .pb-final::before { content: "Resposta"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+:is(.problem-card, .exercise, .apart-solution) .pb-final p { margin: 0.2rem 0; font-size: 0.94rem; }
 .tip-box { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.6rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.92rem; }
 .tip-box::before { content: "💡 Idea clau"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-[data-theme="dark"] .problem-card .pb-final { background: rgba(16,185,129,0.16); }
+[data-theme="dark"] :is(.problem-card, .exercise, .apart-solution) .pb-final { background: rgba(16,185,129,0.16); }
 [data-theme="dark"] .tip-box { background: rgba(16,185,129,0.14); }
 </style>
 <meta property="og:type" content="website">
@@ -48,10 +48,25 @@
 <meta name="twitter:description" content="Exercicis resolts del llibre per a 2n d'ESO sobre cossos de revolució: piscina cilíndrica, capsa amb pilotes i con d'aigua.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/ca/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Cossos de revolució","item":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-cossos-revolucio/"},{"@type":"ListItem","position":5,"name":"05 · Exercicis del llibre","item":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-cossos-revolucio/05-exercicis.html"}]},{"@type":"LearningResource","name":"05 · Exercicis del llibre","url":"https://alexreyes.es/ca/aula/eso-2/apuntes/u-cossos-revolucio/05-exercicis.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Exercicis resolts del llibre per a 2n d'ESO sobre cossos de revolució: piscina cilíndrica, capsa amb pilotes i con d'aigua."}]}</script>
-<style>/* solucions plegades */
-.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
-.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
-.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
 </style>
 </head>
 <body>
@@ -106,18 +121,16 @@
 
       <div class="apunt-section">
 
-        <div class="problem-card">
-          <span class="pb-label">P1 · Piscina cilíndrica</span>
-          <div class="pb-statement">
-            <p>Una piscina té forma de cilindre, amb un <strong>diàmetre de 6 m</strong> i una <strong>profunditat de 1,5 m</strong>. Calcula:</p>
+        <div class="exercise">
+          <div class="exercise-head"><span class="num">P1</span><span class="ttl">Piscina cilíndrica</span></div>
+          <div class="pb-statement"><p>Una piscina té forma de cilindre, amb un <strong>diàmetre de 6 m</strong> i una <strong>profunditat de 1,5 m</strong>. Calcula:</p>
             <ol>
               <li>El volum d'aigua que cap a la piscina, en m³ i en litres.</li>
               <li>L'àrea total de l'interior (parets + fons), per saber quanta pintura impermeable cal.</li>
-            </ol>
-          </div>
-
-          <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p1" hidden>
+            </ol></div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Veure la solució</span></summary>
+            <div class="apart-solution">
 <div class="pb-steps">
             <p><strong>Dades:</strong> diàmetre $d = 6$ m, per tant $r = 3$ m. Altura $h = 1{,}5$ m.</p>
 
@@ -138,22 +151,20 @@
             <p>Volum: $\approx 42{,}41 \text{ m}^3 = 42\,412 \text{ L}$</p>
             <p>Àrea interior: $\approx 56{,}55 \text{ m}^2$</p>
           </div>
-</section>
+            </div>
+          </details></div>
         </div>
-
-        <div class="problem-card">
-          <span class="pb-label">P2 · Pilotes en una capsa</span>
-          <div class="pb-statement">
-            <p>Una capsa cúbica de costat <strong>20 cm</strong> conté <strong>8 pilotes</strong> esfèriques iguals que toquen totes les parets de la capsa (encaixen perfectament en una disposició 2×2×2). Calcula:</p>
+        <div class="exercise">
+          <div class="exercise-head"><span class="num">P2</span><span class="ttl">Pilotes en una capsa</span></div>
+          <div class="pb-statement"><p>Una capsa cúbica de costat <strong>20 cm</strong> conté <strong>8 pilotes</strong> esfèriques iguals que toquen totes les parets de la capsa (encaixen perfectament en una disposició 2×2×2). Calcula:</p>
             <ol>
               <li>El radi de cada pilota.</li>
               <li>El volum total ocupat per les 8 pilotes.</li>
               <li>El volum d'aire (espai buit) que queda dins la capsa.</li>
-            </ol>
-          </div>
-
-          <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p2" hidden>
+            </ol></div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Veure la solució</span></summary>
+            <div class="apart-solution">
 <div class="pb-steps">
             <p><strong>Dades:</strong> capsa cúbica de costat $L = 20$ cm. 8 esferes en una xarxa 2×2×2.</p>
 
@@ -178,22 +189,20 @@
           <div class="pb-final">
             <p>$r = 5$ cm &nbsp;·&nbsp; $V_{\text{8 esferes}} \approx 4\,188{,}79$ cm³ &nbsp;·&nbsp; $V_{\text{aire}} \approx 3\,811{,}21$ cm³</p>
           </div>
-</section>
+            </div>
+          </details></div>
         </div>
-
-        <div class="problem-card">
-          <span class="pb-label">P3 · Got de paper cònic</span>
-          <div class="pb-statement">
-            <p>Un got de paper té forma de con (sense base, oberta a dalt) amb <strong>radi 4 cm</strong> i <strong>altura 12 cm</strong>. Calcula:</p>
+        <div class="exercise">
+          <div class="exercise-head"><span class="num">P3</span><span class="ttl">Got de paper cònic</span></div>
+          <div class="pb-statement"><p>Un got de paper té forma de con (sense base, oberta a dalt) amb <strong>radi 4 cm</strong> i <strong>altura 12 cm</strong>. Calcula:</p>
             <ol>
               <li>La generatriu $g$.</li>
               <li>L'àrea de paper necessària per fabricar el got (només la cara lateral).</li>
               <li>El volum d'aigua que pot contenir.</li>
-            </ol>
-          </div>
-
-          <button class="solution-toggle" data-toggles="sol-p3" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p3')"><span class="toggle-label">Mostra la solució</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p3" hidden>
+            </ol></div>
+          <div class="apart"><details>
+            <summary><span class="stmt">Veure la solució</span></summary>
+            <div class="apart-solution">
 <div class="pb-steps">
             <p><strong>Dades:</strong> $r = 4$ cm, $h = 12$ cm. Got = con sense base.</p>
 
@@ -218,7 +227,8 @@
           <div class="pb-final">
             <p>$g \approx 12{,}65$ cm &nbsp;·&nbsp; Paper: $\approx 158{,}97$ cm² &nbsp;·&nbsp; Volum: $\approx 201$ mL</p>
           </div>
-</section>
+            </div>
+          </details></div>
         </div>
 
         <div class="tip-box">

@@ -38,16 +38,16 @@
 .solution .taula-repte td { text-align: left; color: var(--text); }
 .solution .taula-repte td.num { text-align: right; }
 .exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
-.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
-.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
-.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
-.exercise-card .ex-steps { margin: 0.6rem 0; }
-.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
-.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
-.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
-.exercise-card .ex-final::before { content: "Result"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
-[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+:is(.exercise-card, .apart-solution) .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+:is(.exercise-card, .apart-solution) .ex-statement { margin: 0.4rem 0 0.8rem; }
+:is(.exercise-card, .apart-solution) .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+:is(.exercise-card, .apart-solution) .ex-steps { margin: 0.6rem 0; }
+:is(.exercise-card, .apart-solution) .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+:is(.exercise-card, .apart-solution) .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+:is(.exercise-card, .apart-solution) .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+:is(.exercise-card, .apart-solution) .ex-final::before { content: "Result"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+:is(.exercise-card, .apart-solution) .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] :is(.exercise-card, .apart-solution) .ex-final { background: rgba(16,185,129,0.16); }
 
 .prova { border: 1px dashed var(--border); border-radius: 8px; padding: 0.9rem 1.1rem; margin: 0.8rem 0 1rem; background: var(--bg-subtle); }
 .prova label { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 0.4rem; }
@@ -87,6 +87,26 @@
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-4/apuntes/2627-u-reptes/04-repte-4.html">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/04-repte-4.html">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-reptes/04-repte-4.html">
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -148,7 +168,12 @@
       <h2>See it</h2>
       <p>Think of $1$ as a whole rectangle (its proportions are chosen so that each blank piece left over is the same shape as the rectangle, only smaller). For $0{,}9$ we split it into $10$ equal parts and colour $9$: one is left blank. For $0{,}99$, the blank part is split into $10$ again and $9$ are coloured. And so on with each nine. If $0{,}\overline{9}$ and $1$ were different, some piece of the rectangle would have to stay blank. Where is it?</p><div class="prova nous"><label for="nous-n">Number of nines: <span id="nous-nn">1</span></label><div class="ctrl"><button type="button" id="nous-menys" aria-label="−">−</button><input type="range" id="nous-n" min="1" max="12" step="1" value="1"><button type="button" id="nous-mes" aria-label="+">+</button></div><div class="xifra" id="nous-xifra">0,9</div><div class="figs"><figure><svg id="nous-main" viewBox="0 0 600 189.74" role="img" aria-label="The whole rectangle" xmlns="http://www.w3.org/2000/svg"></svg><figcaption>The whole rectangle, worth $1$. In red, the piece the magnifier enlarges.</figcaption></figure><figure><svg id="nous-lupa" viewBox="0 0 600 189.74" role="img" aria-label="Magnifier" xmlns="http://www.w3.org/2000/svg"></svg><figcaption id="nous-lupa-cap" data-sense="Magnifier: no need to zoom in yet." data-amb="Magnifier: the marked piece, turned and with its area enlarged"></figcaption></figure></div><div class="falta" id="nous-falta" data-t="Blank part:" data-q="of the rectangle"></div></div><p class="note">With any number of nines the blank part is there, but each nine makes it $10$ times smaller: soon you cannot see it without the magnifier, and the magnifier has to zoom in more and more. $0{,}\overline{9}$ has <strong>infinitely many</strong> nines: no piece of the rectangle is left unpainted, however small you try to make it. There is no difference between $0{,}\overline{9}$ and $1$.</p>
       </div>
-      <div class="apunt-section"><h2>What do you think?</h2><p class="pregunta-enunciat">Is it true that $0{,}\overline{9} = 1$? Justify your answer.</p><button class="solution-toggle" data-toggles="sol-p1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p1" hidden><div class="exercise-card"><span class="ex-label">The generating fraction</span><div class="ex-steps"><p>In the numerator we write the number without the decimal point up to the end of the first repeating block ($09 = 9$) and subtract the part that does not repeat ($0$). In the denominator, as many nines as there are digits in the repeating block: one.</p><div class="math-block">$$0{,}\overline{9} = \dfrac{9 - 0}{9} = \dfrac{9}{9} = 1$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$0{,}\overline{9} = 1$</p></div></div><div class="exercise-card"><span class="ex-label">Another way: multiply by 10</span><div class="ex-steps"><p>This is where the generating-fraction rule comes from. Let $N = 0{,}999\ldots$ and multiply it by $10$: there are still infinitely many nines after the decimal point.</p><div class="math-block">$$10N = 9{,}999\ldots$$</div><div class="math-block">$$10N - N = 9{,}999\ldots - 0{,}999\ldots = 9$$</div><div class="math-block">$$9N = 9 \;\Longrightarrow\; N = 1$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$N = 1$</p></div></div><p class="note">Why is it hard to believe? Because with a <em>finite</em> number of nines something is always missing (you saw it in the figure). With <em>infinitely many</em> nines, what is missing is smaller than any positive number you can think of, and the only number like that is $0$. There is no number between $0{,}\overline{9}$ and $1$: they are the same number written in two ways.</p></section></div>
+      <div class="apunt-section"><h2>What do you think?</h2><p class="pregunta-enunciat">Is it true that $0{,}\overline{9} = 1$? Justify your answer.</p><div class="apart"><details>
+          <summary><span class="stmt">See the solution</span></summary>
+          <div class="apart-solution">
+<div class="exercise-card"><span class="ex-label">The generating fraction</span><div class="ex-steps"><p>In the numerator we write the number without the decimal point up to the end of the first repeating block ($09 = 9$) and subtract the part that does not repeat ($0$). In the denominator, as many nines as there are digits in the repeating block: one.</p><div class="math-block">$$0{,}\overline{9} = \dfrac{9 - 0}{9} = \dfrac{9}{9} = 1$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$0{,}\overline{9} = 1$</p></div></div><div class="exercise-card"><span class="ex-label">Another way: multiply by 10</span><div class="ex-steps"><p>This is where the generating-fraction rule comes from. Let $N = 0{,}999\ldots$ and multiply it by $10$: there are still infinitely many nines after the decimal point.</p><div class="math-block">$$10N = 9{,}999\ldots$$</div><div class="math-block">$$10N - N = 9{,}999\ldots - 0{,}999\ldots = 9$$</div><div class="math-block">$$9N = 9 \;\Longrightarrow\; N = 1$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$N = 1$</p></div></div><p class="note">Why is it hard to believe? Because with a <em>finite</em> number of nines something is always missing (you saw it in the figure). With <em>infinitely many</em> nines, what is missing is smaller than any positive number you can think of, and the only number like that is $0$. There is no number between $0{,}\overline{9}$ and $1$: they are the same number written in two ways.</p>
+          </div>
+        </details></div></div>
 
       <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
         <a class="prev" href="/en/aula/eso-4/apuntes/2627-u-reptes/03-repte-3.html">&larr; Previous section</a>

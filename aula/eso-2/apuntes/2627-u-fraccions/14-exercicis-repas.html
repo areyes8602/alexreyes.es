@@ -37,16 +37,16 @@
 .numberline-svg { display: block; width: 100%; min-width: 340px; max-width: 580px; height: auto; margin: 0 auto; color: var(--text); }
 [data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
 .exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
-.exercise-card .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
-.exercise-card .ex-statement { margin: 0.4rem 0 0.8rem; }
-.exercise-card .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
-.exercise-card .ex-steps { margin: 0.6rem 0; }
-.exercise-card .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
-.exercise-card .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
-.exercise-card .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
-.exercise-card .ex-final::before { content: "Resultado"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
-.exercise-card .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
-[data-theme="dark"] .exercise-card .ex-final { background: rgba(16,185,129,0.16); }
+:is(.exercise-card, .apart-solution) .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+:is(.exercise-card, .apart-solution) .ex-statement { margin: 0.4rem 0 0.8rem; }
+:is(.exercise-card, .apart-solution) .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+:is(.exercise-card, .apart-solution) .ex-steps { margin: 0.6rem 0; }
+:is(.exercise-card, .apart-solution) .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+:is(.exercise-card, .apart-solution) .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+:is(.exercise-card, .apart-solution) .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+:is(.exercise-card, .apart-solution) .ex-final::before { content: "Resultado"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+:is(.exercise-card, .apart-solution) .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] :is(.exercise-card, .apart-solution) .ex-final { background: rgba(16,185,129,0.16); }
 .apunt-section .solution { padding: 1.2rem 1.3rem; }
 .def-box ol { margin: 0.4rem 0; padding-left: 1.3rem; }
 .def-box li { margin: 0.3rem 0; }
@@ -77,6 +77,26 @@
 <meta name="twitter:description" content="Ejercicios de repaso de fracciones de 2.º de ESO, curso 2026-27, para preparar el examen, con la solución plegada.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"2n ESO","item":"https://alexreyes.es/docencia/2eso/"},{"@type":"ListItem","position":4,"name":"Fracciones","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/"},{"@type":"ListItem","position":5,"name":"14 · Repaso","item":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/14-exercicis-repas.html"}]},{"@type":"LearningResource","name":"14 · Repaso","url":"https://alexreyes.es/aula/eso-2/apuntes/2627-u-fraccions/14-exercicis-repas.html","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Ejercicios de repaso de fracciones de 2.º de ESO, curso 2026-27, para preparar el examen, con la solución plegada."}]}</script>
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -135,14 +155,11 @@
       <div class="apunt-section">
         <h2>1. Encuentra $R$ para que sean equivalentes</h2>
 
-        <div class="exercise-card">
-          <span class="ex-label">1 · f</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{R}{18} = \dfrac{25}{45}$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-1f" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-1f')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-1f" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">f)</span> <span class="stmt">$\displaystyle \dfrac{R}{18} = \dfrac{25}{45}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Simplificamos la fracción conocida: $\dfrac{25}{45} = \dfrac{5}{9}$. De $9$ a $18$ se multiplica por $2$, así que el numerador también:</p>
             <div class="math-block">$$\dfrac{R}{18} = \dfrac{5}{9} = \dfrac{5 \cdot 2}{9 \cdot 2} \;\Longrightarrow\; R = 10$$</div>
             <p>Con el producto cruzado sale lo mismo:</p>
@@ -151,16 +168,12 @@
           <div class="ex-final">
             <div class="math-block">$$R = 10$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">1 · g</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{120}{R} = \dfrac{40}{24}$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-1g" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-1g')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-1g" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">g)</span> <span class="stmt">$\displaystyle \dfrac{120}{R} = \dfrac{40}{24}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Simplificamos la fracción conocida dividiendo entre $8$:</p>
             <div class="math-block">$$\dfrac{40}{24} = \dfrac{5}{3}$$</div>
             <p>Producto cruzado:</p>
@@ -171,21 +184,19 @@
           <div class="ex-final">
             <div class="math-block">$$R = 72$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 
       <div class="apunt-section">
         <h2>2. Ordena de menor a mayor</h2>
 
-        <div class="exercise-card">
-          <span class="ex-label">2 · e</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{5}{18}, \quad -\dfrac{2}{15}, \quad -\dfrac{1}{9}, \quad \dfrac{5}{36}$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-2e" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-2e')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-2e" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">e)</span> <span class="stmt">$\displaystyle \dfrac{5}{18}, \quad -\dfrac{2}{15}, \quad -\dfrac{1}{9}, \quad \dfrac{5}{36}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>$\text{MCM}(18, 15, 9, 36) = 180$. Amplificamos:</p>
             <div class="math-block">$$\dfrac{50}{180}, \quad -\dfrac{24}{180}, \quad -\dfrac{20}{180}, \quad \dfrac{25}{180}$$</div>
             <p>Con el mismo denominador mandan los numeradores: $-24 < -20 < 25 < 50$. Entre negativos, es más pequeño el que está más lejos del cero.</p>
@@ -193,16 +204,12 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{2}{15} < -\dfrac{1}{9} < \dfrac{5}{36} < \dfrac{5}{18}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">2 · f</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{7}{18}, \quad \dfrac{7}{4}, \quad \dfrac{23}{15}, \quad \dfrac{7}{18}$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-2f" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-2f')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-2f" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">f)</span> <span class="stmt">$\displaystyle \dfrac{7}{18}, \quad \dfrac{7}{4}, \quad \dfrac{23}{15}, \quad \dfrac{7}{18}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>$\text{MCM}(18, 4, 15) = 180$. Amplificamos:</p>
             <div class="math-block">$$\dfrac{70}{180}, \quad \dfrac{315}{180}, \quad \dfrac{276}{180}, \quad \dfrac{70}{180}$$</div>
             <p>La primera y la última son la misma fracción: van con un signo igual.</p>
@@ -210,21 +217,19 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{7}{18} = \dfrac{7}{18} < \dfrac{23}{15} < \dfrac{7}{4}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 
       <div class="apunt-section">
         <h2>3. Calcula</h2>
 
-        <div class="exercise-card">
-          <span class="ex-label">3 · i</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{6}{7} - \left(\dfrac{3}{4} + \dfrac{5}{6}\right) - \left(-\dfrac{7}{5}\right)$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-3i" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-3i')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-3i" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">i)</span> <span class="stmt">$\displaystyle \dfrac{6}{7} - \left(\dfrac{3}{4} + \dfrac{5}{6}\right) - \left(-\dfrac{7}{5}\right)$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Quitamos los paréntesis: el menos de delante cambia el signo de todo lo de dentro.</p>
             <div class="math-block">$$\dfrac{6}{7} - \dfrac{3}{4} - \dfrac{5}{6} + \dfrac{7}{5}$$</div>
             <p>$\text{MCM}(7, 4, 6, 5) = 420$:</p>
@@ -233,16 +238,12 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{283}{420}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">3 · j</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\left(5 - \dfrac{3}{8}\right) - \left(-\dfrac{8}{5} - \dfrac{3}{20}\right)$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-3j" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-3j')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-3j" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">j)</span> <span class="stmt">$\displaystyle \left(5 - \dfrac{3}{8}\right) - \left(-\dfrac{8}{5} - \dfrac{3}{20}\right)$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Quitamos los paréntesis. El segundo cambia de signo:</p>
             <div class="math-block">$$\dfrac{5}{1} - \dfrac{3}{8} + \dfrac{8}{5} + \dfrac{3}{20}$$</div>
             <p>$\text{MCM}(8, 5, 20) = 40$:</p>
@@ -251,21 +252,19 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{51}{8}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 
       <div class="apunt-section">
         <h2>4. Calcula descomponiendo en factores</h2>
 
-        <div class="exercise-card">
-          <span class="ex-label">4 · d</span>
-          <div class="ex-statement">
-            <div class="math-block">$$-\dfrac{300}{75} : \dfrac{115}{95} : \dfrac{6}{10}$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-4d" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-4d')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-4d" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">d)</span> <span class="stmt">$\displaystyle -\dfrac{300}{75} : \dfrac{115}{95} : \dfrac{6}{10}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>La primera se queda igual y las otras dos se invierten:</p>
             <div class="math-block">$$-\dfrac{300}{75} \cdot \dfrac{95}{115} \cdot \dfrac{10}{6}$$</div>
             <p>Descomponemos y tachamos:</p>
@@ -274,16 +273,12 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{380}{69}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">4 · e</span>
-          <div class="ex-statement">
-            <div class="math-block">$$-\dfrac{147}{20} : \dfrac{70}{9} \cdot \dfrac{10}{7}$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-4e" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-4e')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-4e" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">e)</span> <span class="stmt">$\displaystyle -\dfrac{147}{20} : \dfrac{70}{9} \cdot \dfrac{10}{7}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>La división pasa a multiplicación por la inversa:</p>
             <div class="math-block">$$-\dfrac{147}{20} \cdot \dfrac{9}{70} \cdot \dfrac{10}{7}$$</div>
             <p>Descomponemos y tachamos:</p>
@@ -292,21 +287,19 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{27}{20}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 
       <div class="apunt-section">
         <h2>5. Calcula las potencias</h2>
 
-        <div class="exercise-card">
-          <span class="ex-label">5 · f</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\left(\dfrac{8}{11}\right)^3 \cdot \left(\dfrac{8}{11}\right)^2 : \left(\dfrac{8}{11}\right)^7$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-5f" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-5f')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-5f" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">f)</span> <span class="stmt">$\displaystyle \left(\dfrac{8}{11}\right)^3 \cdot \left(\dfrac{8}{11}\right)^2 : \left(\dfrac{8}{11}\right)^7$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Misma base: sumamos y restamos exponentes.</p>
             <div class="math-block">$$\left(\dfrac{8}{11}\right)^{3+2-7} = \left(\dfrac{8}{11}\right)^{-2}$$</div>
             <p>Exponente negativo: damos la vuelta a la fracción.</p>
@@ -315,16 +308,12 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{121}{64}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">5 · g</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\left[\left(\dfrac{5}{3}\right)^2\right]^{-3} : \left(\dfrac{10}{9}\right)^{-6}$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-5g" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-5g')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-5g" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">g)</span> <span class="stmt">$\displaystyle \left[\left(\dfrac{5}{3}\right)^2\right]^{-3} : \left(\dfrac{10}{9}\right)^{-6}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Potencia de una potencia: $2 \cdot (-3) = -6$. Y quedan dos potencias con el mismo exponente:</p>
             <div class="math-block">$$\left(\dfrac{5}{3}\right)^{-6} : \left(\dfrac{10}{9}\right)^{-6} = \left(\dfrac{5}{3} : \dfrac{10}{9}\right)^{-6} = \left(\dfrac{45}{30}\right)^{-6} = \left(\dfrac{3}{2}\right)^{-6}$$</div>
             <p>Exponente negativo: damos la vuelta a la fracción.</p>
@@ -333,21 +322,19 @@
           <div class="ex-final">
             <div class="math-block">$$\left(\dfrac{2}{3}\right)^6 = \dfrac{64}{729}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 
       <div class="apunt-section">
         <h2>6. Operaciones combinadas</h2>
 
-        <div class="exercise-card">
-          <span class="ex-label">6 · e</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\dfrac{28}{60} - \dfrac{5}{36} \cdot \left(-\dfrac{27}{75}\right) + \sqrt{\dfrac{256}{625}} + 20 : (-8)$$</div>
-          </div>
-          <button class="solution-toggle" data-toggles="sol-6e" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-6e')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-6e" hidden>
-          <div class="ex-steps">
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">e)</span> <span class="stmt">$\displaystyle \dfrac{28}{60} - \dfrac{5}{36} \cdot \left(-\dfrac{27}{75}\right) + \sqrt{\dfrac{256}{625}} + 20 : (-8)$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Cada término por separado. La multiplicación tiene dos signos menos, que dan más:</p>
             <div class="math-block">$$\dfrac{28}{60} = \dfrac{7}{15} \qquad -\dfrac{5}{36} \cdot \left(-\dfrac{27}{75}\right) = +\dfrac{5 \cdot 3^3}{(2^2 \cdot 3^2) \cdot (3 \cdot 5^2)} = \dfrac{1}{20}$$</div>
             <div class="math-block">$$\sqrt{\dfrac{256}{625}} = \dfrac{16}{25} \qquad 20 : (-8) = -\dfrac{20}{8} = -\dfrac{5}{2}$$</div>
@@ -357,16 +344,12 @@
           <div class="ex-final">
             <div class="math-block">$$-\dfrac{403}{300}$$</div>
           </div>
-          </section>
-        </div>
-        <div class="exercise-card">
-          <span class="ex-label">6 · f</span>
-          <div class="ex-statement">
-            <div class="math-block">$$\left(\dfrac{6}{7}\right)^3 : \left(\dfrac{6}{7}\right)^2 - \dfrac{65}{18} \cdot \dfrac{12}{39} + \left(-\dfrac{9}{5}\right)^3 \cdot \left(-\dfrac{9}{5}\right)^{-5}$$</div>
           </div>
-          <button class="solution-toggle" data-toggles="sol-6f" data-show-label="Mostrar la solución" data-hide-label="Ocultar la solución" onclick="toggleSolucion('sol-6f')"><span class="toggle-label">Mostrar la solución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <section class="solution" id="sol-6f" hidden>
-          <div class="ex-steps">
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">f)</span> <span class="stmt">$\displaystyle \left(\dfrac{6}{7}\right)^3 : \left(\dfrac{6}{7}\right)^2 - \dfrac{65}{18} \cdot \dfrac{12}{39} + \left(-\dfrac{9}{5}\right)^3 \cdot \left(-\dfrac{9}{5}\right)^{-5}$</span></summary>
+          <div class="apart-solution">
+<div class="ex-steps">
             <p>Las potencias con la misma base y la multiplicación descomponiendo:</p>
             <div class="math-block">$$\left(\dfrac{6}{7}\right)^{3-2} = \dfrac{6}{7} \qquad \dfrac{65}{18} \cdot \dfrac{12}{39} = \dfrac{(5 \cdot 13) \cdot (2^2 \cdot 3)}{(2 \cdot 3^2) \cdot (3 \cdot 13)} = \dfrac{10}{9}$$</div>
             <div class="math-block">$$\left(-\dfrac{9}{5}\right)^{3-5} = \left(-\dfrac{9}{5}\right)^{-2} = \left(-\dfrac{5}{9}\right)^2 = \dfrac{25}{81}$$</div>
@@ -376,7 +359,8 @@
           <div class="ex-final">
             <div class="math-block">$$\dfrac{31}{567}$$</div>
           </div>
-          </section>
+          </div>
+        </details></div>
         </div>
       </div>
 

@@ -59,10 +59,25 @@
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-3-7-problemas/">
-<style>/* solucions plegades */
-.exercise-card .solution, .problem-card .solution { padding: 1rem 1.2rem; margin-top: 0.6rem; background: var(--bg); }
-.exercise-card .solution-toggle, .problem-card .solution-toggle { margin: 0.4rem 0 0; }
-.solution > .step:first-child, .solution > .example-box:first-child { margin-top: 0; }
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
 </style>
 </head>
 <body>
@@ -134,8 +149,9 @@
           <text x="240" y="236" font-family="Inter,sans-serif" font-size="14" fill="#475569" text-anchor="middle">6 m</text>
         </svg>
 
-        <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p1" hidden>
+        <div class="apart"><details>
+          <summary><span class="stmt">See the solution</span></summary>
+          <div class="apart-solution">
 <div class="example-box">
           <h3>a) The angle α</h3>
           <p>The rope reaches the top side. The triangle it forms with the left fence is right-angled, and in it the leg adjacent to $\beta$ is $2.5$ and the hypotenuse is $3$:</p>
@@ -157,7 +173,8 @@
         </div>
 
         <p class="note">Careful with rounding halfway through: taking $\alpha = 0.98$ instead of $0.985$ gives $6.48$ m² instead of $6.51$. Carry the full values and round only the final answer.</p>
-</section>
+          </div>
+        </details></div>
       </section>
 
       <section class="apunt-section">
@@ -187,8 +204,9 @@
           <text x="202.2" y="137.98" font-family="Inter,sans-serif" font-size="14" fill="#be123c" text-anchor="middle">&#946;</text>
         </svg>
 
-        <button class="solution-toggle" data-toggles="sol-p2" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p2')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-<section class="solution" id="sol-p2" hidden>
+        <div class="apart"><details>
+          <summary><span class="stmt">See the solution</span></summary>
+          <div class="apart-solution">
 <p>Join the two centres to one of the intersection points: you get a triangle with sides $2$, $2$ and $3$. Its angles at the centres are the ones that open each sector.</p>
 
         <div class="example-box">
@@ -231,7 +249,8 @@
           <h3>The idea that keeps coming back</h3>
           <p>A piece of a circle bounded by a chord (a <em>circular segment</em>) is always <strong>sector minus triangle</strong>. And the triangle needs $\frac{1}{2}ab\sin C$, which needs the angle: that is why the cosine rule comes first.</p>
         </div>
-</section>
+          </div>
+        </details></div>
       </section>
 
       <nav class="exam-nav" id="apunt-nav" aria-label="Notes navigation" style="margin-top:2.5rem"

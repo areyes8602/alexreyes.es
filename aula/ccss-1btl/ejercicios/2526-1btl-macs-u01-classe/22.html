@@ -38,6 +38,26 @@
 <meta name="twitter:description" content="Exercici 22: Operacions amb potències i arrels. Exercicis de classe — Nombres reals (potències i arrels).">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docència","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"Mat. Aplicades CCSS 1r BTL","item":"https://alexreyes.es/docencia/ccss-1btl/"},{"@type":"ListItem","position":4,"name":"Exercicis de classe — Nombres reals (potències i arrels)","item":"https://alexreyes.es/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/"},{"@type":"ListItem","position":5,"name":"Exercici 22","item":"https://alexreyes.es/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/22.html"}]},{"@type":"LearningResource","name":"Exercici 22","url":"https://alexreyes.es/aula/ccss-1btl/ejercicios/2526-1btl-macs-u01-classe/22.html","inLanguage":"ca","learningResourceType":"Ejercicio","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Exercici 22: Operacions amb potències i arrels. Exercicis de classe — Nombres reals (potències i arrels)."}]}</script>
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Salta al contingut</a>
@@ -104,14 +124,10 @@
             </ol>
       </div>
 
-      <button class="solution-toggle" data-toggles="sol-22" data-show-label="Mostra la solució" data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-22')">
-        <span class="toggle-label">Mostra la solució</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-
-      <section class="classe-solution" id="sol-22" hidden>
-        <h3 style="margin:0 0 0.6rem;font-size:1rem">Solució pas a pas</h3>
-        <p><strong>(a)</strong> Descomposem en factors primers: $125 = 5^{3}$, $50 = 2 \cdot 5^{2}$, $32 = 2^{5}$, així el producte és $2^{6} \cdot 5^{5}$.</p>
+      <div class="apart"><details>
+          <summary><span class="stmt">Solució pas a pas</span></summary>
+          <div class="apart-solution">
+<p><strong>(a)</strong> Descomposem en factors primers: $125 = 5^{3}$, $50 = 2 \cdot 5^{2}$, $32 = 2^{5}$, així el producte és $2^{6} \cdot 5^{5}$.</p>
             <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
               $$\sqrt[5]{2^{6} \cdot 5^{5}} = 5 \cdot \sqrt[5]{2^{6}} = 5 \cdot 2 \cdot \sqrt[5]{2} = 10\,\sqrt[5]{2}.$$
             </div>
@@ -132,7 +148,8 @@
             <div class="math-block" style="margin:0.4rem 0;padding:0.4rem">
               $$\dfrac{3^{1/2} \cdot 3^{6/5}}{3^{-4}} = 3^{1/2 + 6/5 + 4} = 3^{57/10} = 3^{5} \cdot 3^{7/10} = 243 \, \sqrt[10]{3^{7}}.$$
             </div>
-      </section>
+          </div>
+        </details></div>
 
       <a class="classe-back" href="/aula/ccss-1btl/apuntes/u-nombres-reals/02-potencies-i-arrels.html#ex-22">Veure dins de l'apunt original →</a>
     </article>

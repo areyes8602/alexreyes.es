@@ -48,8 +48,8 @@ ensuciarlo. Si vas a crear o modificar páginas, lee esto primero.
                             principal, 2034–2035 prórroga) y marcador del momento actual.
   build_feed.py          ← genera feed.xml (RSS 2.0) desde las noticias de la home
   plegar_soluciones.py   ← comprueba que ninguna solución de /aula/ está a la
-                            vista; --apply la pliega con el botón «Mostrar la
-                            solución». Ver «Regla: las soluciones… plegadas».
+                            vista; --apply la pliega con el ▶ de 1r BTL CCSS
+                            (<details>). Ver «Regla: las soluciones… plegadas».
   check_i18n.py          ← CI: verifica que cada selector ES·CA·EN resuelve (no 404)
                             y es coherente. Usa i18n-baseline.txt (fallos conocidos);
                             solo falla ante regresiones. --strict = auditoría completa.
@@ -293,27 +293,35 @@ exámenes, en los tres idiomas) **el enunciado se ve y la resolución no**: el
 alumnado tiene que poder intentarlo antes de mirar. Una corrección visible de
 salida es un error, como un enlace roto.
 
-- Formato preferido: el botón de los exámenes, justo después del enunciado.
+- Formato: el **▶ de 1r BTL CCSS**. Un `<details>` por apartado; en la línea
+  del ▶ va la letra y el enunciado (si es una fórmula) y, al abrirlo, la
+  resolución. Los apartados de un mismo ejercicio van dentro de una caja
+  `.exercise`.
 
   ```html
-  <button class="solution-toggle" data-toggles="sol-p1" data-show-label="Mostra la solució"
-          data-hide-label="Amaga la solució" onclick="toggleSolucion('sol-p1')">…</button>
-  <section class="solution" id="sol-p1" hidden> …pasos y resultado… </section>
+  <div class="exercise">
+    <div class="apart"><details>
+      <summary><span class="letter">a)</span> <span class="stmt">$\displaystyle \frac{3}{8} - \frac{15}{16} : \frac{3}{4}$</span></summary>
+      <div class="apart-solution"> …pasos y resultado… </div>
+    </details></div>
+  </div>
   ```
 
-  Etiquetas: `Mostrar la solución` / `Ocultar la solución` (es),
-  `Mostra la solució` / `Amaga la solució` (ca), `Show solution` /
-  `Hide solution` (en). La página necesita `/assets/js/examenes.js`.
-- También vale `<details><summary>Solución</summary>…</details>` (lo que usan
-  las fichas de CCSS y los templates).
+  Si el enunciado es un párrafo (un problema, un reto), el enunciado queda a la
+  vista y el ▶ dice `Ver la solución` / `Veure la solució` / `See the solution`.
+  El CSS (`.exercise`, `.apart`, `.apart-solution`) va en el `<style>` de la
+  página, como en las de CCSS; `plegar_soluciones.py --apply` lo pone si falta.
+- El botón negro de los exámenes (`solution-toggle`) se queda **solo en los
+  exámenes y la selectividad**, que pliegan por pregunta. En apuntes, fichas,
+  deberes y ejercicios de clase, no.
 - Dentro del pliegue va **todo** lo que delata el resultado: pasos, resultado
   final, notas de «Comprobación» y trucos que citan el apartado.
 - **No** se pliegan los ejemplos de teoría («Ejemplo resuelto», «Exemple
   guiat»): son parte de la explicación.
 - Deberes pendientes: la solución puede publicarse ya, siempre plegada.
 
-Comprobación antes de subir (devuelve 1 si hay alguna solución a la vista, y
-`--apply` las pliega):
+Comprobación antes de subir (devuelve 1 si hay alguna solución a la vista o
+con el botón negro, y `--apply` las pliega con el ▶):
 
 ```
 python3 scripts/plegar_soluciones.py
