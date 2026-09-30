@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geometry formula sheet — Maths challenges — 4t ESO</title>
+<meta name="description" content="4th ESO formula sheet: area and perimeter of plane figures, and base area, lateral area, total area and volume of prisms, pyramids, cylinders, cones and spheres.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p, .def-box li { margin: 0.4rem 0; }
+.def-box ol, .def-box ul { margin: 0.4rem 0; padding-left: 1.3rem; }
+.figura { margin: 1.2rem 0; overflow-x: auto; }
+.figura svg { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; color: var(--text); }
+.figura figcaption { text-align: center; font-size: 0.85rem; color: var(--text-soft); margin-top: 0.4rem; }
+.taula-repte { border-collapse: collapse; margin: 0.8rem 0; font-size: 0.95rem; width: 100%; max-width: 560px; }
+.taula-repte th, .taula-repte td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
+.taula-repte th { background: var(--bg-subtle); font-weight: 600; }
+.taula-repte td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.swatch { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; vertical-align: -0.05em; margin-right: 0.35em; border: 1px solid rgba(0,0,0,0.25); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.pregunta-enunciat { font-size: 1rem; margin: 0.5rem 0 1rem; }
+.apunt-section .solution { padding: 1.2rem 1.3rem; }
+.solution table.taula-repte { font-family: inherit; font-size: 0.92rem; max-width: 600px; }
+.solution .taula-repte th { text-align: left; }
+.solution .taula-repte td { text-align: left; color: var(--text); }
+.solution .taula-repte td.num { text-align: right; }
+.exercise-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+:is(.exercise-card, .apart-solution) .ex-label { display: inline-block; background: #6366f1; color: white; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+:is(.exercise-card, .apart-solution) .ex-statement { margin: 0.4rem 0 0.8rem; }
+:is(.exercise-card, .apart-solution) .ex-statement .math-block { margin: 0.4rem 0; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border); }
+:is(.exercise-card, .apart-solution) .ex-steps { margin: 0.6rem 0; }
+:is(.exercise-card, .apart-solution) .ex-steps p { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-soft); }
+:is(.exercise-card, .apart-solution) .ex-steps .math-block { margin: 0.5rem 0; padding: 0.5rem 0.6rem; }
+:is(.exercise-card, .apart-solution) .ex-final { margin-top: 0.8rem; padding: 0.6rem 0.9rem; background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; border-radius: 4px; }
+:is(.exercise-card, .apart-solution) .ex-final::before { content: "Result"; display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #10b981; margin-bottom: 0.2rem; }
+:is(.exercise-card, .apart-solution) .ex-final .math-block { margin: 0; padding: 0; background: none; border: none; font-size: 1.05rem; }
+[data-theme="dark"] :is(.exercise-card, .apart-solution) .ex-final { background: rgba(16,185,129,0.16); }
+
+.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: .8rem; margin: .8rem 0 1.6rem; }
+.fcard { border: 1px solid var(--border); border-radius: 8px; padding: .7rem .9rem .6rem; background: var(--bg-subtle); break-inside: avoid; }
+.fcard h3 { font-size: .95rem; margin: 0 0 .3rem; }
+.fcard svg { display: block; width: 100%; max-width: 150px; height: 88px; margin: .2rem auto .3rem; color: var(--text); }
+.fcard .f { margin: .2rem 0; font-size: .95rem; }
+.fcard .f .katex { font-size: 1.02em; }
+.fcard .nota { font-size: .78rem; color: var(--text-soft); margin: .3rem 0 0; }
+.cossos .fcard { grid-column: span 1; }
+.llegenda { font-size: .9rem; color: var(--text-soft); }
+.form-top { display: flex; gap: .6rem; flex-wrap: wrap; margin: 0 0 .8rem; }
+@media print {
+  @page { size: A4; margin: 10mm; }
+  nav, footer, .breadcrumb, .form-top, .exam-nav, .skip-link, .gs-fab, .gs-ov { display: none !important; }
+  .cossos { break-before: page; }
+  body { background: #fff !important; color: #000 !important; font-size: 10pt; }
+  .container { max-width: none !important; padding: 0 !important; }
+  .exam-header { margin-bottom: .4rem !important; }
+  .exam-header h1 { font-size: 17pt !important; }
+  .exam-header p { font-size: 9pt !important; }
+  .apunt-section { margin: .5rem 0 !important; }
+  .apunt-section > h2 { font-size: 11.5pt !important; margin-bottom: .2rem !important; }
+  .form-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 2.2mm !important; margin: .2rem 0 .6rem !important; }
+  .fcard { padding: 1.6mm 2.2mm !important; background: #fff !important; }
+  .fcard h3 { font-size: 9.5pt !important; margin: 0 !important; }
+  .fcard svg { height: 15mm !important; max-width: 32mm !important; margin: .5mm auto !important; }
+  .fcard .f { font-size: 8.8pt !important; margin: .4mm 0 !important; }
+  .fcard .nota { font-size: 7.5pt !important; }
+  .llegenda { font-size: 8.5pt !important; }
+}
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/formulari.html">
+<meta property="og:title" content="Geometry formula sheet — Maths challenges — 4t ESO">
+<meta property="og:description" content="4th ESO formula sheet: area and perimeter of plane figures, and base area, lateral area, total area and volume of prisms, pyramids, cylinders, cones and spheres.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Geometry formula sheet — Maths challenges — 4t ESO">
+<meta name="twitter:description" content="4th ESO formula sheet: area and perimeter of plane figures, and base area, lateral area, total area and volume of prisms, pyramids, cylinders, cones and spheres.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"4t ESO","item":"https://alexreyes.es/en/docencia/eso-4/"},{"@type":"ListItem","position":4,"name":"Challenges","item":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/"},{"@type":"ListItem","position":5,"name":"Formula sheet","item":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/formulari.html"}]},{"@type":"LearningResource","name":"Formula sheet","url":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/formulari.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"4th ESO formula sheet: area and perimeter of plane figures, and base area, lateral area, total area and volume of prisms, pyramids, cylinders, cones and spheres."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/formulari.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-reptes/formulari.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-4/apuntes/2627-u-reptes/formulari.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-reptes/formulari.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-reptes/formulari.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-4/apuntes/2627-u-reptes/formulari.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-4/apuntes/2627-u-reptes/formulari.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-4/apuntes/2627-u-reptes/formulari.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/eso-4/">4t ESO</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/eso-4/apuntes/2627-u-reptes/">Challenges</a>
+      <span class="sep">/</span>
+      <span class="current">Formula sheet</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">4t ESO &middot; Maths challenges</span>
+        <span class="tag tag-orange">Formula sheet</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">2026&ndash;27</span>
+      </div>
+      <h1 style="margin:0">Geometry formula sheet</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Areas and perimeters of plane figures, and $A_B$, $A_L$, $A_T$ and volume of solids. Also as a PDF to print.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="form-top"><a href="/aula/eso-4/apuntes/2627-u-reptes/geometry-formula-sheet.pdf" class="pdf-download" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><polyline points="9 15 12 18 15 15"/></svg> Download the formula sheet (PDF)</a></div>
+      <div class="apunt-section">
+      <h2>Plane figures: area and perimeter</h2>
+      <p class="llegenda">$A$: area · $P$: perimeter (the sum of all the sides).</p>
+      <div class="form-grid"><div class="fcard"><h3>Square</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><rect x="45" y="14" width="60" height="60" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><text x="75" y="86" text-anchor="middle" fill="currentColor" font-style="italic">c</text><text x="38" y="48" text-anchor="end" fill="currentColor" font-style="italic">c</text></svg><p class="f">$A = c^2$</p><p class="f">$P = 4c$</p></div><div class="fcard"><h3>Rectangle</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><rect x="25" y="20" width="100" height="50" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><text x="75" y="84" text-anchor="middle" fill="currentColor" font-style="italic">b</text><text x="18" y="49" text-anchor="end" fill="currentColor" font-style="italic">h</text></svg><p class="f">$A = b \cdot h$</p><p class="f">$P = 2b + 2h$</p></div><div class="fcard"><h3>Triangle</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><polygon points="20,74 130,74 90,14" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><line x1="90" y1="14" x2="90" y2="74" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><text x="75" y="87" text-anchor="middle" fill="currentColor" font-style="italic">b</text><text x="96" y="50" text-anchor="start" fill="currentColor" font-style="italic">h</text></svg><p class="f">$A = \dfrac{b \cdot h}{2}$</p><p class="f">$P = \text{sum of the 3 sides}$</p></div><div class="fcard"><h3>Rhombus</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><polygon points="75,6 125,44 75,82 25,44" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><line x1="25" y1="44" x2="125" y2="44" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><line x1="75" y1="6" x2="75" y2="82" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><text x="104" y="40" text-anchor="middle" fill="currentColor" font-style="italic">D</text><text x="81" y="66" text-anchor="start" fill="currentColor" font-style="italic">d</text><text x="108" y="72" text-anchor="start" fill="currentColor" font-style="italic">c</text></svg><p class="f">$A = \dfrac{D \cdot d}{2}$</p><p class="f">$P = 4c$</p></div><div class="fcard"><h3>Parallelogram</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><polygon points="20,72 105,72 130,18 45,18" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><line x1="45" y1="18" x2="45" y2="72" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><text x="62" y="86" text-anchor="middle" fill="currentColor" font-style="italic">b</text><text x="50" y="50" text-anchor="start" fill="currentColor" font-style="italic">h</text></svg><p class="f">$A = b \cdot h$</p><p class="f">$P = \text{sum of the sides}$</p></div><div class="fcard"><h3>Trapezium</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><polygon points="15,74 135,74 105,18 45,18" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><line x1="45" y1="18" x2="45" y2="74" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><text x="75" y="12" text-anchor="middle" fill="currentColor" font-style="italic">b</text><text x="75" y="87" text-anchor="middle" fill="currentColor" font-style="italic">B</text><text x="50" y="52" text-anchor="start" fill="currentColor" font-style="italic">h</text></svg><p class="f">$A = \dfrac{(B + b) \cdot h}{2}$</p><p class="f">$P = \text{sum of the sides}$</p></div><div class="fcard"><h3>Regular polygon</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><polygon points="75,8 115,31 115,69 75,80 35,69 35,31" transform="translate(0,0)" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><line x1="75" y1="44" x2="115" y2="50" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><text x="98" y="44" text-anchor="middle" fill="currentColor" font-style="italic">a</text><text x="124" y="52" text-anchor="start" fill="currentColor" font-style="italic">c</text></svg><p class="f">$P = n \cdot c$</p><p class="f">$A = \dfrac{P \cdot a}{2}$</p><p class="nota">$n$: number of sides · $a$: apothem</p></div><div class="fcard"><h3>Circle</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><circle cx="75" cy="44" r="36" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><line x1="75" y1="44" x2="111" y2="44" stroke="currentColor"/><text x="93" y="39" text-anchor="middle" fill="currentColor" font-style="italic">r</text></svg><p class="f">$A = \pi r^2$</p><p class="f">$L = 2\pi r$</p><p class="nota">$L$: length of the circumference</p></div><div class="fcard"><h3>Circular sector</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><path d="M50,74 L130,74 A80,80 0 0,0 106.6,17.4 Z" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><text x="90" y="86" text-anchor="middle" fill="currentColor" font-style="italic">r</text><text x="72" y="68" text-anchor="middle" fill="currentColor" font-style="italic">α</text></svg><p class="f">$A = \dfrac{\pi r^2 \cdot \alpha}{360^\circ}$</p><p class="f">$L_{\text{arc}} = \dfrac{2\pi r \cdot \alpha}{360^\circ}$</p><p class="nota">$P = L_{\text{arc}} + 2r$</p></div><div class="fcard"><h3>Annulus</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><circle cx="75" cy="44" r="38" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><circle cx="75" cy="44" r="20" fill="var(--bg-subtle, #fff)" stroke="currentColor" stroke-width="1.5"/><line x1="75" y1="44" x2="113" y2="44" stroke="currentColor"/><line x1="75" y1="44" x2="75" y2="24" stroke="currentColor"/><text x="104" y="40" text-anchor="middle" fill="currentColor" font-style="italic">R</text><text x="80" y="36" text-anchor="start" fill="currentColor" font-style="italic">r</text></svg><p class="f">$A = \pi \left(R^2 - r^2\right)$</p><p class="f">$P = 2\pi R + 2\pi r$</p></div><div class="fcard"><h3>Pythagoras' theorem</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><polygon points="30,74 120,74 30,14" fill="#f59e0b" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><rect x="30" y="64" width="10" height="10" fill="none" stroke="currentColor"/><text x="75" y="87" text-anchor="middle" fill="currentColor" font-style="italic">b</text><text x="22" y="48" text-anchor="end" fill="currentColor" font-style="italic">c</text><text x="82" y="38" text-anchor="start" fill="currentColor" font-style="italic">a</text></svg><p class="f">$a^2 = b^2 + c^2$</p><p class="nota">In a right triangle, $a$ is the hypotenuse.</p></div></div>
+      </div>
+      <div class="apunt-section cossos">
+      <h2>Solids: area and volume</h2>
+      <p class="llegenda">$A_B$: base area · $A_L$: lateral area · $A_T$: total area · $P_B$: perimeter of the base · $V$: volume.</p>
+      <div class="form-grid"><div class="fcard"><h3>Prism</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><polygon points="40,28 100,28 118,14 58,14" fill="#f59e0b" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><polygon points="40,28 100,28 100,80 40,80" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><polygon points="100,28 118,14 118,66 100,80" fill="#6366f1" fill-opacity=".4" stroke="currentColor" stroke-width="1.5"/><text x="128" y="44" text-anchor="start" fill="currentColor" font-style="italic">h</text></svg><p class="f">$A_B = \text{area of the base polygon}$</p><p class="f">$A_L = P_B \cdot h$</p><p class="f">$A_T = 2A_B + A_L$</p><p class="f">$V = A_B \cdot h$</p><p class="nota">Cube with edge $c$: $A_T = 6c^2$, $V = c^3$.</p></div><div class="fcard"><h3>Pyramid</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><polygon points="30,74 100,74 124,58 54,58" fill="#f59e0b" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><polygon points="30,74 100,74 77,8" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><polygon points="100,74 124,58 77,8" fill="#6366f1" fill-opacity=".4" stroke="currentColor" stroke-width="1.5"/><line x1="77" y1="8" x2="77" y2="66" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><line x1="77" y1="8" x2="65" y2="74" stroke="#dc2626" stroke-width="1.5"/><text x="84" y="48" text-anchor="start" fill="currentColor" font-style="italic">h</text><text x="52" y="38" text-anchor="end" fill="#dc2626" font-style="italic">a<tspan font-size='9' dy='3'>p</tspan></text></svg><p class="f">$A_B = \text{area of the base polygon}$</p><p class="f">$A_L = \dfrac{P_B \cdot a_p}{2}$</p><p class="f">$A_T = A_B + A_L$</p><p class="f">$V = \dfrac{A_B \cdot h}{3}$</p><p class="nota">$a_p$: slant height (height of each face). If the base is a square with side $c$: $a_p^2 = h^2 + \left(\tfrac{c}{2}\right)^2$.</p></div><div class="fcard"><h3>Cylinder</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><path d="M45,18 L45,70 A30,9 0 0,0 105,70 L105,18" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><ellipse cx="75" cy="18" rx="30" ry="9" fill="#f59e0b" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><line x1="75" y1="18" x2="105" y2="18" stroke="currentColor"/><text x="90" y="13" text-anchor="middle" fill="currentColor" font-style="italic">r</text><text x="112" y="48" text-anchor="start" fill="currentColor" font-style="italic">h</text></svg><p class="f">$A_B = \pi r^2$</p><p class="f">$A_L = 2\pi r \cdot h$</p><p class="f">$A_T = 2A_B + A_L$</p><p class="f">$V = A_B \cdot h = \pi r^2 h$</p></div><div class="fcard"><h3>Cone</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><path d="M40,70 L75,8 L110,70 A35,10 0 0,1 40,70 Z" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><ellipse cx="75" cy="70" rx="35" ry="10" fill="#f59e0b" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><line x1="75" y1="8" x2="75" y2="70" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><line x1="75" y1="70" x2="110" y2="70" stroke="currentColor"/><text x="70" y="44" text-anchor="end" fill="currentColor" font-style="italic">h</text><text x="96" y="36" text-anchor="start" fill="currentColor" font-style="italic">g</text><text x="96" y="65" text-anchor="middle" fill="currentColor" font-style="italic">r</text></svg><p class="f">$A_B = \pi r^2$</p><p class="f">$A_L = \pi r \cdot g$</p><p class="f">$A_T = A_B + A_L$</p><p class="f">$V = \dfrac{A_B \cdot h}{3} = \dfrac{\pi r^2 h}{3}$</p><p class="nota">$g$: slant height, $g^2 = h^2 + r^2$.</p></div><div class="fcard"><h3>Sphere</h3><svg viewBox="0 0 150 88" overflow="visible" aria-hidden="true" font-family="Inter, sans-serif" font-size="12" fill="currentColor"><circle cx="75" cy="44" r="36" fill="#6366f1" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><ellipse cx="75" cy="44" rx="36" ry="10" stroke="currentColor" stroke-dasharray="4 3" fill="none"/><line x1="75" y1="44" x2="111" y2="44" stroke="currentColor"/><text x="93" y="39" text-anchor="middle" fill="currentColor" font-style="italic">r</text></svg><p class="f">$A = 4\pi r^2$</p><p class="f">$V = \dfrac{4}{3}\pi r^3$</p><p class="nota">No base: just the total area. Hemisphere: $V = \tfrac{2}{3}\pi r^3$.</p></div><div class="fcard"><h3>Capacity and units</h3><p class="f">$1\ \text{dm}^3 = 1\ \text{L}$</p><p class="f">$1\ \text{m}^3 = 1000\ \text{dm}^3 = 1000\ \text{L}$</p><p class="f">$1\ \text{cm}^3 = 1\ \text{mL}$</p><p class="nota">Areas: each unit step is $\times 100$. Volumes: each step is $\times 1000$.</p></div></div>
+      <p class="note">Notice the difference: prisms and cylinders have <strong>two</strong> bases ($A_T = 2A_B + A_L$); pyramids and cones have only <strong>one</strong> ($A_T = A_B + A_L$), and their volume is a third of that of the prism or cylinder with the same base and height.</p>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/eso-4/apuntes/2627-u-reptes/">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>

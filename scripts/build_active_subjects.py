@@ -72,6 +72,7 @@ LABELS = {
         "section_card_apunts": "Apuntes",
         "section_card_fitxes": "Lista de ejercicios",
         "section_card_solucions": "Soluciones",
+        "section_card_formulari": "Formulario",
         "section_card_extra": "Recursos extra",
         "section_card_examen": "Examen y corrección",
         "unit_meta_book": "Libro",
@@ -132,6 +133,7 @@ LABELS = {
         "section_card_apunts": "Apunts",
         "section_card_fitxes": "Llista d'exercicis",
         "section_card_solucions": "Solucions",
+        "section_card_formulari": "Formulari",
         "section_card_extra": "Recursos extra",
         "section_card_examen": "Examen i correcció",
         "unit_meta_book": "Llibre",
@@ -192,6 +194,7 @@ LABELS = {
         "section_card_apunts": "Notes",
         "section_card_fitxes": "Exercise list",
         "section_card_solucions": "Solutions",
+        "section_card_formulari": "Formula sheet",
         "section_card_extra": "Extra resources",
         "section_card_examen": "Exam and solutions",
         "unit_meta_book": "Book",
@@ -399,7 +402,9 @@ SUBJ_4ESO = {
                  "desc_l":{"ca":"Problemes de context real que demanen combinar Pitàgores, escales, àrees, factors de conversió i percentatges.",
                            "es":"Problemas de contexto real que piden combinar Pitágoras, escalas, áreas, factores de conversión y porcentajes.",
                            "en":"Real-context problems that combine Pythagoras, scales, areas, conversion factors and percentages."},
-                 "apunts":"/aula/eso-4/apuntes/2627-u-reptes/"},
+                 "apunts":"/aula/eso-4/apuntes/2627-u-reptes/",
+                 # Formulari de geometria de la unitat (HTML i PDF en tres idiomes).
+                 "formulari":"/aula/eso-4/apuntes/2627-u-reptes/formulari.html"},
     ],
     "archived_years": [],
 }
@@ -921,7 +926,7 @@ const MATERIA = {json.dumps(s['materia_filter'])};
 // aquest any sota la unitat que ara porta el número 09, que és una altra.
 const CURS = {curs_tag_json};
 const MONTHS = {months_js};
-const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','no_exams_unit','exams_unit_title','globals_empty','globals_load_error','section_card_apunts','section_card_fitxes','section_card_solucions','unit_meta_book','unit_meta_dates','unit_meta_trim','examens_count_one','examens_count_many','trimestre_tag','summary_exams_label','summary_fitxes_label','summary_apunts_label','summary_yes','summary_no']}, ensure_ascii=False)};
+const LABELS_JS = {json.dumps({k: L[k] for k in ['exam_questions','exam_question','exam_points','exam_btn_pdf','exam_btn_html','no_exams_unit','exams_unit_title','globals_empty','globals_load_error','section_card_apunts','section_card_fitxes','section_card_solucions','section_card_formulari','unit_meta_book','unit_meta_dates','unit_meta_trim','examens_count_one','examens_count_many','trimestre_tag','summary_exams_label','summary_fitxes_label','summary_apunts_label','summary_yes','summary_no']}, ensure_ascii=False)};
 
 function unitNumOf(colId) {{ const m=(colId||'').match(/-u(\\d{{1,2}})\\b/); return m ? m[1].padStart(2,'0') : null; }}
 function isGlobal(colId) {{ if(!colId) return false; if(unitNumOf(colId)) return false; return /-g\\d+\\b|-final\\b|-rec\\b|-simulacre\\b/.test(colId); }}
@@ -954,6 +959,7 @@ function buildUnit(u, examsByUnit) {{
     buildSectionCard(u.apunts, '📄', LABELS_JS.section_card_apunts),
     buildSectionCard(u.fitxes, '📝', LABELS_JS.section_card_fitxes),
     buildSectionCard(u.solucions, '✅', LABELS_JS.section_card_solucions),
+    u.formulari ? buildSectionCard(u.formulari, '📐', LABELS_JS.section_card_formulari) : '',
   ].join('');
   const examsBox = examCount > 0
     ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">${{LABELS_JS.exams_unit_title}} (${{examCount}})</h4><div class="exam-list">${{exs.map(({{col,ejs}}) => renderExamCard(col, ejs)).join('')}}</div></div>`

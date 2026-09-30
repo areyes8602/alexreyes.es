@@ -124,7 +124,7 @@ function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
 function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
 function toggleChapter(h){h.parentElement.classList.toggle('open');}
 
-const UNITS = [{"num": "01", "slug": "reptes", "title": "Reptes matemàtics", "apunts": "/aula/eso-4/apuntes/2627-u-reptes/", "desc": "Real-context problems that combine Pythagoras, scales, areas, conversion factors and percentages."}];
+const UNITS = [{"num": "01", "slug": "reptes", "title": "Reptes matemàtics", "apunts": "/aula/eso-4/apuntes/2627-u-reptes/", "formulari": "/aula/eso-4/apuntes/2627-u-reptes/formulari.html", "desc": "Real-context problems that combine Pythagoras, scales, areas, conversion factors and percentages."}];
 const MATERIA = "eso-4";
 // Curs d'aquesta pàgina, en el format de l'etiqueta del banc. Els exàmens
 // s'enganxen a la unitat pel seu NÚMERO, i els números canvien d'un curs a
@@ -132,7 +132,7 @@ const MATERIA = "eso-4";
 // aquest any sota la unitat que ara porta el número 09, que és una altra.
 const CURS = "2026-2027";
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "no_exams_unit": "No exams published for this unit yet.", "exams_unit_title": "Exams from this unit", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "section_card_apunts": "Notes", "section_card_fitxes": "Exercise list", "section_card_solucions": "Solutions", "unit_meta_book": "Book", "unit_meta_dates": "Dates", "unit_meta_trim": "term", "examens_count_one": "exam", "examens_count_many": "exams", "trimestre_tag": "term", "summary_exams_label": "Exams", "summary_fitxes_label": "Lists", "summary_apunts_label": "Notes", "summary_yes": "Yes", "summary_no": "No"};
+const LABELS_JS = {"exam_questions": "questions", "exam_question": "question", "exam_points": "points", "exam_btn_pdf": "PDF", "exam_btn_html": "View questions and solutions", "no_exams_unit": "No exams published for this unit yet.", "exams_unit_title": "Exams from this unit", "globals_empty": "No comprehensive exams published yet.", "globals_load_error": "Could not load the exam list.", "section_card_apunts": "Notes", "section_card_fitxes": "Exercise list", "section_card_solucions": "Solutions", "section_card_formulari": "Formula sheet", "unit_meta_book": "Book", "unit_meta_dates": "Dates", "unit_meta_trim": "term", "examens_count_one": "exam", "examens_count_many": "exams", "trimestre_tag": "term", "summary_exams_label": "Exams", "summary_fitxes_label": "Lists", "summary_apunts_label": "Notes", "summary_yes": "Yes", "summary_no": "No"};
 
 function unitNumOf(colId) { const m=(colId||'').match(/-u(\d{1,2})\b/); return m ? m[1].padStart(2,'0') : null; }
 function isGlobal(colId) { if(!colId) return false; if(unitNumOf(colId)) return false; return /-g\d+\b|-final\b|-rec\b|-simulacre\b/.test(colId); }
@@ -165,6 +165,7 @@ function buildUnit(u, examsByUnit) {
     buildSectionCard(u.apunts, '📄', LABELS_JS.section_card_apunts),
     buildSectionCard(u.fitxes, '📝', LABELS_JS.section_card_fitxes),
     buildSectionCard(u.solucions, '✅', LABELS_JS.section_card_solucions),
+    u.formulari ? buildSectionCard(u.formulari, '📐', LABELS_JS.section_card_formulari) : '',
   ].join('');
   const examsBox = examCount > 0
     ? `<div style="margin-top:1.2rem"><h4 style="font-size:0.85rem;color:var(--text-soft);margin:0 0 0.6rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600">${LABELS_JS.exams_unit_title} (${examCount})</h4><div class="exam-list">${exs.map(({col,ejs}) => renderExamCard(col, ejs)).join('')}</div></div>`
