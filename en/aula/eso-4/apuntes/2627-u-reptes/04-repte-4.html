@@ -59,10 +59,16 @@
 .camp svg { display: block; width: 100%; max-width: 380px; height: auto; margin: 0 auto; color: var(--text); }
 .camp figcaption { text-align: center; font-size: .85rem; color: var(--text-soft); margin-top: .4rem; }
 .nous { margin: 1rem 0; }
+.nous .ctrl { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.nous .ctrl input[type=range] { flex: 1; min-width: 160px; max-width: 360px; }
+.nous .ctrl button { font: inherit; font-size: .9rem; min-width: 2.2rem; padding: .3rem .6rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg); color: var(--text); cursor: pointer; }
 .nous .xifra { font-family: var(--mono); font-size: clamp(1.1rem, 4.2vw, 1.6rem); text-align: center; margin: .6rem 0; word-break: break-all; }
 .nous .xifra .nou { color: #059669; font-weight: 700; }
-.nous svg { display: block; width: 100%; height: auto; color: var(--text); }
-.nous .falta { text-align: center; font-size: .95rem; margin-top: .5rem; }
+.nous .figs { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.nous figure { margin: 0; }
+.nous svg { display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto; color: var(--text); }
+.nous figcaption { text-align: center; font-size: .82rem; color: var(--text-soft); margin-top: .35rem; }
+.nous .falta { text-align: center; font-size: .95rem; margin-top: .7rem; }
 .nous .falta b { font-family: var(--mono); }
 </style>
 <meta property="og:type" content="website">
@@ -140,11 +146,9 @@
       </div>
       <div class="apunt-section">
       <h2>See it</h2>
-      <p>Each row is the piece still missing to reach $1$, split into $10$ parts. Each nine we add fills $9$ of them and leaves one empty, which is the one split up in the row below. Add nines and see how much is missing.</p>
-      <div class="prova nous"><label for="nous-n">Number of nines: <span id="nous-nn">1</span></label><input type="range" id="nous-n" min="1" max="15" step="1" value="1"><div class="xifra" id="nous-xifra">0,9</div><svg id="nous-svg" viewBox="0 0 600 50" role="img" aria-label="Each nine fills nine tenths of what is missing" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif"></svg><div class="falta" id="nous-falta" data-t="Still missing to reach 1:"></div></div>
-      <p class="note">With any number of nines, however large, something is still missing. But $0{,}\overline{9}$ does not have a number of nines: it has <strong>infinitely many</strong>. So what happens to the missing piece?</p>
+      <p>Think of $1$ as a whole rectangle (its proportions are chosen so that each blank piece left over is the same shape as the rectangle, only smaller). For $0{,}9$ we split it into $10$ equal parts and colour $9$: one is left blank. For $0{,}99$, the blank part is split into $10$ again and $9$ are coloured. And so on with each nine. If $0{,}\overline{9}$ and $1$ were different, some piece of the rectangle would have to stay blank. Where is it?</p><div class="prova nous"><label for="nous-n">Number of nines: <span id="nous-nn">1</span></label><div class="ctrl"><button type="button" id="nous-menys" aria-label="−">−</button><input type="range" id="nous-n" min="1" max="12" step="1" value="1"><button type="button" id="nous-mes" aria-label="+">+</button></div><div class="xifra" id="nous-xifra">0,9</div><div class="figs"><figure><svg id="nous-main" viewBox="0 0 600 189.74" role="img" aria-label="The whole rectangle" xmlns="http://www.w3.org/2000/svg"></svg><figcaption>The whole rectangle, worth $1$. In red, the piece the magnifier enlarges.</figcaption></figure><figure><svg id="nous-lupa" viewBox="0 0 600 189.74" role="img" aria-label="Magnifier" xmlns="http://www.w3.org/2000/svg"></svg><figcaption id="nous-lupa-cap" data-sense="Magnifier: no need to zoom in yet." data-amb="Magnifier: the marked piece, turned and with its area enlarged"></figcaption></figure></div><div class="falta" id="nous-falta" data-t="Blank part:" data-q="of the rectangle"></div></div><p class="note">With any number of nines the blank part is there, but each nine makes it $10$ times smaller: soon you cannot see it without the magnifier, and the magnifier has to zoom in more and more. $0{,}\overline{9}$ has <strong>infinitely many</strong> nines: no piece of the rectangle is left unpainted, however small you try to make it. There is no difference between $0{,}\overline{9}$ and $1$.</p>
       </div>
-      <div class="apunt-section"><h2>What do you think?</h2><p class="pregunta-enunciat">Is it true that $0{,}\overline{9} = 1$? Justify your answer.</p><button class="solution-toggle" data-toggles="sol-p1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p1" hidden><div class="exercise-card"><span class="ex-label">The generating fraction</span><div class="ex-steps"><p>In the numerator we write the number without the decimal point up to the end of the first repeating block ($09 = 9$) and subtract the part that does not repeat ($0$). In the denominator, as many nines as there are digits in the repeating block: one.</p><div class="math-block">$$0{,}\overline{9} = \dfrac{9 - 0}{9} = \dfrac{9}{9} = 1$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$0{,}\overline{9} = 1$</p></div></div><div class="exercise-card"><span class="ex-label">Another way: multiply by 10</span><div class="ex-steps"><p>This is where the generating-fraction rule comes from. Let $N = 0{,}999\ldots$ and multiply it by $10$: there are still infinitely many nines after the decimal point.</p><div class="math-block">$$10N = 9{,}999\ldots$$</div><div class="math-block">$$10N - N = 9{,}999\ldots - 0{,}999\ldots = 9$$</div><div class="math-block">$$9N = 9 \;\Longrightarrow\; N = 1$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$N = 1$</p></div></div><div class="exercise-card"><span class="ex-label">And a third: thirds</span><div class="ex-steps"><p>We know that $\dfrac{1}{3} = 0{,}333\ldots$ Multiplying everything by $3$:</p><div class="math-block">$$3 \cdot \dfrac{1}{3} = 3 \cdot 0{,}333\ldots \;\Longrightarrow\; 1 = 0{,}999\ldots$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">Two ways of writing the same number.</p></div></div><p class="note">Why is it hard to believe? Because with a <em>finite</em> number of nines something is always missing (you saw it in the figure). With <em>infinitely many</em> nines, what is missing is smaller than any positive number you can think of, and the only number like that is $0$. There is no number between $0{,}\overline{9}$ and $1$: they are the same number written in two ways.</p></section></div>
+      <div class="apunt-section"><h2>What do you think?</h2><p class="pregunta-enunciat">Is it true that $0{,}\overline{9} = 1$? Justify your answer.</p><button class="solution-toggle" data-toggles="sol-p1" data-show-label="Show solution" data-hide-label="Hide solution" onclick="toggleSolucion('sol-p1')"><span class="toggle-label">Show solution</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><section class="solution" id="sol-p1" hidden><div class="exercise-card"><span class="ex-label">The generating fraction</span><div class="ex-steps"><p>In the numerator we write the number without the decimal point up to the end of the first repeating block ($09 = 9$) and subtract the part that does not repeat ($0$). In the denominator, as many nines as there are digits in the repeating block: one.</p><div class="math-block">$$0{,}\overline{9} = \dfrac{9 - 0}{9} = \dfrac{9}{9} = 1$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$0{,}\overline{9} = 1$</p></div></div><div class="exercise-card"><span class="ex-label">Another way: multiply by 10</span><div class="ex-steps"><p>This is where the generating-fraction rule comes from. Let $N = 0{,}999\ldots$ and multiply it by $10$: there are still infinitely many nines after the decimal point.</p><div class="math-block">$$10N = 9{,}999\ldots$$</div><div class="math-block">$$10N - N = 9{,}999\ldots - 0{,}999\ldots = 9$$</div><div class="math-block">$$9N = 9 \;\Longrightarrow\; N = 1$$</div></div><div class="ex-final"><p style="margin:0;font-size:1.02rem;font-weight:500">$N = 1$</p></div></div><p class="note">Why is it hard to believe? Because with a <em>finite</em> number of nines something is always missing (you saw it in the figure). With <em>infinitely many</em> nines, what is missing is smaller than any positive number you can think of, and the only number like that is $0$. There is no number between $0{,}\overline{9}$ and $1$: they are the same number written in two ways.</p></section></div>
 
       <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
         <a class="prev" href="/en/aula/eso-4/apuntes/2627-u-reptes/03-repte-3.html">&larr; Previous section</a>
@@ -173,31 +177,44 @@ function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-the
 <script>
 (function(){
   var r=document.getElementById('nous-n'); if(!r) return;
-  var xi=document.getElementById('nous-xifra'), svg=document.getElementById('nous-svg'), fa=document.getElementById('nous-falta'), nn=document.getElementById('nous-nn');
-  var NS='http://www.w3.org/2000/svg';
-  function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); return e; }
+  var W=600, RT=Math.sqrt(10), H=W/RT, NS='http://www.w3.org/2000/svg', C=['#6366f1','#8b5cf6','#0ea5e9','#f59e0b','#ec4899','#14b8a6'], NOU='#10b981';
+  var xi=document.getElementById('nous-xifra'), nn=document.getElementById('nous-nn'), fa=document.getElementById('nous-falta'),
+      sm=document.getElementById('nous-main'), sl=document.getElementById('nous-lupa'), cap=document.getElementById('nous-lupa-cap');
+  function el(p,t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); p.appendChild(e); return e; }
+  // Rectangle de proporció √10 : 1. Partit en 10 franges pel costat llarg, cada franja torna a tenir proporció √10 : 1.
+  function peces(n){ var R={x:0,y:0,w:RT,h:1}, niv=[];
+    for(var k=0;k<n;k++){ var cel=[], hor=R.w>=R.h;
+      for(var i=0;i<10;i++) cel.push(hor ? {x:R.x+i*R.w/10,y:R.y,w:R.w/10,h:R.h} : {x:R.x,y:R.y+i*R.h/10,w:R.w,h:R.h/10});
+      niv.push({pare:R, cel:cel}); R=cel[9]; }
+    return {niv:niv, blanc:R}; }
+  // Transformació d'una zona a l'svg, girant-la si és vertical perquè sempre es vegi apaïsada.
+  function transf(z){ if(z.w>=z.h){ var s=W/z.w; return function(c){ return {x:(c.x-z.x)*s, y:(c.y-z.y)*s, w:c.w*s, h:c.h*s}; }; }
+    var s2=W/z.h; return function(c){ return {x:(c.y-z.y)*s2, y:(z.x+z.w-c.x-c.w)*s2, w:c.h*s2, h:c.w*s2}; }; }
+  function dibuixa(svg, n, P, z){
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var T=transf(z);
+    el(svg,'rect',{x:0,y:0,width:W,height:H,fill:'#fff'});
+    P.niv.forEach(function(l,k){ l.cel.forEach(function(c,i){ if(i===9) return; var q=T(c);
+      if(q.x>W||q.y>H||q.x+q.w<0||q.y+q.h<0) return;
+      el(svg,'rect',{x:q.x,y:q.y,width:q.w,height:q.h,fill: k===n-1 ? NOU : C[k%C.length],'fill-opacity': k===n-1 ? .9 : .75,stroke:'#fff','stroke-width':Math.min(1.5,q.w/5,q.h/5)}); }); });
+    var b=T(P.blanc); el(svg,'rect',{x:b.x,y:b.y,width:b.w,height:b.h,fill:'#fff',stroke:'#dc2626','stroke-width':1.5});
+    el(svg,'rect',{x:.75,y:.75,width:W-1.5,height:H-1.5,fill:'none',stroke:'currentColor','stroke-width':1.5});
+    return T; }
   function va(){
     var n=parseInt(r.value,10); nn.textContent=n;
     xi.innerHTML='0,'+'9'.repeat(n-1)+'<span class="nou">9</span>';
-    fa.innerHTML=fa.dataset.t+' <b>0,'+'0'.repeat(n-1)+'1</b> = 1/10'+(n>1?'<sup>'+n+'</sup>':'');
-    while(svg.firstChild) svg.removeChild(svg.firstChild);
-    var W=600, rowH=34, gap=16, rows=Math.min(n,8);
-    svg.setAttribute('viewBox','0 0 '+W+' '+(rows*(rowH+gap)+10));
-    for(var k=0;k<rows;k++){
-      var y=5+k*(rowH+gap), w=(W-60)/10;
-      for(var j=0;j<10;j++){
-        var ple=j<9;
-        svg.appendChild(el('rect',{x:30+j*w,y:y,width:w-2,height:rowH,rx:3,fill: ple ? (k===rows-1 && k===n-1 ? '#10b981' : '#6366f1') : 'none', 'fill-opacity': ple ? (k===rows-1 && k===n-1 ? .85 : .45) : 0, stroke:'currentColor','stroke-opacity':.35}));
-      }
-      var t=el('text',{x:24,y:y+rowH/2+5,'text-anchor':'end','font-size':13,fill:'currentColor'}); t.textContent=(k+1)+'.'; svg.appendChild(t);
-      if(k<rows-1){
-        var x0=30+9*w, x1=30+10*w-2;
-        svg.appendChild(el('path',{d:'M'+x0+','+(y+rowH)+' L30,'+(y+rowH+gap)+' M'+x1+','+(y+rowH)+' L'+(W-32)+','+(y+rowH+gap),stroke:'currentColor','stroke-opacity':.35,'stroke-dasharray':'3 3',fill:'none'}));
-      }
-    }
-    if(n>8){ var t2=el('text',{x:W/2,y:rows*(rowH+gap)+4,'text-anchor':'middle','font-size':13,fill:'currentColor'}); t2.textContent='…'; svg.appendChild(t2); }
+    var P=peces(n), T=dibuixa(sm, n, P, {x:0,y:0,w:RT,h:1});
+    var z=P.niv[n-1].pare, q=T(z), d=4;
+    if(n>1){ var mw=Math.max(q.w,8), mh=Math.max(q.h,8);
+      el(sm,'rect',{x:q.x+q.w/2-mw/2-d,y:q.y+q.h/2-mh/2-d,width:mw+2*d,height:mh+2*d,fill:'none',stroke:'#dc2626','stroke-width':2,'stroke-dasharray':'5 3'}); }
+    dibuixa(sl, n, P, z);
+    cap.innerHTML = n===1 ? cap.dataset.sense : cap.dataset.amb+' ×10'+(n>2?'<sup>'+(n-1)+'</sup>':'');
+    fa.innerHTML=fa.dataset.t+' <b>0,'+'0'.repeat(n-1)+'1</b> = 1/10'+(n>1?'<sup>'+n+'</sup>':'')+' '+fa.dataset.q;
   }
-  r.addEventListener('input', va); va();
+  r.addEventListener('input', va);
+  document.getElementById('nous-menys').addEventListener('click', function(){ r.value=Math.max(1,+r.value-1); va(); });
+  document.getElementById('nous-mes').addEventListener('click', function(){ r.value=Math.min(12,+r.value+1); va(); });
+  va();
 })();
 </script>
 <script src="/assets/js/examenes.js?v=202609121757"></script>

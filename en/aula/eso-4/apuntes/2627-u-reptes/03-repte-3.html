@@ -59,10 +59,16 @@
 .camp svg { display: block; width: 100%; max-width: 380px; height: auto; margin: 0 auto; color: var(--text); }
 .camp figcaption { text-align: center; font-size: .85rem; color: var(--text-soft); margin-top: .4rem; }
 .nous { margin: 1rem 0; }
+.nous .ctrl { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.nous .ctrl input[type=range] { flex: 1; min-width: 160px; max-width: 360px; }
+.nous .ctrl button { font: inherit; font-size: .9rem; min-width: 2.2rem; padding: .3rem .6rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg); color: var(--text); cursor: pointer; }
 .nous .xifra { font-family: var(--mono); font-size: clamp(1.1rem, 4.2vw, 1.6rem); text-align: center; margin: .6rem 0; word-break: break-all; }
 .nous .xifra .nou { color: #059669; font-weight: 700; }
-.nous svg { display: block; width: 100%; height: auto; color: var(--text); }
-.nous .falta { text-align: center; font-size: .95rem; margin-top: .5rem; }
+.nous .figs { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.nous figure { margin: 0; }
+.nous svg { display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto; color: var(--text); }
+.nous figcaption { text-align: center; font-size: .82rem; color: var(--text-soft); margin-top: .35rem; }
+.nous .falta { text-align: center; font-size: .95rem; margin-top: .7rem; }
 .nous .falta b { font-family: var(--mono); }
 </style>
 <meta property="og:type" content="website">
