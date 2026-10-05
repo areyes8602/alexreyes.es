@@ -366,12 +366,19 @@ SUBJ_3ESO = {
     "year_current": "2026–27",
     "materia_filter": "eso-3",
     "units": [
-                {"num":"01","slug":"reptes","title":"Reptes matemàtics",
+                # Els reptes de començament de curs són un repàs, no una unitat del
+                # temari: van com a 00 perquè la unitat 1 és la de nombres racionals.
+                {"num":"00","slug":"reptes","title":"Reptes matemàtics",
                  "desc_l":{"ca":"Revisem 2n d'ESO amb problemes de context: superfícies, volums, litres, percentatges i equacions.",
                            "es":"Repasamos 2.º de ESO con problemas de contexto: superficies, volúmenes, litros, porcentajes y ecuaciones.",
                            "en":"Revising 2n ESO through real-context problems: areas, volumes, litres, percentages and equations."},
                  "apunts":"/aula/eso-3/apuntes/2627-u-reptes/",
                  "fitxes":"/aula/eso-3/ejercicios/2627-u-reptes/"},
+                {"num":"01","slug":"nombres-racionals","title":"Nombres racionals",
+                 "desc_l":{"ca":"Conjunts numèrics, fraccions i la seva representació a la recta, i nombres decimals exactes i periòdics.",
+                           "es":"Conjuntos numéricos, fracciones y su representación en la recta, y números decimales exactos y periódicos.",
+                           "en":"Number sets, fractions and how to place them on the number line, and terminating and recurring decimals."},
+                 "apunts":"/aula/eso-3/apuntes/2627-u-nombres-racionals/"},
     ],
     "archived_years": [],
 }

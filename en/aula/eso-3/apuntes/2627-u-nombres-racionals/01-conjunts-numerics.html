@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number sets — Rational numbers — 3r ESO</title>
+<meta name="description" content="3r ESO notes, 2026-27: natural numbers, integers and rational numbers, the parts of a fraction, placing a fraction on the number line (with an interactive number line) and the set diagram.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.def-box .math-block { margin: 0.5rem 0; padding: 0; background: none; border: none; overflow-x: auto; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.example-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.6rem 0; border-bottom: 1px dashed var(--border); }
+.example-row:last-child { border-bottom: none; }
+.example-row .frac-display { min-width: 4rem; text-align: center; font-size: 1.1rem; }
+.example-row .verdict { flex: 1; min-width: 12rem; }
+.example-row .si { color: #059669; font-weight: 600; }
+.example-row .no { color: #dc2626; font-weight: 600; }
+.parts-diagram { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; padding: 1rem; background: var(--bg-subtle); border-radius: 8px; flex-wrap: wrap; }
+.parts-diagram .arrow-label { font-size: 0.92rem; }
+.parts-diagram .arrow-label .lbl { font-weight: 600; }
+.parts-diagram .arrow-label.num { color: #0891b2; }
+.parts-diagram .arrow-label.den { color: #db2777; }
+.recta { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 1rem 0; background: var(--bg-subtle); }
+.recta-controls { display: flex; flex-wrap: wrap; gap: 0.8rem 1.6rem; align-items: center; margin-bottom: 0.6rem; }
+.stepper { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; }
+.stepper .nom { font-weight: 600; min-width: 6.5rem; }
+.stepper.num .nom { color: #0891b2; }
+.stepper.den .nom { color: #db2777; }
+.stepper button { width: 2rem; height: 2rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 1.1rem; line-height: 1; cursor: pointer; }
+.stepper button:hover:not(:disabled) { border-color: #6366f1; color: #6366f1; }
+.stepper button:disabled { opacity: 0.35; cursor: default; }
+.stepper output { font-family: var(--mono); font-size: 1.05rem; min-width: 2.2rem; text-align: center; font-weight: 600; }
+.recta-reset { margin-left: auto; font-size: 0.82rem; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 0.3rem 0.7rem; color: var(--text-soft); cursor: pointer; }
+.recta-reset:hover { border-color: #6366f1; color: #6366f1; }
+.recta-svg { display: block; width: 100%; height: auto; color: var(--text); }
+.recta-lectura { margin-top: 0.4rem; font-size: 0.95rem; }
+.recta-lectura .valor { font-size: 1.15rem; margin: 0.2rem 0 0.4rem; overflow-x: auto; }
+.recta-lectura p { margin: 0.25rem 0; color: var(--text-soft); }
+.recta-lectura .classe { display: inline-block; margin-top: 0.2rem; padding: 0.2rem 0.6rem; border-radius: 99px; font-size: 0.82rem; font-weight: 600; background: rgba(16,185,129,0.12); color: #047857; }
+[data-theme="dark"] .recta-lectura .classe { color: #6ee7b7; }
+.venn { border: 2px solid currentColor; border-radius: 2.2rem; padding: 0.9rem 1.1rem 1rem; position: relative; }
+.venn-q { color: #6366f1; margin: 1.2rem 0 0.6rem; }
+.venn-z { color: #0891b2; flex: 1 1 15rem; }
+.venn-n { color: #059669; display: inline-flex; gap: 1rem; align-items: center; margin: 0 1rem 0.4rem 0; padding: 0.6rem 1.1rem; }
+.venn-lbl { font-weight: 700; font-size: 1.15rem; margin-right: 0.6rem; }
+.venn-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.venn-items { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; align-items: center; color: var(--text); }
+.venn-q > .venn-row > .venn-items { flex: 1 1 16rem; }
+.venn .nombre { color: var(--text); font-size: 1.02rem; }
+.venn .dec { display: inline-flex; flex-direction: column; align-items: flex-start; }
+.venn .dec small { font-size: 0.72rem; color: var(--text-soft); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">
+<meta property="og:title" content="Number sets — Rational numbers — 3r ESO">
+<meta property="og:description" content="3r ESO notes, 2026-27: natural numbers, integers and rational numbers, the parts of a fraction, placing a fraction on the number line (with an interactive number line) and the set diagram.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Number sets — Rational numbers — 3r ESO">
+<meta name="twitter:description" content="3r ESO notes, 2026-27: natural numbers, integers and rational numbers, the parts of a fraction, placing a fraction on the number line (with an interactive number line) and the set diagram.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"3r ESO","item":"https://alexreyes.es/en/docencia/eso-3/"},{"@type":"ListItem","position":4,"name":"Rational numbers","item":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/"},{"@type":"ListItem","position":5,"name":"01 · Number sets","item":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html"}]},{"@type":"LearningResource","name":"01 · Number sets","url":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"3r ESO notes, 2026-27: natural numbers, integers and rational numbers, the parts of a fraction, placing a fraction on the number line (with an interactive number line) and the set diagram."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/eso-3/">3r ESO</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/">Rational numbers</a>
+      <span class="sep">/</span>
+      <span class="current">01 · Number sets</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">3r ESO &middot; Rational numbers</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">5 Oct 2026</span>
+      </div>
+      <h1 style="margin:0">Number sets</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Natural numbers, integers and rational numbers: what they are for, how they are written and how to place a fraction on the number line.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Natural numbers</h2>
+        <div class="def-box">
+          <p>Used for <strong>counting</strong>.</p>
+          <div class="math-block">$$\mathbb{N} = \{1,\ 2,\ 3,\ 4,\ \ldots\}$$</div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Integers</h2>
+        <div class="def-box">
+          <p>Used for <strong>counting forwards and backwards</strong>.</p>
+          <div class="math-block">$$\mathbb{Z} = \{\ldots,\ -4,\ -3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\ 4,\ \ldots\}$$</div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Rational numbers</h2>
+        <div class="def-box">
+          <p>Used, among other things, for <strong>sharing out</strong>. They are all the numbers that can be written <strong>as a fraction</strong>.</p>
+          <div class="math-block">$$\mathbb{Q} = \left\{ \dfrac{a}{b} \;\middle|\; a, b \in \mathbb{Z},\ b \neq 0 \right\}$$</div>
+        </div>
+        <p class="note">Read it as: “the set of fractions $\frac{a}{b}$ where $a$ and $b$ are integers and $b$ is not $0$”.</p>
+
+        <h3 style="font-size:1rem;margin:1.4rem 0 0.3rem">Examples</h3>
+        <div class="example-row"><span class="frac-display">$\dfrac{3}{4}$</span><span class="verdict"><span class="si">✓ is a fraction</span></span></div>
+        <div class="example-row"><span class="frac-display">$\dfrac{5{,}2}{3}$</span><span class="verdict"><span class="no">✗ is not a fraction</span>: $5{,}2$ is not an integer.</span></div>
+        <div class="example-row"><span class="frac-display">$\dfrac{0}{3} = 0$</span><span class="verdict"><span class="si">✓ is a fraction</span></span></div>
+        <div class="example-row"><span class="frac-display">$\dfrac{-5}{0}$</span><span class="verdict"><span class="no">✗ is not a fraction</span>: the denominator cannot be $0$: you cannot share something into zero parts.</span></div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Parts of a fraction</h2>
+        <div class="parts-diagram">
+          <div class="math-block" style="margin:0;padding:0;background:none;border:none;text-align:center;min-width:5rem">$$\dfrac{\textcolor{#0891b2}{a}}{\textcolor{#db2777}{b}}$$</div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <span class="arrow-label num">→ <span class="lbl">Numerator</span> ($a$): the parts we take.</span>
+            <span class="arrow-label den">→ <span class="lbl">Denominator</span> ($b$): the parts each unit is divided into.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Fractions on the number line</h2>
+        <div class="def-box">
+          <h3>Method</h3>
+          <p>&rarr; The <strong>denominator</strong> tells you how many equal parts each unit is divided into.</p>
+          <p>&rarr; The <strong>numerator</strong> tells you how many of those parts to count from $0$: to the right if it is positive, to the left if it is negative.</p>
+        </div>
+        <p style="font-size:0.95rem"><strong>Example.</strong> To place $\dfrac{7}{3}$, divide each unit into $3$ parts and count $7$ of them from $0$: the point lands between $2$ and $3$.</p>
+        <div class="recta" id="recta-interactiva" data-t="{&quot;dreta&quot;: &quot;the right&quot;, &quot;esquerra&quot;: &quot;the left&quot;, &quot;frase&quot;: &quot;Divide each unit into {b} equal parts and count {a} of them from 0 to {dir}.&quot;, &quot;frase1&quot;: &quot;With denominator 1 the unit is not divided: count {a} units from 0 to {dir}.&quot;, &quot;zero&quot;: &quot;With numerator 0 you count no parts: the point is 0.&quot;, &quot;simp&quot;: &quot;It can be simplified: it is the same fraction as {f}.&quot;, &quot;nat&quot;: &quot;Natural number&quot;, &quot;ent&quot;: &quot;Integer (not natural)&quot;, &quot;zeroc&quot;: &quot;Integer: zero&quot;, &quot;exacte&quot;: &quot;Rational, not an integer: terminating decimal&quot;, &quot;pur&quot;: &quot;Rational, not an integer: purely recurring decimal&quot;, &quot;mixt&quot;: &quot;Rational, not an integer: mixed recurring decimal&quot;}">
+          <p style="margin:0 0 0.7rem;font-size:0.9rem;font-weight:600">Try it: change the numerator and the denominator and see where the fraction lands.</p>
+          <div class="recta-controls">
+            <span class="stepper num"><span class="nom">Numerator</span><button type="button" data-k="a" data-d="-1" aria-label="Numerator −1">−</button><output id="recta-a">7</output><button type="button" data-k="a" data-d="1" aria-label="Numerator +1">+</button></span>
+            <span class="stepper den"><span class="nom">Denominator</span><button type="button" data-k="b" data-d="-1" aria-label="Denominator −1">−</button><output id="recta-b">3</output><button type="button" data-k="b" data-d="1" aria-label="Denominator +1">+</button></span>
+            <button type="button" class="recta-reset" id="recta-reset">Back to 7/3</button>
+          </div>
+          <svg class="recta-svg" id="recta-svg" viewBox="0 0 600 120" role="img" aria-label="Number line with the fraction marked"></svg>
+          <div class="recta-lectura" aria-live="polite">
+            <div class="valor" id="recta-valor"></div>
+            <p id="recta-frase"></p>
+            <span class="classe" id="recta-classe"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Set diagram</h2>
+        <p>Every natural number is an integer, and every integer is a rational number: $\;\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}$.</p>
+        <div class="venn venn-q" role="img" aria-label="ℕ ⊂ ℤ ⊂ ℚ">
+          <div class="venn-row">
+            <span class="venn-lbl">$\mathbb{Q}$</span>
+            <div class="venn venn-z">
+              <div class="venn-row">
+                <span class="venn-lbl">$\mathbb{Z}$</span>
+                <div class="venn venn-n"><span class="venn-lbl">$\mathbb{N}$</span><span class="nombre">$2$</span><span class="nombre">$5$</span></div>
+                <div class="venn-items"><span class="nombre">$-3$</span><span class="nombre">$0$</span></div>
+              </div>
+            </div>
+            <div class="venn-items">
+              <span class="nombre">$\dfrac{7}{3}$</span>
+              <span class="nombre">$\dfrac{3}{4}$</span>
+              <span class="nombre dec">$5{,}2$<small>terminating</small></span>
+              <span class="nombre dec">$5{,}\overline{2}$<small>purely recurring</small></span>
+              <span class="nombre dec">$5{,}0\overline{2}$<small>mixed recurring</small></span>
+            </div>
+          </div>
+        </div>
+        <div class="def-box">
+          <h3>Rational decimals</h3>
+          <p>&rarr; <strong>Terminating decimal</strong>: it has a finite number of decimal digits. $5{,}2$</p>
+          <p>&rarr; <strong>Purely recurring decimal</strong>: a digit or group of digits (the period) repeats for ever straight after the decimal comma. $5{,}\overline{2} = 5{,}222\ldots$</p>
+          <p>&rarr; <strong>Mixed recurring decimal</strong>: before the period there are digits that do not repeat. $5{,}0\overline{2} = 5{,}0222\ldots$</p>
+        </div>
+        <p class="note">All three can be written as a fraction, which is why they are rational.</p>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <span class="disabled prev">&larr; Previous section</span>
+        <a class="index" href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/">Unit index</a>
+        <a class="next" href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/02-deures-5-oct.html">Next section &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script>
+(function(){
+  var root=document.getElementById('recta-interactiva'); if(!root) return;
+  var T=JSON.parse(root.getAttribute('data-t'));
+  var A0=7,B0=3,a=A0,b=B0,AMIN=-12,AMAX=12,BMIN=1,BMAX=10;
+  var svg=document.getElementById('recta-svg'), NS='http://www.w3.org/2000/svg';
+  function gcd(x,y){x=Math.abs(x);y=Math.abs(y);while(y){var t=x%y;x=y;y=t;}return x||1;}
+  function decimal(p,q){
+    var neg=p<0; p=Math.abs(p); var ip=Math.floor(p/q), r=p%q, dig=[], seen={}, i=0, ini=-1;
+    while(r!==0 && seen[r]===undefined && i<40){ seen[r]=i; r*=10; dig.push(Math.floor(r/q)); r%=q; i++; }
+    if(r!==0 && seen[r]!==undefined) ini=seen[r];
+    var s=(neg?'-':'')+ip;
+    if(dig.length){ s+='{,}'+(ini<0?dig.join(''):dig.slice(0,ini).join('')+'\\overline{'+dig.slice(ini).join('')+'}'); }
+    return {tex:s, tipus: !dig.length?'enter':(ini<0?'exacte':(ini===0?'pur':'mixt'))};
+  }
+  function fr(p,q){ return (p<0?'-':'')+'\\dfrac{'+Math.abs(p)+'}{'+q+'}'; }
+  function tex(el,s){ if(window.katex){ try{ katex.render(s,el,{throwOnError:false}); return; }catch(e){} } el.textContent=s; }
+  function el(n,at,txt){ var e=document.createElementNS(NS,n); for(var k in at) e.setAttribute(k,at[k]); if(txt!==undefined) e.textContent=txt; svg.appendChild(e); return e; }
+  function dibuixa(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var v=a/b, lo=Math.min(0,Math.floor(v)), hi=Math.max(0,Math.ceil(v));
+    while(hi-lo<4) hi++;
+    var W=Math.round(Math.max(300,Math.min(700,svg.getBoundingClientRect().width||600)));
+    svg.setAttribute('viewBox','0 0 '+W+' 120');
+    var L=28, Rr=W-50, Y=84, U=(Rr-L)/(hi-lo);
+    function X(t){ return L+(t-lo)*U; }
+    el('line',{x1:8,y1:Y,x2:W-14,y2:Y,stroke:'#1d4ed8','stroke-width':2});
+    el('polygon',{points:(W-8)+','+Y+' '+(W-20)+','+(Y-6)+' '+(W-20)+','+(Y+6),fill:'#1d4ed8'});
+    for(var k=lo*b;k<=hi*b;k++){ if(k%b===0) continue; var x=X(k/b); el('line',{x1:x,y1:Y-6,x2:x,y2:Y+6,stroke:'#dc2626','stroke-width':1.5}); }
+    for(var n=lo;n<=hi;n++){ var xn=X(n); el('line',{x1:xn,y1:Y-10,x2:xn,y2:Y+10,stroke:'#1d4ed8','stroke-width':2.5});
+      el('text',{x:xn,y:Y+28,'text-anchor':'middle','font-family':'Inter, sans-serif','font-size':15,fill:'currentColor'},n<0?'−'+(-n):String(n)); }
+    var s=a<0?-1:1, h=Math.min(16,6+U/b/3);
+    for(var j=1;j<=Math.abs(a);j++){ var x0=X(s*(j-1)/b), x1=X(s*j/b), xm=(x0+x1)/2;
+      el('path',{d:'M'+x0+','+(Y-2)+' Q'+xm+','+(Y-2-2*h)+' '+x1+','+(Y-2),fill:'none',stroke:'#f59e0b','stroke-width':1.6}); }
+    var xp=X(v);
+    el('circle',{cx:xp,cy:Y,r:6,fill:'#f59e0b',stroke:'#b45309','stroke-width':1.5});
+    var g={'text-anchor':'middle','font-family':'Inter, sans-serif','font-size':15,'font-weight':600,fill:'#b45309'};
+    var xl=Math.max(18,Math.min(W-18,xp));
+    var lbl=(a<0?'−':'')+Math.abs(a);
+    g.x=xl; g.y=18; el('text',g,lbl);
+    el('line',{x1:xl-13,y1:24,x2:xl+13,y2:24,stroke:'#b45309','stroke-width':1.5});
+    g.y=40; el('text',g,String(b));
+  }
+  function escriu(){
+    var d=gcd(a,b), p=a/d, q=b/d, dec=decimal(a,b);
+    var s=fr(a,b);
+    if(d>1 && q!==1) s+=' = '+fr(p,q);
+    s+=' = '+dec.tex;
+    tex(document.getElementById('recta-valor'),s);
+    var dir=a<0?T.esquerra:T.dreta, f;
+    if(a===0) f=T.zero; else if(b===1) f=T.frase1.replace('{a}',Math.abs(a)).replace('{dir}',dir);
+    else f=T.frase.replace('{b}',b).replace('{a}',Math.abs(a)).replace('{dir}',dir);
+    var fe=document.getElementById('recta-frase'); fe.textContent=f;
+    if(d>1 && a!==0 && q!==1){ var sp=document.createElement('span'); fe.appendChild(document.createTextNode(' '));
+      var parts=T.simp.split('{f}'); fe.appendChild(document.createTextNode(parts[0])); var m=document.createElement('span'); tex(m,fr(p,q).replace('\\dfrac','\\tfrac')); fe.appendChild(m); fe.appendChild(document.createTextNode(parts[1]||'')); }
+    var c;
+    if(dec.tipus==='enter') c = a===0 ? T.zeroc : (a>0 ? T.nat : T.ent); else c=T[dec.tipus];
+    document.getElementById('recta-classe').textContent=c;
+    document.getElementById('recta-a').textContent=a;
+    document.getElementById('recta-b').textContent=b;
+    root.querySelectorAll('.stepper button').forEach(function(btn){
+      var k=btn.getAttribute('data-k'), dd=+btn.getAttribute('data-d');
+      btn.disabled = k==='a' ? (a+dd<AMIN||a+dd>AMAX) : (b+dd<BMIN||b+dd>BMAX); });
+  }
+  function tot(){ dibuixa(); escriu(); }
+  root.querySelectorAll('.stepper button').forEach(function(btn){ btn.addEventListener('click',function(){
+    var dd=+btn.getAttribute('data-d'); if(btn.getAttribute('data-k')==='a') a=Math.max(AMIN,Math.min(AMAX,a+dd)); else b=Math.max(BMIN,Math.min(BMAX,b+dd)); tot(); }); });
+  document.getElementById('recta-reset').addEventListener('click',function(){ a=A0; b=B0; tot(); });
+  tot();
+  var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(dibuixa,120); });
+  if(!window.katex){ var t=setInterval(function(){ if(window.katex){ clearInterval(t); escriu(); } },150); setTimeout(function(){ clearInterval(t); },10000); }
+})();
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>
