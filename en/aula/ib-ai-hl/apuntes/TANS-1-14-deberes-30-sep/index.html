@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Homework for 30 September · TANS 1.14 · IB Math AI HL</title>
-<meta name="description" content="IB Math AI HL notes: the homework for 30 September, with the inverses of four 2×2 matrices worked out and the questions on products, systems and an investment problem.">
+<meta name="description" content="IB Math AI HL notes: the homework for 30 September, corrected: matrix products, the inverses of four 2×2 matrices, systems solved with the inverse matrix and an investment problem.">
 <meta name="robots" content="index, follow">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js?v=202609121757"></script>
@@ -46,14 +46,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/">
 <meta property="og:title" content="Homework for 30 September · TANS 1.14 · IB Math AI HL">
-<meta property="og:description" content="IB Math AI HL notes: the homework for 30 September, with the inverses of four 2×2 matrices worked out and the questions on products, systems and an investment problem.">
+<meta property="og:description" content="IB Math AI HL notes: the homework for 30 September, corrected: matrix products, the inverses of four 2×2 matrices, systems solved with the inverse matrix and an investment problem.">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Homework for 30 September · TANS 1.14 · IB Math AI HL">
-<meta name="twitter:description" content="IB Math AI HL notes: the homework for 30 September, with the inverses of four 2×2 matrices worked out and the questions on products, systems and an investment problem.">
+<meta name="twitter:description" content="IB Math AI HL notes: the homework for 30 September, corrected: matrix products, the inverses of four 2×2 matrices, systems solved with the inverse matrix and an investment problem.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Notes","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Homework for 30 September","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/"}]},{"@type":"LearningResource","name":"Homework for 30 September","url":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"IB Math AI HL notes: the homework for 30 September, with the inverses of four 2×2 matrices worked out and the questions on products, systems and an investment problem."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Notes","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Homework for 30 September","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/"}]},{"@type":"LearningResource","name":"Homework for 30 September","url":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"IB Math AI HL notes: the homework for 30 September, corrected: matrix products, the inverses of four 2×2 matrices, systems solved with the inverse matrix and an investment problem."}]}</script>
 <link rel="canonical" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/">
@@ -102,7 +102,7 @@
       </div>
       <h1 style="margin:0">Homework for 30 September</h1>
       <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
-        Inverses of 2×2 matrices, corrected, and the questions for the other exercises.
+        Corrected: matrix products, 2×2 inverses, three systems solved with the inverse, and an investment problem.
       </p>
     </div>
 
@@ -111,11 +111,36 @@
       <section class="apunt-section">
         <h2>Homework for 30 September</h2>
 
-        <p class="note">Exercise 2 is corrected. For the rest, questions only: the solutions will be added once they have been corrected in class.</p>
+        <p class="note">All corrected. Exercise 2 (parts a and b) was done in class; the rest is worked out here.</p>
 
         <div class="def-box">
           <h3>Exercise 1</h3>
           <p>Using the matrices</p><div class="math-block">$$R = \begin{pmatrix} 0 & -1 \\ 3 & 7 \\ -5 & 4 \end{pmatrix}, \quad S = \begin{pmatrix} 3 & -2 & 1 \\ 4 & 1 & -3 \\ -7 & 5 & 2 \end{pmatrix}, \quad T = \begin{pmatrix} 1 & 2 \\ -1 & 3 \end{pmatrix},$$</div><div class="math-block">$$U = \begin{pmatrix} 4 & -3 & -2 \\ 5 & -4 & 2 \\ 0 & 1 & -1 \end{pmatrix}, \quad W = \begin{pmatrix} 1 & -2 & 3 \\ 3 & 2 & -1 \end{pmatrix}, \quad X = \begin{pmatrix} 7 & -2 \\ -6 & 4 \end{pmatrix},$$</div><p>work out each of the following if possible. If it is not possible, explain why.</p><p><strong>a)</strong> $SR$ &nbsp;&nbsp; <strong>b)</strong> $TR$ &nbsp;&nbsp; <strong>c)</strong> $WR + X$ &nbsp;&nbsp; <strong>d)</strong> $W(S - U)$ &nbsp;&nbsp; <strong>e)</strong> $(S - U)W$</p>
+        </div>
+
+        <div class="step">
+          <h3>a) $SR$</h3>
+          <p>$3\times 3$ times $3\times 2$: it exists and is $3\times 2$.</p><div class="math-block">$$SR = \begin{pmatrix} 3 & -2 & 1 \\ 4 & 1 & -3 \\ -7 & 5 & 2 \end{pmatrix}\begin{pmatrix} 0 & -1 \\ 3 & 7 \\ -5 & 4 \end{pmatrix} = \begin{pmatrix} -11 & -13 \\ 18 & -9 \\ 5 & 50 \end{pmatrix}$$</div>
+        </div>
+
+        <div class="step">
+          <h3>b) $TR$</h3>
+          <p>It does not exist: $T$ is $2\times 2$ and $R$ is $3\times 2$; the $2$ columns of $T$ do not match the $3$ rows of $R$.</p>
+        </div>
+
+        <div class="step">
+          <h3>c) $WR + X$</h3>
+          <p>$WR$ is $2\times 3$ times $3\times 2$, that is, $2\times 2$, like $X$: the sum exists.</p><div class="math-block">$$WR = \begin{pmatrix} 1 & -2 & 3 \\ 3 & 2 & -1 \end{pmatrix}\begin{pmatrix} 0 & -1 \\ 3 & 7 \\ -5 & 4 \end{pmatrix} = \begin{pmatrix} -21 & -3 \\ 11 & 7 \end{pmatrix}\qquad WR + X = \begin{pmatrix} -21 & -3 \\ 11 & 7 \end{pmatrix} + \begin{pmatrix} 7 & -2 \\ -6 & 4 \end{pmatrix} = \begin{pmatrix} -14 & -5 \\ 5 & 11 \end{pmatrix}$$</div>
+        </div>
+
+        <div class="step">
+          <h3>d) $W(S - U)$</h3>
+          <div class="math-block">$$S - U = \begin{pmatrix} -1 & 1 & 3 \\ -1 & 5 & -5 \\ -7 & 4 & 3 \end{pmatrix}$$</div><div class="math-block">$$W(S - U) = \begin{pmatrix} 1 & -2 & 3 \\ 3 & 2 & -1 \end{pmatrix}\begin{pmatrix} -1 & 1 & 3 \\ -1 & 5 & -5 \\ -7 & 4 & 3 \end{pmatrix} = \begin{pmatrix} -20 & 3 & 22 \\ 2 & 9 & -4 \end{pmatrix}$$</div>
+        </div>
+
+        <div class="step">
+          <h3>e) $(S - U)W$</h3>
+          <p>It does not exist: $S - U$ is $3\times 3$ and $W$ is $2\times 3$; the $3$ columns of $S - U$ do not match the $2$ rows of $W$. Together with d), it shows again that the order of a product matters.</p>
         </div>
 
         <div class="def-box">
@@ -151,6 +176,31 @@
         <div class="def-box">
           <h3>Exercise 4</h3>
           <p>Set up a system of equations that represents the situation, defining all the variables, and solve it using matrices.</p><p>In 2016, someone invested a total of $175\,000$ dollars in three index funds, $F_1$, $F_2$ and $F_3$. After one year, the combined value of the three investments was $181\,615$ dollars. The funds made average annual gains of $2.5\,\%$, $4.8\,\%$ and $3.5\,\%$ respectively. If twice as much was invested in $F_2$ as in $F_1$, how much was invested in each fund?</p>
+        </div>
+
+        <div class="step">
+          <h3>3a) 3×3 system</h3>
+          <div class="math-block">$$\begin{pmatrix} 1 & 1 & 3 \\ 3 & 2 & -1 \\ 2 & 1 & 1 \end{pmatrix}\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 30 \\ 20 \\ 10 \end{pmatrix}\qquad |A| = -5$$</div><div class="math-block">$$X = A^{-1}B = \dfrac{1}{5}\begin{pmatrix} -3 & -2 & 7 \\ 5 & 5 & -10 \\ 1 & -1 & 1 \end{pmatrix}\begin{pmatrix} 30 \\ 20 \\ 10 \end{pmatrix} = \dfrac{1}{5}\begin{pmatrix} -60 \\ 150 \\ 20 \end{pmatrix} = \begin{pmatrix} -12 \\ 30 \\ 4 \end{pmatrix}$$</div><div class="final">$x = -12, \quad y = 30, \quad z = 4$</div><p class="note">Check: $-12 + 30 + 3\cdot 4 = 30$, &nbsp;$3(-12) + 2\cdot 30 - 4 = 20$ &nbsp;and&nbsp; $2(-12) + 30 + 4 = 10$.</p>
+        </div>
+
+        <div class="step">
+          <h3>3b) 2×2 system</h3>
+          <div class="math-block">$$\begin{pmatrix} 5 & -7 \\ -2 & 5 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 12 \\ 20 \end{pmatrix}\qquad |A| = 25 - 14 = 11$$</div><div class="math-block">$$X = A^{-1}B = \dfrac{1}{11}\begin{pmatrix} 5 & 7 \\ 2 & 5 \end{pmatrix}\begin{pmatrix} 12 \\ 20 \end{pmatrix} = \dfrac{1}{11}\begin{pmatrix} 200 \\ 124 \end{pmatrix}$$</div><div class="final">$x = \dfrac{200}{11} \approx 18.18, \qquad y = \dfrac{124}{11} \approx 11.27$</div><p class="note">Check: $5\cdot\frac{200}{11} - 7\cdot\frac{124}{11} = \frac{1000 - 868}{11} = \frac{132}{11} = 12$.</p>
+        </div>
+
+        <div class="step">
+          <h3>3c) 4×4 system</h3>
+          <p>Keep the unknowns in order, $a, b, c, d$, and put a $0$ wherever one is missing:</p><div class="math-block">$$\begin{pmatrix} 2 & 1 & -1 & 4 \\ 0 & 5 & -3 & 0 \\ 4 & -3 & 0 & 1 \\ 1 & 0 & 2 & -8 \end{pmatrix}\begin{pmatrix} a \\ b \\ c \\ d \end{pmatrix} = \begin{pmatrix} -2 \\ 4 \\ 1.75 \\ -0.5 \end{pmatrix}\qquad |A| = 254$$</div><p>On the calculator, the inverse is</p><div class="math-block">$$A^{-1} = \dfrac{1}{254}\begin{pmatrix} 62 & 2 & 24 & 34 \\ 99 & -5 & -60 & 42 \\ 165 & -93 & -100 & 70 \\ 49 & -23 & -22 & -10 \end{pmatrix}$$</div><div class="math-block">$$X = A^{-1}B = \begin{pmatrix} -\frac{91}{254} \\ -\frac{172}{127} \\ -\frac{456}{127} \\ -\frac{447}{508} \end{pmatrix}\approx \begin{pmatrix} -0.358 \\ -1.354 \\ -3.591 \\ -0.880 \end{pmatrix}$$</div><div class="final">$a \approx -0.358, \quad b \approx -1.354, \quad c \approx -3.591, \quad d \approx -0.880$</div><p class="note">The numbers are not nice, but they are right: check in the second equation, $5b - 3c = -\frac{860}{127} + \frac{1368}{127} = \frac{508}{127} = 4$.</p>
+        </div>
+
+        <div class="step">
+          <h3>4) The variables and the system</h3>
+          <p>Let $x$, $y$ and $z$ be the dollars invested in $F_1$, $F_2$ and $F_3$. The total invested, the value after one year (each fund multiplied by $1$ plus its gain) and the “twice as much” condition give:</p><div class="math-block">$$\begin{cases} x + y + z = 175\,000 \\ 1.025x + 1.048y + 1.035z = 181\,615 \\ y = 2x \end{cases} \;\Longrightarrow\; \begin{pmatrix} 1 & 1 & 1 \\ 1.025 & 1.048 & 1.035 \\ 2 & -1 & 0 \end{pmatrix}\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 175\,000 \\ 181\,615 \\ 0 \end{pmatrix}$$</div><p class="note">The condition $y = 2x$ is written $2x - y = 0$ so that it fits the form $AX = B$.</p>
+        </div>
+
+        <div class="step">
+          <h3>4) The solution</h3>
+          <div class="math-block">$$X = A^{-1}B = \begin{pmatrix} 30\,625 \\ 61\,250 \\ 83\,125 \end{pmatrix}$$</div><div class="final">$F_1$: $30\,625$ dollars; &nbsp;$F_2$: $61\,250$ dollars; &nbsp;$F_3$: $83\,125$ dollars</div><p class="note">Check: they add up to $175\,000$, and the gains are $765.63 + 2940 + 2909.38 = 6615$, exactly $181\,615 - 175\,000$.</p>
         </div>
       </section>
 
