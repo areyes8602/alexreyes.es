@@ -136,7 +136,9 @@ function apunteHref(slug) { return (TRAD.indexOf(slug) >= 0 ? '/en' : '') + '/au
     const conceptosDisponibles = conceptosApuntes.conceptos || [];
     const subtemasInfo = (tagsData?.namespaces?.concepto_iba?.valores) || {};
     // Un concepte pot tenir diversos apartats: es compten pàgines, no codis.
-    const conCount = u2 => conceptosDisponibles.filter(c => (u2.tags_iba || []).includes(c.code)).length;
+    // Un apartat amb 'unidades' només compta a aquestes unitats.
+    const aLaUnitat = (c, u2) => (u2.tags_iba || []).includes(c.code) && (!c.unidades || c.unidades.includes(u2.id));
+    const conCount = u2 => conceptosDisponibles.filter(c => aLaUnitat(c, u2)).length;
 
     // Sin unidad en la URL —al volver por las migas de pan, por ejemplo— no
     // tiene sentido dar error: se listan las unidades que ya tienen apuntes.
@@ -171,7 +173,7 @@ function apunteHref(slug) { return (TRAD.indexOf(slug) >= 0 ? '/en' : '') + '/au
     };
     const conceptosConApuntes = conceptosDisponibles
       .map((e, k) => ({ e, k, p: pos(e) }))
-      .filter(x => (u.tags_iba || []).includes(x.e.code))
+      .filter(x => aLaUnitat(x.e, u))
       .sort((a, b) => (a.p === b.p ? 0 : (a.p < b.p ? -1 : 1)) || (a.k - b.k))
       .map(({ e }) => {
         const info = subtemasInfo[e.code];

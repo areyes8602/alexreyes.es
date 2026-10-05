@@ -47,22 +47,28 @@
       }
     },
     {
-      "code": "TANS 3.9",
+      "code": "NM 2.5",
       "slug": "TANS-3-9",
       "titulo": {
         "es": "Funciones sinusoidales: los cuatro parámetros",
         "ca": "Funcions sinusoïdals: els quatre paràmetres",
         "en": "Sinusoidal functions: the four parameters"
-      }
+      },
+      "unidades": [
+        "u08-ondas-fasores-complejos"
+      ]
     },
     {
-      "code": "TANS 3.9",
+      "code": "NM 2.5",
       "slug": "TANS-3-9-deberes-14-sep",
       "titulo": {
         "es": "Deberes del 14 de septiembre",
         "ca": "Deures del 14 de setembre",
         "en": "Homework for 14 September"
-      }
+      },
+      "unidades": [
+        "u08-ondas-fasores-complejos"
+      ]
     },
     {
       "code": "TANS 1.12",
@@ -119,7 +125,7 @@
       }
     },
     {
-      "code": "TANS 3.9",
+      "code": "TANS 1.13",
       "slug": "TANS-3-9-suma-sinusoides",
       "titulo": {
         "es": "Suma de sinusoidales con la misma frecuencia",
@@ -209,7 +215,7 @@
       }
     },
     {
-      "code": "TANS 1.14",
+      "code": "TANS 3.9",
       "slug": "TANS-1-14-transformaciones",
       "titulo": {
         "es": "Transformaciones en el plano",
@@ -218,5 +224,6 @@
       }
     }
   ],
-  "_doc_titulo": "Un concepto puede tener varios apartados, cada uno con su página y su slug. 'titulo' es el nombre del apartado en cada idioma; sin él, el índice usa la etiqueta del código en tags.json. El orden dentro de la unidad es el de 'apuntes_orden' en ib-unidades.json, que admite slugs o códigos."
+  "_doc_titulo": "Un concepto puede tener varios apartados, cada uno con su página y su slug. 'titulo' es el nombre del apartado en cada idioma; sin él, el índice usa la etiqueta del código en tags.json. El orden dentro de la unidad es el de 'apuntes_orden' en ib-unidades.json, que admite slugs o códigos.",
+  "_doc_unidades": "Opcional. Si un apartado lleva 'unidades', solo aparece en esas unidades aunque su código esté también en otras (p. ej. NM 2.5, modelos, sale en varias unidades; los apartados de sinusoidales son de la U08)."
 }

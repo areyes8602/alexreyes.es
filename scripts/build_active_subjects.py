@@ -1243,6 +1243,7 @@ function getUnidadResources(u, ctx) {{
   let apuntesCount = 0;
   for (const c of (ctx.conceptosApuntes || [])) {{
     if (!unidadTags.includes(c.code)) continue;
+    if (c.unidades && !c.unidades.includes(u.id)) continue;
     apuntesCount++;
   }}
   if (apuntesCount > 0) {{

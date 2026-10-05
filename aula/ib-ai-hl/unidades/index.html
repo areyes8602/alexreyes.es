@@ -26,6 +26,10 @@
 <meta name="twitter:description" content="Unidades didácticas IB Math AI HL: apuntes, ejercicios, soluciones y materiales. Estructura propia organizada en 5 trimestres.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/unidades/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/unidades/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/unidades/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/unidades/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/unidades/">
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -176,7 +180,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       ? (tagsData.namespaces.concepto_iba.valores || {})
       : {};
     const conceptosConApuntes = (u.tags_iba || []).map(code => {
-      const entry = conceptosDisponibles.find(c => c.code === code);
+      const entry = conceptosDisponibles.find(c => c.code === code && (!c.unidades || c.unidades.includes(u.id)));
       if (!entry) return null;
       const subtemaInfo = apuntesEnUnidad[code];
       const tituloRaw = subtemaInfo?.label?.es || code;
@@ -275,5 +279,6 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
 
 window.addEventListener('hashchange', () => location.reload());
 </script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
 </body>
 </html>

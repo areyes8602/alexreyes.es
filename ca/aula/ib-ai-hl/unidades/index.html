@@ -26,6 +26,10 @@
 <meta name="twitter:description" content="Fitxa d'una unitat didàctica d'IB Math AI: subtemes NM/TANS que cobreix, apunts, exercicis i exàmens.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
 <link rel="canonical" href="https://alexreyes.es/ca/aula/ib-ai-hl/unidades/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/unidades/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/unidades/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/unidades/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/unidades/">
 </head>
 <body>
 <a class="skip-link" href="#main">Salta al contingut</a>
@@ -176,7 +180,7 @@ function escHtml(s){return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;',
       ? (tagsData.namespaces.concepto_iba.valores || {})
       : {};
     const conceptosConApuntes = (u.tags_iba || []).map(code => {
-      const entry = conceptosDisponibles.find(c => c.code === code);
+      const entry = conceptosDisponibles.find(c => c.code === code && (!c.unidades || c.unidades.includes(u.id)));
       if (!entry) return null;
       const subtemaInfo = apuntesEnUnidad[code];
       const tituloRaw = subtemaInfo?.label?.ca || subtemaInfo?.label?.es || code;
@@ -279,5 +283,6 @@ window.addEventListener('hashchange', () => location.reload());
 // El selector d'idioma ha de conservar la unitat que s'esta veient.
 (function(){var w=document.querySelector('.lang-sw');if(!w)return;var f=function(){for(var a of w.querySelectorAll('a'))a.href=a.href.split('#')[0]+location.hash;};f();window.addEventListener('hashchange',f);})();
 </script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
 </body>
 </html>

@@ -37,7 +37,7 @@
       return i >= 0 ? i : Infinity;
     };
     var llista = C.map(function (e, k) { return { e: e, k: k, p: pos(e) }; })
-      .filter(function (x) { return tags.indexOf(x.e.code) >= 0; })
+      .filter(function (x) { return tags.indexOf(x.e.code) >= 0 && (!x.e.unidades || x.e.unidades.indexOf(u.id) >= 0); })
       .sort(function (a, b) { return (a.p === b.p ? 0 : (a.p < b.p ? -1 : 1)) || (a.k - b.k); })
       .map(function (x) { return x.e; });
     var i = llista.findIndex(function (e) { return e.slug === slug; });
