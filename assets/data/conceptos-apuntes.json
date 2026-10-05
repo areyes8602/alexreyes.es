@@ -162,6 +162,60 @@
         "ca": "Potències d'una matriu i Fibonacci",
         "en": "Powers of a matrix and Fibonacci"
       }
+    },
+    {
+      "code": "TANS 1.14",
+      "slug": "TANS-1-14-operaciones",
+      "titulo": {
+        "es": "Suma, resta y producto de matrices",
+        "ca": "Suma, resta i producte de matrius",
+        "en": "Adding, subtracting and multiplying matrices"
+      }
+    },
+    {
+      "code": "TANS 1.15",
+      "slug": "TANS-1-14-potencias",
+      "titulo": {
+        "es": "Potencias, propiedades y traspuesta",
+        "ca": "Potències, propietats i transposada",
+        "en": "Powers, properties and the transpose"
+      }
+    },
+    {
+      "code": "TANS 1.14",
+      "slug": "TANS-1-14-determinante-inversa",
+      "titulo": {
+        "es": "Determinante y matriz inversa",
+        "ca": "Determinant i matriu inversa",
+        "en": "Determinant and inverse matrix"
+      }
+    },
+    {
+      "code": "NM 1.8",
+      "slug": "TANS-1-14-sistemas",
+      "titulo": {
+        "es": "Sistemas de ecuaciones con matrices",
+        "ca": "Sistemes d'equacions amb matrius",
+        "en": "Systems of equations with matrices"
+      }
+    },
+    {
+      "code": "TANS 1.14",
+      "slug": "TANS-1-14-deberes-30-sep",
+      "titulo": {
+        "es": "Deberes del 30 de septiembre",
+        "ca": "Deures del 30 de setembre",
+        "en": "Homework for 30 September"
+      }
+    },
+    {
+      "code": "TANS 1.14",
+      "slug": "TANS-1-14-transformaciones",
+      "titulo": {
+        "es": "Transformaciones en el plano",
+        "ca": "Transformacions en el pla",
+        "en": "Transformations of the plane"
+      }
     }
   ],
   "_doc_titulo": "Un concepto puede tener varios apartados, cada uno con su página y su slug. 'titulo' es el nombre del apartado en cada idioma; sin él, el índice usa la etiqueta del código en tags.json. El orden dentro de la unidad es el de 'apuntes_orden' en ib-unidades.json, que admite slugs o códigos."
