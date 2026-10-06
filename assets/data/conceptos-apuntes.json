@@ -222,6 +222,15 @@
         "ca": "Transformacions en el pla",
         "en": "Transformations of the plane"
       }
+    },
+    {
+      "code": "TANS 3.9",
+      "slug": "TANS-1-14-ejercicios-transformaciones",
+      "titulo": {
+        "es": "Ejercicios de transformaciones",
+        "ca": "Exercicis de transformacions",
+        "en": "Transformation exercises"
+      }
     }
   ],
   "_doc_titulo": "Un concepto puede tener varios apartados, cada uno con su página y su slug. 'titulo' es el nombre del apartado en cada idioma; sin él, el índice usa la etiqueta del código en tags.json. El orden dentro de la unidad es el de 'apuntes_orden' en ib-unidades.json, que admite slugs o códigos.",

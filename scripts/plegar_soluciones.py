@@ -223,7 +223,8 @@ def convert_statement_boxes(s, L):
             if a is None:
                 a = k
             j = b = elem_end(s, k)
-        if a is None or s.startswith('<div class="apart">', a):
+        # Ja plegat: un .apart, o la caixa .exercise amb un .apart per apartat.
+        if a is None or s.startswith('<div class="apart">', a) or s.startswith('<div class="exercise">', a):
             continue
         region = strip_toggle(s[a:b])
         s = s[:a] + apart(f'<span class="stmt">{VEURE[L]}</span>', region).lstrip() + s[b:]

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Transformations of the plane · TANS 3.9 · IB Math AI HL</title>
-<meta name="description" content="IB Math AI HL notes: transformations of the plane with matrices (stretches, enlargement and rotation) and the link between the determinant and the area of the image.">
+<meta name="description" content="IB Math AI HL notes: transformations of the plane with matrices (stretches, enlargement, rotation and reflection in a line, with a simulator), the link between the determinant and the area of the image, and affine transformations.">
 <meta name="robots" content="index, follow">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js?v=202609121757"></script>
@@ -46,14 +46,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/">
 <meta property="og:title" content="Transformations of the plane · TANS 3.9 · IB Math AI HL">
-<meta property="og:description" content="IB Math AI HL notes: transformations of the plane with matrices (stretches, enlargement and rotation) and the link between the determinant and the area of the image.">
+<meta property="og:description" content="IB Math AI HL notes: transformations of the plane with matrices (stretches, enlargement, rotation and reflection in a line, with a simulator), the link between the determinant and the area of the image, and affine transformations.">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Transformations of the plane · TANS 3.9 · IB Math AI HL">
-<meta name="twitter:description" content="IB Math AI HL notes: transformations of the plane with matrices (stretches, enlargement and rotation) and the link between the determinant and the area of the image.">
+<meta name="twitter:description" content="IB Math AI HL notes: transformations of the plane with matrices (stretches, enlargement, rotation and reflection in a line, with a simulator), the link between the determinant and the area of the image, and affine transformations.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Notes","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Transformations of the plane","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/"}]},{"@type":"LearningResource","name":"Transformations of the plane","url":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"IB Math AI HL notes: transformations of the plane with matrices (stretches, enlargement and rotation) and the link between the determinant and the area of the image."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/en/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Notes","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Transformations of the plane","item":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/"}]},{"@type":"LearningResource","name":"Transformations of the plane","url":"https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"IB Math AI HL notes: transformations of the plane with matrices (stretches, enlargement, rotation and reflection in a line, with a simulator), the link between the determinant and the area of the image, and affine transformations."}]}</script>
 <link rel="canonical" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/">
@@ -102,7 +102,7 @@
       </div>
       <h1 style="margin:0">Transformations of the plane</h1>
       <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
-        Stretches, enlargements and rotations as 2×2 matrices, and what the determinant says about area.
+        Stretches, enlargements, rotations and reflections as 2×2 matrices, what the determinant says about area, and affine transformations.
       </p>
     </div>
 
@@ -179,6 +179,60 @@
         </div>
 
         <p class="note">The matrix $\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ in <a href="/en/aula/ib-ai-hl/apuntes/TANS-1-14-potencias/?from=u09-matrices">Powers, properties and the transpose</a> is the $90^\circ$ clockwise rotation: that is why its fourth power is the identity.</p>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Reflection in a line</h2>
+
+        <div class="def-box">
+          <h3>Line through the origin</h3>
+          <p>The reflection in the line $y = (\tan\theta)\,x$, which passes through the origin and makes an angle $\theta$ with the $x$-axis, has matrix</p><div class="math-block">$$S = \begin{pmatrix} \cos 2\theta & \sin 2\theta \\ \sin 2\theta & -\cos 2\theta \end{pmatrix}$$</div><p>Its determinant is $-\cos^{2}2\theta - \sin^{2}2\theta = -1$: it keeps the area, but flips the figure over.</p>
+        </div>
+
+        <style>
+.sim-sim { border:1px solid var(--border); border-radius:8px; padding:1rem 1.1rem; margin:1.4rem 0; background:var(--bg-subtle); }
+.sim-sim h3 { margin:0 0 0.3rem; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#7c3aed; }
+.sim-sim .sim-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.4rem 1.2rem; margin:0.8rem 0; }
+.sim-sim label { display:block; font-size:0.86rem; }
+.sim-sim label output { font-family:'JetBrains Mono',monospace; font-weight:600; }
+.sim-sim input[type=range] { width:100%; }
+.sim-sim .sim-presets { display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.3rem 0 0.6rem; }
+.sim-sim button { font:inherit; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:99px; border:1px solid var(--border); background:var(--bg); color:inherit; cursor:pointer; }
+.sim-sim button:hover { border-color:#7c3aed; }
+.sim-sim svg { display:block; width:100%; max-width:340px; height:auto; margin:0 auto; }
+.sim-sim .sim-resultat { font-size:0.92rem; margin:0.6rem 0 0; font-family:'JetBrains Mono',monospace; overflow-x:auto; }
+</style><div class="sim-sim" data-dec="." data-recta="Line" data-play="▶ Play" data-stop="■ Stop"><h3>Simulator · The reflection, step by step</h3><p class="note" style="margin:0">Choose the line and move the transition: each vertex travels in a straight line to its image, always perpendicular to the line. Halfway, at $t = \frac{1}{2}$, the whole figure lies on the line; at the end it is flipped over: the marked point has changed sides.</p><div class="sim-presets"><button type="button" data-theta="45">y = x</button><button type="button" data-theta="63.4349">y = 2x</button><button type="button" data-theta="0">x-axis</button><button type="button" data-theta="90">y-axis</button><button type="button" data-theta="135">y = −x</button></div><div class="sim-grid"><label>Angle of the line $\theta$ <output data-out="theta"></output><input type="range" name="theta" min="0" max="180" step="0.5" value="45"></label><label>Transition $t$ <output data-out="t"></output><input type="range" name="t" min="0" max="1" step="0.01" value="0"></label></div><div class="sim-presets"><button type="button" data-play>▶ Play</button></div><svg viewBox="0 0 340 340" role="img" aria-label="Reflection of the square in a line through the origin"></svg><p class="sim-resultat"></p></div><script defer src="/assets/js/simetria-recta.js?v=202610061200"></script>
+
+        <div class="step">
+          <h3>Example 1: reflection in $y = x$</h3>
+          <div class="math-block">$$\tan\theta = 1 \;\Longrightarrow\; \theta = \arctan 1 = 45^\circ \qquad S = \begin{pmatrix} \cos 90^\circ & \sin 90^\circ \\ \sin 90^\circ & -\cos 90^\circ \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$$</div><div class="math-block">$$C' = S\cdot C = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 & 4 & 4 & 1 \\ 1 & 1 & 4 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 4 & 4 \\ 1 & 4 & 4 & 1 \end{pmatrix}$$</div><p>The two coordinates of each point are swapped: the square is symmetric about $y = x$ and lands on itself, but with its vertices in different places.</p>
+        </div>
+
+        <div class="step">
+          <h3>Example 2: reflection in $y = 2x$</h3>
+          <div class="math-block">$$\tan\theta = 2 \;\Longrightarrow\; \theta = \arctan 2 \approx 63.43^\circ, \quad 2\theta \approx 126.87^\circ$$</div><div class="math-block">$$S = \begin{pmatrix} \cos 2\theta & \sin 2\theta \\ \sin 2\theta & -\cos 2\theta \end{pmatrix} = \begin{pmatrix} -0.6 & 0.8 \\ 0.8 & 0.6 \end{pmatrix}$$</div><div class="math-block">$$C' = S\cdot C = \begin{pmatrix} -0.6 & 0.8 \\ 0.8 & 0.6 \end{pmatrix}\begin{pmatrix} 1 & 4 & 4 & 1 \\ 1 & 1 & 4 & 4 \end{pmatrix} = \begin{pmatrix} 0.2 & -1.6 & 0.8 & 2.6 \\ 1.4 & 3.8 & 5.6 & 3.2 \end{pmatrix}$$</div><p class="note">Without a calculator: if the line is $y = mx$, then $\cos 2\theta = \frac{1 - m^{2}}{1 + m^{2}}$ and $\sin 2\theta = \frac{2m}{1 + m^{2}}$. With $m = 2$ they come out exactly as $-\frac{3}{5}$ and $\frac{4}{5}$.</p><svg class="fig-svg" viewBox="0 0 330 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Original square and its reflection in the line y = 2x" style="max-width:330px"><line x1="20.0" y1="310.0" x2="20.0" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="56.2" y1="310.0" x2="56.2" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="92.5" y1="310.0" x2="92.5" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="128.8" y1="310.0" x2="128.8" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="165.0" y1="310.0" x2="165.0" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="201.2" y1="310.0" x2="201.2" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="237.5" y1="310.0" x2="237.5" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="273.8" y1="310.0" x2="273.8" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="310.0" y1="310.0" x2="310.0" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="310.0" x2="310.0" y2="310.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="273.8" x2="310.0" y2="273.8" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="237.5" x2="310.0" y2="237.5" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="201.2" x2="310.0" y2="201.2" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="165.0" x2="310.0" y2="165.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="128.8" x2="310.0" y2="128.8" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="92.5" x2="310.0" y2="92.5" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="56.2" x2="310.0" y2="56.2" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="20.0" x2="310.0" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="273.8" x2="310.0" y2="273.8" stroke="#94a3b8" stroke-width="1.3"/><line x1="128.8" y1="310.0" x2="128.8" y2="20.0" stroke="#94a3b8" stroke-width="1.3"/><text x="56.2" y="286.8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">-2</text><text x="201.2" y="286.8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">2</text><text x="273.8" y="286.8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">4</text><text x="123.8" y="204.2" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">2</text><text x="123.8" y="131.8" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">4</text><text x="123.8" y="59.2" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">6</text><polygon points="165.0,237.5 273.8,237.5 273.8,128.8 165.0,128.8" fill="rgba(100,116,139,0.12)" stroke="#64748b" stroke-width="1.4" stroke-dasharray="5 4"/><polygon points="136.0,223.0 70.8,136.0 157.8,70.8 223.0,157.8" fill="rgba(234,88,12,0.18)" stroke="#ea580c" stroke-width="2"/><circle cx="136.0" cy="223.0" r="3" fill="#ea580c"/><circle cx="70.8" cy="136.0" r="3" fill="#ea580c"/><circle cx="157.8" cy="70.8" r="3" fill="#ea580c"/><circle cx="223.0" cy="157.8" r="3" fill="#ea580c"/><text x="316" y="22" text-anchor="end" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" fill="#ea580c">y = 2x</text></svg>
+        </div>
+
+        <div class="prop-box">
+          <h3>Correction to the board</h3>
+          <p>On the board it came out as $2\theta = 126.86^\circ$, but $2\cdot 63.4349^\circ = 126.87^\circ$ when rounded. The matrix does not change: $-0.6$ and $0.8$ are exact.</p>
+        </div>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Affine transformations</h2>
+
+        <div class="def-box">
+          <h3>Definition</h3>
+          <p>An <strong>affine transformation</strong> is one of the transformations above (stretch, enlargement, reflection or rotation) followed by a <strong>translation</strong>:</p><div class="math-block">$$T(X) = A_{n\times n}\cdot X_{n\times m} + B_{n\times m}$$</div><p>$A$ is the matrix of the transformation and $B$ is the translation: the same column repeated for every point in $X$.</p>
+        </div>
+
+        <p class="note">The translation does not change the area: the image still has $|\det A|$ times the original area.</p>
+
+        <div class="step">
+          <h3>Example: rotating the square about its centre</h3>
+          <p>A $90^\circ$ anticlockwise rotation about the origin followed by a translation of $(5, 0)$:</p><div class="math-block">$$C' = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 & 4 & 4 & 1 \\ 1 & 1 & 4 & 4 \end{pmatrix} + \begin{pmatrix} 5 & 5 & 5 & 5 \\ 0 & 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} -1 & -1 & -4 & -4 \\ 1 & 4 & 4 & 1 \end{pmatrix} + \begin{pmatrix} 5 & 5 & 5 & 5 \\ 0 & 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} 4 & 4 & 1 & 1 \\ 1 & 4 & 4 & 1 \end{pmatrix}$$</div><p>The square lands on itself again, with each vertex moved to the next: $(1,1) \to (4,1) \to (4,4) \to (1,4) \to (1,1)$. It is the $90^\circ$ rotation about its centre, $(2.5, 2.5)$, which cannot be written with a $2\times 2$ matrix alone because it does not keep the origin fixed.</p><p class="note">This example is not from class: I have added it to show a complete affine transformation.</p>
+        </div>
       </section>
 
       <nav class="exam-nav" id="apunt-nav" aria-label="Notes navigation" style="margin-top:2.5rem"

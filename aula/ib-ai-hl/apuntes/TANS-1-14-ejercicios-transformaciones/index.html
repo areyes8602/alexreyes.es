@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios de transformaciones · TANS 3.9 · IB Math AI HL</title>
+<meta name="description" content="Apuntes de IB Math AI HL: enunciados de ejercicios de transformaciones del plano con matrices (simetrías, giros, estiramientos, homotecias y composiciones).">
+<meta name="robots" content="index, follow">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/aula.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2rem 0; }
+.apunt-section > h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.step { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.1rem 0; }
+.step h3 { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.step p { margin: 0.5rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.fig-svg { display:block; width:100%; max-width:480px; height:auto; margin:1.1rem auto; }
+.intervals-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.92rem; }
+.intervals-table th, .intervals-table td { padding:0.5rem 0.6rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle; }
+.intervals-table th { background:var(--bg-subtle); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); font-weight:600; }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .step { background: rgba(245,158,11,0.10); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/">
+<meta property="og:title" content="Ejercicios de transformaciones · TANS 3.9 · IB Math AI HL">
+<meta property="og:description" content="Apuntes de IB Math AI HL: enunciados de ejercicios de transformaciones del plano con matrices (simetrías, giros, estiramientos, homotecias y composiciones).">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ejercicios de transformaciones · TANS 3.9 · IB Math AI HL">
+<meta name="twitter:description" content="Apuntes de IB Math AI HL: enunciados de ejercicios de transformaciones del plano con matrices (simetrías, giros, estiramientos, homotecias y composiciones).">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Apuntes","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Ejercicios de transformaciones","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/"}]},{"@type":"LearningResource","name":"Ejercicios de transformaciones","url":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apuntes de IB Math AI HL: enunciados de ejercicios de transformaciones del plano con matrices (simetrías, giros, estiramientos, homotecias y composiciones)."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/docencia/" class="nav-active">Docencia</a>
+      <a href="/doctorado/">Doctorado</a>
+      <a href="/notas/">Notas</a>
+      <a href="/cv/">CV</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/" class="lang-active">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ib-ai-hl/apuntes/TANS-1-14-ejercicios-transformaciones/">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span>
+      <a href="/docencia/">Docencia</a><span class="sep">/</span>
+      <a href="/docencia/ib-ai/">IB Math AI</a><span class="sep">/</span>
+      <a id="bc-apunts" href="/aula/ib-ai-hl/apuntes/#u09-matrices">Apuntes</a><span class="sep">/</span>
+      <span class="current">Ejercicios de transformaciones</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div class="apunt-meta-row">
+        <span class="section-label">IB Math AI HL · U09 · Matrices</span>
+        <span class="tag tag-orange">TANS 3.9 · Apuntes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">Curso 2025–2027</span>
+      </div>
+      <h1 style="margin:0">Ejercicios de transformaciones</h1>
+      <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
+        Los enunciados de los ejercicios que haremos en clase: matrices de transformaciones, simetrías de un triángulo y una composición.
+      </p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <section class="apunt-section">
+        <h2>Ejercicios de transformaciones</h2>
+
+        <p class="note">Solo los enunciados: la corrección se añadirá cuando se corrijan en clase.</p>
+
+        <div class="def-box">
+          <h3>Ejercicio 1</h3>
+          <p>Halla la matriz de cada transformación:</p><p><strong>a)</strong> La simetría respecto del eje $X$.</p><p><strong>b)</strong> El giro de $45^\circ$ en sentido antihorario alrededor del origen.</p><p><strong>c)</strong> El giro de $\frac{\pi}{2}$ en sentido horario.</p><p><strong>d)</strong> La simetría respecto de la recta $y = -x$.</p><p><strong>e)</strong> El estiramiento vertical de factor $3$.</p><p><strong>f)</strong> La homotecia de razón $2$ y centro $(0, 0)$.</p><p><strong>g)</strong> La simetría respecto de la recta $y = \sqrt{3}\,x$.</p>
+        </div>
+
+        <div class="def-box">
+          <h3>Ejercicio 2</h3>
+          <p>Se considera el triángulo $ABC$ cuyos vértices vienen dados por la matriz $P = \begin{pmatrix} 2 & 6 & 10 \\ 4 & 7 & 6 \end{pmatrix}$.</p><svg class="fig-svg" viewBox="0 0 340 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triángulo de vértices A(2, 4), B(6, 7) y C(10, 6)" style="max-width:340px"><line x1="30" y1="205" x2="30" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="50" y1="205" x2="50" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="70" y1="205" x2="70" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="90" y1="205" x2="90" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="110" y1="205" x2="110" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="130" y1="205" x2="130" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="150" y1="205" x2="150" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="170" y1="205" x2="170" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="190" y1="205" x2="190" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="210" y1="205" x2="210" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="230" y1="205" x2="230" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="250" y1="205" x2="250" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="270" y1="205" x2="270" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="290" y1="205" x2="290" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="310" y1="205" x2="310" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="330" y1="205" x2="330" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="205" x2="330" y2="205" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="185" x2="330" y2="185" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="165" x2="330" y2="165" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="145" x2="330" y2="145" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="125" x2="330" y2="125" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="105" x2="330" y2="105" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="85" x2="330" y2="85" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="65" x2="330" y2="65" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="45" x2="330" y2="45" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="25" x2="330" y2="25" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="30" y1="185" x2="330" y2="185" stroke="#94a3b8" stroke-width="1.3"/><line x1="50" y1="205" x2="50" y2="25" stroke="#94a3b8" stroke-width="1.3"/><text x="90" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">2</text><text x="130" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">4</text><text x="170" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">6</text><text x="210" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">8</text><text x="250" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">10</text><text x="290" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">12</text><text x="330" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">14</text><text x="45" y="148" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">2</text><text x="45" y="108" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">4</text><text x="45" y="68" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">6</text><text x="45" y="28" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">8</text><polygon points="90,105 170,45 250,65" fill="rgba(22,163,74,0.12)" stroke="#16a34a" stroke-width="2"/><circle cx="90" cy="105" r="3.5" fill="#be185d"/><text x="86" y="121" font-family="Inter,sans-serif" font-size="12" fill="currentColor">A = (2, 4)</text><circle cx="170" cy="45" r="3.5" fill="#be185d"/><text x="162" y="36" font-family="Inter,sans-serif" font-size="12" fill="currentColor">B = (6, 7)</text><circle cx="250" cy="65" r="3.5" fill="#be185d"/><text x="258" y="59" font-family="Inter,sans-serif" font-size="12" fill="currentColor">C = (10, 6)</text></svg><p><strong>a)</strong> Usa el producto de matrices para hallar la imagen del triángulo $ABC$ por la simetría respecto del eje $X$, el triángulo $A'B'C'$. Dibuja el triángulo y su imagen en los mismos ejes.</p><p>El triángulo $A'B'C'$ se refleja después respecto del eje $Y$ y se obtiene el triángulo $A''B''C''$.</p><p><strong>b)</strong> Escribe una sola matriz que dé la imagen de $P$ por la composición de las dos simetrías. Dibuja el triángulo $A''B''C''$ en los mismos ejes.</p><p><strong>c)</strong> Demuestra que si el triángulo $ABC$ se refleja respecto del eje $X$ y después otra vez respecto del eje $X$, la imagen es el mismo triángulo $ABC$.</p><p><strong>d)</strong> ¿Qué transformación única equivale a la simetría respecto del eje $X$ seguida de la simetría respecto del eje $Y$?</p>
+        </div>
+
+        <div class="def-box">
+          <h3>Ejercicio 3</h3>
+          <p>Un triángulo de vértices $(1, 1)$, $(3, 1)$ y $(3, 3)$ se gira $\frac{\pi}{2}$ en sentido horario alrededor de $(0, 0)$ y después se refleja respecto de la recta $y = -x$. Sea $R$ la matriz del giro y $T$ la de la simetría.</p><p><strong>a)</strong> Escribe las matrices $R$ y $T$.</p><p><strong>b)</strong> Halla la matriz única que representa $R$ seguida de $T$.</p><p><strong>c)</strong> Con ella, halla la imagen del triángulo después de las dos transformaciones.</p><p><strong>d)</strong> A partir de un dibujo, o de otra manera, describe la transformación única que representa $RT$.</p>
+        </div>
+      </section>
+
+      <nav class="exam-nav" id="apunt-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem"
+           data-slug="TANS-1-14-ejercicios-transformaciones" data-pre="">
+        <span class="disabled prev">&larr; Apartado anterior</span>
+        <a class="index" href="/aula/ib-ai-hl/apuntes/#u09-matrices">Índice de la unidad</a>
+        <span class="disabled next">Apartado siguiente &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+
+  <aside class="ibo-disclaimer">
+  <p><strong>Aviso · Notice:</strong> Este material ha sido desarrollado de forma independiente y no está aprobado, patrocinado ni endorsado por la International Baccalaureate Organization. <em>This work has been developed independently from and is not endorsed by the International Baccalaureate Organization.</em></p>
+  <p class="ibo-disclaimer-marks">"International Baccalaureate®", "IB Diploma Programme®", "Bachillerato Internacional®" y "IB®" son marcas registradas de la International Baccalaureate Organization.</p>
+</aside>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemáticas, docencia y doctorado</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licencias</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+
+<script>
+// Si s'hi ha arribat des d'una unitat concreta, les migues hi tornen.
+(function(){var f=new URLSearchParams(location.search).get('from');if(!f)return;var a=document.getElementById('bc-apunts');if(a)a.href=a.href.split('#')[0]+'#'+encodeURIComponent(f);})();
+</script>
+<script defer src="/assets/js/apunts-ib-nav.js?v=202610051200"></script>
+</body>
+</html>

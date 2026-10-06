@@ -149,10 +149,11 @@
           <text x="240" y="236" font-family="Inter,sans-serif" font-size="14" fill="#475569" text-anchor="middle">6 m</text>
         </svg>
 
+        <div class="exercise">
         <div class="apart"><details>
           <summary><span class="stmt">See the solution</span></summary>
           <div class="apart-solution">
-<div class="example-box">
+          <div class="example-box">
           <h3>a) The angle α</h3>
           <p>The rope reaches the top side. The triangle it forms with the left fence is right-angled, and in it the leg adjacent to $\beta$ is $2.5$ and the hypotenuse is $3$:</p>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
@@ -163,18 +164,17 @@
             $$\alpha = \dfrac{\pi}{2} - \beta = 0{,}985 \ \text{rad}$$
           </div>
         </div>
-
-        <div class="example-box">
+          <div class="example-box">
           <h3>b) The area</h3>
           <p>The region splits in two: the <strong>triangle</strong> against the left fence and the <strong>sector</strong> of radius $3$ and angle $\alpha$.</p>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
             $$A = \underbrace{\dfrac{1}{2}\cdot 2{,}5 \cdot 3 \cdot \sin\beta}_{\text{triangle}} \;+\; \underbrace{\dfrac{1}{2}\cdot 3^2 \cdot \alpha}_{\text{sector}} = 2{,}073 + 4{,}433 = 6{,}51 \ \text{m}^2$$
           </div>
         </div>
-
-        <p class="note">Careful with rounding halfway through: taking $\alpha = 0.98$ instead of $0.985$ gives $6.48$ m² instead of $6.51$. Carry the full values and round only the final answer.</p>
+          <p class="note">Careful with rounding halfway through: taking $\alpha = 0.98$ instead of $0.985$ gives $6.48$ m² instead of $6.51$. Carry the full values and round only the final answer.</p>
           </div>
         </details></div>
+        </div>
       </section>
 
       <section class="apunt-section">
@@ -204,12 +204,12 @@
           <text x="202.2" y="137.98" font-family="Inter,sans-serif" font-size="14" fill="#be123c" text-anchor="middle">&#946;</text>
         </svg>
 
+        <div class="exercise">
         <div class="apart"><details>
           <summary><span class="stmt">See the solution</span></summary>
           <div class="apart-solution">
-<p>Join the two centres to one of the intersection points: you get a triangle with sides $2$, $2$ and $3$. Its angles at the centres are the ones that open each sector.</p>
-
-        <div class="example-box">
+          <p>Join the two centres to one of the intersection points: you get a triangle with sides $2$, $2$ and $3$. Its angles at the centres are the ones that open each sector.</p>
+          <div class="example-box">
           <h3>The two angles, by the cosine rule</h3>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
             $$\alpha = \arccos\!\left(\dfrac{2^2+2^2-3^2}{2\cdot 2\cdot 2}\right) = \arccos(-0{,}125) = 1{,}696 \ \text{rad}$$
@@ -218,39 +218,35 @@
             $$\beta = \arccos\!\left(\dfrac{2^2+3^2-2^2}{2\cdot 2\cdot 3}\right) = \arccos(0{,}75) = 0{,}723 \ \text{rad}$$
           </div>
         </div>
-
-        <p>The angles $\alpha$ and $\beta$ are those between the line of centres and the radius to an intersection point. Since there are two intersection points, each centre &ldquo;sees&rdquo; the region at twice that angle.</p>
-
-        <div class="example-box">
+          <p>The angles $\alpha$ and $\beta$ are those between the line of centres and the radius to an intersection point. Since there are two intersection points, each centre &ldquo;sees&rdquo; the region at twice that angle.</p>
+          <div class="example-box">
           <h3>Regions II + III · the two sectors of the small circle</h3>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
             $$2 \cdot \dfrac{1}{2}\cdot 2^2 \cdot \alpha = 2 \cdot 3{,}392 = 6{,}784$$
           </div>
         </div>
-
-        <div class="example-box">
+          <div class="example-box">
           <h3>Region I · the segment of the large circle</h3>
           <p>It is its sector of angle $2\beta$ minus the two triangles left over:</p>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
             $$\dfrac{1}{2}\cdot 3^2 \cdot (2\beta) \;-\; 2\cdot\dfrac{1}{2}\cdot 2\cdot 3\cdot \sin\beta = 6{,}505 - 3{,}969 = 2{,}536$$
           </div>
         </div>
-
-        <div class="example-box">
+          <div class="example-box">
           <h3>The area we want</h3>
           <div class="math-block" style="background:none;border:none;margin:0.4rem 0">
             $$A = 6{,}784 + 2{,}536 = 9{,}32 \ \text{u}^2$$
           </div>
         </div>
-
-        <p class="note">Check: the closed formula for the lens area gives $9.3205$ u². If $\beta$ is taken as $0.7317$ instead of $0.7227$, the total comes out $9.36$ and no longer matches.</p>
+          <p class="note">Check: the closed formula for the lens area gives $9.3205$ u². If $\beta$ is taken as $0.7317$ instead of $0.7227$, the total comes out $9.36$ and no longer matches.</p>
+          </div>
+        </details></div>
+        </div>
 
         <div class="prop-box">
           <h3>The idea that keeps coming back</h3>
           <p>A piece of a circle bounded by a chord (a <em>circular segment</em>) is always <strong>sector minus triangle</strong>. And the triangle needs $\frac{1}{2}ab\sin C$, which needs the angle: that is why the cosine rule comes first.</p>
         </div>
-          </div>
-        </details></div>
       </section>
 
       <nav class="exam-nav" id="apunt-nav" aria-label="Notes navigation" style="margin-top:2.5rem"

@@ -59,6 +59,26 @@
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/">
 <link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/">
 <link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-deberes-30-sep/">
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -115,62 +135,107 @@
 
         <div class="def-box">
           <h3>Exercise 1</h3>
-          <p>Using the matrices</p><div class="math-block">$$R = \begin{pmatrix} 0 & -1 \\ 3 & 7 \\ -5 & 4 \end{pmatrix}, \quad S = \begin{pmatrix} 3 & -2 & 1 \\ 4 & 1 & -3 \\ -7 & 5 & 2 \end{pmatrix}, \quad T = \begin{pmatrix} 1 & 2 \\ -1 & 3 \end{pmatrix},$$</div><div class="math-block">$$U = \begin{pmatrix} 4 & -3 & -2 \\ 5 & -4 & 2 \\ 0 & 1 & -1 \end{pmatrix}, \quad W = \begin{pmatrix} 1 & -2 & 3 \\ 3 & 2 & -1 \end{pmatrix}, \quad X = \begin{pmatrix} 7 & -2 \\ -6 & 4 \end{pmatrix},$$</div><p>work out each of the following if possible. If it is not possible, explain why.</p><p><strong>a)</strong> $SR$ &nbsp;&nbsp; <strong>b)</strong> $TR$ &nbsp;&nbsp; <strong>c)</strong> $WR + X$ &nbsp;&nbsp; <strong>d)</strong> $W(S - U)$ &nbsp;&nbsp; <strong>e)</strong> $(S - U)W$</p>
+          <p>Using the matrices</p>
+          <div class="math-block">$$R = \begin{pmatrix} 0 & -1 \\ 3 & 7 \\ -5 & 4 \end{pmatrix}, \quad S = \begin{pmatrix} 3 & -2 & 1 \\ 4 & 1 & -3 \\ -7 & 5 & 2 \end{pmatrix}, \quad T = \begin{pmatrix} 1 & 2 \\ -1 & 3 \end{pmatrix},$$</div>
+          <div class="math-block">$$U = \begin{pmatrix} 4 & -3 & -2 \\ 5 & -4 & 2 \\ 0 & 1 & -1 \end{pmatrix}, \quad W = \begin{pmatrix} 1 & -2 & 3 \\ 3 & 2 & -1 \end{pmatrix}, \quad X = \begin{pmatrix} 7 & -2 \\ -6 & 4 \end{pmatrix},$$</div>
+          <p>work out each of the following if possible. If it is not possible, explain why.</p>
         </div>
 
-        <div class="step">
-          <h3>a) $SR$</h3>
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">a)</span> <span class="stmt">$SR$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3>$SR$</h3>
           <p>$3\times 3$ times $3\times 2$: it exists and is $3\times 2$.</p><div class="math-block">$$SR = \begin{pmatrix} 3 & -2 & 1 \\ 4 & 1 & -3 \\ -7 & 5 & 2 \end{pmatrix}\begin{pmatrix} 0 & -1 \\ 3 & 7 \\ -5 & 4 \end{pmatrix} = \begin{pmatrix} -11 & -13 \\ 18 & -9 \\ 5 & 50 \end{pmatrix}$$</div>
         </div>
-
-        <div class="step">
-          <h3>b) $TR$</h3>
+          </div>
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">b)</span> <span class="stmt">$TR$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3>$TR$</h3>
           <p>It does not exist: $T$ is $2\times 2$ and $R$ is $3\times 2$; the $2$ columns of $T$ do not match the $3$ rows of $R$.</p>
         </div>
-
-        <div class="step">
-          <h3>c) $WR + X$</h3>
+          </div>
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">c)</span> <span class="stmt">$WR + X$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3>$WR + X$</h3>
           <p>$WR$ is $2\times 3$ times $3\times 2$, that is, $2\times 2$, like $X$: the sum exists.</p><div class="math-block">$$WR = \begin{pmatrix} 1 & -2 & 3 \\ 3 & 2 & -1 \end{pmatrix}\begin{pmatrix} 0 & -1 \\ 3 & 7 \\ -5 & 4 \end{pmatrix} = \begin{pmatrix} -21 & -3 \\ 11 & 7 \end{pmatrix}\qquad WR + X = \begin{pmatrix} -21 & -3 \\ 11 & 7 \end{pmatrix} + \begin{pmatrix} 7 & -2 \\ -6 & 4 \end{pmatrix} = \begin{pmatrix} -14 & -5 \\ 5 & 11 \end{pmatrix}$$</div>
         </div>
-
-        <div class="step">
-          <h3>d) $W(S - U)$</h3>
+          </div>
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">d)</span> <span class="stmt">$W(S - U)$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3>$W(S - U)$</h3>
           <div class="math-block">$$S - U = \begin{pmatrix} -1 & 1 & 3 \\ -1 & 5 & -5 \\ -7 & 4 & 3 \end{pmatrix}$$</div><div class="math-block">$$W(S - U) = \begin{pmatrix} 1 & -2 & 3 \\ 3 & 2 & -1 \end{pmatrix}\begin{pmatrix} -1 & 1 & 3 \\ -1 & 5 & -5 \\ -7 & 4 & 3 \end{pmatrix} = \begin{pmatrix} -20 & 3 & 22 \\ 2 & 9 & -4 \end{pmatrix}$$</div>
         </div>
-
-        <div class="step">
-          <h3>e) $(S - U)W$</h3>
+          </div>
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">e)</span> <span class="stmt">$(S - U)W$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3>$(S - U)W$</h3>
           <p>It does not exist: $S - U$ is $3\times 3$ and $W$ is $2\times 3$; the $3$ columns of $S - U$ do not match the $2$ rows of $W$. Together with d), it shows again that the order of a product matters.</p>
+        </div>
+          </div>
+        </details></div>
         </div>
 
         <div class="def-box">
           <h3>Exercise 2</h3>
-          <p>Find the inverse of each matrix using $A^{-1} = \dfrac{1}{\det A}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$, and check your answer by showing that $AA^{-1} = I$.</p><p><strong>a)</strong> $\begin{pmatrix} 2 & -4 \\ 3 & -5 \end{pmatrix}$ &nbsp;&nbsp; <strong>b)</strong> $\begin{pmatrix} -2 & -3 \\ -1 & 0 \end{pmatrix}$ &nbsp;&nbsp; <strong>c)</strong> $\begin{pmatrix} \frac{3}{4} & \frac{1}{2} \\ \frac{1}{2} & \frac{3}{4} \end{pmatrix}$ &nbsp;&nbsp; <strong>d)</strong> $\begin{pmatrix} 0.25 & 0.8 \\ 0.75 & 0.2 \end{pmatrix}$</p>
+          <p>Find the inverse of each matrix using $A^{-1} = \dfrac{1}{\det A}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$, and check your answer by showing that $AA^{-1} = I$.</p>
         </div>
 
-        <div class="step">
-          <h3>a)</h3>
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="letter">a)</span> <span class="stmt">$\begin{pmatrix} 2 & -4 \\ 3 & -5 \end{pmatrix}$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3></h3>
           <div class="math-block">$$|A| = 2\cdot(-5) - (-4)\cdot 3 = 2 \qquad A^{-1} = \dfrac{1}{2}\begin{pmatrix} -5 & 4 \\ -3 & 2 \end{pmatrix}$$</div><div class="math-block">$$A\cdot A^{-1} = \begin{pmatrix} 2 & -4 \\ 3 & -5 \end{pmatrix}\cdot\dfrac{1}{2}\begin{pmatrix} -5 & 4 \\ -3 & 2 \end{pmatrix} = \dfrac{1}{2}\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} = I$$</div>
         </div>
-
-        <div class="step">
-          <h3>b)</h3>
+          </div>
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">b)</span> <span class="stmt">$\begin{pmatrix} -2 & -3 \\ -1 & 0 \end{pmatrix}$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3></h3>
           <div class="math-block">$$|B| = (-2)\cdot 0 - (-3)\cdot(-1) = -3 \qquad B^{-1} = -\dfrac{1}{3}\begin{pmatrix} 0 & 3 \\ 1 & -2 \end{pmatrix}$$</div><div class="math-block">$$B\cdot B^{-1} = -\dfrac{1}{3}\begin{pmatrix} -2 & -3 \\ -1 & 0 \end{pmatrix}\begin{pmatrix} 0 & 3 \\ 1 & -2 \end{pmatrix} = -\dfrac{1}{3}\begin{pmatrix} -3 & 0 \\ 0 & -3 \end{pmatrix} = I$$</div>
         </div>
-
-        <div class="step">
-          <h3>c)</h3>
+          </div>
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">c)</span> <span class="stmt">$\begin{pmatrix} \frac{3}{4} & \frac{1}{2} \\ \frac{1}{2} & \frac{3}{4} \end{pmatrix}$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3></h3>
           <div class="math-block">$$|C| = \dfrac{9}{16} - \dfrac{1}{4} = \dfrac{5}{16} \qquad C^{-1} = \dfrac{16}{5}\begin{pmatrix} \frac{3}{4} & -\frac{1}{2} \\ -\frac{1}{2} & \frac{3}{4} \end{pmatrix} = \begin{pmatrix} \frac{12}{5} & -\frac{8}{5} \\ -\frac{8}{5} & \frac{12}{5} \end{pmatrix}$$</div><p class="note">Not done in class. Check: $\frac{3}{4}\cdot\frac{12}{5} - \frac{1}{2}\cdot\frac{8}{5} = \frac{9}{5} - \frac{4}{5} = 1$ and $-\frac{3}{4}\cdot\frac{8}{5} + \frac{1}{2}\cdot\frac{12}{5} = 0$; the second row works the same way.</p>
         </div>
-
-        <div class="step">
-          <h3>d)</h3>
+          </div>
+        </details></div>
+        <div class="apart"><details>
+          <summary><span class="letter">d)</span> <span class="stmt">$\begin{pmatrix} 0.25 & 0.8 \\ 0.75 & 0.2 \end{pmatrix}$</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3></h3>
           <div class="math-block">$$|D| = 0.25\cdot 0.2 - 0.8\cdot 0.75 = 0.05 - 0.6 = -0.55 \qquad D^{-1} = -\dfrac{1}{0.55}\begin{pmatrix} 0.2 & -0.8 \\ -0.75 & 0.25 \end{pmatrix} = \begin{pmatrix} -\frac{4}{11} & \frac{16}{11} \\ \frac{15}{11} & -\frac{5}{11} \end{pmatrix}$$</div><p class="note">Not done in class. Check of the first row: $0.25\cdot\left(-\frac{4}{11}\right) + 0.8\cdot\frac{15}{11} = \frac{-1 + 12}{11} = 1$ and $0.25\cdot\frac{16}{11} - 0.8\cdot\frac{5}{11} = \frac{4 - 4}{11} = 0$.</p>
+        </div>
+          </div>
+        </details></div>
         </div>
 
         <div class="def-box">
           <h3>Exercise 3</h3>
-          <p>Write each system in the form $AX = B$ and solve it using $X = A^{-1}B$.</p><div class="math-block">$$\text{a)}\ \begin{cases} x + y + 3z = 30 \\ 3x + 2y - z = 20 \\ 2x + y + z = 10 \end{cases} \qquad \text{b)}\ \begin{cases} 5x - 7y = 12 \\ -2x + 5y = 20 \end{cases}$$</div><div class="math-block">$$\text{c)}\ \begin{cases} 2a + b - c + 4d = -2 \\ 5b - 3c = 4 \\ 4a - 3b + d = 1.75 \\ a + 2c - 8d = -0.5 \end{cases}$$</div>
+          <p>Write each system in the form $AX = B$ and solve it using $X = A^{-1}B$.</p><p><strong>a)</strong> $\begin{cases} x + y + 3z = 30 \\ 3x + 2y - z = 20 \\ 2x + y + z = 10 \end{cases}$</p><p><strong>b)</strong> $\begin{cases} 5x - 7y = 12 \\ -2x + 5y = 20 \end{cases}$</p><p><strong>c)</strong> $\begin{cases} 2a + b - c + 4d = -2 \\ 5b - 3c = 4 \\ 4a - 3b + d = 1.75 \\ a + 2c - 8d = -0.5 \end{cases}$</p>
         </div>
 
         <div class="def-box">
@@ -178,29 +243,20 @@
           <p>Set up a system of equations that represents the situation, defining all the variables, and solve it using matrices.</p><p>In 2016, someone invested a total of $175\,000$ dollars in three index funds, $F_1$, $F_2$ and $F_3$. After one year, the combined value of the three investments was $181\,615$ dollars. The funds made average annual gains of $2.5\,\%$, $4.8\,\%$ and $3.5\,\%$ respectively. If twice as much was invested in $F_2$ as in $F_1$, how much was invested in each fund?</p>
         </div>
 
-        <div class="step">
-          <h3>3a) 3×3 system</h3>
-          <div class="math-block">$$\begin{pmatrix} 1 & 1 & 3 \\ 3 & 2 & -1 \\ 2 & 1 & 1 \end{pmatrix}\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 30 \\ 20 \\ 10 \end{pmatrix}\qquad |A| = -5$$</div><div class="math-block">$$X = A^{-1}B = \dfrac{1}{5}\begin{pmatrix} -3 & -2 & 7 \\ 5 & 5 & -10 \\ 1 & -1 & 1 \end{pmatrix}\begin{pmatrix} 30 \\ 20 \\ 10 \end{pmatrix} = \dfrac{1}{5}\begin{pmatrix} -60 \\ 150 \\ 20 \end{pmatrix} = \begin{pmatrix} -12 \\ 30 \\ 4 \end{pmatrix}$$</div><div class="final">$x = -12, \quad y = 30, \quad z = 4$</div><p class="note">Check: $-12 + 30 + 3\cdot 4 = 30$, &nbsp;$3(-12) + 2\cdot 30 - 4 = 20$ &nbsp;and&nbsp; $2(-12) + 30 + 4 = 10$.</p>
-        </div>
-
-        <div class="step">
-          <h3>3b) 2×2 system</h3>
-          <div class="math-block">$$\begin{pmatrix} 5 & -7 \\ -2 & 5 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 12 \\ 20 \end{pmatrix}\qquad |A| = 25 - 14 = 11$$</div><div class="math-block">$$X = A^{-1}B = \dfrac{1}{11}\begin{pmatrix} 5 & 7 \\ 2 & 5 \end{pmatrix}\begin{pmatrix} 12 \\ 20 \end{pmatrix} = \dfrac{1}{11}\begin{pmatrix} 200 \\ 124 \end{pmatrix}$$</div><div class="final">$x = \dfrac{200}{11} \approx 18.18, \qquad y = \dfrac{124}{11} \approx 11.27$</div><p class="note">Check: $5\cdot\frac{200}{11} - 7\cdot\frac{124}{11} = \frac{1000 - 868}{11} = \frac{132}{11} = 12$.</p>
-        </div>
-
-        <div class="step">
-          <h3>3c) 4×4 system</h3>
-          <p>Keep the unknowns in order, $a, b, c, d$, and put a $0$ wherever one is missing:</p><div class="math-block">$$\begin{pmatrix} 2 & 1 & -1 & 4 \\ 0 & 5 & -3 & 0 \\ 4 & -3 & 0 & 1 \\ 1 & 0 & 2 & -8 \end{pmatrix}\begin{pmatrix} a \\ b \\ c \\ d \end{pmatrix} = \begin{pmatrix} -2 \\ 4 \\ 1.75 \\ -0.5 \end{pmatrix}\qquad |A| = 254$$</div><p>On the calculator, the inverse is</p><div class="math-block">$$A^{-1} = \dfrac{1}{254}\begin{pmatrix} 62 & 2 & 24 & 34 \\ 99 & -5 & -60 & 42 \\ 165 & -93 & -100 & 70 \\ 49 & -23 & -22 & -10 \end{pmatrix}$$</div><div class="math-block">$$X = A^{-1}B = \begin{pmatrix} -\frac{91}{254} \\ -\frac{172}{127} \\ -\frac{456}{127} \\ -\frac{447}{508} \end{pmatrix}\approx \begin{pmatrix} -0.358 \\ -1.354 \\ -3.591 \\ -0.880 \end{pmatrix}$$</div><div class="final">$a \approx -0.358, \quad b \approx -1.354, \quad c \approx -3.591, \quad d \approx -0.880$</div><p class="note">The numbers are not nice, but they are right: check in the second equation, $5b - 3c = -\frac{860}{127} + \frac{1368}{127} = \frac{508}{127} = 4$.</p>
-        </div>
-
-        <div class="step">
-          <h3>4) The variables and the system</h3>
+        <div class="exercise">
+        <div class="apart"><details>
+          <summary><span class="stmt">See the solution</span></summary>
+          <div class="apart-solution">
+          <div class="step">
+          <h3>The variables and the system</h3>
           <p>Let $x$, $y$ and $z$ be the dollars invested in $F_1$, $F_2$ and $F_3$. The total invested, the value after one year (each fund multiplied by $1$ plus its gain) and the “twice as much” condition give:</p><div class="math-block">$$\begin{cases} x + y + z = 175\,000 \\ 1.025x + 1.048y + 1.035z = 181\,615 \\ y = 2x \end{cases} \;\Longrightarrow\; \begin{pmatrix} 1 & 1 & 1 \\ 1.025 & 1.048 & 1.035 \\ 2 & -1 & 0 \end{pmatrix}\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 175\,000 \\ 181\,615 \\ 0 \end{pmatrix}$$</div><p class="note">The condition $y = 2x$ is written $2x - y = 0$ so that it fits the form $AX = B$.</p>
         </div>
-
-        <div class="step">
-          <h3>4) The solution</h3>
+          <div class="step">
+          <h3>The solution</h3>
           <div class="math-block">$$X = A^{-1}B = \begin{pmatrix} 30\,625 \\ 61\,250 \\ 83\,125 \end{pmatrix}$$</div><div class="final">$F_1$: $30\,625$ dollars; &nbsp;$F_2$: $61\,250$ dollars; &nbsp;$F_3$: $83\,125$ dollars</div><p class="note">Check: they add up to $175\,000$, and the gains are $765.63 + 2940 + 2909.38 = 6615$, exactly $181\,615 - 175\,000$.</p>
+        </div>
+          </div>
+        </details></div>
         </div>
       </section>
 

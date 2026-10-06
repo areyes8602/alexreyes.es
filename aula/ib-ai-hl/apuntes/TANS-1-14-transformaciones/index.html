@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Transformaciones en el plano · TANS 3.9 · IB Math AI HL</title>
-<meta name="description" content="Apuntes de IB Math AI HL: transformaciones del plano con matrices (estiramientos, homotecia y rotación) y la relación entre el determinante y el área de la imagen.">
+<meta name="description" content="Apuntes de IB Math AI HL: transformaciones del plano con matrices (estiramientos, homotecia, rotación y simetría respecto de una recta, con un simulador), la relación entre el determinante y el área de la imagen y las transformaciones afines.">
 <meta name="robots" content="index, follow">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js?v=202609121757"></script>
@@ -46,14 +46,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/">
 <meta property="og:title" content="Transformaciones en el plano · TANS 3.9 · IB Math AI HL">
-<meta property="og:description" content="Apuntes de IB Math AI HL: transformaciones del plano con matrices (estiramientos, homotecia y rotación) y la relación entre el determinante y el área de la imagen.">
+<meta property="og:description" content="Apuntes de IB Math AI HL: transformaciones del plano con matrices (estiramientos, homotecia, rotación y simetría respecto de una recta, con un simulador), la relación entre el determinante y el área de la imagen y las transformaciones afines.">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Transformaciones en el plano · TANS 3.9 · IB Math AI HL">
-<meta name="twitter:description" content="Apuntes de IB Math AI HL: transformaciones del plano con matrices (estiramientos, homotecia y rotación) y la relación entre el determinante y el área de la imagen.">
+<meta name="twitter:description" content="Apuntes de IB Math AI HL: transformaciones del plano con matrices (estiramientos, homotecia, rotación y simetría respecto de una recta, con un simulador), la relación entre el determinante y el área de la imagen y las transformaciones afines.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Apuntes","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Transformaciones en el plano","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/"}]},{"@type":"LearningResource","name":"Transformaciones en el plano","url":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apuntes de IB Math AI HL: transformaciones del plano con matrices (estiramientos, homotecia y rotación) y la relación entre el determinante y el área de la imagen."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://alexreyes.es/"},{"@type":"ListItem","position":2,"name":"Docencia","item":"https://alexreyes.es/docencia/"},{"@type":"ListItem","position":3,"name":"IB Math AI","item":"https://alexreyes.es/docencia/ib-ai/"},{"@type":"ListItem","position":4,"name":"Apuntes","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/"},{"@type":"ListItem","position":5,"name":"Transformaciones en el plano","item":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/"}]},{"@type":"LearningResource","name":"Transformaciones en el plano","url":"https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/","inLanguage":"es","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apuntes de IB Math AI HL: transformaciones del plano con matrices (estiramientos, homotecia, rotación y simetría respecto de una recta, con un simulador), la relación entre el determinante y el área de la imagen y las transformaciones afines."}]}</script>
 <link rel="canonical" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ib-ai-hl/apuntes/TANS-1-14-transformaciones/">
@@ -102,7 +102,7 @@
       </div>
       <h1 style="margin:0">Transformaciones en el plano</h1>
       <p style="color:var(--text-soft);margin:0.5rem 0 0;font-size:0.95rem">
-        Estiramientos, homotecias y giros como matrices 2×2, y lo que dice el determinante del área.
+        Estiramientos, homotecias, giros y simetrías como matrices 2×2, lo que dice el determinante del área y las transformaciones afines.
       </p>
     </div>
 
@@ -179,6 +179,60 @@
         </div>
 
         <p class="note">La matriz $\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ de <a href="/aula/ib-ai-hl/apuntes/TANS-1-14-potencias/?from=u09-matrices">Potencias, propiedades y traspuesta</a> es el giro de $90^\circ$ en sentido horario: por eso su cuarta potencia es la identidad.</p>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Simetría respecto de una recta</h2>
+
+        <div class="def-box">
+          <h3>Recta por el origen</h3>
+          <p>La simetría respecto de la recta $y = (\tan\theta)\,x$, que pasa por el origen y forma un ángulo $\theta$ con el eje $X$, tiene por matriz</p><div class="math-block">$$S = \begin{pmatrix} \cos 2\theta & \sin 2\theta \\ \sin 2\theta & -\cos 2\theta \end{pmatrix}$$</div><p>Su determinante es $-\cos^{2}2\theta - \sin^{2}2\theta = -1$: conserva el área, pero da la vuelta a la figura.</p>
+        </div>
+
+        <style>
+.sim-sim { border:1px solid var(--border); border-radius:8px; padding:1rem 1.1rem; margin:1.4rem 0; background:var(--bg-subtle); }
+.sim-sim h3 { margin:0 0 0.3rem; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#7c3aed; }
+.sim-sim .sim-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.4rem 1.2rem; margin:0.8rem 0; }
+.sim-sim label { display:block; font-size:0.86rem; }
+.sim-sim label output { font-family:'JetBrains Mono',monospace; font-weight:600; }
+.sim-sim input[type=range] { width:100%; }
+.sim-sim .sim-presets { display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.3rem 0 0.6rem; }
+.sim-sim button { font:inherit; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:99px; border:1px solid var(--border); background:var(--bg); color:inherit; cursor:pointer; }
+.sim-sim button:hover { border-color:#7c3aed; }
+.sim-sim svg { display:block; width:100%; max-width:340px; height:auto; margin:0 auto; }
+.sim-sim .sim-resultat { font-size:0.92rem; margin:0.6rem 0 0; font-family:'JetBrains Mono',monospace; overflow-x:auto; }
+</style><div class="sim-sim" data-dec="," data-recta="Recta" data-play="▶ Reproducir" data-stop="■ Parar"><h3>Simulador · La simetría, paso a paso</h3><p class="note" style="margin:0">Elige la recta y mueve la transición: cada vértice va en línea recta hacia su imagen, siempre perpendicular a la recta. A mitad de camino, $t = \frac{1}{2}$, toda la figura está sobre la recta; al final queda del revés: el punto marcado ha cambiado de lado.</p><div class="sim-presets"><button type="button" data-theta="45">y = x</button><button type="button" data-theta="63.4349">y = 2x</button><button type="button" data-theta="0">eje X</button><button type="button" data-theta="90">eje Y</button><button type="button" data-theta="135">y = −x</button></div><div class="sim-grid"><label>Ángulo de la recta $\theta$ <output data-out="theta"></output><input type="range" name="theta" min="0" max="180" step="0.5" value="45"></label><label>Transición $t$ <output data-out="t"></output><input type="range" name="t" min="0" max="1" step="0.01" value="0"></label></div><div class="sim-presets"><button type="button" data-play>▶ Reproducir</button></div><svg viewBox="0 0 340 340" role="img" aria-label="Simetría del cuadrado respecto de una recta por el origen"></svg><p class="sim-resultat"></p></div><script defer src="/assets/js/simetria-recta.js?v=202610061200"></script>
+
+        <div class="step">
+          <h3>Ejemplo 1: simetría respecto de $y = x$</h3>
+          <div class="math-block">$$\tan\theta = 1 \;\Longrightarrow\; \theta = \arctan 1 = 45^\circ \qquad S = \begin{pmatrix} \cos 90^\circ & \sin 90^\circ \\ \sin 90^\circ & -\cos 90^\circ \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$$</div><div class="math-block">$$C' = S\cdot C = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 & 4 & 4 & 1 \\ 1 & 1 & 4 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 4 & 4 \\ 1 & 4 & 4 & 1 \end{pmatrix}$$</div><p>Se intercambian las dos coordenadas de cada punto: el cuadrado es simétrico respecto de $y = x$ y cae sobre sí mismo, pero con los vértices cambiados de sitio.</p>
+        </div>
+
+        <div class="step">
+          <h3>Ejemplo 2: simetría respecto de $y = 2x$</h3>
+          <div class="math-block">$$\tan\theta = 2 \;\Longrightarrow\; \theta = \arctan 2 \approx 63{,}43^\circ, \quad 2\theta \approx 126{,}87^\circ$$</div><div class="math-block">$$S = \begin{pmatrix} \cos 2\theta & \sin 2\theta \\ \sin 2\theta & -\cos 2\theta \end{pmatrix} = \begin{pmatrix} -0{,}6 & 0{,}8 \\ 0{,}8 & 0{,}6 \end{pmatrix}$$</div><div class="math-block">$$C' = S\cdot C = \begin{pmatrix} -0{,}6 & 0{,}8 \\ 0{,}8 & 0{,}6 \end{pmatrix}\begin{pmatrix} 1 & 4 & 4 & 1 \\ 1 & 1 & 4 & 4 \end{pmatrix} = \begin{pmatrix} 0{,}2 & -1{,}6 & 0{,}8 & 2{,}6 \\ 1{,}4 & 3{,}8 & 5{,}6 & 3{,}2 \end{pmatrix}$$</div><p class="note">Sin calculadora: si la recta es $y = mx$, entonces $\cos 2\theta = \frac{1 - m^{2}}{1 + m^{2}}$ y $\sin 2\theta = \frac{2m}{1 + m^{2}}$. Con $m = 2$ salen exactos $-\frac{3}{5}$ y $\frac{4}{5}$.</p><svg class="fig-svg" viewBox="0 0 330 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cuadrado original y su simétrico respecto de la recta y = 2x" style="max-width:330px"><line x1="20.0" y1="310.0" x2="20.0" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="56.2" y1="310.0" x2="56.2" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="92.5" y1="310.0" x2="92.5" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="128.8" y1="310.0" x2="128.8" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="165.0" y1="310.0" x2="165.0" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="201.2" y1="310.0" x2="201.2" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="237.5" y1="310.0" x2="237.5" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="273.8" y1="310.0" x2="273.8" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="310.0" y1="310.0" x2="310.0" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="310.0" x2="310.0" y2="310.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="273.8" x2="310.0" y2="273.8" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="237.5" x2="310.0" y2="237.5" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="201.2" x2="310.0" y2="201.2" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="165.0" x2="310.0" y2="165.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="128.8" x2="310.0" y2="128.8" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="92.5" x2="310.0" y2="92.5" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="56.2" x2="310.0" y2="56.2" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="20.0" x2="310.0" y2="20.0" stroke="#94a3b8" stroke-width="0.4" opacity="0.5"/><line x1="20.0" y1="273.8" x2="310.0" y2="273.8" stroke="#94a3b8" stroke-width="1.3"/><line x1="128.8" y1="310.0" x2="128.8" y2="20.0" stroke="#94a3b8" stroke-width="1.3"/><text x="56.2" y="286.8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">-2</text><text x="201.2" y="286.8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">2</text><text x="273.8" y="286.8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">4</text><text x="123.8" y="204.2" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">2</text><text x="123.8" y="131.8" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">4</text><text x="123.8" y="59.2" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94a3b8">6</text><polygon points="165.0,237.5 273.8,237.5 273.8,128.8 165.0,128.8" fill="rgba(100,116,139,0.12)" stroke="#64748b" stroke-width="1.4" stroke-dasharray="5 4"/><polygon points="136.0,223.0 70.8,136.0 157.8,70.8 223.0,157.8" fill="rgba(234,88,12,0.18)" stroke="#ea580c" stroke-width="2"/><circle cx="136.0" cy="223.0" r="3" fill="#ea580c"/><circle cx="70.8" cy="136.0" r="3" fill="#ea580c"/><circle cx="157.8" cy="70.8" r="3" fill="#ea580c"/><circle cx="223.0" cy="157.8" r="3" fill="#ea580c"/><text x="316" y="22" text-anchor="end" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" fill="#ea580c">y = 2x</text></svg>
+        </div>
+
+        <div class="prop-box">
+          <h3>Corrección respecto a la pizarra</h3>
+          <p>En la pizarra salía $2\theta = 126{,}86^\circ$, pero $2\cdot 63{,}4349^\circ = 126{,}87^\circ$ redondeado. La matriz no cambia: $-0{,}6$ y $0{,}8$ son exactos.</p>
+        </div>
+      </section>
+
+      <section class="apunt-section">
+        <h2>Transformaciones afines</h2>
+
+        <div class="def-box">
+          <h3>Definición</h3>
+          <p>Una <strong>transformación afín</strong> es una de las anteriores (estiramiento, homotecia, simetría o rotación) seguida de un <strong>desplazamiento</strong>:</p><div class="math-block">$$T(X) = A_{n\times n}\cdot X_{n\times m} + B_{n\times m}$$</div><p>$A$ es la matriz de la transformación y $B$ es el desplazamiento: la misma columna repetida para cada punto de $X$.</p>
+        </div>
+
+        <p class="note">El desplazamiento no cambia el área: la imagen sigue teniendo $|\det A|$ veces el área original.</p>
+
+        <div class="step">
+          <h3>Ejemplo: girar el cuadrado alrededor de su centro</h3>
+          <p>Un giro de $90^\circ$ antihorario alrededor del origen seguido de un desplazamiento de $(5, 0)$:</p><div class="math-block">$$C' = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 & 4 & 4 & 1 \\ 1 & 1 & 4 & 4 \end{pmatrix} + \begin{pmatrix} 5 & 5 & 5 & 5 \\ 0 & 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} -1 & -1 & -4 & -4 \\ 1 & 4 & 4 & 1 \end{pmatrix} + \begin{pmatrix} 5 & 5 & 5 & 5 \\ 0 & 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} 4 & 4 & 1 & 1 \\ 1 & 4 & 4 & 1 \end{pmatrix}$$</div><p>El cuadrado vuelve a caer sobre sí mismo, con cada vértice en el siguiente: $(1,1) \to (4,1) \to (4,4) \to (1,4) \to (1,1)$. Es el giro de $90^\circ$ alrededor de su centro, $(2{,}5;\ 2{,}5)$, que no se puede escribir solo con una matriz $2\times 2$ porque no deja fijo el origen.</p><p class="note">Este ejemplo no es de clase: lo añado para ver una transformación afín completa.</p>
+        </div>
       </section>
 
       <nav class="exam-nav" id="apunt-nav" aria-label="Navegación de los apuntes" style="margin-top:2.5rem"
