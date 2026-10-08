@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12. Uses of logarithms — Real numbers — 1r BTL CCSS</title>
+<meta name="description" content="Applied Maths CCSS 1r BTL notes, 2026-27: the Richter scale, decibels and the log scale of stock charts, with interactive charts.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.proof-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.proof-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.proof-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.fig-raster { margin: 1.2rem auto; max-width: 460px; }
+.fig-raster img { display:block; width:100%; height:auto; background:#fff; border:1px solid var(--border); border-radius:8px; padding:0.6rem; box-sizing:border-box; }
+.fig-raster figcaption { font-size:0.85rem; color:var(--text-soft); text-align:center; margin-top:0.5rem; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .proof-box { background: rgba(244,63,94,0.10); }
+.intervals-table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+.intervals-table th, .intervals-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.intervals-table th { background: var(--bg-subtle); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-soft); font-weight: 600; }
+.intervals-table td:first-child { font-family: var(--mono); white-space: nowrap; }
+.intervals-table .axis { display:block; }
+.sets-svg { display:block; max-width: 420px; margin: 0.6rem auto; }
+.table-wrap { overflow-x: auto; margin: 0.9rem 0; }
+.prop-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.prop-table th, .prop-table td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.prop-table th { background: var(--bg-subtle); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-soft); font-weight: 600; }
+.prop-table td:first-child { color: var(--text-soft); min-width: 11rem; }
+.prop-table .cell-note { display: block; font-size: 0.82rem; opacity: 0.8; }
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution .axis { display: block; max-width: 100%; height: auto; margin: 0.6rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+.lg-widget { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.1rem; margin: 1.2rem 0; background: var(--bg); }
+.lg-widget > h3 { margin: 0 0 0.7rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.lg-controls { display: flex; flex-wrap: wrap; gap: 0.8rem 1.4rem; align-items: flex-end; margin-bottom: 0.8rem; font-size: 0.92rem; }
+.lg-controls label { display: block; min-width: 12rem; flex: 1; }
+.lg-controls input[type=range] { display: block; width: 100%; margin-top: 0.35rem; accent-color: #6366f1; }
+.lg-val { font-family: var(--mono); font-weight: 600; }
+.lg-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.lg-toggle button { font: inherit; font-size: 0.85rem; padding: 0.35rem 0.75rem; border: 0; background: transparent; color: var(--text-soft); cursor: pointer; }
+.lg-toggle button + button { border-left: 1px solid var(--border); }
+.lg-toggle button.on { background: #6366f1; color: #fff; }
+.lg-chart { position: relative; }
+.lg-chart svg { display: block; overflow: visible; }
+.lg-chart text { font-size: 12px; fill: var(--text-soft); }
+.lg-chart .lg-tick.soft { fill: var(--text-faint); font-size: 11px; }
+.lg-chart .lg-lab { fill: var(--text); font-size: 12.5px; }
+.lg-chart .lg-val-t { fill: var(--text-soft); font-family: var(--mono); font-size: 11.5px; }
+.lg-grid { stroke: var(--border); stroke-width: 1; }
+.lg-axis { stroke: var(--text-faint); stroke-width: 1.5; }
+.lg-bar { fill: var(--text-faint); opacity: 0.55; }
+.lg-row.sel .lg-bar { fill: #f59e0b; opacity: 1; }
+.lg-row.sel .lg-lab { font-weight: 600; }
+.lg-bar-you { fill: #6366f1; }
+.lg-row.you .lg-lab { font-weight: 600; }
+.lg-hit { fill: transparent; }
+.lg-row:not(.you) { cursor: pointer; }
+.lg-row:not(.you):hover .lg-hit { fill: rgba(99,102,241,0.06); }
+.lg-ref-dot { fill: var(--text-soft); }
+.lg-chart .lg-ref-t { font-size: 11.5px; fill: var(--text-soft); }
+.lg-mark { stroke: #6366f1; stroke-width: 2; }
+.lg-mark-head { fill: #6366f1; }
+.lg-line-a { fill: none; stroke: #6366f1; stroke-width: 2.2; stroke-linejoin: round; }
+.lg-line-b { fill: none; stroke: #10b981; stroke-width: 2.2; stroke-dasharray: 6 4; }
+.lg-chart .lg-lab-a { fill: var(--text); font-weight: 600; }
+.lg-chart .lg-lab-b { fill: var(--text); font-weight: 600; }
+.lg-chart .lg-lab-a, .lg-chart .lg-lab-b { paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+[data-theme="dark"] .lg-chart .lg-lab-a, [data-theme="dark"] .lg-chart .lg-lab-b { stroke: var(--bg-subtle); }
+.lg-guide { stroke: #6366f1; stroke-width: 1; stroke-dasharray: 3 3; }
+.lg-cross { stroke: var(--text-faint); stroke-width: 1; }
+.lg-pt { fill: #6366f1; stroke: var(--bg); stroke-width: 2; }
+.lg-pt-b { fill: #10b981; stroke: var(--bg); stroke-width: 2; }
+.lg-tip { display: none; position: absolute; pointer-events: none; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.55rem; font-size: 0.8rem; line-height: 1.45; box-shadow: 0 4px 14px rgba(0,0,0,0.08); white-space: nowrap; z-index: 2; }
+.lg-tip .sw { display: inline-block; width: 10px; height: 3px; border-radius: 2px; margin-right: 0.35rem; vertical-align: middle; }
+.lg-tip .sw.a { background: #6366f1; }
+.lg-tip .sw.b { background: #10b981; }
+.lg-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: 0.85rem; color: var(--text-soft); margin: 0 0 0.5rem; }
+.lg-legend .sw { display: inline-block; width: 16px; height: 3px; border-radius: 2px; margin-right: 0.4rem; vertical-align: middle; }
+.lg-readout { font-size: 0.92rem; margin: 0.7rem 0 0; }
+.lg-readout .note { display: block; margin: 0.3rem 0 0; font-size: 0.82rem; }
+[data-theme="dark"] .lg-widget { background: var(--bg-subtle); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html">
+<meta property="og:title" content="12. Uses of logarithms — Real numbers — 1r BTL CCSS">
+<meta property="og:description" content="Applied Maths CCSS 1r BTL notes, 2026-27: the Richter scale, decibels and the log scale of stock charts, with interactive charts.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="12. Uses of logarithms — Real numbers — 1r BTL CCSS">
+<meta name="twitter:description" content="Applied Maths CCSS 1r BTL notes, 2026-27: the Richter scale, decibels and the log scale of stock charts, with interactive charts.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"Applied Maths CCSS 1r BTL","item":"https://alexreyes.es/en/docencia/ccss-1btl/"},{"@type":"ListItem","position":4,"name":"Real numbers","item":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/"},{"@type":"ListItem","position":5,"name":"12 · Uses of logarithms","item":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html"}]},{"@type":"LearningResource","name":"12 · Uses of logarithms","url":"https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Applied Maths CCSS 1r BTL notes, 2026-27: the Richter scale, decibels and the log scale of stock charts, with interactive charts."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/12-us-dels-logaritmes.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/ccss-1btl/">Applied Maths CCSS 1r BTL</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/">Real numbers</a>
+      <span class="sep">/</span>
+      <span class="current">12 &middot; Uses of logarithms</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">1r BTL CCSS &middot; Real numbers</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">5 Oct 2026</span>
+      </div>
+      <h1 style="margin:0">12. Uses of logarithms</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Where logarithms show up outside the classroom: the Richter scale, decibels and stock market charts, each with an interactive chart.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Why logarithms</h2>
+        <p>Some quantities range from the tiny to the enormous: the amplitude of an earthquake, the intensity of a sound or the price of a share over decades. Written out as they are, the numbers have too many zeros to compare at a glance.</p>
+        <div class="prop-box">
+          <h3>The common idea</h3>
+          <p>Instead of the value, we give its <strong>logarithm</strong>. That way, multiplying the value by $10$ means <strong>adding $1$</strong> on the scale:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">$$\log(10 \cdot x) \overset{(1)}{=} \log 10 + \log x = 1 + \log x$$</div>
+          <p>This is property (1) from <a href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/10-propietats-dels-logaritmes.html">section 10</a>: products become sums.</p>
+        </div>
+        <p>In class we looked at three examples: the <strong>Richter scale</strong>, <strong>sound intensity in decibels</strong> and <strong>stock market charts</strong>.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>1. The Richter scale</h2>
+
+        <p>In 1935 the seismologist Charles Richter proposed measuring earthquakes by the <strong>maximum amplitude</strong> $A$ of the waves traced by the seismograph, compared with a very small reference amplitude $A_0$:</p>
+
+        <div class="def-box">
+          <h3>Magnitude</h3>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">$$M = \log \frac{A}{A_0} \overset{(2)}{=} \log A - \log A_0$$</div>
+          <p>Each extra point of magnitude means an amplitude <strong>$10$ times larger</strong>. The energy released grows even faster: it is multiplied by $10^{1.5} \approx 31.6$ for each point, so <strong>$2$ more points mean $1{,}000$ times more energy</strong>.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Example: Turkey (2023) and Lorca (2011)</h3>
+          <p>The Turkey–Syria earthquake had magnitude $7.8$ and the Lorca one, $5.1$. Subtracting the two magnitudes:</p>
+          <div class="math-block">$$7.8 - 5.1 = \log \frac{A_T}{A_0} - \log \frac{A_L}{A_0} \overset{(2)}{=} \log \frac{A_T}{A_L} \;\Longrightarrow\; \frac{A_T}{A_L} = 10^{2.7} \approx 501$$</div>
+          <p>The amplitude was about $500$ times larger. And the energy, $10^{1.5 \cdot 2.7} = 10^{4.05} \approx 11{,}200$ times more.</p>
+        </div>
+
+        <div class="lg-widget" id="w-richter">
+          <h3>Interactive: compare earthquakes</h3>
+          <div class="lg-controls">
+            <label>Magnitude of your earthquake: <span class="lg-val">6.0</span>
+              <input type="range" min="2" max="9.5" step="0.1" value="6" aria-label="Magnitude"></label>
+            <div class="lg-toggle" role="group" aria-label="Scale"><button type="button" data-scale="lin" aria-pressed="false">Linear scale</button><button type="button" data-scale="log" class="on" aria-pressed="true">Log scale</button></div>
+          </div>
+          <div class="lg-chart"></div>
+          <p class="lg-readout" aria-live="polite"></p>
+        </div>
+
+        <p class="note">Seismologists now use the <strong>moment magnitude</strong> ($M_w$), which is also logarithmic and calibrated to give values similar to Richter's. The magnitudes in the chart are these; the media still call it the "Richter scale".</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>2. Sound intensity: decibels</h2>
+
+        <p>The human ear can hear sounds from an intensity of $10^{-12}\ \text{W/m}^2$ up to sounds a trillion times more intense. And it doesn't perceive them proportionally: a sound ten times more intense doesn't seem ten times louder. That is why sound level is measured in <strong>decibels</strong> (dB), with a logarithm:</p>
+
+        <div class="def-box">
+          <h3>Sound intensity level</h3>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">$$\beta = 10 \cdot \log \frac{I}{I_0} \qquad I_0 = 10^{-12}\ \text{W/m}^2 \;\text{(threshold of hearing)}$$</div>
+          <p>Adding $10$ dB means multiplying the intensity by $10$. Adding $20$ dB, multiplying it by $100$.</p>
+        </div>
+
+        <div class="example-box">
+          <h3>Example: a conversation</h3>
+          <p>A normal conversation is about $60$ dB. What is its intensity?</p>
+          <div class="math-block">$$60 = 10 \log \frac{I}{10^{-12}} \;\Longrightarrow\; \log \frac{I}{10^{-12}} = 6 \;\Longrightarrow\; \frac{I}{10^{-12}} = 10^{6} \;\Longrightarrow\; I = 10^{-6}\ \text{W/m}^2$$</div>
+        </div>
+
+        <div class="lg-widget" id="w-db">
+          <h3>Interactive: from decibels to intensity</h3>
+          <div class="lg-controls">
+            <label>Sound level: <span><span class="lg-val">60</span> dB</span>
+              <input type="range" min="0" max="140" step="1" value="60" aria-label="dB"></label>
+          </div>
+          <div class="lg-chart"></div>
+          <p class="lg-readout" aria-live="polite"></p>
+        </div>
+        <p class="note">The reference sounds are approximate. From about $85$ dB, many hours of exposure can damage your hearing.</p>
+
+        <div class="example-box">
+          <h3>Example: two identical sources</h3>
+          <p>If a second motorbike just like the first one ($\beta$ dB) joins it, the intensity doubles. In decibels:</p>
+          <div class="math-block">$$10 \log \frac{2I}{I_0} \overset{(1)}{=} 10 \log 2 + 10 \log \frac{I}{I_0} \approx 10 \cdot 0.301 + \beta \approx \beta + 3$$</div>
+          <p>Two motorbikes don't make twice the decibels: they only add <strong>$3$</strong>. Here is the $\log 2 \approx 0.301$ from the <a href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/11-deures-1-oct.html">homework</a> again.</p>
+        </div>
+
+        <div class="lg-widget" id="w-fonts">
+          <h3>Interactive: how many identical sources?</h3>
+          <div class="lg-controls">
+            <label>Level of one source: <span><span class="lg-val">90</span> dB</span>
+              <input type="range" min="40" max="110" step="1" value="90" aria-label="dB"></label>
+            <label>Number of sources: <span class="lg-val">2</span>
+              <input type="range" min="1" max="100" step="1" value="2" aria-label="n"></label>
+          </div>
+          <div class="lg-chart"></div>
+          <p class="lg-readout" aria-live="polite"></p>
+        </div>
+        <p class="note">The curve is the graph of a logarithm, $\beta_n = \beta + 10 \log n$: it rises quickly at first and then more and more slowly. To gain $10$ dB you need $10$ sources; to gain $20$, $100$.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>3. Stock market charts: the log scale</h2>
+
+        <p>When a stock chart covers many decades, the vertical axis is often <strong>logarithmic</strong>: the marks don't go up in steps of $100$, but $100$, $1{,}000$, $10{,}000$… Each step multiplies by $10$.</p>
+
+        <div class="prop-box">
+          <h3>What the log scale changes</h3>
+          <p>On a log axis, the same vertical distance means <strong>the same percentage</strong>. Going from $10$ to $20$ takes up the same space as going from $100$ to $200$, because both are a $100\,\%$ rise:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">$$\log 20 - \log 10 \overset{(2)}{=} \log \frac{20}{10} = \log 2 = \log \frac{200}{100} = \log 200 - \log 100$$</div>
+          <p>And an investment that grows by the same percentage $r$ every year draws a <strong>straight line</strong>:</p>
+          <div class="math-block" style="margin:0.6rem 0;padding:0.4rem">$$P(t) = P_0 (1 + r)^{t} \;\Longrightarrow\; \log P(t) \overset{(1),(3)}{=} \log P_0 + t \cdot \log(1 + r)$$</div>
+          <p>which is a linear function of $t$, with slope $\log(1 + r)$.</p>
+        </div>
+
+        <div class="lg-widget" id="w-borsa">
+          <h3>Interactive: linear or log scale</h3>
+          <p class="note" style="margin-top:0">Two fictitious investments of $100$ € over $40$ years. <strong>A</strong> grows by the same percentage every year; <strong>B</strong> grows by the same amount every year, chosen so that both end up equal.</p>
+          <div class="lg-controls">
+            <label>Annual growth of A: <span><span class="lg-val">8</span> %</span>
+              <input type="range" min="2" max="15" step="1" value="8" aria-label="%"></label>
+            <div class="lg-toggle" role="group" aria-label="Scale"><button type="button" data-scale="lin" class="on" aria-pressed="true">Linear scale</button><button type="button" data-scale="log" aria-pressed="false">Log scale</button></div>
+          </div>
+          <div class="lg-legend"><span><span class="sw" style="background:#6366f1"></span>Investment A (fixed percentage)</span><span><span class="sw" style="background:#10b981"></span>Investment B (fixed amount)</span></div>
+          <div class="lg-chart"></div>
+          <p class="lg-readout" aria-live="polite"></p>
+        </div>
+        <p class="note">On the linear scale, A seems to do nothing for years and then takes off at the end. The log scale shows what is really going on: it always grows at the same rate (a straight line). B, whose percentage growth keeps shrinking, flattens out.</p>
+
+        <div class="example-box">
+          <h3>Example: when does an investment double?</h3>
+          <p>If an investment grows by $7\,\%$ a year, how many years does it take to double? It's an exponential equation, like the one in section 10:</p>
+          <div class="math-block">$$1.07^{t} = 2 \;\Longrightarrow\; t \cdot \log 1.07 = \log 2 \;\Longrightarrow\; t = \frac{\log 2}{\log 1.07} \approx \frac{0.301}{0.0294} \approx 10.2 \text{ years}$$</div>
+        </div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Try it</h2>
+
+        <div class="exercise" id="ex-1">
+          <div class="exercise-head"><span class="num">1</span><span class="ttl">Richter</span></div>
+          <p>One earthquake has magnitude $6$ and another, magnitude $4$. How many times larger is the amplitude of the first? And the energy?</p>
+          <div class="apart"><details>
+            <summary><span class="letter">&nbsp;</span> <span class="stmt">See the solution</span></summary>
+            <div class="apart-solution">
+              <p>The difference in magnitude is $2$:</p>
+              <div class="math-block">$$\frac{A_1}{A_2} = 10^{6 - 4} = 10^{2} = 100 \qquad \frac{E_1}{E_2} = 10^{1.5 \cdot 2} = 10^{3} = 1{,}000$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <div class="exercise" id="ex-2">
+          <div class="exercise-head"><span class="num">2</span><span class="ttl">Decibels</span></div>
+          <p>A motorbike makes $90$ dB. How many decibels do $10$ identical motorbikes make?</p>
+          <div class="apart"><details>
+            <summary><span class="letter">&nbsp;</span> <span class="stmt">See the solution</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">$$10 \log \frac{10\,I}{I_0} \overset{(1)}{=} 10 \log 10 + 10 \log \frac{I}{I_0} = 10 + 90 = 100 \text{ dB}$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <div class="exercise" id="ex-3">
+          <div class="exercise-head"><span class="num">3</span><span class="ttl">Decibels</span></div>
+          <p>How many times more intense is an $85$ dB sound than a $65$ dB one?</p>
+          <div class="apart"><details>
+            <summary><span class="letter">&nbsp;</span> <span class="stmt">See the solution</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">$$85 - 65 = 10 \log \frac{I_1}{I_0} - 10 \log \frac{I_2}{I_0} \overset{(2)}{=} 10 \log \frac{I_1}{I_2} \;\Longrightarrow\; \log \frac{I_1}{I_2} = 2 \;\Longrightarrow\; \frac{I_1}{I_2} = 100$$</div>
+            </div>
+          </details></div>
+        </div>
+
+        <div class="exercise" id="ex-4">
+          <div class="exercise-head"><span class="num">4</span><span class="ttl">Stock market</span></div>
+          <p>A share goes from $20$ € to $80$ € in $6$ years, rising by the same percentage every year. What is that annual percentage?</p>
+          <div class="apart"><details>
+            <summary><span class="letter">&nbsp;</span> <span class="stmt">See the solution</span></summary>
+            <div class="apart-solution">
+              <div class="math-block">$$20(1 + r)^{6} = 80 \;\Longrightarrow\; (1 + r)^{6} = 4 \;\Longrightarrow\; 6 \log(1 + r) = \log 4$$</div>
+              <div class="math-block">$$\log(1 + r) = \frac{\log 4}{6} = \frac{2 \log 2}{6} \approx \frac{0.602}{6} \approx 0.1003 \;\Longrightarrow\; 1 + r = 10^{0.1003} \approx 1.26$$</div>
+              <p>It rises by roughly <strong>$26\,\%$</strong> a year. On a log scale, this share would draw a straight line.</p>
+            </div>
+          </details></div>
+        </div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <a class="prev" href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/11-deures-1-oct.html">&larr; Previous section</a>
+        <a class="index" href="/en/aula/ccss-1btl/apuntes/2627-u-nombres-reals/">Unit index</a>
+        <span class="disabled next">Next section &rarr;</span>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script>
+(function () {
+  'use strict';
+  var EN = (document.documentElement.lang || 'ca').slice(0, 2) === 'en';
+  var LOC = EN ? 'en-US' : 'ca-ES';
+  var S = EN ? {
+    you: 'Your earthquake', lin: 'linear', log: 'logarithmic',
+    ampAxis: 'Amplitude (times A₀)',
+    same: function (r) { return 'It has the same magnitude as ' + r + '.'; },
+    cmp: function (r, m, a, e, more) {
+      return 'Compared with <strong>' + r + '</strong> (M ' + m + '): the amplitude is <strong>' + a + ' times ' + (more ? 'larger' : 'smaller') + '</strong> and the energy released is <strong>' + e + ' times ' + (more ? 'larger' : 'smaller') + '</strong>.';
+    },
+    linNote: ' On the linear scale, notice how the smaller earthquakes barely show up.',
+    hoverHint: 'Hover over or tap a row to compare with it.',
+    dbOut: function (L, I, k, near) {
+      return '<strong>' + L + ' dB</strong> ⇒ I = ' + I + ' W/m², that is <strong>' + k + '</strong> times the intensity at the threshold of hearing. Similar to: <strong>' + near + '</strong>.';
+    },
+    threshold: 'the threshold of hearing',
+    nOut: function (n, L0, L, d) {
+      return '<strong>' + n + '</strong> ' + (n === 1 ? 'source' : 'identical sources') + ' of ' + L0 + ' dB give <strong>' + L + ' dB</strong>: ' + n + ' times the intensity, but only <strong>' + d + ' dB</strong> more.';
+    },
+    nAxis: 'Number of sources', dbAxis: 'dB',
+    sources: function (n) { return n + (n === 1 ? ' source' : ' sources'); },
+    year: 'Year', A: 'Investment A', B: 'Investment B',
+    stockOut: function (r, t, f) {
+      return 'A grows by <strong>' + r + ' %</strong> every year, so it doubles every <strong>' + t + ' years</strong> ($t = \\frac{\\log 2}{\\log(1+r)}$). After 40 years both are worth <strong>' + f + ' €</strong>.';
+    },
+    yearsAxis: 'Years'
+  } : {
+    you: 'El teu terratrèmol', lin: 'lineal', log: 'logarítmica',
+    ampAxis: 'Amplitud (vegades A₀)',
+    same: function (r) { return 'Té la mateixa magnitud que ' + r + '.'; },
+    cmp: function (r, m, a, e, more) {
+      return 'Comparat amb <strong>' + r + '</strong> (M ' + m + '): l\'amplitud és <strong>' + a + ' vegades ' + (more ? 'més gran' : 'més petita') + '</strong> i l\'energia alliberada, <strong>' + e + ' vegades ' + (more ? 'més gran' : 'més petita') + '</strong>.';
+    },
+    linNote: ' A escala lineal, fixa\'t que els terratrèmols petits gairebé no es veuen.',
+    hoverHint: 'Passa per sobre d\'una fila (o toca-la) per comparar-hi.',
+    dbOut: function (L, I, k, near) {
+      return '<strong>' + L + ' dB</strong> ⇒ I = ' + I + ' W/m², és a dir, <strong>' + k + '</strong> vegades la intensitat del llindar d\'audició. Semblant a: <strong>' + near + '</strong>.';
+    },
+    threshold: 'el llindar d\'audició',
+    nOut: function (n, L0, L, d) {
+      return '<strong>' + n + '</strong> ' + (n === 1 ? 'font' : 'fonts iguals') + ' de ' + L0 + ' dB fan <strong>' + L + ' dB</strong>: ' + n + ' vegades més intensitat, però només <strong>' + d + ' dB</strong> més.';
+    },
+    nAxis: 'Nombre de fonts', dbAxis: 'dB',
+    sources: function (n) { return n + (n === 1 ? ' font' : ' fonts'); },
+    year: 'Any', A: 'Inversió A', B: 'Inversió B',
+    stockOut: function (r, t, f) {
+      return 'L\'A creix un <strong>' + r + ' %</strong> cada any, així que es duplica cada <strong>' + t + ' anys</strong> ($t = \\frac{\\log 2}{\\log(1+r)}$). Al cap de 40 anys totes dues valen <strong>' + f + ' €</strong>.';
+    },
+    yearsAxis: 'Anys'
+  };
+
+  var QUAKES = EN ? [
+    { n: 'Lorca (2011)', m: 5.1 }, { n: "L'Aquila (2009)", m: 6.3 },
+    { n: 'Turkey–Syria (2023)', m: 7.8 }, { n: 'Japan, Tōhoku (2011)', m: 9.1 },
+    { n: 'Chile, Valdivia (1960)', m: 9.5 }
+  ] : [
+    { n: 'Lorca (2011)', m: 5.1 }, { n: "L'Aquila (2009)", m: 6.3 },
+    { n: 'Turquia i Síria (2023)', m: 7.8 }, { n: 'Japó, Tōhoku (2011)', m: 9.1 },
+    { n: 'Xile, Valdivia (1960)', m: 9.5 }
+  ];
+  var SOUNDS = EN ? [
+    [0, 'Threshold of hearing'], [30, 'Whisper'], [40, 'Library'], [60, 'Conversation'],
+    [80, 'Heavy traffic'], [100, 'Nightclub'], [120, 'Threshold of pain'], [140, 'Jet engine nearby']
+  ] : [
+    [0, 'Llindar d\'audició'], [30, 'Xiuxiueig'], [40, 'Biblioteca'], [60, 'Conversa'],
+    [80, 'Trànsit intens'], [100, 'Discoteca'], [120, 'Llindar del dolor'], [140, 'Avió a reacció a prop']
+  ];
+
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, at, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in at) e.setAttribute(k, at[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function txt(parent, x, y, s, at) {
+    var t = el('text', Object.assign({ x: x, y: y }, at || {}), parent);
+    t.textContent = s;
+    return t;
+  }
+  var SUP = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
+  function sup(n) { return String(n).split('').map(function (c) { return SUP[c] || c; }).join(''); }
+  function num(x, d) { return x.toLocaleString(LOC, { maximumFractionDigits: d, minimumFractionDigits: 0 }); }
+  function fix(x, d) { return x.toLocaleString(LOC, { maximumFractionDigits: d, minimumFractionDigits: d }); }
+  // Un factor gran, llegible: 3,2 · 25 · 1.585 · 3,2·10⁶
+  function big(x) {
+    if (x < 10) return num(x, 1);
+    if (x < 1e6) return num(Math.round(x), 0);
+    var e = Math.floor(Math.log10(x) + 1e-9), m = x / Math.pow(10, e);
+    if (m >= 9.95) { m = 1; e += 1; }
+    if (m < 1.05) return '10' + sup(e);
+    return num(m, 1) + '·10' + sup(e);
+  }
+  // Potència de 10 en notació científica: 10^-6 → 10⁻⁶, 10^-6.3 → 5·10⁻⁷
+  function sci(lg) {
+    var e = Math.floor(lg + 1e-9), m = Math.pow(10, lg - e);
+    if (Math.abs(m - 1) < 0.005) return '10' + sup(e);
+    return num(m, 1) + '·10' + sup(e);
+  }
+  function width(box) { return Math.max(300, box.clientWidth); }
+  function onResize(box, draw) {
+    if (window.ResizeObserver) new ResizeObserver(function () { draw(); }).observe(box);
+    else window.addEventListener('resize', draw);
+  }
+  function tip(box) {
+    var t = box.querySelector('.lg-tip');
+    if (!t) { t = document.createElement('div'); t.className = 'lg-tip'; box.appendChild(t); }
+    return t;
+  }
+  function toggle(root, cb) {
+    var bs = root.querySelectorAll('.lg-toggle button');
+    bs.forEach(function (b) {
+      b.addEventListener('click', function () {
+        bs.forEach(function (o) { o.classList.toggle('on', o === b); o.setAttribute('aria-pressed', o === b); });
+        cb(b.getAttribute('data-scale'));
+      });
+    });
+  }
+  function katex(node) {
+    if (window.renderMathInElement) renderMathInElement(node, { delimiters: [{ left: '$', right: '$', display: false }], throwOnError: false });
+  }
+
+  // ------------------------------------------------------------ Richter
+  (function () {
+    var root = document.getElementById('w-richter');
+    if (!root) return;
+    var box = root.querySelector('.lg-chart'), slider = root.querySelector('input'),
+        mOut = root.querySelector('.lg-val'), out = root.querySelector('.lg-readout');
+    var scale = 'log', ref = 0;
+    toggle(root, function (s) { scale = s; draw(); });
+    slider.addEventListener('input', draw);
+    onResize(box, draw);
+
+    function readout(M) {
+      var q = QUAKES[ref], d = M - q.m, s;
+      if (Math.abs(d) < 0.05) s = S.same(q.n);
+      else s = S.cmp(q.n, fix(q.m, 1), big(Math.pow(10, Math.abs(d))), big(Math.pow(10, 1.5 * Math.abs(d))), d > 0);
+      out.innerHTML = s + (scale === 'lin' ? S.linNote : '') + ' <span class="note">' + S.hoverHint + '</span>';
+    }
+    function draw() {
+      var M = parseFloat(slider.value);
+      mOut.textContent = fix(M, 1);
+      var W = width(box), rows = [{ n: S.you, m: M, you: true }].concat(QUAKES);
+      var rh = 34, top = 6, lab = Math.min(190, Math.round(W * 0.38)), right = 56;
+      var H = top + rows.length * rh + 40, x0 = lab + 8, pw = W - x0 - right;
+      box.innerHTML = '';
+      var svg = el('svg', { width: W, height: H, role: 'img', 'aria-label': S.ampAxis }, box);
+      var Mmax = Math.max(9.5, M), Mtop = 10;
+      function len(m) { return scale === 'log' ? pw * m / Mtop : pw * Math.pow(10, m - Mmax); }
+      // graella i eix
+      var ticks = [];
+      if (scale === 'log') for (var k = 0; k <= 10; k += 2) ticks.push([pw * k / 10, k === 0 ? '1' : '10' + sup(k)]);
+      else for (var j = 0; j <= 4; j++) ticks.push([pw * j / 4, j === 0 ? '0' : big(Math.pow(10, Mmax) * j / 4)]);
+      var axY = top + rows.length * rh + 4;
+      ticks.forEach(function (t) {
+        el('line', { x1: x0 + t[0], x2: x0 + t[0], y1: top, y2: axY, class: 'lg-grid' }, svg);
+        txt(svg, x0 + t[0], axY + 15, t[1], { 'text-anchor': 'middle', class: 'lg-tick' });
+      });
+      txt(svg, x0 + pw / 2, axY + 32, S.ampAxis, { 'text-anchor': 'middle', class: 'lg-tick' });
+      rows.forEach(function (r, i) {
+        var y = top + i * rh, g = el('g', { class: 'lg-row' + (r.you ? ' you' : '') + (!r.you && i - 1 === ref ? ' sel' : '') }, svg);
+        el('rect', { x: 0, y: y, width: W, height: rh, class: 'lg-hit' }, g);
+        txt(g, lab, y + rh / 2 + 4, r.n, { 'text-anchor': 'end', class: 'lg-lab' });
+        var L = Math.max(len(r.m), 1.5);
+        el('rect', { x: x0, y: y + 8, width: L, height: rh - 16, rx: 3, class: r.you ? 'lg-bar-you' : 'lg-bar' }, g);
+        txt(g, x0 + L + 6, y + rh / 2 + 4, 'M ' + fix(r.m, 1), { class: 'lg-val-t' });
+        if (!r.you) {
+          var pick = function () { ref = i - 1; draw(); };
+          g.addEventListener('mouseenter', function () { if (ref !== i - 1) pick(); });
+          g.addEventListener('click', pick);
+        }
+      });
+      readout(M);
+    }
+    draw();
+  })();
+
+  // ------------------------------------------------------------ decibels
+  (function () {
+    var root = document.getElementById('w-db');
+    if (!root) return;
+    var box = root.querySelector('.lg-chart'), slider = root.querySelector('input'),
+        vOut = root.querySelector('.lg-val'), out = root.querySelector('.lg-readout');
+    slider.addEventListener('input', draw);
+    onResize(box, draw);
+    function draw() {
+      var L = parseInt(slider.value, 10);
+      vOut.textContent = L;
+      var W = width(box), narrow = W < 560;
+      box.innerHTML = '';
+      var svg;
+      if (narrow) {
+        // en vertical: a l'esquerra els dB i la intensitat, a la dreta els sons
+        var top = 12, ph = 300, ax = 112, H = top + ph + 22;
+        svg = el('svg', { width: W, height: H, role: 'img', 'aria-label': 'dB' }, box);
+        var Yv = function (db) { return top + ph * (1 - db / 140); };
+        el('line', { x1: ax, x2: ax, y1: Yv(0), y2: Yv(140), class: 'lg-axis' }, svg);
+        for (var dv = 0; dv <= 140; dv += 20) {
+          el('line', { x1: ax - 5, x2: ax, y1: Yv(dv), y2: Yv(dv), class: 'lg-axis' }, svg);
+          txt(svg, ax - 58, Yv(dv) + 4, dv + ' dB', { 'text-anchor': 'end', class: 'lg-tick' });
+          txt(svg, ax - 10, Yv(dv) + 4, sci((dv - 120) / 10), { 'text-anchor': 'end', class: 'lg-tick soft' });
+        }
+        txt(svg, ax - 10, H, 'W/m²', { 'text-anchor': 'end', class: 'lg-tick soft' });
+        SOUNDS.forEach(function (s) {
+          el('circle', { cx: ax, cy: Yv(s[0]), r: 3.5, class: 'lg-ref-dot' }, svg);
+          txt(svg, ax + 12, Yv(s[0]) + 4, s[1], { class: 'lg-ref-t' });
+        });
+        el('line', { x1: ax - 7, x2: ax + 7, y1: Yv(L), y2: Yv(L), class: 'lg-mark' }, svg);
+        el('circle', { cx: ax, cy: Yv(L), r: 6, class: 'lg-pt' }, svg);
+      } else {
+        var pad = 22, pw = W - 2 * pad, axY = 82;
+        svg = el('svg', { width: W, height: axY + 68, role: 'img', 'aria-label': 'dB' }, box);
+        var X = function (db) { return pad + pw * db / 140; };
+        el('line', { x1: X(0), x2: X(140), y1: axY, y2: axY, class: 'lg-axis' }, svg);
+        for (var d = 0; d <= 140; d += 20) {
+          el('line', { x1: X(d), x2: X(d), y1: axY, y2: axY + 5, class: 'lg-axis' }, svg);
+          txt(svg, X(d), axY + 18, d + ' dB', { 'text-anchor': 'middle', class: 'lg-tick' });
+          txt(svg, X(d), axY + 34, sci((d - 120) / 10), { 'text-anchor': 'middle', class: 'lg-tick soft' });
+        }
+        txt(svg, X(140), axY + 50, 'W/m²', { 'text-anchor': 'end', class: 'lg-tick soft' });
+        // sons de referència, etiquetes alternades en dues alçades
+        SOUNDS.forEach(function (s, i) {
+          var y = i % 2 === 0 ? axY - 34 : axY - 14;
+          el('circle', { cx: X(s[0]), cy: axY, r: 3.5, class: 'lg-ref-dot' }, svg);
+          el('line', { x1: X(s[0]), x2: X(s[0]), y1: y + 3, y2: axY - 4, class: 'lg-grid' }, svg);
+          var anchor = i === 0 ? 'start' : (i === SOUNDS.length - 1 ? 'end' : 'middle');
+          txt(svg, X(s[0]), y, s[1], { 'text-anchor': anchor, class: 'lg-ref-t' });
+        });
+        // marcador del valor triat
+        el('line', { x1: X(L), x2: X(L), y1: 6, y2: axY, class: 'lg-mark' }, svg);
+        el('path', { d: 'M' + (X(L) - 6) + ',' + (axY - 2) + ' l6,8 l6,-8 z', class: 'lg-mark-head' }, svg);
+      }
+      var near = SOUNDS.reduce(function (a, s) { return Math.abs(s[0] - L) < Math.abs(a[0] - L) ? s : a; });
+      out.innerHTML = S.dbOut(L, sci((L - 120) / 10), big(Math.pow(10, L / 10)), L === 0 ? S.threshold : near[1].toLowerCase());
+    }
+    draw();
+  })();
+
+  // ------------------------------------------------------------ n fonts iguals
+  (function () {
+    var root = document.getElementById('w-fonts');
+    if (!root) return;
+    var box = root.querySelector('.lg-chart'), ins = root.querySelectorAll('input'),
+        vals = root.querySelectorAll('.lg-val'), out = root.querySelector('.lg-readout');
+    ins.forEach(function (i) { i.addEventListener('input', draw); });
+    onResize(box, draw);
+    var hover = null;
+    function draw() {
+      var L0 = parseInt(ins[0].value, 10), n = parseInt(ins[1].value, 10);
+      vals[0].textContent = L0; vals[1].textContent = n;
+      var W = width(box), l = 44, r = 16, t = 24, b = 40, H = 242, pw = W - l - r, ph = H - t - b;
+      box.innerHTML = '';
+      var svg = el('svg', { width: W, height: H, role: 'img', 'aria-label': S.nAxis }, box);
+      function X(k) { return l + pw * (k - 1) / 99; }
+      function Y(v) { return t + ph * (1 - (v - L0) / 20); }
+      for (var v = 0; v <= 20; v += 5) {
+        el('line', { x1: l, x2: l + pw, y1: Y(L0 + v), y2: Y(L0 + v), class: 'lg-grid' }, svg);
+        txt(svg, l - 6, Y(L0 + v) + 4, L0 + v, { 'text-anchor': 'end', class: 'lg-tick' });
+      }
+      [1, 10, 20, 40, 60, 80, 100].forEach(function (k) {
+        txt(svg, X(k), t + ph + 16, k, { 'text-anchor': 'middle', class: 'lg-tick' });
+      });
+      txt(svg, l + pw / 2, H - 4, S.nAxis, { 'text-anchor': 'middle', class: 'lg-tick' });
+      txt(svg, l - 6, t - 12, S.dbAxis, { 'text-anchor': 'end', class: 'lg-tick' });
+      var d = '';
+      for (var k = 1; k <= 100; k++) d += (k === 1 ? 'M' : 'L') + X(k).toFixed(1) + ',' + Y(L0 + 10 * Math.log10(k)).toFixed(1);
+      el('path', { d: d, class: 'lg-line-a' }, svg);
+      var Ln = L0 + 10 * Math.log10(n);
+      el('line', { x1: X(n), x2: X(n), y1: Y(Ln), y2: t + ph, class: 'lg-guide' }, svg);
+      el('circle', { cx: X(n), cy: Y(Ln), r: 5, class: 'lg-pt' }, svg);
+      // capa de hover: creu i etiqueta
+      var tp = tip(box);
+      var hit = el('rect', { x: l, y: t, width: pw, height: ph, class: 'lg-hit' }, svg);
+      var cross = el('line', { x1: 0, x2: 0, y1: t, y2: t + ph, class: 'lg-cross', visibility: 'hidden' }, svg);
+      function move(ev) {
+        var bb = svg.getBoundingClientRect(), x = (ev.touches ? ev.touches[0].clientX : ev.clientX) - bb.left;
+        var k = Math.min(100, Math.max(1, Math.round(1 + (x - l) / pw * 99)));
+        var Lk = L0 + 10 * Math.log10(k);
+        cross.setAttribute('x1', X(k)); cross.setAttribute('x2', X(k)); cross.setAttribute('visibility', 'visible');
+        tp.innerHTML = '<b>' + S.sources(k) + '</b><br>' + fix(Lk, 1) + ' dB';
+        tp.style.left = Math.min(X(k) + 10, W - 120) + 'px'; tp.style.top = (Y(Lk) - 10) + 'px'; tp.style.display = 'block';
+      }
+      hit.addEventListener('mousemove', move);
+      hit.addEventListener('touchmove', move, { passive: true });
+      hit.addEventListener('mouseleave', function () { cross.setAttribute('visibility', 'hidden'); tp.style.display = 'none'; });
+      out.innerHTML = S.nOut(n, L0, fix(Ln, 1), fix(Ln - L0, 1));
+    }
+    draw();
+  })();
+
+  // ------------------------------------------------------------ borsa
+  (function () {
+    var root = document.getElementById('w-borsa');
+    if (!root) return;
+    var box = root.querySelector('.lg-chart'), slider = root.querySelector('input'),
+        vOut = root.querySelector('.lg-val'), out = root.querySelector('.lg-readout');
+    var scale = 'lin';
+    toggle(root, function (s) { scale = s; draw(); });
+    slider.addEventListener('input', draw);
+    onResize(box, draw);
+    function niceStep(range) {
+      var raw = range / 5, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p;
+      return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * p;
+    }
+    function draw() {
+      var r = parseFloat(slider.value) / 100, N = 40;
+      vOut.textContent = fix(r * 100, 0);
+      var A = [], B = [], fin = 100 * Math.pow(1 + r, N);
+      for (var k = 0; k <= N; k++) { A.push(100 * Math.pow(1 + r, k)); B.push(100 + (fin - 100) * k / N); }
+      var W = width(box), l = 58, rt = 24, t = 26, b = 40, H = 292, pw = W - l - rt, ph = H - t - b;
+      box.innerHTML = '';
+      var svg = el('svg', { width: W, height: H, role: 'img', 'aria-label': S.A + ', ' + S.B }, box);
+      function X(k) { return l + pw * k / N; }
+      var lo = 100, hi = fin, Y, ticks = [];
+      if (scale === 'log') {
+        var a = Math.log10(lo * 0.9), z = Math.log10(hi * 1.1);
+        Y = function (v) { return t + ph * (1 - (Math.log10(v) - a) / (z - a)); };
+        for (var e = 2; e <= 7; e++) [1, 2, 5].forEach(function (m) { var v = m * Math.pow(10, e); if (v >= lo * 0.9 && v <= hi * 1.1) ticks.push(v); });
+      } else {
+        var st = niceStep(hi), top = Math.ceil(hi / st) * st;
+        Y = function (v) { return t + ph * (1 - v / top); };
+        for (var v = 0; v <= top + 1e-9; v += st) ticks.push(v);
+      }
+      ticks.forEach(function (v) {
+        el('line', { x1: l, x2: l + pw, y1: Y(v), y2: Y(v), class: 'lg-grid' }, svg);
+        txt(svg, l - 6, Y(v) + 4, num(v, 0), { 'text-anchor': 'end', class: 'lg-tick' });
+      });
+      for (var x = 0; x <= N; x += 10) txt(svg, X(x), t + ph + 16, x, { 'text-anchor': 'middle', class: 'lg-tick' });
+      txt(svg, l + pw / 2, H - 4, S.yearsAxis, { 'text-anchor': 'middle', class: 'lg-tick' });
+      txt(svg, l - 6, t - 12, '€', { 'text-anchor': 'end', class: 'lg-tick' });
+      function path(arr) { return arr.map(function (v, k) { return (k ? 'L' : 'M') + X(k).toFixed(1) + ',' + Y(v).toFixed(1); }).join(''); }
+      el('path', { d: path(B), class: 'lg-line-b' }, svg);
+      el('path', { d: path(A), class: 'lg-line-a' }, svg);
+      // etiquetes directes a la dreta, separades si coincideixen
+      var yA = Y(A[N / 2 | 0]), yB = Y(B[N / 2 | 0]);
+      txt(svg, X(N / 2) + (scale === 'log' ? -4 : 4), yA + (yA > yB ? 16 : -8), S.A, { 'text-anchor': scale === 'log' ? 'end' : 'start', class: 'lg-lab-a' });
+      txt(svg, X(N / 2) + 4, yB + (yB >= yA ? 16 : -8), S.B, { class: 'lg-lab-b' });
+      var tp = tip(box);
+      var hit = el('rect', { x: l, y: t, width: pw, height: ph, class: 'lg-hit' }, svg);
+      var cross = el('line', { x1: 0, x2: 0, y1: t, y2: t + ph, class: 'lg-cross', visibility: 'hidden' }, svg);
+      var dA = el('circle', { r: 4.5, class: 'lg-pt', visibility: 'hidden' }, svg);
+      var dB = el('circle', { r: 4.5, class: 'lg-pt-b', visibility: 'hidden' }, svg);
+      function move(ev) {
+        var bb = svg.getBoundingClientRect(), xx = (ev.touches ? ev.touches[0].clientX : ev.clientX) - bb.left;
+        var k = Math.min(N, Math.max(0, Math.round((xx - l) / pw * N)));
+        cross.setAttribute('x1', X(k)); cross.setAttribute('x2', X(k));
+        dA.setAttribute('cx', X(k)); dA.setAttribute('cy', Y(A[k]));
+        dB.setAttribute('cx', X(k)); dB.setAttribute('cy', Y(B[k]));
+        [cross, dA, dB].forEach(function (n) { n.setAttribute('visibility', 'visible'); });
+        tp.innerHTML = '<b>' + S.year + ' ' + k + '</b><br><span class="sw a"></span>' + S.A + ': ' + num(A[k], 0) + ' €<br><span class="sw b"></span>' + S.B + ': ' + num(B[k], 0) + ' €';
+        tp.style.left = (X(k) > W / 2 ? X(k) - 175 : X(k) + 12) + 'px'; tp.style.top = (t + 8) + 'px'; tp.style.display = 'block';
+      }
+      hit.addEventListener('mousemove', move);
+      hit.addEventListener('touchmove', move, { passive: true });
+      hit.addEventListener('mouseleave', function () { [cross, dA, dB].forEach(function (n) { n.setAttribute('visibility', 'hidden'); }); tp.style.display = 'none'; });
+      out.innerHTML = S.stockOut(fix(r * 100, 0), fix(Math.log10(2) / Math.log10(1 + r), 1), num(fin, 0));
+      katex(out);
+    }
+    draw();
+  })();
+})();
+</script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>
