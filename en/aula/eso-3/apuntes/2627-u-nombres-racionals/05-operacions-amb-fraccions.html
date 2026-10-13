@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Multiplying and dividing — Rational numbers — 3r ESO</title>
-<meta name="description" content="3r ESO notes, 2026-27: how to multiply and divide fractions, and how to simplify before multiplying by breaking numbers into prime factors.">
+<meta name="description" content="3r ESO notes, 2026-27: how to multiply and divide fractions, the sign rule, simplifying before multiplying and the order of combined operations.">
 <script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
 <script src="/assets/js/lang-persist.js?v=202609121757"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,18 +73,22 @@
 .passos { margin: 0.4rem 0 0.8rem; padding-left: 1.4rem; }
 .passos li { margin: 0.3rem 0; }
 .apunt-section > .math-block { overflow-x: auto; }
+.signes { border-collapse: collapse; margin: 0.4rem 0; font-size: 1.05rem; }
+.signes td { padding: 0.15rem 0.8rem; text-align: center; font-family: var(--mono); }
+.signes td.pos { color: #059669; font-weight: 600; }
+.signes td.neg { color: #dc2626; font-weight: 600; }
 </style>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/05-operacions-amb-fraccions.html">
 <meta property="og:title" content="Multiplying and dividing — Rational numbers — 3r ESO">
-<meta property="og:description" content="3r ESO notes, 2026-27: how to multiply and divide fractions, and how to simplify before multiplying by breaking numbers into prime factors.">
+<meta property="og:description" content="3r ESO notes, 2026-27: how to multiply and divide fractions, the sign rule, simplifying before multiplying and the order of combined operations.">
 <meta property="og:image" content="https://alexreyes.es/og-image.jpg">
 <meta property="og:site_name" content="alexreyes.es">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Multiplying and dividing — Rational numbers — 3r ESO">
-<meta name="twitter:description" content="3r ESO notes, 2026-27: how to multiply and divide fractions, and how to simplify before multiplying by breaking numbers into prime factors.">
+<meta name="twitter:description" content="3r ESO notes, 2026-27: how to multiply and divide fractions, the sign rule, simplifying before multiplying and the order of combined operations.">
 <meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"3r ESO","item":"https://alexreyes.es/en/docencia/eso-3/"},{"@type":"ListItem","position":4,"name":"Rational numbers","item":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/"},{"@type":"ListItem","position":5,"name":"05 · Multiplying and dividing fractions","item":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/05-operacions-amb-fraccions.html"}]},{"@type":"LearningResource","name":"05 · Multiplying and dividing fractions","url":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/05-operacions-amb-fraccions.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"3r ESO notes, 2026-27: how to multiply and divide fractions, and how to simplify before multiplying by breaking numbers into prime factors."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"3r ESO","item":"https://alexreyes.es/en/docencia/eso-3/"},{"@type":"ListItem","position":4,"name":"Rational numbers","item":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/"},{"@type":"ListItem","position":5,"name":"05 · Multiplying, dividing and combined operations","item":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/05-operacions-amb-fraccions.html"}]},{"@type":"LearningResource","name":"05 · Multiplying, dividing and combined operations","url":"https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/05-operacions-amb-fraccions.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"3r ESO notes, 2026-27: how to multiply and divide fractions, the sign rule, simplifying before multiplying and the order of combined operations."}]}</script>
 <link rel="canonical" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/05-operacions-amb-fraccions.html">
 <link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-nombres-racionals/05-operacions-amb-fraccions.html">
 <link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/05-operacions-amb-fraccions.html">
@@ -148,7 +152,7 @@
       <span class="sep">/</span>
       <a href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/">Rational numbers</a>
       <span class="sep">/</span>
-      <span class="current">05 · Multiplying and dividing fractions</span>
+      <span class="current">05 · Multiplying, dividing and combined operations</span>
     </div>
 
     <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
@@ -157,8 +161,8 @@
         <span class="tag tag-orange">Notes</span>
         <span class="tag tag-gray" style="font-size:0.7rem">13 Oct 2026</span>
       </div>
-      <h1 style="margin:0">Multiplying and dividing fractions</h1>
-      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Multiply straight across, divide by cross-multiplying (or by the reciprocal) and simplify before multiplying.</p>
+      <h1 style="margin:0">Multiplying, dividing and combined operations</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Multiply straight across, divide by cross-multiplying (or by the reciprocal), the sign rule and the order of combined operations.</p>
     </div>
 
     <article class="question-block" style="border:none;padding:0;background:none">
@@ -187,6 +191,36 @@
         </div>
         <p style="font-size:0.95rem"><strong>Example.</strong></p>
         <div class="math-block">$$\dfrac{3}{4} : \dfrac{9}{8} = \dfrac{3 \cdot 8}{4 \cdot 9} = \dfrac{24}{36} = \dfrac{2}{3}$$</div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>The sign rule</h2>
+        <div class="def-box">
+          <p>When you multiply two numbers, the sign of the result is:</p>
+          <table class="signes"><tbody>
+            <tr><td>$+$</td><td>$\cdot$</td><td>$+$</td><td>$=$</td><td class="pos">$+$</td></tr>
+            <tr><td>$+$</td><td>$\cdot$</td><td>$-$</td><td>$=$</td><td class="neg">$-$</td></tr>
+            <tr><td>$-$</td><td>$\cdot$</td><td>$+$</td><td>$=$</td><td class="neg">$-$</td></tr>
+            <tr><td>$-$</td><td>$\cdot$</td><td>$-$</td><td>$=$</td><td class="pos">$+$</td></tr>
+          </tbody></table>
+          <p><strong>The same goes for division.</strong></p>
+        </div>
+        <p style="font-size:0.95rem"><strong>Example.</strong> First decide the sign: there are three negative factors, and an odd number of minus signs gives a negative. Then divide as usual, multiplying by the reciprocal:</p>
+        <div class="math-block">$$\left(-\dfrac{3}{4}\right) : \left(-\dfrac{5}{8}\right) : \left(-\dfrac{2}{5}\right) = -\dfrac{3}{4} : \dfrac{5}{8} : \dfrac{2}{5} = -\dfrac{3}{4} \cdot \dfrac{8}{5} \cdot \dfrac{5}{2} = -\dfrac{3 \cdot 2^3 \cdot 5}{2^2 \cdot 5 \cdot 2} = -3$$</div>
+        <p style="font-size:0.95rem;margin-top:1.2rem"><strong>Example.</strong> Here there are two negatives, so the result is positive. Operations of the same level are done from left to right:</p>
+        <div class="math-block">$$\left(-\dfrac{1}{2}\right) \cdot \left(-\dfrac{1}{3}\right) : \dfrac{1}{4} \cdot \dfrac{1}{5} = \dfrac{1}{2} \cdot \dfrac{1}{3} \cdot \dfrac{4}{1} \cdot \dfrac{1}{5} = \dfrac{4}{30} = \dfrac{2}{15}$$</div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Combined operations</h2>
+        <div class="def-box">
+          <p>When there are several operations, the order is:</p>
+          <ol class="passos"><li><strong>Brackets</strong>, from the inside out: $(\;)$, $[\;]$</li><li><strong>Powers and roots</strong>: $a^n$, $\sqrt{\;}$</li><li><strong>Multiplication and division</strong>, from left to right: $\cdot$, $:$</li><li><strong>Addition and subtraction</strong>: $+$, $-$</li></ol>
+        </div>
+        <p style="font-size:0.95rem"><strong>Example.</strong> Multiplication comes before addition:</p>
+        <div class="math-block">$$\dfrac{2}{3} + \dfrac{1}{3} \cdot \dfrac{7}{3} = \dfrac{2}{3} + \dfrac{7}{9} = \dfrac{6}{9} + \dfrac{7}{9} = \dfrac{13}{9}$$</div>
+        <p style="font-size:0.95rem;margin-top:1.2rem"><strong>Example.</strong> With brackets: first the division inside, then the subtraction, then the multiplication and finally the addition:</p>
+        <div class="math-block">$$\dfrac{2}{3} + \dfrac{1}{3} \cdot \left(\dfrac{5}{2} : \dfrac{3}{4} - 1\right) = \dfrac{2}{3} + \dfrac{1}{3} \cdot \left(\dfrac{20}{6} - 1\right) = \dfrac{2}{3} + \dfrac{1}{3} \cdot \left(\dfrac{10}{3} - \dfrac{3}{3}\right) = \dfrac{2}{3} + \dfrac{1}{3} \cdot \dfrac{7}{3} = \dfrac{13}{9}$$</div>
       </div>
 
       <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
