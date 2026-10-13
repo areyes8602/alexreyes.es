@@ -63,6 +63,9 @@
 .venn .nombre { color: var(--text); font-size: 1.02rem; }
 .venn .dec { display: inline-flex; flex-direction: column; align-items: flex-start; }
 .venn .dec small { font-size: 0.72rem; color: var(--text-soft); }
+/* Una fracció sola a l'enunciat del ▶ sobresurt uns 5 px de la línia i, amb
+   l'overflow-x del plec, hi sortia una barra de desplaçament vertical. */
+.apart > details > summary .stmt, .apart-sense .stmt { padding: 0.25em 0 0.45em; overflow-y: hidden; }
 
 .taula-conj { border-collapse: collapse; margin: 0.6rem 0; font-size: 0.95rem; }
 .taula-conj th, .taula-conj td { border: 1px solid var(--border); padding: 0.35rem 0.9rem; text-align: center; }
@@ -164,31 +167,31 @@
         <p style="font-size:0.95rem;color:var(--text-soft);margin:0.4rem 0 0.8rem">Say which set each of the following numbers belongs to.</p>
         <div class="exercise">
         <div class="apart"><details>
-          <summary><span class="letter">a)</span> <span class="stmt">$-\dfrac{2}{5}$</span></summary>
+          <summary><span class="letter">a)</span> <span class="stmt">$\displaystyle -\dfrac{2}{5}$</span></summary>
           <div class="apart-solution"><div class="ex-steps"><p>It is a fraction with an integer numerator and denominator, and it is not an integer: $-2 : 5 = -0{,}4$.</p></div><div class="ex-final"><p style="margin:0;font-size:1rem;font-weight:500">$-\dfrac{2}{5} \in \mathbb{Q}$, but it is neither an integer nor a natural number.</p></div></div>
         </details></div>
         <div class="apart"><details>
-          <summary><span class="letter">b)</span> <span class="stmt">$\sqrt{4}$</span></summary>
+          <summary><span class="letter">b)</span> <span class="stmt">$\displaystyle \sqrt{4}$</span></summary>
           <div class="apart-solution"><div class="ex-steps"><p>First work out the root:</p><div class="math-block">$$\sqrt{4} = 2$$</div></div><div class="ex-final"><p style="margin:0;font-size:1rem;font-weight:500">$\sqrt{4} = 2 \in \mathbb{N}$ (so it is also in $\mathbb{Z}$ and $\mathbb{Q}$).</p></div></div>
         </details></div>
         <div class="apart"><details>
-          <summary><span class="letter">c)</span> <span class="stmt">$2{,}0\overline{3}$</span></summary>
+          <summary><span class="letter">c)</span> <span class="stmt">$\displaystyle 2{,}0\overline{3}$</span></summary>
           <div class="apart-solution"><div class="ex-steps"><p>It is a mixed recurring decimal: the non-repeating part is $0$ and the period is $3$. Recurring decimals can be written as a fraction:</p><div class="math-block">$$2{,}0\overline{3} = 2{,}0333\ldots = \dfrac{61}{30}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1rem;font-weight:500">$2{,}0\overline{3} \in \mathbb{Q}$, but it is not an integer.</p></div></div>
         </details></div>
         <div class="apart"><details>
-          <summary><span class="letter">d)</span> <span class="stmt">$-6$</span></summary>
+          <summary><span class="letter">d)</span> <span class="stmt">$\displaystyle -6$</span></summary>
           <div class="apart-solution"><div class="ex-steps"><p>It is a negative integer. It can also be written as a fraction: $-6 = -\dfrac{6}{1}$.</p></div><div class="ex-final"><p style="margin:0;font-size:1rem;font-weight:500">$-6 \in \mathbb{Z}$ (and $\mathbb{Q}$), but it is not a natural number.</p></div></div>
         </details></div>
         <div class="apart"><details>
-          <summary><span class="letter">e)</span> <span class="stmt">$\dfrac{4}{9}$</span></summary>
+          <summary><span class="letter">e)</span> <span class="stmt">$\displaystyle \dfrac{4}{9}$</span></summary>
           <div class="apart-solution"><div class="ex-steps"><p>It is a fraction that does not give an integer:</p><div class="math-block">$$\dfrac{4}{9} = 0{,}444\ldots = 0{,}\overline{4}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1rem;font-weight:500">$\dfrac{4}{9} \in \mathbb{Q}$, but it is not an integer.</p></div></div>
         </details></div>
         <div class="apart"><details>
-          <summary><span class="letter">f)</span> <span class="stmt">$0{,}71$</span></summary>
+          <summary><span class="letter">f)</span> <span class="stmt">$\displaystyle 0{,}71$</span></summary>
           <div class="apart-solution"><div class="ex-steps"><p>It is a terminating decimal, and it can be written as a fraction:</p><div class="math-block">$$0{,}71 = \dfrac{71}{100}$$</div></div><div class="ex-final"><p style="margin:0;font-size:1rem;font-weight:500">$0{,}71 \in \mathbb{Q}$, but it is not an integer.</p></div></div>
         </details></div>
         <div class="apart"><details>
-          <summary><span class="letter">g)</span> <span class="stmt">$\dfrac{12}{3}$</span></summary>
+          <summary><span class="letter">g)</span> <span class="stmt">$\displaystyle \dfrac{12}{3}$</span></summary>
           <div class="apart-solution"><div class="ex-steps"><p>The division is exact:</p><div class="math-block">$$\dfrac{12}{3} = 12 : 3 = 4$$</div></div><div class="ex-final"><p style="margin:0;font-size:1rem;font-weight:500">$\dfrac{12}{3} = 4 \in \mathbb{N}$ (and $\mathbb{Z}$ and $\mathbb{Q}$).</p></div></div>
         </details></div>
         <div class="apart"><details>
@@ -234,7 +237,7 @@
       <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
         <a class="prev" href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">&larr; Previous section</a>
         <a class="index" href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/">Unit index</a>
-        <span class="disabled next">Next section &rarr;</span>
+        <a class="next" href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">Next section &rarr;</a>
       </nav>
 
     </article>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fraccions · Nombres racionals · 3r ESO</title>
+<meta name="description" content="Apunts de 3r d'ESO, curs 2026-27: la fracció irreductible amb el MCD, les fraccions equivalents, com trobar un terme desconegut i la suma i resta de fraccions amb el MCM.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.def-box .math-block { margin: 0.5rem 0; padding: 0; background: none; border: none; overflow-x: auto; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+.example-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.6rem 0; border-bottom: 1px dashed var(--border); }
+.example-row:last-child { border-bottom: none; }
+.example-row .frac-display { min-width: 4rem; text-align: center; font-size: 1.1rem; }
+.example-row .verdict { flex: 1; min-width: 12rem; }
+.example-row .si { color: #059669; font-weight: 600; }
+.example-row .no { color: #dc2626; font-weight: 600; }
+.parts-diagram { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; padding: 1rem; background: var(--bg-subtle); border-radius: 8px; flex-wrap: wrap; }
+.parts-diagram .arrow-label { font-size: 0.92rem; }
+.parts-diagram .arrow-label .lbl { font-weight: 600; }
+.parts-diagram .arrow-label.num { color: #0891b2; }
+.parts-diagram .arrow-label.den { color: #db2777; }
+.recta { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 1rem 0; background: var(--bg-subtle); }
+.recta-controls { display: flex; flex-wrap: wrap; gap: 0.8rem 1.6rem; align-items: center; margin-bottom: 0.6rem; }
+.stepper { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; }
+.stepper .nom { font-weight: 600; min-width: 6.5rem; }
+.stepper.num .nom { color: #0891b2; }
+.stepper.den .nom { color: #db2777; }
+.stepper button { width: 2rem; height: 2rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 1.1rem; line-height: 1; cursor: pointer; }
+.stepper button:hover:not(:disabled) { border-color: #6366f1; color: #6366f1; }
+.stepper button:disabled { opacity: 0.35; cursor: default; }
+.stepper output { font-family: var(--mono); font-size: 1.05rem; min-width: 2.2rem; text-align: center; font-weight: 600; }
+.recta-reset { margin-left: auto; font-size: 0.82rem; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 0.3rem 0.7rem; color: var(--text-soft); cursor: pointer; }
+.recta-reset:hover { border-color: #6366f1; color: #6366f1; }
+.recta-svg { display: block; width: 100%; height: auto; color: var(--text); }
+.recta-lectura { margin-top: 0.4rem; font-size: 0.95rem; }
+.recta-lectura .valor { font-size: 1.15rem; margin: 0.2rem 0 0.4rem; overflow-x: auto; }
+.recta-lectura p { margin: 0.25rem 0; color: var(--text-soft); }
+.recta-lectura .classe { display: inline-block; margin-top: 0.2rem; padding: 0.2rem 0.6rem; border-radius: 99px; font-size: 0.82rem; font-weight: 600; background: rgba(16,185,129,0.12); color: #047857; }
+[data-theme="dark"] .recta-lectura .classe { color: #6ee7b7; }
+.venn { border: 2px solid currentColor; border-radius: 2.2rem; padding: 0.9rem 1.1rem 1rem; position: relative; }
+.venn-q { color: #6366f1; margin: 1.2rem 0 0.6rem; }
+.venn-z { color: #0891b2; flex: 1 1 15rem; }
+.venn-n { color: #059669; display: inline-flex; gap: 1rem; align-items: center; margin: 0 1rem 0.4rem 0; padding: 0.6rem 1.1rem; }
+.venn-lbl { font-weight: 700; font-size: 1.15rem; margin-right: 0.6rem; }
+.venn-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.venn-items { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; align-items: center; color: var(--text); }
+.venn-q > .venn-row > .venn-items { flex: 1 1 16rem; }
+.venn .nombre { color: var(--text); font-size: 1.02rem; }
+.venn .dec { display: inline-flex; flex-direction: column; align-items: flex-start; }
+.venn .dec small { font-size: 0.72rem; color: var(--text-soft); }
+/* Una fracció sola a l'enunciat del ▶ sobresurt uns 5 px de la línia i, amb
+   l'overflow-x del plec, hi sortia una barra de desplaçament vertical. */
+.apart > details > summary .stmt, .apart-sense .stmt { padding: 0.25em 0 0.45em; overflow-y: hidden; }
+
+.escales { display: flex; flex-wrap: wrap; gap: 1.6rem; align-items: flex-start; margin: 0.6rem 0 0.8rem; }
+.escala { border-collapse: collapse; font-family: var(--mono); font-size: 0.92rem; }
+.escala td { padding: 0.08rem 0.55rem; }
+.escala td:first-child { text-align: right; border-right: 2px solid currentColor; }
+.passos { margin: 0.4rem 0 0.8rem; padding-left: 1.4rem; }
+.passos li { margin: 0.3rem 0; }
+.apunt-section > .math-block { overflow-x: auto; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">
+<meta property="og:title" content="Fraccions · Nombres racionals · 3r ESO">
+<meta property="og:description" content="Apunts de 3r d'ESO, curs 2026-27: la fracció irreductible amb el MCD, les fraccions equivalents, com trobar un terme desconegut i la suma i resta de fraccions amb el MCM.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fraccions · Nombres racionals · 3r ESO">
+<meta name="twitter:description" content="Apunts de 3r d'ESO, curs 2026-27: la fracció irreductible amb el MCD, les fraccions equivalents, com trobar un terme desconegut i la suma i resta de fraccions amb el MCM.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inici","item":"https://alexreyes.es/ca/"},{"@type":"ListItem","position":2,"name":"Docència","item":"https://alexreyes.es/ca/docencia/"},{"@type":"ListItem","position":3,"name":"3r ESO","item":"https://alexreyes.es/ca/docencia/eso-3/"},{"@type":"ListItem","position":4,"name":"Nombres racionals","item":"https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/"},{"@type":"ListItem","position":5,"name":"03 · Fraccions: irreductible, equivalents, suma i resta","item":"https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html"}]},{"@type":"LearningResource","name":"03 · Fraccions: irreductible, equivalents, suma i resta","url":"https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html","inLanguage":"ca","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Apunts de 3r d'ESO, curs 2026-27: la fracció irreductible amb el MCD, les fraccions equivalents, com trobar un terme desconegut i la suma i resta de fraccions amb el MCM."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">
+<style>/* plec estil CCSS */
+.exercise { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.exercise-head .num { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 1.7rem; padding: 0 0.55rem; background: #10b981; color: #fff; border-radius: 99px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; }
+.exercise-head .ttl { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor: pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style: none; user-select: none; display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display: none; }
+.apart > details > summary::before { content: "▶"; font-size: 0.65em; color: #6366f1; transition: transform 0.15s; display: inline-block; flex-shrink: 0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution > :first-child { margin-top: 0.2rem; }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Salta al contingut</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/ca/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/ca/docencia/" class="nav-active">Docència</a>
+      <a href="/ca/doctorado/">Doctorat</a>
+      <a href="/ca/notas/">Notes</a>
+      <a href="/ca/cv/">CV</a>
+      <a href="/ca/contacto/">Contacte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html" class="lang-active">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-3/apuntes/2627-u-nombres-racionals/03-fraccions.html">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/ca/">Inici</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/">Docència</a>
+      <span class="sep">/</span>
+      <a href="/ca/docencia/eso-3/">3r ESO</a>
+      <span class="sep">/</span>
+      <a href="/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/">Nombres racionals</a>
+      <span class="sep">/</span>
+      <span class="current">03 · Fraccions: irreductible, equivalents, suma i resta</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">3r ESO · Nombres racionals</span>
+        <span class="tag tag-orange">Apunts</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">7 oct 2026</span>
+      </div>
+      <h1 style="margin:0">Fraccions: irreductible, equivalents, suma i resta</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">La fracció irreductible, les fraccions equivalents i com se sumen i es resten les fraccions.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+      <div class="apunt-section">
+        <h2>Fracció irreductible</h2>
+        <div class="def-box">
+          <p>Una fracció $\dfrac{a}{b}$ és <strong>irreductible</strong> si no es pot simplificar més, és a dir, si $a$ i $b$ no tenen cap divisor comú:</p>
+          <div class="math-block">$$\text{MCD}(a, b) = 1$$</div>
+          <p><strong>Per trobar-la</strong>, dividim el numerador i el denominador pel $\text{MCD}(a, b)$.</p>
+        </div>
+        <p style="font-size:0.95rem"><strong>Exemple.</strong> Busquem la fracció irreductible de $\dfrac{48}{36}$. Primer descomponem el numerador i el denominador en factors primers:</p>
+        <div class="escales"><table class="escala"><tr><td>48</td><td>2</td></tr><tr><td>24</td><td>2</td></tr><tr><td>12</td><td>2</td></tr><tr><td>6</td><td>2</td></tr><tr><td>3</td><td>3</td></tr><tr><td>1</td><td></td></tr></table><table class="escala"><tr><td>36</td><td>2</td></tr><tr><td>18</td><td>2</td></tr><tr><td>9</td><td>3</td></tr><tr><td>3</td><td>3</td></tr><tr><td>1</td><td></td></tr></table><div class="math-block" style="margin:0">$$48 = 2^4 \cdot 3 \qquad 36 = 2^2 \cdot 3^2$$</div></div>
+        <p>El MCD són els factors <strong>comuns</strong> amb l'exponent <strong>més petit</strong>:</p>
+        <div class="math-block">$$\text{MCD}(48, 36) = 2^2 \cdot 3 = 12$$</div>
+        <p>Dividim el numerador i el denominador entre $12$:</p>
+        <div class="math-block">$$\dfrac{48}{36} = \dfrac{48 : 12}{36 : 12} = \dfrac{4}{3}$$</div>
+        <p class="note">El MCM, que farem servir per sumar, són els factors <strong>comuns i no comuns</strong> amb l'exponent <strong>més gran</strong>: $\text{MCM}(48, 36) = 2^4 \cdot 3^2 = 16 \cdot 9 = 144$.</p>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Fraccions equivalents</h2>
+        <div class="def-box">
+          <p>Dues fraccions $\dfrac{a}{b}$ i $\dfrac{c}{d}$ són <strong>equivalents</strong> si tenen la mateixa fracció irreductible.</p>
+          <p>Per comprovar-ho sense simplificar, es multiplica en creu:</p>
+          <div class="math-block">$$\dfrac{a}{b} = \dfrac{c}{d} \iff a \cdot d = b \cdot c$$</div>
+        </div>
+        <p style="font-size:0.95rem"><strong>Exemple.</strong> Les dues simplifiquen a $\dfrac{3}{4}$, i els productes en creu donen el mateix:</p>
+        <div class="math-block">$$\dfrac{15}{20} = \dfrac{6}{8} \qquad 15 \cdot 8 = 120 \qquad 20 \cdot 6 = 120$$</div>
+        <p style="font-size:0.95rem;margin-top:1.2rem"><strong>Exemple.</strong> Troba $x$ perquè les fraccions siguin equivalents:</p>
+        <div class="math-block">$$\dfrac{5}{x} = \dfrac{3}{12}$$</div>
+        <p><strong>Simplificant.</strong> $\dfrac{3}{12} = \dfrac{1}{4}$. Per passar de $1$ a $5$ multipliquem per $5$, i el denominador també:</p>
+        <div class="math-block">$$\dfrac{5}{x} = \dfrac{1}{4} = \dfrac{1 \cdot 5}{4 \cdot 5} \;\Longrightarrow\; x = 4 \cdot 5 = 20$$</div>
+        <p><strong>Multiplicant en creu.</strong></p>
+        <div class="math-block">$$5 \cdot 12 = 3 \cdot x \;\Longrightarrow\; 60 = 3x \;\Longrightarrow\; x = \dfrac{60}{3} = 20$$</div>
+      </div>
+
+      <div class="apunt-section">
+        <h2>Suma i resta</h2>
+        <div class="def-box">
+          <ol class="passos"><li>Calculem el <strong>MCM</strong> de tots els denominadors.</li><li><strong>Amplifiquem</strong> les fraccions perquè tinguin el MCM com a denominador.</li><li><strong>Sumem o restem</strong> els numeradors.</li><li><strong>Simplifiquem</strong> el resultat.</li></ol>
+        </div>
+        <p style="font-size:0.95rem"><strong>Exemple.</strong> $\dfrac{3}{8} - \dfrac{5}{6} + \dfrac{7}{12}$. Descomponem els denominadors per trobar el MCM:</p>
+        <div class="escales"><table class="escala"><tr><td>8</td><td>2</td></tr><tr><td>4</td><td>2</td></tr><tr><td>2</td><td>2</td></tr><tr><td>1</td><td></td></tr></table><table class="escala"><tr><td>6</td><td>2</td></tr><tr><td>3</td><td>3</td></tr><tr><td>1</td><td></td></tr></table><table class="escala"><tr><td>12</td><td>2</td></tr><tr><td>6</td><td>2</td></tr><tr><td>3</td><td>3</td></tr><tr><td>1</td><td></td></tr></table><div class="math-block" style="margin:0">$$8 = 2^3 \quad 6 = 2 \cdot 3 \quad 12 = 2^2 \cdot 3$$</div></div>
+        <div class="math-block">$$\text{MCM}(8, 6, 12) = 2^3 \cdot 3 = 24$$</div>
+        <div class="math-block">$$\dfrac{3}{8} - \dfrac{5}{6} + \dfrac{7}{12} = \dfrac{9}{24} - \dfrac{20}{24} + \dfrac{14}{24} = \dfrac{3}{24} = \dfrac{1}{8}$$</div>
+      </div>
+
+      <nav class="exam-nav" aria-label="Navegació dels apunts" style="margin-top:2.5rem">
+        <a class="prev" href="/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/02-deures-5-oct.html">&larr; Apartat anterior</a>
+        <a class="index" href="/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/">Índex de la unitat</a>
+        <a class="next" href="/ca/aula/eso-3/apuntes/2627-u-nombres-racionals/04-deures-7-oct.html">Apartat següent &rarr;</a>
+      </nav>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Matemàtiques, docència i doctorat</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Llicències</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>
