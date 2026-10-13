@@ -63,9 +63,8 @@
 .venn .nombre { color: var(--text); font-size: 1.02rem; }
 .venn .dec { display: inline-flex; flex-direction: column; align-items: flex-start; }
 .venn .dec small { font-size: 0.72rem; color: var(--text-soft); }
-/* Una fracció sola a l'enunciat del ▶ sobresurt uns 5 px de la línia i, amb
-   l'overflow-x del plec, hi sortia una barra de desplaçament vertical. */
-.apart > details > summary .stmt, .apart-sense .stmt { padding: 0.25em 0 0.45em; overflow-y: hidden; }
+/* Els enunciats sense ▶ (deures pendents) també poden portar una fracció sola. */
+.apart-sense .stmt { overflow-y: hidden; padding-bottom: 0.6em; margin-bottom: -0.6em; }
 </style>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexreyes.es/aula/eso-3/apuntes/2627-u-nombres-racionals/01-conjunts-numerics.html">
@@ -97,6 +96,8 @@
 .apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
 .apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
 .apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+/* Una fracció sola sobresurt uns px per sota de la línia; sense això, l'overflow-x hi posa una barra de desplaçament vertical. */
+.apart > details > summary .stmt { overflow-y: hidden; padding-bottom: 0.6em; margin-bottom: -0.6em; }
 .apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
 .apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
 .apart-solution p { margin: 0.3rem 0; }

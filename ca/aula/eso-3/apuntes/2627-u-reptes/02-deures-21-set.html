@@ -116,6 +116,8 @@ details.previs ol ol { list-style: lower-alpha; }
 .apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
 .apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
 .apart > details > summary .stmt { flex: 1; overflow-x: auto; }
+/* Una fracció sola sobresurt uns px per sota de la línia; sense això, l'overflow-x hi posa una barra de desplaçament vertical. */
+.apart > details > summary .stmt { overflow-y: hidden; padding-bottom: 0.6em; margin-bottom: -0.6em; }
 .apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
 .apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
 .apart-solution p { margin: 0.3rem 0; }
