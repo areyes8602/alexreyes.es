@@ -412,6 +412,11 @@ SUBJ_4ESO = {
                  "apunts":"/aula/eso-4/apuntes/2627-u-reptes/",
                  # Formulari de geometria de la unitat (HTML i PDF en tres idiomes).
                  "formulari":"/aula/eso-4/apuntes/2627-u-reptes/formulari.html"},
+                {"num":"02","slug":"nombres-reals","title":"Nombres reals",
+                 "desc_l":{"ca":"Conjunts numèrics, operacions amb racionals, potències de fraccions, arrels i radicals.",
+                           "es":"Conjuntos numéricos, operaciones con racionales, potencias de fracciones, raíces y radicales.",
+                           "en":"Number sets, operations with rationals, powers of fractions, roots and radicals."},
+                 "apunts":"/aula/eso-4/apuntes/2627-u-nombres-reals/"},
     ],
     "archived_years": [],
 }

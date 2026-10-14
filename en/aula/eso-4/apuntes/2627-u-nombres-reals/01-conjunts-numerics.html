@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. Number sets · Real numbers · 4t ESO</title>
+<meta name="description" content="Naturals, integers, rationals, irrationals and reals, with a diagram to test where each number lives and the line where a root is represented.">
+<script>(function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<script src="/assets/js/lang-persist.js?v=202609121757"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<link rel="stylesheet" href="/style.css?v=202609121757">
+<link rel="stylesheet" href="/assets/css/examenes.css?v=202609121757">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.apunt-section { margin: 2.2rem 0; }
+.apunt-section > h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+.def-box { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.def-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; }
+.def-box p { margin: 0.4rem 0; }
+.example-box { background: var(--bg-subtle); border-left: 3px solid #f59e0b; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.example-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #b45309; }
+.example-box p { margin: 0.4rem 0; }
+.prop-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10b981; padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1rem 0; }
+.prop-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #047857; }
+.prop-box p { margin: 0.4rem 0; }
+.proof-box { background: rgba(244,63,94,0.05); border-left: 3px solid #f43f5e; padding: 1rem 1.2rem; border-radius: 4px; margin: 1rem 0; }
+.proof-box h3 { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #be123c; }
+.proof-box p { margin: 0.4rem 0; }
+.note { font-size: 0.92rem; color: var(--text-soft); margin: 0.6rem 0; }
+.fig-raster { margin: 1.2rem auto; max-width: 460px; }
+.fig-raster img { display:block; width:100%; height:auto; background:#fff; border:1px solid var(--border); border-radius:8px; padding:0.6rem; box-sizing:border-box; }
+.fig-raster figcaption { font-size:0.85rem; color:var(--text-soft); text-align:center; margin-top:0.5rem; }
+[data-theme="dark"] .def-box { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .example-box { background: rgba(245,158,11,0.10); }
+[data-theme="dark"] .prop-box { background: rgba(16,185,129,0.14); }
+[data-theme="dark"] .proof-box { background: rgba(244,63,94,0.10); }
+.intervals-table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+.intervals-table th, .intervals-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.intervals-table th { background: var(--bg-subtle); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-soft); font-weight: 600; }
+.intervals-table td:first-child { font-family: var(--mono); white-space: nowrap; }
+.intervals-table .axis { display:block; }
+.sets-svg { display:block; max-width: 420px; margin: 0.6rem auto; }
+.table-wrap { overflow-x: auto; margin: 0.9rem 0; }
+.prop-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.prop-table th, .prop-table td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.prop-table th { background: var(--bg-subtle); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-soft); font-weight: 600; }
+.prop-table td:first-child { color: var(--text-soft); min-width: 11rem; }
+.prop-table .cell-note { display: block; font-size: 0.82rem; opacity: 0.8; }
+.exercise { background: var(--bg); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin: 1.2rem 0; }
+.exercise-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+.exercise-head .num { display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:1.7rem; padding:0 0.55rem; background:#10b981; color:#fff; border-radius:99px; font-family:var(--mono); font-size:0.78rem; font-weight:600; }
+.exercise-head .ttl { font-size:0.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.exercise-intro { font-size:0.92rem; color:var(--text-soft); margin: 0.2rem 0 0.6rem; }
+.apart { margin: 0.5rem 0; padding-left: 0.4rem; border-left: 2px solid transparent; transition: border-color 0.15s; }
+.apart > details > summary { cursor:pointer; padding: 0.45rem 0.55rem; border-radius: 6px; list-style:none; user-select:none; display:flex; align-items:baseline; gap:0.5rem; font-size:0.95rem; transition: background 0.15s; }
+.apart > details > summary::-webkit-details-marker { display:none; }
+.apart > details > summary::before { content:"▶"; font-size:0.65em; color:#6366f1; transition: transform 0.15s; display:inline-block; flex-shrink:0; }
+.apart > details[open] > summary::before { transform: rotate(90deg); }
+.apart > details > summary:hover { background: rgba(99,102,241,0.06); }
+.apart > details[open] { background: rgba(99,102,241,0.04); border-radius: 6px; padding: 0.2rem; }
+.apart > details > summary .letter { font-family: var(--mono); font-size: 0.84rem; color: var(--text-soft); flex-shrink: 0; }
+.apart > details > summary .stmt { flex: 1; }
+.apart-solution { padding: 0.5rem 0.8rem 0.4rem 1.5rem; font-size: 0.92rem; color: var(--text); }
+.apart-solution .math-block { background: rgba(16,185,129,0.06); border-left: 3px solid #10b981; padding: 0.4rem 0.7rem; border-radius: 4px; margin: 0.3rem 0; }
+.apart-solution p { margin: 0.3rem 0; }
+.apart-solution .axis { display: block; max-width: 100%; height: auto; margin: 0.6rem 0; }
+[data-theme="dark"] .exercise { background: var(--bg-subtle); }
+[data-theme="dark"] .apart > details[open] { background: rgba(99,102,241,0.10); }
+
+.nr-fig { margin: 1.4rem 0; }
+.nr-fig > svg { display: block; width: 100%; height: auto; margin: 0 auto; color: var(--text); }
+.nr-fig figcaption { text-align: center; font-size: .85rem; color: var(--text-soft); margin-top: .5rem; }
+.nr-ctrl { display: flex; flex-wrap: wrap; gap: .4rem; margin: .6rem 0; }
+.nr-ctrl button { font: inherit; font-size: .88rem; padding: .35rem .8rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-subtle); color: var(--text); cursor: pointer; }
+.nr-ctrl button[aria-pressed="true"], .nr-ctrl button.on { background: var(--text); color: var(--bg); }
+.nr-info { min-height: 3.6rem; margin: .6rem 0 0; padding: .7rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-subtle); font-size: .95rem; color: var(--text-soft); }
+.nr-info strong { color: var(--text); }
+.reg { fill-opacity: .10; stroke-width: 2; transition: fill-opacity .2s, stroke-width .2s; }
+.reg.on { fill-opacity: .38; stroke-width: 3.5; }
+.reg[data-s="n"] { fill: #dc2626; stroke: #dc2626; }
+.reg[data-s="z"] { fill: #d97706; stroke: #d97706; }
+.reg[data-s="q"] { fill: #2563eb; stroke: #2563eb; }
+.reg[data-s="i"] { fill: #059669; stroke: #059669; }
+.reg[data-s="r"] { fill: none; stroke: currentColor; }
+.reg[data-s="r"].on { fill: currentColor; fill-opacity: .08; }
+.sets-lab { font-size: 18px; font-weight: 700; }
+.nr-steps { counter-reset: pas; list-style: none; padding: 0; margin: 1rem 0; }
+.nr-steps > li { counter-increment: pas; position: relative; padding: .2rem 0 .2rem 2.2rem; margin: .5rem 0; }
+.nr-steps > li::before { content: counter(pas); position: absolute; left: 0; top: .35rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--text); color: var(--bg); font-size: .8rem; display: flex; align-items: center; justify-content: center; }
+.nr-steps .math-block { margin: .3rem 0; overflow-x: auto; }
+.nr-prop td, .nr-prop th { text-align: left; vertical-align: middle; }
+.nr-nav-cards { display: grid; gap: .6rem; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html">
+<meta property="og:title" content="1. Number sets · Real numbers · 4t ESO">
+<meta property="og:description" content="Naturals, integers, rationals, irrationals and reals, with a diagram to test where each number lives and the line where a root is represented.">
+<meta property="og:image" content="https://alexreyes.es/og-image.jpg">
+<meta property="og:site_name" content="alexreyes.es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="1. Number sets · Real numbers · 4t ESO">
+<meta name="twitter:description" content="Naturals, integers, rationals, irrationals and reals, with a diagram to test where each number lives and the line where a root is represented.">
+<meta name="twitter:image" content="https://alexreyes.es/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://alexreyes.es/en/"},{"@type":"ListItem","position":2,"name":"Teaching","item":"https://alexreyes.es/en/docencia/"},{"@type":"ListItem","position":3,"name":"4t ESO","item":"https://alexreyes.es/en/docencia/eso-4/"},{"@type":"ListItem","position":4,"name":"Real numbers","item":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-nombres-reals/"},{"@type":"ListItem","position":5,"name":"01 · Number sets","item":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html"}]},{"@type":"LearningResource","name":"01 · Number sets","url":"https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html","inLanguage":"en","learningResourceType":"Apuntes","isAccessibleForFree":true,"author":{"@type":"Person","name":"Àlex Reyes","url":"https://alexreyes.es/cv/"},"publisher":{"@type":"Person","name":"Àlex Reyes"},"description":"Naturals, integers, rationals, irrationals and reals, with a diagram to test where each number lives and the line where a root is represented."}]}</script>
+<link rel="canonical" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html">
+<link rel="alternate" hreflang="es" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html">
+<link rel="alternate" hreflang="ca" href="https://alexreyes.es/ca/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html">
+<link rel="alternate" hreflang="en" href="https://alexreyes.es/en/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html">
+<link rel="alternate" hreflang="x-default" href="https://alexreyes.es/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">alexreyes.es</a>
+    <div class="nav-links">
+      <a href="/en/docencia/" class="nav-active">Teaching</a>
+      <a href="/en/doctorado/">PhD</a>
+      <a href="/en/notas/">Notes</a>
+      <a href="/en/cv/">CV</a>
+      <a href="/en/contacto/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw"><a href="/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html">ES</a><span class="lang-sep">&middot;</span><a href="/ca/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html">CA</a><span class="lang-sep">&middot;</span><a href="/en/aula/eso-4/apuntes/2627-u-nombres-reals/01-conjunts-numerics.html" class="lang-active">EN</a></div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container" style="padding-top:1.5rem;padding-bottom:5rem">
+
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/">Teaching</a>
+      <span class="sep">/</span>
+      <a href="/en/docencia/eso-4/">4t ESO</a>
+      <span class="sep">/</span>
+      <a href="/en/aula/eso-4/apuntes/2627-u-nombres-reals/">Real numbers</a>
+      <span class="sep">/</span>
+      <span class="current">01 · Number sets</span>
+    </div>
+
+    <div class="exam-header" style="padding-top:0;border-bottom:none;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.6rem">
+        <span class="section-label">4t ESO &middot; Real numbers</span>
+        <span class="tag tag-orange">Notes</span>
+        <span class="tag tag-gray" style="font-size:0.7rem">6 oct 2026</span>
+      </div>
+      <h1 style="margin:0">1. Number sets</h1>
+      <p style="color:var(--text-soft);margin:0.4rem 0 0;font-size:0.95rem">Naturals, integers, rationals, irrationals and reals, with a diagram to test where each number lives and the line where a root is represented.</p>
+    </div>
+
+    <article class="question-block" style="border:none;padding:0;background:none">
+
+<div class="apunt-section"><h2>The sets of numbers</h2><div class="def-box"><h3>Natural numbers</h3><p>$\mathbb{N}=\{1,2,3,\ldots\}$. They are used for counting.</p></div><div class="def-box"><h3>Integers</h3><p>$\mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}$. They are used for counting and taking away.</p><p>$\mathbb{Z}=\mathbb{N}^{-}\cup\{0\}\cup\mathbb{N}^{+}$</p></div><div class="def-box"><h3>Rational numbers</h3><p>$\mathbb{Q}=\left\{\dfrac{a}{b}\ \middle|\ a,b\in\mathbb{Z},\ b\neq 0\right\}$. They are used for sharing out.</p><p>$\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}$. The rationals are the naturals, the integers and the decimal numbers:</p><ul><li><strong>exact</strong>: $2{,}81$</li><li><strong>pure repeating</strong>: $5{,}\overline{3}$</li><li><strong>mixed repeating</strong>: $5{,}2\overline{15}$</li></ul></div><div class="def-box"><h3>Irrational numbers</h3><p>$\mathbb{I}=\{\text{cannot be written as a fraction}\}$.</p><p>Examples: $\pi,\ e,\ \sqrt{2},\ \varphi,\ 1{,}234567\ldots,\ 1{,}010010001\ldots$</p><p>$\mathbb{Q}$ and $\mathbb{I}$ are disjoint sets.</p></div><div class="def-box"><h3>Real numbers</h3><p>$\mathbb{R}=\mathbb{Q}\cup\mathbb{I}$</p></div></div>
+<div class="apunt-section"><h2>Where does each number live?</h2><p>Pick a number and the diagram lights up all the sets it belongs to. A few extra numbers are included to test the tricky cases (such as $\sqrt{4}$).</p><figure class="nr-fig" id="conj"><div class="nr-ctrl"><button type="button" data-id="5">$5$</button><button type="button" data-id="-3">$-3$</button><button type="button" data-id="0">$0$</button><button type="button" data-id="2,81">$2{,}81$</button><button type="button" data-id="5,3">$5{,}\overline{3}$</button><button type="button" data-id="5,215">$5{,}2\overline{15}$</button><button type="button" data-id="1/3">$\dfrac{1}{3}$</button><button type="button" data-id="-2">$-2$</button><button type="button" data-id="0,5">$0{,}5$</button><button type="button" data-id="sqrt4">$\sqrt{4}$</button><button type="button" data-id="pi">$\pi$</button><button type="button" data-id="e">$e$</button><button type="button" data-id="sqrt2">$\sqrt{2}$</button><button type="button" data-id="phi">$\varphi$</button><button type="button" data-id="1,234567">$1{,}234567\ldots$</button><button type="button" data-id="1,0100100">$1{,}010010001\ldots$</button></div><svg viewBox="0 0 540 280" role="img" aria-label="Set diagram: N inside Z inside Q, and the irrationals, all inside R"><path class="reg" data-s="q" d="M355.66,19.51 A250,125 0 1 0 302.63,258.17 Z"/><path class="reg" data-s="i" d="M355.66,19.51 A250,125 0 0 1 302.63,258.17 Z"/><ellipse class="reg" data-s="r" cx="260" cy="135" rx="250" ry="125"/><ellipse class="reg" data-s="z" cx="150" cy="150" rx="110" ry="70"/><ellipse class="reg" data-s="n" cx="130" cy="160" rx="55" ry="34"/><line x1="360" y1="0" x2="300" y2="270" stroke="currentColor" stroke-width="2"/><text class="sets-lab" x="20" y="24" fill="currentColor">&#8477;</text><text class="sets-lab" x="300" y="40" fill="#2563eb">&#8474;</text><text class="sets-lab" x="420" y="50" fill="#059669">&#120128;</text><text class="sets-lab" x="60" y="115" fill="#d97706">&#8484;</text><text class="sets-lab" x="98" y="152" fill="#dc2626">&#8469;</text><circle id="nr-punt" cx="-20" cy="-20" r="6" fill="currentColor" stroke="var(--bg)" stroke-width="2"/></svg><div class="nr-info" aria-live="polite">Click a number and see where it lives in the diagram.</div><figcaption>The rationals are the left part of the diagram; the irrationals, the right; together they are the reals.</figcaption></figure><script type="application/json" id="conj-dades">{"5": {"tex": "5", "reg": ["n", "z", "q", "r"], "x": 115, "y": 160, "sym": "\\mathbb{Q} \\subset \\mathbb{Z} \\subset \\mathbb{N}", "why": "It is a natural number: it is used for counting.", "last": "\\mathbb{N}"}, "-3": {"tex": "-3", "reg": ["z", "q", "r"], "x": 200, "y": 130, "sym": "\\mathbb{Q} \\subset \\mathbb{Z}", "why": "It is a negative integer: not natural, but an integer.", "last": "\\mathbb{Z}"}, "0": {"tex": "0", "reg": ["z", "q", "r"], "x": 205, "y": 175, "sym": "\\mathbb{Q} \\subset \\mathbb{Z}", "why": "0 is an integer but not natural (in class, $\\mathbb{N}=\\{1,2,3,\\ldots\\}$).", "last": "\\mathbb{Z}"}, "2,81": {"tex": "2{,}81", "reg": ["q", "r"], "x": 250, "y": 70, "sym": "\\mathbb{Q}", "why": "Exact decimal: it can be written as a fraction, $\\tfrac{281}{100}$.", "last": "\\mathbb{Q}"}, "5,3": {"tex": "5{,}\\overline{3}", "reg": ["q", "r"], "x": 280, "y": 200, "sym": "\\mathbb{Q}", "why": "Pure repeating decimal: it is rational (it is the fraction $\\tfrac{16}{3}$).", "last": "\\mathbb{Q}"}, "5,215": {"tex": "5{,}2\\overline{15}", "reg": ["q", "r"], "x": 300, "y": 120, "sym": "\\mathbb{Q}", "why": "Mixed repeating decimal: also rational, it can be written as a fraction.", "last": "\\mathbb{Q}"}, "1/3": {"tex": "\\dfrac{1}{3}", "reg": ["q", "r"], "x": 220, "y": 225, "sym": "\\mathbb{Q}", "why": "It is a fraction of integers: rational.", "last": "\\mathbb{Q}"}, "-2": {"tex": "-2", "reg": ["z", "q", "r"], "x": 65, "y": 150, "sym": "\\mathbb{Q} \\subset \\mathbb{Z}", "why": "Negative integer.", "last": "\\mathbb{Z}"}, "0,5": {"tex": "0{,}5", "reg": ["q", "r"], "x": 235, "y": 150, "sym": "\\mathbb{Q}", "why": "Exact decimal: $\\tfrac{1}{2}$, rational.", "last": "\\mathbb{Q}"}, "sqrt4": {"tex": "\\sqrt{4}", "reg": ["n", "z", "q", "r"], "x": 135, "y": 155, "sym": "\\mathbb{Q} \\subset \\mathbb{Z} \\subset \\mathbb{N}", "why": "Careful: it is a root but an exact one, $\\sqrt{4}=2$, so it is natural.", "last": "\\mathbb{N}"}, "pi": {"tex": "\\pi", "reg": ["i", "r"], "x": 430, "y": 150, "sym": "\\mathbb{I}", "why": "It cannot be written as a fraction: irrational.", "last": "\\mathbb{I}"}, "e": {"tex": "e", "reg": ["i", "r"], "x": 400, "y": 80, "sym": "\\mathbb{I}", "why": "It cannot be written as a fraction: irrational.", "last": "\\mathbb{I}"}, "sqrt2": {"tex": "\\sqrt{2}", "reg": ["i", "r"], "x": 440, "y": 200, "sym": "\\mathbb{I}", "why": "It cannot be written as a fraction: irrational.", "last": "\\mathbb{I}"}, "phi": {"tex": "\\varphi", "reg": ["i", "r"], "x": 390, "y": 230, "sym": "\\mathbb{I}", "why": "The golden ratio: it cannot be written as a fraction, irrational.", "last": "\\mathbb{I}"}, "1,234567": {"tex": "1{,}234567\\ldots", "reg": ["i", "r"], "x": 470, "y": 110, "sym": "\\mathbb{I}", "why": "In the class notes it is an example of an irrational number (infinite digits with no period).", "last": "\\mathbb{I}"}, "1,0100100": {"tex": "1{,}010010001\\ldots", "reg": ["i", "r"], "x": 415, "y": 115, "sym": "\\mathbb{I}", "why": "In the class notes it is an example of an irrational number (infinite digits with no period).", "last": "\\mathbb{I}"}}</script></div>
+<div class="apunt-section"><h2>Represent $\sqrt{5}$</h2><p>An irrational such as $\sqrt{5}$ has an exact place on the line: just draw a right triangle using Pythagoras. In class: legs $2$ and $1$, hypotenuse $\sqrt{5}$, carried to the line with a compass. Here you can try it with other roots.</p><div class="math-block">$$\sqrt{5}=\sqrt{2^2+1^2}$$</div><figure class="nr-fig" id="recta"><div class="nr-ctrl"><button type="button" data-n="2">$\sqrt{2}$</button><button type="button" data-n="5">$\sqrt{5}$</button><button type="button" data-n="10">$\sqrt{10}$</button><span style="flex:1"></span><button type="button" data-pas="ant">&larr; Back</button><button type="button" data-pas="seg">Next step &rarr;</button></div><svg viewBox="0 0 600 270" role="img" aria-label="Number line where the root is built"><line x1="20" y1="210" x2="590" y2="210" stroke="currentColor" stroke-width="2"/><line x1="40" y1="204" x2="40" y2="216" stroke="currentColor"/><text x="40" y="236" text-anchor="middle" fill="currentColor" font-size="15">0</text><line x1="170" y1="204" x2="170" y2="216" stroke="currentColor"/><text x="170" y="236" text-anchor="middle" fill="currentColor" font-size="15">1</text><line x1="300" y1="204" x2="300" y2="216" stroke="currentColor"/><text x="300" y="236" text-anchor="middle" fill="currentColor" font-size="15">2</text><line x1="430" y1="204" x2="430" y2="216" stroke="currentColor"/><text x="430" y="236" text-anchor="middle" fill="currentColor" font-size="15">3</text><line x1="560" y1="204" x2="560" y2="216" stroke="currentColor"/><text x="560" y="236" text-anchor="middle" fill="currentColor" font-size="15">4</text><g id="dib"></g></svg><div class="nr-info" aria-live="polite">Choose a root and go step by step.</div><figcaption>Each irrational root has its exact place on the line and is built with Pythagoras.</figcaption></figure><script type="application/json" id="recta-dades">{"ajuda": "Choose a root and go step by step.", "2": {"n": 2, "a": 1, "b": 1, "pas": ["We write $2$ as a sum of two squares: $2 = 1^2 + 1^2$.", "Step 1: mark 1 on the line.", "Step 2: raise a perpendicular segment of length 1.", "Step 3: join the origin to its end. It is the hypotenuse of a right triangle with legs $1$ and $1$, so it measures $\\sqrt{1^2+1^2}=\\sqrt{2}$ (Pythagoras).", "Step 4: with a compass (centred at the origin) carry that length onto the line. The point you get is $\\sqrt{2}$."]}, "5": {"n": 5, "a": 2, "b": 1, "pas": ["We write $5$ as a sum of two squares: $5 = 2^2 + 1^2$.", "Step 1: mark 2 on the line.", "Step 2: raise a perpendicular segment of length 1.", "Step 3: join the origin to its end. It is the hypotenuse of a right triangle with legs $2$ and $1$, so it measures $\\sqrt{2^2+1^2}=\\sqrt{5}$ (Pythagoras).", "Step 4: with a compass (centred at the origin) carry that length onto the line. The point you get is $\\sqrt{5}$."]}, "10": {"n": 10, "a": 3, "b": 1, "pas": ["We write $10$ as a sum of two squares: $10 = 3^2 + 1^2$.", "Step 1: mark 3 on the line.", "Step 2: raise a perpendicular segment of length 1.", "Step 3: join the origin to its end. It is the hypotenuse of a right triangle with legs $3$ and $1$, so it measures $\\sqrt{3^2+1^2}=\\sqrt{10}$ (Pythagoras).", "Step 4: with a compass (centred at the origin) carry that length onto the line. The point you get is $\\sqrt{10}$."]}}</script></div>
+
+      <nav class="exam-nav" aria-label="Notes navigation" style="margin-top:2.5rem">
+        <span></span>
+        <a class="index" href="/en/aula/eso-4/apuntes/2627-u-nombres-reals/">Unit index</a>
+        <a class="next" href="/en/aula/eso-4/apuntes/2627-u-nombres-reals/02-operacions-racionals.html">Next section &rarr;</a>
+      </nav>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span><strong>Àlex Reyes</strong> &middot; Mathematics, teaching and PhD</span>
+      <span>Barcelona &middot; &copy; 2026 Àlex Reyes &middot; <a href="/assets/NOTICES.txt" style="color:inherit">Licences</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector("nav").classList.toggle("open");}
+function toggleTheme(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);}
+</script>
+<script>
+(function(){
+  var f=document.getElementById('conj'); if(!f) return;
+  var D=JSON.parse(document.getElementById('conj-dades').textContent), info=f.querySelector('.nr-info'), ajuda=info.innerHTML, dot=document.getElementById('nr-punt'), act=null;
+  var etiq={"n": "$\\mathbb{N}$", "z": "$\\mathbb{Z}$", "q": "$\\mathbb{Q}$", "i": "$\\mathbb{I}$", "r": "$\\mathbb{R}$"};
+  function render(){ if(window.renderMathInElement) renderMathInElement(f,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false}); }
+  f.querySelectorAll('.nr-ctrl button').forEach(function(b){
+    b.addEventListener('click',function(){
+      f.querySelectorAll('.reg.on').forEach(function(e){e.classList.remove('on');});
+      f.querySelectorAll('.nr-ctrl button.on').forEach(function(e){e.classList.remove('on');});
+      if(act===b.dataset.id){ act=null; dot.setAttribute('cx',-20); dot.setAttribute('cy',-20); info.innerHTML=ajuda; return; }
+      act=b.dataset.id; var d=D[act]; b.classList.add('on');
+      d.reg.forEach(function(r){ f.querySelector('.reg[data-s="'+r+'"]').classList.add('on'); });
+      dot.setAttribute('cx',d.x); dot.setAttribute('cy',d.y);
+      var noms=d.reg.map(function(r){return etiq[r];}).join(', ');
+      info.innerHTML='<strong>$'+d.tex+'$</strong> \u2208 '+noms+'. '+d.why;
+      render();
+    });
+  });
+  document.addEventListener('DOMContentLoaded',render); window.addEventListener('load',render);
+})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('recta'); if(!f) return;
+  var D=JSON.parse(document.getElementById('recta-dades').textContent), svg=f.querySelector('svg'), info=f.querySelector('.nr-info');
+  var X0=40, S=130, Y0=210, cur=null, pas=0;
+  function ns(n,a){var e=document.createElementNS('http://www.w3.org/2000/svg',n); for(var k in a) e.setAttribute(k,a[k]); return e;}
+  function dibuixa(){
+    var g=svg.querySelector('#dib'); while(g.firstChild) g.removeChild(g.firstChild);
+    if(cur===null) return; var d=D[cur], a=d.a, b=d.b, n=d.n, r=Math.sqrt(n);
+    function px(v){return X0+v*S;}
+    if(pas>=1){ g.appendChild(ns('circle',{cx:px(a),cy:Y0,r:5,fill:'#dc2626'})); g.appendChild(ns('text',{x:px(a),y:Y0+48,'text-anchor':'middle',fill:'#dc2626','font-size':16})).textContent=a; }
+    if(pas>=2){ g.appendChild(ns('line',{x1:px(a),y1:Y0,x2:px(a),y2:Y0-b*S,stroke:'#d97706','stroke-width':3})); g.appendChild(ns('text',{x:px(a)+8,y:Y0-b*S/2,fill:'#d97706','font-size':16})).textContent=b; }
+    if(pas>=3){ g.appendChild(ns('line',{x1:px(0),y1:Y0,x2:px(a),y2:Y0-b*S,stroke:'#2563eb','stroke-width':3})); var tx=g.appendChild(ns('text',{x:px(a/2)-6,y:Y0-b*S/2-10,'text-anchor':'end',fill:'#2563eb','font-size':16})); tx.textContent='\u221a'+n; }
+    if(pas>=4){ var ang=Math.atan2(b,a); var p=document.createElementNS('http://www.w3.org/2000/svg','path');
+      p.setAttribute('d','M'+px(a)+','+(Y0-b*S)+' A'+(r*S)+','+(r*S)+' 0 0,1 '+px(r)+','+Y0); p.setAttribute('fill','none'); p.setAttribute('stroke','#2563eb'); p.setAttribute('stroke-dasharray','5 4'); p.setAttribute('stroke-width',2.5); g.appendChild(p);
+      g.appendChild(ns('circle',{cx:px(r),cy:Y0,r:6,fill:'#2563eb'})); g.appendChild(ns('text',{x:px(r),y:Y0+48,'text-anchor':'middle',fill:'#2563eb','font-size':16,'font-weight':700})).textContent='\u221a'+n; }
+  }
+  function text(){ if(cur===null){ info.innerHTML=D.ajuda; return; } info.innerHTML=D[cur].pas[pas]; if(window.renderMathInElement) renderMathInElement(info,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false}); }
+  f.querySelectorAll('[data-n]').forEach(function(b){ b.addEventListener('click',function(){ f.querySelectorAll('[data-n]').forEach(function(e){e.classList.remove('on');}); b.classList.add('on'); cur=b.dataset.n; pas=0; dibuixa(); text(); }); });
+  f.querySelector('[data-pas="seg"]').addEventListener('click',function(){ if(cur===null) return; pas=Math.min(4,pas+1); dibuixa(); text(); });
+  f.querySelector('[data-pas="ant"]').addEventListener('click',function(){ if(cur===null) return; pas=Math.max(0,pas-1); dibuixa(); text(); });
+})();
+</script>
+<script src="/assets/js/examenes.js?v=202609121757"></script>
+<script defer src="/assets/js/search.js?v=202609121757"></script>
+</body>
+</html>
